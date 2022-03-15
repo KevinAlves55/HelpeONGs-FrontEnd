@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,EAAE,CAAC;EACC,KAAK,EAAE,GAAG;CACb",
     "sources": [
-        "testeDeTcc.scss"
+        "doacoesONGs.scss"
     ],
     "names": [],
-    "file": "testeDeTcc.css"
+    "file": "doacoesONGs.css"
 }

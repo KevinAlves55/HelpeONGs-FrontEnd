@@ -1,0 +1,49 @@
+// Paleta de cores
+$deepSaffron: #FF9F45;
+$mellowApricot: #FFBC80;
+$tartOrange: #FC595E;
+$text: #292929;
+$white: #FAFAFA;
+$input: #ECECEC;
+$border: #CCCCCC;
+$placeholder: #8C8C8C;
+$verde: #39CE04;
+$amarelo: #FFF382;
+$background: #F8F9FA;
+$cinza: #E4E6EB;
+$ligthBlack: #434343;
+
+// Tamanhos de fonte
+$size: (  
+    "grau1": 3.438rem, // 55px
+    "grau2": 3rem, // 48 px
+    "grau3": 2.813rem, // 45px
+    "grau4": 2.5rem, // 40px
+    "grau5": 2.313rem, // 37px
+    "grau6": 2.125rem, // 34px
+    "grau7": 1.813rem, // 29px
+    "grau8": 1.563rem, // 25px
+    "grau9": 1.313rem, // 21px
+    "grau10": 1.125rem, // 18px
+    "grau11": 1rem, // 16px
+    "grau12": 0.75rem, // 12px
+    "grau13": 0.625rem, // 10px
+    "grau14": 0.5rem, // 8px
+    "grau15": 0.375rem, // 6px
+    "grau16": 0.25rem // 4px
+);
+
+// Densidade da fonte
+$densidade: (
+    "Extralight": 200,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "semiBold": 600,
+    "bold": 700,
+    "extraBold": 800
+);
+
+// Sombreamentos
+$shadowMain: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+$shadowOptionChat: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.06));
