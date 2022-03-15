@@ -1,4 +1,31 @@
-h1 {
-  color: red;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  overflow-wrap: break-word;
+}
+
+p {
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 /*# sourceMappingURL=doacoesONGs.css.map */

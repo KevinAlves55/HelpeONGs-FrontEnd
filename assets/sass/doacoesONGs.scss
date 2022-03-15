@@ -1,3 +1,8 @@
-h1 {
-    color: red;
+@import '_variaveis';
+@import '_mixins';
+@import '_resert';
+
+body {
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
 }
