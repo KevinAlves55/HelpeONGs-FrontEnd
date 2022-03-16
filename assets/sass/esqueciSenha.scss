@@ -1,0 +1,40 @@
+@import '_variaveis';
+@import '_mixins';
+@import '_resert';
+
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    @include displayFlex(row, space-between);
+    background-image: url(../img/Vector.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    // position: fixed;
+}
+
+
+#direita {
+    
+    height: 100px;
+    width: 900px;
+    @include displayFlex(column, space-between, $gap: 20px);
+    padding-top: 230px;
+    padding-left: 200px;
+    
+}
+
+#esquerda {
+    height: 100px;
+    width: 700px;
+  
+}
+
+// @media (max-width: 400px) {
+
+//     #direita {
+//         img {
+//             display: none;
+//         }
+//     }
+        
+// }
