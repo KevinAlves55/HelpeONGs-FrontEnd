@@ -1,0 +1,19 @@
+{
+  "name": "helpeongs-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinAlves55/HelpeONGs-FrontEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinAlves55/HelpeONGs-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/KevinAlves55/HelpeONGs-FrontEnd#readme"
+}

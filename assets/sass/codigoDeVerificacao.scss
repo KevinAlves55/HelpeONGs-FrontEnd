@@ -9,25 +9,27 @@ body {
     background-image: url(../img/Vector.png);
     background-repeat: no-repeat;
     background-size: contain;
+    // position: fixed;
 }
+
 
 #direita {
     
     height: 100px;
     width: 900px;
     @include displayFlex(column, space-between, $gap: 20px);
-    padding-top: 130px;
+    padding-top: 230px;
     padding-left: 200px;
     
 }
 
 #esquerda {
-    background-color: red;
     height: 100px;
-    width: 100px;
+    width: 700px;
+  
 }
 
-// @media (max-width: 1400px) {
+// @media (max-width: 400px) {
 
 //     #direita {
 //         img {

@@ -67,13 +67,12 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 20px;
-  padding-top: 130px;
+  padding-top: 230px;
   padding-left: 200px;
 }
 
 #esquerda {
-  background-color: red;
   height: 100px;
-  width: 100px;
+  width: 700px;
 }
 /*# sourceMappingURL=codigoDeVerificacao.css.map */
