@@ -2,6 +2,121 @@
 @import '_mixins';
 @import '_resert';
 
-body{
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+   
+}
+
+#topo{
+    @include tamanhos(100px, 100%);
+    @include displayFlex(row, space-between);
+}
+#logo-img{
+    padding-top: 15px;
+    padding-left: 50px;
+
+        img{
+            height:120px;
+            width:350px;
+        }
+}
+#botao-doar{
+    padding-right: 215px;
+    padding-top: 50px;
+
+    button{
+        background-color: $deepSaffron;
+        border:1px solid $border;
+        border-radius:25px;
+        @include tamanhos (50px, 150px);
+        @include textoEstilo (grau7, semiBold, $text)
+     }
+}
+
+#conteudoTodo{
+    @include displayFlex(row, space-between);
+}
+
+#esquerda {
+   
+}
+
+#titulos-esquerda{
+    padding-left: 100px;
+    padding-top: 100px;
     
+
+    h1{
+        @include textoEstilo(grau3, bold, $deepSaffron);
+        
+    }
+
+    h3{
+        @include textoEstilo(grau9, medium, $text);
+        padding-top: 20px;
+ 
+    }
+}
+
+#fundo-img{
+    padding-top: 120px;
+
+    img{
+        @include tamanhos(850px, 70vw);
+    }
+}
+
+#direita{
+ padding-right: 195px;
+padding-top:50px;
+
+#cadastro{
+    @include tamanhos (1000px, 580px);
+    border:1px solid $text;
+    border-radius:5px;
+    padding-top: 50px;
+    padding-left: 40px;
+
+    form {
+        
+        padding-top: 20px;
+         div + div {
+            margin-top: 1em;
+        }
+      
+
+        input {
+            border:1px solid $placeholder;
+            border-radius:5px;
+            padding-left: 15px;
+           @include tamanhos(50px, 490px);
+            @include textoEstilo(grau8, medium, $ligthBlack);
+            background-color: $input;
+            
+            
+        }
+        
+
+        
+    }
+
+}
+
+
+#btn-continuar{
+    border: none;
+
+    button{
+        background-color: $deepSaffron;
+        border:1px solid $border;
+        border-radius:15px;
+        @include tamanhos (50px, 150px);
+        @include textoEstilo (grau7, semiBold, $text)
+     }
+}
+
+
+
+
 }

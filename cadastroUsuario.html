@@ -11,23 +11,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="topo">
+        <div id="logo-img">
+            <img src="./assets/img/image 11.png">
+        </div>
+
+        <div id="botao-doar">
+            <button class="btn">DOAR</i></button>
+        </div>
+    </div>
+    <div id="conteudoTodo">
     <div id="esquerda">
-            <div id="logo-img">
+            <!-- <div id="logo-img">
                 <img src="./assets/img/image 11.png">
-            </div>
+            </div> -->
             <div id="titulos-esquerda">
-                <h1>Sua rede social de Doações</h1>
-                <h3>Faça um cadastro antes de começar a busca pela sua ONG preferida</h3>
+                <h1>Sua rede social <br> de Doações</h1>
+                <h3>Faça um cadastro antes de começar a <br> busca pela sua ONG preferida</h3>
             </div>
             <div id="fundo-img">
                 <img src="./assets/img/Fundo.png">
             </div>
     </div>
     <div id="direita">
-        <div id="botão-doar">
-            <img src="./assets/img/bx-donate-heart 2.png">
-            <button>DOAR</button>
+        <!-- <div id="botao-doar">
+            <button class="btn">DOAR</i></button>
+        </div> -->
+        <div id="cadastro">
+            <h2>Seja um doador</h2>
+
+            <form action="cadastroUsuario" method="">
+                <div>
+                  
+                    <input type="text" id="name"  placeholder="Digite seu nome"/>
+                </div>
+                <div>
+                    
+                    <input type="email" id="email" placeholder="Digite seu E-mail"/>
+                </div>
+                <div>
+                    <input type="password" id="senha" placeholder="Digite sua senha"/>
+                </div>
+                <div>
+                    <input type="password" id="confirmarSenha" placeholder="Confirme sua senha"/>
+                    
+                </div>
+                <div id="btn-continuar">
+                    <button type="submit">Continuar</button>
+                </div>
+
+               
+            </form>
+            <p>Ao clicar em Cadastre-se, você concorda com nossos Termos, Política de Dados e Política de Cookies. Você poderá receber notificações por SMS e cancelar isso quando quiser.</p>
+            
+            <h3>Já tem uma conta? Faça Login</h3>
         </div>
+    </div>
+
     </div>
 </body>
 </html>
