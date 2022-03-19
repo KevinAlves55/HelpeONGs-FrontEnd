@@ -69,18 +69,22 @@ body {
 
 #direita{
  padding-right: 195px;
-padding-top:50px;
+padding-top:90px;
 
 #cadastro{
-    @include tamanhos (1000px, 580px);
+    @include tamanhos (800px, 580px);
     border:1px solid $text;
     border-radius:5px;
-    padding-top: 50px;
+    padding-top: 70px;
     padding-left: 40px;
 
+    h2{
+        @include textoEstilo(grau7, semiBold, $text,);
+    }
+
     form {
-        
-        padding-top: 20px;
+        position: relative;
+        padding-top: 35px;
          div + div {
             margin-top: 1em;
         }
@@ -89,16 +93,38 @@ padding-top:50px;
         input {
             border:1px solid $placeholder;
             border-radius:5px;
-            padding-left: 15px;
-           @include tamanhos(50px, 490px);
+            padding-left: 50px;
+           @include tamanhos(65px, 498px);
             @include textoEstilo(grau8, medium, $ligthBlack);
             background-color: $input;
             
             
         }
+        img{
+            position: absolute;
+            left: 0%;
+            padding-left: 10px;
+            padding-top: 15px;
+        }
         
 
         
+    }
+
+    p{
+        padding-top: 30px;
+        padding-left: 5px;
+        @include textoEstilo(grau12, light, $text);
+    }
+
+    spam{
+        color: $mellowApricot;
+        cursor: pointer;
+    }
+
+    h3{
+       padding-top: 40px;
+       text-align: center;
     }
 
 }
@@ -106,13 +132,17 @@ padding-top:50px;
 
 #btn-continuar{
     border: none;
+    padding-top: 30px;
+    text-align: center;
+    
 
     button{
         background-color: $deepSaffron;
         border:1px solid $border;
-        border-radius:15px;
-        @include tamanhos (50px, 150px);
-        @include textoEstilo (grau7, semiBold, $text)
+        border-radius:35px;
+        @include tamanhos (60px, 210px);
+        @include textoEstilo (grau7, semiBold, $text);
+        
      }
 }
 
