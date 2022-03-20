@@ -155,7 +155,8 @@ header #itens-header #lupa-atalhos #lupa-pesquisa img {
   height: 30px;
   width: 30px;
   position: absolute;
-  left: 12px;
+  left: 14px;
+  bottom: 43px;
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa input {
@@ -177,7 +178,7 @@ header #itens-header #lupa-atalhos #lupa-pesquisa input ::-webkit-input-placehol
 
 header #itens-header #lupa-atalhos #atalhos {
   height: inherit;
-  width: 180px;
+  width: 170px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -203,7 +204,7 @@ header #itens-header #lupa-atalhos #atalhos img {
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
   height: 90px;
-  width: 132px;
+  width: 120px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -276,7 +277,8 @@ main #itens-main {
 }
 
 main #itens-main #direita {
-  height: 800px;
+  min-height: 500px;
+  height: auto;
   width: 279px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -319,14 +321,15 @@ main #itens-main #direita #mini-perfil {
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border-radius: 20px;
+  cursor: pointer;
 }
 
 main #itens-main #direita #mini-perfil img {
   height: 75px;
   width: 75px;
   border-radius: 50%;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 main #itens-main #direita #mini-perfil h3 {
@@ -335,7 +338,6 @@ main #itens-main #direita #mini-perfil h3 {
   color: #292929;
   text-transform: capitalize;
   letter-spacing: none;
-  cursor: pointer;
 }
 
 main #itens-main #direita #menu {
@@ -366,10 +368,56 @@ main #itens-main #direita #menu ul {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  padding: 15px 0 15px;
 }
 
 main #itens-main #direita #menu ul li {
   height: 65px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row-reverce;
+          flex-direction: row-reverce;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 18px;
+}
+
+main #itens-main #direita #menu ul li:hover {
+  background-color: #F8F9FA;
+}
+
+main #itens-main #direita #menu ul li img {
+  height: 35px;
+  width: 35px;
+  margin-left: 26px;
+}
+
+main #itens-main #direita #menu ul li a {
+  font-size: 1.563rem;
+  font-weight: 400;
+  color: #8C8C8C;
+  text-transform: capitalize;
+  letter-spacing: -0.02px;
+}
+
+main #itens-main #acoes {
+  min-height: 600px;
+  height: auto;
+  width: 684px;
+}
+
+main #itens-main #acoes #filtros-pesquisas {
+  height: 88px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -386,7 +434,172 @@ main #itens-main #direita #menu ul li {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  gap: 45px;
+}
+
+main #itens-main #acoes #filtros-pesquisas #estado {
+  height: 88px;
+  width: 417px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   gap: 0;
-  background-color: #F8F9FA;
+}
+
+main #itens-main #acoes #filtros-pesquisas #estado label {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+main #itens-main #acoes #filtros-pesquisas #estado select {
+  height: 57px;
+  width: 405px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 15px;
+  padding: 0px 15px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/Icon-select.png") 95.5% 50% no-repeat;
+}
+
+main #itens-main #acoes #filtros-pesquisas #estado select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+main #itens-main #acoes #filtros-pesquisas #botao-filtro {
+  height: inherit;
+  width: 135px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 15px;
+  padding-top: 27px;
+}
+
+main #itens-main #acoes #filtros-pesquisas #botao-filtro img {
+  height: 33px;
+  width: 32px;
+}
+
+main #itens-main #acoes #filtros-pesquisas #botao-filtro span {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}
+
+main #itens-main #acoes #resultados-pesquisas {
+  min-height: 500px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin-top: 35px;
+}
+
+main #itens-main #acoes #resultados-pesquisas span {
+  font-size: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FC595E;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 15px;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card {
+  height: 242px;
+  width: 203px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 10px;
 }
 /*# sourceMappingURL=doacoesONGs.css.map */

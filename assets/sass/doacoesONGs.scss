@@ -1,6 +1,7 @@
 @import '_variaveis';
 @import '_mixins';
 @import '_resert';
+@import '_header';
 
 body {
     min-height: 100vh;
@@ -13,79 +14,6 @@ body {
     @include tamanhos(inherit, 90vw);
 }
 
-header {
-    @include tamanhos(115px, 100%);
-    @include displayFlex($justify: center);
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
-
-    #itens-header {
-        @extend .conteudo;
-        @include displayFlex($justify: space-between, $align: center);
-
-        #logo {
-            @include tamanhos(83px, 260px);
-            align-self: center;
-
-            img {
-                @include tamanhos(inherit, inherit);
-                margin-top: 7px;
-            }
-        }
-
-        #lupa-atalhos {
-            @include tamanhos(inherit, 730px);
-            @include displayFlex(row, space-between, center);
-
-            #lupa-pesquisa {
-                @include tamanhos(inherit, 503px);
-                @include displayFlex($justify: center, $align: center);
-                position: relative;
-    
-                img {
-                    @include tamanhos(30px, 30px);
-                    position: absolute;
-                    left: 12px;
-                }
-    
-                input {
-                    @include tamanhos(60px, inherit);
-                    border-radius: 20px;
-                    padding-left: 50px;
-                    @include textoEstilo(grau8, medium,  $text);
-                    border: 2px solid $border;
-    
-                    ::-webkit-input-placeholder {
-                        color: $placeholder;
-                    }
-                }
-            }
-    
-            #atalhos {
-                @include tamanhos(inherit, 180px);
-                @include displayFlex(row, space-between, center);
-    
-                img {
-                    @include tamanhos(32px, 32px);
-                }
-    
-                #atalhos-perfil {
-                    @include tamanhos(90px, 132px);
-                    @include displayFlex(row, space-between, center);
-    
-                    #foto {
-                        @include tamanhos(inherit, 90px);
-                    }
-    
-                    #seta-baixo {
-                        @include tamanhos(24px, 24px);
-                    }
-                }
-            }
-        }
-    }
-}
-
 main {
     width: 100%;
     flex-grow: 1;
@@ -93,11 +21,12 @@ main {
 
     #itens-main {
         @extend .conteudo;
-        @include displayFlex($justify: space-between);
+        @include displayFlex(row, space-between);
         margin-top: 45px;
 
         #direita {
-            @include tamanhos(800px, 279px);
+            min-height: 500px;
+            @include tamanhos(auto, 279px);
             @include displayFlex(column);
 
             #mini-perfil {
@@ -106,17 +35,17 @@ main {
                 background: #FFFFFF;
                 filter: $shadowMain;
                 border-radius: 20px;
-
+                cursor: pointer;
+                
                 img {
                     @include tamanhos(75px, 75px);
                     border-radius: 50%;
-                    margin-left: 10px;
-                    margin-right: 10px;
+                    margin-left: 8px;
+                    margin-right: 8px;
                 }
 
                 h3 {
                     @include textoEstilo(grau9, semiBold, $text, capitalize);
-                    cursor: pointer;
                 }
             }
 
@@ -130,11 +59,97 @@ main {
                 ul {
                     @include tamanhos(inherit, inherit);
                     @include displayFlex(column, space-around);
+                    padding: 15px 0 15px;
 
                     li {
                         @include tamanhos(65px, inherit);
-                        @include displayFlex(row);
-                        background-color: $background;
+                        @include displayFlex(row-reverce, $align: center, $gap: 18px);
+
+                        &:hover {
+                            background-color: $background;
+                        }
+
+                        img {
+                            @include tamanhos(35px, 35px);
+                            margin-left: 26px;
+                        }
+
+                        a {
+                            @include textoEstilo(grau8, regular, $placeholder, capitalize, -0.02px);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        #acoes {
+            min-height: 600px;
+            @include tamanhos(auto, 684px);
+
+            #filtros-pesquisas {
+                @include tamanhos(88px, inherit);
+                @include displayFlex($gap: 45px);
+
+                #estado {
+                    @include tamanhos(88px, 417px);
+                    @include displayFlex(column, space-between);
+
+                    label {
+                        @include textoEstilo(grau9, medium, $text, $letter: -0.02em);
+                    }
+
+                    select {
+                        @include tamanhos(57px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+                }
+
+                #botao-filtro {
+                    @include tamanhos(inherit, 135px);
+                    @include displayFlex($align: center, $gap: 15px);
+                    padding-top: 27px;
+
+                    img {
+                        @include tamanhos(33px, 32px);
+                    }
+
+                    span {
+                        @include textoEstilo(grau9, semiBold, $text, $letter: -0.02em);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            #resultados-pesquisas {
+                min-height: 500px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, space-between);
+                margin-top: 35px;
+
+                span {
+                    font-size: 0.85rem;
+                    @include textoEstilo($pesoLetra: semiBold, $cor: $tartOrange, $case: capitalize, $letter: -0.02em);
+                }
+
+                #ongs {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, space-between, $gap: 15px, $wrap: wrap);
+
+                    .ongs-card {
+                        @include tamanhos(242px, 203px);
+                        @include displayFlex(column, $align: center, $gap: 10px);
                     }
                 }
             }
