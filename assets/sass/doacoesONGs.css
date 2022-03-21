@@ -230,7 +230,7 @@ body {
 
 .conteudo, header #itens-header, main #itens-main {
   height: inherit;
-  width: 96vw;
+  width: 56.25vw;
 }
 
 main {
@@ -513,6 +513,7 @@ main #itens-main #acoes #filtros-pesquisas #botao-filtro {
       flex-wrap: nowrap;
   gap: 15px;
   padding-top: 27px;
+  margin-left: 35px;
 }
 
 main #itens-main #acoes #filtros-pesquisas #botao-filtro img {
@@ -602,6 +603,7 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
   background-color: #fff;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -638,7 +640,6 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card span {
   color: #8C8C8C;
   text-transform: none;
   letter-spacing: -0.02em;
-  margin-bottom: 19px;
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button {
@@ -649,6 +650,8 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button {
   color: #8C8C8C;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  position: absolute;
+  bottom: 0;
   padding-top: -4px;
   font-size: 23px;
   background-color: #fff;

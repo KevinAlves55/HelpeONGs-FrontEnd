@@ -11,7 +11,7 @@ body {
 }
 
 .conteudo {
-    @include tamanhos(inherit, 96vw);
+    @include tamanhos(inherit, 56.25vw);
 }
 
 main {
@@ -120,6 +120,7 @@ main {
                     @include tamanhos(inherit, 135px);
                     @include displayFlex($align: center, $gap: 15px);
                     padding-top: 27px;
+                    margin-left: 35px;
 
                     img {
                         @include tamanhos(33px, 32px);
@@ -150,7 +151,8 @@ main {
 
                     .ongs-card {
                         @include tamanhos(242px, 203px);
-                        @include displayFlex(column, $align: center);  
+                        @include displayFlex(column, $align: center);
+                        position: relative;
                         background-color:#fff;
                         filter: $shadowMain;
                         border-radius: 20px;
@@ -174,12 +176,13 @@ main {
 
                         span {
                             @include textoEstilo(grau13, medium, $placeholder, $letter: -0.02em);
-                            margin-bottom: 19px;
                         }
 
                         button {
                             @include tamanhos(42px, 203px);
                             @include textoEstilo($pesoLetra: medium, $cor: $placeholder, $case: uppercase, $letter: -0.02em);
+                            position: absolute;
+                            bottom: 0;
                             padding-top: -4px;
                             font-size: 23px;
                             background-color: #fff;
