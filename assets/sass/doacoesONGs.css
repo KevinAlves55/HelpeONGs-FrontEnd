@@ -24,33 +24,6 @@ p {
   overflow-wrap: break-word;
 }
 
-body {
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #F8F9FA;
-}
-
-.conteudo, header #itens-header, main #itens-main {
-  height: inherit;
-  width: 90vw;
-}
-
 header {
   height: 115px;
   width: 100%;
@@ -233,6 +206,33 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   width: 24px;
 }
 
+body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F8F9FA;
+}
+
+.conteudo, header #itens-header, main #itens-main {
+  height: inherit;
+  width: 96vw;
+}
+
 main {
   width: 100%;
   -webkit-box-flex: 1;
@@ -270,8 +270,8 @@ main #itens-main {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 0;
   margin-top: 45px;
 }
@@ -559,6 +559,7 @@ main #itens-main #acoes #resultados-pesquisas span {
   color: #FC595E;
   text-transform: capitalize;
   letter-spacing: -0.02em;
+  margin-bottom: 15px;
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs {
@@ -567,10 +568,10 @@ main #itens-main #acoes #resultados-pesquisas #ongs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -579,7 +580,7 @@ main #itens-main #acoes #resultados-pesquisas #ongs {
           align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 15px;
+  gap: 35px;
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card {
@@ -600,6 +601,269 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card {
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 10px;
+  gap: 0;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border-radius: 20px;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card .img-coracao {
+  height: 24px;
+  width: 24px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-right: 20px;
+  margin-top: 13px;
+  cursor: pointer;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card .img-ong {
+  height: 101px;
+  width: 97px;
+  margin-bottom: 8px;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card span {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  margin-bottom: 19px;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button {
+  height: 42px;
+  width: 203px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding-top: -4px;
+  font-size: 23px;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+  border-top: 1px solid #F8F9FA;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  background-color: #FF9F45;
+  color: #292929;
+}
+
+main #itens-main #acoes #resultados-pesquisas #setas {
+  height: 32px;
+  width: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 25px 0 25px;
+}
+
+main #itens-main #acoes #resultados-pesquisas #setas .seta {
+  height: inherit;
+  width: 31px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border: 1px solid #CCCCCC;
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+main #itens-main #acoes #resultados-pesquisas #setas .seta img {
+  height: 24px;
+  width: 24px;
+}
+
+main #itens-main #esquerda {
+  min-height: 500px;
+  height: auto;
+  width: 322px;
+}
+
+main #itens-main #esquerda #recomendados, main #itens-main #esquerda #favoritos {
+  min-height: 200px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: #fff;
+  border-radius: 20px;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  padding: 15px;
+  margin-bottom: 38px;
+}
+
+main #itens-main #esquerda #recomendados h3, main #itens-main #esquerda #favoritos h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+  margin-top: 15px;
+}
+
+main #itens-main #esquerda #recomendados #recomendados-ongs, main #itens-main #esquerda #favoritos #recomendados-ongs, main #itens-main #esquerda #favoritos #favoritos-ong {
+  min-height: 100px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 18px;
+  margin-top: 36px;
+  margin-bottom: 19px;
+}
+
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes {
+  height: 50px;
+  width: 295px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes img, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes img, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes img {
+  height: inherit;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes h2, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes h2, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes h2 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+}
+
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes button, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes button, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes button {
+  height: 40px;
+  width: 103px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  background-color: #FF9F45;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes button:hover, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes button:hover, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes button:hover {
+  opacity: 0.8;
+}
+
+main #itens-main #esquerda #recomendados span, main #itens-main #esquerda #favoritos span {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #FC595E;
+  text-transform: none;
+  letter-spacing: none;
+  text-decoration: underline;
+  cursor: pointer;
 }
 /*# sourceMappingURL=doacoesONGs.css.map */

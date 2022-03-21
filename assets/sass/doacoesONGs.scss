@@ -11,7 +11,7 @@ body {
 }
 
 .conteudo {
-    @include tamanhos(inherit, 90vw);
+    @include tamanhos(inherit, 96vw);
 }
 
 main {
@@ -21,7 +21,7 @@ main {
 
     #itens-main {
         @extend .conteudo;
-        @include displayFlex(row, space-between);
+        @include displayFlex(row, space-between, $wrap: wrap);
         margin-top: 45px;
 
         #direita {
@@ -141,15 +141,155 @@ main {
                 span {
                     font-size: 0.85rem;
                     @include textoEstilo($pesoLetra: semiBold, $cor: $tartOrange, $case: capitalize, $letter: -0.02em);
+                    margin-bottom: 15px;
                 }
 
                 #ongs {
                     @include tamanhos(inherit, inherit);
-                    @include displayFlex(column, space-between, $gap: 15px, $wrap: wrap);
+                    @include displayFlex(row, space-between, $wrap: wrap, $gap: 35px);
 
                     .ongs-card {
                         @include tamanhos(242px, 203px);
-                        @include displayFlex(column, $align: center, $gap: 10px);
+                        @include displayFlex(column, $align: center);  
+                        background-color:#fff;
+                        filter: $shadowMain;
+                        border-radius: 20px;
+
+                        .img-coracao {
+                            @include tamanhos(24px, 24px);
+                            align-self: flex-end;
+                            margin-right: 20px;
+                            margin-top: 13px;
+                            cursor: pointer;
+                        }
+
+                        .img-ong {
+                            @include tamanhos(101px, 97px);
+                            margin-bottom: 8px;
+                        }
+
+                        h2 {
+                            @include textoEstilo(grau10, semiBold, $text, capitalize, -0.02em);
+                        }
+
+                        span {
+                            @include textoEstilo(grau13, medium, $placeholder, $letter: -0.02em);
+                            margin-bottom: 19px;
+                        }
+
+                        button {
+                            @include tamanhos(42px, 203px);
+                            @include textoEstilo($pesoLetra: medium, $cor: $placeholder, $case: uppercase, $letter: -0.02em);
+                            padding-top: -4px;
+                            font-size: 23px;
+                            background-color: #fff;
+                            border-radius: 0 0 20px 20px;
+                            border-top: 1px solid $background;
+                            cursor: pointer;
+                            transition: .5s;
+
+                            &:hover {
+                                transition: .5s;
+                                background-color: $deepSaffron;
+                                color: $text;
+                            }
+                        }
+                    }
+                }
+
+                #setas {
+                    @include tamanhos(32px, 90px);
+                    @include displayFlex(row, space-between);
+                    align-self: center;
+                    margin: 25px 0 25px;
+
+                    .seta {
+                        @include tamanhos(inherit, 31px);
+                        @include displayFlex(row, center, center);
+                        border: 1px solid $border;
+                        background-color: #fff;
+                        border-radius: 6px;
+                        cursor: pointer;
+
+                        img {
+                            @include tamanhos(24px, 24px);
+                        }
+                    }
+                }
+            }
+        }
+
+        #esquerda {
+            min-height: 500px;
+            @include tamanhos(auto, 322px);
+
+            #recomendados {
+                min-height: 200px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 15px;
+                margin-bottom: 38px;
+
+                h3 {
+                    @include textoEstilo(grau10, medium, $text, capitalize, -0.02em);
+                    margin-top: 15px;
+                }
+
+                #recomendados-ongs {
+                    min-height: 100px;
+                    @include tamanhos(auto, inherit);
+                    @include displayFlex(column, $gap: 18px);
+                    margin-top: 36px;
+                    margin-bottom: 19px;
+
+                    .ongs-opcoes {
+                        @include tamanhos(50px, 295px);
+                        @include displayFlex(row, space-between, center);
+
+                        img {
+                            @include tamanhos(inherit, 50px);
+                            border-radius: 50%;
+                            cursor: pointer;
+                        }
+
+                        h2 {
+                            @include textoEstilo(grau10, semiBold, $text, capitalize, -0.02em);
+                        }
+
+                        button {
+                            @include tamanhos(40px, 103px);
+                            @include displayFlex(row, center, center);
+                            @include textoEstilo(grau10, semiBold, $text, uppercase, -0.02em);
+                            background-color: $deepSaffron;
+                            border: none;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            &:hover {
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+
+                span {
+                    @include textoEstilo(grau10, medium, $tartOrange);
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            #favoritos {
+                @extend #recomendados;
+
+                #favoritos-ong {
+                    @extend #recomendados-ongs;
+
+                    .ongs-opcoes {
+                        @extend .ongs-opcoes;
                     }
                 }
             }
