@@ -24,6 +24,10 @@ p {
   overflow-wrap: break-word;
 }
 
+a {
+  color: #FC595E;
+}
+
 header {
   height: 115px;
   width: 100%;
@@ -204,6 +208,321 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto {
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   height: 24px;
   width: 24px;
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal .active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.modal .modal-close {
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.modal .modal-close:hover {
+  background-color: #ff4949;
+  color: white;
+}
+
+.modal .modal-conteudo {
+  height: 803px;
+  width: 55vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin: 15vh auto;
+  padding: 20px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 10px black;
+          box-shadow: 1px 1px 10px black;
+  border-radius: 20px;
+}
+
+.modal .modal-conteudo #informacoes {
+  height: 700px;
+  width: 48vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal .modal-conteudo #informacoes #esquerda-informacoes {
+  height: inherit;
+  width: 24vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal .modal-conteudo #informacoes #esquerda-informacoes h1 {
+  font-size: 2.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal .modal-conteudo #informacoes #esquerda-informacoes img {
+  height: 534px;
+  width: 473px;
+  margin-top: 45px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes {
+  height: 580px;
+  width: 21vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-contatos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-contatos h2 {
+  font-size: 2.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  margin-bottom: 20px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-contatos .caixa {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin-top: 15px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-contatos .caixa span {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  margin-right: 10px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-contatos .caixa h3 {
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios h2 {
+  font-size: 2.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  margin-bottom: 20px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios .caixa {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin-top: 15px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios .caixa span {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  margin-right: 10px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios .caixa h3 {
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #esquerda-imagem {
+  height: 96px;
+  width: 115px;
+  background-color: #FC595E;
+  margin-left: 35px;
+}
+
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #esquerda-imagem img {
+  height: inherit;
+  width: inherit;
 }
 
 body {
