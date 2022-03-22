@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  overflow-wrap: break-word;
+}
+
+p {
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-image: url(../img/Vector.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#direita {
+  height: 100px;
+  width: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 20px;
+  padding-top: 230px;
+  padding-left: 200px;
+}
+
+#esquerda {
+  background-color: blue;
+  height: 300px;
+  width: 1000px;
+  padding-left: 100px;
+  margin-left: 200px;
+}
+
+#esquerda h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: 3rem;
+  letter-spacing: none;
+}
+
+#Senha {
+  height: 500px;
+  width: 800px;
+  margin-top: 300px;
+  margin-right: 100px;
+  background-color: red;
+  padding-top: 100px;
+}
+
+.campos {
+  width: auto;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 1em;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cadastroDeSenha {
+  width: 600px;
+  height: auto;
+  margin-left: 10px;
+  padding-top: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type=password],
+select {
+  height: 50px;
+  margin-left: 10px;
+  width: 50%;
+}
+
+.cadastroDeSenha textarea {
+  width: 90%;
+  height: 100px;
+  resize: none;
+}
+/*# sourceMappingURL=esqueciSenha.css.map */

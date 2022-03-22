@@ -1,0 +1,77 @@
+@import '_variaveis';
+@import '_mixins';
+@import '_resert';
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    @include displayFlex(row, space-between);
+    background-image: url(../img/Vector.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    // position: fixed;
+}
+
+#direita {
+    height: 100px;
+    width: 900px;
+    @include displayFlex(column, space-between, $gap: 20px);
+    padding-top: 230px;
+    padding-left: 200px;
+}
+
+#esquerda {
+    background-color: blue;
+    height: 300px;
+    width: 1000px;
+    padding-left: 100px;
+    margin-left: 200px;
+    h1 {
+        @include textoEstilo(grau2, medium, $text, 3rem);
+    }
+}
+
+#Senha {
+    height: 500px;
+    width: 800px;
+    margin-top: 300px;
+    margin-right: 100px;
+    background-color: red;
+    padding-top: 100px;
+}
+
+.campos {
+    width: auto;
+    height: 80px;
+    @include displayFlex(row, space-between, $gap: 1em);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cadastroDeSenha {
+    width: 600px;
+    height: auto;
+    margin-left: 10px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+input[type=password],
+select {
+    height: 50px;
+    margin-left: 10px;
+    width: 50%;
+}
+
+.cadastroDeSenha textarea {
+    width: 90%;
+    height: 100px;
+    resize: none;
+}
+
+// @media (max-width: 400px) {
+//     #direita {
+//         img {
+//             display: none;
+//         }
+//     }
+// }
