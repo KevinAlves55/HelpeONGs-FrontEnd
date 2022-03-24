@@ -549,7 +549,7 @@ body {
 
 .conteudo, header #itens-header, main #itens-main {
   height: inherit;
-  width: 56.25vw;
+  width: 90vw;
 }
 
 main {
