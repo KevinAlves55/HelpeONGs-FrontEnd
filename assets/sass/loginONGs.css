@@ -28,6 +28,11 @@ a {
   color: #FC595E;
 }
 
+::-webkit-input-placeholder {
+  color: #8C8C8C;
+  font-weight: light;
+}
+
 body {
   min-height: 100vh;
   display: -webkit-box;
@@ -153,12 +158,11 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: blue;
 }
 
 #direita h2 {
   font-size: 3.438rem;
-  font-weight: 500;
+  font-weight: 700;
   color: #FF9F45;
   text-transform: capitalize;
   letter-spacing: none;
@@ -183,7 +187,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: red;
+  margin-top: 50px;
 }
 
 #direita form #conteudo {
@@ -205,7 +209,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: green;
 }
 
 #direita form #conteudo #inputs-superiores {
@@ -313,7 +316,6 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   position: relative;
-  background-color: yellow;
 }
 
 #direita form #conteudo #input-inferior input {

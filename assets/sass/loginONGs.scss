@@ -2,6 +2,11 @@
 @import '_mixins';
 @import '_resert';
 
+::-webkit-input-placeholder{
+    color: $placeholder;
+    font-weight: light;
+}
+
 body {
     min-height: 100vh;
     @include displayFlex(row, space-around, center, $gap: 150px);
@@ -45,21 +50,19 @@ body {
 #direita {
     @include tamanhos(600px, 515px);
     @include displayFlex(column, center, center);
-    background-color: blue;
 
     h2 {
-        @include textoEstilo(grau1, medium, $deepSaffron, capitalize);
+        @include textoEstilo(grau1, bold, $deepSaffron, capitalize);
     }
 
     form {
         @include tamanhos(382, inherit);
         @include displayFlex(column, center, center);
-        background-color: red;
+        margin-top: 50px;
 
         #conteudo {
             @include tamanhos(190px, inherit);
             @include displayFlex(column, space-between);
-            background-color: green;
 
             #inputs-superiores {
                 @include tamanhos(65px, inherit);
@@ -116,7 +119,6 @@ body {
                 @include tamanhos(97px, inherit);
                 @include displayFlex(column, center, center);
                 position: relative;
-                background-color: yellow;
 
                 input {
                     @include tamanhos(inherit, inherit);
