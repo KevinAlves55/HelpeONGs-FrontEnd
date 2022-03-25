@@ -57,27 +57,27 @@ body {
 }
 
 #titulos-esquerda{
-    padding-left: 100px;
+    padding-left: 250px;
     padding-top: 100px;
     
 
     h1{
-        @include textoEstilo(grau3, bold, $deepSaffron);
+        @include textoEstilo(grau1, bold, $deepSaffron);
         
     }
 
     h3{
-        @include textoEstilo(grau9, medium, $text);
+        @include textoEstilo(grau7, medium, $text);
         padding-top: 20px;
  
     }
 }
 
 #fundo-img{
-    padding-top: 120px;
+    padding-top: 70px;
 
     img{
-        @include tamanhos(850px, 70vw);
+        @include tamanhos(740px, 70vw);
     }
 }
 
@@ -93,7 +93,7 @@ padding-top:90px;
     padding-left: 40px;
 
     h2{
-        @include textoEstilo(grau7, semiBold, $text,);
+        @include textoEstilo(grau6, semiBold, $text,);
     }
 
     form {
@@ -109,7 +109,7 @@ padding-top:90px;
             border-radius:5px;
             padding-left: 50px;
            @include tamanhos(65px, 498px);
-            @include textoEstilo(grau8, medium, $ligthBlack);
+            @include textoEstilo(grau7, medium, $ligthBlack);
             background-color: $input;
             
             
@@ -128,7 +128,7 @@ padding-top:90px;
     p{
         padding-top: 30px;
         padding-left: 5px;
-        @include textoEstilo(grau12, light, $text);
+        @include textoEstilo(grau11, light, $text);
     }
 
     spam{
@@ -156,7 +156,7 @@ padding-top:90px;
         border:1px solid $border;
         border-radius:35px;
         @include tamanhos (60px, 210px);
-        @include textoEstilo (grau7, semiBold, $text);
+        @include textoEstilo (grau6, semiBold, $text);
         cursor: pointer;
      }
 }
