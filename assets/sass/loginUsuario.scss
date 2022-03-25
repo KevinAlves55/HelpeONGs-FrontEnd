@@ -64,12 +64,12 @@ body {
             @include tamanhos(190px, inherit);
             @include displayFlex(column, space-between);
 
-            #inputs-superiores {
+            #input-superior {
                 @include tamanhos(65px, inherit);
                 @include displayFlex(row, space-between, center);
 
-                #input-cnpj {
-                    @include tamanhos(inherit, 230px);
+                #input-email {
+                    @include tamanhos(inherit, inherit);
                     position: relative;
 
                     input {
@@ -85,31 +85,6 @@ body {
                         @include tamanhos(29px, 29px);
                         left: 20px;
                         top: 15px;
-                        position: absolute;
-                    }
-                }
-
-                span {
-                    @include textoEstilo(grau11, bold, $text, capitalize);
-                }
-
-                #input-email {
-                    @include tamanhos(inherit, 230px);
-                    position: relative;
-
-                    input {
-                        @include tamanhos(inherit, inherit);
-                        @include textoEstilo(grau8, medium, $text, capitalize);
-                        border: 1px solid $border;
-                        border-radius: 6px;
-                        background-color: $input;
-                        padding-left: 64px;
-                    }
-
-                    img {
-                        @include tamanhos(29px, 29px);
-                        left: 20px;
-                        top: 17px;
                         position: absolute;
                     }
                 }

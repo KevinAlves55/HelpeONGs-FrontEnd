@@ -211,7 +211,7 @@ body {
   gap: 0;
 }
 
-#direita form #conteudo #inputs-superiores {
+#direita form #conteudo #input-superior {
   height: 65px;
   width: inherit;
   display: -webkit-box;
@@ -232,13 +232,13 @@ body {
   gap: 0;
 }
 
-#direita form #conteudo #inputs-superiores #input-cnpj {
+#direita form #conteudo #input-superior #input-email {
   height: inherit;
-  width: 230px;
+  width: inherit;
   position: relative;
 }
 
-#direita form #conteudo #inputs-superiores #input-cnpj input {
+#direita form #conteudo #input-superior #input-email input {
   height: inherit;
   width: inherit;
   font-size: 1.563rem;
@@ -252,47 +252,11 @@ body {
   padding-left: 64px;
 }
 
-#direita form #conteudo #inputs-superiores #input-cnpj img {
+#direita form #conteudo #input-superior #input-email img {
   height: 29px;
   width: 29px;
   left: 20px;
   top: 15px;
-  position: absolute;
-}
-
-#direita form #conteudo #inputs-superiores span {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #292929;
-  text-transform: capitalize;
-  letter-spacing: none;
-}
-
-#direita form #conteudo #inputs-superiores #input-email {
-  height: inherit;
-  width: 230px;
-  position: relative;
-}
-
-#direita form #conteudo #inputs-superiores #input-email input {
-  height: inherit;
-  width: inherit;
-  font-size: 1.563rem;
-  font-weight: 500;
-  color: #292929;
-  text-transform: capitalize;
-  letter-spacing: none;
-  border: 1px solid #CCCCCC;
-  border-radius: 6px;
-  background-color: #ECECEC;
-  padding-left: 64px;
-}
-
-#direita form #conteudo #inputs-superiores #input-email img {
-  height: 29px;
-  width: 29px;
-  left: 20px;
-  top: 17px;
   position: absolute;
 }
 
@@ -410,4 +374,4 @@ body {
   text-transform: capitalize;
   letter-spacing: none;
 }
-/*# sourceMappingURL=loginONGs.css.map */
+/*# sourceMappingURL=loginUsuario.css.map */
