@@ -52,7 +52,7 @@ body {
 
 #logo-img {
   padding-top: 15px;
-  padding-left: 50px;
+  padding-left: 225px;
 }
 
 #logo-img img {
@@ -63,7 +63,8 @@ body {
 #img-btnDoar {
   position: absolute;
   left: 0%;
-  padding-left: 15px;
+  padding-left: 18px;
+  padding-top: 3px;
 }
 
 .btn {
@@ -82,8 +83,8 @@ body {
   background-color: #FF9F45;
   border: 1px solid #CCCCCC;
   border-radius: 25px;
-  height: 50px;
-  width: 170px;
+  height: 55px;
+  width: 180px;
   font-size: 1.813rem;
   font-weight: 600;
   color: #292929;

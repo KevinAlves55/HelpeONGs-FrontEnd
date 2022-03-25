@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/sass/cadastroOng.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="./assets/js/cadastroOng.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -37,12 +38,12 @@
         <div id="cadastro">
             <h2>Pré-Cadastro</h2>
 
-            <form action="cadastroUsuario" method="">
+            <form action="cadastroUsuario" method="" name="form">
                 <div>
                     <div class="img-btn">
                         <img src="/assets/img/user.png">
                     </div>
-                    <input type="text" id="CNPJ"  placeholder="Digite seu CNPJ"/>
+                    <input type="text" id="cnpj"  placeholder="Digite seu CNPJ"/>
                 </div>
                 <div>
                     <div class="img-btn">
@@ -58,26 +59,22 @@
 
                     <input type="password" id="senha" placeholder="Digite sua senha"/>
 
-                    <div class="img-senha">
-                        <img src="./assets/img/eye (1).png">
-                    </div>
+                  
                 </div>
                 <div>
                    
                     <img src="./assets/img/lock.png">
                    
-                    <input  type="password" id="confirmarSenha" placeholder="Confirme sua senha"/>
+                    <input  type="password" id="confirmarSenha" placeholder="Confirme sua senha" onclick="return validar()">
 
-                    <div class="img-senha">
-                        <img src="./assets/img/eye (1).png">
-                    </div>
+                    
                     
                 </div>
 
                 <p>Ao clicar em Cadastre-se, você concorda com nossos <spam> Termos,<br> Política de Dados e Política de Cookies.</spam> Você poderá receber<br> notificações por SMS e cancelar isso quando quiser.</p>
 
                 <div id="btn-continuar">
-                    <button type="submit">Continuar</button>
+                    <button type="submit" id="send">Continuar</button>
                 </div>
 
                

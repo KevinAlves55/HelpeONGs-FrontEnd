@@ -14,7 +14,7 @@ body {
 }
 #logo-img{
     padding-top: 15px;
-    padding-left: 50px;
+    padding-left: 225px;
 
         img{
             height:120px;
@@ -25,7 +25,8 @@ body {
 #img-btnDoar{
     position: absolute;
     left: 0%;
-    padding-left: 15px;
+    padding-left: 18px;
+    padding-top: 3px;
 }
 
 .btn{
@@ -43,7 +44,7 @@ body {
         background-color: $deepSaffron;
         border:1px solid $border;
         border-radius:25px;
-        @include tamanhos (50px, 170px);
+        @include tamanhos (55px, 180px);
         @include textoEstilo (grau7, semiBold, $text)
      }
 }

@@ -14,7 +14,7 @@ body {
 }
 #logo-img{
     padding-top: 15px;
-    padding-left: 50px;
+    padding-left: 225px;
 
         img{
             height:120px;
@@ -43,7 +43,7 @@ body {
         background-color: $deepSaffron;
         border:1px solid $border;
         border-radius:25px;
-        @include tamanhos (50px, 170px);
+        @include tamanhos (55px, 180px);
         @include textoEstilo (grau7, semiBold, $text)
      }
 }
@@ -125,11 +125,7 @@ padding-top:90px;
 
         
     }
-    #img-senha{
-        position: absolute;
-        left: 0;
-        
-    }
+  
 
     p{
         padding-top: 30px;
@@ -154,7 +150,7 @@ padding-top:90px;
 #btn-continuar{
     border: none;
     padding-top: 30px;
-    text-align: center;
+    @include displayFlex(row, center, center);
     
 
     button{

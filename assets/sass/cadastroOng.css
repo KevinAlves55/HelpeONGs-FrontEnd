@@ -52,7 +52,7 @@ body {
 
 #logo-img {
   padding-top: 15px;
-  padding-left: 50px;
+  padding-left: 225px;
 }
 
 #logo-img img {
@@ -82,8 +82,8 @@ body {
   background-color: #FF9F45;
   border: 1px solid #CCCCCC;
   border-radius: 25px;
-  height: 50px;
-  width: 170px;
+  height: 55px;
+  width: 180px;
   font-size: 1.813rem;
   font-weight: 600;
   color: #292929;
@@ -193,11 +193,6 @@ body {
   padding-top: 15px;
 }
 
-#direita #cadastro #img-senha {
-  position: absolute;
-  left: 0;
-}
-
 #direita #cadastro p {
   padding-top: 30px;
   padding-left: 5px;
@@ -226,7 +221,22 @@ body {
 #direita #btn-continuar {
   border: none;
   padding-top: 30px;
-  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
 #direita #btn-continuar button {
