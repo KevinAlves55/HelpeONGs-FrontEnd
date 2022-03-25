@@ -44,7 +44,7 @@ body {
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 150px;
   font-family: 'Montserrat', sans-serif;
   background-image: url(../img//vector-login-ong.png);
   background-repeat: no-repeat;
@@ -54,7 +54,7 @@ body {
 
 #esquerda {
   height: 100vh;
-  width: 700px;
+  width: 550px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,8 +70,7 @@ body {
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 80px;
-  margin-right: 190px;
+  gap: 40px;
 }
 
 #esquerda #titulos {
@@ -95,13 +94,13 @@ body {
 }
 
 #esquerda #titulos h1 {
-  font-size: 5.1rem;
+  font-size: 4rem;
   font-weight: 700;
   color: #292929;
 }
 
 #esquerda #titulos h2 {
-  font-size: 1.813rem;
+  font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
   text-transform: none;
@@ -110,8 +109,8 @@ body {
 }
 
 #esquerda #banner {
-  height: 730px;
-  width: 730px;
+  height: 450px;
+  width: 450px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -145,9 +144,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -159,6 +158,251 @@ body {
 
 #direita h2 {
   font-size: 3.438rem;
+  font-weight: 500;
+  color: #FF9F45;
+  text-transform: capitalize;
+  letter-spacing: none;
+}
+
+#direita form {
+  height: 382;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: red;
+}
+
+#direita form #conteudo {
+  height: 190px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: green;
+}
+
+#direita form #conteudo #inputs-superiores {
+  height: 65px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#direita form #conteudo #inputs-superiores #input-cnpj {
+  height: inherit;
+  width: 230px;
+  position: relative;
+}
+
+#direita form #conteudo #inputs-superiores #input-cnpj input {
+  height: inherit;
+  width: inherit;
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  background-color: #ECECEC;
+  padding-left: 64px;
+}
+
+#direita form #conteudo #inputs-superiores #input-cnpj img {
+  height: 29px;
+  width: 29px;
+  left: 20px;
+  top: 15px;
+  position: absolute;
+}
+
+#direita form #conteudo #inputs-superiores span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+}
+
+#direita form #conteudo #inputs-superiores #input-email {
+  height: inherit;
+  width: 230px;
+  position: relative;
+}
+
+#direita form #conteudo #inputs-superiores #input-email input {
+  height: inherit;
+  width: inherit;
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  background-color: #ECECEC;
+  padding-left: 64px;
+}
+
+#direita form #conteudo #inputs-superiores #input-email img {
+  height: 29px;
+  width: 29px;
+  left: 20px;
+  top: 17px;
+  position: absolute;
+}
+
+#direita form #conteudo #input-inferior {
+  height: 97px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: relative;
+  background-color: yellow;
+}
+
+#direita form #conteudo #input-inferior input {
+  height: inherit;
+  width: inherit;
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  background-color: #ECECEC;
+  padding-left: 64px;
+}
+
+#direita form #conteudo #input-inferior #icone-cadeado {
+  height: 29px;
+  width: 29px;
+  position: absolute;
+  left: 20px;
+  top: 17px;
+}
+
+#direita form #conteudo #input-inferior #icone-olho {
+  height: 29px;
+  width: 29px;
+  position: absolute;
+  right: 20px;
+  top: 17px;
+}
+
+#direita form #conteudo #input-inferior a {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #FF9F45;
+  text-transform: capitalize;
+  letter-spacing: none;
+  text-decoration: underline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: 5px;
+}
+
+#direita form #button-outras-opcoes {
+  height: 180px;
+  width: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#direita form #button-outras-opcoes #btn-login {
+  height: 60px;
+  width: inherit;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #FF9F45;
+}
+
+#direita form #button-outras-opcoes h3 {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  margin-top: 15px;
+}
+
+#direita form #button-outras-opcoes a {
+  font-size: 1.313rem;
   font-weight: 500;
   color: #FF9F45;
   text-transform: capitalize;
