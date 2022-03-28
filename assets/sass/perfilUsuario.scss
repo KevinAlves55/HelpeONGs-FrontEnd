@@ -2,6 +2,13 @@
 @import '_mixins';
 @import '_resert';
 
+body {
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    @include displayFlex(row, space-between);
+    padding: 30px;
+}
+
 #container {
     min-height: 500px;
     @include tamanhos(auto, 279px);
@@ -59,4 +66,21 @@
             }
         }
     }
+}
+
+// CENTRO
+#centro{
+    
+
+    #perfil{
+        @include displayFlex(row, space-between);
+    }
+
+   #chat{
+       
+   }
+   #edite-perfil{
+      
+   }
+  
 }
