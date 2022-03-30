@@ -188,14 +188,242 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+}
+
+#centro #perfil h1 {
+  font-size: 1.813rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  padding-top: 20px;
+}
+
+#centro #perfil h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: capitalize;
+  letter-spacing: none;
+}
+
+#centro #perfil #button {
+  padding-left: 120px;
+  padding-top: 20px;
+}
+
+#centro #perfil #button .btn-editar-perfil {
+  height: 50px;
+  width: 200px;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border: 1px;
+  border-radius: 10px;
+  background: #FF9F45;
+  cursor: pointer;
+}
+
+#centro ul {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: space-around;
+          flex-direction: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding: 10px 20px 15px;
+}
+
+#centro ul li + li {
+  margin-left: 1.5em;
+}
+
+#centro ul li {
+  height: 65px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row-reverce;
+          flex-direction: row-reverce;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 18px;
+}
+
+#centro ul li #menu > ul > li:hover {
+  background-color: #F8F9FA;
+  border-bottom: 5px solid tartOrange;
+}
+
+#centro ul li img {
+  height: 35px;
+  width: 35px;
+  margin-left: 26px;
+}
+
+#centro ul li a {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #8C8C8C;
+  text-transform: -0.02px;
+  letter-spacing: none;
+}
+
+#direita #container-direita {
+  min-height: 430px;
+  height: auto;
+  width: 261px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border-radius: 20px;
+  padding: 12px 10px 15px;
+}
+
+#direita #container-direita #mini-perfil-direita {
+  height: 112px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+  gap: 20px;
+  padding: 15px 5px 15px;
+}
+
+#direita #container-direita #mini-perfil-direita img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#direita #container-direita #mini-perfil-direita h3 {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  white-space: nowrap;
+}
+
+#direita #container-direita #mini-perfil-direita p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: capitalize;
+  letter-spacing: none;
+}
+
+#direita #container-direita #mini-perfil-direita .perfil-direita {
+  height: 60px;
+  width: 164px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 18px;
+}
+
+#direita #container-direita #mini-perfil-direita .perfil-direita .nome-perfil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#direita #container-direita #img-amplifica {
+  padding-left: 100px;
+  padding-top: 20px;
+}
+
+#direita #container-direita #img-amplifica img {
+  height: 35px;
+  width: 35px;
 }
 /*# sourceMappingURL=perfilUsuario.css.map */
