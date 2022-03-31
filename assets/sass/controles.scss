@@ -1,7 +1,12 @@
 @import '_variaveis';
 @import '_mixins';
 @import '_resert';
+@import '_header';
 
 body {
     min-height: 100vh;
+}
+
+.conteudo {
+    @include tamanhos(inherit, 1440px);
 }

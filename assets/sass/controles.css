@@ -28,7 +28,127 @@ a {
   color: #FC595E;
 }
 
+header {
+  height: 115px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+header #itens-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+header #itens-header #logo {
+  height: 93px;
+  width: 260px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+header #itens-header #logo img {
+  height: inherit;
+  width: inherit;
+  margin-top: 7px;
+}
+
+header #itens-header #atalhos {
+  height: inherit;
+  width: 170px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+header #itens-header #atalhos img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+header #itens-header #atalhos #atalhos-perfil {
+  height: 90px;
+  width: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+header #itens-header #atalhos #atalhos-perfil #foto {
+  height: inherit;
+  width: 90px;
+}
+
+header #itens-header #atalhos #atalhos-perfil #seta-baixo {
+  height: 24px;
+  width: 24px;
+}
+
 body {
   min-height: 100vh;
+}
+
+.conteudo, header #itens-header {
+  height: inherit;
+  width: 1440px;
 }
 /*# sourceMappingURL=controles.css.map */

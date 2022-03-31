@@ -9,7 +9,7 @@ header {
         @include displayFlex($justify: space-between, $align: center);
 
         #logo {
-            @include tamanhos(83px, 260px);
+            @include tamanhos(93px, 260px);
             align-self: center;
 
             img {
@@ -17,55 +17,26 @@ header {
                 margin-top: 7px;
             }
         }
-
-        #lupa-atalhos {
-            @include tamanhos(inherit, 730px);
+        
+        #atalhos {
+            @include tamanhos(inherit, 170px);
             @include displayFlex(row, space-between, center);
 
-            #lupa-pesquisa {
-                @include tamanhos(inherit, 503px);
-                @include displayFlex($justify: center, $align: center);
-                position: relative;
-    
-                img {
-                    @include tamanhos(30px, 30px);
-                    position: absolute;
-                    left: 14px;
-                    bottom: 43px;
-                }
-    
-                input {
-                    @include tamanhos(60px, inherit);
-                    border-radius: 20px;
-                    padding-left: 50px;
-                    @include textoEstilo(grau8, medium,  $text);
-                    border: 2px solid $border;
-    
-                    ::-webkit-input-placeholder {
-                        color: $placeholder;
-                    }
-                }
+            img {
+                @include tamanhos(32px, 32px);
+                border-radius: 50%;
             }
-    
-            #atalhos {
-                @include tamanhos(inherit, 170px);
+
+            #atalhos-perfil {
+                @include tamanhos(90px, 120px);
                 @include displayFlex(row, space-between, center);
-    
-                img {
-                    @include tamanhos(32px, 32px);
+
+                #foto {
+                    @include tamanhos(inherit, 90px);
                 }
-    
-                #atalhos-perfil {
-                    @include tamanhos(90px, 120px);
-                    @include displayFlex(row, space-between, center);
-    
-                    #foto {
-                        @include tamanhos(inherit, 90px);
-                    }
-    
-                    #seta-baixo {
-                        @include tamanhos(24px, 24px);
-                    }
+
+                #seta-baixo {
+                    @include tamanhos(24px, 24px);
                 }
             }
         }
