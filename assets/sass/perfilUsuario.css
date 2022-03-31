@@ -224,36 +224,37 @@ body {
 
 #centro #perfil #conteudo-perfil-centro {
   padding-left: 200px;
-  background-color: yellow;
 }
 
-#centro #perfil #conteudo-perfil-centro h1 {
-  font-size: 1.813rem;
-  font-weight: 700;
-  color: #292929;
-  text-transform: capitalize;
-  letter-spacing: none;
-  padding-top: 20px;
-  background-color: aqua;
+#centro #perfil #conteudo-perfil-centro #containerNameandButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: auto;
+  width: 501px;
 }
 
-#centro #perfil #conteudo-perfil-centro h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #8C8C8C;
-  text-transform: capitalize;
-  letter-spacing: none;
-  background-color: aquamarine;
-}
-
-#centro #perfil #conteudo-perfil-centro #btn-editar-perfil {
+#centro #perfil #conteudo-perfil-centro #containerNameandButton titulos-perfil {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: center;
-          flex-direction: center;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -263,11 +264,30 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-left: 340px;
-  background-color: red;
 }
 
-#centro #perfil #conteudo-perfil-centro #btn-editar-perfil button {
+#centro #perfil #conteudo-perfil-centro #containerNameandButton titulos-perfil h1 {
+  font-size: 1.813rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  padding-top: 10px;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton titulos-perfil h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: capitalize;
+  letter-spacing: none;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #botao {
+  padding-top: 20px;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #botao button {
   height: 50px;
   width: 200px;
   font-size: 1.313rem;

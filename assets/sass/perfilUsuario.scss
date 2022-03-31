@@ -95,44 +95,68 @@ body {
         }
         #conteudo-perfil-centro{
             padding-left: 200px;
-            background-color: yellow;
-        h1{
-            @include textoEstilo(grau7, bold, $text, capitalize);
-            padding-top: 20px;
-            background-color: aqua;
-        }
-        h3{
-            @include textoEstilo(grau11, semiBold, $placeholder, capitalize);
-            background-color: aquamarine
-        }
-        #btn-editar-perfil{
-            @include displayFlex(center);
-            padding-left: 340px;
-            
-            background-color: red;
             
             
 
-          
-        button{
-            @include tamanhos(50px, 200px);
-            @include textoEstilo(grau9, semiBold, $text, capitalize);
-            border: 1px;
-            border-radius: 10px;
-            background: $deepSaffron;
-            cursor: pointer;
-           
-            img{
-              
+            #containerNameandButton{
+                @include displayFlex(row, space-between);
+                @include tamanhos(auto, 501px);
+
+                    titulos-perfil{
+                        @include displayFlex(column,);
+                        h1{
+                            @include textoEstilo(grau7, bold, $text, capitalize);
+                            padding-top: 10px;
+                            
+                        }
+
+                        h3{
+                            @include textoEstilo(grau11, semiBold, $placeholder, capitalize);
+                            
+                        }
+                    }
              
-            }
+            
+        // h1{
+        //     @include textoEstilo(grau7, bold, $text, capitalize);
+        //     padding-top: 10px;
+            
+        // }
+        #botao{
+            padding-top: 20px;
+                button{
+                        @include tamanhos(50px, 200px);
+                        @include textoEstilo(grau9, semiBold, $text, capitalize);
+                        border: 1px;
+                        border-radius: 10px;
+                        background: $deepSaffron;
+                        cursor: pointer;
+                    }
+        }
+
+        // h3{
+        //     @include textoEstilo(grau11, semiBold, $placeholder, capitalize);
+            
+        // }
+       
+          
+        // button{
+        //     @include tamanhos(50px, 200px);
+        //     @include textoEstilo(grau9, semiBold, $text, capitalize);
+        //     border: 1px;
+        //     border-radius: 10px;
+        //     background: $deepSaffron;
+        //     cursor: pointer;
+            
+           
+          
 
         }
 
     }
-
+    
     }
-    }
+    
     
 
     ul {
