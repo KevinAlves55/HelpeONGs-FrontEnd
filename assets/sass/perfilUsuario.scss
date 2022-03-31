@@ -7,6 +7,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     @include displayFlex(row, space-between);
     padding: 30px;
+    background-color: $background;
 }
 
 #container {
@@ -70,31 +71,50 @@ body {
 
 // CENTRO
 #centro{
-    
-    img{
-       
-    }
+
     #perfil{
-        @include displayFlex(row,);
+        @include displayFlex(row);
+        position: relative;
 
-        img{
-            // position: absolute;
-            // left: 0%;
+        #foto-perfil {
+            @include tamanhos(175px, 175px);
+            position: absolute;
+            top: -75px;
+            left: 20px;
+
+            #foto {
+                @include tamanhos(inherit, inherit);
+                background-image: url('../img/perfil-usuario-foto.webp');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 6px solid $background;
+            }
         }
-
+        #conteudo-perfil-centro{
+            padding-left: 200px;
+            background-color: yellow;
         h1{
             @include textoEstilo(grau7, bold, $text, capitalize);
             padding-top: 20px;
+            background-color: aqua;
         }
         h3{
             @include textoEstilo(grau11, semiBold, $placeholder, capitalize);
+            background-color: aquamarine
         }
-        #button{
-            padding-left: 120px;
-            padding-top: 20px;
+        #btn-editar-perfil{
+            @include displayFlex(center);
+            padding-left: 340px;
+            
+            background-color: red;
+            
+            
 
           
-        .btn-editar-perfil{
+        button{
             @include tamanhos(50px, 200px);
             @include textoEstilo(grau9, semiBold, $text, capitalize);
             border: 1px;
@@ -109,7 +129,7 @@ body {
 
         }
 
-     
+    }
 
     }
     }
@@ -126,15 +146,12 @@ body {
         li {
             @include tamanhos(65px, inherit);
             @include displayFlex(row-reverce, $align: center, $gap: 18px);
-           
 
-
-
-            #menu> ul>li:hover {
-                background-color: $background;
-                border-bottom: 5px solid tartOrange;
+            // #menu> ul>li:hover {
+            //     background-color: $background;
+            //     border-bottom: 5px solid tartOrange;
                 
-            }
+            // }
         
 
             img {

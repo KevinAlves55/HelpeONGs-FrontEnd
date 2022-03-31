@@ -44,6 +44,7 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   padding: 30px;
+  background-color: #F8F9FA;
 }
 
 #container {
@@ -197,31 +198,76 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
 }
 
-#centro #perfil h1 {
+#centro #perfil #foto-perfil {
+  height: 175px;
+  width: 175px;
+  position: absolute;
+  top: -75px;
+  left: 20px;
+}
+
+#centro #perfil #foto-perfil #foto {
+  height: inherit;
+  width: inherit;
+  background-image: url("../img/perfil-usuario-foto.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #F8F9FA;
+}
+
+#centro #perfil #conteudo-perfil-centro {
+  padding-left: 200px;
+  background-color: yellow;
+}
+
+#centro #perfil #conteudo-perfil-centro h1 {
   font-size: 1.813rem;
   font-weight: 700;
   color: #292929;
   text-transform: capitalize;
   letter-spacing: none;
   padding-top: 20px;
+  background-color: aqua;
 }
 
-#centro #perfil h3 {
+#centro #perfil #conteudo-perfil-centro h3 {
   font-size: 1rem;
   font-weight: 600;
   color: #8C8C8C;
   text-transform: capitalize;
   letter-spacing: none;
+  background-color: aquamarine;
 }
 
-#centro #perfil #button {
-  padding-left: 120px;
-  padding-top: 20px;
+#centro #perfil #conteudo-perfil-centro #btn-editar-perfil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-left: 340px;
+  background-color: red;
 }
 
-#centro #perfil #button .btn-editar-perfil {
+#centro #perfil #conteudo-perfil-centro #btn-editar-perfil button {
   height: 50px;
   width: 200px;
   font-size: 1.313rem;
@@ -280,11 +326,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 18px;
-}
-
-#centro ul li #menu > ul > li:hover {
-  background-color: #F8F9FA;
-  border-bottom: 5px solid tartOrange;
 }
 
 #centro ul li img {
