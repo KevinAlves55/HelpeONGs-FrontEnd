@@ -9,7 +9,7 @@ header {
         @include displayFlex($justify: space-between, $align: center);
 
         #logo {
-            @include tamanhos(83px, 260px);
+            @include tamanhos(93px, 260px);
             align-self: center;
 
             img {
@@ -28,16 +28,16 @@ header {
                 position: relative;
     
                 img {
-                    @include tamanhos(30px, 30px);
+                    @include tamanhos(35px, 35px);
                     position: absolute;
-                    left: 14px;
-                    bottom: 43px;
+                    left: 12px;
+                    bottom: 41px;
                 }
     
                 input {
                     @include tamanhos(60px, inherit);
                     border-radius: 20px;
-                    padding-left: 50px;
+                    padding-left: 53px;
                     @include textoEstilo(grau8, medium,  $text);
                     border: 2px solid $border;
     

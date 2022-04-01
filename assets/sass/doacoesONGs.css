@@ -72,7 +72,7 @@ header #itens-header {
 }
 
 header #itens-header #logo {
-  height: 83px;
+  height: 93px;
   width: 260px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -129,18 +129,18 @@ header #itens-header #lupa-atalhos #lupa-pesquisa {
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa img {
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   position: absolute;
-  left: 14px;
-  bottom: 43px;
+  left: 12px;
+  bottom: 41px;
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa input {
   height: 60px;
   width: inherit;
   border-radius: 20px;
-  padding-left: 50px;
+  padding-left: 53px;
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
@@ -549,7 +549,7 @@ body {
 
 .conteudo, header #itens-header, main #itens-main {
   height: inherit;
-  width: 90vw;
+  width: 1440px;
 }
 
 main {
@@ -954,11 +954,12 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card h2 {
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card span {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: #8C8C8C;
   text-transform: none;
   letter-spacing: -0.02em;
+  margin-top: 5px;
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button {
@@ -1077,7 +1078,7 @@ main #itens-main #esquerda #recomendados, main #itens-main #esquerda #favoritos 
 }
 
 main #itens-main #esquerda #recomendados h3, main #itens-main #esquerda #favoritos h3 {
-  font-size: 1.125rem;
+  font-size: 1.313rem;
   font-weight: 500;
   color: #292929;
   text-transform: capitalize;

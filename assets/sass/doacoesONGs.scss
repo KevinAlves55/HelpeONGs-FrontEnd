@@ -12,7 +12,7 @@ body {
 }
 
 .conteudo {
-    @include tamanhos(inherit, 90vw);
+    @include tamanhos(inherit, 1440px);
 }
 
 main {
@@ -176,7 +176,8 @@ main {
                         }
 
                         span {
-                            @include textoEstilo(grau13, medium, $placeholder, $letter: -0.02em);
+                            @include textoEstilo(grau12, medium, $placeholder, $letter: -0.02em);
+                            margin-top: 5px;
                         }
 
                         button {
@@ -238,7 +239,7 @@ main {
                 margin-bottom: 38px;
 
                 h3 {
-                    @include textoEstilo(grau10, medium, $text, capitalize, -0.02em);
+                    @include textoEstilo(grau9, medium, $text, capitalize, -0.02em);
                     margin-top: 15px;
                 }
 
