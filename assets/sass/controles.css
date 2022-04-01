@@ -191,7 +191,7 @@ main {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: red;
+  margin-bottom: 35px;
 }
 
 main #itens-main {
@@ -367,12 +367,204 @@ main #itens-main section {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: yellow;
+  position: relative;
 }
 
 main #itens-main section #filtros-selects {
   height: 64px;
   width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main section #filtros-selects select {
+  height: 64px;
+  width: 405px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 3px solid #CCCCCC;
+  border-radius: 15px;
+  padding: 0px 15px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/Icon-select.png") 95.5% 50% no-repeat;
+}
+
+main #itens-main section #filtros-selects select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+main #itens-main section #filtros-selects #filtro {
+  height: inherit;
+  width: 155px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 15px;
+  margin-right: 25px;
+}
+
+main #itens-main section #filtros-selects #filtro img {
+  height: 33px;
+  width: 32px;
+}
+
+main #itens-main section #filtros-selects #filtro span {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #FF9F45;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+}
+
+main #itens-main section table {
+  height: 619px;
+  width: 1063px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border-radius: 20px;
+  margin-top: 55px;
+  padding: 20px;
+}
+
+main #itens-main section table thead {
+  height: 55px;
+  width: 1016px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 8px;
+  background-color: #F8F9FA;
+}
+
+main #itens-main section table thead .titulos-tabela {
+  height: 55px;
+  width: 245px;
+  text-align: center;
+  font-size: 1.400rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+main #itens-main section table tbody {
+  height: 444px;
+  width: 1016px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-collapse: separate;
+}
+
+main #itens-main section table tbody tr {
+  height: 64px;
+  width: inherit;
+}
+
+main #itens-main section table tbody tr .resultados {
+  height: 60px;
+  width: 254px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  text-align: center;
+  border-bottom: 3px solid #F8F9FA;
+}
+
+main #itens-main section table tbody tr .resultados a {
+  text-decoration: underline;
+}
+
+main #itens-main section table tbody tr img {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+main #itens-main section #setas {
+  height: 32px;
+  width: 81px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -389,6 +581,37 @@ main #itens-main section #filtros-selects {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: blue;
+  position: absolute;
+  bottom: 35px;
+  right: 55px;
+}
+
+main #itens-main section #setas .seta {
+  height: inherit;
+  width: 31px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 6px;
+  border: 1px solid #CCCCCC;
+  cursor: pointer;
+}
+
+main #itens-main section #setas .seta img {
+  height: 24px;
+  width: 24px;
 }
 /*# sourceMappingURL=controles.css.map */

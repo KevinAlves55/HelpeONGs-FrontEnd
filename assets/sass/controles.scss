@@ -18,7 +18,7 @@ main {
     width: 100%;
     flex-grow: 1;
     @include displayFlex($justify: center);
-    background-color: red;
+    margin-bottom: 35px;
 
     #itens-main {
         @extend .conteudo;
@@ -87,12 +87,113 @@ main {
         section {
             @include tamanhos(inherit, 1063px);
             @include displayFlex(column, space-between);
-            background-color: yellow;
+            position: relative;
 
             #filtros-selects {
                 @include tamanhos(64px, inherit);
+                @include displayFlex(row, space-between, center);
+
+                select {
+                    @include tamanhos(64px, 405px);
+                    @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                    border: 3px solid $border;
+                    border-radius: 15px;
+                    padding: 0px 15px;
+                    align-self: flex-end;
+                    appearance: none;
+                    -moz-appearance: none;
+                    background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                    option {
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                    }
+                }
+
+                #filtro {
+                    @include tamanhos(inherit, 155px);
+                    @include displayFlex(row, $align: center, $gap: 15px);
+                    margin-right: 25px;
+    
+                    img {
+                        @include tamanhos(33px, 32px);
+                    }
+    
+                    span {
+                        @include textoEstilo(grau9, semiBold, $deepSaffron, $letter: -0.02em);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            table {
+                @include tamanhos(619px, 1063px);
+                @include displayFlex(column);
+                background-color: #fff;
+                filter: $shadowMain;
+                border-radius: 20px;
+                margin-top: 55px;
+                padding: 20px;
+
+                thead {
+                    @include tamanhos(55px, 1016px);
+                    @include displayFlex($align: center);
+                    border-radius: 8px;
+                    background-color: $background;
+
+                    .titulos-tabela {
+                        @include tamanhos(55px, 245px);
+                        text-align: center;
+                        font-size: 1.400rem;
+                        font-weight: map-get($densidade, semiBold);
+                        text-transform: capitalize;
+                    }
+                }
+
+                tbody {
+                    @include tamanhos(444px, 1016px);
+                    @include displayFlex(column);
+                    border-collapse: separate;
+
+                    tr {
+                        @include tamanhos(64px, inherit);
+
+                        .resultados {
+                            @include tamanhos(60px, 254px);
+                            @include textoEstilo(grau10, semiBold);
+                            text-align: center;
+                            border-bottom: 3px solid $background;
+
+                            a {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        img {
+                            @include tamanhos(24px, 24px);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            #setas {
+                @include tamanhos(32px, 81px);
                 @include displayFlex(row, space-between);
-                background-color: blue;
+                position: absolute;
+                bottom: 35px;
+                right: 55px;
+
+                .seta {
+                    @include tamanhos(inherit, 31px);
+                    @include displayFlex(row, center, center);
+                    border-radius: 6px;
+                    border: 1px solid $border;
+                    cursor: pointer;
+
+                    img {
+                        @include tamanhos(24px, 24px);
+                    }
+                }
             }
         }
     }
