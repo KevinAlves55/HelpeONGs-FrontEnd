@@ -34,7 +34,7 @@ a {
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,7 +54,6 @@ body {
   background-image: url(../img//vector-login-ong.png);
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: left top;
 }
 
 #esquerda {
@@ -114,7 +113,7 @@ body {
 }
 
 #esquerda #banner {
-  height: 450px;
+  height: 430px;
   width: 450px;
   display: -webkit-box;
   display: -ms-flexbox;

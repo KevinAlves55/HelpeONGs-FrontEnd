@@ -8,13 +8,12 @@
 }
 
 body {
-    min-height: 100vh;
+    height: 100vh;
     @include displayFlex(row, space-around, center, $gap: 150px);
     font-family: 'Montserrat', sans-serif;
     background-image: url(../img//vector-login-ong.png);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: left top;
 }
 
 #esquerda {
@@ -38,7 +37,7 @@ body {
     }
 
     #banner {
-        @include tamanhos(450px, 450px);
+        @include tamanhos(430px, 450px);
         @include displayFlex(row, center, center);
 
         img {
