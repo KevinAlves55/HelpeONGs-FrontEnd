@@ -320,7 +320,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 10px 20px 15px;
+  padding: 30px 20px 15px;
 }
 
 #centro ul li + li {
@@ -359,6 +359,176 @@ body {
   font-weight: 400;
   color: #8C8C8C;
   text-transform: -0.02px;
+  letter-spacing: none;
+  cursor: pointer;
+}
+
+#centro ul li:hover {
+  border-bottom: 5px solid red;
+}
+
+#centro #container-conteudo #container-conteudo-sobre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 344px;
+  width: 766px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px;
+  border-radius: 10px;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #sobre-usuario h3 + h3 {
+  margin-top: 1.0em;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #sobre-usuario h3 {
+  font-size: 1.313rem;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  font-weight: 450;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #sobre-usuario h3 span {
+  font-size: 1.313rem;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  font-weight: 520;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #anexo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 50px;
+  padding-left: 35px;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #anexo h2 {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #FF9F45;
+  text-transform: none;
+  letter-spacing: none;
+  font-weight: 550;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #anexo h3 {
+  font-size: 1.313rem;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-left: 210px;
+  font-weight: 450;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #anexo h3 span {
+  font-weight: 520;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta {
+  height: 766px;
+  width: 344px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco {
+  height: 344px;
+  width: 766px;
+  background-color: red;
+}
+
+#direita {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#direita #status-seguidores {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  letter-spacing: .0,5rem;
+}
+
+#direita #status-seguidores h2 {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#direita #status-seguidores #numero-seguidores {
+  height: 22px;
+  width: 52px;
+  border: 1px;
+  border-radius: 10px;
+  background-color: #FF9F45;
+  text-align: center;
+}
+
+#direita #status-seguidores #numero-seguidores p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
   letter-spacing: none;
 }
 

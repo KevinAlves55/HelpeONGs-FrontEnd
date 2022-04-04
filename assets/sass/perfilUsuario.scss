@@ -162,7 +162,7 @@ body {
     ul {
         @include tamanhos(inherit, inherit);
         @include displayFlex(space-around);
-        padding: 10px 20px 15px;
+        padding: 30px 20px 15px;
         li + li {
             margin-left: 1.5em;
         }
@@ -177,7 +177,7 @@ body {
                 
             // }
         
-
+            
             img {
                 @include tamanhos(35px, 35px);
                 margin-left: 26px;
@@ -185,15 +185,106 @@ body {
 
             a {
                 @include textoEstilo(grau9, regular, $placeholder, -0.02px);
+                cursor: pointer;
             }
 
+        }li:hover {
+            border-bottom: 5px solid red;
+           
+        }
+        
+    }
+
+
+    // Conteudo
+    #container-conteudo{
+        
+
+        #container-conteudo-sobre{
+            @include displayFlex(column);
+            @include tamanhos(344px, 766px);
+            padding: 20px;
+            background: #FFFFFF;
+            border: 1px  ;
+            border-radius: 10px;
+
+            #sobre-usuario{
+                h3 + h3{
+                    margin-top: 1.0em;
+                }
+                h3{
+                    @include textoEstilo(grau9, Montserrat, $text);
+                    font-weight: 450;
+
+                    span{
+                        @include textoEstilo(grau9, Bold, $text, );
+                        font-weight: 520;
+                    }
+                }
+             
+            }
+            #anexo{
+                @include displayFlex(row, space-between);
+                padding-top: 50px;
+                padding-left:35px;
+
+                h2{
+                    @include textoEstilo(grau9, semiBold, $deepSaffron);
+                    font-weight: 550;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                h3{
+                    @include textoEstilo(grau9, Montserrat, $text);
+                    padding-left: 210px;
+                    font-weight: 450;
+
+                    span{
+                        font-weight:520;
+                    }
+
+                }
+            }
+        }
+
+        #container-conteudo-detalhes-de-conta{
+            @include tamanhos(766px, 344px);
+            
+
+        }
+        #container-conteudo-detalhes-do-endereco{
+            @include tamanhos(344px, 766px);
+            background-color: red;
+            
         }
     }
+
+    
 }
 
 #direita{
-  
-    
+    @include displayFlex(column);
+
+    #status-seguidores{
+        @include displayFlex(row, space-between);
+        letter-spacing: .0,5rem;
+
+        h2{
+            @include textoEstilo(grau9, semiBold, $placeholder);
+        }
+
+        #numero-seguidores{
+            @include tamanhos(22px, 52px);
+            border: 1px;
+            border-radius: 10px;
+            background-color: $deepSaffron;
+            text-align: center;
+
+                p{
+                    @include textoEstilo(grau10, semiBold, $text);
+                }
+        }
+    }
     #container-direita {
         min-height: 430px;
         @include tamanhos(auto, 261px);
