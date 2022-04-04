@@ -185,6 +185,11 @@ body {
   letter-spacing: -0.02px;
 }
 
+#centro #banner img {
+  height: 300px;
+  width: 900px;
+}
+
 #centro #perfil {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -370,6 +375,157 @@ body {
   color: #8C8C8C;
   text-transform: -0.02px;
   letter-spacing: none;
+}
+
+#centro #container-conteudo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #conteudo-sobre {
+  height: 362px;
+  width: 900px;
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+#centro #container-conteudo #conteudo-sobre #texto-sobre {
+  height: 94px;
+  width: 701px;
+}
+
+#centro #container-conteudo #conteudo-sobre p {
+  font-size: 1.313rem;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #conteudo-sobre #conteudo-info #texto-quantidade h2 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  line-height: 2.5;
+  font-weight: 450;
+}
+
+#centro #container-conteudo #conteudo-sobre #conteudo-info #texto-quantidade h2 span {
+  font-weight: 520;
+}
+
+#centro #container-conteudo #conteudo-sobre div + div {
+  margin-top: 0.8rem;
+}
+
+#centro #container-conteudo #conteudo-sobre #patrocinios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #conteudo-sobre #patrocinios h2 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  font-weight: 450;
+}
+
+#centro #container-conteudo #conteudo-sobre #patrocinios h2 span {
+  font-weight: 520;
+}
+
+#centro #container-conteudo #conteudo-sobre #patrocinios h2 #img-patrocinios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#direita #titulo-direita {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  letter-spacing: .0,5rem;
+}
+
+#direita h2 {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#direita #texto-span {
+  height: 35px;
+  width: 35px;
+}
+
+#direita span {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-left: 20px;
+  border-radius: 50px;
+  background-color: #FF9F45;
 }
 
 #direita #container-direita {
