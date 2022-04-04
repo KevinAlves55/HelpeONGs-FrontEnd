@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controles de envento e vagas</title>
-    <link rel="stylesheet" href="assets/sass/controles.css">
+    <link rel="stylesheet" href="assets/sass/feed.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,12 +20,19 @@
                 <img src="assets/img/logo-helpe.png" alt="Doações" title="HelpOngs">
             </div>
     
-            <div id="atalhos">
-                <img src="assets/img/notificacao-controles.png" alt="Notificações">
-
-                <div id="atalhos-perfil">
-                    <img src="assets/img/mini-perfil-controles.png" id="foto" alt="Perfil" title="Sair">
-                    <img src="assets/img/chevron-down-controles.png" id="seta-baixo" alt="Modal" title="Flexa Para Baixo">
+            <div id="lupa-atalhos">
+                <div id="lupa-pesquisa">
+                    <img src="assets/img/search.png" alt="Doações" title="Pesquisar">
+                    <input type="text" id="pesquisar" placeholder="Procurar por ONGs">
+                </div>
+    
+                <div id="atalhos">
+                    <img src="assets/img/notification.png" alt="Notificações">
+    
+                    <div id="atalhos-perfil">
+                        <img src="assets/img/perfil-foto.png" id="foto" alt="Perfil" title="Sair">
+                        <img src="assets/img/chevron-down.png" id="seta-baixo" alt="Modal" title="Flexa Para Baixo">
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,108 +79,353 @@
                         </li>
                     </ul>
                 </nav>
+
+                <div id="convite-quantidade">
+                    <h2>Convite</h2>
+                    <span>2</span>
+                </div>
+
+                <section id="vagas-indicadas">
+                    <div class="vaga">
+                        <div id="imagem-fundo">
+                            <img src="" alt="">
+
+                            <h3>Salve a Amazonia <br> e seus recifes</h3>
+                        </div>
+
+                        <button>
+                            conferir vaga
+                        </button>
+                    </div>
+                </section>
             </div>
 
-            <!-- <section>
-                <div id="filtros-selects">
-                    <select name="sltTipo" id="">
-                        <option value="">Selecione o tipo de controle</option>
-                        <option value="">Eventos</option>
-                        <option value="">Vagas</option>
-                    </select>
-                    <select name="sltOpcaoTipo">
-                        <option value="">Selecione o evento que deseja</option>
-                    </select>
-                    <div id="filtro">
-                        <img src="assets/img/filter-button.png" alt="Controles" title="Icone filtro">
-                        <span>Filtros (6)</span>
+            <section id="conteudo-feed">
+                <div id="previa-eventos">
+                    <div id="evento">
+                        <img src="" alt="">
+
+                        <h3>Evento Mil</h3>
+                    </div>
+
+                    <div id="evento">
+                        <img src="" alt="">
+
+                        <h3>Evento Mil</h3>
+                    </div>
+
+                    <div id="evento">
+                        <img src="" alt="">
+
+                        <h3>Evento Mil</h3>
+                    </div>
+
+                    <div id="evento">
+                        <img src="" alt="">
+
+                        <h3>Evento Mil</h3>
                     </div>
                 </div>
-                
-                <table>
-                    <thead>
-                        <td class="titulos-tabela">Nome</td>
-                        <td class="titulos-tabela">Idade</td>
-                        <td class="titulos-tabela">Endereço</td>
-                        <td class="titulos-tabela">Currículo</td>
-                    </thead>
 
-                    <tbody>
-                        <tr>
-                            <td class="resultados">Kevin Alves da Silva</td>
-                            <td class="resultados">16</td>
-                            <td class="resultados">06665022 SP, Itapevi</td>
-                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
-                            <td>
-                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="resultados">Kevin Alves da Silva</td>
-                            <td class="resultados">16</td>
-                            <td class="resultados">06665022 SP, Itapevi</td>
-                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
-                            <td>
-                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="resultados">Kevin Alves da Silva</td>
-                            <td class="resultados">16</td>
-                            <td class="resultados">06665022 SP, Itapevi</td>
-                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
-                            <td>
-                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="resultados">Kevin Alves da Silva</td>
-                            <td class="resultados">16</td>
-                            <td class="resultados">06665022 SP, Itapevi</td>
-                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
-                            <td>
-                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="resultados">Kevin Alves da Silva</td>
-                            <td class="resultados">16</td>
-                            <td class="resultados">06665022 SP, Itapevi</td>
-                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
-                            <td>
-                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="resultados">Kevin Alves da Silva</td>
-                            <td class="resultados">16</td>
-                            <td class="resultados">06665022 SP, Itapevi</td>
-                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
-                            <td>
-                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="resultados">Kevin Alves da Silva</td>
-                            <td class="resultados">16</td>
-                            <td class="resultados">06665022 SP, Itapevi</td>
-                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
-                            <td>
-                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="criar-postagem">
+                    <div id="esquerda">
+                        <img src="" alt="">
 
-                <div id="setas">
-                    <div class="seta">
-                        <img src="assets/img/chevron-left.png" alt="Todos os dados" title="Icone setas">
+                        <h2>O que há de novo, Gustavo Alves?</h2>
                     </div>
-                    <div class="seta">
-                        <img src="assets/img/chevron-right.png" alt="Todos os dados" title="Icone setas">
+
+                    <button>
+                        <img src="" alt="">
+
+                        Criar Postagem
+                    </button>
+                </div>
+
+                <div class="post">
+                    <div class="parte-superior">
+                        <div class="info-ong">
+                            <img src="" alt="">
+
+                            <div class="info-nome-data">
+                                <h2>GreenPeace</h2>
+                                <span>24 de Setembro de 2021</span>
+                            </div>
+                        </div>
+
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="imagens-postadas">
+                        <div id="imagem-destaque">
+                            <img src="" alt="">
+                        </div>
+
+                        <div id="imagens-complementos">
+                            <img src="" alt="" id="cima">
+                            <img src="" alt="" id="baixo">
+                        </div>
+                    </div>
+
+                    <p>
+                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                    </p>
+
+                    <div id="interacoes">
+                        <div class="icone-funcao">
+                            <img src="" alt="">
+                            <span>28.5k Curtiram</span>
+                        </div>
+                        <div class="icone-funcao">
+                            <img src="" alt="">
+                            <span>3 Comentários</span>
+                        </div>
+                        <div class="icone-funcao">
+                            <img src="" alt="">
+                            <span>Compartilhar</span>
+                        </div>
+                    </div>
+
+                    <div id="comentarios">
+                        <div id="corpo-comentario"><!-- ESTRUTURA DE COMENTÁRIO -->
+                            <div id="lateral-imagem">
+                                <img src="" alt="">
+                            </div>
+
+                            <div id="vertical-info">
+                                <div id="comentario">
+                                    <h3>Nome Da Pessoa</h3>
+
+                                    <p>
+                                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. 
+                                        <span>Ver mais</span>
+                                    </p>
+                                </div>
+
+                                <div id="acoes-comentario">
+                                    <span>1 h Atrás</span>
+
+                                    <div id="curtir-comentario">
+                                        <img src="" alt="">
+                                        <span>28.5k Curtiram</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ESTRUTURA DE COMENTÁRIO -->
                     </div>
                 </div>
-            </section> -->
+
+                <div class="evento">
+                    <div class="parte-superior">
+                        <div class="info-ong">
+                            <img src="" alt="">
+
+                            <div class="info-nome-data">
+                                <h2>GreenPeace</h2>
+                                <span>24 de Setembro de 2021</span>
+                            </div>
+                        </div>
+
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="info-evento">
+                        <div id="info-superior">
+                            <h2>Expedição ao Mar</h2>
+
+                            <p>
+                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                            </p>
+                        </div>
+
+                        <div id="imagens-postadas">
+                            <div id="imagem-destaque">
+                                <img src="" alt="">
+                            </div>
+    
+                            <div id="imagens-complementos">
+                                <img src="" alt="" id="cima">
+                                <img src="" alt="" id="baixo">
+                            </div>
+                        </div>
+
+                        <div id="info-complementares">
+                            <div id="complementares-superior">
+                                <div id="info-esquerda">
+                                    <div class="item">
+                                        <h3>Obejetivo:</h3>
+                                        <span>Salvar Peixes</span>
+                                    </div>
+
+                                    <div class="item">
+                                        <h3>Data e Hora:</h3>
+                                        <span>26 de Janeiro, às 12:00</span>
+                                    </div>
+
+                                    <div class="item">
+                                        <h3>Data e Hora:</h3>
+                                        <span>Disponível</span>
+                                    </div>
+                                </div>
+
+                                <div id="botoes-direita">
+                                    <button id="botao-carditar">Candidatar-se</button>
+                                    <button id="botao-participar">Participar</button>
+                                </div>
+                            </div>
+
+                            <div id="complementares-inferior">
+                                <span>Quantidade de participantes: 101</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vaga">
+                    <div class="parte-superior">
+                        <div class="info-ong">
+                            <img src="" alt="">
+
+                            <div class="info-nome-data">
+                                <h2>GreenPeace</h2>
+                                <span>24 de Setembro de 2021</span>
+                            </div>
+                        </div>
+
+                        <img src="" alt="">
+                    </div>
+
+                    <div id="corpo-vaga">
+                        <h2>Professor de informática</h2>
+
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        </p>
+
+                        <div id="vaga-botoes">
+                            <button id="saiba-mais-vaga">Saiba Mais</button>
+                            <button id="interesse-vaga">Interesse</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>VER MAIS</h4>
+            </section>
+
+            <div id="esquerda">
+                <div id="info-seguidores">
+                    <h3>SEGUINDO</h3>
+                    <span>48</span>
+                </div>
+
+                <div id="seguindo">
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="" alt="">
+
+                        <div id="nome">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                </div>
+
+                <img src="" alt="">
+            </div>
         </div>
     </main>
 

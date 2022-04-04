@@ -18,25 +18,54 @@ header {
             }
         }
         
-        #atalhos {
-            @include tamanhos(inherit, 170px);
+        #lupa-atalhos {
+            @include tamanhos(inherit, 730px);
             @include displayFlex(row, space-between, center);
 
-            img {
-                @include tamanhos(32px, 32px);
-                border-radius: 50%;
-            }
-
-            #atalhos-perfil {
-                @include tamanhos(90px, 120px);
-                @include displayFlex(row, space-between, center);
-
-                #foto {
-                    @include tamanhos(inherit, 90px);
+            #lupa-pesquisa {
+                @include tamanhos(inherit, 503px);
+                @include displayFlex($justify: center, $align: center);
+                position: relative;
+    
+                img {
+                    @include tamanhos(35px, 35px);
+                    position: absolute;
+                    left: 12px;
+                    bottom: 41px;
                 }
-
-                #seta-baixo {
-                    @include tamanhos(24px, 24px);
+    
+                input {
+                    @include tamanhos(60px, inherit);
+                    border-radius: 20px;
+                    padding-left: 53px;
+                    @include textoEstilo(grau8, medium,  $text);
+                    border: 2px solid $border;
+    
+                    ::-webkit-input-placeholder {
+                        color: $placeholder;
+                    }
+                }
+            }
+    
+            #atalhos {
+                @include tamanhos(inherit, 170px);
+                @include displayFlex(row, space-between, center);
+    
+                img {
+                    @include tamanhos(32px, 32px);
+                }
+    
+                #atalhos-perfil {
+                    @include tamanhos(90px, 120px);
+                    @include displayFlex(row, space-between, center);
+    
+                    #foto {
+                        @include tamanhos(inherit, 90px);
+                    }
+    
+                    #seta-baixo {
+                        @include tamanhos(24px, 24px);
+                    }
                 }
             }
         }

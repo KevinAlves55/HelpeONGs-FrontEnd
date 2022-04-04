@@ -85,7 +85,75 @@ header #itens-header #logo img {
   margin-top: 7px;
 }
 
-header #itens-header #atalhos {
+header #itens-header #lupa-atalhos {
+  height: inherit;
+  width: 730px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+header #itens-header #lupa-atalhos #lupa-pesquisa {
+  height: inherit;
+  width: 503px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: relative;
+}
+
+header #itens-header #lupa-atalhos #lupa-pesquisa img {
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  left: 12px;
+  bottom: 41px;
+}
+
+header #itens-header #lupa-atalhos #lupa-pesquisa input {
+  height: 60px;
+  width: inherit;
+  border-radius: 20px;
+  padding-left: 53px;
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  border: 2px solid #CCCCCC;
+}
+
+header #itens-header #lupa-atalhos #lupa-pesquisa input ::-webkit-input-placeholder {
+  color: #8C8C8C;
+}
+
+header #itens-header #lupa-atalhos #atalhos {
   height: inherit;
   width: 170px;
   display: -webkit-box;
@@ -106,13 +174,12 @@ header #itens-header #atalhos {
   gap: 0;
 }
 
-header #itens-header #atalhos img {
+header #itens-header #lupa-atalhos #atalhos img {
   height: 32px;
   width: 32px;
-  border-radius: 50%;
 }
 
-header #itens-header #atalhos #atalhos-perfil {
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
   height: 90px;
   width: 120px;
   display: -webkit-box;
@@ -133,12 +200,12 @@ header #itens-header #atalhos #atalhos-perfil {
   gap: 0;
 }
 
-header #itens-header #atalhos #atalhos-perfil #foto {
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto {
   height: inherit;
   width: 90px;
 }
 
-header #itens-header #atalhos #atalhos-perfil #seta-baixo {
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   height: 24px;
   width: 24px;
 }
