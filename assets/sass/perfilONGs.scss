@@ -14,6 +14,7 @@ body {
     min-height: 500px;
     @include tamanhos(auto, 279px);
     @include displayFlex(column);
+    background-color: red;
 
     #mini-perfil {
         @include tamanhos(112px, inherit);
@@ -71,8 +72,11 @@ body {
 
 // CENTRO
 #centro{
+    
+    @include displayFlex(column);
 
     // padding-left: 100px;
+    
 
     #banner{
         img{
@@ -192,18 +196,22 @@ body {
 
     #container-conteudo{
         // @include tamanhos(300px, 300px);
-        @include displayFlex(); 
+        @include displayFlex(column);
+        
 
         #conteudo-sobre{
             @include tamanhos(362px, 900px);
-            border: 1px solid;
+            padding: 30px;
+            background: #FFFFFF;
+            filter: $shadowMain;
+            border: 1px ;
             border-radius: 20px;
+
 
             #texto-sobre{
                 @include tamanhos(94px, 701px)
+                    
             }
-
-            
 
 
             p{
@@ -213,9 +221,10 @@ body {
             #conteudo-info{
 
                #texto-quantidade{
+                   padding-top: 40px;
                     h2{
                         @include textoEstilo(grau9, regular, $text);
-                        line-height: 2.5;
+                        line-height: 1.5;
                         font-weight: 450;
 
                         span{
@@ -225,6 +234,20 @@ body {
 
                    
                 }
+            }
+
+            #ano-fundacao{
+                h2{
+                    @include textoEstilo(grau9, regular, $text);
+                    line-height: 2.5;
+                    font-weight: 450;
+
+                    span{
+                        font-weight: 520;
+                    }
+                }
+
+
             }
             
             div + div {
@@ -256,6 +279,26 @@ body {
             }
 
         }
+
+    }
+    div + div {
+        margin-top: 1.5rem;
+    }
+
+    #container-historia{
+        
+
+        #container-conteudo-historia{
+            
+            @include tamanhos(362px, 900px);
+            padding: 30px;
+            background: #FFFFFF;
+            filter: $shadowMain;
+            border: 1px ;
+            border-radius: 20px;
+        }
+
+
 
     }
 }

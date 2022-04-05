@@ -71,6 +71,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  background-color: red;
 }
 
 #container #mini-perfil {
@@ -183,6 +184,25 @@ body {
   color: #8C8C8C;
   text-transform: capitalize;
   letter-spacing: -0.02px;
+}
+
+#centro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
 #centro #banner img {
@@ -381,10 +401,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -399,7 +419,11 @@ body {
 #centro #container-conteudo #conteudo-sobre {
   height: 362px;
   width: 900px;
-  border: 1px solid;
+  padding: 30px;
+  background: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border: 1px;
   border-radius: 20px;
 }
 
@@ -415,7 +439,25 @@ body {
   letter-spacing: none;
 }
 
+#centro #container-conteudo #conteudo-sobre #conteudo-info #texto-quantidade {
+  padding-top: 40px;
+}
+
 #centro #container-conteudo #conteudo-sobre #conteudo-info #texto-quantidade h2 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  line-height: 1.5;
+  font-weight: 450;
+}
+
+#centro #container-conteudo #conteudo-sobre #conteudo-info #texto-quantidade h2 span {
+  font-weight: 520;
+}
+
+#centro #container-conteudo #conteudo-sobre #ano-fundacao h2 {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -425,7 +467,7 @@ body {
   font-weight: 450;
 }
 
-#centro #container-conteudo #conteudo-sobre #conteudo-info #texto-quantidade h2 span {
+#centro #container-conteudo #conteudo-sobre #ano-fundacao h2 span {
   font-weight: 520;
 }
 
@@ -482,6 +524,21 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+}
+
+#centro div + div {
+  margin-top: 1.5rem;
+}
+
+#centro #container-historia #container-conteudo-historia {
+  height: 362px;
+  width: 900px;
+  padding: 30px;
+  background: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border: 1px;
+  border-radius: 20px;
 }
 
 #direita #titulo-direita {
