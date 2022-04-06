@@ -109,7 +109,6 @@ header #itens-header #atalhos {
 header #itens-header #atalhos img {
   height: 32px;
   width: 32px;
-  border-radius: 50%;
 }
 
 header #itens-header #atalhos #atalhos-perfil {
@@ -136,6 +135,7 @@ header #itens-header #atalhos #atalhos-perfil {
 header #itens-header #atalhos #atalhos-perfil #foto {
   height: inherit;
   width: 90px;
+  border-radius: 50%;
 }
 
 header #itens-header #atalhos #atalhos-perfil #seta-baixo {

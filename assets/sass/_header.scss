@@ -17,14 +17,13 @@ header {
                 margin-top: 7px;
             }
         }
-        
+
         #atalhos {
             @include tamanhos(inherit, 170px);
             @include displayFlex(row, space-between, center);
 
             img {
                 @include tamanhos(32px, 32px);
-                border-radius: 50%;
             }
 
             #atalhos-perfil {
@@ -33,6 +32,7 @@ header {
 
                 #foto {
                     @include tamanhos(inherit, 90px);
+                    border-radius: 50%;
                 }
 
                 #seta-baixo {
