@@ -328,8 +328,6 @@ body {
 }
 
 #centro ul li {
-  height: 65px;
-  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -364,7 +362,7 @@ body {
 }
 
 #centro ul li:hover {
-  border-bottom: 5px solid red;
+  border-bottom: 5px solid #FC595E;
 }
 
 #centro #container-conteudo #container-conteudo-sobre {
@@ -388,6 +386,8 @@ body {
   width: 766px;
   padding: 20px;
   background: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border: 1px;
   border-radius: 10px;
 }
@@ -458,14 +458,576 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta {
-  height: 766px;
-  width: 344px;
+  height: 1022px;
+  width: 784px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #nome {
+  height: 98px;
+  width: 766px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #nome p {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #nome input {
+  height: 65px;
+  width: 761px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 15px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data {
+  height: 102px;
+  width: 766px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data p {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data #email {
+  height: 102px;
+  width: 355px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data #email input {
+  height: 65px;
+  width: 350px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 15px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data #data {
+  height: 102px;
+  width: 241px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data #data input {
+  height: 65px;
+  width: 222px;
+  font-size: 18px;
+  padding: 15px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone {
+  height: auto;
+  width: 766px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone p {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #celular {
+  height: 102px;
+  width: 355px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #celular input {
+  height: 65px;
+  width: 350px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 15px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #telefone {
+  height: 102px;
+  width: 359px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #telefone input {
+  height: 65px;
+  width: 350px;
+  font-size: 18px;
+  padding: 15px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho {
+  height: 65px;
+  width: 770px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho #anexar {
+  height: 65px;
+  width: 260px;
+  border: 1px;
+  border-radius: 6px;
+  background-color: #FF9F45;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho #anexar a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 19px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho #caminho {
+  height: 65px;
+  width: 449px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  background-color: #FFFFFF;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho #caminho p {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 15px;
+  padding-left: 30px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil {
+  height: 327px;
+  width: 779px;
+  border: 2px solid #8C8C8C;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  padding: 20px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-perfil-nomes {
+  height: 99px;
+  width: 746px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-perfil-nomes #perfil {
+  height: 90px;
+  width: 90px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-perfil-nomes #edita-foto-banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-perfil-nomes #edita-foto-banner h2 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-perfil-nomes #edita-foto-banner h3 {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #FF9F45;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-perfil-nomes #complete-cadastro {
+  height: 52px;
+  width: 273px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 10px;
+  background-color: #FFF382;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-perfil-nomes #complete-cadastro p {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-banner {
+  height: 200px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #edita-perfil #edita-banner img {
+  height: 180px;
+  width: 480px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #proximo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-top: 40px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #proximo button {
+  height: 75px;
+  width: 250px;
+  border: 2px;
+  border-radius: 6px;
+  background-color: #FF9F45;
+  font-size: 30px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco {
-  height: 344px;
-  width: 766px;
-  background-color: red;
+  height: 485px;
+  width: 770px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira {
+  height: 104px;
+  width: 770px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #cep h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #cep input {
+  height: 65px;
+  width: 158px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #estado h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #estado input {
+  height: 65px;
+  width: 288px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade input {
+  height: 65px;
+  width: 288px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira {
+  height: 104px;
+  width: 770px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #bairro h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #bairro input {
+  height: 65px;
+  width: 288px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #rua h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #rua input {
+  height: 65px;
+  width: 251px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #numero h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #numero input {
+  height: 65px;
+  width: 130px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #terceira-fileira {
+  height: 104px;
+  width: 770px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento input {
+  height: 65px;
+  width: 769px;
+  border: 2px solid #8C8C8C;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #quarta-fileira {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #quarta-fileira button {
+  height: 75px;
+  width: 250px;
+  border: 1px;
+  border-radius: 6px;
+  background-color: #FF9F45;
+  font-size: 30px;
 }
 
 #direita {

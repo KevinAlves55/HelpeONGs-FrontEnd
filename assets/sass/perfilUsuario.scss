@@ -168,7 +168,7 @@ body {
         }
 
         li {
-            @include tamanhos(65px, inherit);
+            // @include tamanhos(65px, inherit);
             @include displayFlex(row-reverce, $align: center, $gap: 18px);
 
             // #menu> ul>li:hover {
@@ -189,7 +189,7 @@ body {
             }
 
         }li:hover {
-            border-bottom: 5px solid red;
+            border-bottom: 5px solid $tartOrange;
            
         }
         
@@ -205,6 +205,7 @@ body {
             @include tamanhos(344px, 766px);
             padding: 20px;
             background: #FFFFFF;
+            filter: $shadowMain;
             border: 1px  ;
             border-radius: 10px;
 
@@ -248,19 +249,316 @@ body {
         }
 
         #container-conteudo-detalhes-de-conta{
-            @include tamanhos(766px, 344px);
+            @include tamanhos(1022px, 784px);
+            
+            
+          
+           
             
 
-        }
-        #container-conteudo-detalhes-do-endereco{
-            @include tamanhos(344px, 766px);
-            background-color: red;
+            #nome{
+                @include tamanhos(98px, 766px);
+
+                p{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+                input{
+                    @include tamanhos(65px, 761px);
+                    border: 2px solid $placeholder;
+                    border-radius: 6px;
+                    font-size:18px;
+                    padding: 15px;
+                }
+            }
+            #email-data{
+                @include tamanhos(102px, 766px);
+                @include displayFlex(row, space-between);
+
+                p{
+                    @include textoEstilo(grau9, regular, $text);
+                    
+                }
+                #email{
+                    @include tamanhos(102px, 355px);
+
+                    input{
+                        @include tamanhos(65px, 350px);
+                        border: 2px solid $placeholder;
+                        border-radius: 6px;
+                        font-size:18px;
+                        padding: 15px;
+                    }
+                }
+                #data{
+                    @include tamanhos(102px, 241px);
+
+                    input{
+                        @include tamanhos(65px, 222px);
+                        font-size:18px;
+                        padding: 15px;
+                        border: 2px solid $placeholder;
+                        border-radius: 6px;
+                    }
+                    
+                }
+
+            }
+            #celular-telefone{
+                @include tamanhos(auto, 766px);
+                @include displayFlex(row, space-between);
+                
+
+                p{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+                #celular{
+                    @include tamanhos(102px, 355px);
+
+                    input{
+                        @include tamanhos(65px, 350px);
+                        border: 2px solid $placeholder;
+                         border-radius: 6px;
+                        font-size:18px;
+                        padding: 15px;
+                        
+                    }
+                }
+                #telefone{
+                    @include tamanhos(102px, 359px);
+
+                    input{
+                        @include tamanhos(65px, 350px);
+                        font-size:18px;
+                        padding: 15px;
+                        border: 2px solid $placeholder;
+                        border-radius: 6px;
+                    }
+                    
+                }
+            }
+
+            #anexar-caminho{
+                @include tamanhos(65px, 770px);
+                @include displayFlex(row, space-between);
             
+                
+                #anexar{
+                    @include tamanhos(65px, 260px);
+                    border: 1px ;
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+
+                    a{
+                        @include displayFlex(center, center);
+                        @include textoEstilo(grau9, regular, $text);
+                        padding-top: 19px;
+                    }
+                }
+                #caminho{
+                    @include tamanhos(65px, 449px);
+                    border: 2px solid $placeholder;
+                    border-radius: 6px;
+                    background-color: #FFFFFF;
+
+                    p{
+                        @include textoEstilo(grau9, regular, $text);
+                        padding-top: 15px;
+                        padding-left: 30px;
+                    }
+                }
+            }
+
+        #edita-perfil{
+            @include tamanhos(327px, 779px);
+            border: 2px solid $placeholder;
+            border-radius: 20px;
+            background-color: #FFFFFF;
+            padding: 20px;
+        
+            #edita-perfil-nomes{
+                @include tamanhos(99px, 746px);
+                @include displayFlex(row, space-between);
+
+                #perfil{
+                    @include tamanhos(90px, 90px);
+                }
+
+                #edita-foto-banner{
+                    @include displayFlex(column,);
+
+                    h2{
+                        @include textoEstilo(grau7, semiBold, $text);
+                    }
+                    h3{
+                        @include textoEstilo(grau9, semiBold, $deepSaffron);
+                    }
+                }
+                #complete-cadastro{
+                    @include tamanhos(52px, 273px);
+                    @include displayFlex(center, center);
+                    padding-top: 10px;
+                    background-color:$amarelo;
+                    border-radius:  6px;
+
+                    p{
+                        @include textoEstilo(grau9, medium, $text);
+                    }
+                }
+
+            }
+            #edita-banner{
+                @include tamanhos(200px, 100%);
+                @include displayFlex();
+                justify-content:center;
+                align-items:center;
+              
+
+                img{
+                    @include tamanhos(180px, 480px);
+                }
+            }
+          
+            
+        }
+        #proximo{
+            display:flex;
+            justify-content:flex-end;
+           padding-top: 40px;
+            button{
+                @include tamanhos(75px, 250px);
+                border: 2px ;
+                border-radius: 6px;
+                background-color: $deepSaffron;
+                font-size: 30px;
+                align-self: flex-end;
+               
+            }
+        }
+        }
+      
+        #container-conteudo-detalhes-do-endereco{
+            @include tamanhos(485px, 770px);
+            
+            #primeira-fileira{
+                @include tamanhos(104px, 770px);
+                @include displayFlex(row, space-between);
+
+                #cep{
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include tamanhos(65px, 158px);
+                        border: 2px solid $placeholder;
+                        border-radius:6px;
+                        font-size:22px;
+                        padding: 5px;
+                    }
+                }
+
+                #estado{
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include tamanhos(65px, 288px);
+                        border: 2px solid $placeholder;
+                        border-radius:6px;
+                        font-size:22px;
+                        padding: 5px;
+                    }
+                }
+
+                #cidade{
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include tamanhos(65px, 288px);
+                        border: 2px solid $placeholder;
+                        border-radius:6px;
+                        font-size:22px;
+                        padding: 5px;
+                    }
+                }
+            }
+
+            
+            #segunda-fileira{
+                @include tamanhos(104px, 770px);
+                @include displayFlex(row, space-between);
+
+                #bairro{
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include tamanhos(65px, 288px);
+                        border: 2px solid $placeholder;
+                        border-radius:6px;
+                        font-size:22px;
+                        padding: 5px;
+                    }
+                }
+                #rua{
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include tamanhos(65px, 251px);
+                        border: 2px solid $placeholder;
+                        border-radius:6px;
+                        font-size:22px;
+                        padding: 5px;
+                    }
+                }
+                #numero{
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include tamanhos(65px, 130px);
+                        border: 2px solid $placeholder;
+                        border-radius:6px;
+                        font-size:22px;
+                        padding: 5px;
+                    }
+                }
+            }
+            #terceira-fileira{
+                @include tamanhos(104px, 770px);
+                @include displayFlex(row, space-between);
+
+                #complemento{
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include tamanhos(65px, 769px);
+                        border: 2px solid $placeholder;
+                        border-radius:6px;
+                        font-size:22px;
+                        padding: 5px;
+                    }
+                }
+            }
+            #quarta-fileira{
+                display: flex;
+                justify-content: flex-end;
+                button{
+                    @include tamanhos(75px, 250px);
+                    border: 1px ;
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    font-size:30px;
+                }
+
+            }
         }
     }
 
-    
 }
+    
 
 #direita{
     @include displayFlex(column);
