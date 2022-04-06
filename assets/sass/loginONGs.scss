@@ -38,7 +38,7 @@ body {
     }
 
     #banner {
-        @include tamanhos(450px, 450px);
+        @include tamanhos(435px, 450px);
         @include displayFlex(row, center, center);
 
         img {
