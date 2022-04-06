@@ -26,6 +26,8 @@ main {
         @include displayFlex(row, space-between, $wrap: wrap);
         margin-top: 45px;
 
+
+        /* Parte que pode ser copiada */
         #direita {
             min-height: 500px;
             @include tamanhos(auto, 279px);
