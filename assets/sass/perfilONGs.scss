@@ -14,7 +14,7 @@ body {
     min-height: 500px;
     @include tamanhos(auto, 279px);
     @include displayFlex(column);
-    background-color: red;
+
 
     #mini-perfil {
         @include tamanhos(112px, inherit);
@@ -23,7 +23,7 @@ body {
         filter: $shadowMain;
         border-radius: 20px;
         cursor: pointer;
-        
+
         img {
             @include tamanhos(75px, 75px);
             border-radius: 50%;
@@ -71,20 +71,20 @@ body {
 }
 
 // CENTRO
-#centro{
-    
+#centro {
+
     @include displayFlex(column);
 
     // padding-left: 100px;
-    
 
-    #banner{
-        img{
-            @include tamanhos(300px, 900px);
+
+    #banner {
+        img {
+            @include tamanhos(323px, 850px);
         }
     }
 
-    #perfil{
+    #perfil {
         @include displayFlex(row);
         position: relative;
 
@@ -105,82 +105,110 @@ body {
                 border: 6px solid $background;
             }
         }
-        #conteudo-perfil-centro{
-            padding-left: 200px;
-            
-            
 
-            #containerNameandButton{
+        #conteudo-perfil-centro {
+            padding-left: 200px;
+
+
+
+            #containerNameandButton {
                 // @include displayFlex(row, space-between);
                 @include tamanhos(auto, 501px);
 
-                    #titulos-perfil{
-                        @include displayFlex(row, space-between);
-                        h1{
-                            @include textoEstilo(grau7, bold, $text, capitalize);
-                            padding-top: 10px;
-                            white-space: nowrap;
-                            
-                        }
-                        #icon-centro{
-                            // @include displayFlex(row);
-                            // margin-left: 250px;
-        
-                            img{
-                                
-                            }
-        
-                            span{
-                                @include textoEstilo(grau9, $text, capitalize);
-        
-                            }
-        
-                        }
-                       
-                    }
-                
-             #titulo-seguidor{
-                @include displayFlex(row, space-between);
+                #titulos-perfil {
+                    @include displayFlex(row, space-between);
 
-                h3{
-                    
-                    @include textoEstilo(grau9, $text, capitalize);
+                    h1 {
+                        @include textoEstilo(grau7, bold, $text, capitalize);
+                        padding-top: 10px;
+                        white-space: nowrap;
+
+                    }
+
+                    #icon-centro {
+                        @include displayFlex(row);
+                        margin-left: 200px;
+
+                        img {
+                            @include tamanhos(30px, 30px);
+                        }
+
+                        span {
+                            @include textoEstilo(grau9, $text, capitalize);
+                            font-weight: 500;
+
+                        }
+
+                    }
+
                 }
-                #botao{
-                    button{
-                             @include tamanhos(50px, 200px);
-                             @include textoEstilo(grau9, semiBold, $text, capitalize);
-                             border: 1px;
-                             border-radius: 10px;
-                             background: $deepSaffron;
-                             cursor: pointer;
-                         }
-                     }
-             }
-           
-           
-          
+
+                #titulo-seguidor {
+                    @include displayFlex(row, space-between);
+
+                    h3 {
+
+                        @include textoEstilo(grau11, semiBold, $placeholder, capitalize);
+                    }
+
+                    #container-classificacao{
+                        // padding: 15px;
+                        padding-top: 55px;
+                        // padding-right: 50px;
+                       
+                        
+                        #conteudo-classificacao{
+                            @include displayFlex(row);
+                            @include tamanhos(50px, 300px);
+                           background-color: aqua;
+
+                           .class-tipo{
+                               @include tamanhos(30px, 80px);
+                               background-color: red;
+                           }
+
+                        }
+                          
+                    }
+
+                    #botao {
+                        button {
+                            @include tamanhos(50px, 200px);
+                            @include textoEstilo(grau9, semiBold, $text, capitalize);
+                            border: 1px;
+                            border-radius: 10px;
+                            background: $deepSaffron;
+                            cursor: pointer;
+
+
+                        }
+                    }
+                }
+
+
+
+
+            }
 
         }
 
     }
-    
-    }
-    
-    
+
+
 
     ul {
         @include tamanhos(inherit, inherit);
         @include displayFlex(space-around);
         padding: 10px 20px 15px;
-        li + li {
+
+        li+li {
             margin-left: 1.5em;
         }
 
         li {
-            @include tamanhos(65px, inherit);
+            @include tamanhos(50px, inherit);
             @include displayFlex(row-reverce, $align: center, $gap: 18px);
-        
+
 
             img {
                 @include tamanhos(35px, 35px);
@@ -192,88 +220,87 @@ body {
             }
 
         }
+        li:hover{
+            border-bottom: 5px solid $tartOrange;
+
+        }
     }
 
-    #container-conteudo{
+    #container-conteudo {
         // @include tamanhos(300px, 300px);
         @include displayFlex(column);
-        
 
-        #conteudo-sobre{
-            @include tamanhos(362px, 900px);
+
+        #conteudo-sobre {
+            @include tamanhos(362px, 850px);
             padding: 30px;
             background: #FFFFFF;
             filter: $shadowMain;
-            border: 1px ;
+            border: 1px;
             border-radius: 20px;
 
 
-            #texto-sobre{
+            #texto-sobre {
                 @include tamanhos(94px, 701px)
-                    
             }
 
 
-            p{
+            p {
                 @include textoEstilo(grau9, Montserrat, $text);
 
             }
-            #conteudo-info{
 
-               #texto-quantidade{
-                   padding-top: 40px;
-                    h2{
+            #conteudo-info {
+
+                #texto-quantidade {
+                    padding-top: 40px;
+
+                    h2 {
                         @include textoEstilo(grau9, regular, $text);
                         line-height: 1.5;
                         font-weight: 450;
 
-                        span{
+                        span {
                             font-weight: 520;
                         }
                     }
 
-                   
+
                 }
             }
 
-            #ano-fundacao{
-                h2{
+            #ano-fundacao {
+                h2 {
                     @include textoEstilo(grau9, regular, $text);
-                    line-height: 2.5;
+                    line-height: 2;
                     font-weight: 450;
 
-                    span{
+                    span {
                         font-weight: 520;
                     }
                 }
 
 
             }
-            
-            div + div {
+
+            div+div {
                 margin-top: 0.8rem;
             }
-            #patrocinios{
+
+            #local {
                 @include displayFlex(row, space-between);
-                
-                
-                h2{
+
+
+                h2 {
                     @include textoEstilo(grau9, regular, $text);
                     font-weight: 450;
 
-                    span{
+                    span {
                         // @include textoEstilo(grau8, bold, $text);
                         font-weight: 520;
 
                     }
-                
-            #img-patrocinios{
-                @include displayFlex(row, space-between);
 
-
-            }
-                   
-                 
                 }
 
             }
@@ -281,117 +308,193 @@ body {
         }
 
     }
-    div + div {
-        margin-top: 1.5rem;
+
+    div+div {
+        margin-top: 0.3rem;
     }
 
-    #container-historia{
-        
+    #container-historia {
+        padding-top: 30px;
 
-        #container-conteudo-historia{
-            
-            @include tamanhos(362px, 900px);
+
+        #container-conteudo-historia {
+
+            @include tamanhos(362px, 850px);
             padding: 30px;
             background: #FFFFFF;
             filter: $shadowMain;
-            border: 1px ;
+            border: 1px;
             border-radius: 20px;
+
+
+            #historia {
+
+                h1 {
+                    @include textoEstilo(grau8, Montserrat, semiBold, $text);
+                    font-weight: 600;
+                    line-height: 2;
+                }
+
+                p {
+                    @include textoEstilo(grau9, Montserrat, $text);
+
+
+                    span {
+                        @include textoEstilo(grau9, Montserrat, bold, $text);
+                        font-weight: 600;
+                        text-decoration: underline;
+
+                    }
+
+                }
+
+
+            }
         }
 
 
 
     }
+
+    #patrocinios{
+        @include tamanhos(362px, 850px);
+        @include displayFlex(column, space-between);
+        background-color: #FFFFFF;
+        filter: $shadowMain;
+        border: 1px;
+        border-radius: 20px;
+        margin-top: 40px;
+
+
+        h2{     
+            @include textoEstilo(grau8, Montserrat, semiBold, $text);
+            font-weight: 600;
+            padding: 25px;
+            margin-bottom: 25px;
+            padding-top: 20px;
+          
+        }
+
+        #container-patrocinios{
+            @include tamanhos(320px, 900px);   
+            @include displayFlex(row, space-between, $wrap: wrap);        
+            padding: 30px;
+            // background: red;
+
+            
+
+            #conteudo-patrocinios{
+                @include displayFlex(row, space-between, $wrap: wrap);
+                @include tamanhos(100px, 600px);
+
+                .img-patrocinios{
+                    @include displayFlex(column, center, center);
+                    
+                    
+                }
+            }
+
+           
+
+        }
+
+
+    }
+
+
 }
 
-#direita{
+#direita {
 
 
-    #titulo-direita{
+
+    #titulo-direita {
         @include displayFlex(row, space-between);
-        letter-spacing: .0,5rem;
-     
-      
-    
-        
+        letter-spacing: .0, 5rem;
+
+
+
+
     }
 
-        h2{
+    h2 {
         @include textoEstilo(grau9, semiBold, $placeholder);
-      
-        
-        }
-
-        #texto-span{
-            @include tamanhos(35px, 35px);
-       
-           
-           
-          
 
 
-        }
-        
-        span{
-          
-            @include textoEstilo(grau9, semiBold, $text);
-            padding-left: 20px;
-            border-radius: 50px;
-            background-color: $deepSaffron;
-            
-           
-        }
-    
+    }
+
+    #texto-span {
+        @include tamanhos(35px, 35px);
+
+
+
+
+
+
+    }
+
+    span {
+
+        @include textoEstilo(grau9, semiBold, $text);
+        padding-left: 20px;
+        border-radius: 50px;
+        background-color: $deepSaffron;
+
+
+    }
+
     #container-direita {
         min-height: 430px;
         @include tamanhos(auto, 261px);
         @include displayFlex(column);
         background: #FFFFFF;
-            filter: $shadowMain;
-            border-radius: 20px;
-            padding: 12px 10px 15px;
-    
+        filter: $shadowMain;
+        border-radius: 20px;
+        padding: 12px 10px 15px;
+
         #mini-perfil-direita {
             @include tamanhos(112px, inherit);
             @include displayFlex(column);
             cursor: pointer;
             gap: 20px;
             padding: 15px 5px 15px;
-            
+
             img {
                 @include tamanhos(60px, 60px);
                 border-radius: 50%;
                 margin-left: 8px;
                 margin-right: 8px;
             }
-    
+
             h3 {
                 @include textoEstilo(grau9, semiBold, $text, capitalize);
                 white-space: nowrap;
             }
-            p{
+
+            p {
                 @include textoEstilo(grau10, semiBold, $placeholder, capitalize);
-                
+
             }
 
-            .perfil-direita{
+            .perfil-direita {
                 @include tamanhos(60px, 164px);
                 @include displayFlex(row, $align: center, $gap: 18px);
 
-                .nome-perfil{
+                .nome-perfil {
                     @include displayFlex(column);
                 }
             }
-          
+
         }
 
-        #img-amplifica{
+        #img-amplifica {
             padding-left: 100px;
             padding-top: 20px;
 
-            img{
+            img {
                 @include tamanhos(35px, 35px);
             }
         }
 
-}
+    }
 }

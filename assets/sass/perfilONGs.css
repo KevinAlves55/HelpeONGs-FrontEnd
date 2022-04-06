@@ -71,7 +71,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: red;
 }
 
 #container #mini-perfil {
@@ -206,8 +205,8 @@ body {
 }
 
 #centro #banner img {
-  height: 300px;
-  width: 900px;
+  height: 323px;
+  width: 850px;
 }
 
 #centro #perfil {
@@ -289,11 +288,37 @@ body {
   white-space: nowrap;
 }
 
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #titulos-perfil #icon-centro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin-left: 200px;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #titulos-perfil #icon-centro img {
+  height: 30px;
+  width: 30px;
+}
+
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #titulos-perfil #icon-centro span {
   font-size: 1.313rem;
   color: capitalize;
   text-transform: none;
   letter-spacing: none;
+  font-weight: 500;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor {
@@ -316,10 +341,43 @@ body {
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor h3 {
-  font-size: 1.313rem;
-  color: capitalize;
-  text-transform: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: capitalize;
   letter-spacing: none;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor #container-classificacao {
+  padding-top: 55px;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor #container-classificacao #conteudo-classificacao {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 50px;
+  width: 300px;
+  background-color: aqua;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor #container-classificacao #conteudo-classificacao .class-tipo {
+  height: 30px;
+  width: 80px;
+  background-color: red;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor #botao button {
@@ -363,7 +421,7 @@ body {
 }
 
 #centro ul li {
-  height: 65px;
+  height: 50px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -397,6 +455,10 @@ body {
   letter-spacing: none;
 }
 
+#centro ul li:hover {
+  border-bottom: 5px solid #FC595E;
+}
+
 #centro #container-conteudo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -418,7 +480,7 @@ body {
 
 #centro #container-conteudo #conteudo-sobre {
   height: 362px;
-  width: 900px;
+  width: 850px;
   padding: 30px;
   background: #FFFFFF;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -463,7 +525,7 @@ body {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  line-height: 2.5;
+  line-height: 2;
   font-weight: 450;
 }
 
@@ -475,7 +537,7 @@ body {
   margin-top: 0.8rem;
 }
 
-#centro #container-conteudo #conteudo-sobre #patrocinios {
+#centro #container-conteudo #conteudo-sobre #local {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -494,7 +556,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #conteudo-sobre #patrocinios h2 {
+#centro #container-conteudo #conteudo-sobre #local h2 {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -503,11 +565,95 @@ body {
   font-weight: 450;
 }
 
-#centro #container-conteudo #conteudo-sobre #patrocinios h2 span {
+#centro #container-conteudo #conteudo-sobre #local h2 span {
   font-weight: 520;
 }
 
-#centro #container-conteudo #conteudo-sobre #patrocinios h2 #img-patrocinios {
+#centro div + div {
+  margin-top: 0.3rem;
+}
+
+#centro #container-historia {
+  padding-top: 30px;
+}
+
+#centro #container-historia #container-conteudo-historia {
+  height: 362px;
+  width: 850px;
+  padding: 30px;
+  background: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border: 1px;
+  border-radius: 20px;
+}
+
+#centro #container-historia #container-conteudo-historia #historia h1 {
+  font-size: 1.563rem;
+  color: semiBold;
+  text-transform: #292929;
+  letter-spacing: none;
+  font-weight: 600;
+  line-height: 2;
+}
+
+#centro #container-historia #container-conteudo-historia #historia p {
+  font-size: 1.313rem;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-historia #container-conteudo-historia #historia p span {
+  font-size: 1.313rem;
+  color: bold;
+  text-transform: #292929;
+  letter-spacing: none;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+#centro #patrocinios {
+  height: 362px;
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border: 1px;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+#centro #patrocinios h2 {
+  font-size: 1.563rem;
+  color: semiBold;
+  text-transform: #292929;
+  letter-spacing: none;
+  font-weight: 600;
+  padding: 25px;
+  margin-bottom: 25px;
+  padding-top: 20px;
+}
+
+#centro #patrocinios #container-patrocinios {
+  height: 320px;
+  width: 900px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -521,24 +667,50 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0;
+  padding: 30px;
+}
+
+#centro #patrocinios #container-patrocinios #conteudo-patrocinios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0;
+  height: 100px;
+  width: 600px;
+}
+
+#centro #patrocinios #container-patrocinios #conteudo-patrocinios .img-patrocinios {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-}
-
-#centro div + div {
-  margin-top: 1.5rem;
-}
-
-#centro #container-historia #container-conteudo-historia {
-  height: 362px;
-  width: 900px;
-  padding: 30px;
-  background: #FFFFFF;
-  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
-          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
-  border: 1px;
-  border-radius: 20px;
 }
 
 #direita #titulo-direita {
@@ -558,7 +730,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  letter-spacing: .0,5rem;
+  letter-spacing: .0, 5rem;
 }
 
 #direita h2 {
