@@ -26,7 +26,6 @@ main {
         @include displayFlex(row, space-between, $wrap: wrap);
         margin-top: 45px;
 
-
         /* Parte que pode ser copiada */
         #direita {
             min-height: 500px;
@@ -85,6 +84,86 @@ main {
                     }
                 }
             }
+
+            #convite-quantidade {
+                @include tamanhos(50px, 210px);
+                @include displayFlex(row, space-between, center);
+                align-self: center;
+                margin-top: 28px;
+                margin-bottom: 25px;
+
+                h2 {
+                    font-size: 1.400rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $placeholder;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    @include tamanhos(35px, 35px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau9, medium, $background);
+                    border-radius: 50%;
+                    background-color: $tartOrange;
+                }
+            }
+
+            #vagas-indicadas {
+                min-height: 500px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 30px);
+
+                .vaga {
+                    @include tamanhos(424px, inherit);
+                    @include displayFlex(column, $align: center, $gap: 30px);
+                    padding: 25px;
+                    border-radius: 20px;
+                    background-color: #fff;
+                    filter: $shadowMain;
+
+                    .info-fundo-vaga {
+                        @include tamanhos(279px, 237px);
+
+                        .vaga-fundo {
+                            @include tamanhos(inherit, inherit);
+                            position: relative;
+                            border-radius: 20px;
+                        }
+
+                        .perfil-postagem {
+                            @include tamanhos(45px, 45px);
+                            border-radius: 6px;
+                            outline: 3px solid $background;
+                            position: absolute;
+                            top: 43px;
+                            left: 38px;
+                        }
+
+                        h3 {
+                            @include textoEstilo(grau9, extraBold, $case: capitalize);
+                            color: white;
+                            position: absolute;
+                            top: 135px;
+                            left: 35px;  
+                        }
+                    }
+
+                    button {
+                        @include tamanhos(50px, 237px);
+                        @include displayFlex(row, center, center);
+                        @include textoEstilo(grau9, semiBold, $text, capitalize);
+                        background-color: $deepSaffron;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition: .1s;
+
+                        &:hover {
+                            transition: .1s;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
         }
 
         #conteudo-feed {
@@ -123,6 +202,57 @@ main {
                         position: absolute;
                         bottom: 18px;
                         left: 10px;
+                    }
+                }
+            }
+
+            #criar-postagem {
+                @include tamanhos(90px, inherit);
+                @include displayFlex(rows, space-between, center);
+                background-color: #fff;
+                filter: $shadowMain;
+                border-radius: 20px;
+                padding: 15px;
+                margin: 35px 0;
+
+                #esquerda {
+                    @include tamanhos(68px, 498px);
+                    @include displayFlex(row, space-between, center);
+
+                    img {
+                        @include tamanhos(inherit, 72px);
+                        border-radius: 8px;
+                    }
+
+                    h2 {
+                        font-size: 1.490rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $placeholder;
+                    }
+
+                    span {
+                        font-family: 'Montserrat Alternates', sans-serif;
+                    }
+                }
+
+                button {
+                    @include tamanhos(50px, 210px);
+                    @include displayFlex(row, space-around, center);
+                    @include textoEstilo(grau9, semiBold, $text, capitalize);
+                    background-color: $deepSaffron;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    padding-right: 7px;
+                    transition: .1s;
+
+                    &:hover {
+                        transition: .1s;
+                        opacity: 0.8;
+                    }
+
+                    img {
+                        @include tamanhos(24px, 24px);
+                        margin-left: 8px;
                     }
                 }
             }

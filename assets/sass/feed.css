@@ -280,6 +280,7 @@ main #itens-main {
       flex-wrap: wrap;
   gap: 0;
   margin-top: 45px;
+  /* Parte que pode ser copiada */
 }
 
 main #itens-main #direita {
@@ -416,6 +417,185 @@ main #itens-main #direita #menu ul li a {
   letter-spacing: -0.02px;
 }
 
+main #itens-main #direita #convite-quantidade {
+  height: 50px;
+  width: 210px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 28px;
+  margin-bottom: 25px;
+}
+
+main #itens-main #direita #convite-quantidade h2 {
+  font-size: 1.400rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: uppercase;
+}
+
+main #itens-main #direita #convite-quantidade span {
+  height: 35px;
+  width: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #F8F9FA;
+  text-transform: none;
+  letter-spacing: none;
+  border-radius: 50%;
+  background-color: #FC595E;
+}
+
+main #itens-main #direita #vagas-indicadas {
+  min-height: 500px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 30px;
+}
+
+main #itens-main #direita #vagas-indicadas .vaga {
+  height: 424px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 30px;
+  padding: 25px;
+  border-radius: 20px;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+}
+
+main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga {
+  height: 279px;
+  width: 237px;
+}
+
+main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga .vaga-fundo {
+  height: inherit;
+  width: inherit;
+  position: relative;
+  border-radius: 20px;
+}
+
+main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga .perfil-postagem {
+  height: 45px;
+  width: 45px;
+  border-radius: 6px;
+  outline: 3px solid #F8F9FA;
+  position: absolute;
+  top: 43px;
+  left: 38px;
+}
+
+main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga h3 {
+  font-size: 1.313rem;
+  font-weight: 800;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  color: white;
+  position: absolute;
+  top: 135px;
+  left: 35px;
+}
+
+main #itens-main #direita #vagas-indicadas .vaga button {
+  height: 50px;
+  width: 237px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+main #itens-main #direita #vagas-indicadas .vaga button:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
 main #itens-main #conteudo-feed {
   min-height: 750px;
   height: auto;
@@ -493,5 +673,112 @@ main #itens-main #conteudo-feed #previa-eventos .evento h3 {
   position: absolute;
   bottom: 18px;
   left: 10px;
+}
+
+main #itens-main #conteudo-feed #criar-postagem {
+  height: 90px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: rows;
+          flex-direction: rows;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border-radius: 20px;
+  padding: 15px;
+  margin: 35px 0;
+}
+
+main #itens-main #conteudo-feed #criar-postagem #esquerda {
+  height: 68px;
+  width: 498px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed #criar-postagem #esquerda img {
+  height: inherit;
+  width: 72px;
+  border-radius: 8px;
+}
+
+main #itens-main #conteudo-feed #criar-postagem #esquerda h2 {
+  font-size: 1.490rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+main #itens-main #conteudo-feed #criar-postagem #esquerda span {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+main #itens-main #conteudo-feed #criar-postagem button {
+  height: 50px;
+  width: 210px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+  padding-right: 7px;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+main #itens-main #conteudo-feed #criar-postagem button:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+main #itens-main #conteudo-feed #criar-postagem button img {
+  height: 24px;
+  width: 24px;
+  margin-left: 8px;
 }
 /*# sourceMappingURL=feed.css.map */
