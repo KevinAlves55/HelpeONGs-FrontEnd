@@ -14,11 +14,11 @@ body {
 }
 #logo-img{
     padding-top: 15px;
-    padding-left: 225px;
+    padding-left: 130px;
 
         img{
-            height:120px;
-            width:350px;
+            height:100px;
+            width:300px;
         }
 }
 
@@ -36,8 +36,8 @@ body {
 
 #botao-doar{
     position: relative;
-    padding-right: 215px;
-    padding-top: 50px;
+    padding-right: 200px;
+    padding-top: 40px;
     cursor: pointer;
 
     button{
@@ -58,39 +58,39 @@ body {
 }
 
 #titulos-esquerda{
-    padding-left: 250px;
+    padding-left: 180px;
     padding-top: 100px;
     
 
     h1{
-        @include textoEstilo(grau1, bold, $deepSaffron);
+        @include textoEstilo(grau2, bold, $deepSaffron);
         
     }
 
     h3{
-        @include textoEstilo(grau7, medium, $text);
+        @include textoEstilo(grau8, medium, $text);
         padding-top: 20px;
  
     }
 }
 
 #fundo-img{
-    padding-top: 70px;
+    // padding-top: 10px;
 
     img{
-        @include tamanhos(740px, 70vw);
+        @include tamanhos(500px, 65vw);
     }
 }
 
 #direita{
- padding-right: 195px;
-padding-top:90px;
+padding-right: 117px;
+padding-top:50px;
 
 #cadastro{
-    @include tamanhos (800px, 580px);
+    @include tamanhos (700px, 480px);
     border:1px solid $text;
     border-radius:5px;
-    padding-top: 70px;
+    padding-top: 40px;
     padding-left: 40px;
 
     h2{
@@ -109,7 +109,7 @@ padding-top:90px;
             border:1px solid $placeholder;
             border-radius:5px;
             padding-left: 50px;
-           @include tamanhos(65px, 498px);
+           @include tamanhos(65px, 400px);
             @include textoEstilo(grau7, medium, $ligthBlack);
             background-color: $input;
             
@@ -129,7 +129,7 @@ padding-top:90px;
     p{
         padding-top: 30px;
         padding-left: 5px;
-        @include textoEstilo(grau11, light, $text);
+        @include textoEstilo(grau12, light, $text);
     }
 
     spam{
@@ -138,8 +138,8 @@ padding-top:90px;
     }
 
     h3{
-       padding-top: 40px;
-       text-align: center;
+       padding-top: 30px;
+       padding-left:50px;
     }
 
 }
@@ -148,7 +148,7 @@ padding-top:90px;
 #btn-continuar{
     border: none;
     padding-top: 30px;
-    text-align: center;
+    padding-left: 75px;
     
     
 

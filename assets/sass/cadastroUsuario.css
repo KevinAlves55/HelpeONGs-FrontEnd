@@ -52,12 +52,12 @@ body {
 
 #logo-img {
   padding-top: 15px;
-  padding-left: 225px;
+  padding-left: 130px;
 }
 
 #logo-img img {
-  height: 120px;
-  width: 350px;
+  height: 100px;
+  width: 300px;
 }
 
 #img-btnDoar {
@@ -74,8 +74,8 @@ body {
 
 #botao-doar {
   position: relative;
-  padding-right: 215px;
-  padding-top: 50px;
+  padding-right: 200px;
+  padding-top: 40px;
   cursor: pointer;
 }
 
@@ -112,12 +112,12 @@ body {
 }
 
 #titulos-esquerda {
-  padding-left: 250px;
+  padding-left: 180px;
   padding-top: 100px;
 }
 
 #titulos-esquerda h1 {
-  font-size: 3.438rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #FF9F45;
   text-transform: none;
@@ -125,7 +125,7 @@ body {
 }
 
 #titulos-esquerda h3 {
-  font-size: 1.813rem;
+  font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
   text-transform: none;
@@ -133,26 +133,22 @@ body {
   padding-top: 20px;
 }
 
-#fundo-img {
-  padding-top: 70px;
-}
-
 #fundo-img img {
-  height: 740px;
-  width: 70vw;
+  height: 500px;
+  width: 65vw;
 }
 
 #direita {
-  padding-right: 195px;
-  padding-top: 90px;
+  padding-right: 117px;
+  padding-top: 50px;
 }
 
 #direita #cadastro {
-  height: 800px;
-  width: 580px;
+  height: 700px;
+  width: 480px;
   border: 1px solid #292929;
   border-radius: 5px;
-  padding-top: 70px;
+  padding-top: 40px;
   padding-left: 40px;
 }
 
@@ -178,7 +174,7 @@ body {
   border-radius: 5px;
   padding-left: 50px;
   height: 65px;
-  width: 498px;
+  width: 400px;
   font-size: 1.813rem;
   font-weight: 500;
   color: #434343;
@@ -197,7 +193,7 @@ body {
 #direita #cadastro p {
   padding-top: 30px;
   padding-left: 5px;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 300;
   color: #292929;
   text-transform: none;
@@ -210,14 +206,14 @@ body {
 }
 
 #direita #cadastro h3 {
-  padding-top: 40px;
-  text-align: center;
+  padding-top: 30px;
+  padding-left: 50px;
 }
 
 #direita #btn-continuar {
   border: none;
   padding-top: 30px;
-  text-align: center;
+  padding-left: 75px;
 }
 
 #direita #btn-continuar button {
