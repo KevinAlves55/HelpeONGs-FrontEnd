@@ -206,12 +206,12 @@ body {
         }
 
         li {
-            @include tamanhos(50px, inherit);
+           
             @include displayFlex(row-reverce, $align: center, $gap: 18px);
 
 
             img {
-                @include tamanhos(35px, 35px);
+                @include tamanhos(25px, 40px);
                 margin-left: 26px;
             }
 
@@ -398,6 +398,45 @@ body {
 
         }
 
+        #container-conteudo-detalhes-conta{
+            background-color: aqua;
+
+        
+
+            #nome{
+                @include tamanhos(102px, 778px);
+                
+
+                input{
+                    @include tamanhos(63px, 773px);
+                }
+            }   
+            #email-data{
+                @include tamanhos(102px, 778px);
+
+                #email{
+                    @include tamanhos(102px, 355px);
+
+                }
+
+            }
+            #cnpj{
+                @include tamanhos(102px, 359px);
+            }
+            #celular-telefone{
+                @include tamanhos(102px, 778px);
+
+                #celular{
+                    @include tamanhos(102px, 359px);
+
+                }
+                #telefone{
+                    @include tamanhos(102px, 359px);
+                }
+            }
+
+        }
+
 
     }
 
@@ -425,8 +464,6 @@ body {
 
     #texto-span {
         @include tamanhos(35px, 35px);
-
-
 
 
 
@@ -492,7 +529,7 @@ body {
             padding-top: 20px;
 
             img {
-                @include tamanhos(35px, 35px);
+                @include tamanhos(30px, 32px);
             }
         }
 

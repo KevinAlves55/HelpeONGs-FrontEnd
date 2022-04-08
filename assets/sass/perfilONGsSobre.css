@@ -421,8 +421,6 @@ body {
 }
 
 #centro ul li {
-  height: 50px;
-  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -442,8 +440,8 @@ body {
 }
 
 #centro ul li img {
-  height: 35px;
-  width: 35px;
+  height: 25px;
+  width: 40px;
   margin-left: 26px;
 }
 
@@ -713,6 +711,50 @@ body {
   gap: 0;
 }
 
+#centro #patrocinios #container-conteudo-detalhes-conta {
+  background-color: aqua;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #nome {
+  height: 102px;
+  width: 778px;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #nome input {
+  height: 63px;
+  width: 773px;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #email-data {
+  height: 102px;
+  width: 778px;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #email-data #email {
+  height: 102px;
+  width: 355px;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #cnpj {
+  height: 102px;
+  width: 359px;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #celular-telefone {
+  height: 102px;
+  width: 778px;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #celular-telefone #celular {
+  height: 102px;
+  width: 359px;
+}
+
+#centro #patrocinios #container-conteudo-detalhes-conta #celular-telefone #telefone {
+  height: 102px;
+  width: 359px;
+}
+
 #direita #titulo-direita {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -879,7 +921,7 @@ body {
 }
 
 #direita #container-direita #img-amplifica img {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  width: 32px;
 }
-/*# sourceMappingURL=perfilONGs.css.map */
+/*# sourceMappingURL=perfilONGsSobre.css.map */
