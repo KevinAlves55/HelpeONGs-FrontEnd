@@ -163,6 +163,12 @@ main {
                         }
                     }
                 }
+
+                img {
+                    @include tamanhos(35px, 35px);
+                    align-self: center;
+                    cursor: pointer;
+                }
             }
         }
 
@@ -691,6 +697,69 @@ main {
                 @include textoEstilo(grau8, bold, $tartOrange, uppercase);
                 text-decoration: underline;
                 cursor: pointer;
+            }
+        }
+
+        #esquerda-seguidores {
+            min-height: 500px;
+            @include tamanhos(auto, 261px);
+            @include displayFlex(column, $gap: 25px);
+
+            #info-seguidores {
+                @include tamanhos(30px, 223px); 
+                @include displayFlex($justify: space-around, $align: center);
+
+                h3 {
+                    font-size: 1.450rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $placeholder;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    @include tamanhos(28px, 52px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau10, semiBold, $text);
+                    background-color: $deepSaffron;
+                    border-radius: 25px;
+                }
+            }
+
+            #seguindo {
+                @include tamanhos(auto, 261px);
+                @include displayFlex(column, $gap: 20px);
+                padding: 23px 0 10px 10px;
+                border-radius: 20px;
+                background-color: #fff;
+
+                .info-seguindo {
+                    min-height: 50px;
+                    @include tamanhos(60px, auto);
+                    @include displayFlex(row, $gap: 15px);
+
+                    img {
+                        @include tamanhos(inherit, 60px);
+                    }
+
+                    .identificador {
+                        @include tamanhos(50px, auto);
+                        @include displayFlex(column, space-between);
+
+                        h3 {
+                            @include textoEstilo(grau9, semiBold, $text);
+                        }
+
+                        span {
+                            @include textoEstilo(grau10, medium, $placeholder); 
+                        }
+                    }
+                }
+
+                img {
+                    @include tamanhos(35px, 35px);
+                    align-self: center;
+                    cursor: pointer;
+                }
             }
         }
     }
