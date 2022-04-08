@@ -90,16 +90,16 @@
             <ul>
                 
                 <li>
-                    <a href="#">Sobre</a>
+                    <span id="item1" >Sobre</span>
                   
                 </li>
                 <li >
 
-                    <a href="#">Detalhes da conta</a>
+                    <span id="item2" >Detalhes da conta</span>
                 </li>
                 <li >
                     
-                    <a href="#">Detalhes do endereço</a>
+                    <span id="item3" >Detalhes do endereço</span>
                 </li>
             </ul>
         </nav>
@@ -109,7 +109,7 @@
         <div id="container-conteudo">
 
         
-            <div id="container-conteudo-sobre" >
+            <div id="container-conteudo-sobre" class="item">
                 <div id="sobre-usuario">
 
                     <h3>Nasceu em:<span> 08 de Maio de 2005</span></h3>
@@ -127,7 +127,7 @@
 
             </div>
 
-            <div id="container-conteudo-detalhes-de-conta">
+            <div id="container-conteudo-detalhes-de-conta" class="item">
                 <form action="detalhes-da-conta" method="">
                     <div id="nome">
                         <p>Nome</p>
@@ -154,31 +154,17 @@
                         </div>
                     </div>
                     <div id="anexar-caminho">
-                       <div id="anexar">
-                            <a>Anexar currículo</a>
-                       </div>
+                        <form>
+                            <div>
+                                <label for="arquivo">Anexar currículo</label>
+                                <input type="file" name="arquivo" id="arquivo">
+                            </div>
+                        </form>
                        <div id="caminho">
                            <p>CaminhoDaImagem.png</p>
                        </div>
                     </div>
-                    <div id="edita-perfil">
-                        <div id="edita-perfil-nomes">
-                            <div id="perfil">
-                                <img src="./assets/img/Ellipse 12.png">
-                            </div>
-                            <div id="edita-foto-banner">
-                                <h2>Gustavo Alves</h2>
-                                <h3>Trocar/Trocar Banner</h3>
-                            </div>
-                            <div id="complete-cadastro">
-                                <p>Complete o cadastro</p>
-                            </div>
-                        </div>
-                        <div id="edita-banner">
-                            <img src="./assets/img/Rectangle 114.png">
-                        </div>
-
-                    </div>
+                
     
                     
                     <div id="proximo">
@@ -189,7 +175,7 @@
                 </form>
             </div>
 
-            <div id="container-conteudo-detalhes-do-endereco">
+            <div id="container-conteudo-detalhes-do-endereco" class="item">
                 <form action="conteudo-endereco" method="">
                     <div id="primeira-fileira">
                         <div id="cep">

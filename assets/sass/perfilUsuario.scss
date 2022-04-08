@@ -93,8 +93,10 @@ body {
                 border: 6px solid $background;
             }
         }
+     
         #conteudo-perfil-centro{
             padding-left: 200px;
+           
             
             
 
@@ -195,11 +197,17 @@ body {
         
     }
 
-
+    .item{
+        display:none;
+        
+    }
+    .aparecer{
+        display: flex;
+    }
     // Conteudo
     #container-conteudo{
         
-
+       
         #container-conteudo-sobre{
             @include displayFlex(column);
             @include tamanhos(344px, 766px);
@@ -249,8 +257,11 @@ body {
         }
 
         #container-conteudo-detalhes-de-conta{
-            @include tamanhos(1022px, 784px);
+            @include tamanhos(auto, 770px);
+            display: none;
+          
             
+           
             
           
            
@@ -258,6 +269,8 @@ body {
 
             #nome{
                 @include tamanhos(98px, 766px);
+                margin-top:30px;
+                background-color:red;
 
                 p{
                     @include textoEstilo(grau9, regular, $text);
@@ -273,6 +286,8 @@ body {
             #email-data{
                 @include tamanhos(102px, 766px);
                 @include displayFlex(row, space-between);
+                background-color:yellow;
+                margin-top: 20px;
 
                 p{
                     @include textoEstilo(grau9, regular, $text);
@@ -341,19 +356,24 @@ body {
                 @include tamanhos(65px, 770px);
                 @include displayFlex(row, space-between);
             
-                
-                #anexar{
-                    @include tamanhos(65px, 260px);
-                    border: 1px ;
-                    border-radius: 6px;
-                    background-color: $deepSaffron;
+        
 
-                    a{
-                        @include displayFlex(center, center);
-                        @include textoEstilo(grau9, regular, $text);
-                        padding-top: 19px;
+                    input[type="file"] {
+                        display: none;
                     }
-                }
+                    label {
+                        padding: 20px 10px;
+                        width: 200px;
+                        background-color: $deepSaffron;
+                        color: $text;
+                        text-align: center;
+                        display: block;
+                        cursor: pointer;
+                        font-weight: 450;
+                        border-radius: 6px;
+                    }
+
+               
                 #caminho{
                     @include tamanhos(65px, 449px);
                     border: 2px solid $placeholder;
@@ -366,78 +386,29 @@ body {
                         padding-left: 30px;
                     }
                 }
-            }
-
-        #edita-perfil{
-            @include tamanhos(327px, 779px);
-            border: 2px solid $placeholder;
-            border-radius: 20px;
-            background-color: #FFFFFF;
-            padding: 20px;
-        
-            #edita-perfil-nomes{
-                @include tamanhos(99px, 746px);
-                @include displayFlex(row, space-between);
-
-                #perfil{
-                    @include tamanhos(90px, 90px);
+         
                 }
-
-                #edita-foto-banner{
-                    @include displayFlex(column,);
-
-                    h2{
-                        @include textoEstilo(grau7, semiBold, $text);
+                #proximo{
+                    display:flex;
+                    justify-content:flex-end;
+                   padding-top: 40px;
+                
+                    button{
+                        @include tamanhos(75px, 250px);
+                        border: 2px ;
+                        border-radius: 6px;
+                        background-color: $deepSaffron;
+                        font-size: 30px;
+                        align-self: flex-end;
+                       
                     }
-                    h3{
-                        @include textoEstilo(grau9, semiBold, $deepSaffron);
-                    }
-                }
-                #complete-cadastro{
-                    @include tamanhos(52px, 273px);
-                    @include displayFlex(center, center);
-                    padding-top: 10px;
-                    background-color:$amarelo;
-                    border-radius:  6px;
-
-                    p{
-                        @include textoEstilo(grau9, medium, $text);
-                    }
-                }
-
             }
-            #edita-banner{
-                @include tamanhos(200px, 100%);
-                @include displayFlex();
-                justify-content:center;
-                align-items:center;
-              
-
-                img{
-                    @include tamanhos(180px, 480px);
-                }
-            }
-          
             
-        }
-        #proximo{
-            display:flex;
-            justify-content:flex-end;
-           padding-top: 40px;
-            button{
-                @include tamanhos(75px, 250px);
-                border: 2px ;
-                border-radius: 6px;
-                background-color: $deepSaffron;
-                font-size: 30px;
-                align-self: flex-end;
-               
-            }
-        }
         }
       
         #container-conteudo-detalhes-do-endereco{
             @include tamanhos(485px, 770px);
+            display: none;
             
             #primeira-fileira{
                 @include tamanhos(104px, 770px);
