@@ -256,6 +256,190 @@ main {
                     }
                 }
             }
+
+            .post {
+                min-height: 789px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, space-between, $gap: 25px);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 18px;
+
+                .parte-superior {
+                    @include tamanhos(80px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .info-ong {
+                        @include tamanhos(80px, 290px);
+                        @include displayFlex(row, space-between, center);
+
+                        img {
+                            @include tamanhos(inherit, 80px);
+                            border-radius: 50%;
+                        }
+
+                        .info-nome-data {
+                            @include tamanhos(55px, 200px);
+                            @include displayFlex(column, $gap: 3px);
+
+                            h2 {
+                                @include textoEstilo(grau8, bold, $text);
+                            }
+
+                            span {
+                                @include textoEstilo(grau11, semiBold, $placeholder);
+                            }
+                        }
+                    }
+
+                    img {
+                        @include tamanhos(21px, 31px);
+                        cursor: pointer;
+                    }
+                }
+
+                .imagens-postadas {
+                    @include tamanhos(314px, 736px);
+                    @include displayFlex(row, space-between);
+
+                    img {
+                        @include tamanhos(inherit, 435px);
+                        border-radius: 6px;
+                    }
+
+                    .imagens-complementos {
+                        @include tamanhos(inherit, 285px);
+                        @include displayFlex(column, space-between);
+
+                        .cima {
+                            @include tamanhos(125px, inherit);
+                            border-radius: 6px;
+                        }
+
+                        .baixo {
+                            @include tamanhos(176px, inherit);
+                            border-radius: 6px;  
+                        }
+                    }
+                }
+
+                p {
+                    font-size: 1.125rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $text;
+                }
+
+                .interacoes {
+                    @include tamanhos(25px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .icone-funcao {
+                        min-width: 50px;
+                        @include tamanhos(inherit, auto);
+                        @include displayFlex(row, $align: center, $gap: 7px);
+                        cursor: pointer;
+
+                        .curtir {
+                            @include tamanhos(25px, 28px);
+                        }
+
+                        .comentar {
+                            @include tamanhos(25px, 25px);
+                        }
+
+                        .compartilhar {
+                            @include tamanhos(25px, 25px);
+                        }
+
+                        span {
+                            @include textoEstilo(grau10, semiBold, $text, capitalize);
+                        }
+                    }
+                }
+
+                .comentarios {
+                    min-height: 180px;
+                    @include tamanhos(auto, 736px);
+                    @include displayFlex(column, $gap: 20px);
+                    margin-top: 12px;
+
+                    .corpo-comentario {
+                        min-height: 148px;
+                        min-width: 575px;
+                        @include tamanhos(auto, auto);
+                        @include displayFlex(row, space-between);
+
+                        .lateral-imagem {
+                            @include tamanhos(inherit, 74px);
+                            @include displayFlex();
+
+                            img {
+                                @include tamanhos(75px, 75px);
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .vertical-info {
+                            min-height: 150px;
+                            @include tamanhos(auto, 482px);
+                            @include displayFlex(column, $gap: 5px);
+
+                            .comentario {
+                                @include tamanhos(inherit, inherit);
+                                @include displayFlex(column, $gap: 8px);
+                                background-color: $deepSaffron;
+                                padding: 12px;
+                                border-radius: 6px;
+
+                                h3 {
+                                    @include textoEstilo(grau9, bold, $text);
+                                }
+    
+                                p {
+                                    @include textoEstilo(grau10, medium, $text);
+                                } 
+                                
+                                span {
+                                    font-size: 1.1rem;
+                                    font-weight: map-get($densidade, bold);
+                                    color: $text;
+                                    text-decoration: underline;
+                                    cursor: pointer;
+                                }
+                            }
+
+                            .acoes-comentario {
+                                min-width: 209px;
+                                @include tamanhos(30px, auto);
+                                @include displayFlex(row, $align: center, $gap: 15px);
+
+                                span {
+                                    font-size: 1.1rem;
+                                    font-weight: map-get($densidade, medium);
+                                    color: $text;
+                                }
+
+                                .curtir-comentario {
+                                    min-width: 168px;
+                                    @include tamanhos(inherit, auto);
+                                    @include displayFlex(row, $align: center, $gap: 6px);
+                                    cursor: pointer;
+
+                                    img {
+                                        @include tamanhos(25px, 29px);
+                                    }
+
+                                    span {
+                                        @include textoEstilo(grau10, semiBold, $text, capitalize);
+                                        margin-top: 2px;
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

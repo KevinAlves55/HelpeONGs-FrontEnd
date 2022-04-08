@@ -28,10 +28,10 @@ header {
                 position: relative;
     
                 img {
-                    @include tamanhos(35px, 35px);
+                    @include tamanhos(32px, 33px);
                     position: absolute;
-                    left: 12px;
-                    bottom: 41px;
+                    left: 14px;
+                    bottom: 43px;
                 }
     
                 input {
@@ -39,7 +39,7 @@ header {
                     border-radius: 20px;
                     padding-left: 53px;
                     @include textoEstilo(grau8, medium,  $text);
-                    border: 2px solid $border;
+                    border: 3px solid $border;
     
                     ::-webkit-input-placeholder {
                         color: $placeholder;

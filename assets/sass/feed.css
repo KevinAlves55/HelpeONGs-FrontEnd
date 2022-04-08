@@ -129,11 +129,11 @@ header #itens-header #lupa-atalhos #lupa-pesquisa {
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa img {
-  height: 35px;
-  width: 35px;
+  height: 32px;
+  width: 33px;
   position: absolute;
-  left: 12px;
-  bottom: 41px;
+  left: 14px;
+  bottom: 43px;
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa input {
@@ -146,7 +146,7 @@ header #itens-header #lupa-atalhos #lupa-pesquisa input {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  border: 2px solid #CCCCCC;
+  border: 3px solid #CCCCCC;
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa input ::-webkit-input-placeholder {
@@ -780,5 +780,464 @@ main #itens-main #conteudo-feed #criar-postagem button img {
   height: 24px;
   width: 24px;
   margin-left: 8px;
+}
+
+main #itens-main #conteudo-feed .post {
+  min-height: 789px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+  background-color: #fff;
+  border-radius: 20px;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  padding: 18px;
+}
+
+main #itens-main #conteudo-feed .post .parte-superior {
+  height: 80px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post .parte-superior .info-ong {
+  height: 80px;
+  width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post .parte-superior .info-ong img {
+  height: inherit;
+  width: 80px;
+  border-radius: 50%;
+}
+
+main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data {
+  height: 55px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 3px;
+}
+
+main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data h2 {
+  font-size: 1.563rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post .parte-superior img {
+  height: 21px;
+  width: 31px;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .post .imagens-postadas {
+  height: 314px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post .imagens-postadas img {
+  height: inherit;
+  width: 435px;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .post .imagens-postadas .imagens-complementos {
+  height: inherit;
+  width: 285px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post .imagens-postadas .imagens-complementos .cima {
+  height: 125px;
+  width: inherit;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .post .imagens-postadas .imagens-complementos .baixo {
+  height: 176px;
+  width: inherit;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .post p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+main #itens-main #conteudo-feed .post .interacoes {
+  height: 25px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post .interacoes .icone-funcao {
+  min-width: 50px;
+  height: inherit;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 7px;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .post .interacoes .icone-funcao .curtir {
+  height: 25px;
+  width: 28px;
+}
+
+main #itens-main #conteudo-feed .post .interacoes .icone-funcao .comentar {
+  height: 25px;
+  width: 25px;
+}
+
+main #itens-main #conteudo-feed .post .interacoes .icone-funcao .compartilhar {
+  height: 25px;
+  width: 25px;
+}
+
+main #itens-main #conteudo-feed .post .interacoes .icone-funcao span {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post .comentarios {
+  min-height: 180px;
+  height: auto;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario {
+  min-height: 148px;
+  min-width: 575px;
+  height: auto;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .lateral-imagem {
+  height: inherit;
+  width: 74px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .lateral-imagem img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info {
+  min-height: 150px;
+  height: auto;
+  width: 482px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 5px;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 8px;
+  background-color: #FF9F45;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario h3 {
+  font-size: 1.313rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #292929;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario {
+  min-width: 209px;
+  height: 30px;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 15px;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario {
+  min-width: 168px;
+  height: inherit;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 6px;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario img {
+  height: 25px;
+  width: 29px;
+}
+
+main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario span {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  margin-top: 2px;
 }
 /*# sourceMappingURL=feed.css.map */
