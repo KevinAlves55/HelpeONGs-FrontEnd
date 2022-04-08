@@ -170,7 +170,7 @@ main {
             min-height: 750px;
             height: auto;
             width: 775px;
-            @include displayFlex(column, space-between);
+            @include displayFlex(column, space-between, center, $gap: 45px);
 
             #previa-eventos {
                 @include tamanhos(275px, inherit);
@@ -213,7 +213,6 @@ main {
                 filter: $shadowMain;
                 border-radius: 20px;
                 padding: 15px;
-                margin: 35px 0;
 
                 #esquerda {
                     @include tamanhos(68px, 498px);
@@ -439,6 +438,259 @@ main {
                         }
                     }
                 }
+            }
+
+            .evento-feed {
+                min-height: 789px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, space-between, $gap: 25px);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 18px;
+
+                .parte-superior {
+                    @include tamanhos(80px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .info-ong {
+                        @include tamanhos(80px, 290px);
+                        @include displayFlex(row, space-between, center);
+
+                        img {
+                            @include tamanhos(inherit, 80px);
+                            border-radius: 50%;
+                        }
+
+                        .info-nome-data {
+                            @include tamanhos(55px, 200px);
+                            @include displayFlex(column, $gap: 3px);
+
+                            h2 {
+                                @include textoEstilo(grau8, bold, $text);
+                            }
+
+                            span {
+                                @include textoEstilo(grau11, semiBold, $placeholder);
+                            }
+                        }
+                    }
+
+                    img {
+                        @include tamanhos(21px, 31px);
+                        cursor: pointer;
+                    }
+                }
+
+                .info-evento {
+                    min-height: 632px;
+                    @include tamanhos(auto, 736px);
+                    @include displayFlex(column, space-between, $gap: 25px);
+
+                    .info-superior {
+                        min-height: 131px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, space-between, $gap: 25px);
+
+                        h2 {
+                            @include textoEstilo(grau7, semiBold, $text);
+                        }
+
+                        p {
+                            @include textoEstilo(grau10, medium, $text);
+                        }
+                    }
+
+                    .imagens-postadas {
+                        @include tamanhos(314px, 736px);
+                        @include displayFlex(row, space-between);
+    
+                        img {
+                            @include tamanhos(inherit, 435px);
+                            border-radius: 6px;
+                        }
+    
+                        .imagens-complementos {
+                            @include tamanhos(inherit, 285px);
+                            @include displayFlex(column, space-between);
+    
+                            .cima {
+                                @include tamanhos(125px, inherit);
+                                border-radius: 6px;
+                            }
+    
+                            .baixo {
+                                @include tamanhos(176px, inherit);
+                                border-radius: 6px;  
+                            }
+                        }
+                    }
+
+                    .info-complementares {
+                        @include tamanhos(201px, 736px);
+                        @include displayFlex(column);
+
+                        .complementares-superior {
+                            @include tamanhos(159px, inherit);
+                            @include displayFlex(row, space-between);
+
+                            .info-esquerda {
+                                @include tamanhos(inherit, 530px);
+                                @include displayFlex(column, space-between);
+
+                                .item {
+                                    @include displayFlex($gap: 7px);
+
+                                    h3 {
+                                        font-size: 1.450rem;
+                                        font-weight: map-get($densidade, semiBold);
+                                        color: $text;
+                                    }
+
+                                    .item-info {
+                                        font-size: 1.450rem;
+                                        font-weight: map-get($densidade, regular);
+                                        color: $text;
+                                    }
+
+                                    .item-stts {
+                                        @include tamanhos(35px, 89px);
+                                        @include displayFlex(row, center, center);
+                                        font-size: 0.85rem;
+                                        font-weight: map-get($densidade, bold);
+                                        background-color: $verde;
+                                        border-radius: 6px;
+                                    }
+                                }
+                            }
+
+                            .botoes-direita {
+                                @include tamanhos(103px, 160px);
+                                @include displayFlex(column, space-between);
+
+                                .botao {
+                                    @include tamanhos(40px, 160px);
+                                    @include displayFlex(row, center, center);
+                                    font-size: 1.200rem;
+                                    font-weight: map-get($densidade, medium);
+                                    color: $text;
+                                    background-color: $border;
+                                    border-radius: 6px;
+                                    border: none;
+                                    cursor: pointer;
+                                    transition: .1s;
+
+                                    &:hover {
+                                        transition: .1s;
+                                        opacity: 0.8;
+                                    }
+                                }
+                            }
+                        }
+
+                        .complementares-inferior {
+                            @include tamanhos(42px, inherit);
+                            @include displayFlex(row, flex-end, center);
+
+                            span {
+                                font-size: 1.200rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text; 
+                            }
+
+                            i {
+                                font-weight: map-get($densidade, regular);
+                                font-style: normal;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .vaga {
+                min-height: 475px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 55px);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 25px;
+
+                .parte-superior {
+                    @include tamanhos(80px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .info-ong {
+                        @include tamanhos(80px, 290px);
+                        @include displayFlex(row, space-between, center);
+
+                        img {
+                            @include tamanhos(inherit, 80px);
+                            border-radius: 50%;
+                        }
+
+                        .info-nome-data {
+                            @include tamanhos(55px, 200px);
+                            @include displayFlex(column, $gap: 3px);
+
+                            h2 {
+                                @include textoEstilo(grau8, bold, $text);
+                            }
+
+                            span {
+                                @include textoEstilo(grau11, semiBold, $placeholder);
+                            }
+                        }
+                    }
+
+                    img {
+                        @include tamanhos(21px, 31px);
+                        cursor: pointer;
+                    }
+                }
+
+                .corpo-vaga {
+                    @include tamanhos(281px, 736px);
+                    @include displayFlex(column, space-between);
+
+                    h2 {
+                        @include textoEstilo(grau8, semiBold, $text);
+                    }
+
+                    p {
+                        @include textoEstilo(grau9, medium, $text);
+                    }
+
+                    .vaga-botoes {
+                        @include tamanhos(60px, 350px);
+                        @include displayFlex(row, space-between);
+                        align-self: center;
+
+                        button {
+                            @include tamanhos(inherit, 150px);
+                            @include displayFlex(row, center, center);
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            text-transform: capitalize;
+                            background-color: $deepSaffron;
+                            border-radius: 6px;
+                            border: none;
+                            transition: .1s;
+                            cursor: pointer;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+
+            h4 {
+                @include textoEstilo(grau8, bold, $tartOrange, uppercase);
+                text-decoration: underline;
+                cursor: pointer;
             }
         }
     }

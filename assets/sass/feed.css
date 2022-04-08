@@ -610,12 +610,12 @@ main #itens-main #conteudo-feed {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 45px;
 }
 
 main #itens-main #conteudo-feed #previa-eventos {
@@ -699,7 +699,6 @@ main #itens-main #conteudo-feed #criar-postagem {
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border-radius: 20px;
   padding: 15px;
-  margin: 35px 0;
 }
 
 main #itens-main #conteudo-feed #criar-postagem #esquerda {
@@ -1239,5 +1238,675 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   text-transform: capitalize;
   letter-spacing: none;
   margin-top: 2px;
+}
+
+main #itens-main #conteudo-feed .evento-feed {
+  min-height: 789px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+  background-color: #fff;
+  border-radius: 20px;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  padding: 18px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .parte-superior {
+  height: 80px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong {
+  height: 80px;
+  width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong img {
+  height: inherit;
+  width: 80px;
+  border-radius: 50%;
+}
+
+main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nome-data {
+  height: 55px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 3px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nome-data h2 {
+  font-size: 1.563rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nome-data span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .evento-feed .parte-superior img {
+  height: 21px;
+  width: 31px;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento {
+  min-height: 632px;
+  height: auto;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior {
+  min-height: 131px;
+  height: auto;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior h2 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas {
+  height: 314px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas img {
+  height: inherit;
+  width: 435px;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas .imagens-complementos {
+  height: inherit;
+  width: 285px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas .imagens-complementos .cima {
+  height: 125px;
+  width: inherit;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas .imagens-complementos .baixo {
+  height: 176px;
+  width: inherit;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares {
+  height: 201px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior {
+  height: 159px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda {
+  height: inherit;
+  width: 530px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 7px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item h3 {
+  font-size: 1.450rem;
+  font-weight: 600;
+  color: #292929;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-info {
+  font-size: 1.450rem;
+  font-weight: 400;
+  color: #292929;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-stts {
+  height: 35px;
+  width: 89px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background-color: #39CE04;
+  border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita {
+  height: 103px;
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita .botao {
+  height: 40px;
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.200rem;
+  font-weight: 500;
+  color: #292929;
+  background-color: #CCCCCC;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita .botao:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-inferior {
+  height: 42px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-inferior span {
+  font-size: 1.200rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-inferior i {
+  font-weight: 400;
+  font-style: normal;
+}
+
+main #itens-main #conteudo-feed .vaga {
+  min-height: 475px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 55px;
+  background-color: #fff;
+  border-radius: 20px;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  padding: 25px;
+}
+
+main #itens-main #conteudo-feed .vaga .parte-superior {
+  height: 80px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .vaga .parte-superior .info-ong {
+  height: 80px;
+  width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .vaga .parte-superior .info-ong img {
+  height: inherit;
+  width: 80px;
+  border-radius: 50%;
+}
+
+main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data {
+  height: 55px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 3px;
+}
+
+main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data h2 {
+  font-size: 1.563rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .vaga .parte-superior img {
+  height: 21px;
+  width: 31px;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .vaga .corpo-vaga {
+  height: 281px;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .vaga .corpo-vaga h2 {
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .vaga .corpo-vaga p {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes {
+  height: 60px;
+  width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button {
+  height: inherit;
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.450rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  border: none;
+  -webkit-transition: .1s;
+  transition: .1s;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+main #itens-main #conteudo-feed h4 {
+  font-size: 1.563rem;
+  font-weight: 700;
+  color: #FC595E;
+  text-transform: uppercase;
+  letter-spacing: none;
+  text-decoration: underline;
+  cursor: pointer;
 }
 /*# sourceMappingURL=feed.css.map */
