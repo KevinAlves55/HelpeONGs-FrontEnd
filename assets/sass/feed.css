@@ -280,7 +280,6 @@ main #itens-main {
       flex-wrap: wrap;
   gap: 0;
   margin-top: 45px;
-  /* Parte que pode ser copiada */
 }
 
 main #itens-main #direita {
@@ -1236,8 +1235,8 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
 }
 
 main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario img {
-  height: 25px;
-  width: 29px;
+  height: 20px;
+  width: 25px;
 }
 
 main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario span {
@@ -1910,13 +1909,16 @@ main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button:hover {
 }
 
 main #itens-main #conteudo-feed h4 {
-  font-size: 1.563rem;
+  font-size: 1.313rem;
   font-weight: 700;
   color: #FC595E;
   text-transform: uppercase;
   letter-spacing: none;
   text-decoration: underline;
   cursor: pointer;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-right: 25px;
 }
 
 main #itens-main #esquerda-seguidores {
@@ -1993,6 +1995,7 @@ main #itens-main #esquerda-seguidores #info-seguidores span {
   text-transform: none;
   letter-spacing: none;
   background-color: #FF9F45;
+  padding-right: 3px;
   border-radius: 25px;
 }
 
@@ -2034,9 +2037,9 @@ main #itens-main #esquerda-seguidores #seguindo .info-seguindo {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 15px;

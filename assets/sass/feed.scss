@@ -26,7 +26,6 @@ main {
         @include displayFlex(row, space-between, $wrap: wrap);
         margin-top: 45px;
 
-        /* Parte que pode ser copiada */
         #direita {
             min-height: 500px;
             @include tamanhos(auto, 279px);
@@ -432,7 +431,7 @@ main {
                                     cursor: pointer;
 
                                     img {
-                                        @include tamanhos(25px, 29px);
+                                        @include tamanhos(20px, 25px);
                                     }
 
                                     span {
@@ -694,9 +693,11 @@ main {
             }
 
             h4 {
-                @include textoEstilo(grau8, bold, $tartOrange, uppercase);
+                @include textoEstilo(grau9, bold, $tartOrange, uppercase);
                 text-decoration: underline;
                 cursor: pointer;
+                align-self: flex-end;
+                margin-right: 25px;
             }
         }
 
@@ -721,6 +722,7 @@ main {
                     @include displayFlex(row, center, center);
                     @include textoEstilo(grau10, semiBold, $text);
                     background-color: $deepSaffron;
+                    padding-right: 3px;
                     border-radius: 25px;
                 }
             }
@@ -735,7 +737,7 @@ main {
                 .info-seguindo {
                     min-height: 50px;
                     @include tamanhos(60px, auto);
-                    @include displayFlex(row, $gap: 15px);
+                    @include displayFlex(row, $align: center, $gap: 15px);
 
                     img {
                         @include tamanhos(inherit, 60px);
