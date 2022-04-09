@@ -1,6 +1,8 @@
 "use strict";
 
-document.getElementById("formButton").addEventListener("click", event => {
+import ApiRequest from "./utils/ApiRequest.js";
+
+document.getElementById("formButton").addEventListener("click", () => {
     const dom = {
         cnpj: document.getElementById("CNPJ").value,
         email: document.getElementById("email").value,
@@ -20,18 +22,10 @@ document.getElementById("formButton").addEventListener("click", event => {
         senha: dom.password,
     };
 
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({...ongData}),
-    };
-
-    fetch("http://localhost:3131/ong/pre-register", options)
-        .then(response => {
-            console.log(response);
-        });
+    let request;
+    console.log("Waiting request 0s: ", request);
+    request = ApiRequest("POST", "http://localhost:3131/ong/pre-register", ongData);
+    console.log("Waiting request 1s: ", request);
 });
 
 
