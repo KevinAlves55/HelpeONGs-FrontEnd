@@ -185,7 +185,7 @@ body {
                 margin-left: 26px;
             }
 
-            a {
+            span {
                 @include textoEstilo(grau9, regular, $placeholder, -0.02px);
                 cursor: pointer;
             }
@@ -196,18 +196,22 @@ body {
         }
         
     }
-
-    .item{
-        display:none;
-        
-    }
-    .aparecer{
-        display: flex;
-    }
+    
     // Conteudo
     #container-conteudo{
-        
-       
+
+        .item {
+            display: block;
+        }
+
+        .aparecer {
+            display: flex;
+        }
+
+        .desaparecer {
+            display: none;
+        }
+
         #container-conteudo-sobre{
             @include displayFlex(column);
             @include tamanhos(344px, 766px);
@@ -259,18 +263,11 @@ body {
         #container-conteudo-detalhes-de-conta{
             @include tamanhos(auto, 770px);
             display: none;
-          
-            
-           
-            
-          
-           
-            
 
             #nome{
                 @include tamanhos(98px, 766px);
                 margin-top:30px;
-                background-color:red;
+               
 
                 p{
                     @include textoEstilo(grau9, regular, $text);
@@ -286,7 +283,7 @@ body {
             #email-data{
                 @include tamanhos(102px, 766px);
                 @include displayFlex(row, space-between);
-                background-color:yellow;
+
                 margin-top: 20px;
 
                 p{
@@ -526,6 +523,126 @@ body {
 
             }
         }
+        #senha{
+            @include displayFlex(column,);
+            display: none;
+
+            h1{
+                @include textoEstilo(grau7, semiBold, $text);
+            }
+            #editar-senha{
+                @include displayFlex(column);
+                padding: 15px;
+
+                #senha-atual{
+                    padding: 10px;
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                    }
+                    input{
+                        @include textoEstilo(grau9, medium, $placeholder);
+                        @include tamanhos(65px, 720px);
+                        padding: 10px;
+                        border: 1px solid $placeholder;
+                        border-radius:6px;
+                        
+                    }
+                }
+                #nova-confirmar{
+                    @include displayFlex(row, space-between);
+                    padding: 10px;
+
+                    #nova-senha{
+
+                        h3{
+                            @include textoEstilo(grau9, regular, $text);
+                        }
+                        input{
+                            @include textoEstilo(grau9, medium, $placeholder);
+                            @include tamanhos(65px, 350px);
+                            padding: 10px;
+                            border: 1px solid $placeholder;
+                            border-radius:6px;
+                            
+                        }
+                    }
+                    #confirmar-senha{
+                        padding-left: 20px;
+                        h3{
+                            @include textoEstilo(grau9, regular, $text);
+                        }
+                        input{
+                            @include textoEstilo(grau9, medium, $placeholder);
+                            @include tamanhos(65px, 350px);
+                            padding: 10px;
+                            border: 1px solid $placeholder;
+                            border-radius:6px;
+                            
+                        }
+                    }
+                }
+               
+            }
+            #botao{
+                width: 720px;
+                @include displayFlex(row, space-between);
+                align-items: center;
+                justify-content: center;
+                
+
+                #butao-editar{
+
+                    button{
+                    @include tamanhos(60px, 232px);
+                    cursor: pointer;
+                    font-size: 30px; 
+                    color: $text;
+                    background-color: $deepSaffron;
+                    border-radius:6px; 
+                    }
+                }
+                #botao-cancelar{
+                    padding-left: 20px;
+                    
+                    button{
+                        @include tamanhos(60px, 232px);
+                        cursor: pointer;
+                        font-size: 30px; 
+                        color: $text;
+                        background-color: $deepSaffron;
+                        border-radius:6px; 
+                        }
+                }
+            }
+        }
+        #conta{
+            @include displayFlex(column);
+            padding:15px;
+            display: none;
+            
+
+            h2{
+                @include textoEstilo(grau7, semiBold, $text);
+                width: 750px;
+              
+            }
+            #Botao{
+                width: 720px;
+                display: flex;
+                justify-content: center;
+                padding:25px;
+
+                button{
+                    @include tamanhos(60px, 232px);
+                    cursor: pointer;
+                    font-size: 30px; 
+                    color: $text;
+                    background-color: $deepSaffron;
+                    border-radius:6px; 
+                    }
+            }
+        }
+
     }
 
 }

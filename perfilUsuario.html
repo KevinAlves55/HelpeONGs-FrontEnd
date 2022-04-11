@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="./assets/js/paginacaoPerfilUsuario.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 <body>
     <!-- Esquerda -->
@@ -56,6 +55,7 @@
             </nav>
         </div>
     </div>
+
     <!-- Centro -->
     <div id="centro">
        
@@ -91,15 +91,18 @@
                 
                 <li>
                     <span id="item1" >Sobre</span>
-                  
                 </li>
-                <li >
-
+                <li>
                     <span id="item2" >Detalhes da conta</span>
                 </li>
                 <li >
-                    
                     <span id="item3" >Detalhes do endereço</span>
+                </li>
+                <li >
+                    <span id="item4">Senha</span>
+                </li>
+                <li >
+                    <span id="item5">Conta</span>
                 </li>
             </ul>
         </nav>
@@ -107,8 +110,6 @@
 
 
         <div id="container-conteudo">
-
-        
             <div id="container-conteudo-sobre" class="item">
                 <div id="sobre-usuario">
 
@@ -216,6 +217,46 @@
                         <button type="submit">Finalizar</button>
                     </div>
                 </form>
+            </div>
+
+            <div id="senha" class="item">
+                <h1>Editar informações da senha</h1>
+                <div id="editar-senha">
+                    <div id="senha-atual">
+                        <h3>Senha atual</h3>
+                        <input type="text" id="" placeholder="Digite senha atual">
+                    </div>
+                    <div id="nova-confirmar">
+                        <div id="nova-senha">
+                            <h3>Nova senha</h3>
+                            <input type="text" id="" placeholder="Digite nova senha">
+                        </div>
+
+                        <div id="confirmar-senha">
+                            <h3>Confirmar nova senha</h3>
+                            <input type="text" id="" placeholder="Confirme senha">
+                        </div>
+                    </div>
+                </div>
+                <div id="botao">
+                    <div id="butao-editar">
+                        <button type="submit">Editar</button>
+                    </div>
+                    <div id="botao-cancelar">
+                        <button type="submit">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="conta" class="item">
+                <h2>
+                    Caso esteja insatisfeito em nossa plataforma, você tem a opção de 
+                    excluir sua conta, mas lembresse, todos os seus dados salvos não 
+                    estaram mais aqui  
+                </h2>
+                <div id="Botao">
+                    <button type="submit">Excluir conta</button>
+                </div>
             </div>
         </div>
 

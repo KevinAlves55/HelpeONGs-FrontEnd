@@ -352,7 +352,7 @@ body {
   margin-left: 26px;
 }
 
-#centro ul li a {
+#centro ul li span {
   font-size: 1.313rem;
   font-weight: 400;
   color: #8C8C8C;
@@ -365,14 +365,18 @@ body {
   border-bottom: 5px solid #FC595E;
 }
 
-#centro .item {
-  display: none;
+#centro #container-conteudo .item {
+  display: block;
 }
 
-#centro .aparecer {
+#centro #container-conteudo .aparecer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+#centro #container-conteudo .desaparecer {
+  display: none;
 }
 
 #centro #container-conteudo #container-conteudo-sobre {
@@ -477,7 +481,6 @@ body {
   height: 98px;
   width: 766px;
   margin-top: 30px;
-  background-color: red;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome p {
@@ -516,7 +519,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: yellow;
   margin-top: 20px;
 }
 
@@ -893,6 +895,246 @@ body {
   border-radius: 6px;
   background-color: #FF9F45;
   font-size: 30px;
+}
+
+#centro #container-conteudo #senha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  display: none;
+}
+
+#centro #container-conteudo #senha h1 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #senha #editar-senha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding: 15px;
+}
+
+#centro #container-conteudo #senha #editar-senha #senha-atual {
+  padding: 10px;
+}
+
+#centro #container-conteudo #senha #editar-senha #senha-atual h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #senha #editar-senha #senha-atual input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 720px;
+  padding: 10px;
+  border: 1px solid #8C8C8C;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #senha #editar-senha #nova-confirmar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding: 10px;
+}
+
+#centro #container-conteudo #senha #editar-senha #nova-confirmar #nova-senha h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #senha #editar-senha #nova-confirmar #nova-senha input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 350px;
+  padding: 10px;
+  border: 1px solid #8C8C8C;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #senha #editar-senha #nova-confirmar #confirmar-senha {
+  padding-left: 20px;
+}
+
+#centro #container-conteudo #senha #editar-senha #nova-confirmar #confirmar-senha h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #senha #editar-senha #nova-confirmar #confirmar-senha input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 350px;
+  padding: 10px;
+  border: 1px solid #8C8C8C;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #senha #botao {
+  width: 720px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#centro #container-conteudo #senha #botao #butao-editar button {
+  height: 60px;
+  width: 232px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #292929;
+  background-color: #FF9F45;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #senha #botao #botao-cancelar {
+  padding-left: 20px;
+}
+
+#centro #container-conteudo #senha #botao #botao-cancelar button {
+  height: 60px;
+  width: 232px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #292929;
+  background-color: #FF9F45;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #conta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding: 15px;
+  display: none;
+}
+
+#centro #container-conteudo #conta h2 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  width: 750px;
+}
+
+#centro #container-conteudo #conta #Botao {
+  width: 720px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 25px;
+}
+
+#centro #container-conteudo #conta #Botao button {
+  height: 60px;
+  width: 232px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #292929;
+  background-color: #FF9F45;
+  border-radius: 6px;
 }
 
 #direita {
