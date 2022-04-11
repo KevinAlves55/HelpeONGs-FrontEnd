@@ -1,6 +1,6 @@
 "use strict";
 
-import ApiRequest from "./utils/ApiRequest.js";
+import ApiRequest from "../utils/ApiRequest.js";
 
 document.getElementById("formButton").addEventListener("click", () => {
     const dom = {
