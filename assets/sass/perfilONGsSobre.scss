@@ -433,7 +433,7 @@ body {
         }
         #email-data{
             @include tamanhos(102px, 766px);
-            @include displayFlex(row, space-between);
+            @include displayFlex(row, space-between, center);
             margin-top: 20px;
 
             p{
@@ -467,7 +467,7 @@ body {
         }
         #celular-telefone{
             @include tamanhos(auto, 766px);
-            @include displayFlex(row, space-between);
+            @include displayFlex(row, space-between, center);
             
 
             p{
@@ -529,7 +529,7 @@ body {
         
         #primeira-fileira{
             @include tamanhos(104px, 770px);
-            @include displayFlex(row, space-between);
+            @include displayFlex(row, space-between, center); 
 
             #cep{
                 h3{
@@ -574,7 +574,7 @@ body {
         
         #segunda-fileira{
             @include tamanhos(104px, 770px);
-            @include displayFlex(row, space-between);
+            @include displayFlex(row, space-between, center);
 
             #bairro{
                 h3{
@@ -633,6 +633,7 @@ body {
         #quarta-fileira{
             display: flex;
             justify-content: flex-end;
+            padding-top: 40px;
             button{
                 @include tamanhos(65px, 230px);
                 border: 1px ;
@@ -642,6 +643,139 @@ body {
             }
 
         }
+    }
+
+    #container-conteudo-meios-doacoes{
+        @include tamanhos(500px, 850px);
+        padding: 30px;
+        background: #FFFFFF;
+        filter: $shadowMain;
+        border: 1px;
+        border-radius: 20px;
+
+        #fileira-doacoes{
+            @include tamanhos(104px, 770px);
+            @include displayFlex(row, space-between, center);
+
+            #site{
+                h3{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+                input{
+                    @include tamanhos(65px, 350px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size:22px;
+                    padding: 5px;
+                }
+
+            }
+            #pix{
+                h3{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+                input{
+                    @include tamanhos(65px, 350px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size:22px;
+                    padding: 5px;
+                }
+
+            }
+
+        }
+        #fileira-agencia{
+            background-color: blue;
+            @include tamanhos(104px, 770px);
+            @include displayFlex(row, space-between);
+
+            #agencia{
+                height: 103px;
+                background-color:aqua;
+                h3{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+                input{
+                    @include tamanhos(65px, 142px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size:22px;
+                    padding: 5px;
+                }
+            }
+            #conta{
+                background-color:aquamarine;
+
+                h3{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+                input{
+                    @include tamanhos(65px, 350px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size:22px;
+                }
+
+            }
+            #tipo {
+    
+                @include tamanhos(65px, 194px);
+                @include displayFlex(row, space-between);
+                background-color: red;
+    
+                #filtros-pesquisas {
+                    @include tamanhos(88px, inherit);
+                    @include displayFlex($gap: 45px);
+    
+                    #tipo-conta{
+                        @include tamanhos(88px, 417px);
+                        @include displayFlex(column, space-between);
+    
+                        label {
+                            @include textoEstilo(grau9, medium, $text, $letter: -0.02em);
+                        }
+    
+                        select {
+                            @include tamanhos(65px, 194px);
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                            border: 2px solid $border;
+                            border-radius: 6px;
+                            padding: 0px 15px;
+                            // align-self: flex-end;
+                            appearance: none;
+                            -moz-appearance: none;
+                            background: #fff url('../img/code.png') 95.5% 50% no-repeat;
+    
+                            option {
+                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                            }
+                        }
+        
+        
+        
+        
+                    }
+              
+                }
+            }
+        }
+
+        #botao-proximo{
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 100px;
+            button{
+                @include tamanhos(65px, 230px);
+                border: 1px ;
+                border-radius: 6px;
+                background-color: $deepSaffron;
+                font-size:30px;
+            }
+
+        }
+
+        
     }
  
 

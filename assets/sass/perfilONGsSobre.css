@@ -758,9 +758,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
@@ -816,9 +816,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
@@ -905,9 +905,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
@@ -977,9 +977,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
@@ -1081,9 +1081,256 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  padding-top: 40px;
 }
 
 #centro #container-conteudo-detalhes-do-endereco #quarta-fileira button {
+  height: 65px;
+  width: 230px;
+  border: 1px;
+  border-radius: 6px;
+  background-color: #FF9F45;
+  font-size: 30px;
+}
+
+#centro #container-conteudo-meios-doacoes {
+  height: 500px;
+  width: 850px;
+  padding: 30px;
+  background: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border: 1px;
+  border-radius: 20px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-doacoes {
+  height: 104px;
+  width: 770px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #site h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #site input {
+  height: 65px;
+  width: 350px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #pix h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #pix input {
+  height: 65px;
+  width: 350px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia {
+  background-color: blue;
+  height: 104px;
+  width: 770px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #agencia {
+  height: 103px;
+  background-color: aqua;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #agencia h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #agencia input {
+  height: 65px;
+  width: 142px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #conta {
+  background-color: aquamarine;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #conta h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #conta input {
+  height: 65px;
+  width: 350px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 22px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #tipo {
+  height: 65px;
+  width: 194px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: red;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #tipo #filtros-pesquisas {
+  height: 88px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 45px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #tipo #filtros-pesquisas #tipo-conta {
+  height: 88px;
+  width: 417px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #tipo #filtros-pesquisas #tipo-conta label {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #tipo #filtros-pesquisas #tipo-conta select {
+  height: 65px;
+  width: 194px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  padding: 0px 15px;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/code.png") 95.5% 50% no-repeat;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #tipo #filtros-pesquisas #tipo-conta select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+#centro #container-conteudo-meios-doacoes #botao-proximo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-top: 100px;
+}
+
+#centro #container-conteudo-meios-doacoes #botao-proximo button {
   height: 65px;
   width: 230px;
   border: 1px;
