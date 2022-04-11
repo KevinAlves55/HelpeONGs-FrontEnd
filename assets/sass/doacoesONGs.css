@@ -980,13 +980,30 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button {
   cursor: pointer;
   -webkit-transition: .5s;
   transition: .5s;
+  z-index: 2;
+  overflow: hidden;
+  color: #292929;
 }
 
-main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button:hover {
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #FF9F45;
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 0 0 20px 20px;
+}
+
+main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button:hover:after {
   -webkit-transition: .5s;
   transition: .5s;
-  background-color: #FF9F45;
-  color: #292929;
+  bottom: 0;
+  z-index: -1;
+  opacity: 1;
 }
 
 main #itens-main #acoes #resultados-pesquisas #setas {
