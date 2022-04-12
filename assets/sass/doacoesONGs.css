@@ -203,11 +203,17 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto {
   height: inherit;
   width: 90px;
+  border-radius: 50%;
 }
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   height: 24px;
   width: 24px;
+}
+
+.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .modal {
@@ -219,11 +225,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   background: #00000090;
   opacity: 0;
   z-index: -1;
-}
-
-.modal .active {
-  opacity: 1;
-  z-index: 1;
 }
 
 .modal .modal-close {
@@ -525,6 +526,83 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   width: inherit;
 }
 
+.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.modalFiltro {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 1;
+  z-index: 1;
+}
+
+.modalFiltro .modal-close {
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.modalFiltro .modal-close:hover {
+  background-color: #ff4949;
+  color: white;
+}
+
+.modalFiltro .modal-conteudo {
+  height: 400px;
+  width: 55vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin: 15vh auto;
+  padding: 20px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 10px black;
+          box-shadow: 1px 1px 10px black;
+  border-radius: 20px;
+}
+
 body {
   min-height: 100vh;
   display: -webkit-box;
@@ -640,7 +718,6 @@ main #itens-main #direita #mini-perfil {
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border-radius: 20px;
-  cursor: pointer;
 }
 
 main #itens-main #direita #mini-perfil img {
@@ -652,11 +729,15 @@ main #itens-main #direita #mini-perfil img {
 }
 
 main #itens-main #direita #mini-perfil h3 {
-  font-size: 1.313rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
   letter-spacing: none;
+}
+
+main #itens-main #direita #mini-perfil a {
+  text-decoration: underline;
 }
 
 main #itens-main #direita #menu {
@@ -1063,7 +1144,7 @@ main #itens-main #acoes #resultados-pesquisas #setas .seta img {
 main #itens-main #esquerda {
   min-height: 500px;
   height: auto;
-  width: 322px;
+  width: 400px;
 }
 
 main #itens-main #esquerda #recomendados, main #itens-main #esquerda #favoritos {
@@ -1105,8 +1186,9 @@ main #itens-main #esquerda #recomendados h3, main #itens-main #esquerda #favorit
 
 main #itens-main #esquerda #recomendados #recomendados-ongs, main #itens-main #esquerda #favoritos #recomendados-ongs, main #itens-main #esquerda #favoritos #favoritos-ong {
   min-height: 100px;
+  min-width: 295px;
   height: auto;
-  width: inherit;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1122,14 +1204,14 @@ main #itens-main #esquerda #recomendados #recomendados-ongs, main #itens-main #e
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 18px;
+  gap: 30px;
   margin-top: 36px;
   margin-bottom: 19px;
 }
 
 main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes {
   height: 50px;
-  width: 295px;
+  width: 362px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1148,15 +1230,37 @@ main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes, main #
   gap: 0;
 }
 
-main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes img, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes img, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes img {
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes div, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes div, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes div {
+  min-width: 180px;
+  height: inherit;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 10px;
+}
+
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes div img, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes div img, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes div img {
   height: inherit;
   width: 50px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes h2, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes h2, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes h2 {
-  font-size: 1.125rem;
+main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes div h2, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes div h2, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes div h2 {
+  font-size: 1rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
@@ -1164,8 +1268,8 @@ main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes h2, mai
 }
 
 main #itens-main #esquerda #recomendados #recomendados-ongs .ongs-opcoes button, main #itens-main #esquerda #favoritos #recomendados-ongs .ongs-opcoes button, main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes button {
-  height: 40px;
-  width: 103px;
+  height: 45px;
+  width: 85px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1205,5 +1309,6 @@ main #itens-main #esquerda #recomendados span, main #itens-main #esquerda #favor
   letter-spacing: none;
   text-decoration: underline;
   cursor: pointer;
+  margin-top: 10px;
 }
 /*# sourceMappingURL=doacoesONGs.css.map */

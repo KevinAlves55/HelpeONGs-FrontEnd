@@ -1,3 +1,8 @@
+.active {
+    opacity: 1;
+    z-index: 1;
+}
+
 .modal {
     @include tamanhos(100%, 100%);
     position: fixed;
@@ -6,11 +11,6 @@
     background: #00000090;
     opacity: 0;
     z-index: -1;
-
-    .active {
-        opacity: 1;
-        z-index: 1;
-    }
 
     .modal-close {
         @include tamanhos(30px, 30px);

@@ -1,17 +1,33 @@
 "use strict"
 
-import { openModal, closeModal } from "../doacoes/modal.js ";
+import ApiRequest from "../doacoes/ApiRequest.js";
 
-// const testeModal = async ({target}) => {
+const CriarRecomendados = ({id, nome, foto}) => {
 
-//     if (target.type === "button") {
+    const corpo = document.createElement("div");
 
-//         alert("Abriu");
+    corpo.innerHTML =
+    `<div class="ongs-opcoes">
+        <div>
+            <img src="${foto}" alt="Ongs perfil" title="Foto Ong">
+            <h2>${nome}</h2>
+        </div>
+        <button data-idRecomendados="${id}">DOAR</button>
+    </div>`;
 
-//     }
+    return corpo;
 
-// }
+}
 
-document.getElementById('teste').addEventListener('click', openModal);
-// document.getElementById('ongs').addEventListener('click', testeModal);
-document.getElementById('modalClose').addEventListener('click', closeModal);
+const carregarRecomendados = async () => {
+
+    const container = document.getElementById("recomendados-ongs");
+    const objeto = await ApiRequest("GET", "http://localhost:3131/ong/all");
+    const corpo = objeto.data;
+    const recomendados = corpo.filter(({idOng}) => idOng > 8 ? false : true);
+    const cards = recomendados.map(CriarRecomendados);
+    container.replaceChildren(...cards);
+
+}
+
+carregarRecomendados();

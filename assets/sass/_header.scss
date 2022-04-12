@@ -61,6 +61,7 @@ header {
     
                     #foto {
                         @include tamanhos(inherit, 90px);
+                        border-radius: 50%;
                     }
     
                     #seta-baixo {

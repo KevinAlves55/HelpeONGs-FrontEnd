@@ -4,6 +4,45 @@
 @import '_header';
 @import '_modalDoacoes';
 
+.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.modalFiltro {
+    @include tamanhos(100%, 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 1;
+    z-index: 1;
+
+    .modal-close {
+        @include tamanhos(30px, 30px);
+        @include displayFlex(row, center, center);
+        user-select: none;
+        cursor: pointer;
+        border-radius: 50%;
+        align-self: flex-start;
+
+        &:hover {
+            background-color: #ff4949;
+            color: white;
+        }
+    }
+
+    .modal-conteudo {
+        @include tamanhos(400px, 55vw);
+        @include displayFlex(column, space-between, center);
+        margin: 15vh auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 1px 1px 10px black;
+        border-radius: 20px;
+    }
+}
+
 body {
     min-height: 100vh;
     @include displayFlex(column);
@@ -36,7 +75,6 @@ main {
                 background: #FFFFFF;
                 filter: $shadowMain;
                 border-radius: 20px;
-                cursor: pointer;
                 
                 img {
                     @include tamanhos(75px, 75px);
@@ -46,7 +84,11 @@ main {
                 }
 
                 h3 {
-                    @include textoEstilo(grau9, semiBold, $text, capitalize);
+                    @include textoEstilo(grau10, semiBold, $text, capitalize);
+                }
+
+                a {
+                    text-decoration: underline;
                 }
             }
 
@@ -243,7 +285,7 @@ main {
 
         #esquerda {
             min-height: 500px;
-            @include tamanhos(auto, 322px);
+            @include tamanhos(auto, 400px);
 
             #recomendados {
                 min-height: 200px;
@@ -262,27 +304,34 @@ main {
 
                 #recomendados-ongs {
                     min-height: 100px;
-                    @include tamanhos(auto, inherit);
-                    @include displayFlex(column, $gap: 18px);
+                    min-width: 295px;
+                    @include tamanhos(auto, auto);
+                    @include displayFlex(column, $gap: 30px);
                     margin-top: 36px;
                     margin-bottom: 19px;
 
                     .ongs-opcoes {
-                        @include tamanhos(50px, 295px);
+                        @include tamanhos(50px, 362px);
                         @include displayFlex(row, space-between, center);
 
-                        img {
-                            @include tamanhos(inherit, 50px);
-                            border-radius: 50%;
-                            cursor: pointer;
-                        }
+                        div {
+                            min-width: 180px;
+                            @include tamanhos(inherit, auto);
+                            @include displayFlex(row, $align: center, $gap: 10px);
 
-                        h2 {
-                            @include textoEstilo(grau10, semiBold, $text, capitalize, -0.02em);
+                            img {
+                                @include tamanhos(inherit, 50px);
+                                border-radius: 50%;
+                                cursor: pointer;
+                            }
+    
+                            h2 {
+                                @include textoEstilo(grau11, semiBold, $text, capitalize, -0.02em);
+                            }
                         }
 
                         button {
-                            @include tamanhos(40px, 103px);
+                            @include tamanhos(45px, 85px);
                             @include displayFlex(row, center, center);
                             @include textoEstilo(grau10, semiBold, $text, uppercase, -0.02em);
                             background-color: $deepSaffron;
@@ -301,6 +350,7 @@ main {
                     @include textoEstilo(grau10, medium, $tartOrange);
                     text-decoration: underline;
                     cursor: pointer;
+                    margin-top: 10px;
                 }
             }
 
