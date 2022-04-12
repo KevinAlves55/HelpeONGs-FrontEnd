@@ -1,43 +1,57 @@
 'use strict'
 
+const nav = {
+    btnSobre: document.getElementById("item1"),
+    btnDetalhesConta: document.getElementById("item2"),
+    btnDetalhesEndereco: document.getElementById("item3"),
+    btnSenha: document.getElementById("item4"),
+    btnConta: document.getElementById("item5")
+}
 
-document.getElementById("item1").addEventListener("click", ()=>{
-    document.getElementById("container-conteudo-sobre").classList.add("aparecer")
-    document.getElementById("container-conteudo-detalhes-de-conta").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-do-endereco").classList.remove("aparecer")
-    document.getElementById("senha").classList.remove("aparecer")
-    document.getElementById("conta").classList.remove("aparecer")
-    
-})
+const dom = {
+    sobre: document.getElementById("container-conteudo-sobre"),
+    detalhesConta: document.getElementById("container-conteudo-detalhes-de-conta"),
+    detalhesEndereco: document.getElementById("container-conteudo-detalhes-do-endereco"),
+    senha: document.getElementById("senha"),
+    conta: document.getElementById("conta"),
+}
 
-document.getElementById("item2").addEventListener("click", ()=>{
-    document.getElementById("container-conteudo-sobre").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-de-conta").classList.add("aparecer")
-    document.getElementById("container-conteudo-detalhes-do-endereco").classList.remove("aparecer")
-    document.getElementById("senha").classList.remove("aparecer")
-    document.getElementById("conta").classList.remove("aparecer")
-})
+nav.btnSobre.addEventListener("click", event => {
+    dom.detalhesConta.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
+    dom.sobre.style.display = "flex";
+});
 
-document.getElementById("item3").addEventListener("click", ()=>{
-    document.getElementById("container-conteudo-sobre").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-de-conta").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-do-endereco").classList.add("aparecer")
-    document.getElementById("senha").classList.remove("aparecer")
-    document.getElementById("conta").classList.remove("aparecer")
-})
+nav.btnDetalhesConta.addEventListener("click", event => {
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
+    dom.detalhesConta.style.display = "flex";
+});
 
-document.getElementById("item4").addEventListener("click", ()=>{
-    document.getElementById("container-conteudo-sobre").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-de-conta").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-do-endereco").classList.remove("aparecer")
-    document.getElementById("senha").classList.add("aparecer")
-    document.getElementById("conta").classList.remove("aparecer")
-})
+nav.btnDetalhesEndereco.addEventListener("click", event => {
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
+    dom.detalhesEndereco.style.display = "flex";
+});
 
-document.getElementById("item5").addEventListener("click", ()=>{
-    document.getElementById("container-conteudo-sobre").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-de-conta").classList.remove("aparecer")
-    document.getElementById("container-conteudo-detalhes-do-endereco").classList.remove("aparecer")
-    document.getElementById("senha").classList.remove("aparecer")
-    document.getElementById("conta").classList.add("aparecer")
-})
+nav.btnSenha.addEventListener("click", event => {
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.conta.style.display = "none";
+    dom.senha.style.display = "flex";
+});
+
+nav.btnConta.addEventListener("click", event => {
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "flex";
+});

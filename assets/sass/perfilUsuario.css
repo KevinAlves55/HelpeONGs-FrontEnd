@@ -365,20 +365,6 @@ body {
   border-bottom: 5px solid #FC595E;
 }
 
-#centro #container-conteudo .item {
-  display: block;
-}
-
-#centro #container-conteudo .aparecer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#centro #container-conteudo .desaparecer {
-  display: none;
-}
-
 #centro #container-conteudo #container-conteudo-sobre {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -472,7 +458,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta {
-  height: auto;
+  height: 550px;
   width: 770px;
   display: none;
 }
@@ -494,7 +480,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome input {
   height: 65px;
   width: 761px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 18px;
   padding: 15px;
@@ -538,7 +524,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data #email input {
   height: 65px;
   width: 350px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 18px;
   padding: 15px;
@@ -554,7 +540,7 @@ body {
   width: 222px;
   font-size: 18px;
   padding: 15px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
 }
 
@@ -595,7 +581,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #celular input {
   height: 65px;
   width: 350px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 18px;
   padding: 15px;
@@ -611,7 +597,7 @@ body {
   width: 350px;
   font-size: 18px;
   padding: 15px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
 }
 
@@ -634,6 +620,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  padding: 30px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho input[type="file"] {
@@ -655,7 +642,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho #caminho {
   height: 65px;
   width: 449px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   background-color: #FFFFFF;
 }
@@ -677,7 +664,7 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #proximo button {
@@ -729,7 +716,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #cep input {
   height: 65px;
   width: 158px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
@@ -746,7 +733,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #estado input {
   height: 65px;
   width: 288px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
@@ -763,7 +750,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade input {
   height: 65px;
   width: 288px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
@@ -801,7 +788,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #bairro input {
   height: 65px;
   width: 288px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
@@ -818,7 +805,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #rua input {
   height: 65px;
   width: 251px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
@@ -835,7 +822,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #numero input {
   height: 65px;
   width: 130px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
@@ -873,7 +860,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento input {
   height: 65px;
   width: 769px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
@@ -966,7 +953,7 @@ body {
   height: 65px;
   width: 720px;
   padding: 10px;
-  border: 1px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
 }
 
@@ -1007,7 +994,7 @@ body {
   height: 65px;
   width: 350px;
   padding: 10px;
-  border: 1px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
 }
 
@@ -1032,7 +1019,7 @@ body {
   height: 65px;
   width: 350px;
   padding: 10px;
-  border: 1px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
   border-radius: 6px;
 }
 
