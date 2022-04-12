@@ -160,11 +160,11 @@ body {
                         #conteudo-classificacao{
                             @include displayFlex(row);
                             @include tamanhos(50px, 300px);
-                           background-color: aqua;
+                        //    background-color: aqua;
 
                            .class-tipo{
                                @include tamanhos(30px, 80px);
-                               background-color: red;
+                            //    background-color: red;
                            }
 
                         }
@@ -686,13 +686,13 @@ body {
 
         }
         #fileira-agencia{
-            background-color: blue;
+            // background-color: blue;
             @include tamanhos(104px, 770px);
             @include displayFlex(row, space-between);
 
             #agencia{
                 height: 103px;
-                background-color:aqua;
+                // background-color:aqua;
                 h3{
                     @include textoEstilo(grau9, regular, $text);
                 }
@@ -705,7 +705,7 @@ body {
                 }
             }
             #conta{
-                background-color:aquamarine;
+                // background-color:aquamarine;
 
                 h3{
                     @include textoEstilo(grau9, regular, $text);
@@ -722,7 +722,7 @@ body {
     
                 @include tamanhos(65px, 194px);
                 @include displayFlex(row, space-between);
-                background-color: red;
+                // background-color: red;
     
                 #filtros-pesquisas {
                     @include tamanhos(88px, inherit);
@@ -777,6 +777,87 @@ body {
 
         
     }
+    #container-conteudo-patrocinios{
+        @include tamanhos(auto, 774px);
+        
+
+        #editar-imagen{
+            @include tamanhos(100px, 774px);
+            @include displayFlex(row );
+        }
+        #editar-nome-link{
+            @include displayFlex(row, space-between);
+            #nome-link{
+                @include displayFlex(column);
+                #nome-do-patrocinador{
+                    @include tamanhos(102px, 276px);
+                    
+                    h3{
+                        
+                    }
+                    input{
+                        @include tamanhos(65px, 266px);
+                    }
+                }
+                #link-do-site{
+                    @include tamanhos(102px, 276px);
+                    @include displayFlex(column);
+
+                    h3{
+
+                    }
+
+                    input{
+                        @include tamanhos(65px, 266px);
+                    }
+                }
+            }
+            #container-principal{
+                @include tamanhos(271px, 317px);
+                
+
+                .container{
+                    @include tamanhos(87px, 317px);
+                    @include displayFlex(row, space-between);
+                    border: 2px solid $border;
+                }
+            }
+           
+        }
+        #botoes{
+            @include displayFlex(row);
+            @include tamanhos(55px, 397px);
+
+            #botao-adicionar{
+                
+
+                button{
+                    @include textoEstilo (grau9, semiBold, $text);
+                    @include tamanhos(55px, 185px);
+                    border: 1px ;
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    }
+            }
+            #botao-finalizar{
+                @include tamanhos(55px, 185px);
+
+                button{
+                    @include textoEstilo (grau9, semiBold, $text);
+                    @include tamanhos(55px, 185px);
+                    border: 1px ;
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    }
+            }
+          }
+
+
+    }
+
+            
+        
+    
  
 
 

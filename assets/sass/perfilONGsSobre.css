@@ -371,13 +371,11 @@ body {
   gap: 0;
   height: 50px;
   width: 300px;
-  background-color: aqua;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor #container-classificacao #conteudo-classificacao .class-tipo {
   height: 30px;
   width: 80px;
-  background-color: red;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #titulo-seguidor #botao button {
@@ -1160,7 +1158,6 @@ body {
 }
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia {
-  background-color: blue;
   height: 104px;
   width: 770px;
   display: -webkit-box;
@@ -1183,7 +1180,6 @@ body {
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia #agencia {
   height: 103px;
-  background-color: aqua;
 }
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia #agencia h3 {
@@ -1201,10 +1197,6 @@ body {
   border-radius: 6px;
   font-size: 22px;
   padding: 5px;
-}
-
-#centro #container-conteudo-meios-doacoes #fileira-agencia #conta {
-  background-color: aquamarine;
 }
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia #conta h3 {
@@ -1242,7 +1234,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: red;
 }
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia #tipo #filtros-pesquisas {
@@ -1337,6 +1328,185 @@ body {
   border-radius: 6px;
   background-color: #FF9F45;
   font-size: 30px;
+}
+
+#centro #container-conteudo-patrocinios {
+  height: auto;
+  width: 774px;
+}
+
+#centro #container-conteudo-patrocinios #editar-imagen {
+  height: 100px;
+  width: 774px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador {
+  height: 102px;
+  width: 276px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input {
+  height: 65px;
+  width: 266px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site {
+  height: 102px;
+  width: 276px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input {
+  height: 65px;
+  width: 266px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #container-principal {
+  height: 271px;
+  width: 317px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #container-principal .container {
+  height: 87px;
+  width: 317px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border: 2px solid #CCCCCC;
+}
+
+#centro #container-conteudo-patrocinios #botoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 55px;
+  width: 397px;
+}
+
+#centro #container-conteudo-patrocinios #botoes #botao-adicionar button {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  height: 55px;
+  width: 185px;
+  border: 1px;
+  border-radius: 6px;
+  background-color: #FF9F45;
+}
+
+#centro #container-conteudo-patrocinios #botoes #botao-finalizar {
+  height: 55px;
+  width: 185px;
+}
+
+#centro #container-conteudo-patrocinios #botoes #botao-finalizar button {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  height: 55px;
+  width: 185px;
+  border: 1px;
+  border-radius: 6px;
+  background-color: #FF9F45;
 }
 
 #direita #info-seguidores {
