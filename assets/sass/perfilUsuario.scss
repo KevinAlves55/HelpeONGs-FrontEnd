@@ -262,6 +262,7 @@ body {
 
         #container-conteudo-detalhes-de-conta{
             @include tamanhos(550px, 770px);
+            @include displayFlex(column);
             display: none;
 
             #nome{
@@ -352,7 +353,7 @@ body {
             #anexar-caminho{
                 @include tamanhos(65px, 770px);
                 @include displayFlex(row, space-between);
-                padding: 30px;
+                margin-top: 20px;
             
         
 
@@ -360,14 +361,13 @@ body {
                         display: none;
                     }
                     label {
-                        padding: 20px 10px;
-                        width: 200px;
+                        @include textoEstilo(grau9, semiBold, $text);
+                        padding: 22px 10px;
+                        width: 230px;
                         background-color: $deepSaffron;
-                        color: $text;
                         text-align: center;
                         display: block;
                         cursor: pointer;
-                        font-weight: 450;
                         border-radius: 6px;
                     }
 
@@ -389,7 +389,9 @@ body {
                 #proximo{
                     display:flex;
                     justify-content:flex-end;
-                    padding-top:60px;
+                    padding-left: 500px;
+                    padding-top:30px;
+                    
                 
                     button{
                         @include tamanhos(75px, 250px);
@@ -653,40 +655,43 @@ body {
     @include displayFlex(column);
 
     #status-seguidores{
-        @include displayFlex(row, space-between);
-        letter-spacing: .0,5rem;
+        @include displayFlex($justify: space-around, $align: center);
+        @include tamanhos(30px, 223px);
+        
 
         h2{
             @include textoEstilo(grau9, semiBold, $placeholder);
         }
-
-        #numero-seguidores{
-            @include tamanhos(22px, 52px);
-            border: 1px;
-            border-radius: 10px;
+        span{
+            @include tamanhos(28px, 52px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau10, semiBold, $text);
             background-color: $deepSaffron;
-            text-align: center;
-
-                p{
-                    @include textoEstilo(grau10, semiBold, $text);
-                }
+            border-radius: 25px;
         }
+         
     }
+    
+    
+    
     #container-direita {
         min-height: 430px;
         @include tamanhos(auto, 261px);
         @include displayFlex(column);
-        background: #FFFFFF;
-            filter: $shadowMain;
-            border-radius: 20px;
-            padding: 12px 10px 15px;
+        padding: 12px 10px 15px;
+            
+            
     
         #mini-perfil-direita {
-            @include tamanhos(112px, inherit);
+            @include tamanhos(auto, 261px);
             @include displayFlex(column);
             cursor: pointer;
+            filter: $shadowMain;
+            border-radius: 20px;
+            background: #FFFFFF;
             gap: 20px;
             padding: 15px 5px 15px;
+            
             
             img {
                 @include tamanhos(60px, 60px);
