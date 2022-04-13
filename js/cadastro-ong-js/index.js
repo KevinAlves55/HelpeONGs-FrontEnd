@@ -27,3 +27,7 @@ document.getElementById("formButton").addEventListener("click", () => {
     request = ApiRequest("POST", "http://localhost:3131/ong/pre-register", ongData);
     console.log("Waiting request 1s: ", request);
 });
+
+// nao deixar campo vazio
+// minimo de caracteres
+// nao permitir aspas simples
