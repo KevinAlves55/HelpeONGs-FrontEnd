@@ -186,6 +186,10 @@ body {
 }
 
 #centro {
+  min-height: 500px;
+  background-color: silver;
+  height: auto;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -202,6 +206,10 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+}
+
+#centro #banner {
+  background-color: aqua;
 }
 
 #centro #banner img {
@@ -240,7 +248,7 @@ body {
 #centro #perfil #foto-perfil #foto {
   height: inherit;
   width: inherit;
-  background-image: url("../img/Rectangle 95.png");
+  background-image: url("../img/perfil-foto-ONG.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -252,11 +260,13 @@ body {
 
 #centro #perfil #conteudo-perfil-centro {
   padding-left: 200px;
+  background-color: yellow;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton {
   height: auto;
   width: 501px;
+  background-color: red;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #titulos-perfil {
@@ -598,6 +608,7 @@ body {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
+  margin-top: 0.4rem;
 }
 
 #centro #container-historia #container-conteudo-historia #historia p span {
@@ -1331,8 +1342,15 @@ body {
 }
 
 #centro #container-conteudo-patrocinios {
-  height: auto;
-  width: 774px;
+  margin-top: 50px;
+  height: 550px;
+  width: 850px;
+  padding: 30px;
+  background: #FFFFFF;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border: 1px;
+  border-radius: 20px;
 }
 
 #centro #container-conteudo-patrocinios #editar-imagen {
@@ -1354,6 +1372,16 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+}
+
+#centro #container-conteudo-patrocinios h2 {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 25px;
+  padding-left: 10px;
 }
 
 #centro #container-conteudo-patrocinios #editar-nome-link {
@@ -1392,6 +1420,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  gap: 15px;
 }
 
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador {
@@ -1399,9 +1428,55 @@ body {
   width: 276px;
 }
 
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 3px;
+}
+
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input {
   height: 65px;
   width: 266px;
+  border: 1px solid #CCCCCC;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input::-webkit-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input:-ms-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input::-ms-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input::placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
 }
 
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site {
@@ -1425,9 +1500,55 @@ body {
   gap: 0;
 }
 
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 3px;
+}
+
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input {
   height: 65px;
   width: 266px;
+  border: 1px solid #CCCCCC;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input::-webkit-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input:-ms-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input::-ms-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input::placeholder {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 5px;
 }
 
 #centro #container-conteudo-patrocinios #editar-nome-link #container-principal {
@@ -1445,9 +1566,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -1455,6 +1576,17 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   border: 2px solid #CCCCCC;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #container-principal .container .imagens {
+  padding: 5px;
+}
+
+#centro #container-conteudo-patrocinios #editar-nome-link #container-principal .container .nome h2 {
+  font-size: 1.313rem;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
 }
 
 #centro #container-conteudo-patrocinios #botoes {
@@ -1474,8 +1606,16 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  height: 55px;
+  height: 50px;
   width: 397px;
+  padding: 20px;
+  gap: 40px;
+  background-color: blue;
+}
+
+#centro #container-conteudo-patrocinios #botoes #botao-adicionar {
+  height: 55px;
+  width: 185px;
 }
 
 #centro #container-conteudo-patrocinios #botoes #botao-adicionar button {
@@ -1494,6 +1634,22 @@ body {
 #centro #container-conteudo-patrocinios #botoes #botao-finalizar {
   height: 55px;
   width: 185px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
 #centro #container-conteudo-patrocinios #botoes #botao-finalizar button {
@@ -1507,11 +1663,36 @@ body {
   border: 1px;
   border-radius: 6px;
   background-color: #FF9F45;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#direita {
+  min-height: 500px;
+  height: auto;
+  width: 322px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 20px;
 }
 
 #direita #info-seguidores {
   height: 30px;
-  width: 223px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1519,23 +1700,25 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #direita #info-seguidores h3 {
   font-size: 1.313rem;
-  font-weight: 600;
-  color: #292929;
+  font-weight: 500;
+  color: #8C8C8C;
   text-transform: none;
   letter-spacing: none;
-  color: #8C8C8C;
 }
 
 #direita #info-seguidores span {
@@ -1570,7 +1753,7 @@ body {
 #direita #container-direita {
   min-height: 430px;
   height: auto;
-  width: 261px;
+  width: 322px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1586,66 +1769,18 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 20px;
   background: #FFFFFF;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border-radius: 20px;
-  padding: 12px 10px 15px;
+  padding: 15px;
 }
 
-#direita #container-direita #mini-perfil-direita {
-  height: 112px;
-  width: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  cursor: pointer;
-  gap: 20px;
-  padding: 15px 5px 15px;
-}
-
-#direita #container-direita #mini-perfil-direita img {
+#direita #container-direita .perfil-direita {
+  min-width: 164px;
   height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-#direita #container-direita #mini-perfil-direita h3 {
-  font-size: 1.313rem;
-  font-weight: 600;
-  color: #292929;
-  text-transform: capitalize;
-  letter-spacing: none;
-  white-space: nowrap;
-}
-
-#direita #container-direita #mini-perfil-direita p {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #8C8C8C;
-  text-transform: capitalize;
-  letter-spacing: none;
-}
-
-#direita #container-direita #mini-perfil-direita .perfil-direita {
-  height: 60px;
-  width: 164px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1661,10 +1796,19 @@ body {
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 18px;
+  gap: 14px;
 }
 
-#direita #container-direita #mini-perfil-direita .perfil-direita .nome-perfil {
+#direita #container-direita .perfil-direita img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+#direita #container-direita .perfil-direita div {
+  min-width: 92px;
+  height: 50px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1683,13 +1827,29 @@ body {
   gap: 0;
 }
 
-#direita #container-direita #img-amplifica {
-  padding-left: 100px;
-  padding-top: 20px;
+#direita #container-direita .perfil-direita div h3 {
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  white-space: nowrap;
 }
 
-#direita #container-direita #img-amplifica img {
-  height: 30px;
-  width: 32px;
+#direita #container-direita .perfil-direita div p {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: capitalize;
+  letter-spacing: none;
+}
+
+#direita #container-direita img {
+  height: 35px;
+  width: 35px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  cursor: pointer;
 }
 /*# sourceMappingURL=perfilONGsSobre.css.map */
