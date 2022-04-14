@@ -136,7 +136,6 @@ body {
                         span {
                             @include textoEstilo(grau9, $text, capitalize);
                             font-weight: 500;
-
                         }
 
                     }
@@ -147,24 +146,20 @@ body {
                     @include displayFlex(row, space-between);
 
                     h3 {
-
                         @include textoEstilo(grau11, semiBold, $placeholder, capitalize);
                     }
 
                     #container-classificacao{
-                        // padding: 15px;
                         padding-top: 55px;
-                        // padding-right: 50px;
                        
                         
                         #conteudo-classificacao{
                             @include displayFlex(row);
                             @include tamanhos(50px, 300px);
-                        //    background-color: aqua;
 
                            .class-tipo{
                                @include tamanhos(30px, 80px);
-                            //    background-color: red;
+                            
                            }
 
                         }
@@ -227,7 +222,7 @@ body {
     }
 
     #container-conteudo {
-        // @include tamanhos(300px, 300px);
+        
         @include displayFlex(column);
 
 
@@ -264,8 +259,6 @@ body {
                             font-weight: 520;
                         }
                     }
-
-
                 }
             }
 
@@ -279,8 +272,6 @@ body {
                         font-weight: 520;
                     }
                 }
-
-
             }
 
             div+div {
@@ -296,7 +287,6 @@ body {
                     font-weight: 450;
 
                     span {
-                        // @include textoEstilo(grau8, bold, $text);
                         font-weight: 520;
 
                     }
@@ -345,15 +335,9 @@ body {
                         text-decoration: underline;
 
                     }
-
                 }
-
-
             }
         }
-
-
-
     }
 
     #patrocinios{
@@ -364,7 +348,6 @@ body {
         border: 1px;
         border-radius: 20px;
         margin-top: 40px;
-
 
         h2{     
             @include textoEstilo(grau8, Montserrat, semiBold, $text);
@@ -379,9 +362,6 @@ body {
             @include tamanhos(320px, 900px);   
             @include displayFlex(row, space-between, $wrap: wrap);        
             padding: 30px;
-            // background: red;
-
-            
 
             #conteudo-patrocinios{
                 @include displayFlex(row, space-between, $wrap: wrap);
@@ -389,42 +369,30 @@ body {
 
                 .img-patrocinios{
                     @include displayFlex(column, center, center);
-                    
-                    
+
                 }
             }
-
-           
-
         }
-
-       
-
-
     }
 
-    #container-conteudo-detalhes-conta{
-        // @include tamanhos(auto, 770px);
-
-        
-        
+    #container-conteudo-detalhes-conta{        
         @include tamanhos(550px, 850px);
         padding: 30px;
         background: #FFFFFF;
         filter: $shadowMain;
         border: 1px;
         border-radius: 20px;
+        
        
-
         #nome{
-            @include tamanhos(98px, 766px);
-            margin-top:30px;
+            @include tamanhos(102px, 779px);
+            gap: 100px;
           
-            p{
+            label{
                 @include textoEstilo(grau9, regular, $text);
             }
             input{
-                @include tamanhos(65px, 761px);
+                @include tamanhos(65px, 773px);
                 border: 2px solid $border;
                 border-radius: 6px;
                 font-size:18px;
@@ -432,16 +400,16 @@ body {
             }
         }
         #email-data{
-            @include tamanhos(102px, 766px);
+            @include tamanhos(102px, 779px);
             @include displayFlex(row, space-between, center);
-            margin-top: 20px;
 
-            p{
+            label{
                 @include textoEstilo(grau9, regular, $text);
                 
             }
             #email{
                 @include tamanhos(102px, 355px);
+            
 
                 input{
                     @include tamanhos(65px, 350px);
@@ -453,24 +421,32 @@ body {
             }
             #cnpj{
                 @include tamanhos(102px, 359px);
+                padding: 0px 0px 10px;
+              
+                label{
+                    @include textoEstilo(grau9, regular, $text);
+                    @include tamanhos(28px, 62px);
+                    
 
+                }
+               
                 input{
                     @include tamanhos(65px, 350px);
-                    font-size:18px;
-                    padding: 15px;
                     border: 2px solid $border;
                     border-radius: 6px;
+                    font-size:18px;
+                    padding: 15px;
                 }
-                
             }
 
         }
         #celular-telefone{
-            @include tamanhos(auto, 766px);
+            @include tamanhos(102px, 779px);
             @include displayFlex(row, space-between, center);
+           
             
 
-            p{
+            label{
                 @include textoEstilo(grau9, regular, $text);
             }
             #celular{
@@ -482,6 +458,7 @@ body {
                      border-radius: 6px;
                     font-size:18px;
                     padding: 15px;
+
                     
                 }
             }
@@ -525,47 +502,52 @@ body {
         filter: $shadowMain;
         border: 1px;
         border-radius: 20px;
-      
-        
+          
         #primeira-fileira{
             @include tamanhos(104px, 770px);
             @include displayFlex(row, space-between, center); 
 
             #cep{
-                h3{
+                @include tamanhos(104px, 159px);
+
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 158px);
+                    @include textoEstilo(grau9,regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
                     padding: 5px;
                 }
             }
 
             #estado{
-                h3{
+                @include tamanhos(104px, 296px);
+                
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 288px);
+                    @include textoEstilo(grau9,regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
                     padding: 5px;
                 }
             }
 
             #cidade{
-                h3{
+                @include tamanhos(101px, 260px);
+                
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 288px);
+                    @include textoEstilo(grau9,regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
                     padding: 5px;
                 }
             }
@@ -577,38 +559,43 @@ body {
             @include displayFlex(row, space-between, center);
 
             #bairro{
-                h3{
+                @include tamanhos(105px, 289px);
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 288px);
+                    @include textoEstilo(grau9,regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
                     padding: 5px;
                 }
             }
             #rua{
-                h3{
+                @include tamanhos(105px, 258px);
+
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 251px);
+                    @include textoEstilo(grau9,regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
                     padding: 5px;
                 }
             }
             #numero{
-                h3{
+                @include tamanhos(105px, 144px);
+
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 130px);
+                    @include textoEstilo(grau9,regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
                     padding: 5px;
                 }
             }
@@ -618,28 +605,32 @@ body {
             @include displayFlex(row, space-between);
 
             #complemento{
-                h3{
-                    @include textoEstilo(grau9, regular, $text);
+                @include tamanhos(105px, 770px);
+
+                label{
+                    @include textoEstilo(grau9,regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 769px);
+                    @include textoEstilo(grau9,regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
                     padding: 5px;
                 }
             }
         }
         #quarta-fileira{
-            display: flex;
+            @include displayFlex();
             justify-content: flex-end;
             padding-top: 40px;
+
             button{
                 @include tamanhos(65px, 230px);
+                @include textoEstilo(grau7,regular, $text);
                 border: 1px ;
                 border-radius: 6px;
                 background-color: $deepSaffron;
-                font-size:30px;
+                
             }
 
         }
@@ -658,7 +649,9 @@ body {
             @include displayFlex(row, space-between, center);
 
             #site{
-                h3{
+                @include tamanhos(103px, 356px);
+
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
@@ -666,12 +659,14 @@ body {
                     border: 2px solid $border;
                     border-radius:6px;
                     font-size:22px;
-                    padding: 5px;
+                    padding: 15px;
                 }
 
             }
             #pix{
-                h3{
+                @include tamanhos(103px, 357px);
+
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
@@ -679,7 +674,7 @@ body {
                     border: 2px solid $border;
                     border-radius:6px;
                     font-size:22px;
-                    padding: 5px;
+                    padding: 15px;
                 }
 
             }
@@ -691,45 +686,45 @@ body {
             @include displayFlex(row, space-between);
 
             #agencia{
-                height: 103px;
-                // background-color:aqua;
-                h3{
+                @include tamanhos(101px, 146px);
+                
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 142px);
+                    @include textoEstilo(grau9, regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
-                    padding: 5px;
+                    
+                    padding: 15px;
                 }
             }
             #conta{
-                // background-color:aquamarine;
+                @include tamanhos(103px, 357px);
 
-                h3{
+                label{
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
                     @include tamanhos(65px, 350px);
+                    @include textoEstilo(grau9, regular, $text);
                     border: 2px solid $border;
                     border-radius:6px;
-                    font-size:22px;
+                    padding: 15px;
                 }
 
             }
             #tipo {
-    
-                @include tamanhos(65px, 194px);
+                @include tamanhos(101px, 201px);
                 @include displayFlex(row, space-between);
-                // background-color: red;
     
                 #filtros-pesquisas {
                     @include tamanhos(88px, inherit);
                     @include displayFlex($gap: 45px);
     
                     #tipo-conta{
-                        @include tamanhos(88px, 417px);
+                        @include tamanhos(88px, 201px);
                         @include displayFlex(column, space-between);
     
                         label {
@@ -742,7 +737,6 @@ body {
                             border: 2px solid $border;
                             border-radius: 6px;
                             padding: 0px 15px;
-                            // align-self: flex-end;
                             appearance: none;
                             -moz-appearance: none;
                             background: #fff url('../img/code.png') 95.5% 50% no-repeat;
@@ -799,6 +793,7 @@ body {
         }
         #editar-nome-link{
             @include displayFlex(row, space-between);
+
             #nome-link{
                 @include displayFlex(column);
                 gap: 15px;
@@ -806,14 +801,15 @@ body {
                 #nome-do-patrocinador{
                     @include tamanhos(102px, 276px);
                     
-                    h3{
+                    label{
                         @include textoEstilo(grau9, regular, $text);
                         padding: 3px;
                         
                     }
                     input{
                         @include tamanhos(65px, 266px);
-                        border: 1px solid $border;
+                        border: 2px solid $border;
+                        padding-left: 10px;
 
                         &::placeholder{
                             @include textoEstilo(grau9, regular, $border);
@@ -826,7 +822,7 @@ body {
                     @include tamanhos(102px, 276px);
                     @include displayFlex(column);
 
-                    h3{
+                    label{
                         @include textoEstilo(grau9, regular, $text);
                         padding: 3px;
 
@@ -834,7 +830,8 @@ body {
 
                     input{
                         @include tamanhos(65px, 266px);
-                        border: 1px solid $border;
+                        border: 2px solid $border;
+                        padding-left: 10px;
 
                         &::placeholder {
                             @include textoEstilo(grau9, regular, $border);
@@ -845,41 +842,23 @@ body {
             }
             #container-principal{
                 @include tamanhos(271px, 317px);
-                // background-color: red;
-                
-
+        
                 .container{
-                    // background-color: blue;
                     @include tamanhos(87px, 317px);
                     @include displayFlex(row);
                     border: 2px solid $border;
 
                     .imagens{
                         padding: 5px;
-                        // align: center;
 
                     }
 
                     .nome{
-                        
-                
                         h2{
                             @include textoEstilo(grau9, Montserrat, $text);
-                            // text-align: left;
+                           
                         }
            
-                        .excluir{
-                         
-                            
-                            
-
-                            img{
-                            
-                             
-                                
-
-                            }
-                        }
                     }
                     
                 }
@@ -926,13 +905,6 @@ body {
 
 
     }
-
-            
-        
-    
- 
-
-
 }
 
 #direita {

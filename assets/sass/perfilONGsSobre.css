@@ -732,12 +732,12 @@ body {
 }
 
 #centro #container-conteudo-detalhes-conta #nome {
-  height: 98px;
-  width: 766px;
-  margin-top: 30px;
+  height: 102px;
+  width: 779px;
+  gap: 100px;
 }
 
-#centro #container-conteudo-detalhes-conta #nome p {
+#centro #container-conteudo-detalhes-conta #nome label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -747,7 +747,7 @@ body {
 
 #centro #container-conteudo-detalhes-conta #nome input {
   height: 65px;
-  width: 761px;
+  width: 773px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 18px;
@@ -756,7 +756,7 @@ body {
 
 #centro #container-conteudo-detalhes-conta #email-data {
   height: 102px;
-  width: 766px;
+  width: 779px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -773,10 +773,9 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin-top: 20px;
 }
 
-#centro #container-conteudo-detalhes-conta #email-data p {
+#centro #container-conteudo-detalhes-conta #email-data label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -801,20 +800,31 @@ body {
 #centro #container-conteudo-detalhes-conta #email-data #cnpj {
   height: 102px;
   width: 359px;
+  padding: 0px 0px 10px;
+}
+
+#centro #container-conteudo-detalhes-conta #email-data #cnpj label {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  height: 28px;
+  width: 62px;
 }
 
 #centro #container-conteudo-detalhes-conta #email-data #cnpj input {
   height: 65px;
   width: 350px;
-  font-size: 18px;
-  padding: 15px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
+  font-size: 18px;
+  padding: 15px;
 }
 
 #centro #container-conteudo-detalhes-conta #celular-telefone {
-  height: auto;
-  width: 766px;
+  height: 102px;
+  width: 779px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -833,7 +843,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo-detalhes-conta #celular-telefone p {
+#centro #container-conteudo-detalhes-conta #celular-telefone label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -922,7 +932,12 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cep h3 {
+#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cep {
+  height: 104px;
+  width: 159px;
+}
+
+#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cep label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -933,13 +948,22 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cep input {
   height: 65px;
   width: 158px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
   padding: 5px;
 }
 
-#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #estado h3 {
+#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #estado {
+  height: 104px;
+  width: 296px;
+}
+
+#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #estado label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -950,13 +974,22 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #primeira-fileira #estado input {
   height: 65px;
   width: 288px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
   padding: 5px;
 }
 
-#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade h3 {
+#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade {
+  height: 101px;
+  width: 260px;
+}
+
+#centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -967,9 +1000,13 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade input {
   height: 65px;
   width: 288px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
   padding: 5px;
 }
 
@@ -994,7 +1031,12 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #bairro h3 {
+#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #bairro {
+  height: 105px;
+  width: 289px;
+}
+
+#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #bairro label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1005,13 +1047,22 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #segunda-fileira #bairro input {
   height: 65px;
   width: 288px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
   padding: 5px;
 }
 
-#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #rua h3 {
+#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #rua {
+  height: 105px;
+  width: 258px;
+}
+
+#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #rua label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1022,13 +1073,22 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #segunda-fileira #rua input {
   height: 65px;
   width: 251px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
   padding: 5px;
 }
 
-#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #numero h3 {
+#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #numero {
+  height: 105px;
+  width: 144px;
+}
+
+#centro #container-conteudo-detalhes-do-endereco #segunda-fileira #numero label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1039,9 +1099,13 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #segunda-fileira #numero input {
   height: 65px;
   width: 130px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
   padding: 5px;
 }
 
@@ -1066,7 +1130,12 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento h3 {
+#centro #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento {
+  height: 105px;
+  width: 770px;
+}
+
+#centro #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1077,9 +1146,13 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento input {
   height: 65px;
   width: 769px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
   padding: 5px;
 }
 
@@ -1087,6 +1160,19 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -1096,10 +1182,14 @@ body {
 #centro #container-conteudo-detalhes-do-endereco #quarta-fileira button {
   height: 65px;
   width: 230px;
+  font-size: 1.813rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 1px;
   border-radius: 6px;
   background-color: #FF9F45;
-  font-size: 30px;
 }
 
 #centro #container-conteudo-meios-doacoes {
@@ -1134,7 +1224,12 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo-meios-doacoes #fileira-doacoes #site h3 {
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #site {
+  height: 103px;
+  width: 356px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #site label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1148,10 +1243,15 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
-  padding: 5px;
+  padding: 15px;
 }
 
-#centro #container-conteudo-meios-doacoes #fileira-doacoes #pix h3 {
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #pix {
+  height: 103px;
+  width: 357px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-doacoes #pix label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1165,7 +1265,7 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 22px;
-  padding: 5px;
+  padding: 15px;
 }
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia {
@@ -1190,10 +1290,11 @@ body {
 }
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia #agencia {
-  height: 103px;
+  height: 101px;
+  width: 146px;
 }
 
-#centro #container-conteudo-meios-doacoes #fileira-agencia #agencia h3 {
+#centro #container-conteudo-meios-doacoes #fileira-agencia #agencia label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1204,13 +1305,22 @@ body {
 #centro #container-conteudo-meios-doacoes #fileira-agencia #agencia input {
   height: 65px;
   width: 142px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
-  padding: 5px;
+  padding: 15px;
 }
 
-#centro #container-conteudo-meios-doacoes #fileira-agencia #conta h3 {
+#centro #container-conteudo-meios-doacoes #fileira-agencia #conta {
+  height: 103px;
+  width: 357px;
+}
+
+#centro #container-conteudo-meios-doacoes #fileira-agencia #conta label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1221,14 +1331,19 @@ body {
 #centro #container-conteudo-meios-doacoes #fileira-agencia #conta input {
   height: 65px;
   width: 350px;
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  padding: 15px;
 }
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia #tipo {
-  height: 65px;
-  width: 194px;
+  height: 101px;
+  width: 201px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1270,7 +1385,7 @@ body {
 
 #centro #container-conteudo-meios-doacoes #fileira-agencia #tipo #filtros-pesquisas #tipo-conta {
   height: 88px;
-  width: 417px;
+  width: 201px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1428,7 +1543,7 @@ body {
   width: 276px;
 }
 
-#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador h3 {
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1440,7 +1555,8 @@ body {
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input {
   height: 65px;
   width: 266px;
-  border: 1px solid #CCCCCC;
+  border: 2px solid #CCCCCC;
+  padding-left: 10px;
 }
 
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #nome-do-patrocinador input::-webkit-input-placeholder {
@@ -1500,7 +1616,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site h3 {
+#centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site label {
   font-size: 1.313rem;
   font-weight: 400;
   color: #292929;
@@ -1512,7 +1628,8 @@ body {
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input {
   height: 65px;
   width: 266px;
-  border: 1px solid #CCCCCC;
+  border: 2px solid #CCCCCC;
+  padding-left: 10px;
 }
 
 #centro #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input::-webkit-input-placeholder {
