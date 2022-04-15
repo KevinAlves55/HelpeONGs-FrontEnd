@@ -526,59 +526,10 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   width: inherit;
 }
 
-.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-.modalFiltro {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #00000090;
-  opacity: 1;
-  z-index: 1;
-}
-
-.modalFiltro .modal-close {
-  height: 30px;
-  width: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  cursor: pointer;
-  border-radius: 50%;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-}
-
-.modalFiltro .modal-close:hover {
-  background-color: #ff4949;
-  color: white;
-}
-
-.modalFiltro .modal-conteudo {
-  height: 400px;
-  width: 55vw;
+#modal-filtros {
+  min-height: 266px;
+  height: auto;
+  width: 251px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -586,6 +537,133 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 20px;
+  padding: 10px;
+  background-color: #FF9F45;
+  border-radius: 10px;
+  z-index: 0;
+  opacity: 0;
+  top: 100px;
+  left: -112px;
+  position: absolute;
+  cursor: default;
+}
+
+#modal-filtros h3 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  margin-top: 8px;
+  margin-left: 5px;
+}
+
+#modal-filtros #todas-categorias {
+  min-height: 150px;
+  min-width: 164px;
+  height: auto;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 15px;
+}
+
+#modal-filtros #todas-categorias .categoria {
+  height: 30px;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+#modal-filtros #todas-categorias .categoria input[type=checkbox] {
+  height: 25px;
+  width: 25px;
+  border-radius: 3px;
+  border: 1px solid #CCCCCC;
+  border: none;
+  cursor: pointer;
+}
+
+#modal-filtros #todas-categorias .categoria i {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  font-style: normal;
+  cursor: default;
+}
+
+#modal-filtros #opcoes-filtros {
+  height: 30px;
+  width: 228px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-right: 15px;
+  margin-bottom: 20px;
+}
+
+#modal-filtros #opcoes-filtros #opcoes {
+  height: inherit;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -595,12 +673,17 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin: 15vh auto;
-  padding: 20px;
-  background-color: white;
-  -webkit-box-shadow: 1px 1px 10px black;
-          box-shadow: 1px 1px 10px black;
-  border-radius: 20px;
+}
+
+#modal-filtros #opcoes-filtros #opcoes i {
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  font-style: normal;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 body {
@@ -895,7 +978,7 @@ main #itens-main #acoes #filtros-pesquisas #estado select option {
 
 main #itens-main #acoes #filtros-pesquisas #botao-filtro {
   height: inherit;
-  width: 135px;
+  width: 145px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -903,17 +986,19 @@ main #itens-main #acoes #filtros-pesquisas #botao-filtro {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 15px;
+  gap: 0;
   padding-top: 27px;
   margin-left: 35px;
+  cursor: pointer;
+  position: relative;
 }
 
 main #itens-main #acoes #filtros-pesquisas #botao-filtro img {
@@ -922,12 +1007,11 @@ main #itens-main #acoes #filtros-pesquisas #botao-filtro img {
 }
 
 main #itens-main #acoes #filtros-pesquisas #botao-filtro span {
-  font-size: 1.313rem;
+  font-size: 1.563rem;
   font-weight: 600;
   color: #292929;
   text-transform: none;
   letter-spacing: -0.02em;
-  cursor: pointer;
 }
 
 main #itens-main #acoes #resultados-pesquisas {
@@ -953,7 +1037,7 @@ main #itens-main #acoes #resultados-pesquisas {
   margin-top: 35px;
 }
 
-main #itens-main #acoes #resultados-pesquisas span {
+main #itens-main #acoes #resultados-pesquisas #resultadoQtda {
   font-size: 0.85rem;
   font-size: 1rem;
   font-weight: 600;
@@ -1087,9 +1171,42 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card button:hover:afte
   opacity: 1;
 }
 
-main #itens-main #acoes #resultados-pesquisas #setas {
+main #itens-main #acoes #resultados-pesquisas #info-paginacao {
   height: 32px;
-  width: 90px;
+  width: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin-top: 20px;
+  margin-right: 25px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+main #itens-main #acoes #resultados-pesquisas #info-paginacao span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #acoes #resultados-pesquisas #info-paginacao #setas {
+  height: inherit;
+  width: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1111,7 +1228,7 @@ main #itens-main #acoes #resultados-pesquisas #setas {
   margin: 25px 0 25px;
 }
 
-main #itens-main #acoes #resultados-pesquisas #setas .seta {
+main #itens-main #acoes #resultados-pesquisas #info-paginacao #setas .seta {
   height: inherit;
   width: 31px;
   display: -webkit-box;
@@ -1136,7 +1253,7 @@ main #itens-main #acoes #resultados-pesquisas #setas .seta {
   cursor: pointer;
 }
 
-main #itens-main #acoes #resultados-pesquisas #setas .seta img {
+main #itens-main #acoes #resultados-pesquisas #info-paginacao #setas .seta img {
   height: 24px;
   width: 24px;
 }

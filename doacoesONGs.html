@@ -81,12 +81,6 @@
         </div>
     </div>
 
-    <!-- <div class="modalFiltro" id="modalFiltro">
-        <div class="modal-conteudo">
-            <span class="modal-close" id="modalClose">&#10006;</span>
-        </div>
-    </div> -->
-
     <header>
         <div id="itens-header">
             <div id="logo">
@@ -166,12 +160,56 @@
     
                     <div id="botao-filtro">
                         <img src="assets/img/filter-button.png" alt="HelperOngs filtros" title="Icon">
-                        <span>Filtro (6)</span>
+                        <span>Filtro</span>
+                        <img src="assets/img/seta-doaces.png" alt="Filtar" title="Icone seta para baixo">
+
+                        <div id="modal-filtros">
+                            <h3>Categorias</h3>
+
+                            <div id="todas-categorias">
+                                <div class="categoria">
+                                    <input type="checkbox" name="" id="">
+                                    <i>cachorro</i>
+                                </div>
+
+                                <div class="categoria">
+                                    <input type="checkbox" name="" id="">
+                                    <i>Gatos</i>
+                                </div>
+
+                                <div class="categoria">
+                                    <input type="checkbox" name="" id="">
+                                    <i>Assistencia Social</i>
+                                </div>
+
+                                <div class="categoria">
+                                    <input type="checkbox" name="" id="">
+                                    <i>Moradores de rua</i>
+                                </div>
+
+                                <div class="categoria">
+                                    <input type="checkbox" name="" id="">
+                                    <i>Floresta</i>
+                                </div>
+
+                                <div class="categoria">
+                                    <input type="checkbox" name="" id="">
+                                    <i>Comida</i>
+                                </div>
+                            </div>
+
+                            <div id="opcoes-filtros">
+                                <div id="opcoes">
+                                    <i>Filtrar</i>
+                                    <i>Limpar</i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div id="resultados-pesquisas">
-                    <span>20 Resultados</span>
+                    <span id="resultadoQtda">20 Resultados</span>
 
                     <div id="ongs">
                         <div class="ongs-card">
@@ -260,16 +298,21 @@
                         </div>
                     </div>
 
-                    <div id="setas">
-                        <div class="seta">
-                            <img src="assets/img/chevron-left.png" alt="Páginas" title="Icon seta direita">
-                        </div>
-                        <div class="seta">
-                            <img src="assets/img/chevron-right.png" alt="Páginas" title="Icon seta esquerda">
+                    <div id="info-paginacao">
+                        <span>1 / 2</span>
+
+                        <div id="setas">
+                            <div class="seta">
+                                <img src="assets/img/chevron-left.png" alt="Páginas" title="Icon seta direita">
+                            </div>
+                            <div class="seta">
+                                <img src="assets/img/chevron-right.png" alt="Páginas" title="Icon seta esquerda">
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
+            
             <div id="esquerda">
                 <section id="recomendados">
                     <h3>Recomendados</h3>

@@ -3,45 +3,7 @@
 @import '_resert';
 @import '_header';
 @import '_modalDoacoes';
-
-.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.modalFiltro {
-    @include tamanhos(100%, 100%);
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #00000090;
-    opacity: 1;
-    z-index: 1;
-
-    .modal-close {
-        @include tamanhos(30px, 30px);
-        @include displayFlex(row, center, center);
-        user-select: none;
-        cursor: pointer;
-        border-radius: 50%;
-        align-self: flex-start;
-
-        &:hover {
-            background-color: #ff4949;
-            color: white;
-        }
-    }
-
-    .modal-conteudo {
-        @include tamanhos(400px, 55vw);
-        @include displayFlex(column, space-between, center);
-        margin: 15vh auto;
-        padding: 20px;
-        background-color: white;
-        box-shadow: 1px 1px 10px black;
-        border-radius: 20px;
-    }
-}
+@import '_modalFiltro';
 
 body {
     min-height: 100vh;
@@ -160,18 +122,19 @@ main {
                 }
 
                 #botao-filtro {
-                    @include tamanhos(inherit, 135px);
-                    @include displayFlex($align: center, $gap: 15px);
+                    @include tamanhos(inherit, 145px);
+                    @include displayFlex(row, space-between, center);
                     padding-top: 27px;
                     margin-left: 35px;
+                    cursor: pointer;
+                    position: relative;
 
                     img {
                         @include tamanhos(33px, 32px);
                     }
 
                     span {
-                        @include textoEstilo(grau9, semiBold, $text, $letter: -0.02em);
-                        cursor: pointer;
+                        @include textoEstilo(grau8, semiBold, $text, $letter: -0.02em);  
                     }
                 }
             }
@@ -182,7 +145,7 @@ main {
                 @include displayFlex(column, space-between);
                 margin-top: 35px;
 
-                span {
+                #resultadoQtda {
                     font-size: 0.85rem;
                     @include textoEstilo($pesoLetra: semiBold, $cor: $tartOrange, $case: capitalize, $letter: -0.02em);
                     margin-bottom: 15px;
@@ -261,22 +224,34 @@ main {
                     }
                 }
 
-                #setas {
-                    @include tamanhos(32px, 90px);
-                    @include displayFlex(row, space-between);
-                    align-self: center;
-                    margin: 25px 0 25px;
+                #info-paginacao {
+                    @include tamanhos(32px, 130px);
+                    @include displayFlex(row, space-between, center);
+                    margin-top: 20px;
+                    margin-right: 25px;
+                    align-self: flex-end;
 
-                    .seta {
-                        @include tamanhos(inherit, 31px);
-                        @include displayFlex(row, center, center);
-                        border: 1px solid $border;
-                        background-color: #fff;
-                        border-radius: 6px;
-                        cursor: pointer;
+                    span {
+                        @include textoEstilo($pesoLetra: semiBold);
+                    }  
 
-                        img {
-                            @include tamanhos(24px, 24px);
+                    #setas {
+                        @include tamanhos(inherit, 80px);
+                        @include displayFlex(row, space-between);
+                        align-self: center;
+                        margin: 25px 0 25px;
+    
+                        .seta {
+                            @include tamanhos(inherit, 31px);
+                            @include displayFlex(row, center, center);
+                            border: 1px solid $border;
+                            background-color: #fff;
+                            border-radius: 6px;
+                            cursor: pointer;
+    
+                            img {
+                                @include tamanhos(24px, 24px);
+                            }
                         }
                     }
                 }
