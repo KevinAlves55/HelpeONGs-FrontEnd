@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="assets/js/doacoes/index.js" type="module" defer></script>
+    <script type="module" src="./js/doacoes-js/index.js" defer></script>
 </head>
 
 <body>
@@ -163,7 +163,7 @@
                         <span>Filtro</span>
                         <img src="assets/img/seta-doaces.png" alt="Filtar" title="Icone seta para baixo">
 
-                        <div id="modal-filtros">
+                        <div id="modal-filtros" class="filtros">
                             <h3>Categorias</h3>
 
                             <div id="todas-categorias">
@@ -200,8 +200,8 @@
 
                             <div id="opcoes-filtros">
                                 <div id="opcoes">
-                                    <i>Filtrar</i>
-                                    <i>Limpar</i>
+                                    <i id="filtrar-opcoes">Filtrar</i>
+                                    <i id="limpar-campos">Limpar</i>
                                 </div>
                             </div>
                         </div>

@@ -1,11 +1,11 @@
-#modal-filtros {
+.filtros {
     min-height: 266px;
     @include tamanhos(auto, 251px);
     @include displayFlex(column, $gap: 20px);
     padding: 10px;
     background-color: $deepSaffron;
     border-radius: 10px;
-    z-index: 0;
+    z-index: -1;
     opacity: 0;
     top: 100px;
     left: -112px;
@@ -49,18 +49,23 @@
         @include tamanhos(30px, 228px);
         @include displayFlex(row, flex-end);
         padding-right: 15px;    
-        margin-bottom: 20px;
+        margin-bottom: 10px;
 
         #opcoes {
             @include tamanhos(inherit, 200px);
             @include displayFlex(row, space-between, center);
 
             i {
-                @include textoEstilo(grau8, semiBold, $text, capitalize);
+                @include textoEstilo(grau9, semiBold, $text, capitalize);
                 font-style: normal;
                 text-decoration: underline;
                 cursor: pointer;
             }
         }
     }
+}
+
+.filtros.active {
+    opacity: 1;
+    z-index: 1;
 }

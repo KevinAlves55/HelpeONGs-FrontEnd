@@ -211,11 +211,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   width: 24px;
 }
 
-.active {
-  opacity: 1;
-  z-index: 1;
-}
-
 .modal {
   height: 100%;
   width: 100%;
@@ -526,7 +521,12 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   width: inherit;
 }
 
-#modal-filtros {
+.modal.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.filtros {
   min-height: 266px;
   height: auto;
   width: 251px;
@@ -549,7 +549,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   padding: 10px;
   background-color: #FF9F45;
   border-radius: 10px;
-  z-index: 0;
+  z-index: -1;
   opacity: 0;
   top: 100px;
   left: -112px;
@@ -557,7 +557,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   cursor: default;
 }
 
-#modal-filtros h3 {
+.filtros h3 {
   font-size: 1.813rem;
   font-weight: 600;
   color: #292929;
@@ -567,7 +567,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   margin-left: 5px;
 }
 
-#modal-filtros #todas-categorias {
+.filtros #todas-categorias {
   min-height: 150px;
   min-width: 164px;
   height: auto;
@@ -590,7 +590,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   gap: 15px;
 }
 
-#modal-filtros #todas-categorias .categoria {
+.filtros #todas-categorias .categoria {
   height: 30px;
   width: auto;
   display: -webkit-box;
@@ -612,7 +612,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   margin-left: 20px;
 }
 
-#modal-filtros #todas-categorias .categoria input[type=checkbox] {
+.filtros #todas-categorias .categoria input[type=checkbox] {
   height: 25px;
   width: 25px;
   border-radius: 3px;
@@ -621,7 +621,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   cursor: pointer;
 }
 
-#modal-filtros #todas-categorias .categoria i {
+.filtros #todas-categorias .categoria i {
   font-size: 1.125rem;
   font-weight: 600;
   color: #292929;
@@ -631,7 +631,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   cursor: default;
 }
 
-#modal-filtros #opcoes-filtros {
+.filtros #opcoes-filtros {
   height: 30px;
   width: 228px;
   display: -webkit-box;
@@ -651,10 +651,10 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
       flex-wrap: nowrap;
   gap: 0;
   padding-right: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-#modal-filtros #opcoes-filtros #opcoes {
+.filtros #opcoes-filtros #opcoes {
   height: inherit;
   width: 200px;
   display: -webkit-box;
@@ -675,8 +675,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   gap: 0;
 }
 
-#modal-filtros #opcoes-filtros #opcoes i {
-  font-size: 1.563rem;
+.filtros #opcoes-filtros #opcoes i {
+  font-size: 1.313rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
@@ -684,6 +684,11 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   font-style: normal;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.filtros.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 body {

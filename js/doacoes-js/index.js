@@ -1,6 +1,8 @@
 "use strict"
 
-import ApiRequest from "../doacoes/ApiRequest.js";
+import ApiRequest from "../utils/ApiRequest.js";
+import { openModal, closeModal } from "./modal.js";
+import { openFiltro, filtrar } from "./filtro.js";
 
 const CriarRecomendados = ({id, nome, foto}) => {
 
@@ -19,7 +21,7 @@ const CriarRecomendados = ({id, nome, foto}) => {
 
 }
 
-const carregarRecomendados = async () => {
+const CarregarRecomendados = async () => {
 
     const container = document.getElementById("recomendados-ongs");
     const objeto = await ApiRequest("GET", "http://localhost:3131/ong/all");
@@ -30,4 +32,6 @@ const carregarRecomendados = async () => {
 
 }
 
-carregarRecomendados();
+CarregarRecomendados();
+document.getElementById("botao-filtro").addEventListener("click", openFiltro);
+document.getElementById("limpar-campos").addEventListener("click", filtrar);
