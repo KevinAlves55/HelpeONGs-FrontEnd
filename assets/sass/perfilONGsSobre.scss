@@ -73,12 +73,12 @@ body {
 // CENTRO
 #centro {
     min-height: 500px;
-    background-color: silver;
+    background-color: aqua;
     @include tamanhos(auto, 850px);
     @include displayFlex(column);
 
     #banner {
-        background-color: aqua;
+        // background-color: aqua;
 
         img {
             @include tamanhos(323px, 850px);
@@ -378,12 +378,7 @@ body {
     #container-conteudo-detalhes-conta{        
         @include tamanhos(550px, 850px);
         padding: 30px;
-        background: #FFFFFF;
-        filter: $shadowMain;
-        border: 1px;
-        border-radius: 20px;
-        
-       
+           
         #nome{
             @include tamanhos(102px, 779px);
             gap: 100px;
@@ -487,21 +482,148 @@ body {
                 background-color: $deepSaffron;
                 font-size: 30px;
                 align-self: flex-end;
-               
+                cursor: pointer;
             }
         }
 
 
     }
 
+    #container-conteudo-detalhes-ONGs{
+        @include tamanhos(961px, 771px);
+        padding: 30px;
+
+
+        #fileira-descricao{
+            @include tamanhos(234px, 767px);
+            @include displayFlex(row, space-between);
+
+            #descricao{
+                @include tamanhos(234px, 432px);
+
+                label{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+
+                input{
+                    @include tamanhos(193px, 426px);
+                    @include textoEstilo(grau9, regular, $text);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size: 22px;
+                }
+            }
+            #quantidade-membros{
+                @include tamanhos(109px, 284px);
+
+                label{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+               
+                input{
+                    @include tamanhos(65px, 148px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size: 22px;
+                }
+            }
+            #data-fundacao{
+                @include tamanhos(102px, 241px);
+
+                label{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+
+                input{
+                    @include tamanhos(65px, 222px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size: 22px;
+                }
+
+            }
+
+
+
+
+        }
+        #historia-ONG{
+            @include tamanhos(315px, 767px);
+
+            label{
+                @include textoEstilo(grau9, regular, $text);
+            }
+
+            input{
+                @include tamanhos(275px, 761px);
+                border: 2px solid $border;
+                border-radius:6px;
+                font-size: 22px;
+            }
+
+        }
+
+        #categoria-detalhes-ONG{
+            @include tamanhos(252px, 770px);
+           
+
+            #categoria-detalhes{
+                @include tamanhos(110px, 766px);
+
+                label{
+                    @include textoEstilo(grau9, regular, $text);
+                }
+
+                input{
+                    @include tamanhos(58px, 761px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    font-size: 22px;
+                    padding: 15px;
+
+                    &::placeholder{
+                        @include textoEstilo(grau9, regular, $placeholder)
+                    }
+                }
+
+            }
+            #lista-categoria{
+                @include tamanhos(103px, 766px);
+
+                input{
+                    @include tamanhos(103px, 761px);
+                    border: 2px solid $border;
+                    border-radius:6px;
+                    
+
+                }
+
+            
+            }
+
+        }
+
+        #botao-proximo{
+            display:flex;
+            justify-content:flex-end;
+            padding-top: 20px;
+        
+            button{
+                @include tamanhos(65px, 250px);
+                border: 2px;
+                border-radius: 6px;
+                background-color: $deepSaffron;
+                font-size: 30px;
+                align-self: flex-end;
+                cursor: pointer;
+            }
+        }
+    }
+
     #container-conteudo-detalhes-do-endereco{
         
         @include tamanhos(500px, 850px);
         padding: 30px;
-        background: #FFFFFF;
-        filter: $shadowMain;
-        border: 1px;
-        border-radius: 20px;
           
         #primeira-fileira{
             @include tamanhos(104px, 770px);
@@ -630,7 +752,7 @@ body {
                 border: 1px ;
                 border-radius: 6px;
                 background-color: $deepSaffron;
-                
+                cursor: pointer;
             }
 
         }
@@ -639,11 +761,7 @@ body {
     #container-conteudo-meios-doacoes{
         @include tamanhos(500px, 850px);
         padding: 30px;
-        background: #FFFFFF;
-        filter: $shadowMain;
-        border: 1px;
-        border-radius: 20px;
-
+  
         #fileira-doacoes{
             @include tamanhos(104px, 770px);
             @include displayFlex(row, space-between, center);
@@ -681,7 +799,6 @@ body {
 
         }
         #fileira-agencia{
-            // background-color: blue;
             @include tamanhos(104px, 770px);
             @include displayFlex(row, space-between);
 
@@ -759,26 +876,26 @@ body {
             display: flex;
             justify-content: flex-end;
             padding-top: 100px;
+
             button{
                 @include tamanhos(65px, 230px);
                 border: 1px ;
                 border-radius: 6px;
                 background-color: $deepSaffron;
                 font-size:30px;
+                cursor: pointer;
             }
 
         }
 
         
     }
+
     #container-conteudo-patrocinios{
         margin-top: 50px;
         @include tamanhos(550px, 850px);
         padding: 30px;
-        background: #FFFFFF;
-        filter: $shadowMain;
-        border: 1px;
-        border-radius: 20px;
+       
         
 
         #editar-imagen{
@@ -796,24 +913,26 @@ body {
 
             #nome-link{
                 @include displayFlex(column);
-                gap: 15px;
 
                 #nome-do-patrocinador{
                     @include tamanhos(102px, 276px);
                     
                     label{
                         @include textoEstilo(grau9, regular, $text);
-                        padding: 3px;
+                        
+                        
                         
                     }
                     input{
                         @include tamanhos(65px, 266px);
-                        border: 2px solid $border;
-                        padding-left: 10px;
+                        font-size: 22px;
+                        border: 2px solid $placeholder;
+                        padding: 15px;
 
                         &::placeholder{
                             @include textoEstilo(grau9, regular, $border);
-                            padding: 5px;
+                           
+                            
 
                         }
                     }
@@ -824,18 +943,19 @@ body {
 
                     label{
                         @include textoEstilo(grau9, regular, $text);
-                        padding: 3px;
+                        
 
                     }
 
                     input{
                         @include tamanhos(65px, 266px);
-                        border: 2px solid $border;
-                        padding-left: 10px;
+                        border: 2px solid $placeholder;
+                        font-size: 22px;
+                        padding: 15px;
 
                         &::placeholder {
                             @include textoEstilo(grau9, regular, $border);
-                            padding: 5px;
+                            
                         }
                     }
                 }
@@ -868,43 +988,472 @@ body {
         }
         #botoes{
             @include displayFlex(row);
-            @include tamanhos(50px, 397px);
+            @include tamanhos(55px, 185px);
             padding: 20px;
-            gap: 40px; 
-            background-color: blue;
+            gap: 40px;
+            margin-left: 110px;
+           
             
-
-            #botao-adicionar{
+            
+            button{
+                @include textoEstilo (grau9, semiBold, $text);
                 @include tamanhos(55px, 185px);
-                
-
-                button{
-                    @include textoEstilo (grau9, semiBold, $text);
-                    @include tamanhos(55px, 185px);
-                    border: 1px ;
-                    border-radius: 6px;
-                    background-color: $deepSaffron;
-                    }
+                font-size: 1.450rem;
+                font-weight: map-get($densidade, medium);
+                text-transform: capitalize;
+                background-color: $deepSaffron;
+                border-radius: 6px;
+                border: none;
+                transition: .1s;
+                cursor: pointer;
+                    
             }
-            #botao-finalizar{
-                @include tamanhos(55px, 185px);
-                @include displayFlex();
-             
-                
-
-                button{
-                    @include textoEstilo (grau9, semiBold, $text);
-                    @include tamanhos(55px, 185px);
-                    border: 1px ;
-                    border-radius: 6px;
-                    background-color: $deepSaffron;
-                    justify-content: center;
-                    }
-            }
+            
         }
 
 
     }
+
+    .post {
+        min-height: 789px;
+        @include tamanhos(auto, inherit);
+        @include displayFlex(column, space-between, $gap: 25px);
+        background-color: #fff;
+        border-radius: 20px;
+        filter: $shadowMain;
+        padding: 18px;
+
+        .parte-superior {
+            @include tamanhos(80px, 736px);
+            @include displayFlex(row, space-between, center);
+
+            .info-ong {
+                @include tamanhos(80px, 290px);
+                @include displayFlex(row, space-between, center);
+
+                img {
+                    @include tamanhos(inherit, 80px);
+                    border-radius: 50%;
+                }
+
+                .info-nome-data {
+                    @include tamanhos(55px, 200px);
+                    @include displayFlex(column, $gap: 3px);
+
+                    h2 {
+                        @include textoEstilo(grau8, bold, $text);
+                    }
+
+                    span {
+                        @include textoEstilo(grau11, semiBold, $placeholder);
+                    }
+                }
+            }
+
+            img {
+                @include tamanhos(21px, 31px);
+                cursor: pointer;
+            }
+        }
+
+        .imagens-postadas {
+            @include tamanhos(314px, 736px);
+            @include displayFlex(row, space-between);
+
+            img {
+                @include tamanhos(inherit, 435px);
+                border-radius: 6px;
+            }
+
+            .imagens-complementos {
+                @include tamanhos(inherit, 285px);
+                @include displayFlex(column, space-between);
+
+                .cima {
+                    @include tamanhos(125px, inherit);
+                    border-radius: 6px;
+                }
+
+                .baixo {
+                    @include tamanhos(176px, inherit);
+                    border-radius: 6px;  
+                }
+            }
+        }
+
+        p {
+            font-size: 1.125rem;
+            font-weight: map-get($densidade, medium);
+            color: $text;
+        }
+
+        .interacoes {
+            @include tamanhos(25px, 736px);
+            @include displayFlex(row, space-between, center);
+
+            .icone-funcao {
+                min-width: 50px;
+                @include tamanhos(inherit, auto);
+                @include displayFlex(row, $align: center, $gap: 7px);
+                cursor: pointer;
+
+                .curtir {
+                    @include tamanhos(25px, 28px);
+                }
+
+                .comentar {
+                    @include tamanhos(25px, 25px);
+                }
+
+                .compartilhar {
+                    @include tamanhos(25px, 25px);
+                }
+
+                span {
+                    @include textoEstilo(grau10, semiBold, $text, capitalize);
+                }
+            }
+        }
+
+        .comentarios {
+            min-height: 180px;
+            @include tamanhos(auto, 736px);
+            @include displayFlex(column, $gap: 20px);
+            margin-top: 12px;
+
+            .corpo-comentario {
+                min-height: 148px;
+                min-width: 575px;
+                @include tamanhos(auto, auto);
+                @include displayFlex(row, space-between);
+
+                .lateral-imagem {
+                    @include tamanhos(inherit, 74px);
+                    @include displayFlex();
+
+                    img {
+                        @include tamanhos(75px, 75px);
+                        border-radius: 50%;
+                    }
+                }
+
+                .vertical-info {
+                    min-height: 150px;
+                    @include tamanhos(auto, 482px);
+                    @include displayFlex(column, $gap: 5px);
+
+                    .comentario {
+                        @include tamanhos(inherit, inherit);
+                        @include displayFlex(column, $gap: 8px);
+                        background-color: $deepSaffron;
+                        padding: 12px;
+                        border-radius: 6px;
+
+                        h3 {
+                            @include textoEstilo(grau9, bold, $text);
+                        }
+
+                        p {
+                            @include textoEstilo(grau10, medium, $text);
+                        } 
+                        
+                        span {
+                            font-size: 1.1rem;
+                            font-weight: map-get($densidade, bold);
+                            color: $text;
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .acoes-comentario {
+                        min-width: 209px;
+                        @include tamanhos(30px, auto);
+                        @include displayFlex(row, $align: center, $gap: 15px);
+
+                        span {
+                            font-size: 1.1rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $text;
+                        }
+
+                        .curtir-comentario {
+                            min-width: 168px;
+                            @include tamanhos(inherit, auto);
+                            @include displayFlex(row, $align: center, $gap: 6px);
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(20px, 25px);
+                            }
+
+                            span {
+                                @include textoEstilo(grau10, semiBold, $text, capitalize);
+                                margin-top: 2px;
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .evento-feed {
+        min-height: 789px;
+        @include tamanhos(auto, inherit);
+        @include displayFlex(column, space-between, $gap: 25px);
+        background-color: #fff;
+        border-radius: 20px;
+        filter: $shadowMain;
+        padding: 18px;
+
+        .parte-superior {
+            @include tamanhos(80px, 815px);
+            @include displayFlex(row, space-between, center);
+
+            .info-ong {
+                @include tamanhos(80px, 290px);
+                @include displayFlex(row, space-between, center);
+
+                img {
+                    @include tamanhos(inherit, 80px);
+                    border-radius: 50%;
+                }
+
+                .info-nome-data {
+                    @include tamanhos(55px, 200px);
+                    @include displayFlex(column, $gap: 3px);
+
+                    h2 {
+                        @include textoEstilo(grau8, bold, $text);
+                    }
+
+                    span {
+                        @include textoEstilo(grau11, semiBold, $placeholder);
+                    }
+                }
+            }
+
+            img {
+                @include tamanhos(21px, 31px);
+                cursor: pointer;
+            }
+        }
+
+        .info-evento {
+            min-height: 632px;
+            @include tamanhos(auto, 736px);
+            @include displayFlex(column, space-between, $gap: 25px);
+
+            .info-superior {
+                min-height: 131px;
+                @include tamanhos(auto, 736px);
+                @include displayFlex(column, space-between, $gap: 25px);
+
+                h2 {
+                    @include textoEstilo(grau7, semiBold, $text);
+                }
+
+                p {
+                    @include textoEstilo(grau10, medium, $text);
+                }
+            }
+
+            .imagens-postadas {
+                @include tamanhos(314px, 736px);
+                @include displayFlex(row, space-between);
+
+                img {
+                    @include tamanhos(inherit, 435px);
+                    border-radius: 6px;
+                }
+
+                .imagens-complementos {
+                    @include tamanhos(inherit, 285px);
+                    @include displayFlex(column, space-between);
+
+                    .cima {
+                        @include tamanhos(125px, inherit);
+                        border-radius: 6px;
+                    }
+
+                    .baixo {
+                        @include tamanhos(176px, inherit);
+                        border-radius: 6px;  
+                    }
+                }
+            }
+
+            .info-complementares {
+                @include tamanhos(201px, 736px);
+                @include displayFlex(column);
+
+                .complementares-superior {
+                    @include tamanhos(159px, inherit);
+                    @include displayFlex(row, space-between);
+
+                    .info-esquerda {
+                        @include tamanhos(inherit, 530px);
+                        @include displayFlex(column, space-between);
+
+                        .item {
+                            @include displayFlex($gap: 7px);
+
+                            h3 {
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, semiBold);
+                                color: $text;
+                            }
+
+                            .item-info {
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, regular);
+                                color: $text;
+                            }
+
+                            .item-stts {
+                                @include tamanhos(35px, 89px);
+                                @include displayFlex(row, center, center);
+                                font-size: 0.85rem;
+                                font-weight: map-get($densidade, bold);
+                                background-color: $verde;
+                                border-radius: 6px;
+                            }
+                        }
+                    }
+
+                    .botoes-direita {
+                        @include tamanhos(103px, 160px);
+                        @include displayFlex(column, space-between);
+
+                        .botao {
+                            @include tamanhos(40px, 160px);
+                            @include displayFlex(row, center, center);
+                            font-size: 1.200rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $text;
+                            background-color: $border;
+                            border-radius: 6px;
+                            border: none;
+                            cursor: pointer;
+                            transition: .1s;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+
+                .complementares-inferior {
+                    @include tamanhos(42px, inherit);
+                    @include displayFlex(row, flex-end, center);
+
+                    span {
+                        font-size: 1.200rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text; 
+                    }
+
+                    i {
+                        font-weight: map-get($densidade, regular);
+                        font-style: normal;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    
+    .vaga {
+        min-height: 475px;
+        @include tamanhos(509px, 370px);
+        @include displayFlex(column, $gap: 20px);
+        background-color: #fff;
+        border-radius: 20px;
+        filter: $shadowMain;
+        padding: 20px;
+
+        .parte-superior {
+            @include tamanhos(80px, 327px);
+            @include displayFlex(row, space-between, center);
+
+            .info-ong {
+                @include tamanhos(80px, 277px);
+                @include displayFlex(row, space-between, center);
+
+                img {
+                    @include tamanhos(inherit, 80px);
+                    border-radius: 50%;
+                    padding: 5px;
+                }
+
+                .info-nome-data {
+                    @include tamanhos(55px, 200px);
+                    @include displayFlex(column, $gap: 3px);
+
+                    h2 {
+                        @include textoEstilo(grau8, bold, $text);
+                    }
+
+                    span {
+                        @include textoEstilo(grau11, semiBold, $placeholder);
+                    }
+                }
+            }
+
+            img {
+                @include tamanhos(21px, 31px);
+                cursor: pointer;
+            }
+        }
+
+        .corpo-vaga {
+            @include tamanhos(244px, 318px);
+            @include displayFlex(column, space-between);
+
+            h2 {
+                @include textoEstilo(grau8, semiBold, $text);
+            }
+
+            p {
+                
+                @include textoEstilo(grau9, medium, $text);
+                @include displayFlex(center);
+                padding: 15px;
+            }
+
+            .vaga-botoes {
+                @include tamanhos(60px, 316px);
+                @include displayFlex(row, space-between);
+                align-self: center;
+
+                button {
+                    @include tamanhos(inherit, 150px);
+                    @include displayFlex(row, center, center);
+                    font-size: 1.450rem;
+                    font-weight: map-get($densidade, medium);
+                    text-transform: capitalize;
+                    background-color: $deepSaffron;
+                    border-radius: 6px;
+                    border: none;
+                    transition: .1s;
+                    cursor: pointer;
+
+                    &:hover {
+                        transition: .1s;
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+
+
+
 }
 
 #direita {

@@ -137,6 +137,8 @@
 
         <div id="container-conteudo">
 
+
+            <!-- SOBRE-->
             <div id="conteudo-sobre">
 
                 <div id="texto-sobre">
@@ -167,7 +169,6 @@
                 </div>
 
             </div>
-
 
             <div id="container-historia">
                 <div id="container-conteudo-historia">
@@ -215,6 +216,7 @@
             </div>
 
 
+            <!-- DETALHES DA CONTA -->
             <div id="container-conteudo-detalhes-conta">
 
                 <form action="detalhes-da-conta" method="">
@@ -252,19 +254,58 @@
     
             </div>
 
+
+            <!-- DETALHES DA ONGs-->
             <div id="container-conteudo-detalhes-ONGs">
+                    <div id="fileira-descricao">
+                        <div id="descricao">
+                            <label>Descrição da ONG</label>
+                            <input type="text" placeholder="Insira uma descrição para dar credibilidade a sua ONG"/>
+                        </div>
+
+                        <div id="quantidade-membros">
+                            <label>Quantidade de membros</label>
+                            <input type="text" placeholder="0"/> 
+
+                        </div>
+                        <div id="data-fundacao">
+                            <label>Data fundação</label>
+                            <input type="date" placeholder="00-00-0000"/> 
+
+                        </div>
+
+                    </div>
+                    
+                    <div id="historia-ONG">
+                        <label>História da ONG</label>
+                        <input type="text" placeholder="Descreva uma história de criação da sua ONG"/> 
+
+                    </div>
+
+                    <div id="categoria-detalhes-ONG">
+
+                        <div id="categoria-detalhes">
+                            <label>Categoria</label>
+                            <input type="text" placeholder="Ex: Floresta">
+                        </div>
+
+                        <div id="lista-categoria">
+                            <input type="text">
+                        </div>
+
+                    </div>
+
+                    <div id="botao-proximo">
+                        <button type="submit">Proximo</button>
+                    </div>
 
 
-                <!-- //////////////////////////////////////////////////////
-                ///////////////
-            
-            
-            
-            
-                -->
+                </div>
+
             </div>
 
 
+            <!-- DETALHES DO ENDEREÇO-->
             <div id="container-conteudo-detalhes-do-endereco" class="item">
                 <form action="conteudo-endereco" method="">
                     <div id="primeira-fileira">
@@ -309,6 +350,7 @@
             </div>
 
 
+            <!-- MEIOS DE DOAÇÕES-->
             <div id="container-conteudo-meios-doacoes" class="item">
                 <form action="conteudo-doacoes" method="">
 
@@ -357,6 +399,7 @@
                 </form>
             </div>
 
+            <!-- PATROCINIOS -->
             <div id="container-conteudo-patrocinios">
 
                <div id="editar-imagen">
@@ -409,9 +452,6 @@
                         </div>
 
                         <div id="botoes">
-                            <div id="botao-adicionar">
-                                <button id="" >Adicionar</button>
-                            </div>
                             <div id="botao-finalizar">
                                 <button id="" >Finalizar</button>
                             </div>
@@ -424,6 +464,232 @@
 
               
             </div>
+
+
+            <!--POSTS -->
+            <div id="container-post">
+                <div class="post">
+                    <div class="parte-superior">
+                        <div class="info-ong">
+                            <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
+
+                            <div class="info-nome-data">
+                                <h2>GreenPeace</h2>
+                                <span>24 de Setembro de 2021</span>
+                            </div>
+                        </div>
+
+                        <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+                    </div>
+
+                    <div class="imagens-postadas">
+                        <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens">
+
+                        <div class="imagens-complementos">
+                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
+                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="baixo">
+                        </div>
+                    </div>
+
+                    <p>
+                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                    </p>
+
+                    <div class="interacoes">
+                        <div class="icone-funcao">
+                            <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                            <span>28.5k Curtiram</span>
+                        </div>
+                        <div class="icone-funcao">
+                            <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                            <span>3 Comentários</span>
+                        </div>
+                        <div class="icone-funcao">
+                            <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                            <span>Compartilhar</span>
+                        </div>
+                    </div>
+
+                    <div class="comentarios">
+                        <div class="corpo-comentario"><!-- ESTRUTURA DE COMENTÁRIO -->
+                            <div class="lateral-imagem">
+                                <img src="assets/img/foto-comentario.png" alt="{NomeDaPessoa}" title="Foto de perfil">
+                            </div>
+
+                            <div class="vertical-info">
+                                <div class="comentario">
+                                    <h3>Nome Da Pessoa</h3>
+
+                                    <p>
+                                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. 
+                                        <span>Ver mais</span>
+                                    </p>
+                                </div>
+
+                                <div class="acoes-comentario">
+                                    <span>1 h Atrás</span>
+
+                                    <div class="curtir-comentario">
+                                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
+                                        <span>28.5k Curtiram</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ESTRUTURA DE COMENTÁRIO -->
+
+                        <div class="corpo-comentario"><!-- ESTRUTURA DE COMENTÁRIO -->
+                            <div class="lateral-imagem">
+                                <img src="assets/img/foto-comentario.png" alt="{NomeDaPessoa}" title="Foto de perfil">
+                            </div>
+
+                            <div class="vertical-info">
+                                <div class="comentario">
+                                    <h3>Nome Da Pessoa</h3>
+
+                                    <p>
+                                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. 
+                                        <span>Ver mais</span>
+                                    </p>
+                                </div>
+
+                                <div class="acoes-comentario">
+                                    <span>6 dias Atrás</span>
+
+                                    <div class="curtir-comentario">
+                                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
+                                        <span>28.5k Curtiram</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ESTRUTURA DE COMENTÁRIO -->
+
+
+                        <div class="corpo-comentario"><!-- ESTRUTURA DE COMENTÁRIO -->
+                            <div class="lateral-imagem">
+                                <img src="assets/img/foto-comentario.png" alt="{NomeDaPessoa}" title="Foto de perfil">
+                            </div>
+
+                            <div class="vertical-info">
+                                <div class="comentario">
+                                    <h3>Nome Da Pessoa</h3>
+
+                                    <p>
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam quasi non, nemo voluptas exercitationem doloribus, cum in iure rerum quod accusamus assumenda ea officia id fuga dolor necessitatibus dicta quo. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolores natus sapiente, voluptate vel fugit a quas. Odio, quis cum dignissimos cupiditate eveniet officia molestiae repellendus eius, similique magnam ex. 
+                                        <span>Ver mais</span>
+                                    </p>
+                                </div>
+
+                                <div class="acoes-comentario">
+                                    <span>1 h Atrás</span>
+
+                                    <div class="curtir-comentario">
+                                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
+                                        <span>28.5k Curtiram</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ESTRUTURA DE COMENTÁRIO -->
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- EVENTOS -->
+            <div class="evento-feed">
+                <div class="parte-superior">
+                    <div class="info-ong">
+                        <img src="assets/img/foto-ong-perfil.png" alt="">
+
+                        <div class="info-nome-data">
+                            <h2>GreenPeace</h2>
+                            <span>24 de Setembro de 2021</span>
+                        </div>
+                    </div>
+
+                    <img src="assets/img/mais-sobre-postagem.png" alt="">
+                </div>
+
+                <div class="info-evento">
+                    <div class="info-superior">
+                        <h2>Expedição ao Mar</h2>
+
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        </p>
+                    </div>
+
+                    <div class="imagens-postadas">
+                        <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens">
+
+                        <div class="imagens-complementos">
+                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
+                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="baixo">
+                        </div>
+                    </div>
+
+                    <div class="info-complementares">
+                        <div class="complementares-superior">
+                            <div class="info-esquerda">
+                                <div class="item">
+                                    <h3>Obejetivo:</h3>
+                                    <span class="item-info">Salvar Peixes</span>
+                                </div>
+
+                                <div class="item">
+                                    <h3>Data e Hora:</h3>
+                                    <span class="item-info">26 de Janeiro, às 12:00</span>
+                                </div>
+
+                                <div class="item">
+                                    <h3>Data e Hora:</h3>
+                                    <span class="item-stts">Disponível</span>
+                                </div>
+                            </div>
+
+                            <div class="botoes-direita">
+                                <button class="botao">Candidatar-se</button>
+                                <button class="botao">Participar</button>
+                            </div>
+                        </div>
+
+                        <div class="complementares-inferior">
+                            <span>Quantidade de participantes: <i>101</i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VAGAS-->
+            <div class="vaga">
+                <div class="parte-superior">
+                    <div class="info-ong">
+                        <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
+
+                        <div class="info-nome-data">
+                            <h2>GreenPeace</h2>
+                            <span>24 de Setembro de 2021</span>
+                        </div>
+                    </div>
+
+                    <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
+                </div>
+
+                <div class="corpo-vaga">
+                    <h2>Professor de informática</h2>
+
+                    <p>
+                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                    </p>
+
+                    <div class="vaga-botoes">
+                        <button>Saiba Mais</button>
+                        <button>Interesse</button>
+                    </div>
+                </div>
+
+                
+            </div>
+
 
         </div>   
     </div>
