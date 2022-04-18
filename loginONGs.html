@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <Script src="assets/js/login.js" defer></Script>
 </head>
 
 <body>
@@ -31,22 +32,15 @@
         <form action="formLogin" name="login" method="POST">
             <div id="conteudo">
                 <div id="inputs-superiores">
-                    <div id="input-cnpj">
-                        <input type="text" name="txtCnpj" id="" placeholder="CNPJ">
-                        <img src="assets/img/user-loginONG.png" alt="CNPJ de ongs" title="Icone usuário">
-                    </div>
-
-                    <span>ou</span>
-
                     <div id="input-email">
-                        <input type="text" name="" id=""
+                        <input type="text" name="email" id="email"
                         placeholder="Email">
                         <img src="assets/img/mail-loginONG.png" alt="EMAIL de ongs" title="Icone email">
                     </div>
                 </div>
 
                 <div id="input-inferior">
-                    <input type="text" name="" id="" placeholder="Digite sua senha">
+                    <input type="text" name="" id="senha" placeholder="Digite sua senha">
                     <img src="assets/img/lock-loginONG.png" alt="Oculte a senha" title="Icone cadeado" id="icone-cadeado">
                     <img src="assets/img/eye-off-loginONG.png" alt="Abrir senha" title="Icone olho" id="icone-olho">
                     <a href="">esqueceu senha?</a>
@@ -54,7 +48,9 @@
             </div>
 
             <div id="button-outras-opcoes">
-                <input type="submit" value="Login" id="btn-login">
+                <button type="submit" value="" id="btn-login">
+                    Login
+                </button>
                 <h3>não tem uma conta?</h3>
                 <a href="">crie uma agora</a>
             </div>
