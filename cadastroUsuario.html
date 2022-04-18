@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="pt-BR" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,84 +9,81 @@
     <link rel="stylesheet" href="assets/sass/cadastroUsuario.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div id="topo">
-        <div id="logo-img">
-            <img src="./assets/img/image 11.png">
-        </div>
-
-        <div id="botao-doar">
-            <div id="img-btnDoar">
-                <img src="./assets/img/bx-donate-heart 2.png" alt="">
-            </div>
-
-            <button class="btn">DOAR</i></button>
-        </div>
-    </div>
-    <div id="conteudoTodo">
-    <div id="esquerda">
-            <!-- <div id="logo-img">
+        <div id="itens-topo">
+            <div id="logo-img">
                 <img src="./assets/img/image 11.png">
-            </div> -->
-            <div id="titulos-esquerda">
-                <h1>Sua rede social <br> de Doações</h1>
-                <h3>Faça um cadastro antes de começar a <br> busca pela sua ONG preferida</h3>
             </div>
-            <div id="fundo-img">
-                <img src="./assets/img/Fundo.png">
+    
+            <div id="botao-doar">
+                <button>
+                    <img src="./assets/img/bx-donate-heart 2.png" alt="Doar para Ongs" title="Icone de coração">
+                    DOAR
+                </button>
             </div>
-    </div>
-    <div id="direita">
-        <!-- <div id="botao-doar">
-            <button class="btn">DOAR</i></button>
-        </div> -->
-        <div id="cadastro">
-            <h2>Seja um doador</h2>
-
-            <form action="cadastroUsuario" method="">
-                <div>
-                    <div class="img-btn">
-                        <img src="/assets/img/user.png">
-                    </div>
-                    <input type="text" id="name"  placeholder="Digite seu nome"/>
-                </div>
-                <div>
-                    <div class="img-btn">
-                        <img src="./assets/img/mail.png">
-                    </div>
-                    <input type="email" id="email" placeholder="Digite seu E-mail"/>
-                </div>
-                <div>
-                    <div class="img-btn">
-                        <img src="./assets/img/lock.png">
-                    </div>
-                    <input type="password" id="senha" placeholder="Digite sua senha"/>
-                </div>
-                <div>
-                   
-                    <img src="./assets/img/lock.png">
-                   
-                    <input  type="password" id="confirmarSenha" placeholder="Confirme sua senha"/>
-                    
-                </div>
-
-                <p>Ao clicar em Cadastre-se, você concorda com nossos <spam> Termos,<br> Política de Dados e Política de Cookies.</spam> Você poderá receber<br> notificações por SMS e cancelar isso quando quiser.</p>
-
-                <div id="btn-continuar">
-                    <button type="submit" id="formButton">Continuar</button>
-                </div>
-
-               
-            </form>
-            
-            
-            <h3>Já tem uma conta? Faça <spam> Login </spam></h3>
         </div>
     </div>
 
+    <div id="conteudoTodo">
+        <div id="itens-todo">
+            <div id="esquerda">
+                <div id="titulos-esquerda">
+                    <h1>Sua rede social <br> de Doações</h1>
+                    <h3>Faça um cadastro antes de começar <br> a busca pela sua ONG preferida</h3>
+                </div>
+            </div>
+            
+            <div id="direita">
+                <div id="cadastro">
+                    <h2>Seja um doador</h2>
+    
+                    <form action="cadastroUsuario" method="">
+                        <div>
+                            <div class="img-btn">
+                                <img src="/assets/img/user.png">
+                            </div>
+                            <input type="text" id="name" placeholder="Digite seu nome" />
+                        </div>
+                        <div>
+                            <div class="img-btn">
+                                <img src="./assets/img/mail.png">
+                            </div>
+                            <input type="email" id="email" placeholder="Digite seu E-mail" />
+                        </div>
+                        <div>
+                            <div class="img-btn">
+                                <img src="./assets/img/lock.png">
+                            </div>
+                            <input type="password" id="senha" placeholder="Digite sua senha" />
+                        </div>
+                        <div>
+    
+                            <img src="./assets/img/lock.png">
+    
+                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" />
+    
+                        </div>
+    
+                        <p> 
+                            Ao clicar em Cadastre-se, você concorda com nossos <span> Termos,Política de Dados e Política de Cookies.</span> Você poderá receber notificações por SMS e cancelar isso quando quiser.
+                        </p>
+    
+                        <div id="btn-continuar">
+                            <button type="submit">Continuar</button>
+                        </div>
+                    </form>
+                    
+                    <h3> Já tem uma conta? Faça <span> Login </span> </h3>
+                </div>
+            </div>
+        </div>
     </div>
-    <script type="module" src="./js/cadastro-ong-js/index.js"></script>
 </body>
+
 </html>

@@ -4,165 +4,170 @@
 
 body {
     height: 100vh;
+    @include displayFlex(column);
     font-family: 'Montserrat', sans-serif;
-   
+    background-image: url('../img/Fundo.png');
+    background-repeat: no-repeat;
+    background-size: 62.89vw;
+    background-position: bottom left;
 }
 
-#topo{
-    @include tamanhos(100px, 100%);
-    @include displayFlex(row, space-between);
+.conteudo {
+    @include tamanhos(inherit, 1400px);
 }
-#logo-img{
-    padding-top: 15px;
-    padding-left: 130px;
 
-        img{
-            height:100px;
-            width:300px;
+#topo {
+    @include tamanhos(130px, 100%);
+    @include displayFlex($justify: center);
+
+    #itens-topo {
+        @extend .conteudo;
+        @include displayFlex(row, space-between, center);
+
+        #logo-img {
+            @include tamanhos(inherit, auto);
+            @include displayFlex(row, center, center);
+            padding-top: 10px;
         }
-}
-
-#img-btnDoar{
-    position: absolute;
-    left: 0%;
-    padding-left: 18px;
-    padding-top: 3px;
-}
-
-.btn{
-    padding-left: 40px;
-    cursor: pointer;
-}
-
-#botao-doar{
-    position: relative;
-    padding-right: 200px;
-    padding-top: 40px;
-    cursor: pointer;
-
-    button{
-        background-color: $deepSaffron;
-        border:1px solid $border;
-        border-radius:25px;
-        @include tamanhos (55px, 180px);
-        @include textoEstilo (grau7, semiBold, $text)
-     }
+    
+        #botao-doar{
+            @include tamanhos(60px, 165px);
+        
+            button{
+                @include tamanhos (inherit, inherit);
+                @include displayFlex(row, space-around, center);
+                @include textoEstilo (grau7, semiBold, $text);
+                background-color: $deepSaffron;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                padding: 0 10px 0 10px;
+                transition: .5s;
+    
+                img {
+                    @include tamanhos(44px, 44px);
+                }
+    
+                &:hover {
+                    transition: .5s;
+                    opacity: 0.8;
+                }
+    
+            }
+        }
+    }
 }
 
 #conteudoTodo{
-    @include displayFlex(row, space-between);
-}
+    width: 100%;
+    flex-grow: 1;
+    @include displayFlex($justify: center);
 
-#esquerda {
-   
-}
+    #itens-todo {
+        @extend .conteudo;
+        @include displayFlex(row, space-between);
+    }
 
-#titulos-esquerda{
-    padding-left: 180px;
-    padding-top: 100px;
-    
+    #esquerda {
+        @include tamanhos(inherit, 65vw);
+        @include displayFlex(column, space-between);
 
-    h1{
-        @include textoEstilo(grau2, bold, $deepSaffron);
+        #titulos-esquerda {
+            @include tamanhos(188px, 848px);    
+            @include displayFlex(column, $gap: 15px);
+            padding-left: 23px;
+            margin-top: 45px;
+
+            h1 {
+                @include textoEstilo(grau3, bold, $deepSaffron); 
+            }
         
-    }
-
-    h3{
-        @include textoEstilo(grau8, medium, $text);
-        padding-top: 20px;
- 
-    }
-}
-
-#fundo-img{
-    // padding-top: 10px;
-
-    img{
-        @include tamanhos(500px, 65vw);
-    }
-}
-
-#direita{
-padding-right: 117px;
-padding-top:50px;
-
-#cadastro{
-    @include tamanhos (700px, 480px);
-    border:1px solid $text;
-    border-radius:5px;
-    padding-top: 40px;
-    padding-left: 40px;
-
-    h2{
-        @include textoEstilo(grau6, semiBold, $text,);
-    }
-
-    form {
-        position: relative;
-        padding-top: 35px;
-         div + div {
-            margin-top: 1em;
+            h3 {
+                @include textoEstilo(grau8, medium, $text);        
+            }
         }
-      
+    }
 
-        input {
-            border:1px solid $placeholder;
-            border-radius:5px;
-            padding-left: 50px;
-           @include tamanhos(65px, 400px);
-            @include textoEstilo(grau7, medium, $ligthBlack);
-            background-color: $input;
+    #direita{
+        @include tamanhos(inherit, 480px);
+        @include displayFlex(row);
+        padding-top: 15px;
+    
+        #cadastro {
+            @include tamanhos (645px, inherit);
+            border: 1px solid $text;
+            border-radius: 5px;
+            padding: 30px;
+    
+            h2 {
+                @include textoEstilo(grau6, semiBold, $text,);
+            }
+    
+            form {
+                position: relative;
+                padding-top: 35px;
+                
+                div + div {
+                    margin-top: 1em;
+                }
             
+    
+                input {
+                    border:1px solid $placeholder;
+                    border-radius:5px;
+                    padding-left: 50px;
+                    @include tamanhos(65px, 400px);
+                    @include textoEstilo(grau7, medium, $ligthBlack);
+                    background-color: $input;
+                }
+
+                img{
+                    position: absolute;
+                    left: 0%;
+                    padding-left: 10px;
+                    padding-top: 15px;
+                }
+                
+            }
+    
+            p {
+                @include textoEstilo(grau12, medium, $text);
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+    
+            span {
+                color: $mellowApricot;
+                cursor: pointer;
+                font-weight: map-get($densidade, bold);
+            }
+    
+            h3 {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 1.2rem;
+            }
+    
+        }
+    
+        #btn-continuar{
+            @include tamanhos (60px, inherit);
+            @include displayFlex(row, center, center);
             
+            button{
+                background-color: $deepSaffron;
+                border-radius:35px;
+                @include tamanhos (60px, 210px);
+                @include textoEstilo (grau6, semiBold, $text);
+                cursor: pointer;
+                transition: .5s;
+
+                &:hover {
+                    transition: .5s;
+                    opacity: 0.8;
+                }
+            }
         }
-        img{
-            position: absolute;
-            left: 0%;
-            padding-left: 10px;
-            padding-top: 15px;
-        }
-        
-
-        
-    }
-
-    p{
-        padding-top: 30px;
-        padding-left: 5px;
-        @include textoEstilo(grau12, light, $text);
-    }
-
-    spam{
-        color: $mellowApricot;
-        cursor: pointer;
-    }
-
-    h3{
-       padding-top: 30px;
-       padding-left:50px;
-    }
-
-}
-
-
-#btn-continuar{
-    border: none;
-    padding-top: 30px;
-    padding-left: 75px;
     
-    
-
-    button{
-        background-color: $deepSaffron;
-        border:1px solid $border;
-        border-radius:35px;
-        @include tamanhos (60px, 210px);
-        @include textoEstilo (grau6, semiBold, $text);
-        cursor: pointer;
-     }
-}
-
-
-
-
+    }
 }
