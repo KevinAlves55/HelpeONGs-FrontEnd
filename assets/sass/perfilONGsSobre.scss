@@ -89,12 +89,11 @@ body {
 
 #centro {
     min-height: 500px;
-    background-color: aqua;
     @include tamanhos(auto, 850px);
     @include displayFlex(column, space-between);
 
     #banner {
-        // background-color: aqua;
+        @include tamanhos(323px, inherit);
 
         img {
             @include tamanhos(inherit, inherit);
@@ -265,7 +264,6 @@ body {
         min-height: 717px;
         @include tamanhos(auto, inherit);
         @include displayFlex(column);
-        background-color: yellow;
 
         #conteudo-inicio {
             min-height: 332px;
@@ -375,6 +373,7 @@ body {
     #container-conteudo-detalhes-conta{        
         @include tamanhos(550px, 850px);
         padding: 30px;
+        background-color: aqua;
            
         #nome{
             @include tamanhos(102px, 779px);
@@ -489,6 +488,7 @@ body {
     #container-conteudo-detalhes-ONGs{
         @include tamanhos(961px, 771px);
         padding: 30px;
+        background-color: green;
 
 
         #fileira-descricao{
@@ -618,9 +618,9 @@ body {
     }
 
     #container-conteudo-detalhes-do-endereco{
-        
         @include tamanhos(500px, 850px);
         padding: 30px;
+        background-color: brown;
           
         #primeira-fileira{
             @include tamanhos(104px, 770px);
@@ -757,6 +757,7 @@ body {
 
     #container-conteudo-meios-doacoes{
         @include tamanhos(500px, 850px);
+        background-color: burlywood;
         padding: 30px;
   
         #fileira-doacoes{
@@ -892,8 +893,7 @@ body {
         margin-top: 50px;
         @include tamanhos(550px, 850px);
         padding: 30px;
-       
-        
+        background-color: blue;
 
         #editar-imagen{
             @include tamanhos(100px, 774px);
@@ -1361,9 +1361,6 @@ body {
             }
         }
     }
-
-
-
     
     .vaga {
         min-height: 475px;
@@ -1448,8 +1445,6 @@ body {
             }
         }
     }
-
-
 
 }
 

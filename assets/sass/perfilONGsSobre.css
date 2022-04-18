@@ -223,7 +223,6 @@ body {
 
 #centro {
   min-height: 500px;
-  background-color: aqua;
   height: auto;
   width: 850px;
   display: -webkit-box;
@@ -242,6 +241,11 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+}
+
+#centro #banner {
+  height: 323px;
+  width: inherit;
 }
 
 #centro #banner img {
@@ -661,7 +665,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: yellow;
 }
 
 #centro #container-conteudo #conteudo-inicio {
@@ -929,6 +932,7 @@ body {
   height: 550px;
   width: 850px;
   padding: 30px;
+  background-color: aqua;
 }
 
 #centro #container-conteudo-detalhes-conta #nome {
@@ -1105,6 +1109,7 @@ body {
   height: 961px;
   width: 771px;
   padding: 30px;
+  background-color: green;
 }
 
 #centro #container-conteudo-detalhes-ONGs #fileira-descricao {
@@ -1314,6 +1319,7 @@ body {
   height: 500px;
   width: 850px;
   padding: 30px;
+  background-color: brown;
 }
 
 #centro #container-conteudo-detalhes-do-endereco #primeira-fileira {
@@ -1601,6 +1607,7 @@ body {
 #centro #container-conteudo-meios-doacoes {
   height: 500px;
   width: 850px;
+  background-color: burlywood;
   padding: 30px;
 }
 
@@ -1863,6 +1870,7 @@ body {
   height: 550px;
   width: 850px;
   padding: 30px;
+  background-color: blue;
 }
 
 #centro #container-conteudo-patrocinios #editar-imagen {
