@@ -6,46 +6,54 @@ body {
     height: 100vh;
     @include displayFlex(column);
     font-family: 'Montserrat', sans-serif;
+    background-image: url('../img/Fundo.png');
+    background-repeat: no-repeat;
+    background-size: 62.89vw;
+    background-position: bottom left;
 }
 
 .conteudo {
-    @include tamanhos(inherit, 1440px);
-    @include displayFlex(row, space-between, center);
+    @include tamanhos(inherit, 1400px);
 }
 
 #topo {
-    @include tamanhos(100px, 100%);
-    @include displayFlex(row, center, center);
+    @include tamanhos(130px, 100%);
+    @include displayFlex($justify: center);
 
-    #logo-img {
-        @include tamanhos(inherit, auto);
-        @include displayFlex(row, center, center);
-        padding-top: 15px;
-    }
+    #itens-topo {
+        @extend .conteudo;
+        @include displayFlex(row, space-between, center);
 
-    #botao-doar{
-        @include tamanhos(60px, 165px);
+        #logo-img {
+            @include tamanhos(inherit, auto);
+            @include displayFlex(row, center, center);
+            padding-top: 10px;
+        }
     
-        button{
-            @include tamanhos (inherit, inherit);
-            @include displayFlex(row, space-around, center);
-            @include textoEstilo (grau7, semiBold, $text);
-            background-color: $deepSaffron;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            padding: 0 10px 0 10px;
-            transition: .5s;
-
-            img {
-                @include tamanhos(44px, 44px);
-            }
-
-            &:hover {
+        #botao-doar{
+            @include tamanhos(60px, 165px);
+        
+            button{
+                @include tamanhos (inherit, inherit);
+                @include displayFlex(row, space-around, center);
+                @include textoEstilo (grau7, semiBold, $text);
+                background-color: $deepSaffron;
+                border: none;
+                border-radius: 30px;
+                cursor: pointer;
+                padding: 0 10px 0 10px;
                 transition: .5s;
-                opacity: 0.8;
+    
+                img {
+                    @include tamanhos(44px, 44px);
+                }
+    
+                &:hover {
+                    transition: .5s;
+                    opacity: 0.8;
+                }
+    
             }
-
         }
     }
 }
@@ -53,46 +61,40 @@ body {
 #conteudoTodo{
     width: 100%;
     flex-grow: 1;
-    @include displayFlex(row, space-between);
-    margin-top: 35px;
+    @include displayFlex($justify: center);
+
+    #itens-todo {
+        @extend .conteudo;
+        @include displayFlex(row, space-between);
+    }
 
     #esquerda {
         @include tamanhos(inherit, 65vw);
         @include displayFlex(column, space-between);
-        padding-top: 25px;
 
         #titulos-esquerda {
             @include tamanhos(188px, 848px);    
-            @include displayFlex(column);
-            padding-left: 65px;
+            @include displayFlex(column, $gap: 15px);
+            padding-left: 23px;
+            margin-top: 45px;
 
             h1 {
                 @include textoEstilo(grau3, bold, $deepSaffron); 
             }
         
             h3 {
-                @include textoEstilo(grau8, medium, $text);
-                padding-top: 20px;
-         
-            }
-        }
-
-        #fundo-img {
-            @include tamanhos(435px, inherit);
-            background-color: grey;
-
-            img {
-                @include tamanhos(inherit, inherit);
+                @include textoEstilo(grau8, medium, $text);        
             }
         }
     }
 
     #direita{
-        @include tamanhos(inherit, 646px);
+        @include tamanhos(inherit, 480px);
         @include displayFlex(row);
+        padding-top: 15px;
     
         #cadastro {
-            @include tamanhos (645px, 480px);
+            @include tamanhos (645px, inherit);
             border: 1px solid $text;
             border-radius: 5px;
             padding: 30px;

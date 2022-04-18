@@ -43,11 +43,39 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   font-family: 'Montserrat', sans-serif;
+  background-image: url("../img/Fundo.png");
+  background-repeat: no-repeat;
+  background-size: 62.89vw;
+  background-position: bottom left;
 }
 
-.conteudo {
+.conteudo, #topo #itens-topo, #conteudoTodo #itens-todo {
   height: inherit;
-  width: 1440px;
+  width: 1400px;
+}
+
+#topo {
+  height: 130px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#topo #itens-topo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,28 +94,7 @@ body {
   gap: 0;
 }
 
-#topo {
-  height: 100px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#topo #logo-img {
+#topo #itens-topo #logo-img {
   height: inherit;
   width: auto;
   display: -webkit-box;
@@ -106,15 +113,15 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
-#topo #botao-doar {
+#topo #itens-topo #botao-doar {
   height: 60px;
   width: 165px;
 }
 
-#topo #botao-doar button {
+#topo #itens-topo #botao-doar button {
   height: inherit;
   width: inherit;
   display: -webkit-box;
@@ -146,12 +153,12 @@ body {
   transition: .5s;
 }
 
-#topo #botao-doar button img {
+#topo #itens-topo #botao-doar button img {
   height: 44px;
   width: 44px;
 }
 
-#topo #botao-doar button:hover {
+#topo #itens-topo #botao-doar button:hover {
   -webkit-transition: .5s;
   transition: .5s;
   opacity: 0.8;
@@ -169,6 +176,25 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#conteudoTodo #itens-todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -178,7 +204,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin-top: 35px;
 }
 
 #conteudoTodo #esquerda {
@@ -200,7 +225,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-top: 25px;
 }
 
 #conteudoTodo #esquerda #titulos-esquerda {
@@ -221,8 +245,9 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
-  padding-left: 65px;
+  gap: 15px;
+  padding-left: 23px;
+  margin-top: 45px;
 }
 
 #conteudoTodo #esquerda #titulos-esquerda h1 {
@@ -239,23 +264,11 @@ body {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  padding-top: 20px;
-}
-
-#conteudoTodo #esquerda #fundo-img {
-  height: 435px;
-  width: inherit;
-  background-color: grey;
-}
-
-#conteudoTodo #esquerda #fundo-img img {
-  height: inherit;
-  width: inherit;
 }
 
 #conteudoTodo #direita {
   height: inherit;
-  width: 646px;
+  width: 480px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,11 +285,12 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  padding-top: 15px;
 }
 
 #conteudoTodo #direita #cadastro {
   height: 645px;
-  width: 480px;
+  width: inherit;
   border: 1px solid #292929;
   border-radius: 5px;
   padding: 30px;
