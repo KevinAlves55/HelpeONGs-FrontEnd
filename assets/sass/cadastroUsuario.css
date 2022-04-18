@@ -334,6 +334,11 @@ body {
   padding-top: 15px;
 }
 
+#conteudoTodo #direita #cadastro form #olho {
+  padding-left: 350px;
+  cursor: pointer;
+}
+
 #conteudoTodo #direita #cadastro p {
   font-size: 0.75rem;
   font-weight: 500;

@@ -43,30 +43,34 @@
                 <div id="cadastro">
                     <h2>Seja um doador</h2>
     
-                    <form action="cadastroUsuario" method="">
+                    <form>
                         <div>
                             <div class="img-btn">
                                 <img src="/assets/img/user.png">
                             </div>
-                            <input type="text" id="name" placeholder="Digite seu nome" />
+                            <input type="text" id="nome" placeholder="Digite seu nome" required maxLength="30"/>
                         </div>
                         <div>
                             <div class="img-btn">
                                 <img src="./assets/img/mail.png">
                             </div>
-                            <input type="email" id="email" placeholder="Digite seu E-mail" />
+                            <input type="email" id="email" placeholder="Digite seu E-mail" required/>
                         </div>
                         <div>
                             <div class="img-btn">
                                 <img src="./assets/img/lock.png">
                             </div>
-                            <input type="password" id="senha" placeholder="Digite sua senha" />
+                            <input type="password" id="senha" placeholder="Digite sua senha" required/>
+
+                            <img id="olho"src="./assets/img/eye.png">
                         </div>
                         <div>
     
                             <img src="./assets/img/lock.png">
     
-                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" />
+                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" required/>
+
+                            <img id="olho" src="./assets/img/eye.png">
     
                         </div>
     
@@ -75,7 +79,8 @@
                         </p>
     
                         <div id="btn-continuar">
-                            <button type="submit">Continuar</button>
+                            <button type="submit" id="formButton">Continuar</button>
+                
                         </div>
                     </form>
                     
@@ -84,6 +89,7 @@
             </div>
         </div>
     </div>
+    <script type="module" src="./js/cadastro-usuario-js/index.js"></script>
 </body>
 
 </html>
