@@ -5,27 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Usuario</title>
+    <title>HelpONGs - Meu perfil</title>
     <link rel="stylesheet" href="assets/sass/perfilONGsSobre.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body>  
     <!-- Esquerda -->
-    <div id="esquerda">
+    <header id="esquerda">
         <div id="logo">
             <img src="./assets/img/image 11.png">
         </div>
 
-        <div id="container">
+        <div id="conteudo-header">
             <div id="mini-perfil">
                 <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
 
-                <h3>Gustavo Alves</h3>
+                <h3>GreenPeace</h3>
             </div>
 
             <nav id="menu">
@@ -57,163 +55,152 @@
                 </ul>
             </nav>
         </div>
-    </div>
+    </header>
+    
     <!-- Centro -->
-    <div id="centro">
+    <main id="centro">
         <div id="banner">
             <img src="assets/img/Rectangle 94 (1).png">
         </div>
 
-        <div id="perfil">
-            <div id="foto-perfil">
-                <div id="foto"></div>
+        <section id="meu-perfil">
+            <div id="minha-foto-perfil">
+                <img src="assets/img/perfil-foto-ONG.png" alt="nomeDaONG" title="Foto da ONG">
             </div>
             
             <div id="conteudo-perfil-centro">
-                <div id="containerNameandButton">
-                    <div id="titulos-perfil">
+                <div id="info-esquerda">
+                    <div id="nome-qtda-seguidores">
                         <h1>GreenPeace</h1>
-                        <div id="icon-centro">
-                            <img src="assets/img/heart.png"><span>Doar</span>
-
-                            <img src="assets/img/activity.png"><span>Seguir</span>
-
-                        </div>
-
+                        <h2>127 seguidores</h2>
                     </div>
-                    <div id="titulo-seguidor">
-                        <h3>120 seguidores</h3>
-
-                    <div id="container-classificacao">
-                            <!-- <div id="conteudo-classificacao"> -->
-                                <!-- <div class="class-tipo">
-                                    <span>Topical</span>
-                                </div> -->
-                                <!-- <div class="class-tipo">
-                                    <span>Amazônia</span>
-                                </div>
-                                <div class="class-tipo">
-                                    <span>Floresta</span>
-                                </div> -->
-
-                            <!-- </div> -->
-
+                    
+                    <div id="todas-categorias-perfil">
+                        <div class="categoria">
+                            <span>Tropical</span>
                         </div>
-                        <div id="botao">
-                            <button>
-                                <img src="assets/img/edit-2.png">
-                                <span>Editar Perfil</span>
-                            </button>
+                        <div class="categoria">
+                            <span>Amazônia</span>
+                        </div>
+                        <div class="categoria">
+                            <span>Floresta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="info-direito">
+                    <div id="opcoes-info">
+                        <div class="opcoes">
+                            <img src="assets/img/heart.png">
+                            <span>Doar</span>
+                        </div>
+
+                        <div class="opcoes">
+                            <img src="assets/img/activity.png">
+                            <span>Seguir</span>
                         </div>
                     </div>
 
+                    <button>
+                        <img src="assets/img/edit-2.png" alt="Ediatr perfil" title="Icone lápis">
+                        editar perfil
+                    </button>
                 </div>
             </div>
+        </section>
 
-        </div>
-
-        <nav id="menu">
+        <nav id="menu-opcoes-perfil">
             <ul>
                 <li>
-                    <a href="#">Sobre</a>
+                    <span>Sobre</span>
+                    <div class="barra"></div>
                 </li>
                 <li>
-
-                    <a href="#">Detalhes da conta</a>
+                    <span>Detalhes da conta</span>
+                    <div class="barra"></div>
                 </li>
                 <li>
-
-                    <a href="#">Detalhes da ONG</a>
+                    <span>Detalhes da ONG</span>
+                    <div class="barra"></div>
                 </li>
                 <li>
-
-                    <a href="#">Detalhes do endereço</a>
-                </li>
-                <li>
-                    <img src="assets/img/Outras opções (1).png" alt="">
+                    <span>Detalhes do endereço</span>
+                    <div class="barra"></div>
                 </li>
             </ul>
+
+            <div id="troca-de-menus">
+                <img src="assets/img/seta-direita-menu.png" alt="Trocar" title="Icone seta">
+                <img src="assets/img/seta-esquerda-menu.png" alt="Trocar" title="Icone seta">
+            </div>
         </nav>
 
         <div id="container-conteudo">
-
-            <div id="conteudo-sobre">
-
-                <div id="texto-sobre">
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-                        duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non
-                        deserunt ullamco est sit aliqua dolor do amet sint.</p>
-
-                </div>
-
-
-                <div id="conteudo-info">
-                    <div id="texto-quantidade">
-                        <h2>Quantidade de membros: <span>5.000</span></h2>
-                    </div>
-
-                    <div id="ano-fundacao">
-
-                        <h2>Ano de fundação: <span>1981</span></h2>
-                       
-                    </div>
-
-
-                </div>
-                <div id="local">
-
-                    <h2> Sede do local: <span>Jandira, SP</span></h2>
-
-                </div>
-
-            </div>
-
-
-            <div id="container-historia">
-                <div id="container-conteudo-historia">
-                    <div id="historia">
-                        <h1>Nossa História</h1>
-
-                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-                            consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet
-                            minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-                            duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit
-                            non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim
-                            velit mollit. Exercitation veniam consequat sunt nostrud amet. <span>Ver mais</span>
+            <!-- APARECER NO INICÍO -->
+            <div id="conteudo-inicio">
+                <section id="conteudo-sobre">
+                    <div id="texto-sobre">
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
+                            duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non
+                            deserunt ullamco est sit aliqua dolor do amet sint.
                         </p>
-
                     </div>
-                </div>
-            </div>
 
-            <div id="patrocinios">
+                    <div id="conteudo-info-sobre">
+                        <div class="info-sobre">
+                            <h2>Quantidade de membros: </h2>
+                            <span>5.000</span>
+                        </div>
 
-                <h2> Patrocínios</h2>
-                
-                <div id="container-patrocinios">
-                    <div id="conteudo-patrocinios">
+                        <div class="info-sobre">
+                            <h2>Ano de fundação: </h2>  
+                            <span>1981</span>      
+                        </div>
 
-                        <div class="img-patrocinios">
+                        <div class="info-sobre">
+                            <h2> Sede do local: </h2>
+                            <span>Jandira, SP</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="container-conteudo-historia">
+                    <h1>Nossa História</h1>
+
+                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+                        consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet
+                        minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
+                        duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit
+                        non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim
+                        velit mollit. Exercitation veniam consequat sunt nostrud amet. <span>Ver mais</span>
+                    </p>
+                </section>
+
+                <section id="conteudo-patrocinios">
+                    <h2>Patrocínios</h2>
+                    
+                    <div id="todos-patrocinios">
+                        <div class="patrocinador">
                             <img src="assets/img/Ellipse 1.png">
-                            <p>Coca-Cola</p>
+                            <span>Coca-Cola</span>
                         </div>
-                        <div class="img-patrocinios">
+                        <div class="patrocinador">
                             <img src="assets/img/Ellipse 4.png">
-                            <p>GoPro</p>
+                            <span>GoPro</span>
                         </div>
-                        
-                        <div class="img-patrocinios">
+                        <div class="patrocinador">
                             <img src="assets/img/Ellipse 3.png">
-                            <p>SeptWolves</p>
+                            <span>SeptWolves</span>
                         </div>
-                        <div class="img-patrocinios">
+                        <div class="patrocinador">
                             <img src="assets/img/Ellipse 2.png">
-                            <p>The North Face</p>
+                            <span>The North Face</span>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
-
+            <!-- APARECER NO INICÍO -->
 
             <div id="container-conteudo-detalhes-conta">
 
@@ -264,7 +251,6 @@
                 -->
             </div>
 
-
             <div id="container-conteudo-detalhes-do-endereco" class="item">
                 <form action="conteudo-endereco" method="">
                     <div id="primeira-fileira">
@@ -307,7 +293,6 @@
                     </div>
                 </form>
             </div>
-
 
             <div id="container-conteudo-meios-doacoes" class="item">
                 <form action="conteudo-doacoes" method="">
@@ -424,10 +409,10 @@
 
               
             </div>
-
         </div>   
-    </div>
-    <!-- Direita -->
+    </main>
+    
+    <!-- Direita -->   
     <div id="direita">
 
         <div id="info-seguidores">
