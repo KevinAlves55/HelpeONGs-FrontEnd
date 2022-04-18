@@ -549,10 +549,10 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   padding: 10px;
   background-color: #FF9F45;
   border-radius: 10px;
-  z-index: -1;
+  z-index: 1;
   opacity: 0;
   top: 100px;
-  left: -112px;
+  left: -63px;
   position: absolute;
   cursor: default;
 }
@@ -1074,7 +1074,8 @@ main #itens-main #acoes #resultados-pesquisas #ongs {
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card {
-  height: 242px;
+  min-height: 262px;
+  height: auto;
   width: 203px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1110,17 +1111,19 @@ main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card .img-coracao {
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card .img-ong {
-  height: 101px;
-  width: 97px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
   margin-bottom: 8px;
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card h2 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 main #itens-main #acoes #resultados-pesquisas #ongs .ongs-card span {

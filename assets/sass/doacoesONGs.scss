@@ -156,7 +156,8 @@ main {
                     @include displayFlex(row, space-between, $wrap: wrap, $gap: 35px);
 
                     .ongs-card {
-                        @include tamanhos(242px, 203px);
+                        min-height: 262px;
+                        @include tamanhos(auto, 203px);
                         @include displayFlex(column, $align: center);
                         position: relative;
                         background-color:#fff;
@@ -172,12 +173,14 @@ main {
                         }
 
                         .img-ong {
-                            @include tamanhos(101px, 97px);
+                            @include tamanhos(100px, 100px);
+                            border-radius: 50%;
                             margin-bottom: 8px;
                         }
 
                         h2 {
-                            @include textoEstilo(grau10, semiBold, $text, capitalize, -0.02em);
+                            @include textoEstilo(grau11, semiBold, $text, capitalize, -0.02em);
+                            text-align: center;
                         }
 
                         span {
