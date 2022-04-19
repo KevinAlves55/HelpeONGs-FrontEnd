@@ -108,30 +108,38 @@ body {
                 padding-top: 35px;
                 
                 div + div {
-                    margin-top: 1em;
+                    margin-top: 1em;  
                 }
             
+                div {
+                    @include tamanhos(65px, 398px);
+                    position: relative;
+
+                    input {
+                        border: 1px solid $placeholder;
+                        border-radius:5px;
+                        padding-left: 50px;
+                        @include tamanhos(65px, 400px);
+                        @include textoEstilo(grau7, medium, $ligthBlack);
+                        background-color: $input;
+                    }
     
-                input {
-                    border:1px solid $placeholder;
-                    border-radius:5px;
-                    padding-left: 50px;
-                    @include tamanhos(65px, 400px);
-                    @include textoEstilo(grau7, medium, $ligthBlack);
-                    background-color: $input;
-                }
+                    img {
+                        @include tamanhos(30px, 30px);
+                        cursor: pointer;
+                    }
+    
+                    .icone {
+                        position: absolute;
+                        left: 10px;
+                        top: 15px;
+                    }
 
-                img{
-                    position: absolute;
-                    left: 0%;
-                    padding-left: 10px;
-                    padding-top: 15px;
-                }
-
-                #olho{
-                    padding-left: 350px;
-                    cursor: pointer;
-                    
+                    .olho {
+                        position: absolute;
+                        right: 12px;
+                        top: 17px;
+                    }
                 }
                 
             }

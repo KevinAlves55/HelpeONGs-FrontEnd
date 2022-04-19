@@ -313,7 +313,13 @@ body {
   margin-top: 1em;
 }
 
-#conteudoTodo #direita #cadastro form input {
+#conteudoTodo #direita #cadastro form div {
+  height: 65px;
+  width: 398px;
+  position: relative;
+}
+
+#conteudoTodo #direita #cadastro form div input {
   border: 1px solid #8C8C8C;
   border-radius: 5px;
   padding-left: 50px;
@@ -327,16 +333,22 @@ body {
   background-color: #ECECEC;
 }
 
-#conteudoTodo #direita #cadastro form img {
-  position: absolute;
-  left: 0%;
-  padding-left: 10px;
-  padding-top: 15px;
+#conteudoTodo #direita #cadastro form div img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
 }
 
-#conteudoTodo #direita #cadastro form #olho {
-  padding-left: 350px;
-  cursor: pointer;
+#conteudoTodo #direita #cadastro form div .icone {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+}
+
+#conteudoTodo #direita #cadastro form div .olho {
+  position: absolute;
+  right: 12px;
+  top: 17px;
 }
 
 #conteudoTodo #direita #cadastro p {
