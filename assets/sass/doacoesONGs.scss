@@ -121,13 +121,18 @@ main {
                     }
                 }
 
-                #botao-filtro {
+                #filtro-conteudo {
                     @include tamanhos(inherit, 145px);
                     @include displayFlex(row, space-between, center);
                     padding-top: 27px;
                     margin-left: 35px;
                     cursor: pointer;
                     position: relative;
+
+                    #botao-filtro {
+                        @include tamanhos(auto, 145px);
+                        @include displayFlex(row, space-between, center);
+                    }
 
                     img {
                         @include tamanhos(33px, 32px);
@@ -156,7 +161,7 @@ main {
                     @include displayFlex(row, space-between, $wrap: wrap, $gap: 35px);
 
                     .ongs-card {
-                        min-height: 262px;
+                        min-height: 242px;
                         @include tamanhos(auto, 203px);
                         @include displayFlex(column, $align: center);
                         position: relative;
@@ -165,7 +170,7 @@ main {
                         border-radius: 20px;
 
                         .img-coracao {
-                            @include tamanhos(24px, 24px);
+                            @include tamanhos(17px, 20px);
                             align-self: flex-end;
                             margin-right: 20px;
                             margin-top: 13px;
@@ -173,12 +178,13 @@ main {
                         }
 
                         .img-ong {
-                            @include tamanhos(100px, 100px);
+                            @include tamanhos(90px, 90px);
                             border-radius: 50%;
                             margin-bottom: 8px;
                         }
 
                         h2 {
+                            @include tamanhos(auto, inherit);
                             @include textoEstilo(grau11, semiBold, $text, capitalize, -0.02em);
                             text-align: center;
                         }
