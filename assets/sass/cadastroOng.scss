@@ -100,69 +100,85 @@ padding-top:50px;
     form {
         position: relative;
         padding-top: 35px;
-         div + div {
-            margin-top: 1em;
-        }
-      
-
-        input {
-            border:1px solid $placeholder;
-            border-radius:5px;
-            padding-left: 50px;
-           @include tamanhos(65px, 400px);
-            @include textoEstilo(grau7, medium, $ligthBlack);
-            background-color: $input;
-            
-            
-        }
-        img{
-            position: absolute;
-            left: 0%;
-            padding-left: 10px;
-            padding-top: 15px;
-        }
         
+        div + div {
+            margin-top: 1em;  
+        }
+    
+        div {
+            @include tamanhos(65px, 398px);
+            position: relative;
 
+            input {
+                border: 1px solid $placeholder;
+                border-radius:5px;
+                padding-left: 50px;
+                @include tamanhos(65px, 400px);
+                @include textoEstilo(grau7, medium, $ligthBlack);
+                background-color: $input;
+            }
+
+            img {
+                @include tamanhos(30px, 30px);
+                cursor: pointer;
+            }
+
+            .icone {
+                position: absolute;
+                left: 10px;
+                top: 15px;
+            }
+
+            .olho {
+                position: absolute;
+                right: 12px;
+                top: 17px;
+            }
+        }
         
     }
 
-    p{
-        padding-top: 30px;
-        padding-left: 5px;
-        @include textoEstilo(grau12, light, $text);
+
+    p {
+        @include textoEstilo(grau12, medium, $text);
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 
-    spam{
+    span {
         color: $mellowApricot;
         cursor: pointer;
+        font-weight: map-get($densidade, bold);
     }
 
-    h3{
-       padding-top: 30px;
-       padding-left:50px;
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 1.2rem;
+
+        
     }
+  
 
 }
 
-
 #btn-continuar{
-    border: none;
-    padding-top: 30px;
-    padding-left: 75px;
+    @include tamanhos (60px, inherit);
+    @include displayFlex(row, center, center);
     
-    
-
     button{
         background-color: $deepSaffron;
-        border:1px solid $border;
         border-radius:35px;
         @include tamanhos (60px, 210px);
         @include textoEstilo (grau6, semiBold, $text);
         cursor: pointer;
-     }
+        transition: .5s;
+
+        &:hover {
+            transition: .5s;
+            opacity: 0.8;
+        }
+    }
 }
-
-
-
 
 }
