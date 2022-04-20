@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="js/perfil-ONGs/paginacaoPerfilONGs.js" defer></script>
 </head>
 
 <body>  
@@ -112,19 +113,19 @@
         <nav id="menu-opcoes-perfil">
             <ul>
                 <li>
-                    <span>Sobre</span>
+                    <span id="item1">Sobre</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span>Detalhes da conta</span>
+                    <span id="item2">Detalhes da conta</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span>Detalhes da ONG</span>
+                    <span id="item3">Detalhes da ONG</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span>Detalhes do endereço</span>
+                    <span id="item4">Detalhes do endereço</span>
                     <div class="barra"></div>
                 </li>
             </ul>
@@ -203,7 +204,7 @@
             </div>
 
             <!-- DETALHES DA CONTA -->
-            <div id="container-conteudo-detalhes-conta">
+            <div id="container-conteudo-detalhes-conta" class="item">
                 <form>
                     <div id="nome">
                         <label>Nome da ONG</label>
@@ -242,7 +243,7 @@
             </div>
 
             <!-- DETALHES DA ONGs-->
-            <div id="container-conteudo-detalhes-ONGs">
+            <div id="container-conteudo-detalhes-ONGs" class="item">
                 <form>
                     <div id="fileira-descricao">
                         <div id="descricao">
@@ -404,7 +405,7 @@
             </div>
 
             <!-- PATROCINIOS -->
-            <div id="container-conteudo-patrocinios">
+            <div id="container-conteudo-patrocinios" class="item">
 
                <div id="editar-imagen">
                     <div>
@@ -470,7 +471,7 @@
             </div>
 
             <!--POSTS -->
-            <div id="container-post">
+            <div id="container-post" class="item">
                 <div class="post">
                     <div class="parte-superior">
                         <div class="info-ong">
@@ -597,7 +598,7 @@
             </div>
 
             <!-- EVENTOS -->
-            <div class="evento-feed">
+            <div class="evento-feed" class="item">
                 <div class="parte-superior">
                     <div class="info-ong">
                         <img src="assets/img/foto-ong-perfil.png" alt="">
@@ -662,34 +663,66 @@
             </div>
 
             <!-- VAGAS-->
-            <div class="vaga">
-                <div class="parte-superior">
-                    <div class="info-ong">
-                        <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
+            <div id="container-vagas" class="item">
+                <div class="vaga">
+                    <div class="parte-superior">
+                        <div class="info-ong">
+                            <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
 
-                        <div class="info-nome-data">
-                            <h2>GreenPeace</h2>
-                            <span>24 de Setembro de 2021</span>
+                            <div class="info-nome-data">
+                                <h2>GreenPeace</h2>
+                                <span>24 de Setembro de 2021</span>
+                            </div>
+                        </div>
+
+                        <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
+                    </div>
+
+                    <div class="corpo-vaga">
+                        <h2>Professor de informática</h2>
+
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        </p>
+
+                        <div class="vaga-botoes">
+                            <button>Saiba Mais</button>
+                            <button>Interesse</button>
                         </div>
                     </div>
 
-                    <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
+                    
                 </div>
 
-                <div class="corpo-vaga">
-                    <h2>Professor de informática</h2>
+                <div class="vaga">
+                    <div class="parte-superior">
+                        <div class="info-ong">
+                            <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
 
-                    <p>
-                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                    </p>
+                            <div class="info-nome-data">
+                                <h2>GreenPeace</h2>
+                                <span>24 de Setembro de 2021</span>
+                            </div>
+                        </div>
 
-                    <div class="vaga-botoes">
-                        <button>Saiba Mais</button>
-                        <button>Interesse</button>
+                        <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
                     </div>
-                </div>
 
-                
+                    <div class="corpo-vaga">
+                        <h2>Professor de matematica</h2>
+
+                        <p>
+                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+                        </p>
+
+                        <div class="vaga-botoes">
+                            <button>Saiba Mais</button>
+                            <button>Interesse</button>
+                        </div>
+                    </div>
+
+                    
+                </div>
             </div>
         </div>   
     </main>

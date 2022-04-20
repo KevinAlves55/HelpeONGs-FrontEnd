@@ -389,7 +389,8 @@ body {
             }
         }
 
-        #container-conteudo-detalhes-conta{        
+        #container-conteudo-detalhes-conta{   
+            display: none;     
             @include tamanhos(466px, inherit);
             margin-top: 45px;
             margin-bottom: 100px;
@@ -549,6 +550,7 @@ body {
         }
 
         #container-conteudo-detalhes-ONGs{
+            display: none;
             min-height: 961px;
             @include tamanhos(auto, inherit);
             margin-bottom: 100px;
@@ -588,7 +590,7 @@ body {
                         @include displayFlex(column, space-between, flex-end);
     
                         #quantidade-membros {
-                            @include tamanhos(109px, 295px);
+                            @include tamanhos(109px, 297px);
                             @include displayFlex(column, space-between);
     
                             label{
@@ -738,6 +740,7 @@ body {
         }
 
         #container-conteudo-detalhes-do-endereco{
+            display: none;
             @include tamanhos(485px, inherit);
             margin-bottom: 100px;
 
@@ -945,6 +948,7 @@ body {
         }
 
         #container-conteudo-meios-doacoes{
+            display: none;
             @include tamanhos(360px, inherit);
 
             form {
@@ -1099,10 +1103,10 @@ body {
         }
     
         #container-conteudo-patrocinios{
+            display: none;
             margin-top: 50px;
             @include tamanhos(550px, 850px);
-            padding: 30px;
-            background-color: blue;
+          
     
             #editar-imagen{
                 @include tamanhos(100px, 774px);
@@ -1219,7 +1223,14 @@ body {
     
     
         }
-    
+
+        #container-post{
+        display: none;
+        min-height: 789px;
+        @include tamanhos(auto, 824px);
+        @include displayFlex(center, center);
+        align-self: center;
+        
         .post {
             min-height: 789px;
             @include tamanhos(auto, inherit);
@@ -1228,6 +1239,7 @@ body {
             border-radius: 20px;
             filter: $shadowMain;
             padding: 18px;
+            
     
             .parte-superior {
                 @include tamanhos(80px, 736px);
@@ -1265,6 +1277,7 @@ body {
             .imagens-postadas {
                 @include tamanhos(314px, 736px);
                 @include displayFlex(row, space-between);
+                
     
                 img {
                     @include tamanhos(inherit, 435px);
@@ -1403,18 +1416,22 @@ body {
                 }
             }
         }
-    
+        } 
+
         .evento-feed {
+            display: none;
             min-height: 789px;
-            @include tamanhos(auto, inherit);
+            @include tamanhos(auto, 824px);
             @include displayFlex(column, space-between, $gap: 25px);
             background-color: #fff;
             border-radius: 20px;
             filter: $shadowMain;
             padding: 18px;
+            align-self: center;
+            margin-top: 15px;
     
             .parte-superior {
-                @include tamanhos(80px, 815px);
+                @include tamanhos(80px, 736px);
                 @include displayFlex(row, space-between, center);
     
                 .info-ong {
@@ -1570,85 +1587,96 @@ body {
                 }
             }
         }
+
+        #container-vagas{
+            display: none;
+            @include tamanhos(auto, inherit);
+            @include displayFlex(row, space-between);
+            margin-top: 20px;
+            .vaga {
+                @include tamanhos(509px, 370px);
+                @include displayFlex(column, $gap: 20px);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 15px;
         
-        .vaga {
-            min-height: 475px;
-            @include tamanhos(509px, 370px);
-            @include displayFlex(column, $gap: 20px);
-            background-color: #fff;
-            border-radius: 20px;
-            filter: $shadowMain;
-            padding: 20px;
-    
-            .parte-superior {
-                @include tamanhos(80px, 327px);
-                @include displayFlex(row, space-between, center);
-    
-                .info-ong {
-                    @include tamanhos(80px, 277px);
+                .parte-superior {
+                    @include tamanhos(80px, 318px);
                     @include displayFlex(row, space-between, center);
-    
+                   
+        
+                    .info-ong {
+                        @include tamanhos(80px, 277px);
+                        @include displayFlex(row, space-between, center);
+        
+                        img {
+                            @include tamanhos(inherit, 80px);
+                            border-radius: 50%;
+                            padding: 5px;
+                        }
+        
+                        .info-nome-data {
+                            @include tamanhos(55px, 200px);
+                            @include displayFlex(column, $gap: 3px);
+        
+                            h2 {
+                                @include textoEstilo(grau8, bold, $text);
+                            }
+        
+                            span {
+                                @include textoEstilo(grau11, semiBold, $placeholder);
+                            }
+                        }
+                    }
+        
                     img {
-                        @include tamanhos(inherit, 80px);
-                        border-radius: 50%;
-                        padding: 5px;
-                    }
-    
-                    .info-nome-data {
-                        @include tamanhos(55px, 200px);
-                        @include displayFlex(column, $gap: 3px);
-    
-                        h2 {
-                            @include textoEstilo(grau8, bold, $text);
-                        }
-    
-                        span {
-                            @include textoEstilo(grau11, semiBold, $placeholder);
-                        }
-                    }
-                }
-    
-                img {
-                    @include tamanhos(21px, 31px);
-                    cursor: pointer;
-                }
-            }
-    
-            .corpo-vaga {
-                @include tamanhos(244px, 318px);
-                @include displayFlex(column, space-between);
-    
-                h2 {
-                    @include textoEstilo(grau8, semiBold, $text);
-                }
-    
-                p {
-                    
-                    @include textoEstilo(grau9, medium, $text);
-                    @include displayFlex(center);
-                    padding: 15px;
-                }
-    
-                .vaga-botoes {
-                    @include tamanhos(60px, 316px);
-                    @include displayFlex(row, space-between);
-                    align-self: center;
-    
-                    button {
-                        @include tamanhos(inherit, 150px);
-                        @include displayFlex(row, center, center);
-                        font-size: 1.450rem;
-                        font-weight: map-get($densidade, medium);
-                        text-transform: capitalize;
-                        background-color: $deepSaffron;
-                        border-radius: 6px;
-                        border: none;
-                        transition: .1s;
+                        @include tamanhos(21px, 31px);
                         cursor: pointer;
-    
-                        &:hover {
+                    }
+                }
+        
+                .corpo-vaga {
+                    @include tamanhos(346px, auto);
+                    @include displayFlex(column, space-between);
+                    
+        
+                    h2 {
+                        @include textoEstilo(grau9, semiBold, $text);
+                        display:flex;
+                        align-self: center;
+                    }
+        
+                    p { 
+                        @include textoEstilo(grau9, medium, $text);
+                        @include displayFlex($justify: center);
+                        text-align: center;
+                    }
+        
+                    .vaga-botoes {
+                        @include tamanhos(60px, 316px);
+                        @include displayFlex(row, space-between);
+                        align-self: center;
+                        padding-top: 20px;
+                     
+        
+                        button {
+                            @include tamanhos(inherit, 150px);
+                            @include displayFlex(row, center, center);
+                            @include textoEstilo(grau8, semiBold, $text);
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            text-transform: capitalize;
+                            background-color: $deepSaffron;
+                            border-radius: 6px;
+                            border: none;
                             transition: .1s;
-                            opacity: 0.8;
+                            cursor: pointer;
+        
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
                         }
                     }
                 }
