@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="assets/sass/cadastroUsuario.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="./js/cadastro-usuario-js/index.js" defer></script>
 </head>
 
 <body>
@@ -46,20 +45,20 @@
                     <form>
                         <div>
                             <img class="icone" src="/assets/img/user.png">
-                            <input type="text" id="nome" placeholder="Digite seu nome" required maxLength="30"/>
+                            <input type="text" id="nome" placeholder="Digite seu nome" maxLength="100" minlength="3" required/>
                         </div>
                         <div>
                             <img class="icone" src="./assets/img/mail.png">
-                            <input type="email" id="email" placeholder="Digite seu E-mail" required/>
+                            <input type="email" id="email" placeholder="Digite seu E-mail" maxlength="150" minlength="20" required/>
                         </div>
                         <div>
                             <img class="icone" src="./assets/img/lock.png">
-                            <input type="password" id="senha" placeholder="Digite sua senha" required/>
+                            <input type="password" id="senha" placeholder="Digite sua senha" maxLength="80" minlength="8" required/>
                             <img class="olho"src="./assets/img/eye.png">
                         </div>
                         <div>   
                             <img class="icone" src="./assets/img/lock.png">  
-                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" required/>
+                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" maxLength="80" minlength="8" required/>
                             <img class="olho" src="./assets/img/eye.png">
                         </div>
     
@@ -68,8 +67,7 @@
                         </p>
     
                         <div id="btn-continuar">
-                            <button type="submit" id="formButton">Continuar</button>
-                
+                            <button type="button" id="formButton">Continuar</button>
                         </div>
                     </form>
                     
@@ -78,7 +76,6 @@
             </div>
         </div>
     </div>
-    <script type="module" src="./js/cadastro-usuario-js/index.js"></script>
 </body>
 
 </html>
