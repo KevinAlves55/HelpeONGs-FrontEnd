@@ -201,26 +201,27 @@
                     </div>
                 </section>
             </div>
-            <!-- APARECER NO INICÍO -->
 
             <!-- DETALHES DA CONTA -->
             <div id="container-conteudo-detalhes-conta">
-
-                <form action="detalhes-da-conta" method="">
+                <form>
                     <div id="nome">
                         <label>Nome da ONG</label>
                         <input type="text" id="name"  placeholder="Insira o nome da ONG"/>
                     </div>
-                    <div id="email-data">
+
+                    <div id="email-cnpj">
                         <div id="email">
                             <label>E-mail</label>
                             <input type="email" id="email" placeholder="Digite seu E-mail"/>
                         </div>
+
                         <div id="cnpj">
                             <label>CNPJ</label>
                             <input type="String" id="cnpj" placeholder="Digite seu CNPJ"/>
                         </div>
                     </div>
+
                     <div id="celular-telefone">
                         <div id="celular">
                             <label>Celular</label>
@@ -232,66 +233,89 @@
                         </div>
                     </div>
 
-                    <div id="proximo">
-                        <button type="submit">
-                            Proxima</button>
-                        
+                    <div class="proximo">
+                        <button type="button">
+                            Proximo
+                        </button>
                     </div>
                 </form>
-    
             </div>
 
             <!-- DETALHES DA ONGs-->
             <div id="container-conteudo-detalhes-ONGs">
+                <form>
                     <div id="fileira-descricao">
                         <div id="descricao">
                             <label>Descrição da ONG</label>
-                            <input type="text" placeholder="Insira uma descrição para dar credibilidade a sua ONG"/>
+                            <textarea placeholder="Insira uma descrição para dar credibilidade a sua ONG" name="" id="" cols="30" rows="10"></textarea>
                         </div>
-
-                        <div id="quantidade-membros">
-                            <label>Quantidade de membros</label>
-                            <input type="text" placeholder="0"/> 
-
+    
+                        <div id="qtda-fundacao">
+                            <div id="quantidade-membros">
+                                <label>Quantidade de membros</label>
+                                <input type="number" placeholder="0"/> 
+                            </div>
+        
+                            <div id="data-fundacao">
+                                <label>Data fundação</label>
+                                <input type="date" placeholder="00-00-0000"/> 
+                            </div>
                         </div>
-                        <div id="data-fundacao">
-                            <label>Data fundação</label>
-                            <input type="date" placeholder="00-00-0000"/> 
-
-                        </div>
-
                     </div>
-                    
+                        
                     <div id="historia-ONG">
                         <label>História da ONG</label>
-                        <input type="text" placeholder="Descreva uma história de criação da sua ONG"/> 
-
+                        <textarea name="" placeholder="Descreva uma história de criação da sua ONG" id="" cols="30" rows="10"></textarea>
                     </div>
-
+    
                     <div id="categoria-detalhes-ONG">
-
                         <div id="categoria-detalhes">
                             <label>Categoria</label>
                             <input type="text" placeholder="Ex: Floresta">
                         </div>
+    
+                        <div id="lista-de-categoria">
+                            <div class="categoria">
+                                <span>Cachorros</span>
+                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
+                            </div>
 
-                        <div id="lista-categoria">
-                            <input type="text">
+                            <div class="categoria">
+                                <span>Cachorros</span>
+                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
+                            </div>
+
+                            <div class="categoria">
+                                <span>Cachorros</span>
+                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
+                            </div>
+
+                            <div class="categoria">
+                                <span>Cachorros</span>
+                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
+                            </div>
+
+                            <div class="categoria">
+                                <span>Cachorros</span>
+                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
+                            </div>
+
+                            <div class="categoria">
+                                <span>Cachorros</span>
+                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
+                            </div>
                         </div>
-
                     </div>
-
-                    <div id="botao-proximo">
-                        <button type="submit">Proximo</button>
+    
+                    <div class="proximo">
+                        <button type="button">Proximo</button>
                     </div>
-
-
-                </div>
+                </form>
             </div>
 
             <!-- DETALHES DO ENDEREÇO-->
             <div id="container-conteudo-detalhes-do-endereco" class="item">
-                <form action="conteudo-endereco" method="">
+                <form>
                     <div id="primeira-fileira">
                         <div id="cep">
                             <label>Cep</label>
@@ -318,42 +342,43 @@
                         </div>
                         <div id="numero">
                             <label>Número</label>
-                            <input type="text" id="numero" placeholder="101"/>
+                            <input type="number" id="numero" placeholder="101"/>
                         </div>
                     </div>
+
                     <div id="terceira-fileira">
                         <div id="complemento">
                             <label>Complemento</label>
                             <input type="text" id="complemento" placeholder="Complemento"/>
                         </div>
                     </div>
-                    <div id="quarta-fileira">
-                        <button type="submit">Proximo</button>
+
+                    <div class="proximo">
+                        <button type="button">
+                            Proximo
+                        </button>
                     </div>
                 </form>
             </div>
 
             <!-- MEIOS DE DOAÇÕES-->
             <div id="container-conteudo-meios-doacoes" class="item">
-                <form action="conteudo-doacoes" method="">
-
+                <form>
                     <div id="fileira-doacoes">
                         <div id="site">
                             <label>Site</label>
-                            <input type="text" id="site" placeholder="Insira o link de seu site"/>
+                            <input type="link" id="site" placeholder="Insira o link de seu site"/>
                         </div>
                         <div id="pix">
                             <label>Pix</label>
                             <input type="text" id="pix" placeholder="Insira seu Pix"/>
                         </div>
-
                     </div>
                     
                     <div id="fileira-agencia">
-                        
                         <div id="agencia">
                             <label>Agencia</label>
-                            <input type="text" id="agencia"/>
+                            <input type="number" id="agencia"/>
                         </div>
 
                         <div id="conta">
@@ -361,23 +386,19 @@
                             <input type="text" id="conta"/>
                         </div>
 
-                        <section id="tipo">
-                            <div id="filtros-pesquisas">
-                                <div id="tipo-conta">
-                                    <label>Tipo</label>
-                
-                                    <select name="sltContas" id="contas-select">
-                                        <option value="">Selecione</option>
-                                        <option value="">Conta Correntes</option>
-                                        <option value="">Poupança</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </section>
+                        <div id="tipo-conta">
+                            <label>Tipo</label>
+        
+                            <select name="sltContas" id="contas-select">
+                                <option value="">Selecione</option>
+                                <option value="">Conta Correntes</option>
+                                <option value="">Poupança</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div id="botao-proximo">
-                        <button type="submit">Proximo</button>
+                    <div class="proximo">
+                        <button type="button">Proximo</button>
                     </div>
                 </form>
             </div>
