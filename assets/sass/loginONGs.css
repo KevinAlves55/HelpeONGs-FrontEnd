@@ -244,7 +244,7 @@ body {
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
-  text-transform: capitalize;
+  text-transform: none;
   letter-spacing: none;
   border: 1px solid #CCCCCC;
   border-radius: 6px;
@@ -288,7 +288,7 @@ body {
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
-  text-transform: capitalize;
+  text-transform: none;
   letter-spacing: none;
   border: 1px solid #CCCCCC;
   border-radius: 6px;

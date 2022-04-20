@@ -76,7 +76,7 @@ body {
 
                     input {
                         @include tamanhos(65px, 515px);
-                        @include textoEstilo(grau8, medium, $text, capitalize);
+                        @include textoEstilo(grau8, medium, $text);
                         border: 1px solid $border;
                         border-radius: 6px;
                         background-color: $input;
@@ -99,7 +99,7 @@ body {
 
                 input {
                     @include tamanhos(inherit, inherit);
-                    @include textoEstilo(grau8, medium, $text, capitalize);
+                    @include textoEstilo(grau8, medium, $text);
                     border: 1px solid $border;
                     border-radius: 6px;
                     background-color: $input;

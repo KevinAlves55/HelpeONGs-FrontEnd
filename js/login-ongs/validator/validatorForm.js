@@ -1,34 +1,22 @@
-// const button = document.getElementById('btn-login')
+// Validações
 
-// button.addEventListener('click', (event) => {
-// event.preventDefault();
-// alert('oi')
+"use strict"
 
-//     const email = document.getElementById('email')
-//     const senha = document.getElementById('senha')
+const senha = document.getElementById("senha").value
+const email = document.getElementById("email").value
 
-//     if (email.value == ''){
-//         email.classList.add("errorInput")
-//     }   else{
-//         email.classList.remove("errorInput")
-//     }
+function mascaraSenha(senha) {
 
-//     if (senha.value == ''){  
-//         senha.classList.add("errorInput")   
-//     }   else{
-//         senha.classList.remove("errorInput")
-//     }
+    senha = senha.value = email.value.replace(/[\[\]}!'-,><|://#"%$\\;&*()'ˆß+={]/g, "")
+    senha.value = senha.value.replace(/[^\D]/g, "")
 
-//     if (email.value.indexOf("@") == -1 || email.value.indexOf(".") == -1 || email.value.indexOf(".") - email.value.indexOf("@") == 1){
-//         email.classList.add("errorInput")
-//     }   else{
-//         email.classList.remove("errorInput")
-//     }
+}
 
-//     if (senha.value.length <= 5){
-//         senha.classList.add("errorInput")
-//     }   else{
-//         senha.classList.remove("errorInput")
-//     }
+function caracteresInvalidos(email) {
+    
+    email.value = email.value.replace(/[\[\]}!'-,><|://#"%$\\;&*()'ˆß+={]/g, "")
 
-// })
+    email.value = email.value.replace(/(\d{})/, "")
+    
+
+}
