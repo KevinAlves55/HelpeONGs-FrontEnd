@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script type="module" src="./js/cadastro-usuario-js/index.js" defer></script>
+    <script type="module" src="./js/cadastro-usuario/index.js" defer></script>
+    <script src="./js/cadastro-usuario/olho.js" defer></script>
+    <script src="./js/cadastro-usuario/mascara.js" defer></script>
 </head>
 
 <body>
@@ -46,35 +48,39 @@
                         <div class="style-input">
                             <img class="icone" src="/assets/img/user.png">
                             <input type="text" id="nome" placeholder="Digite seu nome" 
-                            maxlength="80" style="text-transform: capitalize;"/>
-                            <i><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            maxlength="80" style="text-transform: capitalize;" 
+                            onkeyup="caracteresInvalidosNome(this)"/>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                             <small>Error mensager</small>
                         </div>
 
                         <div class="style-input">
                             <img class="icone" src="./assets/img/mail.png">
-                            <input type="email" id="email" placeholder="Digite seu E-mail" maxlength="256"/>
-                            <i><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <input type="email" id="email" placeholder="Digite seu E-mail" maxlength="256"
+                            onkeyup="caracteresInvalidosEmail(this)"/>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                             <small>Error mensager</small>
                         </div>
 
                         <div class="style-input">
                             <img class="icone" src="./assets/img/lock.png">
-                            <input type="password" id="senha" placeholder="Digite sua senha" maxlength="80"/>
-                            <img class="olho"src="./assets/img/eye.png">
-                            <i><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <input type="password" id="senha" placeholder="Digite sua senha" maxlength="80"
+                            onkeyup="mascaraSenha(this)"/>
+                            <img class="olho" src="./assets/img/eye.png" id="eyeImg" onclick="eyeClick()">
+                            <i class="pass-ajuste"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="pass-ajuste"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                             <small>Error mensager</small>
                         </div>
 
                         <div class="style-input">   
                             <img class="icone" src="./assets/img/lock.png">  
-                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" maxlength="80"/>
-                            <img class="olho" src="./assets/img/eye.png">
-                            <i><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" maxlength="80"
+                            onkeyup="mascaraSenhaConfirm(this)"/>
+                            <img class="olho" src="./assets/img/eye.png" id="eyeConfirmImg" onclick="eyeClickConfirm()">
+                            <i class="pass-ajuste"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="pass-ajuste"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                             <small>Error mensager</small>
                         </div>
     

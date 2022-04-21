@@ -143,13 +143,20 @@ body {
 
                     .olho {
                         position: absolute;
-                        right: 50px;
+                        right: 15px;
                         top: 17px;
                     }
 
-                    i {
+                    .icone-validation {
                         position: absolute;
                         right: 10px;
+                        top: 17px;
+                        visibility: hidden;
+                    }
+
+                    .pass-ajuste {
+                        position: absolute;
+                        right: 52px;
                         top: 17px;
                         visibility: hidden;
                     }
@@ -167,7 +174,7 @@ body {
     
             p {
                 @include textoEstilo(grau12, medium, $text);
-                margin: 15px 0 15px;
+                margin: 8px 0 15px;
             }
     
             span {
@@ -183,7 +190,7 @@ body {
             h3 {
                 text-align: center;
                 font-size: 1.2rem;
-                margin-top: 13px;
+                margin-top: 21px;
             }
     
         }

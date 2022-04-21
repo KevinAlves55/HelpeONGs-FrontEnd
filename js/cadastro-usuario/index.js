@@ -1,26 +1,24 @@
 "use strict";
 
+const nome = document.getElementById("nome");
+const email = document.getElementById("email");
+const password = document.getElementById("senha");
+const passwordDto = document.getElementById("confirmarSenha");
+
 // import ApiRequest from "../utils/ApiRequest.js";
 
-const nome = document.getElementById("nome")
-const email = document.getElementById("email")
-const password = document.getElementById("senha")
-const passwordDto = document.getElementById("confirmarSenha")
+// const nome = document.getElementById("nome");
+// const email = document.getElementById("email");
+// const password = document.getElementById("senha");
+// const passwordDto = document.getElementById("confirmarSenha");
 
 const cadastrarUsuario = (e) => {
 
     e.preventDefault();
 
-    checkInputs()
+    checkInputs();
 
-    // const dom = {
-
-    //     nome : document.getElementById("nome").value,
-    //     email : document.getElementById("email").value,
-    //     password : document.getElementById("senha").value,
-    //     passwordDto : document.getElementById("confirmarSenha").value
-    
-    // }
+    console.log(checkInputs);
 
     // if (dom.nome === "" || dom.email === "" || dom.password === "" || dom.confirmPassword === "") {
     //     alert("Preencha todos os campos");
@@ -46,7 +44,7 @@ const cadastrarUsuario = (e) => {
     // } else if (request.status === 400) {
     //     alert(request.message);
     // }
-};
+}
 
 function checkInputs() {
 
@@ -60,7 +58,7 @@ function checkInputs() {
     } else if (nomeValue.length >= 80) {
         errorValidation(nome, "Exesso de caracteres atingido");
     } else if (nomeValue.length < 5) {
-        errorValidation(nome, "Mínino de 6 caracteres no nome");
+        errorValidation(nome, "Deve conter um mínino de 6 caracteres");
     } else {
         successValidation(nome);
     }
@@ -80,7 +78,7 @@ function checkInputs() {
     if (senhaValue === "") {
         errorValidation(password, "Preencha este campo");
     } else if (senhaValue.length < 7) {
-        errorValidation(password, "A senha deve ter + de 8 caracteres");
+        errorValidation(password, "A senha deve conter + de 8 caracteres");
     } else {
         successValidation(password);
     }
