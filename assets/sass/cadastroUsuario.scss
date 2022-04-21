@@ -3,12 +3,12 @@
 @import '_resert';
 
 body {
-    height: 100vh;
+    height: 120vh;
     @include displayFlex(column);
     font-family: 'Montserrat', sans-serif;
     background-image: url('../img/Fundo.png');
     background-repeat: no-repeat;
-    background-size: 62.89vw;
+    background-size: 62.04vw;
     background-position: bottom left;
 }
 
@@ -89,38 +89,44 @@ body {
     }
 
     #direita{
-        @include tamanhos(inherit, 480px);
+        @include tamanhos(inherit, 510px);
         @include displayFlex(row);
         padding-top: 15px;
     
         #cadastro {
-            @include tamanhos (645px, inherit);
+            @include tamanhos (665px, inherit);
+            @include displayFlex(column, $align: center);
             border: 1px solid $text;
             border-radius: 5px;
-            padding: 30px;
+            padding: 30px 25px;
     
             h2 {
                 @include textoEstilo(grau6, semiBold, $text,);
+                align-self: flex-start;
+                margin-left: 5px;
             }
     
             form {
-                position: relative;
-                padding-top: 35px;
+                @include tamanhos(600px, 445px);
+                @include displayFlex(column);
+                padding-top: 30px;
                 
                 div + div {
-                    margin-top: 1em;  
+                    margin-top: 0.5rem;  
                 }
             
-                div {
-                    @include tamanhos(65px, 398px);
+                .style-input {
+                    @include tamanhos(85px, inherit);
+                    @include displayFlex(column);
                     position: relative;
 
                     input {
-                        border: 1px solid $placeholder;
+                        // border: 2px solid $border;
                         border-radius:5px;
                         padding-left: 50px;
-                        @include tamanhos(65px, 400px);
-                        @include textoEstilo(grau7, medium, $ligthBlack);
+                        padding-right: 83px;
+                        @include tamanhos(65px, inherit);
+                        font-size: 1.480rem;
                         background-color: $input;
                     }
     
@@ -137,8 +143,23 @@ body {
 
                     .olho {
                         position: absolute;
-                        right: 12px;
+                        right: 50px;
                         top: 17px;
+                    }
+
+                    i {
+                        position: absolute;
+                        right: 10px;
+                        top: 17px;
+                        visibility: hidden;
+                    }
+
+                    small {
+                        visibility: hidden; 
+                        font-size: 1.2rem;
+                        color: $tartOrange;
+                        font-weight: map-get($densidade, medium);
+                        margin-left: 10px;
                     }
                 }
                 
@@ -146,20 +167,23 @@ body {
     
             p {
                 @include textoEstilo(grau12, medium, $text);
-                margin-top: 25px;
-                margin-bottom: 25px;
+                margin: 15px 0 15px;
             }
     
             span {
                 color: $mellowApricot;
                 cursor: pointer;
                 font-weight: map-get($densidade, bold);
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
     
             h3 {
                 text-align: center;
-                margin-top: 20px;
                 font-size: 1.2rem;
+                margin-top: 13px;
             }
     
         }
@@ -184,4 +208,30 @@ body {
         }
     
     }
+}
+
+.style-input.sucess input {
+    border: 2px solid $verde;
+    outline: none;
+}
+
+.style-input.error input {
+    border: 2px solid $tartOrange;
+}
+
+.style-input.sucess i .img-sucess {
+    visibility: visible;
+}
+
+.style-input.error i .img-error {
+    visibility: visible;
+}
+
+#conteudoTodo 
+#direita 
+#cadastro
+form 
+.style-input.error 
+small {
+    visibility: visible;
 }
