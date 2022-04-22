@@ -7,14 +7,14 @@ const confirmPassword = document.getElementById("confirmarSenha").value
 
 function caracteresInvalidosEmail(email) {
 
-    email.value = email.value.replace(/[\[\]}!'-,><|://#"%$\\;&*()'ˆß+={]/g, "")
+    email.value = email.value.replace(/[\[\]}!'-,><|://#"%$°ºª§\\;&*()'ˆß+={]/g, "")
     email.value = email.value.replace(/(\d{})/, "")
 
 }
 
 function caracteresInvalidosNome(nome) {
     
-    nome.value = nome.value.replace(/[\[\]}.!'-@,><|://#"%$\\;&*'"()_+={]/g, "")
+    nome.value = nome.value.replace(/[\[\]}.!'-@,><|://#"%$°ºª§\\;&*'"()_+={]/g, "")
     nome.value = nome.value.replace(/[^\D]/g, "")
 
 }
@@ -22,7 +22,7 @@ function caracteresInvalidosNome(nome) {
 function mascaraSenha(senha) {
 
     senha.value = senha.value.replace(/['"]/g, "")
-    senha.value = senha.value.replace(/[d]/g, "")
+    senha.value = senha.value.replace(/['"]/g, "")
 
 }
 
