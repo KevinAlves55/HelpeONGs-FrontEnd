@@ -384,7 +384,7 @@ body {
 }
 
 #conteudoTodo #direita #cadastro {
-  height: 665px;
+  height: 760px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -419,7 +419,7 @@ body {
 }
 
 #conteudoTodo #direita #cadastro form {
-  height: 600px;
+  height: 640px;
   width: 445px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -522,7 +522,7 @@ body {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  margin: 8px 0 15px;
+  margin: 10px 0 15px;
 }
 
 #conteudoTodo #direita #cadastro span {
@@ -542,7 +542,7 @@ body {
 #conteudoTodo #direita #cadastro h3 {
   text-align: center;
   font-size: 1.2rem;
-  margin-top: 14px;
+  margin-top: 1.2rem;
 }
 
 #conteudoTodo #direita #btn-continuar {

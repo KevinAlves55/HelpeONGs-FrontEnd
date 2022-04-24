@@ -95,7 +95,7 @@ body {
         padding-top: 15px;
     
         #cadastro {
-            @include tamanhos (665px, inherit);
+            @include tamanhos (760px, inherit);
             @include displayFlex(column, $align: center);
             border: 1px solid $text;
             border-radius: 5px;
@@ -108,7 +108,7 @@ body {
             }
     
             form {
-                @include tamanhos(600px, 445px);
+                @include tamanhos(640px, 445px);
                 @include displayFlex(column);
                 padding-top: 30px;
                 
@@ -122,7 +122,6 @@ body {
                     position: relative;
 
                     input {
-                        // border: 2px solid $border;
                         border-radius:5px;
                         padding-left: 50px;
                         padding-right: 83px;
@@ -175,7 +174,7 @@ body {
     
             p {           
                 @include textoEstilo(grau12, medium, $text);
-                margin: 8px 0 15px;
+                margin: 10px 0 15px;
             }
     
             span {
@@ -195,7 +194,7 @@ body {
             h3 {
                 text-align: center;
                 font-size: 1.2rem;
-                margin-top: 14px;
+                margin-top: 1.2rem;
             }
     
         }
