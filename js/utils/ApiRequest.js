@@ -20,4 +20,6 @@
     return response = await response.json();
 }
 
-export default ApiRequest;
+export {
+    ApiRequest
+};

@@ -24,6 +24,101 @@ p {
   overflow-wrap: break-word;
 }
 
+.message {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 0;
+  z-index: -1;
+}
+
+.message .message-conteudo {
+  height: 350px;
+  width: 45vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+  margin: 15vh auto;
+  padding: 30px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+}
+
+.message .message-conteudo img {
+  height: 140px;
+  width: 140px;
+}
+
+.message .message-conteudo span {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.message .message-conteudo button {
+  height: 60px;
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #F8F9FA;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border-radius: 10px;
+  background-color: #39CE04;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.message .message-conteudo button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
+}
+
+.message.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 body {
   height: 120vh;
   display: -webkit-box;
@@ -431,12 +526,16 @@ body {
 }
 
 #conteudoTodo #direita #cadastro span {
-  color: #FFBC80;
   cursor: pointer;
   font-weight: 700;
+  color: #FFBC80;
 }
 
-#conteudoTodo #direita #cadastro span:hover {
+#conteudoTodo #direita #cadastro span a {
+  color: #FFBC80;
+}
+
+#conteudoTodo #direita #cadastro span a:hover {
   text-decoration: underline;
 }
 

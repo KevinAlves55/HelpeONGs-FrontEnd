@@ -1,6 +1,7 @@
 @import '_variaveis';
 @import '_mixins';
 @import '_resert';
+@import '_modalMessage';
 
 body {
     height: 120vh;
@@ -172,18 +173,22 @@ body {
                 
             }
     
-            p {
+            p {           
                 @include textoEstilo(grau12, medium, $text);
                 margin: 8px 0 15px;
             }
     
             span {
-                color: $mellowApricot;
                 cursor: pointer;
                 font-weight: map-get($densidade, bold);
+                color: $mellowApricot;
 
-                &:hover {
-                    text-decoration: underline;
+                a {
+                    color: $mellowApricot;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
     

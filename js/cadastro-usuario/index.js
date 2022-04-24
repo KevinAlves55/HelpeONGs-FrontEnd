@@ -1,6 +1,7 @@
 "use strict";
 
-import ApiRequest from "../utils/ApiRequest.js";
+import { ApiRequest } from "../utils/ApiRequest.js";
+import { openMessage, closeMessage } from "../utils/MessageCadastro.js";
 import { checkInputs, errorValidation } from "../validator/validator.js";
 import Redirect from "../utils/Redirect.js";
 
@@ -36,15 +37,18 @@ const cadastrarUsuario = async (e) => {
         console.log(request);
 
         if (request.status === 200) {
-            alert("Cadastrado com sucesso");
-            Redirect("login");
+            openMessage();
         } else if (request.status === 400) {
             errorValidation(email, "O Email digitado já foi cadastrado");
         }
-        
-        console.log(userData);
     }
 
 }
 
 document.getElementById("formButton").addEventListener("click", cadastrarUsuario);
+document.getElementById("OK").addEventListener("click", closeMessage);
+document.getElementById("PageDoar").addEventListener("click",() => {
+
+    Redirect("doacoes");
+
+});
