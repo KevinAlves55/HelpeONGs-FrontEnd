@@ -24,13 +24,133 @@ p {
   overflow-wrap: break-word;
 }
 
+.message {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 0;
+  z-index: -1;
+}
+
+.message .message-conteudo {
+  height: 350px;
+  width: 45vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+  margin: 15vh auto;
+  padding: 30px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+}
+
+.message .message-conteudo img {
+  height: 140px;
+  width: 140px;
+}
+
+.message .message-conteudo span {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.message .message-conteudo button {
+  height: 60px;
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #F8F9FA;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border-radius: 10px;
+  background-color: #39CE04;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.message .message-conteudo button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
+}
+
+.message.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 body {
-  height: 100vh;
+  height: 120vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   font-family: 'Montserrat', sans-serif;
+  background-image: url("../img/Fundo.png");
+  background-repeat: no-repeat;
+  background-size: 62.04vw;
+  background-position: bottom left;
+}
+
+.conteudo, #topo #itens-topo, #conteudoTodo #itens-todo {
+  height: inherit;
+  width: 1400px;
 }
 
 #topo {
-  height: 100px;
+  height: 130px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -39,9 +159,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -50,49 +170,119 @@ body {
   gap: 0;
 }
 
-#logo-img {
-  padding-top: 15px;
-  padding-left: 130px;
+#topo #itens-topo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
-#logo-img img {
-  height: 100px;
-  width: 300px;
+#topo #itens-topo #logo-img {
+  height: inherit;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 10px;
 }
 
-#img-btnDoar {
-  position: absolute;
-  left: 0%;
-  padding-left: 18px;
-  padding-top: 3px;
+#topo #itens-topo #botao-doar {
+  height: 60px;
+  width: 165px;
 }
 
-.btn {
-  padding-left: 40px;
-  cursor: pointer;
-}
-
-#botao-doar {
-  position: relative;
-  padding-right: 200px;
-  padding-top: 40px;
-  cursor: pointer;
-}
-
-#botao-doar button {
-  background-color: #FF9F45;
-  border: 1px solid #CCCCCC;
-  border-radius: 25px;
-  height: 55px;
-  width: 180px;
+#topo #itens-topo #botao-doar button {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   font-size: 1.813rem;
   font-weight: 600;
   color: #292929;
   text-transform: none;
   letter-spacing: none;
+  background-color: #FF9F45;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 0 10px 0 10px;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#topo #itens-topo #botao-doar button img {
+  height: 44px;
+  width: 44px;
+}
+
+#topo #itens-topo #botao-doar button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
 }
 
 #conteudoTodo {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#conteudoTodo #itens-todo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,125 +301,251 @@ body {
   gap: 0;
 }
 
-#titulos-esquerda {
-  padding-left: 180px;
-  padding-top: 100px;
+#conteudoTodo #esquerda {
+  height: inherit;
+  width: 65vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
-#titulos-esquerda h1 {
-  font-size: 3rem;
+#conteudoTodo #esquerda #titulos-esquerda {
+  height: 188px;
+  width: 848px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 15px;
+  padding-left: 23px;
+  margin-top: 45px;
+}
+
+#conteudoTodo #esquerda #titulos-esquerda h1 {
+  font-size: 2.813rem;
   font-weight: 700;
   color: #FF9F45;
   text-transform: none;
   letter-spacing: none;
 }
 
-#titulos-esquerda h3 {
+#conteudoTodo #esquerda #titulos-esquerda h3 {
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  padding-top: 20px;
 }
 
-#fundo-img img {
-  height: 500px;
-  width: 65vw;
+#conteudoTodo #direita {
+  height: inherit;
+  width: 510px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 15px;
 }
 
-#direita {
-  padding-right: 117px;
-  padding-top: 50px;
-}
-
-#direita #cadastro {
-  height: 700px;
-  width: 480px;
+#conteudoTodo #direita #cadastro {
+  height: 665px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   border: 1px solid #292929;
   border-radius: 5px;
-  padding-top: 40px;
-  padding-left: 40px;
+  padding: 30px 25px;
 }
 
-#direita #cadastro h2 {
+#conteudoTodo #direita #cadastro h2 {
   font-size: 2.125rem;
   font-weight: 600;
   color: #292929;
   text-transform: none;
   letter-spacing: none;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 5px;
 }
 
-#direita #cadastro form {
+#conteudoTodo #direita #cadastro form {
+  height: 600px;
+  width: 445px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 30px;
+}
+
+#conteudoTodo #direita #cadastro form div + div {
+  margin-top: 0.5rem;
+}
+
+#conteudoTodo #direita #cadastro form .style-input {
+  height: 85px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   position: relative;
-  padding-top: 35px;
 }
 
-#direita #cadastro form div + div {
-  margin-top: 1em;
-}
-
-#direita #cadastro form div {
-  height: 65px;
-  width: 398px;
-  position: relative;
-}
-
-#direita #cadastro form div input {
-  border: 1px solid #8C8C8C;
+#conteudoTodo #direita #cadastro form .style-input input {
   border-radius: 5px;
   padding-left: 50px;
+  padding-right: 83px;
   height: 65px;
-  width: 400px;
-  font-size: 1.813rem;
-  font-weight: 500;
-  color: #434343;
-  text-transform: none;
-  letter-spacing: none;
+  width: inherit;
+  font-size: 1.480rem;
   background-color: #ECECEC;
 }
 
-#direita #cadastro form div img {
+#conteudoTodo #direita #cadastro form .style-input img {
   height: 30px;
   width: 30px;
   cursor: pointer;
 }
 
-#direita #cadastro form div .icone {
+#conteudoTodo #direita #cadastro form .style-input .icone {
   position: absolute;
   left: 10px;
   top: 15px;
 }
 
-#direita #cadastro form div .olho {
+#conteudoTodo #direita #cadastro form .style-input .olho {
   position: absolute;
-  right: 12px;
+  right: 15px;
   top: 17px;
 }
 
-#direita #cadastro p {
+#conteudoTodo #direita #cadastro form .style-input .icone-validation {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  visibility: hidden;
+}
+
+#conteudoTodo #direita #cadastro form .style-input .pass-ajuste {
+  position: absolute;
+  right: 52px;
+  top: 17px;
+  visibility: hidden;
+}
+
+#conteudoTodo #direita #cadastro form .style-input small {
+  visibility: hidden;
+  font-size: 1.2rem;
+  color: #FC595E;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+#conteudoTodo #direita #cadastro p {
   font-size: 0.75rem;
   font-weight: 500;
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin: 8px 0 15px;
 }
 
-#direita #cadastro span {
-  color: #FFBC80;
+#conteudoTodo #direita #cadastro span {
   cursor: pointer;
   font-weight: 700;
+  color: #FFBC80;
 }
 
-#direita #cadastro h3 {
+#conteudoTodo #direita #cadastro span a {
+  color: #FFBC80;
+}
+
+#conteudoTodo #direita #cadastro span a:hover {
+  text-decoration: underline;
+}
+
+#conteudoTodo #direita #cadastro h3 {
   text-align: center;
-  margin-top: 20px;
   font-size: 1.2rem;
+  margin-top: 14px;
 }
 
-#direita #btn-continuar {
+#conteudoTodo #direita #btn-continuar {
   height: 60px;
   width: inherit;
   display: -webkit-box;
@@ -250,7 +566,7 @@ body {
   gap: 0;
 }
 
-#direita #btn-continuar button {
+#conteudoTodo #direita #btn-continuar button {
   background-color: #FF9F45;
   border-radius: 35px;
   height: 60px;
@@ -265,9 +581,30 @@ body {
   transition: .5s;
 }
 
-#direita #btn-continuar button:hover {
+#conteudoTodo #direita #btn-continuar button:hover {
   -webkit-transition: .5s;
   transition: .5s;
   opacity: 0.8;
+}
+
+.style-input.sucess input {
+  border: 2px solid #39CE04;
+  outline: none;
+}
+
+.style-input.error input {
+  border: 2px solid #FC595E;
+}
+
+.style-input.sucess i .img-sucess {
+  visibility: visible;
+}
+
+.style-input.error i .img-error {
+  visibility: visible;
+}
+
+#conteudoTodo #direita #cadastro form .style-input.error small {
+  visibility: visible;
 }
 /*# sourceMappingURL=cadastroOng.css.map */
