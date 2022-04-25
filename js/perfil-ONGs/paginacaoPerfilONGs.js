@@ -5,11 +5,15 @@ const nav = {
     btnDetalhesConta: document.getElementById("item2"),
     btnDetalhesOngs: document.getElementById("item3"),
     btnDetalhesEnderecos: document.getElementById("item4"),
-    // btnMeiosDoacoes: document.getElementById("item5"),
-    // btnPatrocinios: document.getElementById("item6"),
-    // btnPostal: document.getElementById("item7"),
-    // btnEventoPostal: document.getElementById("item8"),
-    // btnVagas: document.getElementById("item9"),
+    btnMeiosDoacoes: document.getElementById("item5"),
+    btnPatrocinios: document.getElementById("item6"),
+    btnPost: document.getElementById("item7"),
+    btnEvento: document.getElementById("item8"),
+    btnVagas: document.getElementById("item9"),
+    btntrocarDireta: document.getElementById("trocar-direita"),
+    btntrocaresquerda: document.getElementById("trocar-esquerda"),
+    menuOpcoesOutros: document.getElementById("menu-opcoes-outros"),
+    menuOpcoesPrincipal: document.getElementById("menu-opcoes-principal"),
 }
 
 const dom = {
@@ -17,13 +21,27 @@ const dom = {
     detalhesConta: document.getElementById("container-conteudo-detalhes-conta"),
     detalhesOngs: document.getElementById("container-conteudo-detalhes-ONGs"),
     detalhesEndereco: document.getElementById("container-conteudo-detalhes-do-endereco"),
-}
+    meiosDoacoes: document.getElementById("container-conteudo-meios-doacoes"),
+    patrocinios: document.getElementById("container-conteudo-patrocinios"),
+    post: document.getElementById("container-post"),
+    evento: document.getElementById("evento-feed"),
+    vagas: document.getElementById("container-vagas"),
+    btntrocarDireta: document.getElementById("trocar-direita"),
+    btntrocaresquerda: document.getElementById("trocar-esquerda"),
+    menuOpcoesOutros: document.getElementById("menu-opcoes-outros"),
+    menuOpcoesPrincipal: document.getElementById("menu-opcoes-principal"),
+}   
 
 nav.btnSobre.addEventListener("click", event => {
     dom.sobre.style.display = "flex";
     dom.detalhesConta.style.display = "none";
     dom.detalhesOngs.style.display = "none";
-    dom.detalhesEnderecos.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
 });
 
 nav.btnDetalhesConta.addEventListener("click", event => {
@@ -31,14 +49,24 @@ nav.btnDetalhesConta.addEventListener("click", event => {
     dom.sobre.style.display = "none";
     dom.detalhesEndereco.style.display = "none";
     dom.detalhesOngs.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
    
 });
 
-nav.btnDetalhesEndereco.addEventListener("click", event => {
+nav.btnDetalhesEnderecos.addEventListener("click", event => {
     dom.detalhesEndereco.style.display = "flex";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
     dom.detalhesOngs.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
    
 });
 
@@ -47,6 +75,93 @@ nav.btnDetalhesOngs.addEventListener("click", event => {
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
     dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
    
 });
+
+
+nav.btnMeiosDoacoes.addEventListener("click", event => {
+    dom.meiosDoacoes.style.display = "flex";
+    dom.detalhesOngs.style.display = "none";
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
+   
+});
+
+nav.btnPatrocinios.addEventListener("click", event => {
+    dom.patrocinios.style.display = "flex";
+    dom.detalhesOngs.style.display = "none";
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
+   
+});
+
+nav.btnPost.addEventListener("click", event => {
+    dom.post.style.display = "flex";
+    dom.detalhesOngs.style.display = "none";
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
+   
+});
+
+nav.btnEvento.addEventListener("click", event => {
+    dom.evento.style.display = "flex";
+    dom.detalhesOngs.style.display = "none";
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.vagas.style.display = "none";
+   
+});
+
+nav.btnVagas.addEventListener("click", event => {
+    dom.vagas.style.display = "flex";
+    dom.detalhesOngs.style.display = "none";
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+   
+});
+
+nav.btntrocaresquerda.addEventListener("click", event => {
+    dom.menuOpcoesPrincipal.style.display = "none";
+    dom.menuOpcoesOutros.style.display = "flex";
+
+});
+
+nav.btntrocarDireta.addEventListener("click", event => {
+    dom.menuOpcoesPrincipal.style.display = "flex";
+    dom.menuOpcoesOutros.style.display = "none";
+
+});
+ 
+
+
+
 

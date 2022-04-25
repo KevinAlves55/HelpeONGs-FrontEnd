@@ -239,7 +239,7 @@ body {
         margin-top: 49px;
         margin-bottom: 49px;
 
-        ul {
+        #menu-opcoes-principal{
             @include tamanhos(inherit, 750px);
             @include displayFlex(row, space-between, $gap: 10px);
 
@@ -250,8 +250,36 @@ body {
                 span {
                     font-size: 1.250rem;
                     font-weight: map-get($densidade, semiBold);
-                    color: $text;
-                    text-transform: capitalize;
+                    color: $placeholder;
+                    cursor: pointer;
+
+                    &:hover {
+                        border-bottom: 4px solid $tartOrange;
+                    }
+                }
+
+                // .barra {
+                //     height: 4px;
+                //     width: 50px;
+                //     background-color: $tartOrange;
+                //     border-radius: 20px;
+                // }
+            }
+        }
+
+        #menu-opcoes-outros{
+            display: none;
+            @include tamanhos(inherit, 750px);
+            @include displayFlex(row, space-between, $gap: 10px);
+
+            li {
+                @include tamanhos(inherit, auto);
+                @include displayFlex(column, space-between, flex-start);
+
+                span {
+                    font-size: 1.250rem;
+                    font-weight: map-get($densidade, semiBold);
+                    color: $placeholder;
                     cursor: pointer;
 
                     &:hover {
@@ -1418,7 +1446,7 @@ body {
         }
         } 
 
-        .evento-feed {
+        #evento-feed {
             display: none;
             min-height: 789px;
             @include tamanhos(auto, 824px);
