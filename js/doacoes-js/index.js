@@ -1,15 +1,16 @@
 "use strict"
 
 import ApiRequest from "../utils/ApiRequest.js";
-import { openModal, closeModal } from "./modal.js";
+// import { openModal, closeModal } from "./modal.js";
 import { openFiltro, filtrar } from "./filtro.js";
+
+let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 
 const CarregarRecomendados = async () => {
 
     const container = document.getElementById("recomendados-ongs");
-    const objeto = await ApiRequest("GET", "http://localhost:3131/ong/all");
     const corpo = objeto.data;
-    const recomendados = corpo.filter(({idOng}) => idOng > 8 ? false : true);
+    const recomendados = corpo.filter(({idOng}) => idOng > 2 ? false : true);
     const cards = recomendados.map(CriarRecomendados);
     container.replaceChildren(...cards);
 
@@ -35,7 +36,6 @@ const CriarRecomendados = ({id, nome, foto}) => {
 const CarregarTodasONGs = async () => {
 
     const container = document.getElementById("ongs");
-    const objeto = await ApiRequest("GET", "http://localhost:3131/ong/all");
     const corpo = objeto.data;
     const cards = corpo.map(CriarONGs);
     container.replaceChildren(...cards);
@@ -59,7 +59,43 @@ const CriarONGs = ({id, nome, numeroDeSeguidores, foto}) => {
 
 }
 
+const pesquisarNomeONG = (e) => {
+    
+    const container = document.getElementById("ongs");
+    const pesquisaNome = document.getElementById('pesquisar').value
+    const corpo = objeto.data;
+    const nomeONG = corpo.filter(({nome}) => nome !== pesquisaNome ? false : true);
+    const cards = nomeONG.map(CriarONGs);
+    container.replaceChildren(...cards);
+
+}
+
+const CarregarEstados = async () => {
+
+    const container = document.getElementById("estados-select");
+    const objetoUf = await ApiRequest("GET", "http://localhost:3131/uf");
+    const estados = objetoUf.data;
+    const estadoUf = estados.map(CriarOptionEstado);
+    container.replaceChildren(...estadoUf);
+
+}
+
+const CriarOptionEstado = ({id, nome, sigla}) => {
+
+    const corpo = document.createElement("option");
+
+    corpo.innerHTML =
+    `
+    <option value="${sigla}" data-idEstado="${id}">${nome}</option>
+    `;
+
+    return corpo;
+
+}
+
 CarregarRecomendados();
 CarregarTodasONGs();
+document.getElementById("lupa").addEventListener("click", pesquisarNomeONG);
+CarregarEstados();
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
-document.getElementById("limpar-campos").addEventListener("click", filtrar);
+document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
