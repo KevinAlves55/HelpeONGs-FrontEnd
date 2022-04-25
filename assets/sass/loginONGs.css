@@ -114,8 +114,8 @@ body {
 }
 
 #esquerda #banner {
-  height: 435px;
-  width: 450px;
+  height: 390px;
+  width: 430px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,6 +132,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  margin-right: 45px;
 }
 
 #esquerda #banner img {
@@ -304,12 +305,13 @@ body {
   top: 17px;
 }
 
-#direita form #conteudo #input-inferior #icone-olho {
+#direita form #conteudo #input-inferior #eyeImg {
   height: 29px;
   width: 29px;
   position: absolute;
   right: 20px;
   top: 17px;
+  cursor: pointer;
 }
 
 #direita form #conteudo #input-inferior a {

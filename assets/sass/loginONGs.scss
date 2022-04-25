@@ -38,8 +38,9 @@ body {
     }
 
     #banner {
-        @include tamanhos(435px, 450px);
+        @include tamanhos(390px, 430px);
         @include displayFlex(row, center, center);
+        margin-right: 45px;
 
         img {
             @include tamanhos(inherit, inherit);
@@ -113,11 +114,12 @@ body {
                     top: 17px;
                 }
 
-                #icone-olho {
+                #eyeImg {
                     @include tamanhos(29px, 29px);
                     position: absolute;
                     right: 20px;
                     top: 17px;  
+                    cursor: pointer;
                 }
 
                 a {
