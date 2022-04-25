@@ -1,12 +1,13 @@
 "use strict";
 
-// import { ApiRequest } from "../utils/ApiRequest.js";
-// import { openMessage, closeMessage } from "../utils/MessageCadastro.js";
+import { ApiRequest } from "../utils/ApiRequest.js";
+import { openMessage, closeMessage } from "../utils/MessageCadastro.js";
 import { checkInputs, errorValidation } from "../validator/validator.js";
-// import Redirect from "../utils/Redirect.js";
+import Redirect from "../utils/Redirect.js";
 
 /* Captura os valores inseridos(No caso o objeto de captura) */
 const nome = document.getElementById("nome");
+const cnpj = document.getElementById("cnpj");
 const email = document.getElementById("email");
 const password = document.getElementById("senha");
 
@@ -25,26 +26,31 @@ const cadastrarOng = async (e) => {
     });
     
     if (result != false) {
-
-        alert("Deu certo todas as validações");
         
-        // const userData = {
-        //     nome: nome.value,
-        //     email: email.value,
-        //     senha: password.value,
-        // }
+        const ongData = {
+            nome: nome.value,
+            cnpj: cnpj.value,
+            email: email.value,
+            senha: password.value
+        }
 
-        // let request;
-        // request = await ApiRequest("POST", "http://localhost:3131/user/pre-register", userData);
-        // console.log(request);
+        let request;
+        request = await ApiRequest("POST", "http://localhost:3131/user/pre-register", ongData);
+        console.log(request);
 
-        // if (request.status === 200) {
-        //     openMessage();
-        // } else if (request.status === 400) {
-        //     errorValidation(email, "O Email digitado já foi cadastrado");
-        // }
+        if (request.status === 200) {
+            openMessage();
+        } else if (request.status === 400) {
+            errorValidation(email, "O Email digitado já foi cadastrado");
+        }
     }
 
 }
 
 document.getElementById("formButton").addEventListener("click", cadastrarOng);
+document.getElementById("OK").addEventListener("click", closeMessage);
+document.getElementById("PageDoar").addEventListener("click",() => {
+
+    Redirect("doacoes");
+
+});
