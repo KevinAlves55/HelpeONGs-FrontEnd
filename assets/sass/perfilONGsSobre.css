@@ -665,7 +665,6 @@ body {
 
 #centro #menu-opcoes-perfil #menu-opcoes-principal li span {
   font-size: 1.250rem;
-  font-weight: 600;
   color: #8C8C8C;
   cursor: pointer;
 }
@@ -719,7 +718,6 @@ body {
 
 #centro #menu-opcoes-perfil #menu-opcoes-outros li span {
   font-size: 1.250rem;
-  font-weight: 600;
   color: #8C8C8C;
   cursor: pointer;
 }
@@ -1043,7 +1041,6 @@ body {
   display: none;
   height: 466px;
   width: inherit;
-  margin-top: 45px;
   margin-bottom: 100px;
 }
 
@@ -2694,9 +2691,24 @@ body {
 
 #centro #container-conteudo #container-conteudo-patrocinios {
   display: none;
-  margin-top: 50px;
   height: 550px;
   width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
 #centro #container-conteudo #container-conteudo-patrocinios #editar-imagen {
@@ -2741,12 +2753,14 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  height: 271px;
+  width: 774px;
 }
 
 #centro #container-conteudo #container-conteudo-patrocinios #editar-nome-link #nome-link {
@@ -2785,7 +2799,8 @@ body {
   height: 65px;
   width: 266px;
   font-size: 22px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
   padding: 15px;
 }
 
@@ -2853,7 +2868,8 @@ body {
 #centro #container-conteudo #container-conteudo-patrocinios #editar-nome-link #nome-link #link-do-site input {
   height: 65px;
   width: 266px;
-  border: 2px solid #8C8C8C;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
   font-size: 22px;
   padding: 15px;
 }
@@ -2915,6 +2931,7 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   border: 2px solid #CCCCCC;
+  border-radius: 3px;
 }
 
 #centro #container-conteudo #container-conteudo-patrocinios #editar-nome-link #container-principal .container .imagens {
@@ -3483,7 +3500,6 @@ body {
   padding: 18px;
   -ms-flex-item-align: center;
       align-self: center;
-  margin-top: 15px;
 }
 
 #centro #container-conteudo #container-evento .parte-superior {
@@ -3925,7 +3941,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin-top: 20px;
 }
 
 #centro #container-conteudo #container-vagas .vaga {

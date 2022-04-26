@@ -201,7 +201,8 @@ nav.btnConta.addEventListener("click", event => {
    
 });
 
-
+dom.menuOpcoesPrincipal.style.display = "flex";
+dom.menuOpcoesOutros.style.display = "none";
 
 nav.btntrocaresquerda.addEventListener("click", event => {
     dom.menuOpcoesPrincipal.style.display = "none";
