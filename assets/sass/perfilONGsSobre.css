@@ -3455,7 +3455,7 @@ body {
   margin-top: 2px;
 }
 
-#centro #container-conteudo #evento-feed {
+#centro #container-conteudo #container-evento {
   display: none;
   min-height: 789px;
   height: auto;
@@ -3486,7 +3486,7 @@ body {
   margin-top: 15px;
 }
 
-#centro #container-conteudo #evento-feed .parte-superior {
+#centro #container-conteudo #container-evento .parte-superior {
   height: 80px;
   width: 736px;
   display: -webkit-box;
@@ -3507,7 +3507,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .parte-superior .info-ong {
+#centro #container-conteudo #container-evento .parte-superior .info-ong {
   height: 80px;
   width: 290px;
   display: -webkit-box;
@@ -3528,13 +3528,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .parte-superior .info-ong img {
+#centro #container-conteudo #container-evento .parte-superior .info-ong img {
   height: inherit;
   width: 80px;
   border-radius: 50%;
 }
 
-#centro #container-conteudo #evento-feed .parte-superior .info-ong .info-nome-data {
+#centro #container-conteudo #container-evento .parte-superior .info-ong .info-nome-data {
   height: 55px;
   width: 200px;
   display: -webkit-box;
@@ -3555,7 +3555,7 @@ body {
   gap: 3px;
 }
 
-#centro #container-conteudo #evento-feed .parte-superior .info-ong .info-nome-data h2 {
+#centro #container-conteudo #container-evento .parte-superior .info-ong .info-nome-data h2 {
   font-size: 1.563rem;
   font-weight: 700;
   color: #292929;
@@ -3563,7 +3563,7 @@ body {
   letter-spacing: none;
 }
 
-#centro #container-conteudo #evento-feed .parte-superior .info-ong .info-nome-data span {
+#centro #container-conteudo #container-evento .parte-superior .info-ong .info-nome-data span {
   font-size: 1rem;
   font-weight: 600;
   color: #8C8C8C;
@@ -3571,13 +3571,13 @@ body {
   letter-spacing: none;
 }
 
-#centro #container-conteudo #evento-feed .parte-superior img {
+#centro #container-conteudo #container-evento .parte-superior img {
   height: 21px;
   width: 31px;
   cursor: pointer;
 }
 
-#centro #container-conteudo #evento-feed .info-evento {
+#centro #container-conteudo #container-evento .info-evento {
   min-height: 632px;
   height: auto;
   width: 736px;
@@ -3599,7 +3599,7 @@ body {
   gap: 25px;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-superior {
+#centro #container-conteudo #container-evento .info-evento .info-superior {
   min-height: 131px;
   height: auto;
   width: 736px;
@@ -3621,7 +3621,7 @@ body {
   gap: 25px;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-superior h2 {
+#centro #container-conteudo #container-evento .info-evento .info-superior h2 {
   font-size: 1.813rem;
   font-weight: 600;
   color: #292929;
@@ -3629,7 +3629,7 @@ body {
   letter-spacing: none;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-superior p {
+#centro #container-conteudo #container-evento .info-evento .info-superior p {
   font-size: 1.125rem;
   font-weight: 500;
   color: #292929;
@@ -3637,7 +3637,7 @@ body {
   letter-spacing: none;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .imagens-postadas {
+#centro #container-conteudo #container-evento .info-evento .imagens-postadas {
   height: 314px;
   width: 736px;
   display: -webkit-box;
@@ -3658,13 +3658,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .imagens-postadas img {
+#centro #container-conteudo #container-evento .info-evento .imagens-postadas img {
   height: inherit;
   width: 435px;
   border-radius: 6px;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .imagens-postadas .imagens-complementos {
+#centro #container-conteudo #container-evento .info-evento .imagens-postadas .imagens-complementos {
   height: inherit;
   width: 285px;
   display: -webkit-box;
@@ -3685,19 +3685,19 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .imagens-postadas .imagens-complementos .cima {
+#centro #container-conteudo #container-evento .info-evento .imagens-postadas .imagens-complementos .cima {
   height: 125px;
   width: inherit;
   border-radius: 6px;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .imagens-postadas .imagens-complementos .baixo {
+#centro #container-conteudo #container-evento .info-evento .imagens-postadas .imagens-complementos .baixo {
   height: 176px;
   width: inherit;
   border-radius: 6px;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares {
+#centro #container-conteudo #container-evento .info-evento .info-complementares {
   height: 201px;
   width: 736px;
   display: -webkit-box;
@@ -3718,7 +3718,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior {
   height: 159px;
   width: inherit;
   display: -webkit-box;
@@ -3739,7 +3739,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .info-esquerda {
   height: inherit;
   width: 530px;
   display: -webkit-box;
@@ -3760,7 +3760,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .info-esquerda .item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3779,19 +3779,19 @@ body {
   gap: 7px;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item h3 {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .info-esquerda .item h3 {
   font-size: 1.450rem;
   font-weight: 600;
   color: #292929;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-info {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-info {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-stts {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-stts {
   height: 35px;
   width: 89px;
   display: -webkit-box;
@@ -3816,7 +3816,7 @@ body {
   border-radius: 6px;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .botoes-direita {
   height: 103px;
   width: 160px;
   display: -webkit-box;
@@ -3837,7 +3837,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita .botao {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .botoes-direita .botao {
   height: 40px;
   width: 160px;
   display: -webkit-box;
@@ -3867,13 +3867,13 @@ body {
   transition: .1s;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita .botao:hover {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-superior .botoes-direita .botao:hover {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-inferior {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-inferior {
   height: 42px;
   width: inherit;
   display: -webkit-box;
@@ -3894,13 +3894,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-inferior span {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-inferior span {
   font-size: 1.200rem;
   font-weight: 500;
   color: #292929;
 }
 
-#centro #container-conteudo #evento-feed .info-evento .info-complementares .complementares-inferior i {
+#centro #container-conteudo #container-evento .info-evento .info-complementares .complementares-inferior i {
   font-weight: 400;
   font-style: normal;
 }
@@ -4168,6 +4168,258 @@ body {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
+}
+
+#centro #container-conteudo #container-senha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 440px;
+  width: 850px;
+  gap: 10px;
+  display: none;
+}
+
+#centro #container-conteudo #container-senha h1 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-senha #editar-senha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  gap: 15px;
+  padding: 15px;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #senha-atual {
+  height: 102px;
+  width: 810px;
+  padding: 10px;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #senha-atual h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #senha-atual input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 810px;
+  padding: 10px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #nova-confirmar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 102px;
+  width: 391px;
+  padding: 10px;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #nova-confirmar #nova-senha h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #nova-confirmar #nova-senha input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 385px;
+  padding: 10px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #nova-confirmar #confirmar-senha {
+  height: 102px;
+  width: 400px;
+  padding-left: 40px;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #nova-confirmar #confirmar-senha h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-senha #editar-senha #nova-confirmar #confirmar-senha input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 385px;
+  padding: 10px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #container-senha #botao {
+  width: 720px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding: 25px;
+}
+
+#centro #container-conteudo #container-senha #botao #botao-editar-senha button {
+  height: 60px;
+  width: 232px;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #container-senha #botao #botao-cancelar-senha button {
+  height: 60px;
+  width: 232px;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #container-conta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 223px;
+  width: 850px;
+  padding: 15px;
+  display: none;
+}
+
+#centro #container-conteudo #container-conta p {
+  height: 105px;
+  width: 850px;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conta #Botao {
+  width: 720px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 80px;
+}
+
+#centro #container-conteudo #container-conta #Botao button {
+  height: 60px;
+  width: 232px;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 #direita {

@@ -10,6 +10,8 @@ const nav = {
     btnPost: document.getElementById("item7"),
     btnEvento: document.getElementById("item8"),
     btnVagas: document.getElementById("item9"),
+    btnSenha: document.getElementById("item10"),
+    btnConta: document.getElementById("item11"),
     btntrocarDireta: document.getElementById("trocar-direita"),
     btntrocaresquerda: document.getElementById("trocar-esquerda"),
     menuOpcoesOutros: document.getElementById("menu-opcoes-outros"),
@@ -24,8 +26,10 @@ const dom = {
     meiosDoacoes: document.getElementById("container-conteudo-meios-doacoes"),
     patrocinios: document.getElementById("container-conteudo-patrocinios"),
     post: document.getElementById("container-post"),
-    evento: document.getElementById("evento-feed"),
+    evento: document.getElementById("container-evento"),
     vagas: document.getElementById("container-vagas"),
+    senha: document.getElementById("container-senha"),
+    conta: document.getElementById("container-conta"),
     btntrocarDireta: document.getElementById("trocar-direita"),
     btntrocaresquerda: document.getElementById("trocar-esquerda"),
     menuOpcoesOutros: document.getElementById("menu-opcoes-outros"),
@@ -42,6 +46,8 @@ nav.btnSobre.addEventListener("click", event => {
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
 });
 
 nav.btnDetalhesConta.addEventListener("click", event => {
@@ -54,6 +60,8 @@ nav.btnDetalhesConta.addEventListener("click", event => {
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
 
@@ -67,6 +75,8 @@ nav.btnDetalhesEnderecos.addEventListener("click", event => {
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
 
@@ -80,6 +90,8 @@ nav.btnDetalhesOngs.addEventListener("click", event => {
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
 
@@ -94,6 +106,8 @@ nav.btnMeiosDoacoes.addEventListener("click", event => {
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
 
@@ -107,6 +121,8 @@ nav.btnPatrocinios.addEventListener("click", event => {
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
 
@@ -120,6 +136,8 @@ nav.btnPost.addEventListener("click", event => {
     dom.patrocinios.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
 
@@ -133,6 +151,8 @@ nav.btnEvento.addEventListener("click", event => {
     dom.patrocinios.style.display = "none";
     dom.post.style.display = "none";
     dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
 
@@ -146,8 +166,42 @@ nav.btnVagas.addEventListener("click", event => {
     dom.patrocinios.style.display = "none";
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
    
 });
+
+nav.btnSenha.addEventListener("click", event => {
+    dom.senha.style.display = "flex";
+    dom.detalhesOngs.style.display = "none";
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
+    dom.conta.style.display = "none";
+   
+});
+
+nav.btnConta.addEventListener("click", event => {
+    dom.conta.style.display = "flex";
+    dom.detalhesOngs.style.display = "none";
+    dom.detalhesConta.style.display = "none";
+    dom.sobre.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+   
+});
+
+
 
 nav.btntrocaresquerda.addEventListener("click", event => {
     dom.menuOpcoesPrincipal.style.display = "none";
