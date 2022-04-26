@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login de ONGs</title>
+    <link rel="stylesheet" href="assets/sass/loginONGs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="./js/login-ongs/index.js" type="module" defer></script>
+    <script src="./js/login-ongs/mascara.js" defer></script>
+    <script src="./js/login-ongs/olho.js" defer></script>
+</head>
+
+<body>
+
+    <section id="esquerda">
+        <div id="titulos">
+            <h1>Seja Bem-vindo!</h1>
+            <h2>Faça a diferença, pequenos gestos <br> podem salvar vidas </h2>
+        </div>
+
+        <div id="banner">
+            <img src="assets/img/banner.png" alt="Ongs para doar" title="Fundo de imagem">
+        </div>
+    </section>
+
+    <section id="direita">
+        <h2>login</h2>
+
+        <form>
+            <div id="conteudo">
+                <div id="inputs-superiores">
+                    <div id="input-email">
+                        <input type="email" name="email" id="email" required placeholder="Email" maxlength="150" minlength="20" onkeyup="caracteresInvalidos(this)">
+                        <img src="assets/img/mail.png" alt="EMAIL de ongs" title="Icone email">
+                    </div>
+                </div>
+
+                <div id="input-inferior">
+                    <input type="password" name="senha" id="senha" placeholder="Senha" required maxlength="80" onkeyup="mascaraSenha(this)">
+                    <img src="assets/img/lock.png" alt="Oculte a senha" title="Icone cadeado" id="icone-cadeado">
+                    <img src="assets/img/eye.png" alt="Abrir senha" title="Icone olho" id="eyeImg" onclick="eyeClick()">
+                    <a href="">esqueceu senha?</a>
+                </div>
+            </div>
+
+            <div id="button-outras-opcoes">
+                <button type="submit" id="btn-login">
+                    Login
+                </button>
+                <h3>não tem uma conta?</h3>
+                <a href="">crie uma agora</a>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
