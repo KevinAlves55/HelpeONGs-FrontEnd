@@ -67,6 +67,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  padding-top: 30px;
 }
 
 #container #mini-perfil {
@@ -118,7 +119,7 @@ body {
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border-radius: 20px;
-  margin-top: 45px;
+  margin-top: 75px;
 }
 
 #container #menu ul {
@@ -223,6 +224,8 @@ body {
 }
 
 #centro #perfil #conteudo-perfil-centro {
+  height: auto;
+  width: inherit;
   padding-left: 200px;
 }
 
@@ -247,26 +250,7 @@ body {
   width: 501px;
 }
 
-#centro #perfil #conteudo-perfil-centro #containerNameandButton titulos-perfil {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#centro #perfil #conteudo-perfil-centro #containerNameandButton titulos-perfil h1 {
+#centro #perfil #conteudo-perfil-centro #containerNameandButton h1 {
   font-size: 1.813rem;
   font-weight: 700;
   color: #292929;
@@ -275,7 +259,7 @@ body {
   padding-top: 10px;
 }
 
-#centro #perfil #conteudo-perfil-centro #containerNameandButton titulos-perfil h3 {
+#centro #perfil #conteudo-perfil-centro #containerNameandButton h3 {
   font-size: 1rem;
   font-weight: 600;
   color: #8C8C8C;
@@ -328,22 +312,9 @@ body {
 }
 
 #centro ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row-reverce;
-          flex-direction: row-reverce;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 18px;
+  height: 65px;
+  width: inherit;
+  padding-top: 25px;
 }
 
 #centro ul li img {
@@ -361,8 +332,8 @@ body {
   cursor: pointer;
 }
 
-#centro ul li:hover {
-  border-bottom: 5px solid #FC595E;
+#centro ul li span:hover {
+  border-bottom: 4px solid #FC595E;
 }
 
 #centro #container-conteudo #container-conteudo-sobre {
@@ -390,6 +361,10 @@ body {
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border: 1px;
   border-radius: 10px;
+}
+
+#centro #container-conteudo #container-conteudo-sobre #sobre-usuario {
+  padding-top: 15px;
 }
 
 #centro #container-conteudo #container-conteudo-sobre #sobre-usuario h3 + h3 {
@@ -429,8 +404,8 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-top: 50px;
-  padding-left: 35px;
+  padding-top: 30px;
+  padding-left: 5px;
 }
 
 #centro #container-conteudo #container-conteudo-sobre #anexo h2 {
@@ -482,7 +457,6 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome {
   height: 98px;
   width: 766px;
-  margin-top: 30px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome p {
@@ -498,7 +472,7 @@ body {
   width: 761px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 18px;
+  font-size: 23px;
   padding: 15px;
 }
 
@@ -542,7 +516,7 @@ body {
   width: 350px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 18px;
+  font-size: 23px;
   padding: 15px;
 }
 
@@ -554,7 +528,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data #data input {
   height: 65px;
   width: 222px;
-  font-size: 18px;
+  font-size: 23px;
   padding: 15px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
@@ -599,7 +573,7 @@ body {
   width: 350px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 18px;
+  font-size: 23px;
   padding: 15px;
 }
 
@@ -611,7 +585,7 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #telefone input {
   height: 65px;
   width: 350px;
-  font-size: 18px;
+  font-size: 23px;
   padding: 15px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
@@ -738,7 +712,7 @@ body {
   width: 158px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  font-size: 23px;
   padding: 5px;
 }
 
@@ -755,7 +729,7 @@ body {
   width: 288px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  font-size: 23px;
   padding: 5px;
 }
 
@@ -772,7 +746,7 @@ body {
   width: 288px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  font-size: 23px;
   padding: 5px;
 }
 
@@ -810,7 +784,7 @@ body {
   width: 288px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  font-size: 23px;
   padding: 5px;
 }
 
@@ -827,7 +801,7 @@ body {
   width: 251px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  font-size: 23px;
   padding: 5px;
 }
 
@@ -844,7 +818,7 @@ body {
   width: 130px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  font-size: 23px;
   padding: 5px;
 }
 
@@ -882,7 +856,7 @@ body {
   width: 769px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  font-size: 22px;
+  font-size: 23px;
   padding: 5px;
 }
 
@@ -975,6 +949,7 @@ body {
   padding: 10px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
+  font-size: 23px;
 }
 
 #centro #container-conteudo #senha #editar-senha #nova-confirmar {
@@ -1016,6 +991,7 @@ body {
   padding: 10px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
+  font-size: 23px;
 }
 
 #centro #container-conteudo #senha #editar-senha #nova-confirmar #confirmar-senha {
@@ -1145,6 +1121,9 @@ body {
 }
 
 #direita {
+  min-height: 500px;
+  height: auto;
+  width: 280px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1160,10 +1139,12 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 20px;
 }
 
 #direita #status-seguidores {
+  height: 30px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1171,21 +1152,22 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  height: 30px;
-  width: 223px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #direita #status-seguidores h2 {
   font-size: 1.313rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #8C8C8C;
   text-transform: none;
   letter-spacing: none;
@@ -1216,13 +1198,14 @@ body {
   text-transform: none;
   letter-spacing: none;
   background-color: #FF9F45;
+  padding-right: 3px;
   border-radius: 25px;
 }
 
 #direita #container-direita {
   min-height: 430px;
   height: auto;
-  width: 261px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1238,7 +1221,7 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 20px;
   padding: 12px 10px 15px;
 }
 
@@ -1267,7 +1250,7 @@ body {
   border-radius: 20px;
   background: #FFFFFF;
   gap: 20px;
-  padding: 15px 5px 15px;
+  padding: 15px;
 }
 
 #direita #container-direita #mini-perfil-direita img {
@@ -1336,12 +1319,14 @@ body {
 }
 
 #direita #container-direita #img-amplifica {
-  padding-left: 100px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   padding-top: 20px;
 }
 
 #direita #container-direita #img-amplifica img {
-  height: 35px;
-  width: 35px;
+  height: 15px;
+  width: 25px;
 }
 /*# sourceMappingURL=perfilUsuario.css.map */
