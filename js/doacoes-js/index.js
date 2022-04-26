@@ -5,6 +5,8 @@ import ApiRequest from "../utils/ApiRequest.js";
 import { openFiltro, filtrar } from "./filtro.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
+let dadosLogado = JSON.parse(localStorage.getItem('dados'));
+console.log(dadosLogado);
 
 const CarregarRecomendados = async () => {
 
@@ -67,6 +69,10 @@ const pesquisarNomeONG = (e) => {
     const nomeONG = corpo.filter(({nome}) => nome !== pesquisaNome ? false : true);
     const cards = nomeONG.map(CriarONGs);
     container.replaceChildren(...cards);
+    
+    let valor = document.getElementById("resultadoQtda");
+    const corpoResult = nomeONG.length;
+    valor.innerText = `${corpoResult} Resultados`;
 
 }
 
@@ -93,9 +99,45 @@ const CriarOptionEstado = ({id, nome, sigla}) => {
 
 }
 
+async function CarregarMiniPerfil () {
+    
+    let nomeLogado = document.getElementById("mini-perfil-nome");
+    let fotoLogado = document.getElementById("mini-perfil-foto");
+    
+    if (dadosLogado.nome === null || dadosLogado.nome === undefined) {
+        nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
+    } else {
+        nomeLogado.innerHTML = `${dadosLogado.nome}`;
+    }
+    
+    if (dadosLogado.foto === null || dadosLogado.foto === undefined) {
+        fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+    } else {
+        fotoLogado.setAttribute("src", `${dadosLogado.foto}`);
+    }
+
+}
+
+async function CarregarTamanhoArray() {
+
+    let valor = document.getElementById("resultadoQtda");
+    const corpo = objeto.data.length;
+
+    valor.innerText = `${corpo} Resultados`;
+
+}
+
 CarregarRecomendados();
 CarregarTodasONGs();
 document.getElementById("lupa").addEventListener("click", pesquisarNomeONG);
 CarregarEstados();
+CarregarMiniPerfil();
+CarregarTamanhoArray();
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
+document.getElementById("sair").addEventListener("click", () => {
+
+    localStorage.clear();
+    window.location.href = "login.html";
+
+})
