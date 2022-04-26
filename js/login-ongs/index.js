@@ -5,11 +5,13 @@ import DEFAULT_URL from "./global-env.js";
 
 const redirect = () => {
 
-    window.location.href = "feed.html";
+    window.location.href = "testeStroge.html";
 
 }
 
-const validarLogin = async () => {
+const validarLogin = async (e) => {
+
+    e.preventDefault();
 
     const dom = {
         
@@ -18,17 +20,19 @@ const validarLogin = async () => {
     
     };
 
-    const response = await ApiRequest("POST", `${DEFAULT_URL}/ong/login`, {
+    const response = await ApiRequest("POST", `${DEFAULT_URL}/user/login`, {
         
         email: dom.email.toString().toLowerCase(),
         senha: String(dom.password)
     
     });
 
-    console.log(response);
-
     if (response.status == 200) {
 
+        console.log(response);
+        const dados = response.usuario;
+        var textDados = JSON.stringify(dados);
+        localStorage.setItem('dados', JSON.stringify(dados));
         redirect();
     
     } else if (response.status == 404) {
