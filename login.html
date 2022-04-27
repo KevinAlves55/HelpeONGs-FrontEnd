@@ -33,17 +33,23 @@
 
         <form>
             <div id="conteudo">
-                <div id="inputs-superiores">
-                    <div id="input-email">
-                        <input type="email" name="email" id="email" required placeholder="Email" maxlength="150" minlength="20" onkeyup="caracteresInvalidos(this)">
-                        <img src="assets/img/mail.png" alt="EMAIL de ongs" title="Icone email">
-                    </div>
+                <div class="style-input">
+                    <img src="assets/img/mail.png" alt="EMAIL de ongs" title="Icone email" class="icone">
+                    <input type="email" id="email" placeholder="Email" maxlength="150" 
+                    onkeyup="caracteresInvalidos(this)">
+                    <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                    <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                    <small>Error mensager</small>
                 </div>
 
-                <div id="input-inferior">
-                    <input type="password" name="senha" id="senha" placeholder="Senha" required maxlength="80" onkeyup="mascaraSenha(this)">
-                    <img src="assets/img/lock.png" alt="Oculte a senha" title="Icone cadeado" id="icone-cadeado">
-                    <img src="assets/img/eye.png" alt="Abrir senha" title="Icone olho" id="eyeImg" onclick="eyeClick()">
+                <div class="style-input">
+                    <img src="assets/img/lock.png" class="icone" alt="Oculte a senha" title="Icone cadeado">
+                    <input type="password" id="senha" placeholder="Senha" maxlength="80" 
+                    onkeyup="mascaraSenha(this)">
+                    <img src="assets/img/eye.png" class="olho" alt="Abrir senha" title="Icone olho" id="eyeImg" onclick="eyeClick()">
+                    <i class="pass-ajuste"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                    <i class="pass-ajuste"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                    <small>Error mensager</small>
                     <a href="">esqueceu senha?</a>
                 </div>
             </div>

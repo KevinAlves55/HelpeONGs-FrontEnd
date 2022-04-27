@@ -212,57 +212,8 @@ body {
   gap: 0;
 }
 
-#direita form #conteudo #inputs-superiores {
-  height: 65px;
-  width: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#direita form #conteudo #inputs-superiores #input-email {
-  height: inherit;
-  width: 230px;
-  position: relative;
-}
-
-#direita form #conteudo #inputs-superiores #input-email input {
-  height: 65px;
-  width: 515px;
-  font-size: 1.563rem;
-  font-weight: 500;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-  border: 1px solid #CCCCCC;
-  border-radius: 6px;
-  background-color: #ECECEC;
-  padding-left: 64px;
-}
-
-#direita form #conteudo #inputs-superiores #input-email img {
-  height: 29px;
-  width: 29px;
-  left: 20px;
-  top: 17px;
-  position: absolute;
-}
-
-#direita form #conteudo #input-inferior {
-  height: 97px;
+#direita form #conteudo .style-input {
+  height: 85px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -271,50 +222,73 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
   position: relative;
 }
 
-#direita form #conteudo #input-inferior input {
-  height: inherit;
-  width: inherit;
+#direita form #conteudo .style-input input {
+  height: 65px;
+  width: 515px;
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  border: 1px solid #CCCCCC;
   border-radius: 6px;
   background-color: #ECECEC;
   padding-left: 64px;
+  padding-right: 83px;
 }
 
-#direita form #conteudo #input-inferior #icone-cadeado {
-  height: 29px;
-  width: 29px;
-  position: absolute;
-  left: 20px;
-  top: 17px;
-}
-
-#direita form #conteudo #input-inferior #eyeImg {
-  height: 29px;
-  width: 29px;
-  position: absolute;
-  right: 20px;
-  top: 17px;
+#direita form #conteudo .style-input img {
+  height: 30px;
+  width: 30px;
   cursor: pointer;
 }
 
-#direita form #conteudo #input-inferior a {
+#direita form #conteudo .style-input .icone {
+  left: 20px;
+  top: 17px;
+  position: absolute;
+}
+
+#direita form #conteudo .style-input .olho {
+  position: absolute;
+  right: 15px;
+  top: 17px;
+}
+
+#direita form #conteudo .style-input .icone-validation {
+  position: absolute;
+  right: 15px;
+  top: 17px;
+  visibility: hidden;
+}
+
+#direita form #conteudo .style-input .pass-ajuste {
+  position: absolute;
+  right: 52px;
+  top: 17px;
+  visibility: hidden;
+}
+
+#direita form #conteudo .style-input small {
+  visibility: hidden;
+  font-size: 1.2rem;
+  color: #FC595E;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+#direita form #conteudo .style-input a {
   font-size: 1.313rem;
   font-weight: 500;
   color: #FF9F45;
@@ -323,7 +297,9 @@ body {
   text-decoration: underline;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  margin-top: 5px;
+  position: absolute;
+  bottom: -8px;
+  right: 0;
 }
 
 #direita form #button-outras-opcoes {
@@ -345,6 +321,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  margin-top: 20px;
 }
 
 #direita form #button-outras-opcoes #btn-login {
@@ -377,7 +354,23 @@ body {
   letter-spacing: none;
 }
 
-#direita form .error input {
-  border: 2px solid #fa2f2f !important;
+.style-input.sucess input {
+  border: 2px solid #39CE04;
+}
+
+.style-input.error input {
+  border: 2px solid #FC595E;
+}
+
+.style-input.sucess i .img-sucess {
+  visibility: visible;
+}
+
+.style-input.error i .img-error {
+  visibility: visible;
+}
+
+#direita form #conteudo .style-input.error small {
+  visibility: visible;
 }
 /*# sourceMappingURL=loginONGs.css.map */

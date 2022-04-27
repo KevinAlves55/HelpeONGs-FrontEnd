@@ -65,68 +65,66 @@ body {
             @include tamanhos(190px, inherit);
             @include displayFlex(column, space-between);
 
-            #inputs-superiores {
-                @include tamanhos(65px, inherit);
-                @include displayFlex(row, space-between, center);
-
-               
-
-                #input-email {
-                    @include tamanhos(inherit, 230px);
-                    position: relative;
-
-                    input {
-                        @include tamanhos(65px, 515px);
-                        @include textoEstilo(grau8, medium, $text);
-                        border: 1px solid $border;
-                        border-radius: 6px;
-                        background-color: $input;
-                        padding-left: 64px;
-                    }
-
-                    img {
-                        @include tamanhos(29px, 29px);
-                        left: 20px;
-                        top: 17px;
-                        position: absolute;
-                    }
-                }
-            }
-
-            #input-inferior {
-                @include tamanhos(97px, inherit);
-                @include displayFlex(column, center, center);
+            .style-input {
+                @include tamanhos(85px, inherit);
+                @include displayFlex(column);
                 position: relative;
 
                 input {
-                    @include tamanhos(inherit, inherit);
+                    @include tamanhos(65px, 515px);
                     @include textoEstilo(grau8, medium, $text);
-                    border: 1px solid $border;
                     border-radius: 6px;
                     background-color: $input;
                     padding-left: 64px;
+                    padding-right: 83px;
                 }
 
-                #icone-cadeado {
-                    @include tamanhos(29px, 29px);
-                    position: absolute;
+                img {
+                    @include tamanhos(30px, 30px);
+                    cursor: pointer;
+                }
+
+                .icone {
                     left: 20px;
+                    top: 17px;
+                    position: absolute;
+                }
+
+                .olho {
+                    position: absolute;
+                    right: 15px;
                     top: 17px;
                 }
 
-                #eyeImg {
-                    @include tamanhos(29px, 29px);
+                .icone-validation {
                     position: absolute;
-                    right: 20px;
-                    top: 17px;  
-                    cursor: pointer;
+                    right: 15px;
+                    top: 17px;
+                    visibility: hidden;
+                }
+
+                .pass-ajuste {
+                    position: absolute;
+                    right: 52px;
+                    top: 17px;
+                    visibility: hidden;
+                }
+
+                small {
+                    visibility: hidden; 
+                    font-size: 1.2rem;
+                    color: $tartOrange;
+                    font-weight: map-get($densidade, medium);
+                    margin-left: 10px;
                 }
 
                 a {
                     @include textoEstilo(grau9, medium, $deepSaffron, capitalize);
                     text-decoration: underline;
                     align-self: flex-end;
-                    margin-top: 5px;
+                    position: absolute;
+                    bottom: -8px;
+                    right: 0;
                 }
             }
         }
@@ -134,6 +132,7 @@ body {
         #button-outras-opcoes {
             @include tamanhos(180px, 280px);
             @include displayFlex(column, center, center);
+            margin-top: 20px;
 
             #btn-login {
                 @include tamanhos(60px, inherit);
@@ -152,9 +151,25 @@ body {
                 @include textoEstilo(grau9, medium, $deepSaffron, capitalize);
             }
         }
-
-        .error input{
-            border: 2px solid rgb(250, 47, 47) !important;
-        }
     }
+}
+
+.style-input.sucess input {
+    border: 2px solid $verde;
+}
+
+.style-input.error input {
+    border: 2px solid $tartOrange;
+}
+
+.style-input.sucess i .img-sucess {
+    visibility: visible;
+}
+
+.style-input.error i .img-error {
+    visibility: visible;
+}
+
+#direita form #conteudo .style-input.error small {
+    visibility: visible;
 }
