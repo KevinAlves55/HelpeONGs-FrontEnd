@@ -553,6 +553,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  margin-top: 20px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone p {

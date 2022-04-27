@@ -303,6 +303,7 @@ body {
             #celular-telefone{
                 @include tamanhos(auto, 766px);
                 @include displayFlex(row, space-between);
+                margin-top: 20px;
                 
 
                 p{

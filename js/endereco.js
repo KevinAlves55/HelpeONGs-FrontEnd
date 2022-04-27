@@ -1,18 +1,18 @@
 'use strict';
 
-const limparFormulario = (rua) =>{
-    document.getElementById('rua').value = '';
-    document.getElementById('bairro').value = '';
-    document.getElementById('cidade').value = '';
+const limparFormulario = (estado) =>{
     document.getElementById('estado').value = '';
+    document.getElementById('cidade').value = '';
+    document.getElementById('bairro').value = '';
+    document.getElementById('rua').value = '';
 }
 
 
-const preencherFormulario = (rua) =>{
-    document.getElementById('rua').value = rua.logradouro;
-    document.getElementById('bairro').value = endereco.bairro;
-    document.getElementById('cidade').value = endereco.localidade;
-    document.getElementById('estado').value = endereco.uf;
+const preencherFormulario = (estado) =>{
+    document.getElementById('estado').value = estado.uf;
+    document.getElementById('cidade').value = estado.localidade;
+    document.getElementById('bairro').value = estado.bairro;
+    document.getElementById('rua').value = estado.logradouro;
 }
 
 
@@ -20,22 +20,22 @@ const eNumero = (numero) => /^[0-9]+$/.test(numero);
 
 const cepValido = (cep) => cep.length == 8 && eNumero(cep); 
 
+
 const pesquisarCep = async() => {
     limparFormulario();
     
-    const cep = document.getElementById('cep').value.replace("-","");
-    console.log(cep);
+    const cep = document.getElementById('cep');
     const url = `https://viacep.com.br/ws/${cep}/json/`;
     if (cepValido(cep)){
         const dados = await fetch(url);
-        const endereco = await dados.json();
+        const estado = await dados.json();
         if (endereco.hasOwnProperty('erro')){
-            document.getElementById('endereco').value = 'CEP não encontrado!';
+            document.getElementById('estado').value = 'CEP não encontrado!';
         }else {
-            preencherFormulario(endereco);
+            preencherFormulario(estado);
         }
     }else{
-        document.getElementById('endereco').value = 'CEP incorreto!';
+        document.getElementById('estado').value = 'CEP incorreto!';
     }
      
 }
