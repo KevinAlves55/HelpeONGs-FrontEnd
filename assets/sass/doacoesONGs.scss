@@ -149,6 +149,7 @@ main {
                 @include tamanhos(auto, inherit);
                 @include displayFlex(column, space-between);
                 margin-top: 35px;
+                margin-bottom: 20px;
 
                 #resultadoQtda {
                     font-size: 0.85rem;

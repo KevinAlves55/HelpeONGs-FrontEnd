@@ -42,7 +42,7 @@ const validarLogin = async (e) => {
             
             alert(`Email ou senha não conferem`);
         
-        } else if (response.status == 401) {
+        } else if (response.status == 400) {
         
             alert(`Senha incorreta`);
         

@@ -1061,6 +1061,7 @@ main #itens-main #acoes #resultados-pesquisas {
       flex-wrap: nowrap;
   gap: 0;
   margin-top: 35px;
+  margin-bottom: 20px;
 }
 
 main #itens-main #acoes #resultados-pesquisas #resultadoQtda {
