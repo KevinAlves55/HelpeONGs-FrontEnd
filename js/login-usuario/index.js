@@ -33,6 +33,8 @@ const validarLogin = async (e) => {
             senha: dom.senha.toString()
         });
 
+        console.log(response);
+
         if (response.status == 404) {
             
             errorValidation(email, "Email incorreto")
@@ -43,10 +45,9 @@ const validarLogin = async (e) => {
         
         } else if (response.status == 200) {
     
-            console.log(response);
-            const dados = response.usuario;
-            localStorage.setItem('dados', JSON.stringify(dados));
-            window.location.href = "doacoesONGs.html"
+            const dadosUsuario = response.usuario;
+            localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
+            window.location.href = "doacoesONGs.html";
         
         }
 

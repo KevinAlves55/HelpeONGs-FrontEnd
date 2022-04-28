@@ -33,6 +33,8 @@ const validarLogin = async (e) => {
             senha: dom.senha.toString()
         });
 
+        console.log(response);
+
         if (response.status == 401) {
             
             errorValidation(email, response.message);
@@ -40,7 +42,7 @@ const validarLogin = async (e) => {
         
         } else if (response.status == 200) {
 
-            const dadosOng = response.data;
+            const dadosOng = response.data[0];
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
             window.location.href = "doacoesONGs.html";
         

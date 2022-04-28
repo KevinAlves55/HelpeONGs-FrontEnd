@@ -1,36 +1,41 @@
 "use strict"
 
 import ApiRequest from "../utils/ApiRequest.js";
-// import { openModal, closeModal } from "./modal.js";
-import {
-    openFiltro,
-    filtrar
-} from "./filtro.js";
+import { openFiltro, filtrar } from "./filtro.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 
-if (localStorage.hasOwnProperty('dados') !== false) {
-    let dadosLogado = JSON.parse(localStorage.getItem('dados'));
-    console.log(dadosLogado);
-} else if (localStorage.hasOwnProperty('dados') === false) {
-    console.log("erro");
+if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
+    
+    let dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario'));
+    console.log(dadosUsuario.nome);
+
+    CarregarMiniPerfil(dadosUsuario);
+
+} else if (localStorage.hasOwnProperty('dadosUsuario') === false) {
+    
+    console.log("Não está presente");
+
 } 
 
 if(localStorage.hasOwnProperty('dadosOng') !== false) {
+    
     let dadosOng = JSON.parse(localStorage.getItem('dadosOng'));
-    console.log(dadosOng);
+    console.log(dadosOng.nome);
+
+    CarregarMiniPerfil(dadosOng);
+
 } else if (localStorage.hasOwnProperty('dados') === false) {
+    
     console.log("Não está presente");
+
 }
 
 const CarregarRecomendados = async () => {
 
     const container = document.getElementById("recomendados-ongs");
     const corpo = objeto.data;
-    const recomendados = corpo.filter(({
-        numeroDeSeguidores,
-        idOng
-    }) => numeroDeSeguidores <= 10 && idOng < 8 ? false : true);
+    const recomendados = corpo.filter(({numeroDeSeguidores, idOng}) => numeroDeSeguidores <= 10 && idOng < 8 ? false : true);
     const cards = recomendados.map(CriarRecomendados);
     container.replaceChildren(...cards);
 
@@ -128,23 +133,23 @@ const CriarOptionEstado = ({id, nome, sigla}) => {
 
 }
 
-async function CarregarMiniPerfil() {
+async function CarregarMiniPerfil(objetoLocal) {
 
     let nomeLogado = document.getElementById("mini-perfil-nome");
     let fotoLogado = document.getElementById("mini-perfil-foto");
 
-    if (dadosLogado.nome === null || dadosLogado.nome === undefined) {
+    if (objetoLocal.nome === null || objetoLocal.nome === undefined) {
         nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
     } else {
-        nomeLogado.innerHTML = `${dadosLogado.nome}`;
+        nomeLogado.innerHTML = `${objetoLocal.nome}`;
     }
 
-    if (dadosLogado.foto === null || dadosLogado.foto === undefined) {
+    if (objetoLocal.foto === null || objetoLocal.foto === undefined) {
         fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!dadosLogado.foto.includes(".jpg") || !dadosLogado.foto.includes(".jpeg") || !dadosLogado.foto.includes(".png") || !dadosLogado.foto.includes(".svg")) {
+    } else if (!objetoLocal.foto.includes(".jpg") && !objetoLocal.foto.includes(".jpeg") && !objetoLocal.foto.includes(".png") && !objetoLocal.foto.includes(".svg")) {
         fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
-        fotoLogado.setAttribute("src", `${dadosLogado.foto}`);
+        fotoLogado.setAttribute("src", `${objetoLocal.foto}`);
     }
 
 }
@@ -245,7 +250,6 @@ CarregarRecomendados();
 CarregarTodasONGs();
 document.getElementById("lupa").addEventListener("click", pesquisarNomeONG);
 CarregarEstados();
-// CarregarMiniPerfil();
 CarregarTamanhoArray();
 CarregarTodasCategorias();
 // CarregarTodosFavoritos();
