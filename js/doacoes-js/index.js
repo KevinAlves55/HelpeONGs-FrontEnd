@@ -8,10 +8,20 @@ import {
 } from "./filtro.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
-// let dadosLogado = JSON.parse(localStorage.getItem('dados'));
-let dadosOng = JSON.parse(localStorage.getItem('dadosOng'));
-// console.log(dadosLogado);
-console.log(dadosOng);
+
+if (localStorage.hasOwnProperty('dados') !== false) {
+    let dadosLogado = JSON.parse(localStorage.getItem('dados'));
+    console.log(dadosLogado);
+} else if (localStorage.hasOwnProperty('dados') === false) {
+    console.log("erro");
+} 
+
+if(localStorage.hasOwnProperty('dadosOng') !== false) {
+    let dadosOng = JSON.parse(localStorage.getItem('dadosOng'));
+    console.log(dadosOng);
+} else if (localStorage.hasOwnProperty('dados') === false) {
+    console.log("Não está presente");
+}
 
 const CarregarRecomendados = async () => {
 
@@ -245,6 +255,6 @@ document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
 document.getElementById("sair").addEventListener("click", () => {
 
     localStorage.clear();
-    window.location.href = "loginUsuario.html";
+    window.location.href = "loginONGs.html";
 
 })

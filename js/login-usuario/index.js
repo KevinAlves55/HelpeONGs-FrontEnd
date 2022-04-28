@@ -46,7 +46,7 @@ const validarLogin = async (e) => {
             console.log(response);
             const dados = response.usuario;
             localStorage.setItem('dados', JSON.stringify(dados));
-            Redirect(doacoesONGs);
+            window.location.href = "doacoesONGs.html"
         
         }
 
