@@ -3,15 +3,10 @@
 import ApiRequest from "../utils/ApiRequest.js";
 import DEFAULT_URL from "./global-env.js";
 import { checkInputs, errorValidation } from "../validator/validatorLogin.js";
+import Redirect from "../utils/ApiRequest.js";
 
 const email = document.getElementById("email");
 const password = document.getElementById("senha");
-
-const redirect = () => {
-
-    window.location.href = "doacoesONGs.html";
-
-}
 
 const validarLogin = async (e) => {
 
@@ -33,25 +28,21 @@ const validarLogin = async (e) => {
         
         };
 
-        const response = await ApiRequest("POST", `${DEFAULT_URL}/user/login`, {
+        const response = await ApiRequest("POST", `${DEFAULT_URL}/ong/login`, {
             email: dom.email.toString().toLowerCase(),
             senha: dom.senha.toString()
         });
 
-        if (response.status == 404) {
+        if (response.status == 401) {
             
-            alert(`Email ou senha não conferem`);
-        
-        } else if (response.status == 400) {
-        
-            alert(`Senha incorreta`);
+            errorValidation(email, response.message);
+            errorValidation(password, response.message);
         
         } else if (response.status == 200) {
-    
-            console.log(response);
-            const dados = response.usuario;
-            localStorage.setItem('dados', JSON.stringify(dados));
-            redirect();
+
+            const dadosOng = response.data;
+            localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
+            window.location.href = "doacoesONGs.html";
         
         }
 

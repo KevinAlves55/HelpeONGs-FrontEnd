@@ -8,16 +8,19 @@ import {
 } from "./filtro.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
-let dadosLogado = JSON.parse(localStorage.getItem('dados'));
-console.log(dadosLogado);
+// let dadosLogado = JSON.parse(localStorage.getItem('dados'));
+let dadosOng = JSON.parse(localStorage.getItem('dadosOng'));
+// console.log(dadosLogado);
+console.log(dadosOng);
 
 const CarregarRecomendados = async () => {
 
     const container = document.getElementById("recomendados-ongs");
     const corpo = objeto.data;
     const recomendados = corpo.filter(({
+        numeroDeSeguidores,
         idOng
-    }) => idOng > 2 ? false : true);
+    }) => numeroDeSeguidores <= 10 && idOng < 8 ? false : true);
     const cards = recomendados.map(CriarRecomendados);
     container.replaceChildren(...cards);
 
@@ -232,16 +235,16 @@ CarregarRecomendados();
 CarregarTodasONGs();
 document.getElementById("lupa").addEventListener("click", pesquisarNomeONG);
 CarregarEstados();
-CarregarMiniPerfil();
+// CarregarMiniPerfil();
 CarregarTamanhoArray();
 CarregarTodasCategorias();
-CarregarTodosFavoritos();
-document.getElementById("ongs").addEventListener("click", Favoritar);
+// CarregarTodosFavoritos();
+// document.getElementById("ongs").addEventListener("click", Favoritar);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
 document.getElementById("sair").addEventListener("click", () => {
 
     localStorage.clear();
-    window.location.href = "login.html";
+    window.location.href = "loginUsuario.html";
 
 })
