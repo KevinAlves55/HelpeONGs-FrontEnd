@@ -2,7 +2,7 @@
 
 import ApiRequest from "../utils/ApiRequest.js";
 import { openMessage, closeMessage } from "../utils/MessageCadastroOng.js";
-import { checkInputs, errorValidation } from "../validator/validator.js";
+import { checkInputs, errorValidation } from "../validator/validatorOng.js";
 import Redirect from "../utils/Redirect.js";
 
 /* Captura os valores inseridos(No caso o objeto de captura) */
@@ -40,7 +40,6 @@ const cadastrarOng = async (e) => {
 
         if (request.status === 200) {
             openMessage();
-            window.location.href = "loginONGs.html";
         } else if (request.status === 400) {
             errorValidation(email, "O Email digitado já foi cadastrado");
         }
