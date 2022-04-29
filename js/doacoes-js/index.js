@@ -189,7 +189,11 @@ const CarregarEstados = async () => {
     const estados = objetoUf.data;
     console.log(estados);
     const estadoUf = estados.map(CriarOptionEstado);
-    container.replaceChildren(...estadoUf);
+    estadoUf.map(option => {
+        
+        container.appendChild(option);
+    
+    });
 
 }
 
