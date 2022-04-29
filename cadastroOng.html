@@ -5,14 +5,14 @@
     <meta charset="pt-BR" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Usuario</title>
-    <link rel="stylesheet" href="assets/sass/cadastroUsuario.css">
+    <title>Cadastro de ONGs</title>
+    <link rel="stylesheet" href="assets/sass/cadastroOng.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script type="module" src="./js/cadastro-usuario/index.js" defer></script>
-    <script src="./js/cadastro-usuario/olho.js" defer></script>
-    <script src="./js/cadastro-usuario/mascara.js" defer></script>
+    <script type="module" src="./js/cadastro-ong/index.js" defer></script>
+     <script src="./js/cadastro-ong/olho.js" defer></script>
+    <script src="./js/cadastro-ong/mascara.js" defer></script>
 </head>
 
 <body>
@@ -47,20 +47,28 @@
             <div id="esquerda">
                 <div id="titulos-esquerda">
                     <h1>Sua rede social <br> de Doações</h1>
-                    <h3>Faça um cadastro antes de começar <br> a busca pela sua ONG preferida</h3>
+                    <h3>Faça um pré cadastro antes de <br> começar a receber apoio</h3>
                 </div>
             </div>
             
             <div id="direita">
                 <div id="cadastro">
-                    <h2>Seja um doador</h2>
+                    <h2>Pré Cadastro</h2>
     
                     <form>
                         <div class="style-input">
                             <img class="icone" src="/assets/img/user.png">
-                            <input type="text" id="nome" placeholder="Digite seu nome" 
-                            maxlength="80" style="text-transform: capitalize;" 
-                            onkeyup="caracteresInvalidosNome(this)"/>
+                            <input type="text" id="nome" placeholder="Digite o nome da ONG" 
+                            maxlength="80" onkeyup="caracteresInvalidosNome(this)"/>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <small>Error mensager</small>
+                        </div>
+
+                        <div class="style-input">
+                            <img class="icone" src="/assets/img/user.png">
+                            <input type="text" id="cnpj" placeholder="Digite seu CNPJ" 
+                            maxlength="80" onkeyup="mascaraCNPJ(this)"/>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
                             <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                             <small>Error mensager</small>
@@ -106,7 +114,7 @@
                     
                     <h3> Já tem uma conta? Faça 
                         <span> 
-                            <a href="loginUsuario.html">Login</a> 
+                            <a href="loginONGs.html">Login</a> 
                         </span> 
                     </h3>
                 </div>

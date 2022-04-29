@@ -1,13 +1,13 @@
 "use strict";
 
-import Redirect from "../utils/Redirect.js";
+import Redirect from "./Redirect.js";
 
 const openMessage = () => 
 document.getElementById("modalMessage").classList.add("active");
 
 const closeMessage = () => {
-    Redirect("login");
     document.getElementById("modalMessage").classList.remove("active");
+    Redirect("loginUsuario");
 }
 
 export {
