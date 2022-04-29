@@ -1,25 +1,44 @@
 'use strict'
 
-document.getElementById('name').value = localStorage.nome;
-document.getElementById('email').value = localStorage.email;
-document.getElementById('data').value = localStorage.dataNascimento;
-document.getElementById('celular').value = localStorage.celular;
-document.getElementById('telefone').value = localStorage.telefone;
+function dadosDetalhesConta() {
 
+    const dadosDetalhes = {
+        nome: document.getElementById('name').value,
+        email: document.getElementById('mail').value,
+    }
+    localStorage.setItem("dadosDetalhes", JSON.stringify(dadosDetalhes));
 
-var salvarDados = function(){
-
-    var nome = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    var dataNascimento = document.getElementById('data').value;
-    var celular = document.getElementById('celular').value;
-    var telefone = document.getElementById('telefone').value;
-
-    localStorage.setItem('nome', nome);
-    localStorage.setItem('email', email);
-    localStorage.setItem('dataNascimento', dataNascimento);
-    localStorage.setItem('celular', celular);
-    localStorage.setItem('telefone', telefone);
+    const dadosDetalhesUsuario = {
+        data: document.getElementById('date').value,
+        celular: document.getElementById('cel').value,
+        telefone: document.getElementById('tel').value,
+    }
+    localStorage.setItem("dadosDetalhesUsuario", JSON.stringify(dadosDetalhesUsuario));
 }
 
-document.onchange = salvarDados;
+
+// ENVIANDO ENDEREÇO LOCALSTORAGE
+
+function DetalhesEnderecos() {
+
+    const dadosDetalhesEnderecos = {
+        cep: document.getElementById('Cep').value,
+        estado: document.getElementById('Estado').value,
+        cidade: document.getElementById('Cidade').value,
+        bairro: document.getElementById('Bairro').value,
+        rua: document.getElementById('Rua').value,
+        numero: document.getElementById('Numero').value,
+        complemento: document.getElementById('Complemento').value,
+    }
+    localStorage.setItem("dadosDetalhesEnderecos", JSON.stringify(dadosDetalhesEnderecos));
+
+}
+
+
+
+
+
+
+
+document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
+document.getElementById("ButtonEnderecos").addEventListener("click", DetalhesEnderecos);
