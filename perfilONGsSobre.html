@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="js/perfil-ONGs/index.js" defer></script>
     <script src="js/perfil-ONGs/paginacaoPerfilONGs.js" defer></script>
-    <script type="module" src="js/perfil-ONGs/teste.js" defer></script>
 </head>
 
 <body>  
@@ -280,31 +280,31 @@
                     <div id="fileira-descricao">
                         <div id="descricao">
                             <label>Descrição da ONG</label>
-                            <textarea placeholder="Insira uma descrição para dar credibilidade a sua ONG" name="" id="" cols="30" rows="10"></textarea>
+                            <textarea placeholder="Insira uma descrição para dar credibilidade a sua ONG" name="" id="descriacao-input" cols="30" rows="10"></textarea>
                         </div>
     
                         <div id="qtda-fundacao">
                             <div id="quantidade-membros">
                                 <label>Quantidade de membros</label>
-                                <input type="number" placeholder="0"/> 
+                                <input type="number" placeholder="0" id="quantidade-input"/> 
                             </div>
         
                             <div id="data-fundacao">
                                 <label>Data fundação</label>
-                                <input type="date" placeholder="00-00-0000"/> 
+                                <input type="date" id="data-input"/> 
                             </div>
                         </div>
                     </div>
                         
                     <div id="historia-ONG">
                         <label>História da ONG</label>
-                        <textarea name="" placeholder="Descreva uma história de criação da sua ONG" id="" cols="30" rows="10"></textarea>
+                        <textarea name="" placeholder="Descreva uma história de criação da sua ONG" id="historia-input" cols="30" rows="10"></textarea>
                     </div>
     
                     <div id="categoria-detalhes-ONG">
                         <div id="categoria-detalhes">
                             <label>Categoria</label>
-                            <input type="text" placeholder="Ex: Floresta">
+                            <input type="text" id="categoria-input" placeholder="Ex: Floresta">
                         </div>
     
                         <div id="lista-de-categoria">
@@ -341,7 +341,7 @@
                     </div>
     
                     <div class="proximo">
-                        <button type="button">Proximo</button>
+                        <button id="button-detalhes-ONG" type="button">Proximo</button>
                     </div>
                 </form>
             </div>
@@ -352,42 +352,42 @@
                     <div id="primeira-fileira">
                         <div id="cep">
                             <label>Cep</label>
-                            <input type="text" id="cep" placeholder="066650-23"/>
+                            <input type="text" id="cep-input" placeholder="066650-23"/>
                         </div>
                         <div id="estado">
                             <label>Estado</label>
-                            <input type="text" id="estado" placeholder="São Paulo"/>
+                            <input type="text" id="estado-input" placeholder="São Paulo"/>
                         </div>
                         <div id="cidade">
                             <label>Cidade</label>
-                            <input type="text" id="cidade" placeholder="Jandira"/>
+                            <input type="text" id="cidade-input" placeholder="Jandira"/>
                         </div>
                     </div>
 
                     <div id="segunda-fileira">
                         <div id="bairro">
                             <label>Bairro</label>
-                            <input type="text" id="bairro" placeholder="xxxxxx"/>
+                            <input type="text" id="bairro-input" placeholder="xxxxxx"/>
                         </div>
                         <div id="rua">
                             <label>Rua</label>
-                            <input type="text" id="rua" placeholder="Rua B"/>
+                            <input type="text" id="rua-input" placeholder="Rua B"/>
                         </div>
                         <div id="numero">
                             <label>Número</label>
-                            <input type="number" id="numero" placeholder="101"/>
+                            <input type="number" id="numero-input" placeholder="101"/>
                         </div>
                     </div>
 
                     <div id="terceira-fileira">
                         <div id="complemento">
                             <label>Complemento</label>
-                            <input type="text" id="complemento" placeholder="Complemento"/>
+                            <input type="text" id="complemento-input" placeholder="Complemento"/>
                         </div>
                     </div>
 
                     <div class="proximo">
-                        <button type="button">
+                        <button id="button-detalhes-endereco" type="button">
                             Proximo
                         </button>
                     </div>
@@ -400,23 +400,23 @@
                     <div id="fileira-doacoes">
                         <div id="site">
                             <label>Site</label>
-                            <input type="link" id="site" placeholder="Insira o link de seu site"/>
+                            <input type="link" id="site-input" placeholder="Insira o link de seu site"/>
                         </div>
                         <div id="pix">
                             <label>Pix</label>
-                            <input type="text" id="pix" placeholder="Insira seu Pix"/>
+                            <input type="text" id="pix-input" placeholder="Insira seu Pix"/>
                         </div>
                     </div>
                     
                     <div id="fileira-agencia">
                         <div id="agencia">
                             <label>Agencia</label>
-                            <input type="number" id="agencia"/>
+                            <input type="number" id="agencia-input"/>
                         </div>
 
                         <div id="conta">
                             <label>Conta</label>
-                            <input type="text" id="conta"/>
+                            <input type="text" id="conta-input"/>
                         </div>
 
                         <div id="tipo-conta">
@@ -431,7 +431,7 @@
                     </div>
 
                     <div class="proximo">
-                        <button type="button">Proximo</button>
+                        <button id="button-meiosDoacoes" type="button">Proximo</button>
                     </div>
                 </form>
             </div>
@@ -451,12 +451,12 @@
 
                         <div id="nome-do-patrocinador">
                             <label>Nome do Patrocinador</label>
-                            <input type="text" id=""placeholder="Coca-Cola">
+                            <input type="text" id="patrocinador-input" placeholder="Coca-Cola">
                         </div>
 
                         <div id="link-do-site">
                             <label>Link do site</label>
-                            <input type="text" id="" placeholder="www.cocacola.com">
+                            <input type="text" id="link-patrocinios-input" placeholder="www.cocacola.com">
                         </div>
                     </div>
 
@@ -490,7 +490,7 @@
 
                         <div id="botoes">
                             <div id="botao-finalizar">
-                                <button id="" >Finalizar</button>
+                                <button id="button-patrocinios">Finalizar</button>
                             </div>
                        </div>
                   
