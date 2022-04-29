@@ -1,8 +1,8 @@
 "use strict";
 
-import { ApiRequest } from "../utils/ApiRequest.js";
+import ApiRequest from "../utils/ApiRequest.js";
 import { openMessage, closeMessage } from "../utils/MessageCadastro.js";
-import { checkInputs, errorValidation } from "../validator/validator.js";
+import { checkInputs, errorValidation } from "../validator/validatorUsuario.js";
 import Redirect from "../utils/Redirect.js";
 
 /* Captura os valores inseridos(No caso o objeto de captura) */
