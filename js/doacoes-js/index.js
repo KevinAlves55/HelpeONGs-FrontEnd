@@ -4,6 +4,7 @@ import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openFiltro, filtrar } from "./filtro.js";
+import { openModal, closeModal } from "./modal.js"
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -17,7 +18,27 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         localStorage.clear();
         Redirect("loginUsuario");
     });
+
+    function CarregarMiniPerfil(objectLocal) {
+
+        let nomeLogado = document.getElementById("mini-perfil-nome");
+        let fotoLogado = document.getElementById("mini-perfil-foto");
     
+        if (objectLocal.nome === null || objectLocal.nome === undefined) {
+            nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
+        } else {
+            nomeLogado.innerHTML = `${objectLocal.nome}`;
+        }
+    
+        if (objectLocal.foto === null || objectLocal.foto === undefined) {
+            fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+        } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+            fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
+        } else {
+            fotoLogado.setAttribute("src", `${objectLocal.foto}`);
+        }
+    
+    }
     CarregarMiniPerfil(userLogado);
 
     const CarregarTodosFavoritos = async () => {
@@ -42,11 +63,54 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         Redirect("loginONGs");
     });
 
+    function CarregarMiniPerfil(objectLocal) {
+
+        let nomeLogado = document.getElementById("mini-perfil-nome");
+        let fotoLogado = document.getElementById("mini-perfil-foto");
+    
+        if (objectLocal.nome === null || objectLocal.nome === undefined) {
+            nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
+        } else {
+            nomeLogado.innerHTML = `${objectLocal.nome}`;
+        }
+    
+        if (objectLocal.foto === null || objectLocal.foto === undefined) {
+            fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+        } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+            fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
+        } else {
+            fotoLogado.setAttribute("src", `${objectLocal.foto}`);
+        }
+    
+    }
+    CarregarMiniPerfil(ongLogado);
+
     const favoriteNone = () => 
     document.getElementById("favoritos").style.display = "none";
     favoriteNone();
 
     CarregarMiniPerfil(ongLogado);
+
+} else {
+
+    CarregarMiniPerfil();
+
+    const favoriteNone = () => document.getElementById("favoritos").style.display = "none";
+    favoriteNone();
+
+    const feedNone = () => document.getElementById("feed").style.display = "none";
+    feedNone();
+
+    const perfilNone = () => document.getElementById("perfil").style.display = "none";
+    perfilNone();
+
+    const sinoNone = () => document.getElementById("sinoNotification").style.display = "none";
+    sinoNone();
+
+    document.getElementById("sair").addEventListener("click", () => {
+        localStorage.clear();
+        Redirect("cadastroUsuario");
+    });
 
 }
 
@@ -103,7 +167,7 @@ const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
 
 }
 
-const pesquisarNomeONG = (e) => {
+const pesquisarNomeONG = () => {
 
     const container = document.getElementById("ongs");
     const pesquisaNome = document.getElementById('pesquisar').value
@@ -123,18 +187,19 @@ const CarregarEstados = async () => {
     const container = document.getElementById("estados-select");
     const objetoUf = await ApiRequest("GET", "http://localhost:3131/uf");
     const estados = objetoUf.data;
+    console.log(estados);
     const estadoUf = estados.map(CriarOptionEstado);
     container.replaceChildren(...estadoUf);
 
 }
 
-const CriarOptionEstado = ({id, nome, sigla}) => {
+const CriarOptionEstado = ({idEstado, nome, sigla}) => {
 
     const corpo = document.createElement("option");
 
     corpo.innerHTML =
     `
-    <option value="${sigla}" data-idEstado="${id}">${nome}</option>
+    <option value="${sigla}" data-idEstado="${idEstado}">${nome}</option>
     `;
 
     return corpo;
@@ -150,24 +215,13 @@ async function CarregarTamanhoArray() {
 
 }
 
-function CarregarMiniPerfil(objectLocal) {
+function CarregarMiniPerfil() {
 
     let nomeLogado = document.getElementById("mini-perfil-nome");
     let fotoLogado = document.getElementById("mini-perfil-foto");
 
-    if (objectLocal.nome === null || objectLocal.nome === undefined) {
-        nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
-    } else {
-        nomeLogado.innerHTML = `${objectLocal.nome}`;
-    }
-
-    if (objectLocal.foto === null || objectLocal.foto === undefined) {
-        fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
-        fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
-    } else {
-        fotoLogado.setAttribute("src", `${objectLocal.foto}`);
-    }
+    nomeLogado.innerHTML = `<a href="loginUsuario.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
+    fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
 
 }
 
@@ -197,27 +251,34 @@ const CriarCategorias = ({idCategorias, nome}) => {
 }
 
 const Favoritar = async ({target}) => {
-    
+
     if (target.id === "favoritar") {
 
-        const idUser = userLogado.idUsuario;
-        const idOng = target.dataset.idong;
-
-        const idUserFormat = Number(idUser);
-        const idOngFormat = Number(idOng);
+        if (userLogado === undefined) {
         
-        const response = await ApiRequest("POST", "http://localhost:3131/favorite", {
-            idUsuario: idUserFormat,
-            idOng: idOngFormat
-        });
+            alert("Esta ação só pode ser executada por doador");
+    
+        } else {
 
-        console.log(response);
+            const idUser = userLogado.idUsuario;
+            const idOng = target.dataset.idong;
 
-        if (response.status === 400) {
-            alert('Essa ONG já foi favoritada');
-        } else if (response.status === 200) {
-            alert('Favoritado');
-            location.reload();
+            const idUserFormat = Number(idUser);
+            const idOngFormat = Number(idOng);
+            
+            const response = await ApiRequest("POST", "http://localhost:3131/favorite", {
+                idUsuario: idUserFormat,
+                idOng: idOngFormat
+            });
+
+            console.log(response);
+
+            if (response.status === 400) {
+                alert('Essa ONG já foi favoritada');
+            } else if (response.status === 200) {
+                location.reload();
+            }
+
         }
 
     }
@@ -255,13 +316,21 @@ const excluirFavorito = async ({target}) => {
         
         const response = await ApiRequest(
             "DELETE",
-            `http://localhost:3131/favorite/${idUserFormat}/${idOngFormat}`,
+            `http://localhost:3131/favorite/${idUserFormat}/${idOngFormat}`
         );
 
         console.log(response);
 
         location.reload();
 
+    }
+
+}
+
+const carregarModal = async ({target}) => {
+
+    if (target.type === "button") {
+        openModal();
     }
 
 }
@@ -274,5 +343,9 @@ CarregarTamanhoArray();
 CarregarTodasCategorias();
 document.getElementById("ongs").addEventListener("click", Favoritar);
 document.getElementById("favoritos-ong").addEventListener("click", excluirFavorito);
+document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("ongs").addEventListener("click", carregarModal);
+document.getElementById("recomendados-ongs").addEventListener("click", carregarModal);
+document.getElementById("favoritos").addEventListener("click", carregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);

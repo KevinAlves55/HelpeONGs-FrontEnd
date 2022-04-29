@@ -55,7 +55,8 @@ main {
             }
 
             #menu {
-                @include tamanhos(485px, 279px);
+                min-height: 200 px;
+                @include tamanhos(auto, 279px);
                 background: #FFFFFF;
                 filter: $shadowMain;
                 border-radius: 20px;
@@ -63,8 +64,8 @@ main {
 
                 ul {
                     @include tamanhos(inherit, inherit);
-                    @include displayFlex(column, space-around);
-                    padding: 15px 0 15px;
+                    @include displayFlex(column, $gap: 25px);
+                    padding: 25px 0 25px;
 
                     li {
                         @include tamanhos(65px, inherit);
@@ -147,7 +148,7 @@ main {
             #resultados-pesquisas {
                 min-height: 500px;
                 @include tamanhos(auto, inherit);
-                @include displayFlex(column, space-between);
+                @include displayFlex(column);
                 margin-top: 35px;
                 margin-bottom: 20px;
 
@@ -159,7 +160,7 @@ main {
 
                 #ongs {
                     @include tamanhos(inherit, inherit);
-                    @include displayFlex(row, space-between, $wrap: wrap, $gap: 35px);
+                    @include displayFlex(row, space-between, center, $wrap: wrap, $gap: 35px);
 
                     .ongs-card {
                         min-height: 242px;

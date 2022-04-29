@@ -22,37 +22,40 @@
     }
 
     .modal-conteudo {
-        @include tamanhos(803px, 55vw);
-        @include displayFlex(column, space-between, center);
-        margin: 15vh auto;
+        @include tamanhos(750px, 1203px);
+        @include displayFlex(column, $align: center);
+        margin: 5vh auto;
         padding: 20px;
         background-color: white;
         box-shadow: 1px 1px 10px black;
         border-radius: 20px;
     
         #informacoes {
-            @include tamanhos(700px, 48vw);
+            @include tamanhos(650px, 995px);
             @include displayFlex(row, space-between);
     
             #esquerda-informacoes {
-                @include tamanhos(inherit, 24vw);
+                @include tamanhos(inherit, 513px);
                 @include displayFlex(column);
+                position: relative;
     
                 h1 {
-                    @include textoEstilo(grau3, semiBold, $text);
+                    @include textoEstilo(grau4, semiBold, $text);
                 }
     
                 img {
                     @include tamanhos(534px, 473px);
-                    margin-top: 45px;
+                    position: absolute;
+                    bottom: 0;
                 }
             }
     
             #direita-informacoes {
-                @include tamanhos(580px, 21vw);
-                @include displayFlex(column, space-between, $gap: 10px);
+                @include tamanhos(inherit, 427px);
+                @include displayFlex(column, $gap: 50px);
     
                 #direita-contatos {
+                    width: inherit;
                     @include displayFlex(column);
     
                     h2 {
@@ -76,7 +79,9 @@
                 }
     
                 #direita-meios-doacoes {
+                    width: inherit;
                     @include displayFlex(row, $align: center);
+                    position: relative;
     
                     #direita-meios {
                         @include displayFlex(column);
@@ -99,15 +104,18 @@
                                 @include textoEstilo(grau8, semiBold, $text)
                             }
                         }
-                    }
-    
-                    #esquerda-imagem {
-                        @include tamanhos(96px, 115px);
-                        background-color: $tartOrange;
-                        margin-left: 35px;
-    
-                        img {
-                            @include tamanhos(inherit, inherit);
+
+                        #esquerda-imagem {
+                            @include tamanhos(96px, 115px);
+                            background-color: $tartOrange;
+                            margin-left: 35px;
+                            position: absolute;
+                            right: 0;
+                            top: 35%;
+        
+                            img {
+                                @include tamanhos(inherit, inherit);
+                            }
                         }
                     }
                 }

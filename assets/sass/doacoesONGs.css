@@ -257,8 +257,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 }
 
 .modal .modal-conteudo {
-  height: 803px;
-  width: 55vw;
+  height: 750px;
+  width: 1203px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,16 +266,16 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin: 15vh auto;
+  margin: 5vh auto;
   padding: 20px;
   background-color: white;
   -webkit-box-shadow: 1px 1px 10px black;
@@ -284,8 +284,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 }
 
 .modal .modal-conteudo #informacoes {
-  height: 700px;
-  width: 48vw;
+  height: 650px;
+  width: 995px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,7 +306,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 
 .modal .modal-conteudo #informacoes #esquerda-informacoes {
   height: inherit;
-  width: 24vw;
+  width: 513px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -323,10 +323,11 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
 }
 
 .modal .modal-conteudo #informacoes #esquerda-informacoes h1 {
-  font-size: 2.813rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: #292929;
   text-transform: none;
@@ -336,12 +337,13 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 .modal .modal-conteudo #informacoes #esquerda-informacoes img {
   height: 534px;
   width: 473px;
-  margin-top: 45px;
+  position: absolute;
+  bottom: 0;
 }
 
 .modal .modal-conteudo #informacoes #direita-informacoes {
-  height: 580px;
-  width: 21vw;
+  height: inherit;
+  width: 427px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -349,18 +351,19 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 10px;
+  gap: 50px;
 }
 
 .modal .modal-conteudo #informacoes #direita-informacoes #direita-contatos {
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -426,6 +429,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 }
 
 .modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes {
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -442,6 +446,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
 }
 
 .modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios {
@@ -509,14 +514,17 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   letter-spacing: none;
 }
 
-.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #esquerda-imagem {
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios #esquerda-imagem {
   height: 96px;
   width: 115px;
   background-color: #FC595E;
   margin-left: 35px;
+  position: absolute;
+  right: 0;
+  top: 35%;
 }
 
-.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #esquerda-imagem img {
+.modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes #direita-meios #esquerda-imagem img {
   height: inherit;
   width: inherit;
 }
@@ -829,7 +837,8 @@ main #itens-main #direita #mini-perfil a {
 }
 
 main #itens-main #direita #menu {
-  height: 485px;
+  min-height: 200 px;
+  height: auto;
   width: 279px;
   background: #FFFFFF;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -848,15 +857,16 @@ main #itens-main #direita #menu ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
-  padding: 15px 0 15px;
+  gap: 25px;
+  padding: 25px 0 25px;
 }
 
 main #itens-main #direita #menu ul li {
@@ -1051,9 +1061,9 @@ main #itens-main #acoes #resultados-pesquisas {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -1087,9 +1097,9 @@ main #itens-main #acoes #resultados-pesquisas #ongs {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 35px;
