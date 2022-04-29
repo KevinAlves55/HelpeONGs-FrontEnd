@@ -22,13 +22,13 @@ function dadosDetalhesConta() {
 function DetalhesEnderecos() {
 
     const dadosDetalhesEnderecos = {
-        cep: document.getElementById('Cep').value,
-        estado: document.getElementById('Estado').value,
-        cidade: document.getElementById('Cidade').value,
-        bairro: document.getElementById('Bairro').value,
-        rua: document.getElementById('Rua').value,
-        numero: document.getElementById('Numero').value,
-        complemento: document.getElementById('Complemento').value,
+        cep: document.getElementById('cepEndereco').value,
+        estado: document.getElementById('estadoEndereco').value,
+        cidade: document.getElementById('cidadeEndereco').value,
+        bairro: document.getElementById('bairroEndereco').value,
+        rua: document.getElementById('endereco').value,
+        numero: document.getElementById('numeroEndereco').value,
+        complemento: document.getElementById('complementoEndereco').value,
     }
     localStorage.setItem("dadosDetalhesEnderecos", JSON.stringify(dadosDetalhesEnderecos));
 
@@ -41,4 +41,4 @@ function DetalhesEnderecos() {
 
 
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
-document.getElementById("ButtonEnderecos").addEventListener("click", DetalhesEnderecos);
+document.getElementById("buttonEnderecos").addEventListener("click", DetalhesEnderecos);
