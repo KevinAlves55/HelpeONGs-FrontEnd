@@ -1,33 +1,52 @@
 "use strict"
 
 import ApiRequest from "../utils/ApiRequest.js";
+import Redirect from "../utils/Redirect.js";
+import { validarSession } from "../utils/ValidatorSession.js";
 import { openFiltro, filtrar } from "./filtro.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
+let userLogado;
+let ongLogado;
 
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
-    let dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario'));
-    console.log(dadosUsuario.nome);
+    userLogado = validarSession("dadosUsuario");
 
-    CarregarMiniPerfil(dadosUsuario);
-
-} else if (localStorage.hasOwnProperty('dadosUsuario') === false) {
+    document.getElementById("sair").addEventListener("click", () => {
+        localStorage.clear();
+        Redirect("loginUsuario");
+    });
     
-    console.log("Não está presente");
+    CarregarMiniPerfil(userLogado);
 
-} 
+    const CarregarTodosFavoritos = async () => {
 
-if(localStorage.hasOwnProperty('dadosOng') !== false) {
+        const idUser = userLogado.idUsuario;
+        const container = document.getElementById("favoritos-ong");
+        const objeto = await ApiRequest("GET", `http://localhost:3131/favorite/${idUser}`);
+        console.log(objeto);
+        const todosFavoritos = objeto.data;
+        const favoritos = todosFavoritos.map(CriarFavoritos);
+        container.replaceChildren(...favoritos);
     
-    let dadosOng = JSON.parse(localStorage.getItem('dadosOng'));
-    console.log(dadosOng.nome);
+    }
+    CarregarTodosFavoritos();
 
-    CarregarMiniPerfil(dadosOng);
+} else if (localStorage.hasOwnProperty('dadosOng') !== false) {
 
-} else if (localStorage.hasOwnProperty('dados') === false) {
-    
-    console.log("Não está presente");
+    ongLogado = validarSession("dadosOng");
+
+    document.getElementById("sair").addEventListener("click", () => {
+        localStorage.clear();
+        Redirect("loginONGs");
+    });
+
+    const favoriteNone = () => 
+    document.getElementById("favoritos").style.display = "none";
+    favoriteNone();
+
+    CarregarMiniPerfil(ongLogado);
 
 }
 
@@ -41,11 +60,7 @@ const CarregarRecomendados = async () => {
 
 }
 
-const CriarRecomendados = ({
-    id,
-    nome,
-    foto
-}) => {
+const CriarRecomendados = ({id, nome, foto}) => {
 
     const corpo = document.createElement("div");
 
@@ -71,12 +86,7 @@ const CarregarTodasONGs = async () => {
 
 }
 
-const CriarONGs = ({
-    idOng,
-    nome,
-    numeroDeSeguidores,
-    foto
-}) => {
+const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
 
     const corpo = document.createElement("div");
 
@@ -98,9 +108,7 @@ const pesquisarNomeONG = (e) => {
     const container = document.getElementById("ongs");
     const pesquisaNome = document.getElementById('pesquisar').value
     const corpo = objeto.data;
-    const nomeONG = corpo.filter(({
-        nome
-    }) => nome !== pesquisaNome ? false : true);
+    const nomeONG = corpo.filter(({nome}) => nome !== pesquisaNome ? false : true);
     const cards = nomeONG.map(CriarONGs);
     container.replaceChildren(...cards);
 
@@ -133,33 +141,33 @@ const CriarOptionEstado = ({id, nome, sigla}) => {
 
 }
 
-async function CarregarMiniPerfil(objetoLocal) {
-
-    let nomeLogado = document.getElementById("mini-perfil-nome");
-    let fotoLogado = document.getElementById("mini-perfil-foto");
-
-    if (objetoLocal.nome === null || objetoLocal.nome === undefined) {
-        nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
-    } else {
-        nomeLogado.innerHTML = `${objetoLocal.nome}`;
-    }
-
-    if (objetoLocal.foto === null || objetoLocal.foto === undefined) {
-        fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!objetoLocal.foto.includes(".jpg") && !objetoLocal.foto.includes(".jpeg") && !objetoLocal.foto.includes(".png") && !objetoLocal.foto.includes(".svg")) {
-        fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
-    } else {
-        fotoLogado.setAttribute("src", `${objetoLocal.foto}`);
-    }
-
-}
-
 async function CarregarTamanhoArray() {
 
     let valor = document.getElementById("resultadoQtda");
     const corpo = objeto.data.length;
 
     valor.innerText = `${corpo} Resultados`;
+
+}
+
+function CarregarMiniPerfil(objectLocal) {
+
+    let nomeLogado = document.getElementById("mini-perfil-nome");
+    let fotoLogado = document.getElementById("mini-perfil-foto");
+
+    if (objectLocal.nome === null || objectLocal.nome === undefined) {
+        nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
+    } else {
+        nomeLogado.innerHTML = `${objectLocal.nome}`;
+    }
+
+    if (objectLocal.foto === null || objectLocal.foto === undefined) {
+        fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
+        fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
+    } else {
+        fotoLogado.setAttribute("src", `${objectLocal.foto}`);
+    }
 
 }
 
@@ -192,8 +200,8 @@ const Favoritar = async ({target}) => {
     
     if (target.id === "favoritar") {
 
-        const idUser = dadosLogado.idUsuario;
-        const idOng = target.dataset.idong
+        const idUser = userLogado.idUsuario;
+        const idOng = target.dataset.idong;
 
         const idUserFormat = Number(idUser);
         const idOngFormat = Number(idOng);
@@ -216,18 +224,6 @@ const Favoritar = async ({target}) => {
 
 }
 
-const CarregarTodosFavoritos = async () => {
-
-    const idUser = dadosLogado.idUsuario;
-    const container = document.getElementById("favoritos-ong");
-    const objeto = await ApiRequest("GET", `http://localhost:3131/favorite/${idUser}`);
-    console.log(objeto);
-    const todosFavoritos = objeto.data;
-    const favoritos = todosFavoritos.map(CriarFavoritos);
-    container.replaceChildren(...favoritos);
-
-}
-
 const CriarFavoritos = ({idOng, nome, foto}) => {
 
     const corpo = document.createElement("div");
@@ -236,6 +232,7 @@ const CriarFavoritos = ({idOng, nome, foto}) => {
     `<div class="ongs-opcoes">
         <div>
             <img src="${foto}" alt="Ongs perfil" title="Foto Ong">
+            <img src="../../assets/img/favoritar-com-preenchimento.png" alt="Ongs perfil" title="Foto Ong" class="img-preenchimento" id="preenchimento" data-idong="${idOng}">
             <h2>${nome}</h2>
         </div>
         <button type="button" data-idRecomendados="${idOng}">DOAR</button>
@@ -246,19 +243,36 @@ const CriarFavoritos = ({idOng, nome, foto}) => {
 
 }
 
+const excluirFavorito = async ({target}) => {
+    
+    if (target.id === "preenchimento") {
+
+        const idUser = userLogado.idUsuario;
+        const idOng = target.dataset.idong;
+
+        const idUserFormat = Number(idUser);
+        const idOngFormat = Number(idOng);
+        
+        const response = await ApiRequest(
+            "DELETE",
+            `http://localhost:3131/favorite/${idUserFormat}/${idOngFormat}`,
+        );
+
+        console.log(response);
+
+        location.reload();
+
+    }
+
+}
+
 CarregarRecomendados();
 CarregarTodasONGs();
 document.getElementById("lupa").addEventListener("click", pesquisarNomeONG);
 CarregarEstados();
 CarregarTamanhoArray();
 CarregarTodasCategorias();
-// CarregarTodosFavoritos();
-// document.getElementById("ongs").addEventListener("click", Favoritar);
+document.getElementById("ongs").addEventListener("click", Favoritar);
+document.getElementById("favoritos-ong").addEventListener("click", excluirFavorito);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
-document.getElementById("sair").addEventListener("click", () => {
-
-    localStorage.clear();
-    window.location.href = "loginONGs.html";
-
-})

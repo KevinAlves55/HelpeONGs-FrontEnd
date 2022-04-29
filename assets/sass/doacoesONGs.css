@@ -1460,4 +1460,9 @@ main #itens-main #esquerda #recomendados span, main #itens-main #esquerda #favor
   cursor: pointer;
   margin-top: 10px;
 }
+
+main #itens-main #esquerda #favoritos #favoritos-ong .ongs-opcoes .img-preenchimento {
+  height: 20px;
+  width: 20px;
+}
 /*# sourceMappingURL=doacoesONGs.css.map */

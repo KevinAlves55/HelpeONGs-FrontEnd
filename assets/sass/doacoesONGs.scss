@@ -347,6 +347,10 @@ main {
 
                     .ongs-opcoes {
                         @extend .ongs-opcoes;
+
+                        .img-preenchimento {
+                            @include tamanhos(20px, 20px);
+                        }
                     }
                 }
             }
