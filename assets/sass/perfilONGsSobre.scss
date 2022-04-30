@@ -764,7 +764,7 @@ body {
                     @include tamanhos(100px, inherit);
                     @include displayFlex(row, space-between, center); 
         
-                    #cep{
+                    #cep-input{
                         @include tamanhos(inherit, 165px);
                         @include displayFlex(column, space-between);
         
@@ -790,7 +790,7 @@ body {
                         }
                     }
         
-                    #estado{
+                    #estado-input{
                         @include tamanhos(inherit, 296px);
                         @include displayFlex(column, space-between);
                         
@@ -816,7 +816,7 @@ body {
                         }
                     }
         
-                    #cidade{
+                    #cidade-input{
                         @include tamanhos(inherit, 260px);
                         @include displayFlex(column, space-between);
                         
@@ -847,7 +847,7 @@ body {
                     @include tamanhos(100px, inherit);
                     @include displayFlex(row, space-between, center); 
         
-                    #bairro{
+                    #bairro-input{
                         @include tamanhos(inherit, 289px);
                         @include displayFlex(column, space-between);
         
@@ -873,7 +873,7 @@ body {
                         }
                     }
         
-                    #rua{
+                    #rua-input{
                         @include tamanhos(inherit, 258px);
                         @include displayFlex(column, space-between);
                         
@@ -899,7 +899,7 @@ body {
                         }
                     }
         
-                    #numero{
+                    #numero-input{
                         @include tamanhos(inherit, 150px);
                         @include displayFlex(column, space-between);
                         
@@ -930,7 +930,7 @@ body {
                     @include tamanhos(104px, inherit);
                     @include displayFlex(row, space-between);
         
-                    #complemento{
+                    #complemento-input{
                         @include tamanhos(105px, inherit);
                         @include displayFlex(column, space-between);
         

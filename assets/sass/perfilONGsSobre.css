@@ -1874,7 +1874,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input {
   height: inherit;
   width: 165px;
   display: -webkit-box;
@@ -1895,13 +1895,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep label {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input label {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep input {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input input {
   height: 65px;
   width: 160px;
   border: 2px solid #CCCCCC;
@@ -1913,27 +1913,27 @@ body {
       align-self: flex-end;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep input::-webkit-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input input::-webkit-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep input:-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input input:-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep input::-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input input::-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep input::placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado-input {
   height: inherit;
   width: 296px;
   display: -webkit-box;
@@ -1954,13 +1954,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado label {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado-input label {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado input {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado-input input {
   height: 65px;
   width: 291px;
   border: 2px solid #CCCCCC;
@@ -1972,27 +1972,27 @@ body {
       align-self: flex-end;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado input::-webkit-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado-input input::-webkit-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado input:-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado-input input:-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado input::-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado-input input::-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado input::placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #estado-input input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade-input {
   height: inherit;
   width: 260px;
   display: -webkit-box;
@@ -2013,13 +2013,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade label {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade-input label {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade input {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade-input input {
   height: 65px;
   width: 255px;
   border: 2px solid #CCCCCC;
@@ -2031,22 +2031,22 @@ body {
       align-self: flex-end;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade input::-webkit-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade-input input::-webkit-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade input:-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade-input input:-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade input::-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade-input input::-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade input::placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cidade-input input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
@@ -2072,7 +2072,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input {
   height: inherit;
   width: 289px;
   display: -webkit-box;
@@ -2093,13 +2093,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro label {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input label {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro input {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input input {
   height: 65px;
   width: 284px;
   border: 2px solid #CCCCCC;
@@ -2111,27 +2111,27 @@ body {
       align-self: flex-end;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro input::-webkit-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input input::-webkit-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro input:-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input input:-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro input::-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input input::-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro input::placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input {
   height: inherit;
   width: 258px;
   display: -webkit-box;
@@ -2152,13 +2152,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua label {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input label {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua input {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input input {
   height: 65px;
   width: 254px;
   border: 2px solid #CCCCCC;
@@ -2170,27 +2170,27 @@ body {
       align-self: flex-end;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua input::-webkit-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input input::-webkit-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua input:-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input input:-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua input::-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input input::-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua input::placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input {
   height: inherit;
   width: 150px;
   display: -webkit-box;
@@ -2211,13 +2211,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero label {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input label {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero input {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input input {
   height: 65px;
   width: 145px;
   border: 2px solid #CCCCCC;
@@ -2229,22 +2229,22 @@ body {
       align-self: flex-end;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero input::-webkit-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input input::-webkit-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero input:-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input input:-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero input::-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input input::-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero input::placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
@@ -2270,7 +2270,7 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input {
   height: 105px;
   width: inherit;
   display: -webkit-box;
@@ -2291,13 +2291,13 @@ body {
   gap: 0;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento label {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input label {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento input {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input input {
   height: 65px;
   width: 841px;
   border: 2px solid #CCCCCC;
@@ -2309,22 +2309,22 @@ body {
       align-self: flex-end;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento input::-webkit-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input input::-webkit-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento input:-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input input:-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento input::-ms-input-placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input input::-ms-input-placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento input::placeholder {
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
 }

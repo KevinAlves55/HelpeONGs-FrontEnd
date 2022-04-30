@@ -15,9 +15,6 @@ function dadosDetalhesConta() {
     }
     localStorage.setItem("detalhesCelular", JSON.stringify(dadosDetalhesTefones));
 }
-
-
-
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
 
 
@@ -38,22 +35,24 @@ function dadosDetalhesONG() {
 }
 document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDetalhesONG);
 
+
 function dadosDetalhesEndereco() {
 
     const detalhesEndereco = {
-        cep: document.getElementById('cep-input').value,
-        estado: document.getElementById('estado-input').value,
-        cidade: document.getElementById('cidade-input').value,
-        bairro: document.getElementById('bairro-input').value,
-        rua: document.getElementById('rua-input').value,
-        numero: document.getElementById('numero-input').value,
-        complemento: document.getElementById('complemento-input').value
+        cep: document.getElementById('cep').value,
+        estado: document.getElementById('estado').value,
+        cidade: document.getElementById('cidade').value,
+        bairro: document.getElementById('bairro').value,
+        rua: document.getElementById('endereco').value,
+        numero: document.getElementById('numero').value,
+        complemento: document.getElementById('complemento').value
 
     }
     localStorage.setItem("detalhesEndereco", JSON.stringify(detalhesEndereco)); 
 }
 
 document.getElementById("button-detalhes-endereco").addEventListener("click", dadosDetalhesEndereco);
+
 
 function dadosMeiosDoacoes() {
 
@@ -74,6 +73,7 @@ function dadosMeiosDoacoes() {
 }
 
 document.getElementById("button-meiosDoacoes").addEventListener("click", dadosMeiosDoacoes);
+
 
 function dadosPatocinios() {
 

@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script type="module" src="js/perfil-ONGs/index.js" defer></script>
     <script src="js/perfil-ONGs/paginacaoPerfilONGs.js" defer></script>
+    <script type="module" src="js/perfil-ONGs/apiCep.js"></script>
 </head>
 
 <body>  
@@ -350,39 +351,39 @@
             <div id="container-conteudo-detalhes-do-endereco" class="item">
                 <form>
                     <div id="primeira-fileira">
-                        <div id="cep">
+                        <div id="cep-input">
                             <label>Cep</label>
-                            <input type="text" id="cep-input" placeholder="066650-23"/>
+                            <input type="text" id="cep"/>
                         </div>
-                        <div id="estado">
+                        <div id="estado-input">
                             <label>Estado</label>
-                            <input type="text" id="estado-input" placeholder="São Paulo"/>
+                            <input type="text" id="estado"/>
                         </div>
-                        <div id="cidade">
+                        <div id="cidade-input">
                             <label>Cidade</label>
-                            <input type="text" id="cidade-input" placeholder="Jandira"/>
+                            <input type="text" id="cidade"/>
                         </div>
                     </div>
 
                     <div id="segunda-fileira">
-                        <div id="bairro">
+                        <div id="bairro-input">
                             <label>Bairro</label>
-                            <input type="text" id="bairro-input" placeholder="xxxxxx"/>
+                            <input type="text" id="bairro"/>
                         </div>
-                        <div id="rua">
+                        <div id="rua-input">
                             <label>Rua</label>
-                            <input type="text" id="rua-input" placeholder="Rua B"/>
+                            <input type="text" id="endereco"/>
                         </div>
-                        <div id="numero">
+                        <div id="numero-input">
                             <label>Número</label>
-                            <input type="number" id="numero-input" placeholder="101"/>
+                            <input type="number" id="numero"/>
                         </div>
                     </div>
 
                     <div id="terceira-fileira">
-                        <div id="complemento">
+                        <div id="complemento-input">
                             <label>Complemento</label>
-                            <input type="text" id="complemento-input" placeholder="Complemento"/>
+                            <input type="text" id="complemento"/>
                         </div>
                     </div>
 
