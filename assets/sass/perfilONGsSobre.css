@@ -755,7 +755,7 @@ body {
 }
 
 #centro #container-conteudo {
-  min-height: 717px;
+  min-height: 300px;
   height: auto;
   width: inherit;
   display: -webkit-box;
@@ -1041,7 +1041,6 @@ body {
   display: none;
   height: 466px;
   width: inherit;
-  margin-bottom: 100px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form {
@@ -1066,7 +1065,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form #nome {
-  height: 102px;
+  height: 115px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1125,7 +1124,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form #email-cnpj {
-  height: 102px;
+  height: 115px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1146,7 +1145,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form #email-cnpj #email {
-  height: 102px;
+  height: 115px;
   width: 392px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1205,7 +1204,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form #email-cnpj #cnpj {
-  height: 102px;
+  height: 115px;
   width: 392px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1264,7 +1263,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form #celular-telefone {
-  height: 102px;
+  height: 115px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1285,7 +1284,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form #celular-telefone #celular {
-  height: 102px;
+  height: 115px;
   width: 392px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1344,7 +1343,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-conta form #celular-telefone #telefone {
-  height: 102px;
+  height: 115px;
   width: 392px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1407,7 +1406,6 @@ body {
   min-height: 961px;
   height: auto;
   width: inherit;
-  margin-bottom: 100px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form {
@@ -1453,7 +1451,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #descricao {
-  height: 234px;
+  height: 255px;
   width: 462px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1489,7 +1487,7 @@ body {
   letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  padding: 18px 16px 21px 16px;
+  padding: 18px 27px 21px 16px;
   resize: none;
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -1497,7 +1495,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao {
-  height: 234px;
+  height: 255px;
   width: 284px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1546,7 +1544,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #quantidade-membros input {
   height: 65px;
-  width: 148px;
+  width: 168px;
   border: 2px solid #CCCCCC;
   font-size: 1.450rem;
   border-radius: 6px;
@@ -1574,6 +1572,17 @@ body {
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #quantidade-membros input::placeholder {
   font-weight: 500;
   color: #8C8C8C;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #quantidade-membros .icone-validation {
+  top: 61px;
+  right: 20px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #quantidade-membros small {
+  position: absolute;
+  right: 8px;
+  bottom: -25px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #data-fundacao {
@@ -1605,7 +1614,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #data-fundacao input {
   height: 65px;
-  width: 222px;
+  width: 250px;
   border: 2px solid #CCCCCC;
   font-size: 1.450rem;
   border-radius: 6px;
@@ -1635,8 +1644,19 @@ body {
   color: #8C8C8C;
 }
 
+#centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #data-fundacao .icone-validation {
+  top: 53px;
+  right: 30px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-ONGs form #fileira-descricao #qtda-fundacao #data-fundacao small {
+  position: absolute;
+  right: 8px;
+  bottom: -25px;
+}
+
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #historia-ONG {
-  height: 353px;
+  height: 373px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1654,6 +1674,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  margin-top: 30px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #historia-ONG label {
@@ -1672,7 +1693,7 @@ body {
   letter-spacing: none;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
-  padding: 18px 16px 21px 16px;
+  padding: 18px 37px 21px 16px;
   resize: none;
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -1702,7 +1723,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #categoria-detalhes-ONG #categoria-detalhes {
-  height: 100px;
+  height: 125px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1726,6 +1747,10 @@ body {
   font-size: 1.450rem;
   font-weight: 400;
   color: #292929;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-ONGs form #categoria-detalhes-ONG #categoria-detalhes .icone-validation {
+  top: 50px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-ONGs form #categoria-detalhes-ONG #categoria-detalhes input {
@@ -1829,7 +1854,6 @@ body {
   display: none;
   height: 485px;
   width: inherit;
-  margin-bottom: 100px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form {
@@ -1854,7 +1878,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira {
-  height: 100px;
+  height: 120px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1909,6 +1933,7 @@ body {
   border-radius: 6px;
   color: #292929;
   padding-left: 12px;
+  padding-right: 30px;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -1968,6 +1993,7 @@ body {
   border-radius: 6px;
   color: #292929;
   padding-left: 12px;
+  padding-right: 30px;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -2027,6 +2053,7 @@ body {
   border-radius: 6px;
   color: #292929;
   padding-left: 12px;
+  padding-right: 30px;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -2052,7 +2079,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira {
-  height: 100px;
+  height: 120px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2074,7 +2101,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input {
   height: inherit;
-  width: 289px;
+  width: 330px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2101,12 +2128,13 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #bairro-input input {
   height: 65px;
-  width: 284px;
+  width: 325px;
   border: 2px solid #CCCCCC;
   font-size: 1.450rem;
   border-radius: 6px;
   color: #292929;
   padding-left: 12px;
+  padding-right: 40px;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -2133,7 +2161,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input {
   height: inherit;
-  width: 258px;
+  width: 278px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2160,12 +2188,13 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #rua-input input {
   height: 65px;
-  width: 254px;
+  width: 274px;
   border: 2px solid #CCCCCC;
   font-size: 1.450rem;
   border-radius: 6px;
   color: #292929;
   padding-left: 12px;
+  padding-right: 30px;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -2249,8 +2278,13 @@ body {
   color: #8C8C8C;
 }
 
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input .icone-validation {
+  top: 47px;
+  right: 19px;
+}
+
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira {
-  height: 104px;
+  height: 120px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2271,7 +2305,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #terceira-fileira #complemento-input {
-  height: 105px;
+  height: inherit;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2305,6 +2339,7 @@ body {
   border-radius: 6px;
   color: #292929;
   padding-left: 12px;
+  padding-right: 30px;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -4620,5 +4655,42 @@ body {
       -ms-grid-row-align: center;
       align-self: center;
   cursor: pointer;
+}
+
+.style-input {
+  position: relative;
+}
+
+.style-input img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.style-input .icone-validation {
+  position: absolute;
+  right: 10px;
+  top: 45px;
+  visibility: hidden;
+}
+
+.style-input small {
+  visibility: hidden;
+  font-size: 1.2rem;
+  color: #FC595E;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.style-input.sucess i .img-sucess {
+  visibility: visible;
+}
+
+.style-input.error i .img-error {
+  visibility: visible;
+}
+
+.style-input.error small {
+  visibility: visible;
 }
 /*# sourceMappingURL=perfilONGsSobre.css.map */

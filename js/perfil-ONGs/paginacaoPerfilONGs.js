@@ -215,8 +215,3 @@ nav.btntrocarDireta.addEventListener("click", event => {
     dom.menuOpcoesOutros.style.display = "none";
 
 });
- 
-
-
-
-

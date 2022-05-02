@@ -294,7 +294,7 @@ body {
     }
 
     #container-conteudo {
-        min-height: 717px;
+        min-height: 300px;
         @include tamanhos(auto, inherit);
         @include displayFlex(column);
 
@@ -405,14 +405,13 @@ body {
         #container-conteudo-detalhes-conta{   
             display: none;     
             @include tamanhos(466px, inherit);
-            margin-bottom: 100px;
     
             form {
                 @include tamanhos(inherit, inherit);
                 @include displayFlex(column, space-between);
 
                 #nome{
-                    @include tamanhos(102px, inherit);
+                    @include tamanhos(115px, inherit);
                     @include displayFlex(column, space-between);
                   
                     label{
@@ -439,11 +438,11 @@ body {
                 }
 
                 #email-cnpj{
-                    @include tamanhos(102px, inherit);
+                    @include tamanhos(115px, inherit);
                     @include displayFlex(row, space-between);
 
                     #email{
-                        @include tamanhos(102px, 392px);
+                        @include tamanhos(115px, 392px);
                         @include displayFlex(column, space-between);
                     
                         label{
@@ -470,7 +469,7 @@ body {
                     }
 
                     #cnpj{
-                        @include tamanhos(102px, 392px);
+                        @include tamanhos(115px, 392px);
                         @include displayFlex(column, space-between);
                     
                         label{
@@ -499,11 +498,11 @@ body {
                 }
 
                 #celular-telefone{
-                    @include tamanhos(102px, inherit);
+                    @include tamanhos(115px, inherit);
                     @include displayFlex(row, space-between);
 
                     #celular{
-                        @include tamanhos(102px, 392px);
+                        @include tamanhos(115px, 392px);
                         @include displayFlex(column, space-between);
                     
                         label{
@@ -530,7 +529,7 @@ body {
                     }
 
                     #telefone{
-                        @include tamanhos(102px, 392px);
+                        @include tamanhos(115px, 392px);
                         @include displayFlex(column, space-between);
                     
                         label{
@@ -565,7 +564,6 @@ body {
             display: none;
             min-height: 961px;
             @include tamanhos(auto, inherit);
-            margin-bottom: 100px;
     
             form {
                 @include tamanhos(inherit, inherit);
@@ -576,7 +574,7 @@ body {
                     @include displayFlex(row, space-between);
         
                     #descricao{
-                        @include tamanhos(234px, 462px);
+                        @include tamanhos(255px, 462px);
                         @include displayFlex(column, space-between);
         
                         label {
@@ -590,7 +588,7 @@ body {
                             @include textoEstilo(grau9, regular, $text);
                             border: 2px solid $border;
                             border-radius:6px;
-                            padding: 18px 16px 21px 16px;
+                            padding: 18px 27px 21px 16px;
                             resize: none;
                             align-self: flex-end;
                             font-family: 'Montserrat';
@@ -598,7 +596,7 @@ body {
                     }
     
                     #qtda-fundacao{
-                        @include tamanhos(234px, 284px);
+                        @include tamanhos(255px, 284px);
                         @include displayFlex(column, space-between, flex-end);
     
                         #quantidade-membros {
@@ -612,7 +610,7 @@ body {
                             }
         
                             input{
-                                @include tamanhos(65px, 148px);
+                                @include tamanhos(65px, 168px);
                                 border: 2px solid $border;
                                 font-size: 1.450rem;
                                 border-radius: 6px;
@@ -625,6 +623,17 @@ body {
                                     color: $placeholder;
                                 }
         
+                            }
+
+                            .icone-validation {
+                                top: 61px;
+                                right: 20px;
+                            }
+
+                            small {
+                                position: absolute;
+                                right: 8px;
+                                bottom: -25px;
                             }
                         }
     
@@ -639,7 +648,7 @@ body {
                             }
         
                             input{
-                                @include tamanhos(65px, 222px);
+                                @include tamanhos(65px, 250px);
                                 border: 2px solid $border;
                                 font-size: 1.450rem;
                                 border-radius: 6px;
@@ -651,7 +660,17 @@ body {
                                     font-weight: map-get($densidade, medium);
                                     color: $placeholder;
                                 }
-        
+                            }
+
+                            .icone-validation {
+                                top: 53px;
+                                right: 30px;
+                            }
+
+                            small {
+                                position: absolute;
+                                right: 8px;
+                                bottom: -25px;
                             }
             
                         }
@@ -660,8 +679,9 @@ body {
                 }
                 
                 #historia-ONG{
-                    @include tamanhos(353px, inherit);
+                    @include tamanhos(373px, inherit);
                     @include displayFlex(column, space-between);
+                    margin-top: 30px;
         
                     label{
                         font-size: 1.450rem;
@@ -674,7 +694,7 @@ body {
                         @include textoEstilo(grau9, regular, $text);
                         border: 2px solid $border;
                         border-radius:6px;
-                        padding: 18px 16px 21px 16px;
+                        padding: 18px 37px 21px 16px;
                         resize: none;
                         align-self: flex-end;
                         font-family: 'Montserrat';
@@ -687,13 +707,17 @@ body {
                     @include displayFlex(column, $gap: 22px);
         
                     #categoria-detalhes{
-                        @include tamanhos(100px, inherit);
+                        @include tamanhos(125px, inherit);
                         @include displayFlex(column, space-between);
         
                         label{
                             font-size: 1.450rem;
                             font-weight: map-get($densidade, regular);
                             color: $text;
+                        }
+
+                        .icone-validation {
+                            top: 50px;
                         }
         
                         input{
@@ -754,14 +778,13 @@ body {
         #container-conteudo-detalhes-do-endereco{
             display: none;
             @include tamanhos(485px, inherit);
-            margin-bottom: 100px;
 
             form {
                 @include tamanhos(inherit, inherit);
                 @include displayFlex(column, space-between); 
 
                 #primeira-fileira{
-                    @include tamanhos(100px, inherit);
+                    @include tamanhos(120px, inherit);
                     @include displayFlex(row, space-between, center); 
         
                     #cep-input{
@@ -781,6 +804,7 @@ body {
                             border-radius: 6px;
                             color: $text;
                             padding-left: 12px;
+                            padding-right: 30px;
                             align-self: flex-end;
 
                             &::placeholder {
@@ -807,6 +831,7 @@ body {
                             border-radius: 6px;
                             color: $text;
                             padding-left: 12px;
+                            padding-right: 30px;
                             align-self: flex-end;
 
                             &::placeholder {
@@ -833,6 +858,7 @@ body {
                             border-radius: 6px;
                             color: $text;
                             padding-left: 12px;
+                            padding-right: 30px;
                             align-self: flex-end;
 
                             &::placeholder {
@@ -844,11 +870,11 @@ body {
                 }
         
                 #segunda-fileira{
-                    @include tamanhos(100px, inherit);
+                    @include tamanhos(120px, inherit);
                     @include displayFlex(row, space-between, center); 
         
                     #bairro-input{
-                        @include tamanhos(inherit, 289px);
+                        @include tamanhos(inherit, 330px);
                         @include displayFlex(column, space-between);
         
                         label{
@@ -858,12 +884,13 @@ body {
                         }
                         
                         input{
-                            @include tamanhos(65px, 284px);
+                            @include tamanhos(65px, 325px);
                             border: 2px solid $border;
                             font-size: 1.450rem;
                             border-radius: 6px;
                             color: $text;
                             padding-left: 12px;
+                            padding-right: 40px;
                             align-self: flex-end;
 
                             &::placeholder {
@@ -874,7 +901,7 @@ body {
                     }
         
                     #rua-input{
-                        @include tamanhos(inherit, 258px);
+                        @include tamanhos(inherit, 278px);
                         @include displayFlex(column, space-between);
                         
                         label{
@@ -884,12 +911,13 @@ body {
                         }
                         
                         input{
-                            @include tamanhos(65px, 254px);
+                            @include tamanhos(65px, 274px);
                             border: 2px solid $border;
                             font-size: 1.450rem;
                             border-radius: 6px;
                             color: $text;
                             padding-left: 12px;
+                            padding-right: 30px;
                             align-self: flex-end;
 
                             &::placeholder {
@@ -923,15 +951,20 @@ body {
                                 color: $placeholder;
                             }
                         }
+
+                        .icone-validation {
+                            top: 47px;
+                            right: 19px;
+                        }
                     }
                 }
     
                 #terceira-fileira{
-                    @include tamanhos(104px, inherit);
+                    @include tamanhos(120px, inherit);
                     @include displayFlex(row, space-between);
         
                     #complemento-input{
-                        @include tamanhos(105px, inherit);
+                        @include tamanhos(inherit, inherit);
                         @include displayFlex(column, space-between);
         
                         label{
@@ -947,6 +980,7 @@ body {
                             border-radius: 6px;
                             color: $text;
                             padding-left: 12px;
+                            padding-right: 30px;
                             align-self: flex-end;
 
                             &::placeholder {
@@ -1900,3 +1934,39 @@ body {
         }
     }
 }    
+
+.style-input {
+    position: relative;
+
+    img {
+        @include tamanhos(30px, 30px);
+        cursor: pointer;
+    }
+
+    .icone-validation {
+        position: absolute;
+        right: 10px;
+        top: 45px;
+        visibility: hidden;
+    }
+
+    small {
+        visibility: hidden; 
+        font-size: 1.2rem;
+        color: $tartOrange;
+        font-weight: map-get($densidade, medium);
+        margin-left: 10px;
+    }
+}
+
+.style-input.sucess i .img-sucess {
+    visibility: visible;
+}
+
+.style-input.error i .img-error {
+    visibility: visible;
+}
+
+.style-input.error small {
+    visibility: visible;
+}

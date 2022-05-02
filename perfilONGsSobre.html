@@ -239,31 +239,46 @@
             <!-- DETALHES DA CONTA -->
             <div id="container-conteudo-detalhes-conta" class="item">
                 <form>
-                    <div id="nome">
+                    <div id="nome" class="style-input">
                         <label>Nome da ONG</label>
-                        <input type="text" id="name"  placeholder="Insira o nome da ONG"/>
+                        <input type="text" id="nomeOng"  placeholder="Insira o nome da ONG"/>
+                        <small>Error</small>
+                        <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                        <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                     </div>
 
                     <div id="email-cnpj">
-                        <div id="email">
+                        <div id="email" class="style-input">
                             <label>E-mail</label>
-                            <input type="email" id="mail" placeholder="Digite seu E-mail"/>
+                            <input type="email" id="emailOng" placeholder="Digite seu E-mail"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
 
-                        <div id="cnpj">
+                        <div id="cnpj" class="style-input">
                             <label>CNPJ</label>
-                            <input type="String" id="cnpj-input" placeholder="Digite seu CNPJ"/>
+                            <input type="String" id="cnpjOng" placeholder="Digite seu CNPJ"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
 
                     <div id="celular-telefone">
-                        <div id="celular">
+                        <div id="celular" class="style-input">
                             <label>Celular</label>
-                            <input type="text" id="cel" placeholder="(11) 4342-5898" />
+                            <input type="text" id="celularOng" placeholder="(11) 4342-5898" />
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
-                        <div id="telefone">
+                        <div id="telefone" class="style-input">
                             <label>Telefone</label>
-                           <input type="text" id="tel" placeholder="(11) 4342-5898"/>
+                            <input type="text" id="telefoneOng" placeholder="(11) 4342-5898"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
 
@@ -279,33 +294,48 @@
             <div id="container-conteudo-detalhes-ONGs" class="item">
                 <form>
                     <div id="fileira-descricao">
-                        <div id="descricao">
+                        <div id="descricao" class="style-input">
                             <label>Descrição da ONG</label>
-                            <textarea placeholder="Insira uma descrição para dar credibilidade a sua ONG" name="" id="descriacao-input" cols="30" rows="10"></textarea>
+                            <textarea placeholder="Insira uma descrição para dar credibilidade a sua ONG" name="" id="descriacaoOng" cols="30" rows="10"></textarea>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
     
                         <div id="qtda-fundacao">
-                            <div id="quantidade-membros">
+                            <div id="quantidade-membros" class="style-input">
                                 <label>Quantidade de membros</label>
-                                <input type="number" placeholder="0" id="quantidade-input"/> 
+                                <input type="number" placeholder="0" id="qtdaMembrosOng"/>
+                                <small>Error</small>
+                                <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                                <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                             </div>
         
-                            <div id="data-fundacao">
+                            <div id="data-fundacao" class="style-input">
                                 <label>Data fundação</label>
-                                <input type="date" id="data-input"/> 
+                                <input type="date" id="fundacaoOng"/> 
+                                <small>Error</small>
+                                <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                                <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                             </div>
                         </div>
                     </div>
                         
-                    <div id="historia-ONG">
+                    <div id="historia-ONG" class="style-input">
                         <label>História da ONG</label>
-                        <textarea name="" placeholder="Descreva uma história de criação da sua ONG" id="historia-input" cols="30" rows="10"></textarea>
+                        <textarea name="" placeholder="Descreva uma história de criação da sua ONG" id="historiaOng" cols="30" rows="10"></textarea>
+                        <small>Error</small>
+                        <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                        <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                     </div>
     
                     <div id="categoria-detalhes-ONG">
-                        <div id="categoria-detalhes">
+                        <div id="categoria-detalhes" class="style-input">
                             <label>Categoria</label>
                             <input type="text" id="categoria-input" placeholder="Ex: Floresta">
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
     
                         <div id="lista-de-categoria">
@@ -351,39 +381,60 @@
             <div id="container-conteudo-detalhes-do-endereco" class="item">
                 <form>
                     <div id="primeira-fileira">
-                        <div id="cep-input">
+                        <div id="cep-input" class="style-input sucess">
                             <label>Cep</label>
                             <input type="text" id="cep"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
-                        <div id="estado-input">
+                        <div id="estado-input" class="style-input">
                             <label>Estado</label>
                             <input type="text" id="estado"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
-                        <div id="cidade-input">
+                        <div id="cidade-input" class="style-input">
                             <label>Cidade</label>
                             <input type="text" id="cidade"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
 
                     <div id="segunda-fileira">
-                        <div id="bairro-input">
+                        <div id="bairro-input" class="style-input">
                             <label>Bairro</label>
                             <input type="text" id="bairro"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
-                        <div id="rua-input">
+                        <div id="rua-input" class="style-input">
                             <label>Rua</label>
                             <input type="text" id="endereco"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
-                        <div id="numero-input">
+                        <div id="numero-input" class="style-input">
                             <label>Número</label>
                             <input type="number" id="numero"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
 
                     <div id="terceira-fileira">
-                        <div id="complemento-input">
+                        <div id="complemento-input" class="style-input">
                             <label>Complemento</label>
                             <input type="text" id="complemento"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
 
@@ -401,32 +452,32 @@
                     <div id="fileira-doacoes">
                         <div id="site">
                             <label>Site</label>
-                            <input type="link" id="site-input" placeholder="Insira o link de seu site"/>
+                            <input type="link" id="linkSiteOng" placeholder="Insira o link de seu site"/>
                         </div>
                         <div id="pix">
                             <label>Pix</label>
-                            <input type="text" id="pix-input" placeholder="Insira seu Pix"/>
+                            <input type="text" id="pixOng" placeholder="Insira seu Pix"/>
                         </div>
                     </div>
                     
                     <div id="fileira-agencia">
                         <div id="agencia">
                             <label>Agencia</label>
-                            <input type="number" id="agencia-input"/>
+                            <input type="number" id="agenciaOng"/>
                         </div>
 
                         <div id="conta">
                             <label>Conta</label>
-                            <input type="text" id="conta-input"/>
+                            <input type="text" id="contaOng"/>
                         </div>
 
                         <div id="tipo-conta">
                             <label>Tipo</label>
         
-                            <select name="sltContas" id="contas-select">
+                            <select name="sltContas" id="contaTipoOng">
                                 <option value="">Selecione</option>
-                                <option value="">Conta Correntes</option>
-                                <option value="">Poupança</option>
+                                <option value="CC">Conta Correntes</option>
+                                <option value="P">Poupança</option>
                             </select>
                         </div>
                     </div>
@@ -452,12 +503,12 @@
 
                         <div id="nome-do-patrocinador">
                             <label>Nome do Patrocinador</label>
-                            <input type="text" id="patrocinador-input" placeholder="Coca-Cola">
+                            <input type="text" id="nomePatrocinadorOng" placeholder="Coca-Cola">
                         </div>
 
                         <div id="link-do-site">
                             <label>Link do site</label>
-                            <input type="text" id="link-patrocinios-input" placeholder="www.cocacola.com">
+                            <input type="text" id="linkSitePatrocinador" placeholder="www.cocacola.com">
                         </div>
                     </div>
 
@@ -764,17 +815,17 @@
                 <div id="editar-senha">
                     <div id="senha-atual">
                         <h3>Senha atual</h3>
-                        <input type="password" id="" placeholder="Digite senha atual">
+                        <input type="password" id="senhaAtual" placeholder="Digite senha atual">
                     </div>
                     <div id="nova-confirmar">
                         <div id="nova-senha">
                             <h3>Nova senha</h3>
-                            <input type="password" id="" placeholder="Digite nova senha">
+                            <input type="password" id="novaSenha" placeholder="Digite nova senha">
                         </div>
 
                         <div id="confirmar-senha">
                             <h3>Confirmar nova senha</h3>
-                            <input type="password" id="" placeholder="Confirme senha">
+                            <input type="password" id="confirmarNovaSenha" placeholder="Confirme senha">
                         </div>
                     </div>
                 </div>
