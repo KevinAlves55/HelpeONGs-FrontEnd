@@ -381,7 +381,7 @@
             <div id="container-conteudo-detalhes-do-endereco" class="item">
                 <form>
                     <div id="primeira-fileira">
-                        <div id="cep-input" class="style-input sucess">
+                        <div id="cep-input" class="style-input">
                             <label>Cep</label>
                             <input type="text" id="cep"/>
                             <small>Error</small>
@@ -450,28 +450,40 @@
             <div id="container-conteudo-meios-doacoes" class="item">
                 <form>
                     <div id="fileira-doacoes">
-                        <div id="site">
+                        <div id="site" class="style-input">
                             <label>Site</label>
                             <input type="link" id="linkSiteOng" placeholder="Insira o link de seu site"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
-                        <div id="pix">
+                        <div id="pix" class="style-input">
                             <label>Pix</label>
                             <input type="text" id="pixOng" placeholder="Insira seu Pix"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
                     
                     <div id="fileira-agencia">
-                        <div id="agencia">
+                        <div id="agencia" class="style-input">
                             <label>Agencia</label>
                             <input type="number" id="agenciaOng"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
 
-                        <div id="conta">
+                        <div id="conta" class="style-input">
                             <label>Conta</label>
                             <input type="text" id="contaOng"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
 
-                        <div id="tipo-conta">
+                        <div id="tipo-conta" class="style-input">
                             <label>Tipo</label>
         
                             <select name="sltContas" id="contaTipoOng">
@@ -479,6 +491,9 @@
                                 <option value="CC">Conta Correntes</option>
                                 <option value="P">Poupança</option>
                             </select>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
 
@@ -501,14 +516,20 @@
                <div id="editar-nome-link">
                     <div id="nome-link">
 
-                        <div id="nome-do-patrocinador">
+                        <div id="nome-do-patrocinador" class="style-input">
                             <label>Nome do Patrocinador</label>
                             <input type="text" id="nomePatrocinadorOng" placeholder="Coca-Cola">
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
 
-                        <div id="link-do-site">
+                        <div id="link-do-site" class="style-input">
                             <label>Link do site</label>
                             <input type="text" id="linkSitePatrocinador" placeholder="www.cocacola.com">
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
                     </div>
 
