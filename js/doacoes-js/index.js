@@ -245,7 +245,7 @@ const CriarCategorias = ({idCategorias, nome}) => {
     corpo.innerHTML =
     `
     <div class="categoria">
-        <input type="checkbox" name="${nome} data-idCategoria="${idCategorias}">
+        <input type="checkbox" name="${nome}" data-idCategoria="${idCategorias}">
         <i>${nome}</i>
     </div>
     `;
@@ -353,3 +353,7 @@ document.getElementById("recomendados-ongs").addEventListener("click", carregarM
 document.getElementById("favoritos").addEventListener("click", carregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
+
+export { 
+    CriarONGs
+}
