@@ -210,6 +210,913 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   width: 24px;
 }
 
+.modal-post {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal-post .modal-conteudo-post {
+  height: 597px;
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin: 5vh auto;
+  padding: 32px 37px 30px 37px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.modal-post .modal-conteudo-post #parte-superior {
+  height: 431px;
+  width: 1117px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar {
+  height: inherit;
+  width: 405px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #info-ong {
+  height: 80px;
+  width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #info-ong img {
+  height: inherit;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #info-ong #info-nome-data {
+  height: 55px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 3px;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #info-ong #info-nome-data h2 {
+  font-size: 1.563rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #info-ong #info-nome-data span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar {
+  height: 305px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar select {
+  height: 64px;
+  width: 405px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 15px;
+  padding: 0px 15px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/Icon-select.png") 95.5% 50% no-repeat;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar textarea {
+  height: 205px;
+  width: 405px;
+  border-radius: 8px;
+  border: 2px solid #CCCCCC;
+  resize: none;
+  padding: 15px;
+  font-size: 1.380rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  color: #292929;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes {
+  height: inherit;
+  width: 618px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 20px;
+  background-color: #F8F9FA;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes {
+  height: 65px;
+  width: 526px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 24px;
+  padding-left: 24px;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #editar-imagens {
+  height: 50px;
+  width: 143px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 12px;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  padding: 0 30px 0 17px;
+  background-color: #E4E6EB;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #editar-imagens img {
+  height: 25px;
+  width: 25px;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #adicionar-imagem {
+  height: 50px;
+  width: 329px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 14.25px;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 0 11px 0 10px;
+  background-color: #E4E6EB;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #adicionar-imagem img {
+  height: 25px;
+  width: 25px;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens {
+  height: calc(431px - 65px);
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro {
+  height: 88px;
+  width: 320px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro img {
+  height: 25px;
+  width: 25px;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro h2 {
+  font-size: 1.380rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro span {
+  font-size: 1.200rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-post .modal-conteudo-post button {
+  height: 75px;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.modal-post .modal-conteudo-post button:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+.modal-post.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.modal-evento {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 1;
+  z-index: 1;
+}
+
+.modal-evento .modal-conteudo-evento {
+  height: 727px;
+  width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  margin: 5vh auto;
+  padding: 32px 37px 30px 37px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento {
+  height: 562px;
+  width: 1096px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento {
+  height: inherit;
+  width: 405px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento #info-ong-evento {
+  height: 80px;
+  width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento #info-ong-evento img {
+  height: inherit;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento #info-ong-evento #info-nome-data-evento {
+  height: 55px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 3px;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento #info-ong-evento #info-nome-data-evento h2 {
+  font-size: 1.563rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento #info-ong-evento #info-nome-data-evento span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar {
+  height: 436px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar select {
+  height: 64px;
+  width: 405px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 15px;
+  padding: 0px 15px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/Icon-select.png") 95.5% 50% no-repeat;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento {
+  height: 64px;
+  width: inherit;
+  font-size: 22px;
+  font-weight: 500;
+  color: #292929;
+  padding: 0 22px 0 16px;
+  border-radius: 20px;
+  border: 2px solid #CCCCCC;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento::-webkit-input-placeholder {
+  font-size: 22px;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento:-ms-input-placeholder {
+  font-size: 22px;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento::-ms-input-placeholder {
+  font-size: 22px;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento::placeholder {
+  font-size: 22px;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar textarea {
+  height: 205px;
+  width: 405px;
+  border-radius: 8px;
+  border: 2px solid #CCCCCC;
+  resize: none;
+  padding: 15px;
+  font-size: 1.380rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento {
+  height: inherit;
+  width: 618px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: red;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos {
+  height: 294px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 20px;
+  background-color: #F8F9FA;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos {
+  height: 65px;
+  width: 526px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 24px;
+  padding-left: 24px;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #editar-imagens-eventos {
+  height: 50px;
+  width: 143px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 12px;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  padding: 0 30px 0 17px;
+  background-color: #E4E6EB;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #editar-imagens-eventos img {
+  height: 25px;
+  width: 25px;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #adicionar-imagem-eventos {
+  height: 50px;
+  width: 329px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 14.25px;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding: 0 11px 0 10px;
+  background-color: #E4E6EB;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #adicionar-imagem-eventos img {
+  height: 25px;
+  width: 25px;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos {
+  height: calc(294px - 65px);
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos {
+  height: 88px;
+  width: 320px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos img {
+  height: 25px;
+  width: 25px;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos h2 {
+  font-size: 1.380rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos span {
+  font-size: 1.200rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs {
+  height: 244px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: green;
+}
+
+.modal-post.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 body {
   min-height: 100vh;
   display: -webkit-box;
@@ -767,7 +1674,7 @@ main #itens-main #conteudo-feed #criar-postagem button {
   font-size: 1.313rem;
   font-weight: 600;
   color: #292929;
-  text-transform: capitalize;
+  text-transform: none;
   letter-spacing: none;
   background-color: #FF9F45;
   border-radius: 6px;

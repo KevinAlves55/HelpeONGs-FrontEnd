@@ -3,6 +3,382 @@
 @import '_resert';
 @import '_header';
 
+// MODAL POST
+.modal-post {
+    @include tamanhos(100%, 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-post {
+        @include tamanhos(597px, 1200px);
+        @include displayFlex(column, space-between);
+        margin: 5vh auto;
+        padding: 32px 37px 30px 37px;
+        background-color: white;
+        border-radius: 20px;
+
+        #parte-superior {
+            @include tamanhos(431px, 1117px);
+            @include displayFlex(row, space-between);
+
+            #info-ong-trocar {
+                @include tamanhos(inherit, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+        
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+        
+                    #info-nome-data {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+        
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+        
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                #trocar {
+                    @include tamanhos(305px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    textarea {
+                        @include tamanhos(205px, 405px);
+                        border-radius: 8px;
+                        border: 2px solid $border;
+                        resize: none;
+                        padding: 15px;
+                        font-size: 1.380rem;
+                        font-weight: map-get($densidade, medium);
+                        font-family: 'Montserrat', sans-serif;
+                        color: $text;
+                    }
+
+                }
+
+            }
+
+            #imagens-opcoes {
+                @include tamanhos(inherit, 618px);
+                @include displayFlex(row, center, center);
+
+                #conteudo-imagens {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column);
+                    border-radius: 20px;
+                    background-color: $background;
+
+                    #opcoes {
+                        @include tamanhos(65px, 526px);
+                        @include displayFlex(row, space-between);
+                        padding-top: 24px;
+                        padding-left: 24px;
+
+                        #editar-imagens {
+                            @include tamanhos(50px, 143px);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+                            @include textoEstilo(grau9, semiBold, $text, capitalize);
+                            padding: 0 30px 0 17px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+
+                        #adicionar-imagem {
+                            @include tamanhos(50px, 329px);
+                            @include displayFlex(row, $align: center, $gap: 14.25px);
+                            @include textoEstilo(grau9, semiBold, $text);
+                            padding: 0 11px 0 10px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+                    }
+
+                    #araste-imagens {
+                        @include tamanhos(calc(431px - 65px), inherit);
+                        @include displayFlex(row, center, center);
+                        cursor: pointer;
+
+                        #texto-dentro {
+                            @include tamanhos(88px, 320px);
+                            @include displayFlex(column, space-between, center);
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+
+                            h2 {
+                                font-size: 1.380rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                            }
+
+                            span {
+                                font-size: 1.200rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        button {
+            @include tamanhos(75px, 250px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau7, semiBold, $text, capitalize);
+            background-color: $deepSaffron;
+            border-radius: 6px;
+            cursor: pointer;
+            align-self: flex-end;
+            transition: .1s;
+
+            &:hover {
+                transition: .1s;
+                opacity: 0.8;
+            }
+        }
+
+    }
+}
+.modal-post.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.modal-evento {
+    @include tamanhos(100%, 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 1;
+    z-index: 1;
+
+    .modal-conteudo-evento {
+        @include tamanhos(727px, 1200px);
+        @include displayFlex(column, space-between);
+        margin: 5vh auto;
+        padding: 32px 37px 30px 37px;
+        background-color: white;
+        border-radius: 20px;
+
+        #parte-superior-evento {
+            @include tamanhos(562px, 1096px);
+            @include displayFlex(row, space-between);
+
+            #info-ong-trocar-evento {
+                @include tamanhos(inherit, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong-evento {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+        
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+        
+                    #info-nome-data-evento {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+        
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+        
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                .trocar {
+                    @include tamanhos(436px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    #titulo-evento {
+                        @include tamanhos(64px, inherit);
+                        font-size: 22px;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        padding: 0 22px 0 16px;
+                        border-radius: 20px;
+                        border: 2px solid $border;
+
+                        &::placeholder {
+                            font-size: 22px;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+
+                    textarea {
+                        @include tamanhos(205px, 405px);
+                        border-radius: 8px;
+                        border: 2px solid $border;
+                        resize: none;
+                        padding: 15px;
+                        font-size: 1.380rem;
+                        font-weight: map-get($densidade, medium);
+                        font-family: 'Montserrat', sans-serif;
+                        color: $text;
+                    }
+
+                }
+
+            }
+
+            #complemento-evento {
+                @include tamanhos(inherit, 618px);
+                @include displayFlex(column, space-between);
+                background-color: red;
+
+                #conteudo-img-eventos {
+                    @include tamanhos(294px, inherit);
+                    @include displayFlex(column);
+                    border-radius: 20px;
+                    background-color: $background;
+
+                    #opcoes-eventos {
+                        @include tamanhos(65px, 526px);
+                        @include displayFlex(row, space-between);
+                        padding-top: 24px;
+                        padding-left: 24px;
+
+                        #editar-imagens-eventos {
+                            @include tamanhos(50px, 143px);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+                            @include textoEstilo(grau9, semiBold, $text, capitalize);
+                            padding: 0 30px 0 17px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+
+                        #adicionar-imagem-eventos {
+                            @include tamanhos(50px, 329px);
+                            @include displayFlex(row, $align: center, $gap: 14.25px);
+                            @include textoEstilo(grau9, semiBold, $text);
+                            padding: 0 11px 0 10px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+                    }
+
+                    #araste-imagens-eventos {
+                        @include tamanhos(calc(294px - 65px), inherit);
+                        @include displayFlex(row, center, center);
+                        cursor: pointer;
+
+                        #texto-dentro-eventos {
+                            @include tamanhos(88px, 320px);
+                            @include displayFlex(column, space-between, center);
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+
+                            h2 {
+                                font-size: 1.380rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                            }
+
+                            span {
+                                font-size: 1.200rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+                        }
+                    }
+                }
+
+                #complemento-inputs {
+                    @include tamanhos(244px, inherit);
+                    @include displayFlex(column, space-between);
+                    background-color: green;
+                }
+            }
+        }
+
+    }
+
+}
+.modal-post.active {
+    opacity: 1;
+    z-index: 1;
+}
+
 body {
     min-height: 100vh;
     @include displayFlex(column);
@@ -242,7 +618,7 @@ main {
                 button {
                     @include tamanhos(50px, 210px);
                     @include displayFlex(row, space-around, center);
-                    @include textoEstilo(grau9, semiBold, $text, capitalize);
+                    @include textoEstilo(grau9, semiBold, $text, none);
                     background-color: $deepSaffron;
                     border-radius: 6px;
                     cursor: pointer;

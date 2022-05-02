@@ -14,6 +14,139 @@
 
 <body>
 
+    <!-- MODAL POSTAGEM POST -->
+    <div class="modal-post" id="postagem-post">
+        <div class="modal-conteudo-post">
+            <div id="parte-superior">
+                <div id="info-ong-trocar">
+                    <div id="info-ong">
+                        <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
+
+                        <div id="info-nome-data">
+                            <h2>GreenPeace</h2>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+
+                    <div id="trocar">
+                        <select id="trocar-select">
+                            <option value="P">Post</option>
+                            <option value="E">Evento</option>
+                            <option value="V">Vaga</option>
+                        </select>
+
+                        <textarea id="text-post" placeholder="Faça uma descrição de seu post"></textarea>
+                    </div>
+                </div>
+
+                <div id="imagens-opcoes">
+                    <div id="conteudo-imagens">
+                        <div id="opcoes">
+                            <button id="editar-imagens">
+                                <img src="assets/img/lapis-feed.png" alt="Editar as imagens">
+                                Editar
+                            </button>
+
+                            <button id="adicionar-imagem">
+                                <img src="assets/img/image.png" alt="POSTAR imagens">
+                                Adicionar imagem / vídeos
+                            </button>
+                        </div>
+
+                        <div id="araste-imagens">
+                            <div id="texto-dentro">
+                                <img src="assets/img/image.png" alt="POSTAR imagens" id="icone">
+                                <h2>Adicionar imagem / vídeos</h2>
+                                <span>ou arraste e solte</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button">Publicar</button>
+        </div>
+    </div>
+
+    <!-- MODAL POSTAGEM POST -->
+    <div class="modal-evento" id="postagem-evento">
+        <div class="modal-conteudo-evento">
+            <div id="parte-superior-evento">
+                <div id="info-ong-trocar-evento">
+                    <div id="info-ong-evento">
+                        <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
+
+                        <div id="info-nome-data-evento">
+                            <h2>GreenPeace</h2>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+
+                    <div class="trocar">
+                        <select class="trocar-select">
+                            <option value="P">Post</option>
+                            <option value="E">Evento</option>
+                            <option value="V">Vaga</option>
+                        </select>
+
+                        <input type="text" placeholder="Escreva um título para seu evento" id="titulo-evento">
+
+                        <textarea id="text-evento" placeholder="Faça uma descrição de seu post"></textarea>
+                    </div>
+                </div>
+
+                <div id="complemento-evento">
+                    <div id="conteudo-img-eventos">
+                        <div id="opcoes-eventos">
+                            <button id="editar-imagens-eventos">
+                                <img src="assets/img/lapis-feed.png" alt="Editar as imagens">
+                                Editar
+                            </button>
+
+                            <button id="adicionar-imagem-eventos">
+                                <img src="assets/img/image.png" alt="POSTAR imagens">
+                                Adicionar imagem / vídeos
+                            </button>
+                        </div>
+
+                        <div id="araste-imagens-eventos">
+                            <div id="texto-dentro-eventos">
+                                <img src="assets/img/image.png" alt="POSTAR imagens" id="icone">
+                                <h2>Adicionar imagem / vídeos</h2>
+                                <span>ou arraste e solte</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="complemento-inputs">
+                        <div id="superior-inputs">
+                            <div class="style-input">
+                                <label>Data do Evento</label>
+                                <input type="date">
+                            </div>
+                            <div class="style-input">
+                                <label>Hora do Evento</label>
+                                <input type="time">
+                            </div>
+                        </div>
+                        <div id="adiconar-mais">
+                            <div class="style-input">
+                                <label>Data do Evento</label>
+                                <input type="date">
+                            </div>
+
+                            <button id="modal-add-endereco">
+                                Adicionar um endereço
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button">Publicar</button>
+        </div>
+    </div>
+
     <header>
         <div id="itens-header">
             <div id="logo">
@@ -50,10 +183,6 @@
                 <nav id="menu">
                     <ul>
                         <li>
-                            <img src="assets/img/home-menu.png" alt="Home" title="Icon-Home">
-                            <a href="home.html">Home</a>
-                        </li>
-                        <li>
                             <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
                             <a href="doacoesONGs.html">Doar</a>
                         </li>
@@ -68,10 +197,6 @@
                         <li>
                             <img src="assets/img/users-controles.png" alt="Eventos" title="Icon-controles">
                             <a href="controles">Controles</a>
-                        </li>
-                        <li>
-                            <img src="assets/img/settings-menu.png" alt="Suas configurações" title="Icon-Settings">
-                            <a href="configuracoes.html">Configurações</a>
                         </li>
                         <li>
                             <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
