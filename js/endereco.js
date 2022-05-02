@@ -15,30 +15,28 @@ const preencherFormulario = (endereco) => {
     document.getElementById('estadoEndereco').value = endereco.uf;
 }
 
-const eNumero = (numero) => /ˆ[0-9]+$/.test(numero);
+const eNumero = (numero) => /^[0-9]+$/.test(numero);
 
-const cepValido = (cep) => cep.length == 8 && eNumero(cep);
+const cepValido = (cep) => cep.length == 8 && eNumero(cep); 
 
 const pesquisarCep = async() => {
     limparFormulario();
-
-   const cep = document.getElementById('cepEndereco').value.replace("-","");
-   const url = `http://viacep.com.br/ws/${cep}/json/`;
-   if (cepValido(cep)){
+    
+    const cep = document.getElementById('cepEndereco').value.replace("-","");
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
+    if (cepValido(cep)){
         const dados = await fetch(url);
         const endereco = await dados.json();
-        if (endereco.hasOwnproperty('error')){
-                document.getElementById('endereco').value = 'Cep não encontrado';
+        if (endereco.hasOwnProperty('erro')){
+            document.getElementById('endereco').value = 'CEP não encontrado!';
         }else {
-                preencherFormulario(endereco);
+            preencherFormulario(endereco);
         }
     }else{
-        document.getElementById('estadoEndereco').value = 'Cep incorreto!';
+        document.getElementById('endereco').value = 'CEP incorreto!';
     }
- 
-   
-} 
+     
+}
 
+document.getElementById('cep').addEventListener('focusout',pesquisarCep);
 
- document.getElementById('cepEndereco')
-    .addEventListener('focusout', pesquisarCep);
