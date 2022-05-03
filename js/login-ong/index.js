@@ -3,7 +3,7 @@
 import ApiRequest from "../utils/ApiRequest.js";
 import DEFAULT_URL from "./global-env.js";
 import { checkInputs, errorValidation } from "../validator/validatorLogin.js";
-import Redirect from "../utils/ApiRequest.js";
+import Redirect from "../utils/Redirect.js";
 
 const email = document.getElementById("email");
 const password = document.getElementById("senha");
@@ -28,7 +28,7 @@ const validarLogin = async (e) => {
         
         };
 
-        const response = await ApiRequest("POST", `${DEFAULT_URL}/ong/login`, {
+        const response = await ApiRequest("POST", "http://localhost:3131/ong/login", {
             email: dom.email.toString().toLowerCase(),
             senha: dom.senha.toString()
         });
@@ -44,7 +44,7 @@ const validarLogin = async (e) => {
 
             const dadosOng = response.data[0];
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
-            window.location.href = "doacoesONGs.html";
+            Redirect("doacoesONGs");
         
         }
 

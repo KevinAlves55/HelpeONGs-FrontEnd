@@ -28,7 +28,7 @@ const validarLogin = async (e) => {
         
         };
 
-        const response = await ApiRequest("POST", `${DEFAULT_URL}/user/login`, {
+        const response = await ApiRequest("POST", `http://localhost:3131/user/login`, {
             email: dom.email.toString().toLowerCase(),
             senha: dom.senha.toString()
         });

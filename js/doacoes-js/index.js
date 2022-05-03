@@ -76,7 +76,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
         } else {
             fotoLogado.setAttribute("src", `${objectLocal.foto}`);
@@ -167,12 +167,24 @@ const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
 
 }
 
-const pesquisarNomeONG = () => {
+const Pesquisa = (evento) => {
+
+    console.log(evento);
+
+    if (evento.key == "Enter") {
+
+        const pesquisaNome = evento.target.value;
+        pesquisarNomeONG(pesquisaNome);
+
+    }
+
+}
+
+const pesquisarNomeONG = (pesquisaValor) => {
 
     const container = document.getElementById("ongs");
-    const pesquisaNome = document.getElementById('pesquisar').value
     const corpo = objeto.data;
-    const nomeONG = corpo.filter(({nome}) => nome !== pesquisaNome ? false : true);
+    const nomeONG = corpo.filter(({nome}) => nome !== pesquisaValor ? false : true);
     const cards = nomeONG.map(CriarONGs);
     container.replaceChildren(...cards);
 
@@ -187,7 +199,6 @@ const CarregarEstados = async () => {
     const container = document.getElementById("estados-select");
     const objetoUf = await ApiRequest("GET", "http://localhost:3131/uf");
     const estados = objetoUf.data;
-    console.log(estados);
     const estadoUf = estados.map(CriarOptionEstado);
     estadoUf.map(option => {
         
@@ -203,7 +214,7 @@ const CriarOptionEstado = ({idEstado, nome, sigla}) => {
 
     corpo.innerHTML =
     `
-    <option value="${sigla}" data-idEstado="${idEstado}">${nome}</option>
+        <option value="${sigla}" data-idEstado="${idEstado}">${nome}</option>
     `;
 
     return corpo;
@@ -339,18 +350,27 @@ const carregarModal = async ({target}) => {
 
 }
 
+const pesquisarEstado = async ({target}) => {
+    // const option = target.dataset.idEstado;
+    // console.log(`option: ${option}`);
+    // const select = document.getElementById("estados-select");
+    // var valorUf = select.options[select.selectedIndex].value;
+
+}
+
 CarregarRecomendados();
 CarregarTodasONGs();
-document.getElementById("lupa").addEventListener("click", pesquisarNomeONG);
+document.getElementById("pesquisar").addEventListener("keypress", Pesquisa);
 CarregarEstados();
 CarregarTamanhoArray();
 CarregarTodasCategorias();
 document.getElementById("ongs").addEventListener("click", Favoritar);
 document.getElementById("favoritos-ong").addEventListener("click", excluirFavorito);
-document.getElementById("modalClose").addEventListener("click", closeModal);
-document.getElementById("ongs").addEventListener("click", carregarModal);
 document.getElementById("recomendados-ongs").addEventListener("click", carregarModal);
 document.getElementById("favoritos").addEventListener("click", carregarModal);
+document.getElementById("estados-select").addEventListener("click", pesquisarEstado);
+document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("ongs").addEventListener("click", carregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
 
