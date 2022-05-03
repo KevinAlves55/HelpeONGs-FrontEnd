@@ -14,6 +14,26 @@ function getValues() {
     return values;
 }
 
+function carregarCardsCategorias(objeto) {
+
+    const container = document.getElementById("ongs");
+    const corpo = objeto;
+    const cards = corpo.map(CriarONGs);
+    container.replaceChildren(...cards);
+    carregarTamanhoArray(corpo);
+
+}
+
+function carregarTamanhoArray(objeto) {
+
+    const tamanho = objeto;
+    let valor = document.getElementById("resultadoQtda");
+    const corpo = tamanho.length;
+
+    valor.innerText = `${corpo} Resultados`;
+
+}
+
 const openFiltro = () => {
 
     document.getElementById("modal-filtros").classList.add("active");
@@ -24,7 +44,7 @@ const filtrar = async () => {
 
     document.getElementById("modal-filtros").classList.remove("active");
     const categoriasSelecionadas = getValues();
-    console.log(categoriasSelecionadas);
+
     let request = [];
     request = await ApiRequest(
         "POST",
@@ -41,10 +61,8 @@ const filtrar = async () => {
         request.data.includes(ong.nome)? filteredOngs.push(ong) : "";
     });
 
-    const container = document.getElementById("ongs");
-    const corpo = filteredOngs;
-    const cards = corpo.map(CriarONGs);
-    container.replaceChildren(...cards);
+    carregarCardsCategorias(filteredOngs);
+
 }
 
 export {
