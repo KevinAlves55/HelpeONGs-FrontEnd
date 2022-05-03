@@ -6,6 +6,8 @@ checkInputsDetalhesOng,
 checkInputsDetalhesEndereco,
 errorValidation 
 } from "../validator/validatorPerfilONG.js";
+import ApiRequest from "../utils/ApiRequest.js";
+import { validarSession } from "../utils/ValidatorSession.js";
 
 // Objeto de captura das INPUTS
 const nome = document.getElementById('nomeOng');
@@ -32,7 +34,7 @@ const tipoConta = document.getElementById("contaTipoOng");
 const nomePatrocinador = document.getElementById("nomePatrocinadorOng");
 const sitePatrocinador = document.getElementById("linkSitePatrocinador");
 
-function dadosDetalhesConta() {
+async function dadosDetalhesConta() {
 
     const validacoesDadosDetalhesConta = checkInputsDetalhesConta();
 
@@ -42,7 +44,6 @@ function dadosDetalhesConta() {
     });
     
     if (result != false) {
-
         const dadosDetalhes = {
             nomeData: nome.value,
             cnpjData: cnpj.value
@@ -56,6 +57,32 @@ function dadosDetalhesConta() {
             telefoneData: telefone.value
         }
         localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
+
+        const ongData = validarSession("dadosOng");
+
+        const localStorageData = {
+            ...JSON.parse(localStorage.getItem("detalhesContatos")),
+            ...JSON.parse(localStorage.getItem("detalhesConta")),
+            ong: ongData
+        }
+        console.log(localStorageData);
+
+        const bodyOng = {
+            nome: localStorageData.nomeData,
+            email: localStorage.emailData,
+            celular: localStorage.celularData,
+        }
+
+        const bodyContato = {
+            email: localStorageData.emailData,
+            telefone: localStorageData.telefoneData,
+            numero: localStorageData.celularData,
+        }
+
+        const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.ong.idOng}`, bodyContato);
+        const reqOng = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageData.ong.idOng}`, bodyOng);
+
+        console.log(reqContato, reqOng);
 
     } else {
         console.log("erro nas validações");
