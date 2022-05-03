@@ -214,7 +214,7 @@ const CriarOptionEstado = ({idEstado, nome, sigla}) => {
 
     corpo.innerHTML =
     `
-        <option value="${sigla}" data-idEstado="${idEstado}">${nome}</option>
+        <option value="${sigla}" id="selecionarEstado" data-idEstado="${idEstado}">${nome}</option>
     `;
 
     return corpo;
@@ -351,10 +351,10 @@ const carregarModal = async ({target}) => {
 }
 
 const pesquisarEstado = async ({target}) => {
-    // const option = target.dataset.idEstado;
-    // console.log(`option: ${option}`);
-    // const select = document.getElementById("estados-select");
-    // var valorUf = select.options[select.selectedIndex].value;
+
+    if (target.id === "selecionarEstado") {
+        console.log("oi");
+    }
 
 }
 
