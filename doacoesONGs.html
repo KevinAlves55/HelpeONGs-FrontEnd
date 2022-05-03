@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações</title>
+    <link rel="stylesheet" href="assets/sass/doacoesONGs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="./js/doacoes-js/index.js" defer></script>
+</head>
+
+<body>
+
+    <div class="modal" id="modal">
+        <div class="modal-conteudo">
+            <span class="modal-close" id="modalClose">&#10006;</span>
+
+            <div id="informacoes">
+                <div id="esquerda-informacoes">
+                    <h1>Utilize as informações <br> para fazer uma doação</h1>
+
+                    <img src="assets/img/fundo-modal.png" alt="Doar agora" title="Imagem de fundo">
+                </div>
+                <div id="direita-informacoes">
+                    <div id="direita-contatos">
+                        <h2>Informações de contato</h2>
+
+                        <div class="caixa">
+                            <span>Celular: </span>
+                            <h3>(11) 94536-7654</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Telefone: </span>
+                            <h3>(11) 94536-7654</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Email: </span>
+                            <h3>ongBrasil@gmail.com</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Site: </span>
+                            <h3><a target="_blank" href="https://www.vibraenergia.com.br/">www.br.com.br</a></h3>
+                        </div>
+                    </div>
+                    <div id="direita-meios-doacoes">
+                        <div id="direita-meios">
+                            <h2>Meios de doação</h2>
+
+                            <div class="caixa">
+                                <span>Conta: </span>
+                                <h3>6654356-9</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Tipo: </span>
+                                <h3>Corrente</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Agência: </span>
+                                <h3>0001</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Banco: </span>
+                                <h3>Bradesco</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Pix: </span>
+                                <h3>330.453.908.09</h3>
+                            </div>
+
+                            <div id="esquerda-imagem">
+                                <img src="assets/img/foto-banco.png" alt="Banco" title="Foto do Banco">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div id="itens-header">
+            <div id="logo">
+                <img src="assets/img/logo-header.png" alt="Doações" title="HelpOngs">
+            </div>
+
+            <div id="lupa-atalhos">
+                <div id="lupa-pesquisa">
+                    <img src="assets/img/lupa-pesquisa-doacoes.png" id="lupa" alt="Doações" title="Pesquisar" style="cursor: pointer;">
+                    <input type="text" id="pesquisar" placeholder="Procurar por ONGs">
+                </div>
+    
+                <div id="atalhos">
+                    <img src="assets/img/notification-doacoes.png" alt="Notificações" id="sinoNotification">
+    
+                    <div id="atalhos-perfil">
+                        <img src="assets/img/sem-foto.png" id="foto" alt="Perfil" title="Sair">
+                        <img src="assets/img/seta-doaces.png" id="seta-baixo" alt="Modal" title="Flexa Para Baixo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="itens-main">
+            <div id="direita">
+                <div id="mini-perfil">
+                    <img src="" alt="Perfil" title="Perfil" id="mini-perfil-foto">
+
+                    <h3 id="mini-perfil-nome"> 
+                    </h3>
+                </div>
+                
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
+                            <a href="doacoesONGs.html">Doar</a>
+                        </li>
+                        <li id="feed">
+                            <img src="assets/img/feed-menu.png" alt="Feed" title="Icon-Feed">
+                            <a href="feed.html">Feed</a>
+                        </li>
+                        <li id="perfil">
+                            <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
+                            <a href="perfilUsuario.html">Perfil</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
+                            <a id="sair" style="cursor: pointer;">Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section id="acoes">
+                <div id="filtros-pesquisas">
+                    <div id="estado">
+                        <label>Filtrar por estado:</label>
+
+                        <select id="estados-select">
+                            <option selected="true">Selecione um estado</option>
+                        </select>
+                    </div>
+    
+                    <div id="filtro-conteudo">
+                        <div id="botao-filtro">
+                            <img src="assets/img/filter-button.png" alt="HelperOngs filtros" title="Icon">
+                            <span>Filtro</span>
+                            <img src="assets/img/seta-doaces.png" alt="Filtar" title="Icone seta para baixo">
+                        </div>
+
+                        <div id="modal-filtros" class="filtros">
+                            <h3>Categorias</h3>
+
+                            <div id="todas-categorias">
+                                
+                            </div>
+
+                            <div id="opcoes-filtros">
+                                <div id="opcoes">
+                                    <i id="filtrar-opcoes">Filtrar</i>
+                                    <i id="limpar-campos">Limpar</i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="resultados-pesquisas">
+                    <span id="resultadoQtda"></span>
+
+                    <div id="ongs"></div>
+
+                    <!-- <div id="info-paginacao">
+                        <span>1 / 2</span>
+
+                        <div id="setas">
+                            <div class="seta">
+                                <img src="assets/img/chevron-left.png" alt="Páginas" title="Icon seta direita">
+                            </div>
+                            <div class="seta">
+                                <img src="assets/img/chevron-right.png" alt="Páginas" title="Icon seta esquerda">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+            
+            <div id="esquerda">
+                <section id="recomendados">
+                    <h3>Recomendados</h3>
+
+                    <div id="recomendados-ongs"></div>
+                </section>
+
+                <section id="favoritos">
+                    <h3>Favoritos</h3>
+
+                    <div id="favoritos-ong"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

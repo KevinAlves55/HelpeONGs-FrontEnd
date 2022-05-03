@@ -61,6 +61,8 @@ function dadosDetalhesConta() {
         console.log("erro nas validações");
     }
 }
+
+
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
 
 
