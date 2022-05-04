@@ -127,15 +127,16 @@ const CarregarRecomendados = async () => {
 const CriarRecomendados = ({id, nome, foto}) => {
 
     const corpo = document.createElement("div");
+    corpo.classList.add("ongs-opcoes");
 
     corpo.innerHTML =
-        `<div class="ongs-opcoes">
-        <div>
-            <img src="${foto}" alt="Ongs perfil" title="Foto Ong">
-            <h2>${nome}</h2>
-        </div>
-        <button type="button" data-idRecomendados="${id}">DOAR</button>
-    </div>`;
+    `
+    <div>
+        <img src="${foto}" alt="Ongs perfil" title="Foto Ong">
+        <h2>${nome}</h2>
+    </div>
+    <button type="button" data-idRecomendados="${id}">DOAR</button>
+    `;
 
     return corpo;
 
@@ -153,15 +154,16 @@ const CarregarTodasONGs = async () => {
 const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
 
     const corpo = document.createElement("div");
+    corpo.classList.add("ongs-card");
 
     corpo.innerHTML =
-        `<div class="ongs-card">
-        <img src="assets/img/favoritar-sem-preenchimento.png" class="img-coracao" alt="Favoritos" title="Icon Coração" id="favoritar" data-idong="${idOng}">
-        <img src="${foto}" alt="${nome}" title="Imagem da ONG" class="img-ong">
-        <h2>${nome}</h2>
-        <span>${numeroDeSeguidores} seguidores</span>
-        <button type="button" data-idong="${idOng}">DOAR</button>
-    </div>`;
+    `
+    <img src="assets/img/favoritar-sem-preenchimento.png" class="img-coracao" alt="Favoritos" title="Icon Coração" id="favoritar" data-idong="${idOng}">
+    <img src="${foto}" alt="${nome}" title="Imagem da ONG" class="img-ong">
+    <h2>${nome}</h2>
+    <span>${numeroDeSeguidores} seguidores</span>
+    <button type="button" data-idong="${idOng}">DOAR</button>
+    `;
 
     return corpo;
 
@@ -200,24 +202,31 @@ const CarregarEstados = async () => {
     const objetoUf = await ApiRequest("GET", "http://localhost:3131/uf");
     const estados = objetoUf.data;
     const estadoUf = estados.map(CriarOptionEstado);
-    estadoUf.map(option => {
+    // estadoUf.map(option => {
         
-        container.appendChild(option);
+    //     container.appendChild(option);
     
-    });
+    // });
 
 }
 
 const CriarOptionEstado = ({idEstado, nome, sigla}) => {
 
+    const container = document.querySelector("#estados-select");
     const corpo = document.createElement("option");
+    corpo.value = sigla;
+    corpo.classList.add("estados-option")
+    corpo.id = "opUf";
+    corpo.textContent = nome;
+    container.appendChild(corpo);
+    // corpo.classList.add("option");
 
-    corpo.innerHTML =
-    `
-        <option value="${sigla}" id="selecionarEstado" data-idEstado="${idEstado}">${nome}</option>
-    `;
+    // corpo.innerHTML =
+    // `
+    //     <option value="${sigla}" class="selecionarEstado" data-idEstado="${idEstado}">${nome}</option>
+    // `;
 
-    return corpo;
+    // return corpo;
 
 }
 
@@ -351,11 +360,10 @@ const carregarModal = async ({target}) => {
 }
 
 const pesquisarEstado = async ({target}) => {
-
-    if (target.id === "selecionarEstado") {
-        console.log("oi");
+    var opcaoValor = target.options[target.selectedIndex].value;
+    if(opcaoValor != 0){
+        console.log(opcaoValor);
     }
-
 }
 
 CarregarRecomendados();
