@@ -1,5 +1,6 @@
 'use strict'
-
+import { validarSession } from "../utils/ValidatorSession.js";
+import ApiRequest from "../utils/ApiRequest.js";
 
 
 // Objeto de captura das INPUTS
@@ -17,47 +18,47 @@ const numero = document.getElementById('numeroEndereco');
 const complemento = document.getElementById('complementoEndereco');
 
 
-function dadosDetalhesConta() {
+async function dadosDetalhesConta() {
 
-    
-        const dadosDetalhes = {
-            nomeData: nome.value,
-            emailData: email.value
-        }
-        localStorage.setItem("detalhesConta", JSON.stringify(dadosDetalhes));
-    
-        const dadosDetalhesContatos = {
-            dadaData: data.value,
-            celularData: celular.value,
-            telefoneData: telefone.value
-        }
-        localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
+    const dadosDetalhes = {
+        nomeData: nome.value,
+        emailData: email.value
+    }
 
-        const ongData = validarSession("dadosOng");
+    localStorage.setItem("detalhesConta", JSON.stringify(dadosDetalhes));
 
-        const localStorageData = {
-            ...JSON.parse(localStorage.getItem("detalhesContatos")),
-            ...JSON.parse(localStorage.getItem("detalhesConta")),
-            ong: ongData
-        }
-        console.log(localStorageData);
+    const dadosDetalhesContatos = {
+        dadaData: data.value,
+        celularData: celular.value,
+        telefoneData: telefone.value
+    }
+    localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
 
-        const bodyUser = {
-            nome: localStorageData.nomeData,
-            email: localStorage.emailData,
-            celular: localStorage.celularData,
-        }
+    const userData = validarSession("dadosUsuario");
 
-        const bodyContato = {
-            email: localStorageData.emailData,
-            telefone: localStorageData.telefoneData,
-            numero: localStorageData.celularData,
-        }
+    const localStorageData = {
+        ...JSON.parse(localStorage.getItem("detalhesContatos")),
+        ...JSON.parse(localStorage.getItem("detalhesConta")),
+        user: userData
+    }
+    console.log(localStorageData);
 
-        const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.user.idUser}`, bodyContato);
-        const reqOng = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageData.user.idUser}`, bodyUser);
+    const bodyUser = {
+        nome: localStorageData.nomeData,
+        email: localStorage.emailData,
+        celular: localStorage.celularData,
+    }
 
-        console.log(reqContato, reqOng);
+    const bodyContato = {
+        email: localStorageData.emailData,
+        telefone: localStorageData.telefoneData,
+        numero: localStorageData.celularData,
+    }
+
+    const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.user.idUsuario}`, bodyContato);
+    const reqUser = await ApiRequest("PUT", `http://localhost:3131/user/${localStorageData.user.idUsuario}`, bodyUser);
+
+    console.log(reqContato, reqUser);
      
 }
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
