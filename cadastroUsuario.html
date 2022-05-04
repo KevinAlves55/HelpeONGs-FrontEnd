@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="pt-BR" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuario</title>
+    <link rel="stylesheet" href="assets/sass/cadastroUsuario.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="./js/cadastro-usuario/index.js" defer></script>
+    <script src="./js/cadastro-usuario/olho.js" defer></script>
+    <script src="./js/cadastro-usuario/mascara.js" defer></script>
+</head>
+
+<body>
+
+    <div class="message" id="modalMessage">
+        <div class="message-conteudo">
+            <img src="assets/img/check-icone.png" alt="CADASTRADO" title="Icone check">
+
+            <span>Cadastro realizado com sucesso!</span>
+
+            <button id="OK">OK</button>
+        </div>
+    </div>
+
+    <div id="topo">
+        <div id="itens-topo">
+            <div id="logo-img">
+                <img src="./assets/img/image 11.png">
+            </div>
+    
+            <div id="botao-doar">
+                <button id="PageDoar">
+                    <img src="./assets/img/bx-donate-heart 2.png" alt="Doar para Ongs" title="Icone de coração">
+                    DOAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="conteudoTodo">
+        <div id="itens-todo">
+            <div id="esquerda">
+                <div id="titulos-esquerda">
+                    <h1>Sua rede social <br> de Doações</h1>
+                    <h3>Faça um cadastro antes de começar <br> a busca pela sua ONG preferida</h3>
+                </div>
+            </div>
+            
+            <div id="direita">
+                <div id="cadastro">
+                    <h2>Seja um doador</h2>
+    
+                    <form>
+                        <div class="style-input">
+                            <img class="icone" src="/assets/img/user.png">
+                            <input type="text" id="nome" placeholder="Digite seu nome" 
+                            maxlength="80" style="text-transform: capitalize;" 
+                            onkeyup="caracteresInvalidosNome(this)"/>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <small>Error mensager</small>
+                        </div>
+
+                        <div class="style-input">
+                            <img class="icone" src="./assets/img/mail.png">
+                            <input type="email" id="email" placeholder="Digite seu E-mail" maxlength="256"
+                            onkeyup="caracteresInvalidosEmail(this)"/>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <small>Error mensager</small>
+                        </div>
+
+                        <div class="style-input">
+                            <img class="icone" src="./assets/img/lock.png">
+                            <input type="password" id="senha" placeholder="Digite sua senha" maxlength="80"
+                            onkeyup="mascaraSenha(this)"/>
+                            <img class="olho" src="./assets/img/eye.png" id="eyeImg" onclick="eyeClick()">
+                            <i class="pass-ajuste"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="pass-ajuste"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <small>Error mensager</small>
+                        </div>
+
+                        <div class="style-input">   
+                            <img class="icone" src="./assets/img/lock.png">  
+                            <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" maxlength="80"
+                            onkeyup="mascaraSenhaConfirm(this)"/>
+                            <img class="olho" src="./assets/img/eye.png" id="eyeConfirmImg" onclick="eyeClickConfirm()">
+                            <i class="pass-ajuste"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="pass-ajuste"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <small>Error mensager</small>
+                        </div>
+    
+                        <p> 
+                            Ao clicar em Cadastre-se, você concorda com nossos <span> Termos,Política de Dados e Política de Cookies.</span> Você poderá receber notificações por SMS e cancelar isso quando quiser.
+                        </p>
+    
+                        <div id="btn-continuar">
+                            <button type="submit" id="formButton">Continuar</button>
+                        </div>
+                    </form>
+                    
+                    <h3> Já tem uma conta? Faça 
+                        <span> 
+                            <a href="loginUsuario.html">Login</a> 
+                        </span> 
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

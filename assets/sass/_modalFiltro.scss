@@ -1,0 +1,71 @@
+.filtros {
+    min-height: 266px;
+    @include tamanhos(auto, 251px);
+    @include displayFlex(column, $gap: 20px);
+    padding: 10px;
+    background-color: $deepSaffron;
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+    top: 100px;
+    left: -63px;
+    position: absolute;
+    cursor: default;
+
+    h3 {
+        @include textoEstilo(grau7, semiBold, $text, capitalize);
+        margin-top: 8px;
+        margin-left: 5px;
+    }
+
+    #todas-categorias {
+        min-height: 150px;
+        min-width: 164px;
+        @include tamanhos(auto, auto);
+        @include displayFlex(column, $gap: 15px);
+
+        .categoria {
+            @include tamanhos(30px, auto);
+            @include displayFlex(row, $gap: 8px, $align: center);
+            margin-left: 20px;
+
+            input[type=checkbox] {
+                @include tamanhos(25px, 25px);
+                border-radius: 3px;
+                border: 1px solid $border;
+                border: none;
+                cursor: pointer;
+            }
+
+            i {
+                @include textoEstilo(grau10, semiBold, $text, capitalize);
+                font-style: normal;
+                cursor: default;
+            }
+        }
+    }
+
+    #opcoes-filtros {
+        @include tamanhos(30px, 228px);
+        @include displayFlex(row, flex-end);
+        padding-right: 15px;    
+        margin-bottom: 10px;
+
+        #opcoes {
+            @include tamanhos(inherit, 200px);
+            @include displayFlex(row, space-between, center);
+
+            i {
+                @include textoEstilo(grau9, semiBold, $text, capitalize);
+                font-style: normal;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.filtros.active {
+    opacity: 1;
+    z-index: 1;
+}

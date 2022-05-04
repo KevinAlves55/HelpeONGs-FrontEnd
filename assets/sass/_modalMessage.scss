@@ -1,0 +1,48 @@
+.message {
+    @include tamanhos(100%, 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .message-conteudo {
+        @include tamanhos(350px, 45vw);
+        @include displayFlex(column, $align: center, $gap: 25px);
+        margin: 15vh auto;
+        padding: 30px;
+        background-color: white;
+        box-shadow: 1px 1px 5px black;
+        border-radius: 10px;
+
+        img {
+            @include tamanhos(140px, 140px);
+        }
+
+        span {
+            @include textoEstilo(grau7, semiBold, $text);
+        }
+
+        button {
+            @include tamanhos(60px, 160px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau9, semiBold, $background, capitalize);
+            border-radius: 10px;
+            background-color: $verde;
+            align-self: flex-end;
+            cursor: pointer;
+            transition: .5s;
+
+            &:hover {
+                transition: .5s;
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.message.active {
+    opacity: 1;
+    z-index: 1;
+}

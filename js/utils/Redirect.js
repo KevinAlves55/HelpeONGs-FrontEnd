@@ -1,5 +1,4 @@
 "use strict";
-import ApiRequest from "../utils/ApiRequest.js";
 
 function Redirect(page) {
 
