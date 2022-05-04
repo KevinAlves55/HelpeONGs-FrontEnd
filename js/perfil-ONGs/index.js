@@ -93,7 +93,9 @@ async function dadosDetalhesConta() {
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
 
 
-function dadosDetalhesONG() {
+
+
+async function dadosDetalhesONG() {
 
     const validacoesDadosDetalhesONG = checkInputsDetalhesOng();
 
@@ -110,6 +112,25 @@ function dadosDetalhesONG() {
             historiaData: historia.value
         }
         localStorage.setItem("detalhesONGs", JSON.stringify(DadosdetalhesONGs));
+
+        const ongDetalhes = validarSession("dadosOng");
+
+        const localStorageDetalhes = {
+            ...JSON.parse(localStorage.getItem("detalhesONGs")),
+            ong: ongDetalhes
+        }
+        console.log(localStorageDetalhes);
+
+        const bodyDetalhes = {
+            descricao: localStorageDetalhes.descricaoData,
+            qtdaMembros: localStorageDetalhes.qtdaMebrosData,
+            dataFundacao: localStorageDetalhes.dataFundacaoData,
+            historia: localStorageDetalhes.historiaData,
+        }
+
+        const reqDetalhes = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageDetalhes.ong.idOng}`, bodyDetalhes);
+        
+        console.log(reqDetalhes);
     }
 
 }
