@@ -32,6 +32,32 @@ function dadosDetalhesConta() {
             telefoneData: telefone.value
         }
         localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
+
+        const ongData = validarSession("dadosOng");
+
+        const localStorageData = {
+            ...JSON.parse(localStorage.getItem("detalhesContatos")),
+            ...JSON.parse(localStorage.getItem("detalhesConta")),
+            ong: ongData
+        }
+        console.log(localStorageData);
+
+        const bodyUser = {
+            nome: localStorageData.nomeData,
+            email: localStorage.emailData,
+            celular: localStorage.celularData,
+        }
+
+        const bodyContato = {
+            email: localStorageData.emailData,
+            telefone: localStorageData.telefoneData,
+            numero: localStorageData.celularData,
+        }
+
+        const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.user.idUser}`, bodyContato);
+        const reqOng = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageData.user.idUser}`, bodyUser);
+
+        console.log(reqContato, reqOng);
      
 }
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
