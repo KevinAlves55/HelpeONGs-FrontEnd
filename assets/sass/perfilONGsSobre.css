@@ -152,7 +152,8 @@ body {
 }
 
 #esquerda #conteudo-header #menu {
-  height: 485px;
+  min-height: 200px;
+  height: auto;
   width: 279px;
   background: #FFFFFF;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -171,15 +172,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
-  padding: 15px 0 15px;
+  gap: 25px;
+  padding: 25px 0 25px;
 }
 
 #esquerda #conteudo-header #menu ul li {
@@ -1899,7 +1901,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #primeira-fileira #cep-input {
-  height: inherit;
+  height: 130px;
   width: 165px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2220,7 +2222,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco form #segunda-fileira #numero-input {
-  height: inherit;
+  height: 129px;
   width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4670,13 +4672,13 @@ body {
 .style-input .icone-validation {
   position: absolute;
   right: 10px;
-  top: 45px;
+  top: 47px;
   visibility: hidden;
 }
 
 .style-input small {
   visibility: hidden;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: #FC595E;
   font-weight: 500;
   margin-left: 10px;

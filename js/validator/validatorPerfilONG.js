@@ -207,7 +207,6 @@ function checkInputsDetalhesEndereco() {
     const bairroValue = bairro.value.trim();
     const enderecoValue = endereco .value.trim();
     const numeroValue = numero.value.trim();
-    const complementoValue = complemento.value.trim();
     let statusDetalhesEndereco = [];
 
     if (cepValue === "") {
@@ -255,14 +254,6 @@ function checkInputsDetalhesEndereco() {
         statusDetalhesEndereco.push(false);
     } else {
         successValidation(numero);
-        statusDetalhesEndereco.push(true);
-    }
-
-    if (complementoValue === "") {
-        errorValidation(complemento, "Preencha este campo");
-        statusDetalhesEndereco.push(false);
-    } else {
-        successValidation(complemento);
         statusDetalhesEndereco.push(true);
     }
 

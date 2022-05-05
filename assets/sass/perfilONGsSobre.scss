@@ -53,7 +53,8 @@ body {
         }
 
         #menu {
-            @include tamanhos(485px, 279px);
+            min-height: 200px;
+            @include tamanhos(auto, 279px);
             background: #FFFFFF;
             filter: $shadowMain;
             border-radius: 20px;
@@ -61,8 +62,8 @@ body {
 
             ul {
                 @include tamanhos(inherit, inherit);
-                @include displayFlex(column, space-around);
-                padding: 15px 0 15px;
+                @include displayFlex(column,  $gap: 25px);
+                padding: 25px 0 25px;
 
                 li {
                     @include tamanhos(65px, inherit);
@@ -788,7 +789,7 @@ body {
                     @include displayFlex(row, space-between, center); 
         
                     #cep-input{
-                        @include tamanhos(inherit, 165px);
+                        @include tamanhos(130px, 165px);
                         @include displayFlex(column, space-between);
         
                         label{
@@ -928,7 +929,7 @@ body {
                     }
         
                     #numero-input{
-                        @include tamanhos(inherit, 150px);
+                        @include tamanhos(129px, 150px);
                         @include displayFlex(column, space-between);
                         
                         label{
@@ -1946,13 +1947,13 @@ body {
     .icone-validation {
         position: absolute;
         right: 10px;
-        top: 45px;
+        top: 47px;
         visibility: hidden;
     }
 
     small {
         visibility: hidden; 
-        font-size: 1.2rem;
+        font-size: 0.9rem;
         color: $tartOrange;
         font-weight: map-get($densidade, medium);
         margin-left: 10px;
