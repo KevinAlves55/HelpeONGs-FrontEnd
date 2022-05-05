@@ -360,10 +360,70 @@ const carregarModal = async ({target}) => {
 }
 
 const pesquisarEstado = async ({target}) => {
-    var opcaoValor = target.options[target.selectedIndex].value;
-    if(opcaoValor != 0){
-        console.log(opcaoValor);
+
+    var opcaoValor = target.options[target.selectedIndex].textContent;
+
+    if (opcaoValor === "Selecione um estado") {
+
+        CarregarTodasONGs();
+        CarregarTamanhoArray();
+
+    } else {
+
+        let request = [];
+        request = await ApiRequest(
+            "POST", 
+            "http://localhost:3131/uf/filter", 
+            {
+                uf: opcaoValor
+            }
+        );
+
+        if (request.status === 404) {
+
+            let valor = document.getElementById("resultadoQtda");
+            let container = document.getElementById("ongs");
+            valor.innerText = `Nenhum resultado encontrado`;
+            container.innerHTML = ``;
+
+        } else if (request.status === 200) {
+    
+            let allOngs = [];
+            allOngs = await ApiRequest("GET", "http://localhost:3131/ong"); 
+    
+            const filteredOngs = [];
+    
+            for(let i = 0; i < request.data.length; i++) {
+
+                for (let j = 0; j < allOngs.data.length; j++) {
+                    request.data[i].idOng === allOngs.data[j].idOng? filteredOngs.push(allOngs.data[j]): "";            
+                }
+            
+            }
+
+            var tirarRepetition = filteredOngs.filter(function(este, i) {
+                return filteredOngs.indexOf(este) === i;
+            });
+
+
+            CarregarOngsEstados(tirarRepetition);
+        }
     }
+
+}
+
+const CarregarOngsEstados = (objeto) => {
+
+    const container = document.getElementById("ongs");
+    const corpo = objeto;
+    const cards = corpo.map(CriarONGs);
+    container.replaceChildren(...cards);
+    
+    let valor = document.getElementById("resultadoQtda");
+    const corpoQtda = corpo.length;
+
+    valor.innerText = `${corpoQtda} Resultados`;
+
 }
 
 CarregarRecomendados();
@@ -376,7 +436,7 @@ document.getElementById("ongs").addEventListener("click", Favoritar);
 document.getElementById("favoritos-ong").addEventListener("click", excluirFavorito);
 document.getElementById("recomendados-ongs").addEventListener("click", carregarModal);
 document.getElementById("favoritos").addEventListener("click", carregarModal);
-document.getElementById("estados-select").addEventListener("click", pesquisarEstado);
+document.getElementById("estados-select").addEventListener("change", pesquisarEstado);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("ongs").addEventListener("click", carregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
