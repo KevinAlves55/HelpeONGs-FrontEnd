@@ -37,7 +37,8 @@ body {
     }
 
     #menu {
-        @include tamanhos(485px, 279px);
+        @include tamanhos(auto, 279px);
+        min-height: 200px;
         background: #FFFFFF;
         filter: $shadowMain;
         border-radius: 20px;
@@ -45,8 +46,8 @@ body {
 
         ul {
             @include tamanhos(inherit, inherit);
-            @include displayFlex(column, space-around);
-            padding: 15px 0 15px;
+            @include displayFlex(column, $gap: 25px);
+            padding: 25px 0 25px;
 
             li {
                 @include tamanhos(65px, inherit);
@@ -68,14 +69,29 @@ body {
             }
         }
     }
+
+   
 }
 
 // CENTRO
-#centro{
+#centro{    
+    min-height: 500px;
+    @include tamanhos(auto, 850px);
+    @include displayFlex(column, space-between);
+   
 
+    #banner{
+        @include tamanhos(323px, inherit);
+
+        img{
+            @include tamanhos(inherit, inherit);
+            border-radius: 6px;
+        }
+    }
     #perfil{
         @include displayFlex(row);
         position: relative;
+        
 
         #foto-perfil {
             @include tamanhos(175px, 175px);
@@ -125,6 +141,7 @@ body {
    
         #botao{
             padding-top: 20px;
+            
                 button{
                         @include tamanhos(50px, 200px);
                         @include textoEstilo(grau9, semiBold, $text, capitalize);
@@ -144,16 +161,22 @@ body {
     }
     
     
-
+nav{
+    
     ul {
-        @include tamanhos(inherit, inherit);
+        @include tamanhos(inherit, auto);
         @include displayFlex(space-around);
         padding: 30px 20px 15px;
+        // background-color:yellow;
+        width:850px;
+        
         li + li {
             margin-left: 1.5em;
             // padding-top: 30px;
+            
           
         }
+
 
         li {
              @include tamanhos(65px, inherit);
@@ -165,9 +188,10 @@ body {
                 @include tamanhos(35px, 35px);
                 margin-left: 26px;
             }
-
+            
             span {
                 @include textoEstilo(grau9, regular, $placeholder, -0.02px);
+                @include tamanhos(26px, 217px);
                 cursor: pointer;
                 
                 &:hover{
@@ -179,9 +203,11 @@ body {
         }
         
     }
+}
     
     // Conteudo
     #container-conteudo{
+        @include tamanhos(auto, 850px);
 
         // .item {
         //     display: flex;
@@ -197,7 +223,7 @@ body {
 
         #container-conteudo-sobre{
             @include displayFlex(column);
-            @include tamanhos(344px, 766px);
+            @include tamanhos(344px, inherit);
             padding: 20px;
             background: #FFFFFF;
             filter: $shadowMain;
@@ -245,7 +271,7 @@ body {
         }
 
         #container-conteudo-detalhes-de-conta{
-            @include tamanhos(550px, 770px);
+            @include tamanhos(550px, inherit);
             @include displayFlex(column);
             display: none;
 
@@ -258,7 +284,7 @@ body {
                     @include textoEstilo(grau9, regular, $text);
                 }
                 input{
-                    @include tamanhos(65px, 761px);
+                    @include tamanhos(65px, 850px);
                     border: 2px solid $border;
                     border-radius: 6px;
                     font-size:23px;
@@ -266,7 +292,7 @@ body {
                 }
             }
             #email-data{
-                @include tamanhos(102px, 766px);
+                @include tamanhos(102px, 850px);
                 @include displayFlex(row, space-between);
 
                 margin-top: 20px;
@@ -301,7 +327,7 @@ body {
 
             }
             #celular-telefone{
-                @include tamanhos(auto, 766px);
+                @include tamanhos(auto, 850px);
                 @include displayFlex(row, space-between);
                 margin-top: 20px;
                 
@@ -336,7 +362,7 @@ body {
             }
 
             #anexar-caminho{
-                @include tamanhos(65px, 770px);
+                @include tamanhos(65px, 850px);
                 @include displayFlex(row, space-between);
                 margin-top: 20px;
             
@@ -374,8 +400,8 @@ body {
                 #proximo{
                     display:flex;
                     justify-content:flex-end;
-                    padding-left: 500px;
-                    padding-top:30px;
+                    padding-left: 570px;
+                    padding-top:40px;
                     
                 
                     button{
@@ -392,11 +418,11 @@ body {
         }
       
         #container-conteudo-detalhes-do-endereco{
-            @include tamanhos(485px, 770px);
+            @include tamanhos(485px, inherit);
             display: none;
             
             #primeira-fileira{
-                @include tamanhos(104px, 770px);
+                @include tamanhos(104px, 850px);
                 @include displayFlex(row, space-between);
 
                 #cep{
@@ -441,7 +467,7 @@ body {
 
             
             #segunda-fileira{
-                @include tamanhos(104px, 770px);
+                @include tamanhos(104px, 850px);
                 @include displayFlex(row, space-between);
 
                 #bairro{
@@ -482,7 +508,7 @@ body {
                 }
             }
             #terceira-fileira{
-                @include tamanhos(104px, 770px);
+                @include tamanhos(104px, 850px);
                 @include displayFlex(row, space-between);
 
                 #complemento{
@@ -490,7 +516,7 @@ body {
                         @include textoEstilo(grau9, regular, $text);
                     }
                     input{
-                        @include tamanhos(65px, 769px);
+                        @include tamanhos(65px, 850px);
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
@@ -501,6 +527,7 @@ body {
             #quarta-fileira{
                 display: flex;
                 justify-content: flex-end;
+                padding-top: 30px;
                 button{
                     @include tamanhos(75px, 250px);
                     border: 1px ;
@@ -514,13 +541,15 @@ body {
         #senha{
             @include displayFlex(column,);
             display: none;
+            @include tamanhos(485px, inherit);
+
 
             h1{
                 @include textoEstilo(grau7, semiBold, $text);
             }
             #editar-senha{
                 @include displayFlex(column);
-                padding: 15px;
+                // padding: 15px;
 
                 #senha-atual{
                     padding: 10px;
@@ -529,7 +558,7 @@ body {
                     }
                     input{
                         @include textoEstilo(grau9, medium, $placeholder);
-                        @include tamanhos(65px, 720px);
+                        @include tamanhos(65px, 830px);
                         padding: 10px;
                         border: 2px solid $border;
                         border-radius:6px;
@@ -540,6 +569,7 @@ body {
                 #nova-confirmar{
                     @include displayFlex(row, space-between);
                     padding: 10px;
+                    @include tamanhos(auto, 850px);
 
                     #nova-senha{
 
@@ -557,7 +587,7 @@ body {
                         }
                     }
                     #confirmar-senha{
-                        padding-left: 20px;
+                        // padding-left: 20px;
                         h3{
                             @include textoEstilo(grau9, regular, $text);
                         }
@@ -574,10 +604,12 @@ body {
                
             }
             #botao{
-                width: 720px;
+                width: 850px;
                 @include displayFlex(row, space-between);
                 align-items: center;
                 justify-content: center;
+                padding-top: 30px;
+          
                 
 
                 #butao-editar{
@@ -607,17 +639,17 @@ body {
         }
         #conta{
             @include displayFlex(column);
-            padding:15px;
+            // padding:15px;
             display: none;
             
 
             h2{
                 @include textoEstilo(grau7, semiBold, $text);
-                width: 750px;
+                width: 850px;
               
             }
             #Botao{
-                width: 720px;
+                width: 850px;
                 display: flex;
                 justify-content: center;
                 padding:25px;
@@ -630,6 +662,90 @@ body {
                     background-color: $deepSaffron;
                     border-radius:6px; 
                     }
+            }
+        }
+
+    }
+     // MODAL EDITAR BANNER E PERFIL
+     #EditarBannerFoto{
+        @include tamanhos(469px, 850px);
+        @include displayFlex(row, );
+        border: 1px   solid $placeholder;
+        border-radius:20px;
+        background-color: #E4E6EB;
+        padding: 30px;
+        display: none;
+
+        #esquerda{
+            @include displayFlex(column,);
+            @include tamanhos(430px, 316px);
+          
+
+            #editarPerfil{
+                @include tamanhos(auto, inherit);
+                @include displayFlex(center, center);
+
+                img{
+                    @include tamanhos(120px, 120px);
+                  
+                
+                }
+            }
+
+            #tituloFotoPerfil{
+                @include tamanhos(296px, 316px);
+                
+              
+                
+                h2{
+                    @include tamanhos(37px, inherit);
+                    @include displayFlex(center, center);
+                    @include textoEstilo(grau7, semiBold, $text);
+                    padding-top: 10px;
+                }
+            }
+        }
+        #Direita{
+            @include tamanhos(430px, 463px);
+            @include displayFlex(column);
+        
+
+            #editarBanner{
+                @include tamanhos(auto, 463px);
+                @include displayFlex(center, center);
+                
+                    img{
+                        @include tamanhos(227px, 414px);
+                     
+                    }
+
+            }
+            #tituloBannerPerfil{
+                @include tamanhos(auto, 463px);
+                @include displayFlex(center, center);
+                
+
+                    h2{
+                        @include textoEstilo(grau7, semiBold, $text);
+                        padding-top: 10px
+                    }
+            }
+            #botaoAlterar{
+                @include tamanhos(140px, 465px);
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+
+                button{
+                    @include tamanhos(65px, 180px);
+                    @include textoEstilo(grau8, semiBold, $text);
+                    background-color: $deepSaffron;
+                    border: 1px ;
+                    border-radius:6px;
+                  
+                    
+
+                }
             }
         }
 

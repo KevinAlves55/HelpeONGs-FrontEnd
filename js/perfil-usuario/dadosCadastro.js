@@ -34,6 +34,10 @@ async function dadosDetalhesConta() {
     }
     localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
 
+    
+
+
+
     const userData = validarSession("dadosUsuario");
 
     const localStorageData = {
@@ -55,6 +59,7 @@ async function dadosDetalhesConta() {
         numero: localStorageData.celularData,
     }
 
+    
     const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.user.idUsuario}`, bodyContato);
     const reqUser = await ApiRequest("PUT", `http://localhost:3131/user/${localStorageData.user.idUsuario}`, bodyUser);
 
@@ -64,7 +69,7 @@ async function dadosDetalhesConta() {
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
 
 
-function dadosDetalhesEndereco() {
+async function dadosDetalhesEndereco() {
 
     const dadosDetalhesEndereco = {
         cepData: cep.value,
@@ -76,6 +81,33 @@ function dadosDetalhesEndereco() {
         complementoData: complemento.value
     }
     localStorage.setItem("detalhesEndereco", JSON.stringify(dadosDetalhesEndereco)); 
+
+    const userData = validarSession("dadosUsuario");
+
+    const localStorageData = {
+        ...JSON.parse(localStorage.getItem("detalhesContatos")),
+        ...JSON.parse(localStorage.getItem("detalhesConta")),
+        user: userData
+    }
+    console.log(localStorageData);
+
+    const bodyUser = {
+        nome: localStorageData.nomeData,
+        email: localStorage.emailData,
+        celular: localStorage.celularData,
+    }
+
+    const bodyContato = {
+        email: localStorageData.emailData,
+        telefone: localStorageData.telefoneData,
+        numero: localStorageData.celularData,
+    }
+
+    const endereco = await ApiRequest("GET", `http://localhost:3131/favorite/5/1`, dadosDetalhesEndereco);
+    const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.user.idUsuario}`, bodyContato);
+    const reqUser = await ApiRequest("PUT", `http://localhost:3131/user/${localStorageData.user.idUsuario}`, bodyUser);
+
+    console.log(reqContato, reqUser);
 }
 
 document.getElementById("buttonEnderecos").addEventListener("click", dadosDetalhesEndereco);

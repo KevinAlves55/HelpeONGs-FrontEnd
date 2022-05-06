@@ -24,6 +24,10 @@ p {
   overflow-wrap: break-word;
 }
 
+a {
+  color: #FC595E;
+}
+
 body {
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
@@ -113,8 +117,9 @@ body {
 }
 
 #container #menu {
-  height: 485px;
+  height: auto;
   width: 279px;
+  min-height: 200px;
   background: #FFFFFF;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -132,15 +137,16 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
-  padding: 15px 0 15px;
+  gap: 25px;
+  padding: 25px 0 25px;
 }
 
 #container #menu ul li {
@@ -180,6 +186,39 @@ body {
   color: #8C8C8C;
   text-transform: capitalize;
   letter-spacing: -0.02px;
+}
+
+#centro {
+  min-height: 500px;
+  height: auto;
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #banner {
+  height: 323px;
+  width: inherit;
+}
+
+#centro #banner img {
+  height: inherit;
+  width: inherit;
+  border-radius: 6px;
 }
 
 #centro #perfil {
@@ -285,9 +324,9 @@ body {
   cursor: pointer;
 }
 
-#centro ul {
+#centro nav ul {
   height: inherit;
-  width: inherit;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,35 +344,43 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   padding: 30px 20px 15px;
+  width: 850px;
 }
 
-#centro ul li + li {
+#centro nav ul li + li {
   margin-left: 1.5em;
 }
 
-#centro ul li {
+#centro nav ul li {
   height: 65px;
   width: inherit;
   padding-top: 25px;
 }
 
-#centro ul li img {
+#centro nav ul li img {
   height: 35px;
   width: 35px;
   margin-left: 26px;
 }
 
-#centro ul li span {
+#centro nav ul li span {
   font-size: 1.313rem;
   font-weight: 400;
   color: #8C8C8C;
   text-transform: -0.02px;
   letter-spacing: none;
+  height: 26px;
+  width: 217px;
   cursor: pointer;
 }
 
-#centro ul li span:hover {
+#centro nav ul li span:hover {
   border-bottom: 4px solid #FC595E;
+}
+
+#centro #container-conteudo {
+  height: auto;
+  width: 850px;
 }
 
 #centro #container-conteudo #container-conteudo-sobre {
@@ -354,7 +401,7 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   height: 344px;
-  width: 766px;
+  width: inherit;
   padding: 20px;
   background: #FFFFFF;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -434,7 +481,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta {
   height: 550px;
-  width: 770px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -469,7 +516,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome input {
   height: 65px;
-  width: 761px;
+  width: 850px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
@@ -478,7 +525,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data {
   height: 102px;
-  width: 766px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -536,7 +583,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone {
   height: auto;
-  width: 766px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -594,7 +641,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho {
   height: 65px;
-  width: 770px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -658,8 +705,8 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding-left: 500px;
-  padding-top: 30px;
+  padding-left: 570px;
+  padding-top: 40px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #proximo button {
@@ -675,13 +722,13 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco {
   height: 485px;
-  width: 770px;
+  width: inherit;
   display: none;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira {
   height: 104px;
-  width: 770px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -753,7 +800,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira {
   height: 104px;
-  width: 770px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -825,7 +872,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #terceira-fileira {
   height: 104px;
-  width: 770px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -854,7 +901,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #terceira-fileira #complemento input {
   height: 65px;
-  width: 769px;
+  width: 850px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
@@ -868,6 +915,7 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  padding-top: 30px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #quarta-fileira button {
@@ -897,6 +945,8 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   display: none;
+  height: 485px;
+  width: inherit;
 }
 
 #centro #container-conteudo #senha h1 {
@@ -924,7 +974,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 15px;
 }
 
 #centro #container-conteudo #senha #editar-senha #senha-atual {
@@ -946,7 +995,7 @@ body {
   text-transform: none;
   letter-spacing: none;
   height: 65px;
-  width: 720px;
+  width: 830px;
   padding: 10px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
@@ -971,6 +1020,8 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   padding: 10px;
+  height: auto;
+  width: 850px;
 }
 
 #centro #container-conteudo #senha #editar-senha #nova-confirmar #nova-senha h3 {
@@ -995,10 +1046,6 @@ body {
   font-size: 23px;
 }
 
-#centro #container-conteudo #senha #editar-senha #nova-confirmar #confirmar-senha {
-  padding-left: 20px;
-}
-
 #centro #container-conteudo #senha #editar-senha #nova-confirmar #confirmar-senha h3 {
   font-size: 1.313rem;
   font-weight: 400;
@@ -1021,7 +1068,7 @@ body {
 }
 
 #centro #container-conteudo #senha #botao {
-  width: 720px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1044,6 +1091,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 30px;
 }
 
 #centro #container-conteudo #senha #botao #butao-editar button {
@@ -1087,7 +1135,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 15px;
   display: none;
 }
 
@@ -1097,11 +1144,11 @@ body {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  width: 750px;
+  width: 850px;
 }
 
 #centro #container-conteudo #conta #Botao {
-  width: 720px;
+  width: 850px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1118,6 +1165,215 @@ body {
   font-size: 30px;
   color: #292929;
   background-color: #FF9F45;
+  border-radius: 6px;
+}
+
+#centro #EditarBannerFoto {
+  height: 469px;
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border: 1px solid #8C8C8C;
+  border-radius: 20px;
+  background-color: #E4E6EB;
+  padding: 30px;
+  display: none;
+}
+
+#centro #EditarBannerFoto #esquerda {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 430px;
+  width: 316px;
+}
+
+#centro #EditarBannerFoto #esquerda #editarPerfil {
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #EditarBannerFoto #esquerda #editarPerfil img {
+  height: 120px;
+  width: 120px;
+}
+
+#centro #EditarBannerFoto #esquerda #tituloFotoPerfil {
+  height: 296px;
+  width: 316px;
+}
+
+#centro #EditarBannerFoto #esquerda #tituloFotoPerfil h2 {
+  height: 37px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 10px;
+}
+
+#centro #EditarBannerFoto #Direita {
+  height: 430px;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #EditarBannerFoto #Direita #editarBanner {
+  height: auto;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #EditarBannerFoto #Direita #editarBanner img {
+  height: 227px;
+  width: 414px;
+}
+
+#centro #EditarBannerFoto #Direita #tituloBannerPerfil {
+  height: auto;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #EditarBannerFoto #Direita #tituloBannerPerfil h2 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 10px;
+}
+
+#centro #EditarBannerFoto #Direita #botaoAlterar {
+  height: 140px;
+  width: 465px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#centro #EditarBannerFoto #Direita #botaoAlterar button {
+  height: 65px;
+  width: 180px;
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border: 1px;
   border-radius: 6px;
 }
 

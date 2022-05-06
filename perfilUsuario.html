@@ -30,10 +30,6 @@
             <nav id="menu">
                 <ul>
                     <li>
-                        <img src="assets/img/home-menu.png" alt="Home" title="Icon-Home">
-                        <a href="home.html">Home</a>
-                    </li>
-                    <li>
                         <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
                         <a href="doacoesONGs.html">Doar</a>
                     </li>
@@ -44,10 +40,6 @@
                     <li>
                         <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
                         <a href="perfilUsuario.html">Perfil</a>
-                    </li>
-                    <li>
-                        <img src="assets/img/settings-menu.png" alt="Suas configurações" title="Icon-Settings">
-                        <a href="configuracoes.html">Configurações</a>
                     </li>
                     <li>
                         <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
@@ -61,7 +53,7 @@
     <!-- Centro -->
     <div id="centro">
        
-        <div>
+        <div id="banner">
             <img src="assets/img/Rectangle 90.png">
         </div>
             
@@ -136,7 +128,7 @@
             </div>
 
             <div id="container-conteudo-detalhes-de-conta" class="item">
-                <form action="detalhes-da-conta" method="">
+                <form action="detalhes-da-conta" method="POST" enctype="multipart/form-data">
                     <div id="nome">
                         <p>Nome</p>
                         <input type="text" id="name"  placeholder="Gustavo Alves"/>
@@ -162,12 +154,12 @@
                         </div>
                     </div>
                     <div id="anexar-caminho">
-                        <form>
+                       
                             <div>
                                 <label for="arquivo">Anexar currículo</label>
                                 <input type="file" name="arquivo" id="arquivo" >
                             </div>
-                        </form>
+                        
                        <div id="caminho">
                            <p>CaminhoDaImagem.png</p>
                        </div>
@@ -265,6 +257,32 @@
                     <button type="submit">Excluir conta</button>
                 </div>
             </div>
+        </div>
+
+        <div id="EditarBannerFoto" >
+
+            <div id="esquerda">
+                <div id="editarPerfil">
+                    <img src="./assets/img/Rectangle 97.png" alt="">
+                </div>
+                <div id="tituloFotoPerfil">
+                    <h2>Foto de perfil</h2>
+                </div>
+            </div>
+            <div id="Direita">
+                <div id="editarBanner">
+                    <img src="./assets/img/image 16.png" alt="">
+                </div>
+                <div id="tituloBannerPerfil">
+                    <h2>Banner do perfil</h2>
+                </div>
+
+                <div id="botaoAlterar">
+                    <button type="button" id="botaoModalEditar">Alterar</button>
+                </div>
+            </div>
+          
+
         </div>
 
 
