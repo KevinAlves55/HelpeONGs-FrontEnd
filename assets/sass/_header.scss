@@ -71,26 +71,43 @@ header {
                     }
 
                     .mais-opcoes {
-                        min-height: 50px;
+                        min-height: 130px;
                         @include tamanhos(auto, 150px);
-                        @include displayFlex(column, center, $gap: 8px);
-                        padding: 8px;
-                        background-color: $border;
-                        border-radius: 20px;
+                        @include displayFlex(column, center, $gap: 10px);
+                        background-color: $placeholder;
+                        border-radius: 10px;
                         position: absolute;
                         right: 0;
                         top: 60px;
                         filter: $shadowMain;
-                        z-index: 3;
+                        z-index: -3;
+                        opacity: 0;
+                        padding: 8px 0 8px;
 
                         span {
-                            width: 110px;
-                            margin-left: 9px;
+                            @include tamanhos(35px, 100%);
+                            @include textoEstilo(grau10, medium, $text, capitalize);
+                            @include displayFlex(row, $align: center);
                             cursor: pointer;
+                            padding-left: 12px;
+
+                            &:hover {
+                                background-color: $border;
+                            }
                         }
                     }
                 }
             }
         }
     }
+}
+
+header 
+#itens-header 
+#lupa-atalhos 
+#atalhos 
+#atalhos-perfil 
+.mais-opcoes.active {
+    z-index: 3;
+    opacity: 1;
 }

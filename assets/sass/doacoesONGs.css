@@ -214,7 +214,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 }
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes {
-  min-height: 50px;
+  min-height: 130px;
   height: auto;
   width: 150px;
   display: -webkit-box;
@@ -232,22 +232,54 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 8px;
-  padding: 8px;
-  background-color: #CCCCCC;
-  border-radius: 20px;
+  gap: 10px;
+  background-color: #8C8C8C;
+  border-radius: 10px;
   position: absolute;
   right: 0;
   top: 60px;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
-  z-index: 3;
+  z-index: -3;
+  opacity: 0;
+  padding: 8px 0 8px;
 }
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes span {
-  width: 110px;
-  margin-left: 9px;
+  height: 35px;
+  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   cursor: pointer;
+  padding-left: 12px;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes span:hover {
+  background-color: #CCCCCC;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active {
+  z-index: 3;
+  opacity: 1;
 }
 
 .modal {

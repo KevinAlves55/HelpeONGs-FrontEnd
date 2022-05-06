@@ -5,6 +5,7 @@ import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openFiltro, filtrar } from "./filtro.js";
 import { openModal, closeModal } from "./modal.js"
+import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js"
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -19,13 +20,18 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         Redirect("loginUsuario");
     });
 
+    document.getElementById("sair-header").addEventListener("click", () => {
+        localStorage.clear();
+        Redirect("loginUsuario")
+    });
+
     function CarregarMiniPerfil(objectLocal) {
 
         let nomeLogado = document.getElementById("mini-perfil-nome");
         let fotoLogado = document.getElementById("mini-perfil-foto");
         let fotoHeader = document.getElementById("foto-header");
     
-        if (objectLocal.nome === null || objectLocal.nome === undefined) {
+        if (objectLocal.nome === null && objectLocal.nome === undefined) {
             nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
         } else {
             nomeLogado.innerHTML = `${objectLocal.nome}`;
@@ -65,6 +71,11 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
         Redirect("loginONGs");
+    });
+
+    document.getElementById("sair-header").addEventListener("click", () => {
+        localStorage.clear();
+        Redirect("loginONGs")
     });
 
     function CarregarMiniPerfil(objectLocal) {
@@ -115,6 +126,9 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     const sinoNone = () => document.getElementById("sinoNotification").style.display = "none";
     sinoNone();
 
+    const atalhosNone = () => document.getElementById("atalhos-perfil").style.display = "none";
+    atalhosNone();
+
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
         Redirect("cadastroUsuario");
@@ -143,7 +157,7 @@ const CriarRecomendados = ({id, nome, foto}) => {
         <img src="${foto}" alt="Ongs perfil" title="Foto Ong">
         <h2>${nome}</h2>
     </div>
-    <button type="button" data-idRecomendados="${id}">DOAR</button>
+    <button type="button" data-idong="${id}">DOAR</button>
     `;
 
     return corpo;
@@ -201,21 +215,25 @@ const pesquisarNomeONG = (pesquisaValor) => {
 
     let valor = document.getElementById("resultadoQtda");
     const corpoResult = nomeONG.length;
-    valor.innerText = `${corpoResult} Resultados`;
+
+    if (corpoResult === 0) {
+        valor.innerText = `Nenhum resultado encontrado`;
+        CarregarTodasONGs();
+    } else if (corpoResult === 1) {
+        valor.innerText = `${corpoResult} Resultado`;
+        console.log("dsad");
+    } else {
+        valor.innerText = `${corpoResult} Resultados`;
+        console.log("dsad");
+    }
 
 }
 
 const CarregarEstados = async () => {
 
-    const container = document.getElementById("estados-select");
     const objetoUf = await ApiRequest("GET", "http://localhost:3131/uf");
     const estados = objetoUf.data;
     const estadoUf = estados.map(CriarOptionEstado);
-    // estadoUf.map(option => {
-        
-    //     container.appendChild(option);
-    
-    // });
 
 }
 
@@ -228,14 +246,6 @@ const CriarOptionEstado = ({idEstado, nome, sigla}) => {
     corpo.id = "opUf";
     corpo.textContent = nome;
     container.appendChild(corpo);
-    // corpo.classList.add("option");
-
-    // corpo.innerHTML =
-    // `
-    //     <option value="${sigla}" class="selecionarEstado" data-idEstado="${idEstado}">${nome}</option>
-    // `;
-
-    // return corpo;
 
 }
 
@@ -244,7 +254,13 @@ async function CarregarTamanhoArray() {
     let valor = document.getElementById("resultadoQtda");
     const corpo = objeto.data.length;
 
-    valor.innerText = `${corpo} Resultados`;
+    if (corpo === 0 || corpo === null) {
+        valor.innerText = `ONGs não encontradas`;
+    } else if (corpo === 1) {
+        valor.innerText = `${corpo} Resultado`;
+    } else {
+        valor.innerText = `${corpo} Resultados`;
+    }
 
 }
 
@@ -329,7 +345,7 @@ const CriarFavoritos = ({idOng, nome, foto}) => {
             <img src="../../assets/img/favoritar-com-preenchimento.png" alt="Ongs perfil" title="Foto Ong" class="img-preenchimento" id="preenchimento" data-idong="${idOng}">
             <h2>${nome}</h2>
         </div>
-        <button type="button" data-idRecomendados="${idOng}">DOAR</button>
+        <button type="button" data-idong="${idOng}">DOAR</button>
     </div>
     `;
 
@@ -429,14 +445,23 @@ const CarregarOngsEstados = (objeto) => {
 
 const CarregarModal = async ({target}) => {
 
-    const container = document.getElementById("direita-informacoes");
-    const req = await RequestModal(target);
-    console.log(`Request inteira: `, req);
-    const modal = req.map(CriarModal);
-    // container.replaceChildren(...modal);
-
     if (target.type === "button") {
-        openModal();
+        const container = document.getElementById("direita-informacoes");
+        const req = await RequestModal(target);
+
+        if (req === null || req === undefined) {
+            console.log("Objeto vazio");
+        } else {
+            console.log(`Request inteira: `, req);
+            const modal = CriarModal(req.objetoContatos, req.objetoBank, req.objetoDadosDonate);
+
+            if (modal === false) {
+                alert("Dados incompletos, escolha outra ONG para doar");
+            } else {
+                container.replaceChildren(modal);
+                openModal();
+            }
+        }
     }
 
 }
@@ -452,97 +477,123 @@ const RequestModal = async (target) => {
         "GET",
         `http://localhost:3131/contact/${idOng}`
     );
-    console.log(`Dados de contatos`, dadosContatos);
 
     dadosBank = await ApiRequest(
         "GET",
         `http://localhost:3131/bank-data/${idOng}`
     );
-    console.log(`Dados bank`, dadosBank);
 
     dadosMeiosDoativos = await ApiRequest(
         "GET",
         `http://localhost:3131/donation-data/${idOng}`
     );
-    console.log(`Dados Donate`, dadosMeiosDoativos);
 
-    var objetoContatos = dadosContatos.data;
-    var objetoBank = dadosBank.data;
-    var objetoDadosDonate = dadosMeiosDoativos.data;
+    if (dadosContatos.status === 404 && dadosBank.status === 404 && dadosMeiosDoativos.status === 404) {
+        
+        alert("Essa ONG está com os dados incompletos, por favor escolher outra");
 
-    // Une todos os dados em um único objeto
-    var dadosModal = Object.assign([], {objetoContatos}, {objetoBank}, {objetoDadosDonate});
+    } else {
 
-    return dadosModal;
+        var objetoContatos = dadosContatos.data;
+        var objetoBank = dadosBank.data;
+        var objetoDadosDonate = dadosMeiosDoativos.data;
+
+        // Une todos os dados em um único objeto
+        var dadosModal = Object.assign([], {objetoContatos}, {objetoBank}, {objetoDadosDonate});
+
+        return dadosModal;
+    
+    }
 
 }
 
-const CriarModal = ({objetoContatos, objetoBank, objetoDadosDonate}) => {
+const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
 
-    console.log(`teste`, objetoContatos.numero);
+    let status;
 
-    const modal = document.createElement("div");
-    modal.classList.add("info");
+    if (objetoContatos === undefined || objetoBank === undefined || objetoDadosDonate === undefined) {
 
-    modal.innerHTML =
-    `
-    <div id="direita-informacoes">
-        <div id="direita-contatos">
-            <h2>Informações de contato</h2>
+        status = false;
+    
+    } else {
 
-            <div class="caixa">
-                <span>Celular: </span>
-                <h3>${numero}</h3>
-            </div>
-            <div class="caixa">
-                <span>Telefone: </span>
-                <h3>${telefone}</h3>
-            </div>
-            <div class="caixa">
-                <span>Email: </span>
-                <h3>${email}</h3>
-            </div>
-            <div class="caixa">
-                <span>Site: </span>
-                <h3><a target="_blank" href="${site}">${site}</a></h3>
-            </div>
-        </div>
+        console.log(`param1: `, objetoContatos, objetoBank, objetoDadosDonate);
 
-        <div id="direita-meios-doacoes">
-            <div id="direita-meios">
-                <h2>Meios de doação</h2>
+        const modal = document.createElement("div");
+        modal.classList.add("info");
 
-                <div class="caixa">
-                    <span>Conta: </span>
-                    <h3>${conta}</h3>
-                </div>
-                <div class="caixa">
-                    <span>Agência: </span>
-                    <h3>${agencia}</h3>
-                </div>
-                <div class="caixa">
-                    <span>Banco: </span>
-                    <h3>${banco}</h3>
-                </div>
-                <div class="caixa">
-                    <span>Pix: </span>
-                    <h3>${pix}</h3>
+        modal.innerHTML =
+        `
+            <div id="direita-informacoes">
+                <div id="direita-contatos">
+                    <h2>Informações de contato</h2>
+
+                    <div class="caixa">
+                        <span>Celular: </span>
+                        <h3>${objetoContatos.numero}</h3>
+                    </div>
+                    <div class="caixa">
+                        <span>Telefone: </span>
+                        <h3>${objetoContatos.telefone}</h3>
+                    </div>
+                    <div class="caixa">
+                        <span>Email: </span>
+                        <h3>${objetoContatos.email}</h3>
+                    </div>
+                    <div class="caixa">
+                        <span>Site: </span>
+                        <h3><a target="_blank" href="${objetoDadosDonate.site}">${objetoDadosDonate.site}</a></h3>
+                    </div>
                 </div>
 
-                <div id="esquerda-imagem">
-                    <img src="assets/img/foto-banco.png" alt="Banco" title="Foto do Banco">
+                <div id="direita-meios-doacoes">
+                    <div id="direita-meios">
+                        <h2>Meios de doação</h2>
+
+                        <div class="caixa">
+                            <span>Conta: </span>
+                            <h3>${objetoBank.conta}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Agência: </span>
+                            <h3>${objetoBank.agencia}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Banco: </span>
+                            <h3>${objetoBank.banco}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Pix: </span>
+                            <h3>${objetoDadosDonate.pix}</h3>
+                        </div>
+
+                        <div id="esquerda-imagem">
+                            <img src="assets/img/foto-banco.png" alt="Banco" title="Foto do Banco">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    `;
+        `;
 
-    return modal;
+        status = modal;
+
+    }
+
+    return status;
+
+}
+
+const limparCamposFiltro = () => {
+    alert("Teste");
+    // var categorias = document.querySelectorAll('[type=checkbox]:checked');
+    // categorias.checked = false;
 
 }
 
 CarregarRecomendados();
 CarregarTodasONGs();
+document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
+document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.getElementById("pesquisar").addEventListener("keypress", Pesquisa);
 CarregarEstados();
 CarregarTamanhoArray();
@@ -556,6 +607,7 @@ document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("ongs").addEventListener("click", CarregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
+document.getElementById("limpar-campos").addEventListener("click", limparCamposFiltro);
 
 export { 
     CriarONGs
