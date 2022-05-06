@@ -136,6 +136,8 @@ async function dadosDetalhesONG() {
 }
 document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDetalhesONG);
 
+
+
 function dadosDetalhesEndereco() {
 
     const validacoesDadosDetalhesEndereco = checkInputsDetalhesEndereco();
@@ -167,36 +169,60 @@ function dadosDetalhesEndereco() {
 document.getElementById("button-detalhes-endereco").addEventListener("click", dadosDetalhesEndereco);
 
 
-function dadosMeiosDoacoes() {
+async function dadosMeiosDoacoes() {
 
-    const validacoesDadosMeiosDoacoes = checkInputsDadosMeiosDoacoes();
+    // const validacoesDadosMeiosDoacoes = checkInputsDadosMeiosDoacoes();
 
-    let result;
-    validacoesDadosMeiosDoacoes.map(status => {
-        status === false ? result = false : "";
-    });
+    // let result;
+    // validacoesDadosMeiosDoacoes.map(status => {
+    //     status === false ? result = false : "";
+    // });
     
-    if (result != false) {
+    // if (result != false) {
 
-        const dadosMeiosDoacoes = {
-            siteData: linkSite.value,
-            pixData: pix.value
-        }
-        localStorage.setItem("MeiosDoacoes", JSON.stringify(dadosMeiosDoacoes)); 
-    
-        const dadosBancarios = {
-            agenciaData: agencia.value,
-            contaData: conta.value,
-            tipoContaData: tipoConta.value
-        }
-        localStorage.setItem("Bancario", JSON.stringify(dadosBancarios)); 
-
+    const dadosMeiosDoacoes = {
+        siteData: linkSite.value,
+        pixData: pix.value
     }
+    localStorage.setItem("MeiosDoacoes", JSON.stringify(dadosMeiosDoacoes)); 
+    
+    const dadosBancarios = {
+        agenciaData: agencia.value,
+        contaData: conta.value,
+        tipoContaData: tipoConta.value
+    }
+    localStorage.setItem("Bancario", JSON.stringify(dadosBancarios)); 
+
+    const ongMeiosDoacoes = validarSession("dadosOng");
+
+    const localStorageMeiosDoacoes = {
+        ...JSON.parse(localStorage.getItem("MeiosDoacoes")),
+        ...JSON.parse(localStorage.getItem("Bancario")),
+        ong: ongMeiosDoacoes
+    }
+    console.log(`Dados de agora`, localStorageMeiosDoacoes);
+
+    const bodyMeiosDoacoes = {
+        site: localStorageMeiosDoacoes.siteData,
+        pix: localStorageMeiosDoacoes.pixData,
+    }
+
+    const bodyBancario = {
+        agencia: localStorageMeiosDoacoes.agenciaData,
+        conta: localStorageMeiosDoacoes.contoData,
+        tipoConta: localStorageMeiosDoacoes.tipoContaData,
+    }
+
+    const reqMeiosDoacoes = await ApiRequest("PUT", `http://localhost:3131/donation-data/${localStorageMeiosDoacoes.ong.idOng}`, bodyMeiosDoacoes);
+    const reqBancario = await ApiRequest("PUT", `http://localhost:3131/bank-data/${localStorageMeiosDoacoes.ong.idOng}`, bodyBancario);
+        
+    console.log(reqMeiosDoacoes, reqBancario);
+
 }
 document.getElementById("button-meiosDoacoes").addEventListener("click", dadosMeiosDoacoes);
+   
 
-
-// function dadosPatocinios() {
+async function dadosPatocinios() {
 
 //     let result;
 //     validacoes.map(status => {
@@ -205,13 +231,30 @@ document.getElementById("button-meiosDoacoes").addEventListener("click", dadosMe
     
 //     if (result != false) {
 
-//         const dadosPatrocinios = {
-//             patrocinadorData: nomePatrocinador.value,
-//             sitePatrocinadorData: sitePatrocinador.value
-//         }
-//         localStorage.setItem("Patrocinios", JSON.stringify(dadosPatrocinios)); 
+        const dadosPatrocinios = {
+            patrocinadorData: nomePatrocinador.value,
+            sitePatrocinadorData: sitePatrocinador.value
+        }
+        localStorage.setItem("Patrocinios", JSON.stringify(dadosPatrocinios)); 
 
-//     }
+        const ongPatrocinios = validarSession("dadosOng");
 
-// }
-// document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);
+        const localStoragePatrocinios = {
+            ...JSON.parse(localStorage.getItem("Patrocinios")),
+            ong: ongPatrocinios
+        }
+        console.log(localStoragePatrocinios);
+    
+        const bodyPatrocinador = {
+            nome: localStoragePatrocinios.patrocinadorData,
+            link: localStoragePatrocinios.sitePatrocinadorData,
+        }
+
+        const reqPatrocinios = await ApiRequest("PUT", `http://localhost:3131/sponsor/${localStoragePatrocinios.ong.idOng}`, bodyPatrocinador);
+
+        console.log(reqPatrocinios);
+
+//  }
+
+}
+document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);
