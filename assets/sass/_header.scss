@@ -49,7 +49,7 @@ header {
     
             #atalhos {
                 @include tamanhos(inherit, 170px);
-                @include displayFlex(row, space-between, center);
+                @include displayFlex(row, space-between, center);      
     
                 img {
                     @include tamanhos(32px, 32px);
@@ -58,14 +58,36 @@ header {
                 #atalhos-perfil {
                     @include tamanhos(90px, 120px);
                     @include displayFlex(row, space-between, center);
+                    position: relative;
     
-                    #foto {
+                    #foto-header {
                         @include tamanhos(inherit, 90px);
                         border-radius: 50%;
                     }
     
                     #seta-baixo {
                         @include tamanhos(24px, 24px);
+                        cursor: pointer;
+                    }
+
+                    .mais-opcoes {
+                        min-height: 50px;
+                        @include tamanhos(auto, 150px);
+                        @include displayFlex(column, center, $gap: 8px);
+                        padding: 8px;
+                        background-color: $border;
+                        border-radius: 20px;
+                        position: absolute;
+                        right: 0;
+                        top: 60px;
+                        filter: $shadowMain;
+                        z-index: 3;
+
+                        span {
+                            width: 110px;
+                            margin-left: 9px;
+                            cursor: pointer;
+                        }
                     }
                 }
             }

@@ -24,6 +24,10 @@ p {
   overflow-wrap: break-word;
 }
 
+a {
+  color: #FC595E;
+}
+
 .message {
   height: 100%;
   width: 100%;

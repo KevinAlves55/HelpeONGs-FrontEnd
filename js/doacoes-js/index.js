@@ -23,6 +23,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
         let nomeLogado = document.getElementById("mini-perfil-nome");
         let fotoLogado = document.getElementById("mini-perfil-foto");
+        let fotoHeader = document.getElementById("foto-header");
     
         if (objectLocal.nome === null || objectLocal.nome === undefined) {
             nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
@@ -32,10 +33,13 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+            fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
-            fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
+            fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
+            fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
             fotoLogado.setAttribute("src", `${objectLocal.foto}`);
+            fotoHeader.setAttribute("src", `${objectLocal.foto}`);
         }
     
     }
@@ -67,6 +71,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
         let nomeLogado = document.getElementById("mini-perfil-nome");
         let fotoLogado = document.getElementById("mini-perfil-foto");
+        let fotoHeader = document.getElementById("foto-header");
     
         if (objectLocal.nome === null || objectLocal.nome === undefined) {
             nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
@@ -76,10 +81,13 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+            fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
-            fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
+            fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
+            fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
             fotoLogado.setAttribute("src", `${objectLocal.foto}`);
+            fotoHeader.setAttribute("src", `${objectLocal.foto}`);
         }
     
     }
@@ -146,6 +154,7 @@ const CarregarTodasONGs = async () => {
 
     const container = document.getElementById("ongs");
     const corpo = objeto.data;
+    console.log(corpo);
     const cards = corpo.map(CriarONGs);
     container.replaceChildren(...cards);
 
@@ -351,14 +360,6 @@ const excluirFavorito = async ({target}) => {
 
 }
 
-const carregarModal = async ({target}) => {
-
-    if (target.type === "button") {
-        openModal();
-    }
-
-}
-
 const pesquisarEstado = async ({target}) => {
 
     var opcaoValor = target.options[target.selectedIndex].textContent;
@@ -426,6 +427,120 @@ const CarregarOngsEstados = (objeto) => {
 
 }
 
+const CarregarModal = async ({target}) => {
+
+    const container = document.getElementById("direita-informacoes");
+    const req = await RequestModal(target);
+    console.log(`Request inteira: `, req);
+    const modal = req.map(CriarModal);
+    // container.replaceChildren(...modal);
+
+    if (target.type === "button") {
+        openModal();
+    }
+
+}
+
+const RequestModal = async (target) => {
+
+    const idOng = target.dataset.idong;
+    let dadosContatos = [];
+    let dadosBank = [];
+    let dadosMeiosDoativos = [];
+
+    dadosContatos = await ApiRequest(
+        "GET",
+        `http://localhost:3131/contact/${idOng}`
+    );
+    console.log(`Dados de contatos`, dadosContatos);
+
+    dadosBank = await ApiRequest(
+        "GET",
+        `http://localhost:3131/bank-data/${idOng}`
+    );
+    console.log(`Dados bank`, dadosBank);
+
+    dadosMeiosDoativos = await ApiRequest(
+        "GET",
+        `http://localhost:3131/donation-data/${idOng}`
+    );
+    console.log(`Dados Donate`, dadosMeiosDoativos);
+
+    var objetoContatos = dadosContatos.data;
+    var objetoBank = dadosBank.data;
+    var objetoDadosDonate = dadosMeiosDoativos.data;
+
+    // Une todos os dados em um único objeto
+    var dadosModal = Object.assign([], {objetoContatos}, {objetoBank}, {objetoDadosDonate});
+
+    return dadosModal;
+
+}
+
+const CriarModal = ({objetoContatos, objetoBank, objetoDadosDonate}) => {
+
+    console.log(`teste`, objetoContatos.numero);
+
+    const modal = document.createElement("div");
+    modal.classList.add("info");
+
+    modal.innerHTML =
+    `
+    <div id="direita-informacoes">
+        <div id="direita-contatos">
+            <h2>Informações de contato</h2>
+
+            <div class="caixa">
+                <span>Celular: </span>
+                <h3>${numero}</h3>
+            </div>
+            <div class="caixa">
+                <span>Telefone: </span>
+                <h3>${telefone}</h3>
+            </div>
+            <div class="caixa">
+                <span>Email: </span>
+                <h3>${email}</h3>
+            </div>
+            <div class="caixa">
+                <span>Site: </span>
+                <h3><a target="_blank" href="${site}">${site}</a></h3>
+            </div>
+        </div>
+
+        <div id="direita-meios-doacoes">
+            <div id="direita-meios">
+                <h2>Meios de doação</h2>
+
+                <div class="caixa">
+                    <span>Conta: </span>
+                    <h3>${conta}</h3>
+                </div>
+                <div class="caixa">
+                    <span>Agência: </span>
+                    <h3>${agencia}</h3>
+                </div>
+                <div class="caixa">
+                    <span>Banco: </span>
+                    <h3>${banco}</h3>
+                </div>
+                <div class="caixa">
+                    <span>Pix: </span>
+                    <h3>${pix}</h3>
+                </div>
+
+                <div id="esquerda-imagem">
+                    <img src="assets/img/foto-banco.png" alt="Banco" title="Foto do Banco">
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+
+    return modal;
+
+}
+
 CarregarRecomendados();
 CarregarTodasONGs();
 document.getElementById("pesquisar").addEventListener("keypress", Pesquisa);
@@ -434,11 +549,11 @@ CarregarTamanhoArray();
 CarregarTodasCategorias();
 document.getElementById("ongs").addEventListener("click", Favoritar);
 document.getElementById("favoritos-ong").addEventListener("click", excluirFavorito);
-document.getElementById("recomendados-ongs").addEventListener("click", carregarModal);
-document.getElementById("favoritos").addEventListener("click", carregarModal);
+document.getElementById("recomendados-ongs").addEventListener("click", CarregarModal);
+document.getElementById("favoritos").addEventListener("click", CarregarModal);
 document.getElementById("estados-select").addEventListener("change", pesquisarEstado);
 document.getElementById("modalClose").addEventListener("click", closeModal);
-document.getElementById("ongs").addEventListener("click", carregarModal);
+document.getElementById("ongs").addEventListener("click", CarregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
 
