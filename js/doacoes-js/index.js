@@ -605,6 +605,7 @@ CarregarRecomendados();
 CarregarTodasONGs();
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
+document.querySelector("main").addEventListener("click", closeSetaHeader);
 document.getElementById("pesquisar").addEventListener("keypress", Pesquisa);
 CarregarEstados();
 CarregarTamanhoArray();
@@ -615,6 +616,7 @@ document.getElementById("recomendados-ongs").addEventListener("click", CarregarM
 document.getElementById("favoritos").addEventListener("click", CarregarModal);
 document.getElementById("estados-select").addEventListener("change", pesquisarEstado);
 document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("modal").addEventListener("click", closeModal);
 document.getElementById("ongs").addEventListener("click", CarregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);

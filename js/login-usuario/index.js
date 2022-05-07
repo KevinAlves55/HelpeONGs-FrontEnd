@@ -46,6 +46,7 @@ const validarLogin = async (e) => {
         } else if (response.status == 200) {
     
             const dadosUsuario = response.usuario;
+            localStorage.clear();
             localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
             window.location.href = "doacoesONGs.html";
         

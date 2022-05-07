@@ -43,6 +43,7 @@ const validarLogin = async (e) => {
         } else if (response.status == 200) {
 
             const dadosOng = response.data[0];
+            localStorage.clear();
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
             Redirect("doacoesONGs");
         
