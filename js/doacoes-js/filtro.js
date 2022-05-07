@@ -1,7 +1,7 @@
 "use strict";
 
 import ApiRequest from "../utils/ApiRequest.js";
-import { CriarONGs } from "./index.js";
+import { CarregarTodasONGs, CriarONGs } from "./index.js";
 
 function getValues() {
 
@@ -26,11 +26,20 @@ function carregarCardsCategorias(objeto) {
 
 function carregarTamanhoArray(objeto) {
 
-    const tamanho = objeto;
     let valor = document.getElementById("resultadoQtda");
+    const tamanho = objeto;
     const corpo = tamanho.length;
 
-    valor.innerText = `${corpo} Resultados`;
+    if (corpo === 0) {
+        valor.innerText = "Nenhuma ONG encontrada para esse filtro";
+        const container = document.getElementById("ongs");
+        container.innerHTML = "";
+        CarregarTodasONGs();
+    } else if (tamanho === 1) {
+        valor.innerText = `${corpo} Resultado`;
+    } else {
+        valor.innerText = `${corpo} Resultados`;   
+    }
 
 }
 

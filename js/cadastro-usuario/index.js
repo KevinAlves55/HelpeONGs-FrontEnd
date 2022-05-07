@@ -49,6 +49,6 @@ document.getElementById("formButton").addEventListener("click", cadastrarUsuario
 document.getElementById("OK").addEventListener("click", closeMessage);
 document.getElementById("PageDoar").addEventListener("click",() => {
 
-    Redirect("doacoes");
+    Redirect("doacoesONGs");
 
 });

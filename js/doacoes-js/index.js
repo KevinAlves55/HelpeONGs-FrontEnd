@@ -168,7 +168,6 @@ const CarregarTodasONGs = async () => {
 
     const container = document.getElementById("ongs");
     const corpo = objeto.data;
-    console.log(corpo);
     const cards = corpo.map(CriarONGs);
     container.replaceChildren(...cards);
 
@@ -584,9 +583,25 @@ const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
 }
 
 const limparCamposFiltro = () => {
-    alert("Teste");
-    // var categorias = document.querySelectorAll('[type=checkbox]:checked');
-    // categorias.checked = false;
+
+    var categorias = document.querySelectorAll('[type=checkbox]');
+
+    for (var i = 0; i < categorias.length; i++) {
+        if (categorias[i].type == "checkbox") {
+            categorias[i].checked = false;
+        }
+    }
+    ResetarElementos();
+    document.getElementById("modal-filtros").classList.remove("active");
+
+}
+
+const ResetarElementos = () => {
+
+    const container = document.getElementById("ongs");
+    container.innerHTML = "";
+    CarregarTodasONGs();
+    CarregarTamanhoArray(objeto);
 
 }
 
@@ -610,5 +625,6 @@ document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);
 document.getElementById("limpar-campos").addEventListener("click", limparCamposFiltro);
 
 export { 
-    CriarONGs
+    CriarONGs,
+    CarregarTodasONGs
 }
