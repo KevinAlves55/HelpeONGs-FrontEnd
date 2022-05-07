@@ -565,10 +565,6 @@ const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
                             <span>Pix: </span>
                             <h3>${objetoDadosDonate.pix}</h3>
                         </div>
-
-                        <div id="esquerda-imagem">
-                            <img src="assets/img/foto-banco.png" alt="Banco" title="Foto do Banco">
-                        </div>
                     </div>
                 </div>
             </div>
