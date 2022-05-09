@@ -1,0 +1,1343 @@
+@import '_variaveis';
+@import '_mixins';
+@import '_resert';
+@import '_header';
+
+// MODAL POST
+.modal-post {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-post {
+        @include tamanhos(597px, 1200px);
+        @include displayFlex(column, space-between);
+        padding: 32px 37px 30px 37px;
+        background-color: white;
+        border-radius: 20px;
+
+        #parte-superior {
+            @include tamanhos(431px, 1117px);
+            @include displayFlex(row, space-between);
+
+            #info-ong-trocar {
+                @include tamanhos(inherit, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+        
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+        
+                    #info-nome-data {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+        
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+        
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                #trocar {
+                    @include tamanhos(305px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    textarea {
+                        @include tamanhos(205px, 405px);
+                        border-radius: 8px;
+                        border: 2px solid $border;
+                        resize: none;
+                        padding: 15px;
+                        font-size: 1.380rem;
+                        font-weight: map-get($densidade, medium);
+                        font-family: 'Montserrat', sans-serif;
+                        color: $text;
+                    }
+
+                }
+
+            }
+
+            #imagens-opcoes {
+                @include tamanhos(inherit, 618px);
+                @include displayFlex(row, center, center);
+
+                #conteudo-imagens {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column);
+                    border-radius: 20px;
+                    background-color: $background;
+
+                    #opcoes {
+                        @include tamanhos(65px, 526px);
+                        @include displayFlex(row, space-between);
+                        padding-top: 24px;
+                        padding-left: 24px;
+
+                        #editar-imagens {
+                            @include tamanhos(50px, 143px);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+                            @include textoEstilo(grau9, semiBold, $text, capitalize);
+                            padding: 0 30px 0 17px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+
+                        #adicionar-imagem {
+                            @include tamanhos(50px, 329px);
+                            @include displayFlex(row, $align: center, $gap: 14.25px);
+                            @include textoEstilo(grau9, semiBold, $text);
+                            padding: 0 11px 0 10px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+                    }
+
+                    #araste-imagens {
+                        @include tamanhos(calc(431px - 65px), inherit);
+                        @include displayFlex(row, center, center);
+                        cursor: pointer;
+
+                        #texto-dentro {
+                            @include tamanhos(88px, 320px);
+                            @include displayFlex(column, space-between, center);
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+
+                            h2 {
+                                font-size: 1.380rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                            }
+
+                            span {
+                                font-size: 1.200rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        button {
+            @include tamanhos(75px, 250px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau7, semiBold, $text, capitalize);
+            background-color: $deepSaffron;
+            border-radius: 6px;
+            cursor: pointer;
+            align-self: flex-end;
+            transition: .1s;
+
+            &:hover {
+                transition: .1s;
+                opacity: 0.8;
+            }
+        }
+
+    }
+}
+.modal-post.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+// MODAL EVENTO
+.modal-evento {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-evento {
+        @include tamanhos(727px, 1200px);
+        @include displayFlex(column, space-between);
+        padding: 32px 37px 30px 37px;
+        background-color: white;
+        border-radius: 20px;
+
+        #parte-superior-evento {
+            @include tamanhos(562px, 1096px);
+            @include displayFlex(row, space-between);
+
+            #info-ong-trocar-evento {
+                @include tamanhos(inherit, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong-evento {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+        
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+        
+                    #info-nome-data-evento {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+        
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+        
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                .trocar {
+                    @include tamanhos(436px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    #titulo-evento {
+                        @include tamanhos(64px, inherit);
+                        font-size: 22px;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        padding: 0 22px 0 16px;
+                        border-radius: 20px;
+                        border: 2px solid $border;
+
+                        &::placeholder {
+                            font-size: 22px;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+
+                    textarea {
+                        @include tamanhos(205px, 405px);
+                        border-radius: 8px;
+                        border: 2px solid $border;
+                        resize: none;
+                        padding: 15px;
+                        font-size: 1.380rem;
+                        font-weight: map-get($densidade, medium);
+                        font-family: 'Montserrat', sans-serif;
+                        color: $text;
+                    }
+
+                }
+
+            }
+
+            #complemento-evento {
+                @include tamanhos(inherit, 618px);
+                @include displayFlex(column, space-between);
+
+                #conteudo-img-eventos {
+                    @include tamanhos(294px, inherit);
+                    @include displayFlex(column);
+                    border-radius: 20px;
+                    background-color: $background;
+
+                    #opcoes-eventos {
+                        @include tamanhos(65px, 526px);
+                        @include displayFlex(row, space-between);
+                        padding-top: 24px;
+                        padding-left: 24px;
+
+                        #editar-imagens-eventos {
+                            @include tamanhos(50px, 143px);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+                            @include textoEstilo(grau10, semiBold, $text, capitalize);
+                            padding: 0 30px 0 17px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+
+                        #adicionar-imagem-eventos {
+                            @include tamanhos(50px, 329px);
+                            @include displayFlex(row, $align: center, $gap: 14.25px);
+                            @include textoEstilo(grau10, semiBold, $text);
+                            padding: 0 11px 0 10px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+                    }
+
+                    #araste-imagens-eventos {
+                        @include tamanhos(calc(294px - 65px), inherit);
+                        @include displayFlex(row, center, center);
+                        cursor: pointer;
+
+                        #texto-dentro-eventos {
+                            @include tamanhos(88px, 320px);
+                            @include displayFlex(column, space-between, center);
+
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+
+                            h2 {
+                                font-size: 1.380rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                            }
+
+                            span {
+                                font-size: 1.200rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+                        }
+                    }
+                }
+
+                #complemento-inputs {
+                    @include tamanhos(244px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    #superior-inputs {
+                        @include tamanhos(104px, inherit);
+                        @include displayFlex(row, space-between);
+
+                        .style-input {
+                            @include tamanhos(inherit, 267px);
+                            @include displayFlex(column, space-between);
+
+                            label {
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                            }
+
+                            input {
+                                @include tamanhos(64px, 257px);
+                                border: 2px solid $border;
+                                border-radius: 20px;
+                                align-self: flex-end;
+                                padding: 19px 20px 19px 16px;
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                                font-family: 'Montserrat', sans-serif;
+                                cursor: pointer;
+
+                                &::placeholder {
+                                    font-size: 1.450rem;
+                                    font-weight: map-get($densidade, medium);
+                                    color: $text;
+                                }
+                            }
+
+                        }
+                    }
+
+                    #adiconar-mais {
+                        @include tamanhos(94px, inherit);
+                        @include displayFlex(row, space-between, flex-end);
+
+                        .style-input {
+                            @include tamanhos(inherit, 267px);
+                            @include displayFlex(column, space-between);
+
+                            label {
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text; 
+                            }
+
+                            select {
+                                @include tamanhos(55px, 257px);
+                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                border: 2px solid $border;
+                                border-radius: 20px;
+                                padding: 0px 15px;
+                                align-self: flex-end;
+                                appearance: none;
+                                -moz-appearance: none;
+                                background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+        
+                                option {
+                                    @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                }
+                            }
+                        }
+
+                        #modal-add-endereco {
+                            @include tamanhos(55px, 315px);
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, semiBold);
+                            color: $text;
+                            background: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            transition: .1s;
+                            font-family: 'Montserrat', sans-serif;
+                            padding: 13px;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    button {
+        @include tamanhos(75px, 250px);
+        @include displayFlex(row, center, center);
+        @include textoEstilo(grau7, semiBold, $text, capitalize);
+        background-color: $deepSaffron;
+        border-radius: 6px;
+        cursor: pointer;
+        align-self: flex-end;
+        transition: .1s;
+        font-family: 'Montserrat', sans-serif;
+
+        &:hover {
+            transition: .1s;
+            opacity: 0.8;
+        }
+    }
+}
+.modal-post.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+// MODAL ENDEREÇO
+.modal-endereco {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 1;
+    z-index: 1;
+
+    .modal-conteudo-endereco {
+        @include tamanhos(678px, 863px);
+        @include displayFlex(column, space-between);
+        border-radius: 20px;
+        padding: 39px;
+        background-color: $background;
+
+        #todas-inputs {
+            @include tamanhos(502px, 777px);
+            @include displayFlex(column, space-between);
+
+            .conteudo-inputs {
+                @include tamanhos(104px, inherit);
+                @include displayFlex(row, space-between);
+
+                .style-input {
+                    @include tamanhos(inherit, 361px);
+                    @include displayFlex(column, space-between);
+
+                    label {
+                        font-size: 1.480rem;
+                        font-weight: map-get($densidade, regular);
+                        color: $text;
+                    }
+
+                    input {
+                        @include tamanhos(65px, 351px);
+                        border: 2px solid $border;
+                        border-radius: 6px;
+                        align-self: flex-end;
+                        padding: 19px 20px 19px 16px;
+                        font-size: 1.450rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        font-family: 'Montserrat', sans-serif;
+
+                        &::placeholder {
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+                }
+            }
+
+            #complemento-input {
+                @include tamanhos(105px, inherit);
+
+                .style-input {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, space-between);
+
+                    label {
+                        font-size: 1.480rem;
+                        font-weight: map-get($densidade, regular);
+                        color: $text;
+                    }
+
+                    input {
+                        @include tamanhos(65px, 767px);
+                        border: 2px solid $border;
+                        border-radius: 6px;
+                        align-self: flex-end;
+                        padding: 19px 20px 19px 16px;
+                        font-size: 1.450rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        font-family: 'Montserrat', sans-serif;
+
+                        &::placeholder {
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+                }
+            }
+        }
+
+        #op-btn {
+            @include tamanhos(75px, 540px);
+            @include displayFlex(row, space-between);
+            background-color: red;
+        }
+    }
+}
+
+body {
+    min-height: 100vh;
+    @include displayFlex(column);
+    font-family: 'Montserrat', sans-serif;
+    background-color: $background;
+}
+
+.conteudo {
+    @include tamanhos(inherit, 1440px);
+}
+
+main {
+    width: 100%;
+    flex-grow: 1;
+    @include displayFlex($justify: center);
+    margin-bottom: 25px;
+    padding: 15px;
+
+    #itens-main {
+        @extend .conteudo;
+        @include displayFlex(row, space-between, $wrap: wrap);
+        margin-top: 45px;
+
+        #direita {
+            min-height: 500px;
+            @include tamanhos(auto, 279px);
+            @include displayFlex(column);
+
+            #mini-perfil {
+                @include tamanhos(112px, inherit);
+                @include displayFlex($align: center);
+                background: #FFFFFF;
+                filter: $shadowMain;
+                border-radius: 20px;
+                cursor: pointer;
+                
+                img {
+                    @include tamanhos(75px, 75px);
+                    border-radius: 50%;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                }
+
+                h3 {
+                    @include textoEstilo(grau9, semiBold, $text, capitalize);
+                }
+            }
+
+            #menu {
+                @include tamanhos(485px, 279px);
+                background: #FFFFFF;
+                filter: $shadowMain;
+                border-radius: 20px;
+                margin-top: 45px;
+
+                ul {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, space-around);
+                    padding: 15px 0 15px;
+
+                    li {
+                        @include tamanhos(65px, inherit);
+                        @include displayFlex(row-reverce, $align: center, $gap: 18px);
+
+                        &:hover {
+                            background-color: $background;
+                        }
+
+                        img {
+                            @include tamanhos(35px, 35px);
+                            margin-left: 26px;
+                        }
+
+                        a {
+                            @include textoEstilo(grau8, regular, $placeholder, capitalize, -0.02px);
+                        }
+
+                    }
+                }
+            }
+
+            #convite-quantidade {
+                @include tamanhos(50px, 210px);
+                @include displayFlex(row, space-between, center);
+                align-self: center;
+                margin-top: 28px;
+                margin-bottom: 25px;
+
+                h2 {
+                    font-size: 1.400rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $placeholder;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    @include tamanhos(35px, 35px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau9, medium, $background);
+                    border-radius: 50%;
+                    background-color: $tartOrange;
+                }
+            }
+
+            #vagas-indicadas {
+                min-height: 500px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 30px);
+
+                .vaga {
+                    @include tamanhos(424px, inherit);
+                    @include displayFlex(column, $align: center, $gap: 30px);
+                    padding: 25px;
+                    border-radius: 20px;
+                    background-color: #fff;
+                    filter: $shadowMain;
+
+                    .info-fundo-vaga {
+                        @include tamanhos(279px, 237px);
+
+                        .vaga-fundo {
+                            @include tamanhos(inherit, inherit);
+                            position: relative;
+                            border-radius: 20px;
+                        }
+
+                        .perfil-postagem {
+                            @include tamanhos(45px, 45px);
+                            border-radius: 6px;
+                            outline: 3px solid $background;
+                            position: absolute;
+                            top: 43px;
+                            left: 38px;
+                        }
+
+                        h3 {
+                            @include textoEstilo(grau9, extraBold, $case: capitalize);
+                            color: white;
+                            position: absolute;
+                            top: 135px;
+                            left: 35px;  
+                        }
+                    }
+
+                    button {
+                        @include tamanhos(50px, 237px);
+                        @include displayFlex(row, center, center);
+                        @include textoEstilo(grau9, semiBold, $text, capitalize);
+                        background-color: $deepSaffron;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition: .1s;
+
+                        &:hover {
+                            transition: .1s;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+
+                img {
+                    @include tamanhos(35px, 35px);
+                    align-self: center;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        #conteudo-feed {
+            min-height: 750px;
+            height: auto;
+            width: 775px;
+            @include displayFlex(column, space-between, center, $gap: 45px);
+
+            #previa-eventos {
+                @include tamanhos(275px, inherit);
+                @include displayFlex(row, space-between, $wrap: wrap);
+
+                .evento {
+                    @include tamanhos(inherit, 175px);
+                    border-radius: 20px;
+                    position: relative;
+
+                    .fundo-evento {
+                        @include tamanhos(inherit, inherit);
+                        border-radius: 20px;
+                        position: absolute;
+                    }
+
+                    .perfil-postagem {
+                        @include tamanhos(45px, 45px);
+                        border-radius: 6px;
+                        outline: 3px solid $background;
+                        position: absolute;
+                        top: 18px;
+                        left: 18px;
+                    }
+
+                    h3 {
+                        @include textoEstilo(grau9, extraBold, $case: capitalize);
+                        color: white;
+                        position: absolute;
+                        bottom: 18px;
+                        left: 10px;
+                    }
+                }
+            }
+
+            #criar-postagem {
+                @include tamanhos(90px, inherit);
+                @include displayFlex(rows, space-between, center);
+                background-color: #fff;
+                filter: $shadowMain;
+                border-radius: 20px;
+                padding: 15px;
+
+                #esquerda {
+                    @include tamanhos(68px, 498px);
+                    @include displayFlex(row, space-between, center);
+
+                    img {
+                        @include tamanhos(inherit, 72px);
+                        border-radius: 8px;
+                    }
+
+                    h2 {
+                        font-size: 1.490rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $placeholder;
+                    }
+
+                    span {
+                        font-family: 'Montserrat Alternates', sans-serif;
+                    }
+                }
+
+                button {
+                    @include tamanhos(50px, 210px);
+                    @include displayFlex(row, space-around, center);
+                    @include textoEstilo(grau9, semiBold, $text, none);
+                    background-color: $deepSaffron;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    padding-right: 7px;
+                    transition: .1s;
+
+                    &:hover {
+                        transition: .1s;
+                        opacity: 0.8;
+                    }
+
+                    img {
+                        @include tamanhos(24px, 24px);
+                        margin-left: 8px;
+                    }
+                }
+            }
+
+            .post {
+                min-height: 789px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, space-between, $gap: 25px);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 18px;
+
+                .parte-superior {
+                    @include tamanhos(80px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .info-ong {
+                        @include tamanhos(80px, 290px);
+                        @include displayFlex(row, space-between, center);
+
+                        img {
+                            @include tamanhos(inherit, 80px);
+                            border-radius: 50%;
+                        }
+
+                        .info-nome-data {
+                            @include tamanhos(55px, 200px);
+                            @include displayFlex(column, $gap: 3px);
+
+                            h2 {
+                                @include textoEstilo(grau8, bold, $text);
+                            }
+
+                            span {
+                                @include textoEstilo(grau11, semiBold, $placeholder);
+                            }
+                        }
+                    }
+
+                    img {
+                        @include tamanhos(21px, 31px);
+                        cursor: pointer;
+                    }
+                }
+
+                .imagens-postadas {
+                    @include tamanhos(314px, 736px);
+                    @include displayFlex(row, space-between);
+
+                    img {
+                        @include tamanhos(inherit, 435px);
+                        border-radius: 6px;
+                    }
+
+                    .imagens-complementos {
+                        @include tamanhos(inherit, 285px);
+                        @include displayFlex(column, space-between);
+
+                        .cima {
+                            @include tamanhos(125px, inherit);
+                            border-radius: 6px;
+                        }
+
+                        .baixo {
+                            @include tamanhos(176px, inherit);
+                            border-radius: 6px;  
+                        }
+                    }
+                }
+
+                p {
+                    font-size: 1.125rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $text;
+                }
+
+                .interacoes {
+                    @include tamanhos(25px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .icone-funcao {
+                        min-width: 50px;
+                        @include tamanhos(inherit, auto);
+                        @include displayFlex(row, $align: center, $gap: 7px);
+                        cursor: pointer;
+
+                        .curtir {
+                            @include tamanhos(25px, 28px);
+                        }
+
+                        .comentar {
+                            @include tamanhos(25px, 25px);
+                        }
+
+                        .compartilhar {
+                            @include tamanhos(25px, 25px);
+                        }
+
+                        span {
+                            @include textoEstilo(grau10, semiBold, $text, capitalize);
+                        }
+                    }
+                }
+
+                .comentarios {
+                    min-height: 180px;
+                    @include tamanhos(auto, 736px);
+                    @include displayFlex(column, $gap: 20px);
+                    margin-top: 12px;
+
+                    .corpo-comentario {
+                        min-height: 148px;
+                        min-width: 575px;
+                        @include tamanhos(auto, auto);
+                        @include displayFlex(row, space-between);
+
+                        .lateral-imagem {
+                            @include tamanhos(inherit, 74px);
+                            @include displayFlex();
+
+                            img {
+                                @include tamanhos(75px, 75px);
+                                border-radius: 50%;
+                            }
+                        }
+
+                        .vertical-info {
+                            min-height: 150px;
+                            @include tamanhos(auto, 482px);
+                            @include displayFlex(column, $gap: 5px);
+
+                            .comentario {
+                                @include tamanhos(inherit, inherit);
+                                @include displayFlex(column, $gap: 8px);
+                                background-color: $deepSaffron;
+                                padding: 12px;
+                                border-radius: 6px;
+
+                                h3 {
+                                    @include textoEstilo(grau9, bold, $text);
+                                }
+    
+                                p {
+                                    @include textoEstilo(grau10, medium, $text);
+                                } 
+                                
+                                span {
+                                    font-size: 1.1rem;
+                                    font-weight: map-get($densidade, bold);
+                                    color: $text;
+                                    text-decoration: underline;
+                                    cursor: pointer;
+                                }
+                            }
+
+                            .acoes-comentario {
+                                min-width: 209px;
+                                @include tamanhos(30px, auto);
+                                @include displayFlex(row, $align: center, $gap: 15px);
+
+                                span {
+                                    font-size: 1.1rem;
+                                    font-weight: map-get($densidade, medium);
+                                    color: $text;
+                                }
+
+                                .curtir-comentario {
+                                    min-width: 168px;
+                                    @include tamanhos(inherit, auto);
+                                    @include displayFlex(row, $align: center, $gap: 6px);
+                                    cursor: pointer;
+
+                                    img {
+                                        @include tamanhos(20px, 25px);
+                                    }
+
+                                    span {
+                                        @include textoEstilo(grau10, semiBold, $text, capitalize);
+                                        margin-top: 2px;
+                                    } 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .evento-feed {
+                min-height: 789px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, space-between, $gap: 25px);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 18px;
+
+                .parte-superior {
+                    @include tamanhos(80px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .info-ong {
+                        @include tamanhos(80px, 290px);
+                        @include displayFlex(row, space-between, center);
+
+                        img {
+                            @include tamanhos(inherit, 80px);
+                            border-radius: 50%;
+                        }
+
+                        .info-nome-data {
+                            @include tamanhos(55px, 200px);
+                            @include displayFlex(column, $gap: 3px);
+
+                            h2 {
+                                @include textoEstilo(grau8, bold, $text);
+                            }
+
+                            span {
+                                @include textoEstilo(grau11, semiBold, $placeholder);
+                            }
+                        }
+                    }
+
+                    img {
+                        @include tamanhos(21px, 31px);
+                        cursor: pointer;
+                    }
+                }
+
+                .info-evento {
+                    min-height: 632px;
+                    @include tamanhos(auto, 736px);
+                    @include displayFlex(column, space-between, $gap: 25px);
+
+                    .info-superior {
+                        min-height: 131px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, space-between, $gap: 25px);
+
+                        h2 {
+                            @include textoEstilo(grau7, semiBold, $text);
+                        }
+
+                        p {
+                            @include textoEstilo(grau10, medium, $text);
+                        }
+                    }
+
+                    .imagens-postadas {
+                        @include tamanhos(314px, 736px);
+                        @include displayFlex(row, space-between);
+    
+                        img {
+                            @include tamanhos(inherit, 435px);
+                            border-radius: 6px;
+                        }
+    
+                        .imagens-complementos {
+                            @include tamanhos(inherit, 285px);
+                            @include displayFlex(column, space-between);
+    
+                            .cima {
+                                @include tamanhos(125px, inherit);
+                                border-radius: 6px;
+                            }
+    
+                            .baixo {
+                                @include tamanhos(176px, inherit);
+                                border-radius: 6px;  
+                            }
+                        }
+                    }
+
+                    .info-complementares {
+                        @include tamanhos(201px, 736px);
+                        @include displayFlex(column);
+
+                        .complementares-superior {
+                            @include tamanhos(159px, inherit);
+                            @include displayFlex(row, space-between);
+
+                            .info-esquerda {
+                                @include tamanhos(inherit, 530px);
+                                @include displayFlex(column, space-between);
+
+                                .item {
+                                    @include displayFlex($gap: 7px);
+
+                                    h3 {
+                                        font-size: 1.450rem;
+                                        font-weight: map-get($densidade, semiBold);
+                                        color: $text;
+                                    }
+
+                                    .item-info {
+                                        font-size: 1.450rem;
+                                        font-weight: map-get($densidade, regular);
+                                        color: $text;
+                                    }
+
+                                    .item-stts {
+                                        @include tamanhos(35px, 89px);
+                                        @include displayFlex(row, center, center);
+                                        font-size: 0.85rem;
+                                        font-weight: map-get($densidade, bold);
+                                        background-color: $verde;
+                                        border-radius: 6px;
+                                    }
+                                }
+                            }
+
+                            .botoes-direita {
+                                @include tamanhos(103px, 160px);
+                                @include displayFlex(column, space-between);
+
+                                .botao {
+                                    @include tamanhos(40px, 160px);
+                                    @include displayFlex(row, center, center);
+                                    font-size: 1.200rem;
+                                    font-weight: map-get($densidade, medium);
+                                    color: $text;
+                                    background-color: $border;
+                                    border-radius: 6px;
+                                    border: none;
+                                    cursor: pointer;
+                                    transition: .1s;
+
+                                    &:hover {
+                                        transition: .1s;
+                                        opacity: 0.8;
+                                    }
+                                }
+                            }
+                        }
+
+                        .complementares-inferior {
+                            @include tamanhos(42px, inherit);
+                            @include displayFlex(row, flex-end, center);
+
+                            span {
+                                font-size: 1.200rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text; 
+                            }
+
+                            i {
+                                font-weight: map-get($densidade, regular);
+                                font-style: normal;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .vaga {
+                min-height: 475px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 55px);
+                background-color: #fff;
+                border-radius: 20px;
+                filter: $shadowMain;
+                padding: 25px;
+
+                .parte-superior {
+                    @include tamanhos(80px, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    .info-ong {
+                        @include tamanhos(80px, 290px);
+                        @include displayFlex(row, space-between, center);
+
+                        img {
+                            @include tamanhos(inherit, 80px);
+                            border-radius: 50%;
+                        }
+
+                        .info-nome-data {
+                            @include tamanhos(55px, 200px);
+                            @include displayFlex(column, $gap: 3px);
+
+                            h2 {
+                                @include textoEstilo(grau8, bold, $text);
+                            }
+
+                            span {
+                                @include textoEstilo(grau11, semiBold, $placeholder);
+                            }
+                        }
+                    }
+
+                    img {
+                        @include tamanhos(21px, 31px);
+                        cursor: pointer;
+                    }
+                }
+
+                .corpo-vaga {
+                    @include tamanhos(281px, 736px);
+                    @include displayFlex(column, space-between);
+
+                    h2 {
+                        @include textoEstilo(grau8, semiBold, $text);
+                    }
+
+                    p {
+                        @include textoEstilo(grau9, medium, $text);
+                    }
+
+                    .vaga-botoes {
+                        @include tamanhos(60px, 350px);
+                        @include displayFlex(row, space-between);
+                        align-self: center;
+
+                        button {
+                            @include tamanhos(inherit, 150px);
+                            @include displayFlex(row, center, center);
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            text-transform: capitalize;
+                            background-color: $deepSaffron;
+                            border-radius: 6px;
+                            border: none;
+                            transition: .1s;
+                            cursor: pointer;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+
+            h4 {
+                @include textoEstilo(grau9, bold, $tartOrange, uppercase);
+                text-decoration: underline;
+                cursor: pointer;
+                align-self: flex-end;
+                margin-right: 25px;
+            }
+        }
+
+        #esquerda-seguidores {
+            min-height: 500px;
+            @include tamanhos(auto, 261px);
+            @include displayFlex(column, $gap: 25px);
+
+            #info-seguidores {
+                @include tamanhos(30px, 223px); 
+                @include displayFlex($justify: space-around, $align: center);
+
+                h3 {
+                    font-size: 1.450rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $placeholder;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    @include tamanhos(28px, 52px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau10, semiBold, $text);
+                    background-color: $deepSaffron;
+                    padding-right: 3px;
+                    border-radius: 25px;
+                }
+            }
+
+            #seguindo {
+                @include tamanhos(auto, 261px);
+                @include displayFlex(column, $gap: 20px);
+                padding: 23px 0 10px 10px;
+                border-radius: 20px;
+                background-color: #fff;
+
+                .info-seguindo {
+                    min-height: 50px;
+                    @include tamanhos(60px, auto);
+                    @include displayFlex(row, $align: center, $gap: 15px);
+
+                    img {
+                        @include tamanhos(inherit, 60px);
+                    }
+
+                    .identificador {
+                        @include tamanhos(50px, auto);
+                        @include displayFlex(column, space-between);
+
+                        h3 {
+                            @include textoEstilo(grau9, semiBold, $text);
+                        }
+
+                        span {
+                            @include textoEstilo(grau10, medium, $placeholder); 
+                        }
+                    }
+                }
+
+                img {
+                    @include tamanhos(35px, 35px);
+                    align-self: center;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

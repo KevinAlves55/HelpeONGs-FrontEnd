@@ -17,7 +17,7 @@ header {
                 margin-top: 7px;
             }
         }
-
+        
         #lupa-atalhos {
             @include tamanhos(inherit, 730px);
             @include displayFlex(row, space-between, center);
