@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="js/feed-js/index.js" defer type="module"></script>
 </head>
 
 <body>
@@ -157,7 +158,7 @@
                 <div class="conteudo-inputs">
                     <div class="style-input">
                         <label>Cep</label>
-                        <input type="text" id="cep"></input>
+                        <input type="text" id="cep" placeholder="00000-000"></input>
                     </div>
                     <div class="style-input">
                         <label>Estado</label>
@@ -181,13 +182,13 @@
                     </div>
                     <div class="style-input">
                         <label>Número</label>
-                        <input type="text" id="numero"></input>
+                        <input type="number" id="numero" placeholder="000"></input>
                     </div>
                 </div>
                 <div id="complemento-input">
                     <div class="style-input">
                         <label>Complemento</label>
-                        <input type="text"></input>
+                        <input type="text" id="complemento" placeholder="TORRE A AP 0"></input>
                     </div>
                 </div>
             </div>

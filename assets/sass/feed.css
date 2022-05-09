@@ -1440,6 +1440,184 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   gap: 0;
 }
 
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs {
+  height: 104px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs .style-input {
+  height: inherit;
+  width: 361px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs .style-input label {
+  font-size: 1.480rem;
+  font-weight: 400;
+  color: #292929;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs .style-input input {
+  height: 65px;
+  width: 351px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 19px 20px 19px 16px;
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs .style-input input::-webkit-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs .style-input input:-ms-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs .style-input input::-ms-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs .conteudo-inputs .style-input input::placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input {
+  height: 105px;
+  width: inherit;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input .style-input {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input .style-input label {
+  font-size: 1.480rem;
+  font-weight: 400;
+  color: #292929;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input .style-input input {
+  height: 65px;
+  width: 767px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 19px 20px 19px 16px;
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input .style-input input::-webkit-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input .style-input input:-ms-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input .style-input input::-ms-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs #complemento-input .style-input input::placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #8C8C8C;
+}
+
+.modal-endereco .modal-conteudo-endereco #op-btn {
+  height: 75px;
+  width: 540px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  background-color: red;
+}
+
 body {
   min-height: 100vh;
   display: -webkit-box;

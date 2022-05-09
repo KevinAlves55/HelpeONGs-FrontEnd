@@ -501,6 +501,79 @@
         #todas-inputs {
             @include tamanhos(502px, 777px);
             @include displayFlex(column, space-between);
+
+            .conteudo-inputs {
+                @include tamanhos(104px, inherit);
+                @include displayFlex(row, space-between);
+
+                .style-input {
+                    @include tamanhos(inherit, 361px);
+                    @include displayFlex(column, space-between);
+
+                    label {
+                        font-size: 1.480rem;
+                        font-weight: map-get($densidade, regular);
+                        color: $text;
+                    }
+
+                    input {
+                        @include tamanhos(65px, 351px);
+                        border: 2px solid $border;
+                        border-radius: 6px;
+                        align-self: flex-end;
+                        padding: 19px 20px 19px 16px;
+                        font-size: 1.450rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        font-family: 'Montserrat', sans-serif;
+
+                        &::placeholder {
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+                }
+            }
+
+            #complemento-input {
+                @include tamanhos(105px, inherit);
+
+                .style-input {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, space-between);
+
+                    label {
+                        font-size: 1.480rem;
+                        font-weight: map-get($densidade, regular);
+                        color: $text;
+                    }
+
+                    input {
+                        @include tamanhos(65px, 767px);
+                        border: 2px solid $border;
+                        border-radius: 6px;
+                        align-self: flex-end;
+                        padding: 19px 20px 19px 16px;
+                        font-size: 1.450rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        font-family: 'Montserrat', sans-serif;
+
+                        &::placeholder {
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+                }
+            }
+        }
+
+        #op-btn {
+            @include tamanhos(75px, 540px);
+            @include displayFlex(row, space-between);
+            background-color: red;
         }
     }
 }
