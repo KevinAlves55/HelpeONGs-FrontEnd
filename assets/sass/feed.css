@@ -213,6 +213,22 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 .modal-post {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -240,7 +256,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin: 5vh auto;
   padding: 32px 37px 30px 37px;
   background-color: white;
   border-radius: 20px;
@@ -657,12 +672,28 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 .modal-evento {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   position: fixed;
   top: 0;
   left: 0;
   background: #00000090;
-  opacity: 1;
-  z-index: 1;
+  opacity: 0;
+  z-index: -1;
 }
 
 .modal-evento .modal-conteudo-evento {
@@ -684,7 +715,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin: 5vh auto;
   padding: 32px 37px 30px 37px;
   background-color: white;
   border-radius: 20px;
@@ -911,7 +941,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: red;
 }
 
 .modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos {
@@ -979,7 +1008,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 12px;
-  font-size: 1.313rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
@@ -1014,7 +1043,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 14.25px;
-  font-size: 1.313rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #292929;
   text-transform: none;
@@ -1109,12 +1138,306 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: green;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs {
+  height: 104px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs .style-input {
+  height: inherit;
+  width: 267px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs .style-input label {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs .style-input input {
+  height: 64px;
+  width: 257px;
+  border: 2px solid #CCCCCC;
+  border-radius: 20px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 19px 20px 19px 16px;
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs .style-input input::-webkit-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs .style-input input:-ms-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs .style-input input::-ms-input-placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #superior-inputs .style-input input::placeholder {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais {
+  height: 94px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais .style-input {
+  height: inherit;
+  width: 267px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais .style-input label {
+  font-size: 1.450rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais .style-input select {
+  height: 55px;
+  width: 257px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 20px;
+  padding: 0px 15px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/Icon-select.png") 95.5% 50% no-repeat;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais .style-input select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais #modal-add-endereco {
+  height: 55px;
+  width: 315px;
+  font-size: 1.450rem;
+  font-weight: 600;
+  color: #292929;
+  background: #E4E6EB;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-transition: .1s;
+  transition: .1s;
+  font-family: 'Montserrat', sans-serif;
+  padding: 13px;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais #modal-add-endereco:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+.modal-evento button {
+  height: 75px;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-transition: .1s;
+  transition: .1s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-evento button:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
 }
 
 .modal-post.active {
   opacity: 1;
   z-index: 1;
+}
+
+.modal-endereco {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 1;
+  z-index: 1;
+}
+
+.modal-endereco .modal-conteudo-endereco {
+  height: 678px;
+  width: 863px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 20px;
+  padding: 39px;
+  background-color: #F8F9FA;
+}
+
+.modal-endereco .modal-conteudo-endereco #todas-inputs {
+  height: 502px;
+  width: 777px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
 body {

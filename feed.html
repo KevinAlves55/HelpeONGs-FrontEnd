@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <!-- MODAL POSTAGEM POST -->
+    <!-- MODAL POSTAGEM EVENTO -->
     <div class="modal-evento" id="postagem-evento">
         <div class="modal-conteudo-evento">
             <div id="parte-superior-evento">
@@ -91,7 +91,7 @@
 
                         <input type="text" placeholder="Escreva um título para seu evento" id="titulo-evento">
 
-                        <textarea id="text-evento" placeholder="Faça uma descrição de seu post"></textarea>
+                        <textarea id="text-evento" placeholder="Faça uma descrição do evento"></textarea>
                     </div>
                 </div>
 
@@ -122,17 +122,20 @@
                         <div id="superior-inputs">
                             <div class="style-input">
                                 <label>Data do Evento</label>
-                                <input type="date">
+                                <input placeholder="00-00-0000" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
                             </div>
                             <div class="style-input">
                                 <label>Hora do Evento</label>
-                                <input type="time">
+                                <input placeholder="00-00" type="text" onfocus="(this.type='time')" onblur="(this.type='text')">
                             </div>
                         </div>
                         <div id="adiconar-mais">
                             <div class="style-input">
-                                <label>Data do Evento</label>
-                                <input type="date">
+                                <label>Terá Candidato?</label>
+                                <select id="candidato">
+                                    <option value="1">Sim</option>
+                                    <option value="0">Não</option>
+                                </select>
                             </div>
 
                             <button id="modal-add-endereco">
@@ -144,6 +147,55 @@
             </div>
 
             <button type="button">Publicar</button>
+        </div>
+    </div>
+
+    <!-- MODAL POSTAGEM ENDEREÇO -->
+    <div class="modal-endereco" id="postagem-endereco">
+        <div class="modal-conteudo-endereco">
+            <div id="todas-inputs">
+                <div class="conteudo-inputs">
+                    <div class="style-input">
+                        <label>Cep</label>
+                        <input type="text" id="cep"></input>
+                    </div>
+                    <div class="style-input">
+                        <label>Estado</label>
+                        <input type="text" id="estado"></input>
+                    </div>
+                </div>
+                <div class="conteudo-inputs">
+                    <div class="style-input">
+                        <label>Cidade</label>
+                        <input type="text" id="cidade"></input>
+                    </div>
+                    <div class="style-input">
+                        <label>Rua</label>
+                        <input type="text" id="rua"></input>
+                    </div>
+                </div>
+                <div class="conteudo-inputs">
+                    <div class="style-input">
+                        <label>Bairro</label>
+                        <input type="text" id="bairro"></input>
+                    </div>
+                    <div class="style-input">
+                        <label>Número</label>
+                        <input type="text" id="numero"></input>
+                    </div>
+                </div>
+                <div id="complemento-input">
+                    <div class="style-input">
+                        <label>Complemento</label>
+                        <input type="text"></input>
+                    </div>
+                </div>
+            </div>
+
+            <div id="op-btn">
+                <button id="btnCancelar" type="button">Cancelar</button>
+                <button id="btnSalvar" type="button">Salvar</button>
+            </div>
         </div>
     </div>
 
