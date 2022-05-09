@@ -129,11 +129,11 @@ header #itens-header #lupa-atalhos #lupa-pesquisa {
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa img {
-  height: 32px;
-  width: 33px;
+  height: 35px;
+  width: 35px;
   position: absolute;
-  left: 14px;
-  bottom: 43px;
+  left: 12px;
+  bottom: 41px;
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa input {
@@ -146,7 +146,7 @@ header #itens-header #lupa-atalhos #lupa-pesquisa input {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-  border: 3px solid #CCCCCC;
+  border: 2px solid #CCCCCC;
 }
 
 header #itens-header #lupa-atalhos #lupa-pesquisa input ::-webkit-input-placeholder {
@@ -198,16 +198,88 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
 }
 
-header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto {
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto-header {
   height: inherit;
   width: 90px;
+  border-radius: 50%;
 }
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   height: 24px;
   width: 24px;
+  cursor: pointer;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes {
+  min-height: 130px;
+  height: auto;
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 10px;
+  background-color: #8C8C8C;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  z-index: -3;
+  opacity: 0;
+  padding: 8px 0 8px;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes span {
+  height: 35px;
+  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+  padding-left: 12px;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes span:hover {
+  background-color: #CCCCCC;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active {
+  z-index: 3;
+  opacity: 1;
 }
 
 .modal-post {
@@ -1391,8 +1463,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   top: 0;
   left: 0;
   background: #00000090;
-  opacity: 1;
-  z-index: 1;
+  opacity: 0;
+  z-index: -1;
 }
 
 .modal-endereco .modal-conteudo-endereco {
@@ -1598,6 +1670,27 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
 
 .modal-endereco .modal-conteudo-endereco #op-btn {
   height: 75px;
+  width: 778px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-endereco .modal-conteudo-endereco #op-btn #conteudo-btn {
+  height: inherit;
   width: 540px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1615,7 +1708,26 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: red;
+}
+
+.modal-endereco .modal-conteudo-endereco #op-btn #conteudo-btn button {
+  height: inherit;
+  width: 250px;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.modal-endereco .modal-conteudo-endereco #op-btn #conteudo-btn button:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
 }
 
 body {
@@ -1755,7 +1867,8 @@ main #itens-main #direita #mini-perfil h3 {
 }
 
 main #itens-main #direita #menu {
-  height: 485px;
+  min-height: 200 px;
+  height: auto;
   width: 279px;
   background: #FFFFFF;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -1774,15 +1887,16 @@ main #itens-main #direita #menu ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
-  padding: 15px 0 15px;
+  gap: 25px;
+  padding: 25px 0 25px;
 }
 
 main #itens-main #direita #menu ul li {
@@ -2172,17 +2286,16 @@ main #itens-main #conteudo-feed #criar-postagem button {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  font-size: 1.313rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #292929;
-  text-transform: none;
-  letter-spacing: none;
   background-color: #FF9F45;
   border-radius: 6px;
   cursor: pointer;
   padding-right: 7px;
   -webkit-transition: .1s;
   transition: .1s;
+  font-family: 'Montserrat', sans-serif;
 }
 
 main #itens-main #conteudo-feed #criar-postagem button:hover {

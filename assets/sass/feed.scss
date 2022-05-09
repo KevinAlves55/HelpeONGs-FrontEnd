@@ -488,8 +488,8 @@
     top: 0;
     left: 0;
     background: #00000090;
-    opacity: 1;
-    z-index: 1;
+    opacity: 0;
+    z-index: -1;
 
     .modal-conteudo-endereco {
         @include tamanhos(678px, 863px);
@@ -571,9 +571,30 @@
         }
 
         #op-btn {
-            @include tamanhos(75px, 540px);
-            @include displayFlex(row, space-between);
-            background-color: red;
+            @include tamanhos(75px, 778px);
+            @include displayFlex(row, flex-end);
+
+            #conteudo-btn {
+                @include tamanhos(inherit, 540px);
+                @include displayFlex(row, space-between);
+
+                button {
+                    @include tamanhos(inherit, 250px);
+                    background-color: $deepSaffron;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 1.8rem;
+                    font-weight: map-get($densidade, medium);
+                    text-transform: capitalize;
+                    font-family: 'Montserrat', sans-serif;
+                    transition: .1s;
+
+                    &:hover {
+                        transition: .1s;
+                        opacity: 0.8;
+                    }
+                }
+            }
         }
     }
 }
@@ -627,7 +648,8 @@ main {
             }
 
             #menu {
-                @include tamanhos(485px, 279px);
+                min-height: 200 px;
+                @include tamanhos(auto, 279px);
                 background: #FFFFFF;
                 filter: $shadowMain;
                 border-radius: 20px;
@@ -635,8 +657,8 @@ main {
 
                 ul {
                     @include tamanhos(inherit, inherit);
-                    @include displayFlex(column, space-around);
-                    padding: 15px 0 15px;
+                    @include displayFlex(column, $gap: 25px);
+                    padding: 25px 0 25px;
 
                     li {
                         @include tamanhos(65px, inherit);
@@ -817,12 +839,15 @@ main {
                 button {
                     @include tamanhos(50px, 210px);
                     @include displayFlex(row, space-around, center);
-                    @include textoEstilo(grau9, semiBold, $text, none);
+                    font-size: 1.25rem;
+                    font-weight: map-get($densidade, semiBold);
+                    color: $text;
                     background-color: $deepSaffron;
                     border-radius: 6px;
                     cursor: pointer;
                     padding-right: 7px;
                     transition: .1s;
+                    font-family: 'Montserrat', sans-serif;
 
                     &:hover {
                         transition: .1s;

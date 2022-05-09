@@ -5,7 +5,7 @@ import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openFiltro, filtrar } from "./filtro.js";
 import { openModal, closeModal } from "./modal.js"
-import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js"
+import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -14,6 +14,9 @@ let ongLogado;
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
     userLogado = validarSession("dadosUsuario");
+
+    const controlNone = () => document.getElementById("control").style.display = "none";
+    controlNone();
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
@@ -107,8 +110,6 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     const favoriteNone = () => 
     document.getElementById("favoritos").style.display = "none";
     favoriteNone();
-
-    CarregarMiniPerfil(ongLogado);
 
 } else {
 
