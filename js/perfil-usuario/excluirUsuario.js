@@ -1,7 +1,7 @@
-'use strict'
+// 'use strict'
 
-import ApiRequest from "../utils/ApiRequest.js";
+// import ApiRequest from "../utils/ApiRequest.js";
 
 
 
-const excluir = await ApiRequest("delete", `http://localhost:3131/contact/${}`, {});
+// const excluir = await ApiRequest("delete", `http://localhost:3131/contact/${}`, {});

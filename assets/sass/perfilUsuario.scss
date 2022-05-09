@@ -525,10 +525,20 @@ nav{
                 }
             }
             #quarta-fileira{
+                @include displayFlex(row, );
                 display: flex;
+                gap: 10px;
                 justify-content: flex-end;
                 padding-top: 30px;
                 button{
+                    @include tamanhos(75px, 250px);
+                    border: 1px ;
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    font-size:30px;
+                }
+
+                #atualizarEnderecos{
                     @include tamanhos(75px, 250px);
                     border: 1px ;
                     border-radius: 6px;

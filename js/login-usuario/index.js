@@ -14,18 +14,15 @@ const validarLogin = async (e) => {
 
     const validacoes = checkInputs();
 
-    let result;
+    let result = true;
     validacoes.map(status => {
         status === false ? result = false : "";
     });
 
     if (result != false) {
-
         const dom = {
-        
             email: email.value,
             senha: password.value
-        
         };
 
         const response = await ApiRequest("POST", `http://localhost:3131/user/login`, {
@@ -33,7 +30,7 @@ const validarLogin = async (e) => {
             senha: dom.senha.toString()
         });
 
-        console.log(response);
+        console.log("response");
 
         if (response.status == 404) {
             
@@ -44,10 +41,10 @@ const validarLogin = async (e) => {
             errorValidation(senha, "Senha incorreta")
         
         } else if (response.status == 200) {
-    
+            console.log("200");
             const dadosUsuario = response.usuario;
             localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
-            window.location.href = "doacoesONGs.html";
+            Redirect("doacoesONGs");
         
         }
 

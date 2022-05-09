@@ -82,35 +82,65 @@ async function dadosDetalhesEndereco() {
     }
     localStorage.setItem("detalhesEndereco", JSON.stringify(dadosDetalhesEndereco)); 
 
-    const userData = validarSession("dadosUsuario");
+    const userEndereco = validarSession("dadosUsuario");
 
-    const localStorageData = {
-        ...JSON.parse(localStorage.getItem("detalhesContatos")),
-        ...JSON.parse(localStorage.getItem("detalhesConta")),
-        user: userData
+    const localStorageEndereco = {
+        ...JSON.parse(localStorage.getItem("detalhesEndereco")),
+        user: userEndereco
     }
-    console.log(localStorageData);
+    console.log(localStorageEndereco);
 
-    const bodyUser = {
-        nome: localStorageData.nomeData,
-        email: localStorage.emailData,
-        celular: localStorage.celularData,
-    }
-
-    const bodyContato = {
-        email: localStorageData.emailData,
-        telefone: localStorageData.telefoneData,
-        numero: localStorageData.celularData,
+    const bodyEndereco = {
+        idLogin: localStorageEndereco.user.idLogin,
+        cep: localStorageEndereco.cepData,
+        bairro: localStorageEndereco.bairroData,
+        numero: localStorageEndereco.numeroData,
+        rua: localStorageEndereco.ruaData,
+        municipio: localStorageEndereco.cidadeData, 
+        estado: localStorageEndereco.estadoData,
+        complemento: localStorageEndereco.complementoData
     }
 
-    const endereco = await ApiRequest("GET", `http://localhost:3131/favorite/5/1`, dadosDetalhesEndereco);
-    const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.user.idUsuario}`, bodyContato);
-    const reqUser = await ApiRequest("PUT", `http://localhost:3131/user/${localStorageData.user.idUsuario}`, bodyUser);
+    const atualizarEndereco = {
+        cep: localStorageEndereco.cepData,
+        bairro: localStorageEndereco.bairroData,
+        numero: localStorageEndereco.numeroData,
+        rua: localStorageEndereco.ruaData,
+        municipio: localStorageEndereco.cidadeData, 
+        estado: localStorageEndereco.estadoData,
+        complemento: localStorageEndereco.complementoData
+    }
 
-    console.log(reqContato, reqUser);
+    console.log("corp", bodyEndereco);
+
+    const reqEndereco = await ApiRequest("POST", `http://localhost:3131/adress/`, bodyEndereco);
+    const reqAtualizarEndereco = await ApiRequest("PUT", `http://localhost:3131//adress/${localStorageEndereco.user.idUsuario}`, atualizarEndereco);
+    
+
+    console.log(reqEndereco, reqAtualizarEndereco);
 }
 
+
 document.getElementById("buttonEnderecos").addEventListener("click", dadosDetalhesEndereco);
+
+
+async function atualizarEndereco(){
+    const atualizarDadosDetalhesEndereco = {
+        cepData: cep.value,
+        estadoData: estado.value,
+        cidadeData: cidade.value,
+        bairroData: bairro.value,
+        ruaData: endereco.value,
+        numeroData: numero.value,
+        complementoData: complemento.value
+    }
+    localStorage.setItem("atualizarEndereco", JSON.stringify(atualizarDadosDetalhesEndereco)); 
+
+// FALTANDO ATUALIZAR ENDEREÇO
+
+}
+
+document.getElementById("atualizarEnderecos").addEventListener("click", dadosDetalhesEndereco);
 
 
 
