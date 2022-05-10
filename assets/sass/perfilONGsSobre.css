@@ -2769,6 +2769,11 @@ body {
   gap: 0;
 }
 
+#centro #container-conteudo #container-conteudo-patrocinios #editar-imagen img {
+  height: 80px;
+  width: 80px;
+}
+
 #centro #container-conteudo #container-conteudo-patrocinios h2 {
   font-size: 1.313rem;
   font-weight: 600;

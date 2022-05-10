@@ -1158,6 +1158,10 @@ body {
             #editar-imagen{
                 @include tamanhos(100px, 774px);
                 @include displayFlex(row);
+
+                img{
+                    @include tamanhos(80px, 80px);
+                }
                
             }
     

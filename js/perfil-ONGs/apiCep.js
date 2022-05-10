@@ -28,6 +28,7 @@ const pesquisarCep = async() => {
     if (cepValido(cep)){
         const dados = await fetch(url);
         const endereco = await dados.json();
+        console.log(`endereco: `, endereco);
         if (endereco.hasOwnProperty('erro')){
             document.getElementById('endereco').value = 'CEP não encontrado!';
         }else {
