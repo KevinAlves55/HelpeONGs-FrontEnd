@@ -4,13 +4,12 @@
 @import '_modalMessage';
 
 body {
-    height: 120vh;
     @include displayFlex(column);
     font-family: 'Montserrat', sans-serif;
     background-image: url('../img/Fundo.png');
     background-repeat: no-repeat;
-    background-size: 62.04vw;
-    background-position: bottom left;
+    background-size: 61.20vw;
+    background-position-y: 405px;
 }
 
 .conteudo {
@@ -93,6 +92,7 @@ body {
         @include tamanhos(inherit, 510px);
         @include displayFlex(row);
         padding-top: 15px;
+        margin-bottom: 15px;
     
         #cadastro {
             @include tamanhos (760px, inherit);

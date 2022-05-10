@@ -130,6 +130,9 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     const atalhosNone = () => document.getElementById("atalhos-perfil").style.display = "none";
     atalhosNone();
 
+    const controlNone = () => document.getElementById("control").style.display = "none";
+    controlNone();
+
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
         Redirect("cadastroUsuario");
