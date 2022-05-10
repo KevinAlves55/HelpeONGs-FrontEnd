@@ -92,12 +92,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 } else {
 
-    console.log("Ninguém está logado");
-
-    document.getElementById("sair").addEventListener("click", () => {
-        localStorage.clear();
-        Redirect("cadastroUsuario");
-    });
+    Redirect("cadastroUsuario");
 
 }
 
