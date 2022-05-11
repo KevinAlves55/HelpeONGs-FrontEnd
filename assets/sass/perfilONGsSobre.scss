@@ -991,6 +991,31 @@ body {
                         }
                     }
                 }
+
+                .botao-endereco{
+                    
+                        @include tamanhos(75px, inherit);
+                        @include displayFlex($justify: flex-end);
+                        gap: 15px;
+                    
+                        button{
+                            @include tamanhos(inherit, 230px);
+                            @include displayFlex(row, center, center);
+
+                            @include textoEstilo(grau7, semiBold, $text, capitalize);
+                            border-radius: 6px;
+                            background-color: $deepSaffron;
+                            cursor: pointer;
+                            transition: .5s;
+                    
+                            &:hover {
+                                transition: .5s;
+                                opacity: 0.8;
+                            }
+                        }
+                    
+
+                }
             }
         }
 
