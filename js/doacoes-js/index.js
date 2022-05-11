@@ -618,7 +618,7 @@ document.getElementById("ongs").addEventListener("click", Favoritar);
 document.getElementById("favoritos-ong").addEventListener("click", excluirFavorito);
 document.getElementById("recomendados-ongs").addEventListener("click", CarregarModal);
 document.getElementById("favoritos").addEventListener("click", CarregarModal);
-document.getElementById("estados-select").addEventListener("change", pesquisarEstado);
+document.getElementById("estados-select").addEventListener("change", pesquisarEstado);pesquisarEstado
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("modal").addEventListener("click", closeModal);
 document.getElementById("ongs").addEventListener("click", CarregarModal);

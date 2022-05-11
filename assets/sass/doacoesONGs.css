@@ -28,6 +28,10 @@ a {
   color: #FC595E;
 }
 
+button {
+  font-family: 'Montserrat', sans-serif;
+}
+
 header {
   height: 115px;
   width: 100%;

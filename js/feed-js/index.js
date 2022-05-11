@@ -2,6 +2,7 @@ import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
+import { openModalPostagens } from "./modalPostagens.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -96,5 +97,52 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 }
 
+function trocarTipoPostagem({target}) {
+
+    // let opcaoValor = target.options[target.selectedIndex].value;
+    // alert("teste");
+
+    // if (opcaoValor === "P") {
+    //     document.getElementById("postagem-post").classList.add("active");
+    //     document.getElementById("postagem-evento").classList.remove("active");
+    // } else if (opcaoValor === "E") {
+    //     document.getElementById("postagem-post").classList.remove("active");
+    //     document.getElementById("postagem-evento").classList.add("active");
+    // }
+
+}
+
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
+document.querySelector("main").addEventListener("click", closeSetaHeader);
+document.getElementById("criar-postagem").addEventListener("click", openModalPostagens);
+// document.querySelector(".trocar-select").addEventListener("click", trocarTipoPostagem);
+
+const selectElement = document.querySelector('.trocar-select');
+
+selectElement.addEventListener('change', (event) => {
+  const teste = event.target.value;
+  console.log(teste);
+
+  if (teste === "P") {
+      console.log("POST");
+    //   post.innerHTML = `
+
+    //   `;
+    document.getElementById("postEvent").style.opacity = "0";
+    document.getElementById("postEvent").style.zIndex = "-1";
+    document.getElementById("postModal").style.opacity = "1";
+    document.getElementById("postModal").style.zIndex = "999";
+    // document.getElementById("postEvent").classList.remove("active");
+    // document.getElementById("postModal").classList.add("active");
+} else if (teste === "E") {
+    console.log("EVENTO");
+    document.getElementById("postModal").style.opacity = "0";
+    document.getElementById("postModal").style.zIndex = "-1";
+    document.getElementById("postEvent").style.opacity = "1";
+    document.getElementById("postEvent").style.zIndex = "999";
+    // document.getElementById("postModal").classList.remove("active");
+    // document.getElementById("postEvent").classList.add("active");
+}
+  
+});

@@ -17,7 +17,7 @@
 
     <!-- MODAL POSTAGEM POST -->
     <div class="modal-post" id="postagem-post">
-        <div class="modal-conteudo-post">
+        <div class="modal-conteudo-post" id="postModal">
             <div id="parte-superior">
                 <div id="info-ong-trocar">
                     <div id="info-ong">
@@ -30,7 +30,7 @@
                     </div>
 
                     <div id="trocar">
-                        <select id="trocar-select">
+                        <select class="trocar-select">
                             <option value="P">Post</option>
                             <option value="E">Evento</option>
                             <option value="V">Vaga</option>
@@ -71,7 +71,7 @@
 
     <!-- MODAL POSTAGEM EVENTO -->
     <div class="modal-evento" id="postagem-evento">
-        <div class="modal-conteudo-evento">
+        <div class="modal-conteudo-evento" id="postEvent">
             <div id="parte-superior-evento">
                 <div id="info-ong-trocar-evento">
                     <div id="info-ong-evento">
@@ -85,9 +85,9 @@
 
                     <div class="trocar">
                         <select class="trocar-select">
-                            <option value="P">Post</option>
                             <option value="E">Evento</option>
                             <option value="V">Vaga</option>
+                            <option value="P">Post</option>
                         </select>
 
                         <input type="text" placeholder="Escreva um título para seu evento" id="titulo-evento">

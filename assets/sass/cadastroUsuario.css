@@ -28,6 +28,10 @@ a {
   color: #FC595E;
 }
 
+button {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .message {
   height: 100%;
   width: 100%;
