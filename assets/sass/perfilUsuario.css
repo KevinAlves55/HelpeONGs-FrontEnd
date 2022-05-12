@@ -308,6 +308,8 @@ body {
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #botao {
   padding-top: 20px;
+  height: auto;
+  width: 90px;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #botao button {
@@ -324,57 +326,83 @@ body {
   cursor: pointer;
 }
 
-#centro nav ul {
-  height: inherit;
-  width: auto;
+#centro #menu-opcoes-perfil {
+  height: 33px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: space-around;
-          flex-direction: space-around;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 30px 20px 15px;
-  width: 850px;
+  margin-top: 49px;
+  margin-bottom: 49px;
 }
 
-#centro nav ul li + li {
-  margin-left: 1.5em;
+#centro #menu-opcoes-perfil #menu-opcoes-principal {
+  height: inherit;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
-#centro nav ul li {
-  height: 65px;
-  width: inherit;
-  padding-top: 25px;
+#centro #menu-opcoes-perfil #menu-opcoes-principal li + li {
+  margin-left: 4.0em;
 }
 
-#centro nav ul li img {
-  height: 35px;
-  width: 35px;
-  margin-left: 26px;
+#centro #menu-opcoes-perfil #menu-opcoes-principal li {
+  height: auto;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
-#centro nav ul li span {
-  font-size: 1.313rem;
-  font-weight: 400;
+#centro #menu-opcoes-perfil #menu-opcoes-principal li span {
+  font-size: 1.250rem;
   color: #8C8C8C;
-  text-transform: -0.02px;
-  letter-spacing: none;
-  height: 26px;
-  width: 217px;
   cursor: pointer;
+  font-weight: 450;
 }
 
-#centro nav ul li span:hover {
+#centro #menu-opcoes-perfil #menu-opcoes-principal li span:hover {
   border-bottom: 4px solid #FC595E;
 }
 
@@ -1192,215 +1220,6 @@ body {
   border-radius: 6px;
 }
 
-#centro #EditarBannerFoto {
-  height: 469px;
-  width: 850px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  border: 1px solid #8C8C8C;
-  border-radius: 20px;
-  background-color: #E4E6EB;
-  padding: 30px;
-  display: none;
-}
-
-#centro #EditarBannerFoto #esquerda {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  height: 430px;
-  width: 316px;
-}
-
-#centro #EditarBannerFoto #esquerda #editarPerfil {
-  height: auto;
-  width: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: center;
-          flex-direction: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#centro #EditarBannerFoto #esquerda #editarPerfil img {
-  height: 120px;
-  width: 120px;
-}
-
-#centro #EditarBannerFoto #esquerda #tituloFotoPerfil {
-  height: 296px;
-  width: 316px;
-}
-
-#centro #EditarBannerFoto #esquerda #tituloFotoPerfil h2 {
-  height: 37px;
-  width: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: center;
-          flex-direction: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  font-size: 1.813rem;
-  font-weight: 600;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-  padding-top: 10px;
-}
-
-#centro #EditarBannerFoto #Direita {
-  height: 430px;
-  width: 463px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#centro #EditarBannerFoto #Direita #editarBanner {
-  height: auto;
-  width: 463px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: center;
-          flex-direction: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#centro #EditarBannerFoto #Direita #editarBanner img {
-  height: 227px;
-  width: 414px;
-}
-
-#centro #EditarBannerFoto #Direita #tituloBannerPerfil {
-  height: auto;
-  width: 463px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: center;
-          flex-direction: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#centro #EditarBannerFoto #Direita #tituloBannerPerfil h2 {
-  font-size: 1.813rem;
-  font-weight: 600;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-  padding-top: 10px;
-}
-
-#centro #EditarBannerFoto #Direita #botaoAlterar {
-  height: 140px;
-  width: 465px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-#centro #EditarBannerFoto #Direita #botaoAlterar button {
-  height: 65px;
-  width: 180px;
-  font-size: 1.563rem;
-  font-weight: 600;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-  background-color: #FF9F45;
-  border: 1px;
-  border-radius: 6px;
-}
-
 #direita {
   min-height: 500px;
   height: auto;
@@ -1609,5 +1428,240 @@ body {
 #direita #container-direita #img-amplifica img {
   height: 15px;
   width: 25px;
+}
+
+#modalEditar {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s, opacity 0.5s;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+#modalEditar .bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#modalEditar #EditarBannerFoto {
+  height: 469px;
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border: 1px solid #8C8C8C;
+  border-radius: 20px;
+  background-color: #E4E6EB;
+  padding: 30px;
+}
+
+#modalEditar #EditarBannerFoto #esquerda {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 430px;
+  width: 316px;
+}
+
+#modalEditar #EditarBannerFoto #esquerda #editarPerfil {
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#modalEditar #EditarBannerFoto #esquerda #editarPerfil img {
+  height: 120px;
+  width: 120px;
+}
+
+#modalEditar #EditarBannerFoto #esquerda #tituloFotoPerfil {
+  height: 296px;
+  width: 316px;
+}
+
+#modalEditar #EditarBannerFoto #esquerda #tituloFotoPerfil h2 {
+  height: 37px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 10px;
+}
+
+#modalEditar #EditarBannerFoto #Direita {
+  height: 430px;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#modalEditar #EditarBannerFoto #Direita #editarBanner {
+  height: auto;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#modalEditar #EditarBannerFoto #Direita #editarBanner img {
+  height: 227px;
+  width: 414px;
+}
+
+#modalEditar #EditarBannerFoto #Direita #tituloBannerPerfil {
+  height: auto;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#modalEditar #EditarBannerFoto #Direita #tituloBannerPerfil h2 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 10px;
+}
+
+#modalEditar #EditarBannerFoto #Direita #botaoAlterar {
+  height: 140px;
+  width: 465px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+#modalEditar #EditarBannerFoto #Direita #botaoAlterar button {
+  height: 65px;
+  width: 180px;
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border: 1px;
+  border-radius: 6px;
 }
 /*# sourceMappingURL=perfilUsuario.css.map */

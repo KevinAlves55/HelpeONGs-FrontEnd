@@ -12,8 +12,11 @@
     <script src="./js/perfil-usuario/paginacaoPerfilUsuario.js" defer></script>
     <script src="./js/perfil-usuario/endereco.js" type='module' defer></script>
     <script src="./js/perfil-usuario/dadosCadastro.js" type='module' defer></script>
+    <script src="./js/perfil-usuario/modalEditar.js" type='module' defer></script>
 </head>
 <body>
+ 
+
     <!-- Esquerda -->
     <div id="esquerda">
         <div id="logo">
@@ -43,7 +46,7 @@
                     </li>
                     <li>
                         <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
-                        <a href="sair.html">Logout</a>
+                        <a href="loginUsuario.html">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -68,20 +71,20 @@
                         <h3>60 seguidores</h3>
                    </div>
                     <div id="botao">
-                    <button >
+                    <button id="btnModal">
                         <img src="assets/img/edit-2.png">
                         <span>Editar Perfil</span>
                     </button>
-                </div>
+                    </div>
                 </div>
                       
                     
           </div>
                 
          </div>
-
-         <nav >
-            <ul>
+        
+         <nav id="menu-opcoes-perfil">
+            <ul id="menu-opcoes-principal">
                 
                 <li>
                     <span id="item1" >Sobre</span>
@@ -261,32 +264,7 @@
             </div>
         </div>
 
-        <div id="EditarBannerFoto" >
-
-            <div id="esquerda">
-                <div id="editarPerfil">
-                    <img src="./assets/img/Rectangle 97.png" alt="">
-                </div>
-                <div id="tituloFotoPerfil">
-                    <h2>Foto de perfil</h2>
-                </div>
-            </div>
-            <div id="Direita">
-                <div id="editarBanner">
-                    <img src="./assets/img/image 16.png" alt="">
-                </div>
-                <div id="tituloBannerPerfil">
-                    <h2>Banner do perfil</h2>
-                </div>
-
-                <div id="botaoAlterar">
-                    <button type="button" id="botaoModalEditar">Alterar</button>
-                </div>
-            </div>
-          
-
-        </div>
-
+       
 
     </div>
     <!-- Direita -->
@@ -333,9 +311,37 @@
         </div>
     </div>
 
-    login: {
-        email: localStorageData.emailData,
-        senha: localStorageData.senha
-    }
+    <div id="modalEditar">
+        <div id="EditarBannerFoto" >
+
+            <div id="esquerda">
+                <div id="editarPerfil">
+                    <img src="./assets/img/Rectangle 97.png" alt="">
+                </div>
+                <div id="tituloFotoPerfil">
+                    <h2>Foto de perfil</h2>
+                </div>
+            </div>
+            <div id="Direita">
+                <div id="editarBanner">
+                    <img src="./assets/img/image 16.png" alt="">
+                </div>
+                <div id="tituloBannerPerfil">
+                    <h2>Banner do perfil</h2>
+                </div>
+
+                <div id="botaoAlterar">
+                    <button type="button" id="botaoModalEditar">Alterar</button>
+                    <button type="button" id="botaoSairEditar">Sair</button>
+                </div>
+                
+
+
+            </div>
+        
+
+        </div>
+    </div>
+
 </body>
 </html>
