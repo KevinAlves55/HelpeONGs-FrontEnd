@@ -81,6 +81,9 @@ main {
                         }
 
                         a {
+                            display: block;
+                            @include tamanhos(inherit, inherit);
+                            @include displayFlex(row, $align: center);
                             @include textoEstilo(grau8, regular, $placeholder, capitalize, -0.02px);
                         }
 

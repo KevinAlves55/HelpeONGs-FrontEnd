@@ -309,8 +309,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   top: 0;
   left: 0;
   background: #00000090;
-  opacity: 1;
-  z-index: 1;
+  opacity: 0;
+  z-index: -1;
 }
 
 .modal-post .modal-conteudo-post {
@@ -339,7 +339,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 
 .modal-post .modal-conteudo-post #parte-superior {
   height: 431px;
-  width: 1117px;
+  width: 1126px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -495,7 +495,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   height: 205px;
   width: 405px;
   position: relative;
-  background-color: red;
 }
 
 .modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input textarea {
@@ -504,7 +503,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   border-radius: 8px;
   border: 2px solid #CCCCCC;
   resize: none;
-  padding: 15px 23px 15px;
+  padding: 13px 35px 0 18px;
   font-size: 1.380rem;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
@@ -519,13 +518,13 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 
 .modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input .icone-validation {
   position: absolute;
-  right: 10px;
-  top: 17px;
+  right: 8px;
+  top: 15px;
   visibility: hidden;
 }
 
 .modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input small {
-  visibility: visible;
+  visibility: hidden;
   font-size: 1.2rem;
   color: #FC595E;
   font-weight: 500;
@@ -811,7 +810,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   visibility: visible;
 }
 
-.style-input.error small {
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input.error small {
   visibility: visible;
 }
 
@@ -2045,6 +2044,25 @@ main #itens-main #direita #menu ul li img {
 }
 
 main #itens-main #direita #menu ul li a {
+  display: block;
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   font-size: 1.563rem;
   font-weight: 400;
   color: #8C8C8C;

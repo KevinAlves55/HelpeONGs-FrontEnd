@@ -3,6 +3,9 @@ import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { closeModalEvento, closeModalPostagens, openModalPostagens } from "./modalPostagens.js";
+import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
+
+const descricao = document.getElementById("text-post");
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -162,9 +165,34 @@ const PesquisarONGs = (evento) => {
 
 }
 
-const PostarPost = async () => {
+const PostarPost = async (e) => {
 
-    alert("Até aqui tudo certo");
+    e.preventDefault();
+
+    const validacoes = checkInputs();
+
+    let result;
+    validacoes.map(status => {
+        status === false ? result = false : "";
+    });
+
+    if (result != false) {
+
+        const dom = {
+            idOng: ongLogado.idOng,
+            descricao: descricao.value,
+            media: {
+                "titulo": "img1.png",
+                "endereco": "img1.png"
+            }
+        }
+
+        console.log(`DADOS DIGITADOS`, dom);
+
+        const request = await ApiRequest("POST", "http://localhost:3131/post", dom);
+        console.log(request);
+
+    }
 
 }
 

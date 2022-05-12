@@ -11,8 +11,8 @@
     top: 0;
     left: 0;
     background: #00000090;
-    opacity: 1;
-    z-index: 1;
+    opacity: 0;
+    z-index: -1;
 
     .modal-conteudo-post {
         @include tamanhos(635px, 1200px);
@@ -22,7 +22,7 @@
         border-radius: 20px;
 
         #parte-superior {
-            @include tamanhos(431px, 1117px);
+            @include tamanhos(431px, 1126px);
             @include displayFlex(row, space-between);
 
             #info-ong-trocar {
@@ -75,14 +75,13 @@
                     .style-input {
                         @include tamanhos(205px, 405px);
                         position: relative;
-                        background-color: red;
 
                         textarea {
                             @include tamanhos(205px, 405px);
                             border-radius: 8px;
                             border: 2px solid $border;
                             resize: none;
-                            padding: 15px 23px 15px;
+                            padding: 13px 35px 0 18px;
                             font-size: 1.380rem;
                             font-weight: map-get($densidade, medium);
                             font-family: 'Montserrat', sans-serif;
@@ -96,14 +95,14 @@
     
                         .icone-validation {
                             position: absolute;
-                            right: 10px;
-                            top: 17px;
+                            right: 8px;
+                            top: 15px;
                             visibility: hidden;
                         }
     
     
                         small {
-                            visibility: visible; 
+                            visibility: hidden; 
                             font-size: 1.2rem;
                             color: $tartOrange;
                             font-weight: map-get($densidade, medium);
@@ -227,13 +226,19 @@
     }
 }
 
+// STYLES DE VALIDAÇÃO
 .style-input.sucess i .img-sucess {
     visibility: visible;
 }
-
 .style-input.error i .img-error {
     visibility: visible;
 }
+
+.modal-post 
+.modal-conteudo-post 
+#parte-superior 
+#info-ong-trocar 
+#trocar 
 .style-input.error 
 small {
     visibility: visible;
@@ -746,6 +751,9 @@ main {
                         }
 
                         a {
+                            display: block;
+                            @include tamanhos(inherit, inherit);
+                            @include displayFlex(row, $align: center);
                             @include textoEstilo(grau8, regular, $placeholder, capitalize, -0.02px);
                         }
 
