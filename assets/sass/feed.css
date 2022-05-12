@@ -309,12 +309,12 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   top: 0;
   left: 0;
   background: #00000090;
-  opacity: 0;
-  z-index: -1;
+  opacity: 1;
+  z-index: 1;
 }
 
 .modal-post .modal-conteudo-post {
-  height: 597px;
+  height: 635px;
   width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -332,7 +332,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 32px 37px 30px 37px;
+  padding: 28px 37px 30px 37px;
   background-color: white;
   border-radius: 20px;
 }
@@ -491,17 +491,45 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   letter-spacing: -0.02em;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar textarea {
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input {
+  height: 205px;
+  width: 405px;
+  position: relative;
+  background-color: red;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input textarea {
   height: 205px;
   width: 405px;
   border-radius: 8px;
   border: 2px solid #CCCCCC;
   resize: none;
-  padding: 15px;
+  padding: 15px 23px 15px;
   font-size: 1.380rem;
   font-weight: 500;
   font-family: 'Montserrat', sans-serif;
   color: #292929;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input .icone-validation {
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  visibility: hidden;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input small {
+  visibility: visible;
+  font-size: 1.2rem;
+  color: #FC595E;
+  font-weight: 500;
+  margin-left: 10px;
 }
 
 .modal-post .modal-conteudo-post #parte-superior #imagens-opcoes {
@@ -732,12 +760,59 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
       align-self: flex-end;
   -webkit-transition: .1s;
   transition: .1s;
+  margin-top: 15px;
 }
 
 .modal-post .modal-conteudo-post button:hover {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
+}
+
+.modal-post .modal-conteudo-post .modal-close {
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.modal-post .modal-conteudo-post .modal-close:hover {
+  background-color: #ff4949;
+  color: white;
+}
+
+.style-input.sucess i .img-sucess {
+  visibility: visible;
+}
+
+.style-input.error i .img-error {
+  visibility: visible;
+}
+
+.style-input.error small {
+  visibility: visible;
 }
 
 .modal-post.active {
@@ -773,7 +848,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 }
 
 .modal-evento .modal-conteudo-evento {
-  height: 727px;
+  height: 757px;
   width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -791,13 +866,48 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 32px 37px 30px 37px;
+  padding: 29px 30px 30px 30px;
   border-radius: 20px;
+  background-color: #fff;
+}
+
+.modal-evento .modal-conteudo-evento .modal-close {
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.modal-evento .modal-conteudo-evento .modal-close:hover {
+  background-color: #ff4949;
+  color: white;
 }
 
 .modal-evento .modal-conteudo-evento #parte-superior-evento {
   height: 562px;
-  width: 1096px;
+  width: 1138px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -814,6 +924,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  margin-top: 15px;
 }
 
 .modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento {
@@ -1398,7 +1509,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   opacity: 0.8;
 }
 
-.modal-evento button {
+.modal-evento .modal-conteudo-evento button {
   height: 75px;
   width: 250px;
   display: -webkit-box;
@@ -1429,13 +1540,18 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
       align-self: flex-end;
   -webkit-transition: .1s;
   transition: .1s;
-  font-family: 'Montserrat', sans-serif;
+  margin-top: 15px;
 }
 
-.modal-evento button:hover {
+.modal-evento .modal-conteudo-evento button:hover {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
+}
+
+.modal-evento.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .modal-endereco {
@@ -2204,7 +2320,8 @@ main #itens-main #conteudo-feed #previa-eventos .evento h3 {
 }
 
 main #itens-main #conteudo-feed #criar-postagem {
-  height: 90px;
+  min-height: 90px;
+  height: auto;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2230,8 +2347,10 @@ main #itens-main #conteudo-feed #criar-postagem {
 }
 
 main #itens-main #conteudo-feed #criar-postagem #esquerda {
-  height: 68px;
-  width: 498px;
+  min-height: 68px;
+  min-width: 100px;
+  height: auto;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2239,24 +2358,25 @@ main #itens-main #conteudo-feed #criar-postagem #esquerda {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 13px;
 }
 
 main #itens-main #conteudo-feed #criar-postagem #esquerda img {
-  height: inherit;
+  height: 68px;
   width: 72px;
   border-radius: 8px;
 }
 
 main #itens-main #conteudo-feed #criar-postagem #esquerda h2 {
+  width: 382px;
   font-size: 1.490rem;
   font-weight: 500;
   color: #8C8C8C;

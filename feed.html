@@ -17,26 +17,33 @@
 
     <!-- MODAL POSTAGEM POST -->
     <div class="modal-post" id="postagem-post">
-        <div class="modal-conteudo-post" id="postModal">
+        <form action="" enctype="multipart/form-data" method="POST" class="modal-conteudo-post" id="postModal">
+            <span class="modal-close" id="modalClose">&#10006;</span>
+
             <div id="parte-superior">
                 <div id="info-ong-trocar">
                     <div id="info-ong">
-                        <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
+                        <img src="" id="imgOngPostagem" alt="GreenPeace" title="Foto">
 
                         <div id="info-nome-data">
-                            <h2>GreenPeace</h2>
+                            <h2 id="nomeOngPostagem"></h2>
                             <span>ONG</span>
                         </div>
                     </div>
 
                     <div id="trocar">
-                        <select class="trocar-select">
-                            <option value="P">Post</option>
+                        <select id="trocar-select-post">
+                            <option value="P" selected>Post</option>
                             <option value="E">Evento</option>
                             <option value="V">Vaga</option>
                         </select>
 
-                        <textarea id="text-post" placeholder="Faça uma descrição de seu post"></textarea>
+                        <div class="style-input error">
+                            <textarea id="text-post" placeholder="Faça uma descrição de seu post"></textarea>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <small>Error mensager</small>
+                        </div>
                     </div>
                 </div>
 
@@ -65,29 +72,32 @@
                 </div>
             </div>
 
-            <button type="button">Publicar</button>
-        </div>
+            <button type="button" id="publicarPost">Publicar</button>
+        </form>
     </div>
 
     <!-- MODAL POSTAGEM EVENTO -->
     <div class="modal-evento" id="postagem-evento">
         <div class="modal-conteudo-evento" id="postEvent">
+
+            <span class="modal-close" id="modalCloseEvento">&#10006;</span>
+
             <div id="parte-superior-evento">
                 <div id="info-ong-trocar-evento">
                     <div id="info-ong-evento">
-                        <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
+                        <img src="" id="imgOngEvento" alt="GreenPeace" title="Foto">
 
                         <div id="info-nome-data-evento">
-                            <h2>GreenPeace</h2>
+                            <h2 id="nomeOngEvento"></h2>
                             <span>ONG</span>
                         </div>
                     </div>
 
                     <div class="trocar">
-                        <select class="trocar-select">
-                            <option value="E">Evento</option>
-                            <option value="V">Vaga</option>
+                        <select id="trocar-select-evento">
                             <option value="P">Post</option>
+                            <option value="V">Vaga</option>
+                            <option value="E" selected>Evento</option>
                         </select>
 
                         <input type="text" placeholder="Escreva um título para seu evento" id="titulo-evento">
@@ -339,12 +349,12 @@
                 <!-- POSTAGEM -->
                 <div id="criar-postagem">
                     <div id="esquerda">
-                        <img src="assets/img/perfil-postagem-feed.png" alt="Postar" title="Meu perfil">
+                        <img src="" alt="Postar" title="Meu perfil" id="foto-postagem">
 
-                        <h2>O que há de novo, <span>Gustavo Alves?</span></h2>
+                        <h2>O que há de novo, <span id="nome-postagem"></span></h2>
                     </div>
 
-                    <button>
+                    <button type="button" id="postagens">
                         <img src="assets/img/adicionar-postagem-feed.png" alt="ONGs" title="Icone de mais">
 
                         Criar Postagem

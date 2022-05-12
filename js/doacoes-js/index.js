@@ -14,6 +14,7 @@ let ongLogado;
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
     userLogado = validarSession("dadosUsuario");
+    console.log(`DADOS USER`, userLogado);
 
     const controlNone = () => document.getElementById("control").style.display = "none";
     controlNone();
@@ -59,7 +60,6 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         const idUser = userLogado.idUsuario;
         const container = document.getElementById("favoritos-ong");
         const objeto = await ApiRequest("GET", `http://localhost:3131/favorite/${idUser}`);
-        console.log(objeto);
         const todosFavoritos = objeto.data;
         const favoritos = todosFavoritos.map(CriarFavoritos);
         container.replaceChildren(...favoritos);
@@ -70,6 +70,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 } else if (localStorage.hasOwnProperty('dadosOng') !== false) {
 
     ongLogado = validarSession("dadosOng");
+    console.log(`DADOS`, ongLogado);
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
@@ -96,7 +97,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".gif")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
@@ -196,8 +197,6 @@ const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
 }
 
 const Pesquisa = (evento) => {
-
-    console.log(evento);
 
     if (evento.key == "Enter") {
 
@@ -618,7 +617,7 @@ document.getElementById("ongs").addEventListener("click", Favoritar);
 document.getElementById("favoritos-ong").addEventListener("click", excluirFavorito);
 document.getElementById("recomendados-ongs").addEventListener("click", CarregarModal);
 document.getElementById("favoritos").addEventListener("click", CarregarModal);
-document.getElementById("estados-select").addEventListener("change", pesquisarEstado);pesquisarEstado
+document.getElementById("estados-select").addEventListener("change", pesquisarEstado);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("modal").addEventListener("click", closeModal);
 document.getElementById("ongs").addEventListener("click", CarregarModal);

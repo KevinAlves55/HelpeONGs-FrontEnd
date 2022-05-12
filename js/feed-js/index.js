@@ -2,7 +2,7 @@ import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
-import { openModalPostagens } from "./modalPostagens.js";
+import { closeModalEvento, closeModalPostagens, openModalPostagens } from "./modalPostagens.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -14,6 +14,8 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
     const controlNone = () => document.getElementById("control").style.display = "none";
     controlNone();
+    const postagemNone = () => document.getElementById("criar-postagem").style.display = "none";
+    postagemNone();
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
@@ -80,7 +82,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".gif")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
@@ -91,58 +93,96 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     }
     CarregarMiniPerfil(ongLogado);
 
+    function CarregarBarraPostagem(objectLocal) {
+
+        let nomePostagem = document.getElementById("nome-postagem");
+        let imgPostagem = document.getElementById("foto-postagem");
+
+        nomePostagem.innerText = `${objectLocal.nome}`;
+        imgPostagem.setAttribute("src", `${objectLocal.foto}`);
+
+    }
+    CarregarBarraPostagem(ongLogado);
+
+    function CarregarMiniPerfilPostagem(objectLocal) {
+
+        let imgCriador = document.querySelector("#imgOngPostagem");
+        let nomeCriador = document.querySelector("#nomeOngPostagem");
+    
+        imgCriador.setAttribute("src", objectLocal.foto);
+        nomeCriador.innerText = `${objectLocal.nome}`;
+    
+    }
+    CarregarMiniPerfilPostagem(ongLogado);
+
+    function CarregarMiniPerfilEvento(objectLocal) {
+
+        let imgCriador = document.querySelector("#imgOngEvento");
+        let nomeCriador = document.querySelector("#nomeOngEvento");
+    
+        imgCriador.setAttribute("src", objectLocal.foto);
+        nomeCriador.innerText = `${objectLocal.nome}`;
+    
+    }
+    CarregarMiniPerfilEvento(ongLogado);
+
 } else {
 
     Redirect("cadastroUsuario");
 
 }
 
-function trocarTipoPostagem({target}) {
+function TrocarTipoPostagem({target}) {
 
-    // let opcaoValor = target.options[target.selectedIndex].value;
-    // alert("teste");
+    let opcaoValor = target.options[target.selectedIndex].value;
+    console.log(opcaoValor);
 
-    // if (opcaoValor === "P") {
-    //     document.getElementById("postagem-post").classList.add("active");
-    //     document.getElementById("postagem-evento").classList.remove("active");
-    // } else if (opcaoValor === "E") {
-    //     document.getElementById("postagem-post").classList.remove("active");
-    //     document.getElementById("postagem-evento").classList.add("active");
-    // }
+    if (opcaoValor === "P") {
+        console.log("ESTAMOS EM POST");
+        document.getElementById("postagem-evento").classList.remove("active");
+        document.getElementById("postagem-post").classList.add("active");
+    } else if (opcaoValor === "E") {
+        console.log("ESTAMOS EM EVENTO");
+        document.getElementById("postagem-post").classList.remove("active");
+        document.getElementById("postagem-evento").classList.add("active");
+    } else if (opcaoValor === "V") {
+        console.log("ESTAMOS EM VAGAS");
+    }
 
 }
 
+const PesquisarONGs = (evento) => {
+
+    if (evento.key == "Enter") {
+
+        const pesquisaNome = evento.target.value;
+        console.log(pesquisaNome);
+
+    }
+
+}
+
+const PostarPost = async () => {
+
+    alert("Até aqui tudo certo");
+
+}
+
+document.getElementById("pesquisar").addEventListener("keypress", PesquisarONGs)
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
-document.getElementById("criar-postagem").addEventListener("click", openModalPostagens);
-// document.querySelector(".trocar-select").addEventListener("click", trocarTipoPostagem);
-
-const selectElement = document.querySelector('.trocar-select');
-
-selectElement.addEventListener('change', (event) => {
-  const teste = event.target.value;
-  console.log(teste);
-
-  if (teste === "P") {
-      console.log("POST");
-    //   post.innerHTML = `
-
-    //   `;
-    document.getElementById("postEvent").style.opacity = "0";
-    document.getElementById("postEvent").style.zIndex = "-1";
-    document.getElementById("postModal").style.opacity = "1";
-    document.getElementById("postModal").style.zIndex = "999";
-    // document.getElementById("postEvent").classList.remove("active");
-    // document.getElementById("postModal").classList.add("active");
-} else if (teste === "E") {
-    console.log("EVENTO");
-    document.getElementById("postModal").style.opacity = "0";
-    document.getElementById("postModal").style.zIndex = "-1";
-    document.getElementById("postEvent").style.opacity = "1";
-    document.getElementById("postEvent").style.zIndex = "999";
-    // document.getElementById("postModal").classList.remove("active");
-    // document.getElementById("postEvent").classList.add("active");
-}
-  
-});
+document.getElementById("postagens").addEventListener("click", openModalPostagens);
+document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
+document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
+document.querySelector("#trocar-select-post")
+.addEventListener(
+    "change", 
+    TrocarTipoPostagem
+);
+document.querySelector("#trocar-select-evento")
+.addEventListener(
+    "change", 
+    TrocarTipoPostagem
+);
+document.getElementById("publicarPost").addEventListener("click", PostarPost);

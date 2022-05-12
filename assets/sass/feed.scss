@@ -11,13 +11,13 @@
     top: 0;
     left: 0;
     background: #00000090;
-    opacity: 0;
-    z-index: -1;
+    opacity: 1;
+    z-index: 1;
 
     .modal-conteudo-post {
-        @include tamanhos(597px, 1200px);
+        @include tamanhos(635px, 1200px);
         @include displayFlex(column, space-between);
-        padding: 32px 37px 30px 37px;
+        padding: 28px 37px 30px 37px;
         background-color: white;
         border-radius: 20px;
 
@@ -32,20 +32,20 @@
                 #info-ong {
                     @include tamanhos(80px, 290px);
                     @include displayFlex(row, space-between, center);
-        
+
                     img {
                         @include tamanhos(inherit, 80px);
                         border-radius: 50%;
                     }
-        
+
                     #info-nome-data {
                         @include tamanhos(55px, 200px);
                         @include displayFlex(column, $gap: 3px);
-        
+
                         h2 {
                             @include textoEstilo(grau8, bold, $text);
                         }
-        
+
                         span {
                             @include textoEstilo(grau11, semiBold, $placeholder);
                         }
@@ -72,16 +72,43 @@
                         }
                     }
 
-                    textarea {
+                    .style-input {
                         @include tamanhos(205px, 405px);
-                        border-radius: 8px;
-                        border: 2px solid $border;
-                        resize: none;
-                        padding: 15px;
-                        font-size: 1.380rem;
-                        font-weight: map-get($densidade, medium);
-                        font-family: 'Montserrat', sans-serif;
-                        color: $text;
+                        position: relative;
+                        background-color: red;
+
+                        textarea {
+                            @include tamanhos(205px, 405px);
+                            border-radius: 8px;
+                            border: 2px solid $border;
+                            resize: none;
+                            padding: 15px 23px 15px;
+                            font-size: 1.380rem;
+                            font-weight: map-get($densidade, medium);
+                            font-family: 'Montserrat', sans-serif;
+                            color: $text;
+                        }
+
+                        img {
+                            @include tamanhos(30px, 30px);
+                            cursor: pointer;
+                        }
+    
+                        .icone-validation {
+                            position: absolute;
+                            right: 10px;
+                            top: 17px;
+                            visibility: hidden;
+                        }
+    
+    
+                        small {
+                            visibility: visible; 
+                            font-size: 1.2rem;
+                            color: $tartOrange;
+                            font-weight: map-get($densidade, medium);
+                            margin-left: 10px;
+                        }
                     }
 
                 }
@@ -175,6 +202,7 @@
             cursor: pointer;
             align-self: flex-end;
             transition: .1s;
+            margin-top: 15px;
 
             &:hover {
                 transition: .1s;
@@ -182,10 +210,37 @@
             }
         }
 
+        .modal-close {
+            @include tamanhos(30px, 30px);
+            @include displayFlex(row, center, center);
+            user-select: none;
+            cursor: pointer;
+            border-radius: 50%;
+            align-self: flex-start;
+    
+            &:hover {
+                background-color: #ff4949;
+                color: white;
+            }
+        }
+
     }
 }
+
+.style-input.sucess i .img-sucess {
+    visibility: visible;
+}
+
+.style-input.error i .img-error {
+    visibility: visible;
+}
+.style-input.error 
+small {
+    visibility: visible;
+}
+
+// ATIVIVA A MODAL DE POST
 .modal-post.active {
-    // opacity: 1;
     opacity: 1;
     z-index: 1;
 }
@@ -202,14 +257,30 @@
     background: #00000090;
 
     .modal-conteudo-evento {
-        @include tamanhos(727px, 1200px);
+        @include tamanhos(757px, 1200px);
         @include displayFlex(column, space-between);
-        padding: 32px 37px 30px 37px;
+        padding: 29px 30px 30px 30px;
         border-radius: 20px;
+        background-color: #fff;
+
+        .modal-close {
+            @include tamanhos(30px, 30px);
+            @include displayFlex(row, center, center);
+            user-select: none;
+            cursor: pointer;
+            border-radius: 50%;
+            align-self: flex-start;
+    
+            &:hover {
+                background-color: #ff4949;
+                color: white;
+            }
+        }
 
         #parte-superior-evento {
-            @include tamanhos(562px, 1096px);
+            @include tamanhos(562px, 1138px);
             @include displayFlex(row, space-between);
+            margin-top: 15px;
 
             #info-ong-trocar-evento {
                 @include tamanhos(inherit, 405px);
@@ -218,20 +289,20 @@
                 #info-ong-evento {
                     @include tamanhos(80px, 290px);
                     @include displayFlex(row, space-between, center);
-        
+
                     img {
                         @include tamanhos(inherit, 80px);
                         border-radius: 50%;
                     }
-        
+
                     #info-nome-data-evento {
                         @include tamanhos(55px, 200px);
                         @include displayFlex(column, $gap: 3px);
-        
+
                         h2 {
                             @include textoEstilo(grau8, bold, $text);
                         }
-        
+
                         span {
                             @include textoEstilo(grau11, semiBold, $placeholder);
                         }
@@ -414,7 +485,7 @@
                             label {
                                 font-size: 1.450rem;
                                 font-weight: map-get($densidade, medium);
-                                color: $text; 
+                                color: $text;
                             }
 
                             select {
@@ -427,7 +498,7 @@
                                 appearance: none;
                                 -moz-appearance: none;
                                 background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
-        
+
                                 option {
                                     @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
                                 }
@@ -456,34 +527,30 @@
             }
         }
 
-    }
-
-    button {
-        @include tamanhos(75px, 250px);
-        @include displayFlex(row, center, center);
-        @include textoEstilo(grau7, semiBold, $text, capitalize);
-        background-color: $deepSaffron;
-        border-radius: 6px;
-        cursor: pointer;
-        align-self: flex-end;
-        transition: .1s;
-        font-family: 'Montserrat', sans-serif;
-
-        &:hover {
+        button {
+            @include tamanhos(75px, 250px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau7, semiBold, $text, capitalize);
+            background-color: $deepSaffron;
+            border-radius: 6px;
+            cursor: pointer;
+            align-self: flex-end;
             transition: .1s;
-            opacity: 0.8;
+            margin-top: 15px;
+    
+            &:hover {
+                transition: .1s;
+                opacity: 0.8;
+            }
         }
+
     }
 }
-
-
-// .modal-conteudo-evento.active {
-//     visibility: visible;
-// }
-
-// .modal-conteudo-post.active {
-//     visibility: visible;
-// }
+// ATIVIVA A MODAL DE EVENTO
+.modal-evento.active {
+    opacity: 1;
+    z-index: 1;
+}
 
 // MODAL ENDEREÇO
 .modal-endereco {
@@ -639,7 +706,7 @@ main {
                 filter: $shadowMain;
                 border-radius: 20px;
                 cursor: pointer;
-                
+
                 img {
                     @include tamanhos(75px, 75px);
                     border-radius: 50%;
@@ -745,7 +812,7 @@ main {
                             color: white;
                             position: absolute;
                             top: 135px;
-                            left: 35px;  
+                            left: 35px;
                         }
                     }
 
@@ -814,7 +881,8 @@ main {
             }
 
             #criar-postagem {
-                @include tamanhos(90px, inherit);
+                min-height: 90px;
+                @include tamanhos(auto, inherit);
                 @include displayFlex(rows, space-between, center);
                 background-color: #fff;
                 filter: $shadowMain;
@@ -822,15 +890,18 @@ main {
                 padding: 15px;
 
                 #esquerda {
-                    @include tamanhos(68px, 498px);
-                    @include displayFlex(row, space-between, center);
+                    min-height: 68px;
+                    min-width: 100px;
+                    @include tamanhos(auto, auto);
+                    @include displayFlex(row, $align: center, $gap: 13px);
 
                     img {
-                        @include tamanhos(inherit, 72px);
+                        @include tamanhos(68px, 72px);
                         border-radius: 8px;
                     }
 
                     h2 {
+                        width: 382px;
                         font-size: 1.490rem;
                         font-weight: map-get($densidade, medium);
                         color: $placeholder;
@@ -928,7 +999,7 @@ main {
 
                         .baixo {
                             @include tamanhos(176px, inherit);
-                            border-radius: 6px;  
+                            border-radius: 6px;
                         }
                     }
                 }
@@ -1004,11 +1075,11 @@ main {
                                 h3 {
                                     @include textoEstilo(grau9, bold, $text);
                                 }
-    
+
                                 p {
                                     @include textoEstilo(grau10, medium, $text);
-                                } 
-                                
+                                }
+
                                 span {
                                     font-size: 1.1rem;
                                     font-weight: map-get($densidade, bold);
@@ -1042,7 +1113,7 @@ main {
                                     span {
                                         @include textoEstilo(grau10, semiBold, $text, capitalize);
                                         margin-top: 2px;
-                                    } 
+                                    }
                                 }
                             }
                         }
@@ -1114,24 +1185,24 @@ main {
                     .imagens-postadas {
                         @include tamanhos(314px, 736px);
                         @include displayFlex(row, space-between);
-    
+
                         img {
                             @include tamanhos(inherit, 435px);
                             border-radius: 6px;
                         }
-    
+
                         .imagens-complementos {
                             @include tamanhos(inherit, 285px);
                             @include displayFlex(column, space-between);
-    
+
                             .cima {
                                 @include tamanhos(125px, inherit);
                                 border-radius: 6px;
                             }
-    
+
                             .baixo {
                                 @include tamanhos(176px, inherit);
-                                border-radius: 6px;  
+                                border-radius: 6px;
                             }
                         }
                     }
@@ -1205,7 +1276,7 @@ main {
                             span {
                                 font-size: 1.200rem;
                                 font-weight: map-get($densidade, medium);
-                                color: $text; 
+                                color: $text;
                             }
 
                             i {
@@ -1312,7 +1383,7 @@ main {
             @include displayFlex(column, $gap: 25px);
 
             #info-seguidores {
-                @include tamanhos(30px, 223px); 
+                @include tamanhos(30px, 223px);
                 @include displayFlex($justify: space-around, $align: center);
 
                 h3 {
@@ -1357,7 +1428,7 @@ main {
                         }
 
                         span {
-                            @include textoEstilo(grau10, medium, $placeholder); 
+                            @include textoEstilo(grau10, medium, $placeholder);
                         }
                     }
                 }
