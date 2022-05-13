@@ -1,3 +1,5 @@
+"use strict"
+
 import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
@@ -144,10 +146,12 @@ function TrocarTipoPostagem({target}) {
         console.log("ESTAMOS EM POST");
         document.getElementById("postagem-evento").classList.remove("active");
         document.getElementById("postagem-post").classList.add("active");
+        document.getElementById("trocar-select-post")[0].selected = true;
     } else if (opcaoValor === "E") {
         console.log("ESTAMOS EM EVENTO");
         document.getElementById("postagem-post").classList.remove("active");
         document.getElementById("postagem-evento").classList.add("active");
+        document.getElementById("trocar-select-evento")[2].selected = true;
     } else if (opcaoValor === "V") {
         console.log("ESTAMOS EM VAGAS");
     }
@@ -203,6 +207,7 @@ document.querySelector("main").addEventListener("click", closeSetaHeader);
 document.getElementById("postagens").addEventListener("click", openModalPostagens);
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
+
 document.querySelector("#trocar-select-post")
 .addEventListener(
     "change", 

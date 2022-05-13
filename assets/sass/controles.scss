@@ -1,0 +1,288 @@
+@import '_variaveis';
+@import '_mixins';
+@import '_resert';
+
+header {
+    @include tamanhos(115px, 100%);
+    @include displayFlex($justify: center);
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+
+    #itens-header {
+        @extend .conteudo;
+        @include displayFlex($justify: space-between, $align: center);
+
+        #logo {
+            @include tamanhos(93px, 260px);
+            align-self: center;
+
+            img {
+                @include tamanhos(inherit, inherit);
+                margin-top: 7px;
+            }
+        }
+        
+        #lupa-atalhos {
+            @include tamanhos(inherit, 170px);
+            @include displayFlex(row, space-between, center);
+    
+            #atalhos {
+                @include tamanhos(inherit, 170px);
+                @include displayFlex(row, space-between, center);      
+    
+                img {
+                    @include tamanhos(32px, 32px);
+                }
+    
+                #atalhos-perfil {
+                    @include tamanhos(90px, 120px);
+                    @include displayFlex(row, space-between, center);
+                    position: relative;
+    
+                    #foto-header {
+                        @include tamanhos(inherit, 90px);
+                        border-radius: 50%;
+                    }
+    
+                    #seta-baixo {
+                        @include tamanhos(24px, 24px);
+                        cursor: pointer;
+                    }
+
+                    .mais-opcoes {
+                        min-height: 130px;
+                        @include tamanhos(auto, 150px);
+                        @include displayFlex(column, center, $gap: 10px);
+                        background-color: $placeholder;
+                        border-radius: 10px;
+                        position: absolute;
+                        right: 0;
+                        top: 60px;
+                        filter: $shadowMain;
+                        z-index: -3;
+                        opacity: 0;
+                        padding: 8px 0 8px;
+
+                        span {
+                            @include tamanhos(35px, 100%);
+                            @include textoEstilo(grau10, medium, $text, capitalize);
+                            @include displayFlex(row, $align: center);
+                            cursor: pointer;
+                            padding-left: 12px;
+
+                            &:hover {
+                                background-color: $border;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+header 
+#itens-header 
+#lupa-atalhos 
+#atalhos 
+#atalhos-perfil 
+.mais-opcoes.active {
+    z-index: 3;
+    opacity: 1;
+}
+
+body {
+    min-height: 100vh;
+    @include displayFlex(column);
+    font-family: 'Montserrat', sans-serif;
+    background-color: $background;
+}
+
+.conteudo {
+    @include tamanhos(inherit, 1440px);
+}
+
+main {
+    width: 100%;
+    flex-grow: 1;
+    @include displayFlex($justify: center);
+    margin-bottom: 35px;
+
+    #itens-main {
+        @extend .conteudo;
+        @include displayFlex(row, space-between, $wrap: wrap);
+        margin-top: 45px;
+
+        #direita {
+            min-height: 500px;
+            @include tamanhos(auto, 279px);
+            @include displayFlex(column);
+
+            #mini-perfil {
+                @include tamanhos(112px, inherit);
+                @include displayFlex($align: center);
+                background: #FFFFFF;
+                filter: $shadowMain;
+                border-radius: 20px;
+                cursor: pointer;
+                
+                img {
+                    @include tamanhos(75px, 75px);
+                    border-radius: 50%;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                }
+
+                h3 {
+                    @include textoEstilo(grau9, semiBold, $text, capitalize);
+                }
+            }
+
+            #menu {
+                @include tamanhos(485px, 279px);
+                background: #FFFFFF;
+                filter: $shadowMain;
+                border-radius: 20px;
+                margin-top: 45px;
+
+                ul {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, space-around);
+                    padding: 15px 0 15px;
+
+                    li {
+                        @include tamanhos(65px, inherit);
+                        @include displayFlex(row-reverce, $align: center, $gap: 18px);
+
+                        &:hover {
+                            background-color: $background;
+                        }
+
+                        img {
+                            @include tamanhos(35px, 35px);
+                            margin-left: 26px;
+                        }
+
+                        a {
+                            @include textoEstilo(grau8, regular, $placeholder, capitalize, -0.02px);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        section {
+            @include tamanhos(inherit, 1063px);
+            @include displayFlex(column, space-between);
+            position: relative;
+
+            #filtros-selects {
+                @include tamanhos(64px, inherit);
+                @include displayFlex(row, space-between, center);
+
+                select {
+                    @include tamanhos(64px, 405px);
+                    @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                    border: 3px solid $border;
+                    border-radius: 15px;
+                    padding: 0px 15px;
+                    align-self: flex-end;
+                    appearance: none;
+                    -moz-appearance: none;
+                    background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                    option {
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                    }
+                }
+
+                #filtro {
+                    @include tamanhos(inherit, 155px);
+                    @include displayFlex(row, $align: center, $gap: 15px);
+                    margin-right: 25px;
+    
+                    img {
+                        @include tamanhos(33px, 32px);
+                    }
+    
+                    span {
+                        @include textoEstilo(grau9, semiBold, $deepSaffron, $letter: -0.02em);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            table {
+                @include tamanhos(619px, 1063px);
+                @include displayFlex(column);
+                background-color: #fff;
+                filter: $shadowMain;
+                border-radius: 20px;
+                margin-top: 55px;
+                padding: 20px;
+
+                thead {
+                    @include tamanhos(55px, 1016px);
+                    @include displayFlex($align: center);
+                    border-radius: 8px;
+                    background-color: $background;
+
+                    .titulos-tabela {
+                        @include tamanhos(55px, 245px);
+                        text-align: center;
+                        font-size: 1.400rem;
+                        font-weight: map-get($densidade, semiBold);
+                        text-transform: capitalize;
+                    }
+                }
+
+                tbody {
+                    @include tamanhos(444px, 1016px);
+                    @include displayFlex(column);
+                    border-collapse: separate;
+
+                    tr {
+                        @include tamanhos(64px, inherit);
+
+                        .resultados {
+                            @include tamanhos(60px, 254px);
+                            @include textoEstilo(grau10, semiBold);
+                            text-align: center;
+                            border-bottom: 3px solid $background;
+
+                            a {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        img {
+                            @include tamanhos(24px, 24px);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            #setas {
+                @include tamanhos(32px, 81px);
+                @include displayFlex(row, space-between);
+                position: absolute;
+                bottom: 35px;
+                right: 55px;
+
+                .seta {
+                    @include tamanhos(inherit, 31px);
+                    @include displayFlex(row, center, center);
+                    border-radius: 6px;
+                    border: 1px solid $border;
+                    cursor: pointer;
+
+                    img {
+                        @include tamanhos(24px, 24px);
+                    }
+                }
+            }
+        }
+    }
+}
