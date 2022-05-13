@@ -298,8 +298,11 @@ body {
         min-height: 300px;
         @include tamanhos(auto, inherit);
         @include displayFlex(column);
+        
+
 
         #conteudo-inicio{
+            display: none;
             min-height: 332px;
             @include tamanhos(auto, inherit);
             @include displayFlex(column, $gap: 40px);

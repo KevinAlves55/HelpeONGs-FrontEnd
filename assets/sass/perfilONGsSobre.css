@@ -779,6 +779,7 @@ body {
 }
 
 #centro #container-conteudo #conteudo-inicio {
+  display: none;
   min-height: 332px;
   height: auto;
   width: inherit;
