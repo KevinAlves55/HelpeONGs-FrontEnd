@@ -177,7 +177,7 @@ async function atualizarEndereco(){
         console.log(localStorageEnderecoAtualizado);
 
         const bodyEnderecoAtualizado = {
-            idLogin: localStorageEnderecoAtualizado.user.idLogin,
+            idLogin: localStorageEnderecoAtualizado.ong.idLogin,
             cep: localStorageEnderecoAtualizado.cepData,
             bairro: localStorageEnderecoAtualizado.bairroData,
             numero: Number(localStorageEnderecoAtualizado.numeroData),
