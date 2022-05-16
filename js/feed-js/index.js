@@ -14,6 +14,7 @@ import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { closeModalEvento, closeModalPostagens, closeModalVaga, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
+import { handleFileSelect, imagemPreview } from "./upload.js";
 
 const descricao = document.getElementById("text-post");
 
@@ -225,6 +226,8 @@ const PostarPost = async (e) => {
 
 }
 
+const handlePreview = () => imagemPreview('files', 'imagePreviewMain');
+
 document.getElementById("pesquisar").addEventListener("keypress", PesquisarONGs)
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
@@ -233,6 +236,8 @@ document.getElementById("postagens").addEventListener("click", openModalPostagen
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
 document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
+document.getElementById('files').addEventListener('change', handlePreview);
 
 document.querySelector("#trocar-select-post")
 .addEventListener(

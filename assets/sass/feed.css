@@ -309,8 +309,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   top: 0;
   left: 0;
   background: #00000090;
-  opacity: 0;
-  z-index: -1;
+  opacity: 1;
+  z-index: 1;
 }
 
 .modal-post .modal-conteudo-post {
@@ -562,9 +562,9 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -594,46 +594,11 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-top: 24px;
+  padding-top: 17px;
   padding-left: 24px;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #editar-imagens {
-  height: 50px;
-  width: 143px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 12px;
-  font-size: 1.313rem;
-  font-weight: 600;
-  color: #292929;
-  text-transform: capitalize;
-  letter-spacing: none;
-  padding: 0 30px 0 17px;
-  background-color: #E4E6EB;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #editar-imagens img {
-  height: 25px;
-  width: 25px;
-}
-
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #adicionar-imagem {
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes label {
   height: 50px;
   width: 375px;
   display: -webkit-box;
@@ -663,13 +628,17 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   cursor: pointer;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes #adicionar-imagem img {
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes label img {
   height: 25px;
   width: 25px;
 }
 
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #opcoes input[type='file'] {
+  display: none;
+}
+
 .modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens {
-  height: calc(431px - 65px);
+  height: calc(431px - 85px);
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -678,28 +647,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  cursor: pointer;
-}
-
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro {
-  height: 88px;
-  width: 320px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -711,21 +658,42 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   gap: 0;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro img {
-  height: 25px;
-  width: 25px;
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #primeiraPrevia {
+  height: inherit;
+  width: 425px;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro h2 {
-  font-size: 1.380rem;
-  font-weight: 500;
-  color: #292929;
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #primeiraPrevia img {
+  height: inherit;
+  width: inherit;
+  border-radius: 6px;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #texto-dentro span {
-  font-size: 1.200rem;
-  font-weight: 500;
-  color: #8C8C8C;
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outrasPrevias {
+  height: inherit;
+  width: calc(618px - 430px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outrasPrevias img {
+  height: 170px;
+  width: inherit;
+  border-radius: 6px;
 }
 
 .modal-post .modal-conteudo-post button {

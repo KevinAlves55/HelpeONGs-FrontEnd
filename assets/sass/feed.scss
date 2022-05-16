@@ -11,8 +11,8 @@
     top: 0;
     left: 0;
     background: #00000090;
-    opacity: 0;
-    z-index: -1;
+    opacity: 1;
+    z-index: 1;
 
     .modal-conteudo-post {
         @include tamanhos(635px, 1200px);
@@ -120,31 +120,17 @@
 
                 #conteudo-imagens {
                     @include tamanhos(inherit, inherit);
-                    @include displayFlex(column);
+                    @include displayFlex(column, space-between);
                     border-radius: 20px;
                     background-color: $background;
 
                     #opcoes {
                         @include tamanhos(65px, 560px);
                         @include displayFlex(row, space-between);
-                        padding-top: 24px;
+                        padding-top: 17px;
                         padding-left: 24px;
 
-                        #editar-imagens {
-                            @include tamanhos(50px, 143px);
-                            @include displayFlex(row, $align: center, $gap: 12px);
-                            @include textoEstilo(grau9, semiBold, $text, capitalize);
-                            padding: 0 30px 0 17px;
-                            background-color: #E4E6EB;
-                            border-radius: 6px;
-                            cursor: pointer;
-
-                            img {
-                                @include tamanhos(25px, 25px);
-                            }
-                        }
-
-                        #adicionar-imagem {
+                        label {
                             @include tamanhos(50px, 375px);
                             @include displayFlex(row, $align: center, $gap: 14.25px);
                             @include textoEstilo(grau9, semiBold, $text);
@@ -152,36 +138,37 @@
                             background-color: #E4E6EB;
                             border-radius: 6px;
                             cursor: pointer;
-
+                            
                             img {
                                 @include tamanhos(25px, 25px);
                             }
                         }
+
+                        input[type='file'] {
+                            display: none
+                        }
                     }
 
                     #araste-imagens {
-                        @include tamanhos(calc(431px - 65px), inherit);
-                        @include displayFlex(row, center, center);
-                        cursor: pointer;
+                        @include tamanhos(calc(431px - 85px), inherit);
+                        @include displayFlex(row, space-between, center);
 
-                        #texto-dentro {
-                            @include tamanhos(88px, 320px);
-                            @include displayFlex(column, space-between, center);
+                        #primeiraPrevia {
+                            @include tamanhos(inherit, 425px);
 
                             img {
-                                @include tamanhos(25px, 25px);
+                                @include tamanhos(inherit, inherit);
+                                border-radius: 6px;
                             }
+                        }
 
-                            h2 {
-                                font-size: 1.380rem;
-                                font-weight: map-get($densidade, medium);
-                                color: $text;
-                            }
+                        #outrasPrevias {
+                            @include tamanhos(inherit, calc(618px - 430px));
+                            @include displayFlex(column, space-between);
 
-                            span {
-                                font-size: 1.200rem;
-                                font-weight: map-get($densidade, medium);
-                                color: $placeholder;
+                            img {
+                                @include tamanhos(170px, inherit);
+                                border-radius: 6px;
                             }
                         }
                     }

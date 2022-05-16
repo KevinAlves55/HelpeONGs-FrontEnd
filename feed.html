@@ -50,22 +50,20 @@
                 <div id="imagens-opcoes">
                     <div id="conteudo-imagens">
                         <div id="opcoes">
-                            <button id="editar-imagens">
-                                <img src="assets/img/lapis-feed.png" alt="Editar as imagens">
-                                Editar
-                            </button>
-
-                            <button id="adicionar-imagem">
+                            <label for="files">
                                 <img src="assets/img/image.png" alt="POSTAR imagens">
-                                Adicionar imagem / vídeos
-                            </button>
+                                Adicionar imagens / vídeos
+                            </label>
+                            <input type="file" id="files" multiple></input>
                         </div>
 
                         <div id="araste-imagens">
-                            <div id="texto-dentro">
-                                <img src="assets/img/image.png" alt="POSTAR imagens" id="icone">
-                                <h2>Adicionar imagem / vídeos</h2>
-                                <span>ou arraste e solte</span>
+                            <div id="primeiraPrevia">
+                                <img src="assets/img/sem-imagem-feed.jpeg" id="imagePreviewMain">
+                            </div>
+                            <div id="outrasPrevias">
+                                <img src="assets/img/sem-imagem-feed.jpeg" id="imageSuportOne">
+                                <img src="assets/img/sem-imagem-feed.jpeg" id="imageSuportTwo">
                             </div>
                         </div>
                     </div>
