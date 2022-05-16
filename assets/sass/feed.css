@@ -660,38 +660,11 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 
 .modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #primeiraPrevia {
   height: inherit;
-  width: 425px;
+  width: inherit;
 }
 
 .modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #primeiraPrevia img {
   height: inherit;
-  width: inherit;
-  border-radius: 6px;
-}
-
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outrasPrevias {
-  height: inherit;
-  width: calc(618px - 430px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outrasPrevias img {
-  height: 170px;
   width: inherit;
   border-radius: 6px;
 }
@@ -3494,6 +3467,107 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   text-transform: capitalize;
   letter-spacing: none;
   margin-top: 2px;
+}
+
+main #itens-main #conteudo-feed .post #comentar {
+  min-height: 50px;
+  height: auto;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+main #itens-main #conteudo-feed .post #comentar input {
+  height: 80px;
+  width: 630px;
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #E4E6EB;
+  border-radius: 44px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 35px;
+  padding-top: 22px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+main #itens-main #conteudo-feed .post #comentar input::-webkit-input-placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post #comentar input:-ms-input-placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post #comentar input::-ms-input-placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post #comentar input::placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+main #itens-main #conteudo-feed .post #comentar #enviarComentario {
+  height: 70px;
+  width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 50%;
+  background-color: #FF9F45;
+  cursor: pointer;
+}
+
+main #itens-main #conteudo-feed .post #comentar #enviarComentario img {
+  height: 35px;
+  width: 35px;
 }
 
 main #itens-main #conteudo-feed .evento-feed {

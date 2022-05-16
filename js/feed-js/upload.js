@@ -7,26 +7,6 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
     console.log("A API não é suportada");
 }
 
-function handleFileSelect(evento) {
-    
-    // Objeto FileList guarda todos os arquivos.
-    var files = evento.target.files;
-    let media = [];
-    
-    // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
-    for (var i = 0, f; f = files[i]; i++) {
-        media.push(
-            {
-                "fileName": f.name,
-                "base64": btoa(f.name),
-                "type": f.type
-            }
-        );
-    }
-
-    return media;
-}
-
 const imagemPreview = (idFile, corpo) => {
 
     // Recebendo os valarores
@@ -50,6 +30,5 @@ const imagemPreview = (idFile, corpo) => {
 };
 
 export {
-    handleFileSelect,
     imagemPreview
 }

@@ -14,7 +14,7 @@ import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { closeModalEvento, closeModalPostagens, closeModalVaga, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
-import { handleFileSelect, imagemPreview } from "./upload.js";
+import { imagemPreview } from "./upload.js";
 
 const descricao = document.getElementById("text-post");
 
@@ -195,38 +195,86 @@ const PesquisarONGs = (evento) => {
 
 }
 
+const handlePreview = () => imagemPreview('files', 'imagePreviewMain');
+
+let media = [];
+async function handleFileSelect(evento) {
+
+    // Objeto FileList guarda todos os arquivos.
+    var files = evento.target.files;
+    console.log(files);
+
+    if (files.length <= 3) {
+
+        // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
+        for (var i = 0, f; f = files[i]; i++) {
+            const reader = new FileReader();
+            let base64;
+            reader.addEventListener(
+                "load",
+                 () => {
+                    const dadosReader = reader.result; 
+                    base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
+                    console.log(base64);
+                },
+                false
+            );
+
+            if (f) {
+                reader.readAsDataURL(f);   
+            }
+
+            media.push(
+                {
+                    "fileName": f.name,
+                    "base64": base64,
+                    "type": f.type
+                }
+            );
+
+            console.log(media);
+        }
+    } else {
+        alert("Máximo de arquivos permitidos é 3");
+    }
+
+    console.log("MEDIA", media);
+}
+
 const PostarPost = async (e) => {
 
     e.preventDefault();
 
     const validacoes = checkInputs();
+    const arquivosSelecionados = media;
+    console.log(arquivosSelecionados);
 
     let result;
     validacoes.map(status => {
         status === false ? result = false : "";
     });
 
-    if (result != false) {
+    // if (result != false) {
 
-        const dom = {
-            idOng: ongLogado.idOng,
-            descricao: descricao.value,
-            media: {
-                "titulo": "img1.png",
-                "endereco": "img1.png"
-            }
-        }
+    //     const dom = {
+    //         idOng: ongLogado.idOng,
+    //         descricao: descricao.value,
+    //         media: arquivosSelecionados
+    //     }
 
-        console.log(`DADOS DIGITADOS`, dom);
+    //     console.log(`DADOS DIGITADOS`, dom);
 
-        const request = await ApiRequest("POST", "http://localhost:3131/post", dom);
-        console.log(request);
+    //     const request = await ApiRequest("POST", "http://localhost:3131/post", dom);
+    //     console.log(request);
 
-    }
+    //     // if (request.status === 200) {
+    //     //     closeModalPostagens();
+    //     //     location.reload();
+    //     // }
+
+    // }
 
 }
-
-const handlePreview = () => imagemPreview('files', 'imagePreviewMain');
 
 document.getElementById("pesquisar").addEventListener("keypress", PesquisarONGs)
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
@@ -236,8 +284,8 @@ document.getElementById("postagens").addEventListener("click", openModalPostagen
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
 document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
-document.getElementById('files').addEventListener('change', handleFileSelect, false);
 document.getElementById('files').addEventListener('change', handlePreview);
+document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
 document.querySelector("#trocar-select-post")
 .addEventListener(

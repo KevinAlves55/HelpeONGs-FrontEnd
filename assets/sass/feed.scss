@@ -154,7 +154,7 @@
                         @include displayFlex(row, space-between, center);
 
                         #primeiraPrevia {
-                            @include tamanhos(inherit, 425px);
+                            @include tamanhos(inherit, inherit);
 
                             img {
                                 @include tamanhos(inherit, inherit);
@@ -162,15 +162,15 @@
                             }
                         }
 
-                        #outrasPrevias {
-                            @include tamanhos(inherit, calc(618px - 430px));
-                            @include displayFlex(column, space-between);
+                        // #outrasPrevias {
+                        //     @include tamanhos(inherit, calc(618px - 430px));
+                        //     @include displayFlex(column, space-between);
 
-                            img {
-                                @include tamanhos(170px, inherit);
-                                border-radius: 6px;
-                            }
-                        }
+                        //     img {
+                        //         @include tamanhos(170px, inherit);
+                        //         border-radius: 6px;
+                        //     }
+                        // }
                     }
 
                 }
@@ -1392,6 +1392,41 @@ main {
                         }
                     }
                 }
+
+                #comentar {
+                    min-height: 50px;
+                    @include tamanhos(auto, 736px);
+                    @include displayFlex(row, space-between, center);
+
+                    input {
+                        @include tamanhos(80px, 630px);
+                        @include textoEstilo(grau8, medium, $text);
+                        background-color: $cinza;
+                        border-radius: 44px;
+                        resize: none;
+                        font-family: 'Montserrat', sans-serif;
+                        padding-left: 35px;
+                        padding-top: 22px;
+                        padding-right: 20px;
+                        padding-bottom: 20px;
+
+                        &::placeholder {
+                            @include textoEstilo(grau8, medium, $text);
+                        }
+                    }
+
+                    #enviarComentario {
+                        @include tamanhos(70px, 70px);
+                        @include displayFlex(row, center, center);
+                        border-radius: 50%;
+                        background-color: $deepSaffron;
+                        cursor: pointer;
+
+                        img {
+                            @include tamanhos(35px, 35px);
+                        }
+                    }
+                } 
             }
 
             .evento-feed {
