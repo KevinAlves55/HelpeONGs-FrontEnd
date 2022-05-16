@@ -38,6 +38,7 @@ async function dadosDetalhesConta() {
         email: email.value,
         senha: "123456789"
     }
+    
     localStorage.setItem("atualizarPerfilConta", JSON.stringify(dadosUpdatePerfil));
     let dadosUserUpdate = JSON.parse(localStorage.getItem('atualizarPerfilConta'));
 
@@ -54,10 +55,10 @@ async function dadosDetalhesConta() {
             senha: dadosUserUpdate.senha
         }
     }
-    
+  
     let reqUser = await ApiRequest(
         "PUT", 
-        `http://localhost:3131/user/${userData.idUsuario}`, 
+        `http://localhost:3131/user/${userData.idLogin}`, 
         body
     );
 
@@ -65,6 +66,27 @@ async function dadosDetalhesConta() {
      
 }
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
+
+
+async function contatosUsuario(){
+        const userDataContato = validarSession("dadosContatoUsuario");
+        console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
+
+        const contatoUsuario = {
+            celular : celular.value,
+            telefone : telefone.value,
+        }
+
+        localStorage.setItem("enviarContato", JSON.stringify(contatoUsuario));
+
+
+        let reqUser = await ApiRequest(
+            "POST",`http://localhost:3131/user/${userDataContato.idLogin}`,contatoUsuario
+        );
+    
+        console.log(`REQ`, reqUser);
+    }
+document.getElementById("buttonCadastrar").addEventListener("click", contatosUsuario);
 
 
 async function dadosDetalhesEndereco() {
@@ -168,11 +190,11 @@ async function atualizarEndereco(){
         }
         localStorage.setItem("detalhesEnderecoAtualizado", JSON.stringify(dadosEnderecoAtualizado));
 
-        const ongEnderecoAtualizado = validarSession("dadosOng");
+        const usuarioEnderecoAtualizado = validarSession("dadosUsuario");
 
         const localStorageEnderecoAtualizado = {
             ...JSON.parse(localStorage.getItem("detalhesEnderecoAtualizado")),
-            ong: ongEnderecoAtualizado
+            user: usuarioEnderecoAtualizado
         }
         console.log(localStorageEnderecoAtualizado);
 
@@ -196,3 +218,12 @@ async function atualizarEndereco(){
 
 document.getElementById("atualizarEnderecos").addEventListener("click",atualizarEndereco);
 // document.getElementById("button-detalhes-endereco").addEventListener("click", dadosDetalhesEndereco);
+
+
+
+
+
+
+// UPLOAD DO CURRICULO
+
+
