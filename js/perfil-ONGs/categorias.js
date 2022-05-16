@@ -1,28 +1,59 @@
-'use strict';
+// 'use strict';
 
-import ApiRequest from "../utils/ApiRequest.js";
+// import ApiRequest from "../utils/ApiRequest.js";
 
-const category = document.getElementesById('');
-const nomeDaCategoria = document.getElementById('categoria-input');
 
-function receberDados(){
-    var categorias = document.getElementById('categoria-input').value;
+// const nomeDaCategoria = document.getElementById('categoria-input');
 
-    console.log(categorias);
 
-}
+// function cartegoriaMudar(){
 
-const nomeCategoria = (evento) => {
+//     const category = document.getElementById("categoria-detalhes").value;
+//     console.log(category);
 
-    if (evento.key == "Enter") {
+//     document.getElementById("categoria-span").innerHTML =  category;
 
-        const pesquisaNome = evento.target.value;
-        console.log(pesquisaNome);
 
-    }
+// }
 
-}
+// function receberDados(){
+//     var categorias = document.getElementById('categoria-input').value;
 
-document.getElementById("categoria-input").addEventListener("keypress", 
-nomeCategoria);
+//     console.log(categorias);
+
+// }
+
+// const nomeCategoria = (evento) => {
+
+//     if (evento.key == "Enter") {
+
+//         const pesquisaNome = evento.target.value;
+//         console.log(pesquisaNome);
+
+//     }
+
+// }
+
+// document.getElementById("categoria-input").addEventListener("keypress", 
+// nomeCategoria);
+
+// document.getElementById("categoria-input").addEventListener("keypress", 
+// cartegoriaMudar);
+
+
+
+// function dadosCategorias (){
+
+//     const categoriasDetalhes = { 
+//         categoriaONG: nomeDaCategoria.value
+
+//     }
+//     localStorage.setItem("dadosCategorias", JSON.stringify(categoriasDetalhes));
+    
+
+// }
+
+// const reqCategoria = await ApiRequest("GET", `http://localhost:3131/category/{$localStoreCategorias.ong.idOng}`);
+
+// console.log(reqCategoria);
 

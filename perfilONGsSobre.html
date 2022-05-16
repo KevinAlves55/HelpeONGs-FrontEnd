@@ -283,6 +283,9 @@
                         <button id="formButton" type="button">
                             Proximo
                         </button>
+                        <button id="button-detalhes-conta-Atualizado" type="button">
+                            Atualizar
+                        </button>
                     </div>
                 </form>
             </div>
@@ -329,19 +332,19 @@
                     <div id="categoria-detalhes-ONG">
                         <div id="categoria-detalhes" class="style-input">
                             <label>Categoria</label>
-                            <input type="text" id="categoria-input" placeholder="Ex: Floresta">
+                            <input type="text" id="categoria-input" placeholder="Ex: Floresta"  >
                             <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
                             <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                         </div>
     
                         <div id="lista-de-categoria">
-                            <div class="categoria">
+                            <!-- <div class="categoria">
                                 <span>Cachorros</span>
                                 <img src="assets/img/x-circle.png" alt="${categoria}" id="image"title="Icone categoria">
-                            </div>
+                            </div> -->
 
-                            <div class="categoria">
+                            <!-- <div class="categoria">
                                 <span>Cachorros</span>
                                 <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
                             </div>
@@ -359,10 +362,10 @@
                             <div class="categoria">
                                 <span>Cachorros</span>
                                 <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
-                            </div>
+                            </div> -->
 
                             <div class="categoria">
-                                <span>Cachorros</span>
+                                <span id="categoria-span" onkeyup="cartegoriaMudar()">Cachorros</span>
                                 <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
                             </div>
                         </div>

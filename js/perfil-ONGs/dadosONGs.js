@@ -57,6 +57,7 @@ async function dadosDetalhesConta() {
             telefoneData: telefone.value
         }
         localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
+        
 
         const ongData = validarSession("dadosOng");
 
@@ -74,13 +75,14 @@ async function dadosDetalhesConta() {
         }
 
         const bodyContato = {
+            idLogin: localStorageData.ong.idLogin,
             email: localStorageData.emailData,
             telefone: localStorageData.telefoneData,
             numero: localStorageData.celularData,
         }
 
-        const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.ong.idOng}`, bodyContato);
-        const reqOng = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageData.ong.idOng}`, bodyOng);
+        const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.ong.idLogin}`, bodyContato);
+        const reqOng = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageData.ong.idLogin}`, bodyOng);
 
         console.log(reqContato, reqOng);
 
