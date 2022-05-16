@@ -33,7 +33,7 @@
 
                     <div id="trocar">
                         <select id="trocar-select-post">
-                            <option value="P" selected>Post</option>
+                            <option value="P">Post</option>
                             <option value="E">Evento</option>
                             <option value="V">Vaga</option>
                         </select>
@@ -78,8 +78,7 @@
 
     <!-- MODAL POSTAGEM EVENTO -->
     <div class="modal-evento" id="postagem-evento">
-        <div class="modal-conteudo-evento" id="postEvent">
-
+        <form action="" enctype="multipart/form-data" method="post" class="modal-conteudo-evento">
             <span class="modal-close" id="modalCloseEvento">&#10006;</span>
 
             <div id="parte-superior-evento">
@@ -96,8 +95,8 @@
                     <div class="trocar">
                         <select id="trocar-select-evento">
                             <option value="P">Post</option>
+                            <option value="E">Evento</option>
                             <option value="V">Vaga</option>
-                            <option value="E" selected>Evento</option>
                         </select>
 
                         <input type="text" placeholder="Escreva um título para seu evento" id="titulo-evento">
@@ -158,7 +157,7 @@
             </div>
 
             <button type="button">Publicar</button>
-        </div>
+        </form>
     </div>
 
     <!-- MODAL POSTAGEM ENDEREÇO -->
@@ -210,6 +209,75 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- MODAL POSTAGEM VAGAS -->
+    <div class="modal-vaga" id="postagem-vaga">
+        <form action="" enctype="multipart/form-data" method="post" class="modal-conteudo-vaga">
+            <span class="modal-close" id="modalCloseVaga">&#10006;</span>
+
+            <div id="parte-superior-vaga">
+                <div id="info-ong-trocar-vaga">
+                    <div id="info-ong-vaga">
+                        <img src="assets/img/perfil-foto.png" id="imgOngVaga" alt="GreenPeace" title="Foto">
+
+                        <div id="info-nome-data-vaga">
+                            <h2 id="nomeOngVaga">GreenPeace</h2>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+
+                    <div class="trocar">
+                        <select id="trocar-select-vaga">
+                            <option value="P">Post</option>
+                            <option value="E">Evento</option>
+                            <option value="V">Vaga</option>
+                        </select>
+
+                        <div class="style-input">
+                            <input type="text" placeholder="Escreva um título para a vaga" id="titulo-vaga">
+                        </div>
+                        <div class="style-input">
+                            <textarea id="descricao-vaga" placeholder="Faça uma descrição da vaga"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="complemento-vaga">
+                    <div id="parte-cima">
+                        <div class="style-input" id="requisitos-input">
+                            <label>Requisitos da Vaga</label>
+                            
+                            <textarea placeholder="Descreva os requisitos da vaga" id="requisitosVaga"></textarea>
+                        </div>
+                        <div class="caixa">
+                            <div id="superior-input">
+                                <div class="style-input">
+                                    <label>Inicío</label>
+                                    <input placeholder="00-00" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="temp-inicio">
+                                </div>
+                                <div class="style-input">
+                                    <label>Fim</label>
+                                    <input placeholder="00-00" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="temp-fim">
+                                </div>
+                            </div>
+                            
+                            <span>Insira esses campos para obter a carga horária</span>
+                        </div>
+                    </div>
+                    <div id="parte-baixo">
+                        <div id="botoes">
+                            <div id="botoes-cima">
+                                <button id="btnEndereco">Adicionar um endereço</button>
+                                <button id="btnContato">Adicionar contatos</button>
+                            </div>
+                        </div>
+
+                        <button type="button" id="publicarVaga">Publicar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 
     <!-- HEADER -->
@@ -857,6 +925,14 @@
             </div>
         </div>
     </main>
+
+    <form action="" enctype="multipart/form-data" method="post">
+        <label for="">SUA IMAGEM: </label>
+        <input type="file" name="file[]" id="arquivo" 
+        style="height: 500px; background-color: red;">
+
+        <input type="button" value="Subir Imagem" id="btn">
+    </form>
 
 </body>
 

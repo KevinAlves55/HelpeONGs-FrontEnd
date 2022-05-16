@@ -1,10 +1,18 @@
 "use strict"
 
+// TESTE DE CAPTURA DE ARQUIVO
+document.getElementById("btn").addEventListener("click", () => {
+
+    const file = document.getElementById("arquivo").value
+    console.log(file);
+
+});
+
 import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
-import { closeModalEvento, closeModalPostagens, openModalPostagens } from "./modalPostagens.js";
+import { closeModalEvento, closeModalPostagens, closeModalVaga, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
 
 const descricao = document.getElementById("text-post");
@@ -131,6 +139,17 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     }
     CarregarMiniPerfilEvento(ongLogado);
 
+    function CarregarMiniPerfilVaga(objectLocal) {
+
+        let imgCriador = document.querySelector("#imgOngVaga");
+        let nomeCriador = document.querySelector("#nomeOngVaga");
+
+        imgCriador.setAttribute("src", objectLocal.foto);
+        nomeCriador.innerText = `${objectLocal.nome}`;
+
+    }
+    CarregarMiniPerfilVaga(ongLogado);
+
 } else {
 
     Redirect("cadastroUsuario");
@@ -144,16 +163,22 @@ function TrocarTipoPostagem({target}) {
 
     if (opcaoValor === "P") {
         console.log("ESTAMOS EM POST");
+        document.getElementById("postagem-vaga").classList.remove("active");
         document.getElementById("postagem-evento").classList.remove("active");
         document.getElementById("postagem-post").classList.add("active");
         document.getElementById("trocar-select-post")[0].selected = true;
     } else if (opcaoValor === "E") {
         console.log("ESTAMOS EM EVENTO");
+        document.getElementById("postagem-vaga").classList.remove("active");
         document.getElementById("postagem-post").classList.remove("active");
         document.getElementById("postagem-evento").classList.add("active");
-        document.getElementById("trocar-select-evento")[2].selected = true;
+        document.getElementById("trocar-select-evento")[1].selected = true;
     } else if (opcaoValor === "V") {
-        console.log("ESTAMOS EM VAGAS");
+        console.log("ESTAMOS EM VAGA");
+        document.getElementById("postagem-post").classList.remove("active");
+        document.getElementById("postagem-evento").classList.remove("active");
+        document.getElementById("postagem-vaga").classList.add("active");
+        document.getElementById("trocar-select-vaga")[2].selected = true;
     }
 
 }
@@ -207,6 +232,7 @@ document.querySelector("main").addEventListener("click", closeSetaHeader);
 document.getElementById("postagens").addEventListener("click", openModalPostagens);
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
+document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
 
 document.querySelector("#trocar-select-post")
 .addEventListener(
@@ -214,6 +240,11 @@ document.querySelector("#trocar-select-post")
     TrocarTipoPostagem
 );
 document.querySelector("#trocar-select-evento")
+.addEventListener(
+    "change", 
+    TrocarTipoPostagem
+);
+document.querySelector("#trocar-select-vaga")
 .addEventListener(
     "change", 
     TrocarTipoPostagem

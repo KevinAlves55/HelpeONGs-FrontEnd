@@ -225,15 +225,18 @@
 
     }
 }
-
-// STYLES DE VALIDAÇÃO
+// ATIVA A MODAL DE POST
+.modal-post.active {
+    opacity: 1;
+    z-index: 1;
+}
+// STYLES DE VALIDAÇÃO DO POST
 .style-input.sucess i .img-sucess {
     visibility: visible;
 }
 .style-input.error i .img-error {
     visibility: visible;
 }
-
 .modal-post 
 .modal-conteudo-post 
 #parte-superior 
@@ -242,12 +245,6 @@
 .style-input.error 
 small {
     visibility: visible;
-}
-
-// ATIVIVA A MODAL DE POST
-.modal-post.active {
-    opacity: 1;
-    z-index: 1;
 }
 
 // MODAL EVENTO
@@ -551,7 +548,7 @@ small {
 
     }
 }
-// ATIVIVA A MODAL DE EVENTO
+// ATIVA A MODAL DE EVENTO
 .modal-evento.active {
     opacity: 1;
     z-index: 1;
@@ -674,6 +671,287 @@ small {
             }
         }
     }
+}
+
+// MODAL VAGA
+.modal-vaga {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-vaga {
+        @include tamanhos(648px, 1164px);
+        @include displayFlex(column, space-between);
+        border-radius: 20px;
+        padding: 30px;
+        background-color: $background;
+
+        .modal-close {
+            @include tamanhos(30px, 30px);
+            @include displayFlex(row, center, center);
+            user-select: none;
+            cursor: pointer;
+            border-radius: 50%;
+            align-self: flex-start;
+    
+            &:hover {
+                background-color: #ff4949;
+                color: white;
+            }
+        }
+
+        #parte-superior-vaga {
+            @include tamanhos(546px, 1100px);
+            @include displayFlex(row, space-between);
+
+            #info-ong-trocar-vaga {
+                @include tamanhos(inherit, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong-vaga {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+
+                    #info-nome-data-vaga {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                .trocar {
+                    @include tamanhos(433px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    .style-input {
+                        position: relative;
+
+                        input {
+                            @include tamanhos(64px, 405px);
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                            border: 2px solid $border;
+                            border-radius: 15px;
+                            padding: 0px 15px;
+                            align-self: flex-end;
+                        }
+
+                        textarea {
+                            @include tamanhos(205px, 405px);
+                            border-radius: 8px;
+                            border: 2px solid $border;
+                            resize: none;
+                            padding: 13px 35px 0 18px;
+                            font-size: 1.380rem;
+                            font-weight: map-get($densidade, medium);
+                            font-family: 'Montserrat', sans-serif;
+                            color: $text;
+                            margin-bottom: -4px;
+                        }
+
+                        img {
+                            @include tamanhos(30px, 30px);
+                            cursor: pointer;
+                        }
+    
+                        .icone-validation {
+                            position: absolute;
+                            right: 8px;
+                            top: 15px;
+                            visibility: hidden;
+                        }
+    
+                        small {
+                            visibility: hidden; 
+                            font-size: 1.2rem;
+                            color: $tartOrange;
+                            font-weight: map-get($densidade, medium);
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+
+            #complemento-vaga {
+                @include tamanhos(inherit, 614px);
+                @include displayFlex(column, space-between);
+
+                #parte-cima {
+                    @include tamanhos(346px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    #requisitos-input {
+                        @include tamanhos(193px, inherit);
+                        @include displayFlex(column, space-between);
+                    }
+
+                    .style-input {
+                        position: relative;
+
+                        label {
+                            font-size: 1.400rem;
+                            color: $text;
+                            font-weight: map-get($densidade, medium);
+                        }
+
+                        textarea {
+                            @include tamanhos(158px, 600px);
+                            border-radius: 8px;
+                            border: 2px solid $border;
+                            resize: none;
+                            padding: 10px 35px 0 17px;
+                            font-size: 1.380rem;
+                            font-weight: map-get($densidade, medium);
+                            font-family: 'Montserrat', sans-serif;
+                            color: $text;
+                            align-self: flex-end;
+                        }
+                    }
+
+                    .caixa {
+                        @include tamanhos(122px, inherit);
+                        @include displayFlex(column, $gap: 9px);
+
+                        #superior-input {
+                            @include tamanhos(91px, inherit);
+                            @include displayFlex(row, space-between);
+
+                            .style-input {
+                                @include tamanhos(inherit, 246px);
+                                @include displayFlex(column, space-between);
+
+                                label {
+                                    font-size: 1.400rem;
+                                    color: $text;
+                                    font-weight: map-get($densidade, medium);
+                                    text-transform: capitalize;
+                                }
+
+                                input {
+                                    @include tamanhos(59px, 232px);
+                                    border: 2px solid $border;
+                                    border-radius: 8px;
+                                    font-size: 1.400rem;
+                                    color: $text;
+                                    padding: 0 35px 0 20px;
+                                    align-self: flex-end;
+                                    font-weight: map-get($densidade, medium);
+                                    font-family: 'Montserrat', sans-serif;
+
+                                    &::placeholder {
+                                        font-size: 1.400rem;
+                                        color: $placeholder;
+                                        font-weight: map-get($densidade, medium);
+                                    }
+                                }
+                            }
+                        }
+
+                        span {
+                            @include textoEstilo(grau10, bold, $tartOrange);
+                        }
+                    }
+                }
+
+                #parte-baixo {
+                    @include tamanhos(161px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    #botoes-cima {
+                        @include tamanhos(55px, 614px);
+                        @include displayFlex(row, space-between);
+
+                        #btnEndereco {
+                            @include tamanhos(inherit, 290px);
+                            background-color: $cinza;
+                            border-radius: 6px;
+                            font-size: 1.400rem;
+                            color: $text;
+                            font-weight: map-get($densidade, semiBold);
+                            cursor: pointer;
+                            transition: .1s;
+                            font-family: 'Montserrat', sans-serif;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+
+                        #btnContato {
+                            @include tamanhos(inherit, 278px);
+                            background-color: $cinza;
+                            border-radius: 6px;
+                            font-size: 1.400rem;
+                            color: $text;
+                            font-weight: map-get($densidade, semiBold);
+                            cursor: pointer;
+                            transition: .1s;
+                            font-family: 'Montserrat', sans-serif;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+
+                    #publicarVaga {
+                        @include tamanhos(75px, 250px);
+                        @include displayFlex(row, center, center);
+                        @include textoEstilo(grau7, semiBold, $text, capitalize);
+                        background-color: $deepSaffron;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        align-self: flex-end;
+                        transition: .1s;
+
+                        &:hover {
+                            transition: .1s;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// ATIVA A MODAL VAGA
+.modal-vaga.active {
+    opacity: 1;
+    z-index: 1;
 }
 
 body {

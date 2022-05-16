@@ -802,6 +802,11 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   color: white;
 }
 
+.modal-post.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 .style-input.sucess i .img-sucess {
   visibility: visible;
 }
@@ -812,11 +817,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 
 .modal-post .modal-conteudo-post #parte-superior #info-ong-trocar #trocar .style-input.error small {
   visibility: visible;
-}
-
-.modal-post.active {
-  opacity: 1;
-  z-index: 1;
 }
 
 .modal-evento {
@@ -1841,6 +1841,629 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
+}
+
+.modal-vaga {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 0;
+  z-index: -1;
+}
+
+.modal-vaga .modal-conteudo-vaga {
+  height: 648px;
+  width: 1164px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: #F8F9FA;
+}
+
+.modal-vaga .modal-conteudo-vaga .modal-close {
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border-radius: 50%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.modal-vaga .modal-conteudo-vaga .modal-close:hover {
+  background-color: #ff4949;
+  color: white;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga {
+  height: 546px;
+  width: 1100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga {
+  height: inherit;
+  width: 405px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga #info-ong-vaga {
+  height: 80px;
+  width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga #info-ong-vaga img {
+  height: inherit;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga #info-ong-vaga #info-nome-data-vaga {
+  height: 55px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 3px;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga #info-ong-vaga #info-nome-data-vaga h2 {
+  font-size: 1.563rem;
+  font-weight: 700;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga #info-ong-vaga #info-nome-data-vaga span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar {
+  height: 433px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar select {
+  height: 64px;
+  width: 405px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 15px;
+  padding: 0px 15px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/Icon-select.png") 95.5% 50% no-repeat;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input {
+  position: relative;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input input {
+  height: 64px;
+  width: 405px;
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 15px;
+  padding: 0px 15px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input textarea {
+  height: 205px;
+  width: 405px;
+  border-radius: 8px;
+  border: 2px solid #CCCCCC;
+  resize: none;
+  padding: 13px 35px 0 18px;
+  font-size: 1.380rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  color: #292929;
+  margin-bottom: -4px;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input img {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input .icone-validation {
+  position: absolute;
+  right: 8px;
+  top: 15px;
+  visibility: hidden;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input small {
+  visibility: hidden;
+  font-size: 1.2rem;
+  color: #FC595E;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga {
+  height: inherit;
+  width: 614px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima {
+  height: 346px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima #requisitos-input {
+  height: 193px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .style-input {
+  position: relative;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .style-input label {
+  font-size: 1.400rem;
+  color: #292929;
+  font-weight: 500;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .style-input textarea {
+  height: 158px;
+  width: 600px;
+  border-radius: 8px;
+  border: 2px solid #CCCCCC;
+  resize: none;
+  padding: 10px 35px 0 17px;
+  font-size: 1.380rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  color: #292929;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa {
+  height: 122px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 9px;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input {
+  height: 91px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input {
+  height: inherit;
+  width: 246px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input label {
+  font-size: 1.400rem;
+  color: #292929;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input {
+  height: 59px;
+  width: 232px;
+  border: 2px solid #CCCCCC;
+  border-radius: 8px;
+  font-size: 1.400rem;
+  color: #292929;
+  padding: 0 35px 0 20px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input::-webkit-input-placeholder {
+  font-size: 1.400rem;
+  color: #8C8C8C;
+  font-weight: 500;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input:-ms-input-placeholder {
+  font-size: 1.400rem;
+  color: #8C8C8C;
+  font-weight: 500;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input::-ms-input-placeholder {
+  font-size: 1.400rem;
+  color: #8C8C8C;
+  font-weight: 500;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input::placeholder {
+  font-size: 1.400rem;
+  color: #8C8C8C;
+  font-weight: 500;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa span {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #FC595E;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo {
+  height: 161px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima {
+  height: 55px;
+  width: 614px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnEndereco {
+  height: inherit;
+  width: 290px;
+  background-color: #E4E6EB;
+  border-radius: 6px;
+  font-size: 1.400rem;
+  color: #292929;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: .1s;
+  transition: .1s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnEndereco:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnContato {
+  height: inherit;
+  width: 278px;
+  background-color: #E4E6EB;
+  border-radius: 6px;
+  font-size: 1.400rem;
+  color: #292929;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: .1s;
+  transition: .1s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnContato:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #publicarVaga {
+  height: 75px;
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  cursor: pointer;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #publicarVaga:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
+}
+
+.modal-vaga.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 body {
