@@ -57,6 +57,7 @@ async function dadosDetalhesConta() {
             telefoneData: telefone.value
         }
         localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
+
         
 
         const ongData = validarSession("dadosOng");
@@ -86,6 +87,35 @@ async function dadosDetalhesConta() {
 
         console.log(reqContato, reqOng);
 
+        const dadosUpdate ={
+            telefone: "",
+            email: email.value,
+            numero: "",
+        }
+        localStorage.setItem("atualizarConta", JSON.stringify( dadosUpdate));
+        let dadosONGUpdate = JSON.parse(localStorage.getItem("atualizarConta"));
+
+        const body = {
+            "ONG": {
+               telefone: dadosONGUpdate.telefone,
+               numero: dadosONGUpdate.numero,
+               email: dadosONGUpdate.email
+
+            },
+            "login": {
+                email: dadosONGUpdate.email,
+                senha: dadosONGUpdate.senha
+            }
+        }
+      
+        let reqUser = await ApiRequest(
+            "PUT", 
+            `http://localhost:3131/contact/${dadosOng.idLogin}`, 
+            body
+        );
+    
+        console.log(`REQ`, reqUser);
+
     } else {
         console.log("erro nas validações");
     }
@@ -93,6 +123,8 @@ async function dadosDetalhesConta() {
 
 
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
+
+document.getElementById("button-detalhes-conta-Atualizado").addEventListener("click", dadosDetalhesConta);
 
 
 
