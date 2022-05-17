@@ -69,7 +69,7 @@ document.getElementById("formButton").addEventListener("click", dadosDetalhesCon
 
 
 async function contatosUsuario(){
-        const userDataContato = validarSession("dadosContatoUsuario");
+        const userDataContato = validarSession("dadosUsuario");
         console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
 
         const contatoUsuario = {
@@ -78,16 +78,49 @@ async function contatosUsuario(){
         }
 
         localStorage.setItem("enviarContato", JSON.stringify(contatoUsuario));
+        let contatosUserUpdate = JSON.parse(localStorage.getItem('enviarContato'));
 
+        const contatos = {
+            idLogin: userDataContato.idLogin,
+            numero: contatosUserUpdate.celular,
+            telefone: contatosUserUpdate.telefone
+        }
+        console.log(contatos);
 
         let reqUser = await ApiRequest(
-            "POST",`http://localhost:3131/user/${userDataContato.idLogin}`,contatoUsuario
+            "POST",`http://localhost:3131/contact`,contatos
         );
     
         console.log(`REQ`, reqUser);
     }
 document.getElementById("buttonCadastrar").addEventListener("click", contatosUsuario);
 
+async function atualizarContatos(){
+    const userDataContato = validarSession("dadosUsuario");
+        console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
+
+        const contatoUsuario = {
+            celular : celular.value,
+            telefone : telefone.value,
+        }
+
+        localStorage.setItem("enviarContato", JSON.stringify(contatoUsuario));
+        let contatosUserUpdate = JSON.parse(localStorage.getItem('enviarContato'));
+
+        const contatos = {
+            idLogin: userDataContato.idLogin,
+            numero: contatosUserUpdate.celular,
+            telefone: contatosUserUpdate.telefone
+        }
+        console.log(contatos);
+        
+        let reqUser = await ApiRequest(
+            "PUT",`http://localhost:3131/contact/`,contatos
+        );
+    
+        console.log(`REQ`, reqUser);
+}
+document.getElementById("formButton").addEventListener("click", atualizarContatos);
 
 async function dadosDetalhesEndereco() {
 
@@ -210,7 +243,7 @@ async function atualizarEndereco(){
            
           
         }
-        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${localStorageEnderecoAtualizado.user.idUsuario}`, bodyEnderecoAtualizado);
+        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${localStorageEnderecoAtualizado. idUsuario}`, bodyEnderecoAtualizado);
         
         console.log(reqEnderecoAtualizado);
 
@@ -227,3 +260,14 @@ document.getElementById("atualizarEnderecos").addEventListener("click",atualizar
 // UPLOAD DO CURRICULO
 
 
+
+
+// DESCARREGANDO DADOS 
+
+async function dadosUsuario(){
+
+let reqUser = await ApiRequest(
+    "GET",`http://localhost:3131/user/`,contatos
+);
+
+}
