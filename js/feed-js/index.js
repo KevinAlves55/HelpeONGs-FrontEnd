@@ -195,50 +195,59 @@ const PesquisarONGs = (evento) => {
 
 }
 
-const handlePreview = () => imagemPreview('files', 'imagePreviewMain');
+// const handlePreview = () => imagemPreview('files', 'imagePreviewMain');
 
 let media = [];
 async function handleFileSelect(evento) {
 
+    const preview = document.getElementById("preview");
+    const preview2 = document.getElementById("preview2");
+    const preview3 = document.getElementById("preview3");
+
     // Objeto FileList guarda todos os arquivos.
     var files = evento.target.files;
-    console.log(files);
+    console.log("TODOS OS ARQUIVOS", files);
 
     if (files.length <= 3) {
 
         // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
         for (var i = 0, f; f = files[i]; i++) {
+
             const reader = new FileReader();
-            let base64;
+            let infoArquivo = f;
+            console.log("File: ", infoArquivo);
+            
             reader.addEventListener(
                 "load",
-                 () => {
-                    const dadosReader = reader.result; 
-                    base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
-                    console.log(base64);
+                () => {
+                    const dadosReader = reader.result;
+                    let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
+
+                    media.push(
+                        {
+                            "fileName": infoArquivo.name,
+                            "base64": base64,
+                            "type": infoArquivo.type
+                        }
+                    );
                 },
                 false
             );
 
             if (f) {
-                reader.readAsDataURL(f);   
+                reader.readAsDataURL(f);
+                console.log("OBT", reader);
+            } else {
+                // preview.src = "../../assets/img/sem-imagem-feed.jpeg";
             }
 
-            media.push(
-                {
-                    "fileName": f.name,
-                    "base64": base64,
-                    "type": f.type
-                }
-            );
-
-            console.log(media);
+            reader.onloadend = () => preview.src = reader.result;
+            reader.onloadend = () => preview2.src = reader.result;
+            reader.onloadend = () => preview3.src = reader.result;
         }
     } else {
         alert("Máximo de arquivos permitidos é 3");
     }
-
-    console.log("MEDIA", media);
 }
 
 const PostarPost = async (e) => {
@@ -247,32 +256,29 @@ const PostarPost = async (e) => {
 
     const validacoes = checkInputs();
     const arquivosSelecionados = media;
-    console.log(arquivosSelecionados);
 
     let result;
     validacoes.map(status => {
         status === false ? result = false : "";
     });
 
-    // if (result != false) {
+    if (result != false) {
 
-    //     const dom = {
-    //         idOng: ongLogado.idOng,
-    //         descricao: descricao.value,
-    //         media: arquivosSelecionados
-    //     }
+        const dom = {
+            idOng: ongLogado.idOng,
+            descricao: descricao.value,
+            media: arquivosSelecionados
+        }
 
-    //     console.log(`DADOS DIGITADOS`, dom);
+        const request = await ApiRequest("POST", "http://localhost:3131/post", dom);
+        console.log(request);
 
-    //     const request = await ApiRequest("POST", "http://localhost:3131/post", dom);
-    //     console.log(request);
+        // if (request.status === 200) {
+        //     closeModalPostagens();
+        //     location.reload();
+        // }
 
-    //     // if (request.status === 200) {
-    //     //     closeModalPostagens();
-    //     //     location.reload();
-    //     // }
-
-    // }
+    }
 
 }
 
@@ -284,7 +290,7 @@ document.getElementById("postagens").addEventListener("click", openModalPostagen
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
 document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
-document.getElementById('files').addEventListener('change', handlePreview);
+// document.getElementById('files').addEventListener('change', handlePreview);
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
 document.querySelector("#trocar-select-post")

@@ -11,8 +11,8 @@
     top: 0;
     left: 0;
     background: #00000090;
-    opacity: 1;
-    z-index: 1;
+    opacity: 0;
+    z-index: -1;
 
     .modal-conteudo-post {
         @include tamanhos(635px, 1200px);
@@ -154,7 +154,7 @@
                         @include displayFlex(row, space-between, center);
 
                         #primeiraPrevia {
-                            @include tamanhos(inherit, inherit);
+                            @include tamanhos(inherit, 420px);
 
                             img {
                                 @include tamanhos(inherit, inherit);
@@ -162,21 +162,19 @@
                             }
                         }
 
-                        // #outrasPrevias {
-                        //     @include tamanhos(inherit, calc(618px - 430px));
-                        //     @include displayFlex(column, space-between);
+                        #outrasPrevias {
+                            @include tamanhos(inherit, calc(618px - 430px));
+                            @include displayFlex(column, space-between);
 
-                        //     img {
-                        //         @include tamanhos(170px, inherit);
-                        //         border-radius: 6px;
-                        //     }
-                        // }
+                            img {
+                                @include tamanhos(170px, inherit);
+                                border-radius: 6px;
+                            }
+                        }
                     }
 
                 }
-
             }
-
         }
 
         button {
