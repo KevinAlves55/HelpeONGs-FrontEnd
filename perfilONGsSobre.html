@@ -28,9 +28,9 @@
 
         <div id="conteudo-header">
             <div id="mini-perfil">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <img src="" alt="Perfil" title="" id="mini-perfil-foto">
 
-                <h3>GreenPeace</h3>
+                <h3 id="mini-perfil-nome"></h3>
             </div>
 
             <nav id="menu">
@@ -50,7 +50,7 @@
                     </li>
                     <li>
                         <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
-                        <a href="sair.html">Logout</a>
+                        <a href="loginONGs.html" id="sair">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -60,18 +60,18 @@
     <!-- Centro -->
     <main id="centro">
         <div id="banner">
-            <img src="assets/img/Rectangle 94 (1).png">
+            <img src="" id="perfil-banner">
         </div>
 
         <section id="meu-perfil">
             <div id="minha-foto-perfil">
-                <img src="assets/img/perfil-foto-ONG.png" alt="nomeDaONG" title="Foto da ONG">
+                <img src="" alt="nomeDaONG" title="Foto da ONG" id="perfil-foto">
             </div>
             
             <div id="conteudo-perfil-centro">
                 <div id="info-esquerda">
                     <div id="nome-qtda-seguidores">
-                        <h1>GreenPeace</h1>
+                        <h1 id="perfil-nome"></h1>
                         <h2>127 seguidores</h2>
                     </div>
                     
@@ -172,27 +172,26 @@
             <div id="conteudo-inicio">
                 <section id="conteudo-sobre">
                     <div id="texto-sobre">
-                        <p>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-                            duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non
-                            deserunt ullamco est sit aliqua dolor do amet sint.
+                        <p id="descricaoSobre">
+                            
+                            
                         </p>
                     </div>
     
                     <div id="conteudo-info-sobre">
                         <div class="info-sobre">
                             <h2>Quantidade de membros: </h2>
-                            <span>5.000</span>
+                            <span id="qtdaMembros"></span>
                         </div>
     
                         <div class="info-sobre">
                             <h2>Ano de fundação: </h2>
-                            <span>1981</span>
+                            <span id="anoFundacao"></span>
                         </div>
 
                         <div class="info-sobre">
                             <h2> Sede do local: </h2>
-                            <span>Jandira, SP</span>
+                            <span></span>
                         </div>
                     </div>
                 </section>
@@ -279,7 +278,7 @@
                         </div>
                     </div>
 
-                    <div class="proximo">
+                    <div class="botao-conta">
                         <button id="formButton" type="button">
                             Proximo
                         </button>

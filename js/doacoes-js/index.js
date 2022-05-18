@@ -76,7 +76,8 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && 
+        !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".gif")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
         } else {
             fotoLogado.setAttribute("src", `${objectLocal.foto}`);

@@ -91,6 +91,7 @@ body {
 .proximo{
     @include tamanhos(75px, inherit);
     @include displayFlex($justify: flex-end);
+    
 
     button{
         @include tamanhos(inherit, 230px);
@@ -561,6 +562,30 @@ body {
                     }
         
                 }
+                .botao-conta{
+                    
+                    @include tamanhos(75px, inherit);
+                    @include displayFlex($justify: flex-end);
+                    gap: 15px;
+                    
+                    button{
+                        @include tamanhos(inherit, 230px);
+                        @include displayFlex(row, center, center);
+
+                        @include textoEstilo(grau7, semiBold, $text, capitalize);
+                        border-radius: 6px;
+                        background-color: $deepSaffron;
+                        cursor: pointer;
+                        transition: .5s;
+                    
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
+                            }
+                    }
+                    
+
+                }
             } 
     
         }
@@ -998,25 +1023,25 @@ body {
 
                 .botao-endereco{
                     
-                        @include tamanhos(75px, inherit);
-                        @include displayFlex($justify: flex-end);
-                        gap: 15px;
+                    @include tamanhos(75px, inherit);
+                    @include displayFlex($justify: flex-end);
+                    gap: 15px;
                     
-                        button{
-                            @include tamanhos(inherit, 230px);
-                            @include displayFlex(row, center, center);
+                    button{
+                        @include tamanhos(inherit, 230px);
+                        @include displayFlex(row, center, center);
 
-                            @include textoEstilo(grau7, semiBold, $text, capitalize);
-                            border-radius: 6px;
-                            background-color: $deepSaffron;
-                            cursor: pointer;
-                            transition: .5s;
+                        @include textoEstilo(grau7, semiBold, $text, capitalize);
+                        border-radius: 6px;
+                        background-color: $deepSaffron;
+                        cursor: pointer;
+                        transition: .5s;
                     
-                            &:hover {
-                                transition: .5s;
-                                opacity: 0.8;
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
                             }
-                        }
+                    }
                     
 
                 }

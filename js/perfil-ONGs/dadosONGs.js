@@ -87,34 +87,34 @@ async function dadosDetalhesConta() {
 
         console.log(reqContato, reqOng);
 
-        const dadosUpdate ={
-            telefone: "",
-            email: email.value,
-            numero: "",
-        }
-        localStorage.setItem("atualizarConta", JSON.stringify( dadosUpdate));
-        let dadosONGUpdate = JSON.parse(localStorage.getItem("atualizarConta"));
+        // const dadosUpdate ={
+        //     telefone: "",
+        //     email: email.value,
+        //     numero: "",
+        // }
+        // localStorage.setItem("atualizarConta", JSON.stringify( dadosUpdate));
+        // let dadosONGUpdate = JSON.parse(localStorage.getItem("atualizarConta"));
 
-        const body = {
-            "ONG": {
-               telefone: dadosONGUpdate.telefone,
-               numero: dadosONGUpdate.numero,
-               email: dadosONGUpdate.email
+        // const body = {
+        //     "ONG": {
+        //        telefone: dadosONGUpdate.telefone,
+        //        numero: dadosONGUpdate.numero,
+        //        email: dadosONGUpdate.email
 
-            },
-            "login": {
-                email: dadosONGUpdate.email,
-                senha: dadosONGUpdate.senha
-            }
-        }
+        //     },
+        //     "login": {
+        //         email: dadosONGUpdate.email,
+        //         senha: dadosONGUpdate.senha
+        //     }
+        // }
       
-        let reqUser = await ApiRequest(
-            "PUT", 
-            `http://localhost:3131/contact/${dadosOng.idLogin}`, 
-            body
-        );
+        // let reqUser = await ApiRequest(
+        //     "PUT", 
+        //     `http://localhost:3131/contact/${dadosOng.idLogin}`, 
+        //     body
+        // );
     
-        console.log(`REQ`, reqUser);
+        // console.log(`REQ`, reqUser);
 
     } else {
         console.log("erro nas validações");
