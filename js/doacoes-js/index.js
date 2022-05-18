@@ -12,9 +12,14 @@ let userLogado;
 let ongLogado;
 
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
+
+    console.log("Logado como doador");
     
     userLogado = validarSession("dadosUsuario");
-    console.log(`DADOS USER`, userLogado);
+
+    let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
+    console.log(req);
+    const dadosUsuario = req.data
 
     const controlNone = () => document.getElementById("control").style.display = "none";
     controlNone();
@@ -53,7 +58,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         }
     
     }
-    CarregarMiniPerfil(userLogado);
+    CarregarMiniPerfil(dadosUsuario);
 
     const CarregarTodosFavoritos = async () => {
 
@@ -69,8 +74,13 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 } else if (localStorage.hasOwnProperty('dadosOng') !== false) {
 
+    console.log("Logado como ONG");
     ongLogado = validarSession("dadosOng");
-    console.log(`DADOS`, ongLogado);
+    console.log(ongLogado);
+
+    let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
+    console.log(req);
+    const dadosOng = req.data
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
@@ -106,7 +116,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         }
     
     }
-    CarregarMiniPerfil(ongLogado);
+    CarregarMiniPerfil(dadosOng);
 
     const favoriteNone = () => 
     document.getElementById("favoritos").style.display = "none";

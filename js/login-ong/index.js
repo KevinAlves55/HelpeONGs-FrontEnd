@@ -45,6 +45,7 @@ const validarLogin = async (e) => {
             const dadosOng = response.data[0];
             localStorage.clear();
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
+            localStorage.setItem("emailSenha", JSON.stringify(dom));
             Redirect("doacoesONGs");
         
         }

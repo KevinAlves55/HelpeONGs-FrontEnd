@@ -48,6 +48,7 @@ const validarLogin = async (e) => {
             const dadosUsuario = response.usuario;
             localStorage.clear();
             localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
+            localStorage.setItem("emailSenha", JSON.stringify(dom));
             window.location.href = "doacoesONGs.html";
         
         }

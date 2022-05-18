@@ -1,13 +1,5 @@
 "use strict"
 
-// TESTE DE CAPTURA DE ARQUIVO
-document.getElementById("btn").addEventListener("click", () => {
-
-    const file = document.getElementById("arquivo").value
-    console.log(file);
-
-});
-
 import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
@@ -25,6 +17,12 @@ let ongLogado;
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
     userLogado = validarSession("dadosUsuario");
+    let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
+    const dadosUsuario = req.data
+
+    if (!dadosUsuario.foto || !dadosUsuario.banner || !dadosUsuario.dataDeNascimento) {
+        Redirect("perfilUsuario");
+    }
 
     const controlNone = () => document.getElementById("control").style.display = "none";
     controlNone();
@@ -65,11 +63,17 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         }
     
     }
-    CarregarMiniPerfil(userLogado);
+    CarregarMiniPerfil(dadosUsuario);
 
 } else if (localStorage.hasOwnProperty('dadosOng') !== false) {
 
     ongLogado = validarSession("dadosOng");
+    let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
+    const dadosOng = req.data
+
+    if (!dadosOng.foto || !dadosOng.banner || !dadosOng.historia || !dadosOng.descricao) {
+        Redirect("perfilONGs");
+    }
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
@@ -105,7 +109,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         }
     
     }
-    CarregarMiniPerfil(ongLogado);
+    CarregarMiniPerfil(dadosOng);
 
     function CarregarBarraPostagem(objectLocal) {
 
@@ -116,7 +120,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         imgPostagem.setAttribute("src", `${objectLocal.foto}`);
 
     }
-    CarregarBarraPostagem(ongLogado);
+    CarregarBarraPostagem(dadosOng);
 
     function CarregarMiniPerfilPostagem(objectLocal) {
 
@@ -127,7 +131,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         nomeCriador.innerText = `${objectLocal.nome}`;
     
     }
-    CarregarMiniPerfilPostagem(ongLogado);
+    CarregarMiniPerfilPostagem(dadosOng);
 
     function CarregarMiniPerfilEvento(objectLocal) {
 
@@ -138,7 +142,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         nomeCriador.innerText = `${objectLocal.nome}`;
     
     }
-    CarregarMiniPerfilEvento(ongLogado);
+    CarregarMiniPerfilEvento(dadosOng);
 
     function CarregarMiniPerfilVaga(objectLocal) {
 
@@ -149,7 +153,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         nomeCriador.innerText = `${objectLocal.nome}`;
 
     }
-    CarregarMiniPerfilVaga(ongLogado);
+    CarregarMiniPerfilVaga(dadosOng);
 
 } else {
 
@@ -195,18 +199,11 @@ const PesquisarONGs = (evento) => {
 
 }
 
-// const handlePreview = () => imagemPreview('files', 'imagePreviewMain');
-
 let media = [];
 async function handleFileSelect(evento) {
 
-    const preview = document.getElementById("preview");
-    const preview2 = document.getElementById("preview2");
-    const preview3 = document.getElementById("preview3");
-
     // Objeto FileList guarda todos os arquivos.
     var files = evento.target.files;
-    console.log("TODOS OS ARQUIVOS", files);
 
     if (files.length <= 3) {
 
@@ -215,7 +212,7 @@ async function handleFileSelect(evento) {
 
             const reader = new FileReader();
             let infoArquivo = f;
-            console.log("File: ", infoArquivo);
+            // console.log("File: ", infoArquivo);
             
             reader.addEventListener(
                 "load",
@@ -236,14 +233,31 @@ async function handleFileSelect(evento) {
 
             if (f) {
                 reader.readAsDataURL(f);
-                console.log("OBT", reader);
+                // console.log("OBT", reader);
             } else {
-                // preview.src = "../../assets/img/sem-imagem-feed.jpeg";
+                // console.log("Não existe arquivos");
             }
 
-            reader.onloadend = () => preview.src = reader.result;
-            reader.onloadend = () => preview2.src = reader.result;
-            reader.onloadend = () => preview3.src = reader.result;
+            // if (f.type.match('image.*')) {
+
+            //     // A leitura do arquivo é assíncrona 
+            //     reader.onload = (function (theFile) {
+            //         return function (e) {
+
+            //             console.log("TODOS OS ARQUIVOS", files);
+                        
+            //             console.log('Img info',theFile);
+                        
+            //             // Gera a miniatura:
+            //             var img1 = document.querySelector(".preview1");
+            //             var img2 = document.querySelector(".preview2");
+            //             var img3 = document.querySelector(".preview3");
+            //             img1.src = e.target.result;
+            //             img2.src = e.target.result;
+            //             img3.src = e.target.result;
+            //         };
+            //     })(f);
+            // }
         }
     } else {
         alert("Máximo de arquivos permitidos é 3");
@@ -282,6 +296,14 @@ const PostarPost = async (e) => {
 
 }
 
+const CarregarTodosPost = async () => {
+
+    const container = document.getElementById("conteudo-feed");
+    const objetoPost = await ApiRequest("GET", "http://localhost:3131/ong/post");
+    console.log("Todos os Posts", objetoPost);
+
+}
+
 document.getElementById("pesquisar").addEventListener("keypress", PesquisarONGs)
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
@@ -290,9 +312,7 @@ document.getElementById("postagens").addEventListener("click", openModalPostagen
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
 document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
-// document.getElementById('files').addEventListener('change', handlePreview);
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
-
 document.querySelector("#trocar-select-post")
 .addEventListener(
     "change", 
@@ -309,3 +329,4 @@ document.querySelector("#trocar-select-vaga")
     TrocarTipoPostagem
 );
 document.getElementById("publicarPost").addEventListener("click", PostarPost);
+CarregarTodosPost();

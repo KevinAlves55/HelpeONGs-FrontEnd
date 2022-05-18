@@ -656,6 +656,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  background-color: red;
 }
 
 .modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #primeiraPrevia {
@@ -669,7 +670,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   border-radius: 6px;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outrasPrevias {
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outras-previas {
   height: inherit;
   width: calc(618px - 430px);
   display: -webkit-box;
@@ -690,7 +691,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   gap: 0;
 }
 
-.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outrasPrevias img {
+.modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #outras-previas img {
   height: 170px;
   width: inherit;
   border-radius: 6px;

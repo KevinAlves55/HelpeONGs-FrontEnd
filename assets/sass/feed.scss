@@ -152,6 +152,7 @@
                     #araste-imagens {
                         @include tamanhos(calc(431px - 85px), inherit);
                         @include displayFlex(row, space-between, center);
+                        background-color: red;
 
                         #primeiraPrevia {
                             @include tamanhos(inherit, 420px);
@@ -162,7 +163,7 @@
                             }
                         }
 
-                        #outrasPrevias {
+                        #outras-previas {
                             @include tamanhos(inherit, calc(618px - 430px));
                             @include displayFlex(column, space-between);
 

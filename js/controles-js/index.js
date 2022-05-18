@@ -17,7 +17,13 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 } else if (localStorage.hasOwnProperty('dadosOng') !== false) {
 
+    console.log("Logado como ONG");
     ongLogado = validarSession("dadosOng");
+    console.log(ongLogado);
+
+    let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
+    console.log(req);
+    const dadosOng = req.data
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
@@ -53,7 +59,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         }
     
     }
-    CarregarMiniPerfil(ongLogado);
+    CarregarMiniPerfil(dadosOng);
 
 } else {
 

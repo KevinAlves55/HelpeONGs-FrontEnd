@@ -54,16 +54,16 @@
                                 <img src="assets/img/image.png" alt="POSTAR imagens">
                                 Adicionar imagens / vídeos
                             </label>
-                            <input type="file" id="files" multiple accept="image/*">
+                            <input type="file" name="files[]" id="files" multiple="multiple" accept="image/*">
                         </div>
 
-                        <div id="araste-imagens">
+                        <div id="araste-imagens" class="list">
                             <div id="primeiraPrevia">
-                                <img src="" class="preview" id="preview">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="preview1">
                             </div>
-                            <div id="outrasPrevias">
-                                <img src="" class="preview" id="preview2">
-                                <img src="" class="preview" id="preview3">
+                            <div id="outras-previas">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="preview2">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="preview3">
                             </div>
                         </div>
                     </div>
@@ -560,7 +560,7 @@
                     </div>
                 </div>
 
-                <!-- EVENTOS -->
+                <!-- EVENTOS 
                 <div class="evento-feed">
                     <div class="parte-superior">
                         <div class="info-ong">
@@ -623,9 +623,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
-                <!-- VAGAS -->
+                <!-- VAGAS 
                 <div class="vaga">
                     <div class="parte-superior">
                         <div class="info-ong">
@@ -652,9 +652,9 @@
                             <button>Interesse</button>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
-                <div class="post">
+                <!-- <div class="post">
                     <div class="parte-superior">
                         <div class="info-ong">
                             <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
@@ -697,7 +697,7 @@
                     </div>
 
                     <div class="comentarios">
-                        <div class="corpo-comentario"><!-- ESTRUTURA DE COMENTÁRIO -->
+                        <div class="corpo-comentario">
                             <div class="lateral-imagem">
                                 <img src="assets/img/foto-comentario.png" alt="{NomeDaPessoa}" title="Foto de perfil">
                             </div>
@@ -721,11 +721,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- ESTRUTURA DE COMENTÁRIO -->
+                        </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="evento-feed">
+                <!-- <div class="evento-feed">
                     <div class="parte-superior">
                         <div class="info-ong">
                             <img src="assets/img/foto-ong-perfil.png" alt="">
@@ -787,9 +787,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="vaga">
+                <!-- <div class="vaga">
                     <div class="parte-superior">
                         <div class="info-ong">
                             <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
@@ -815,7 +815,7 @@
                             <button>Interesse</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <h4>VER MAIS</h4>
             </section>
@@ -929,15 +929,7 @@
                 </div>
             </div>
         </div>
-    </main>
-
-    <form action="" enctype="multipart/form-data" method="post">
-        <label for="">SUA IMAGEM: </label>
-        <input type="file" name="file[]" id="arquivo" 
-        style="height: 500px; background-color: red;">
-
-        <input type="button" value="Subir Imagem" id="btn">
-    </form>
+    </main> 
 
 </body>
 
