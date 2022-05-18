@@ -2,7 +2,42 @@
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
 
- // const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.user.idUsuario}`, bodyContato);
+let userLogado;
+userLogado = validarSession("dadosUsuario");
+
+// const url = 'http://localhost:3131/user/1';
+
+let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
+const dados = req.data;
+
+function CarregarMiniPerfil(objectLocal) {
+
+    let nomeLogado = document.getElementById("mini-perfil-nome");
+    let fotoLogado = document.getElementById("mini-perfil-foto");
+    let nomePerfil = document.getElementById("perfil-nome");
+    let fotoPerfil = document.getElementById("perfil-foto");
+
+    if (objectLocal.nome === null || objectLocal.nome === undefined) {
+        nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
+    } else {
+        nomeLogado.innerHTML = `${objectLocal.nome}`;
+    }
+
+    if (objectLocal.foto === null || objectLocal.foto === undefined) {
+        fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+    } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+        fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
+    } else {
+        fotoLogado.setAttribute("src", `${objectLocal.foto}`);
+    }
+
+}
+CarregarMiniPerfil(dados);
+
+document.getElementById("sair").addEventListener("click", () => {
+    localStorage.clear();
+    Redirect("loginUsuario");
+});
 
 // Objeto de captura das INPUTS
 const nome = document.getElementById('name');
@@ -250,24 +285,5 @@ async function atualizarEndereco(){
     }
 
 document.getElementById("atualizarEnderecos").addEventListener("click",atualizarEndereco);
-// document.getElementById("button-detalhes-endereco").addEventListener("click", dadosDetalhesEndereco);
 
-
-
-
-
-
-// UPLOAD DO CURRICULO
-
-
-
-
-// DESCARREGANDO DADOS 
-
-async function dadosUsuario(){
-
-let reqUser = await ApiRequest(
-    "GET",`http://localhost:3131/user/`,contatos
-);
-
-}
+//  {nome}
