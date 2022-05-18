@@ -217,8 +217,9 @@ body {
 
 #centro #banner img {
   height: inherit;
-  width: inherit;
+  width: 850px;
   border-radius: 6px;
+  background-size: cover;
 }
 
 #centro #perfil {
@@ -249,17 +250,17 @@ body {
   left: 20px;
 }
 
-#centro #perfil #foto-perfil #foto {
-  height: inherit;
-  width: inherit;
-  background-image: url("../img/perfil-usuario-foto.webp");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  -o-object-fit: cover;
-     object-fit: cover;
+#centro #perfil #foto-perfil #mini-foto-perfil {
+  position: relative;
   border-radius: 50%;
-  border: 6px solid #F8F9FA;
+}
+
+#centro #perfil #foto-perfil #mini-foto-perfil img {
+  height: 175px;
+  width: 175px;
+  border-radius: 50%;
+  outline: 10px solid #F8F9FA;
+  position: absolute;
 }
 
 #centro #perfil #conteudo-perfil-centro {
@@ -296,6 +297,7 @@ body {
   text-transform: capitalize;
   letter-spacing: none;
   padding-top: 20px;
+  padding-left: 20px;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #botao {

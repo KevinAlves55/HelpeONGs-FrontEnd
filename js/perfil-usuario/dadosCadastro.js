@@ -5,10 +5,16 @@ import ApiRequest from "../utils/ApiRequest.js";
 let userLogado;
 userLogado = validarSession("dadosUsuario");
 
-// const url = 'http://localhost:3131/user/1';
-
 let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
+
 const dados = req.data;
+
+let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${userLogado.idUsuario}`);
+const enderecos = reqEndereco.data;
+
+let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userLogado.idUsuario}`);
+const contatos = reqContatos.data;
+
 
 function CarregarMiniPerfil(objectLocal) {
 
@@ -16,19 +22,47 @@ function CarregarMiniPerfil(objectLocal) {
     let fotoLogado = document.getElementById("mini-perfil-foto");
     let nomePerfil = document.getElementById("perfil-nome");
     let fotoPerfil = document.getElementById("perfil-foto");
+    let bannerPerfil = document.getElementById("perfil-banner");
 
+    // mini nome perfil
     if (objectLocal.nome === null || objectLocal.nome === undefined) {
         nomeLogado.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
     } else {
         nomeLogado.innerHTML = `${objectLocal.nome}`;
     }
 
+    // mini foto perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
     } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
         fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         fotoLogado.setAttribute("src", `${objectLocal.foto}`);
+    }
+
+    // bome perfil
+    if (objectLocal.nome === null || objectLocal.nome === undefined) {
+        nomePerfil.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
+    } else {
+        nomePerfil.innerHTML = `${objectLocal.nome}`;
+    }
+
+    // foto perfil
+    if (objectLocal.foto === null || objectLocal.foto === undefined) {
+        fotoPerfil.setAttribute("src", "../../assets/img/sem-foto.png");
+    } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+        fotoPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
+    } else {
+        fotoPerfil.setAttribute("src", `${objectLocal.foto}`);
+    }
+
+    // banner perfil
+    if (objectLocal.foto === null || objectLocal.foto === undefined) {
+        bannerPerfil.setAttribute("src", "../../assets/img/banner-vazio.png");
+    } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+        bannerPerfil.setAttribute("src", `../../assets/img/banner-vazio.png`)
+    } else {
+        bannerPerfil.setAttribute("src", `${objectLocal.foto}`);
     }
 
 }
@@ -150,7 +184,7 @@ async function atualizarContatos(){
         console.log(contatos);
         
         let reqUser = await ApiRequest(
-            "PUT",`http://localhost:3131/contact/`,contatos
+            "PUT",`http://localhost:3131/contact/${contatosUserUpdate.idUsuario}`,contatos
         );
     
         console.log(`REQ`, reqUser);
@@ -203,48 +237,6 @@ async function dadosDetalhesEndereco() {
 }
 document.getElementById("buttonEnderecos").addEventListener("click", dadosDetalhesEndereco);
 
-// async function atualizarEndereco(){
-//     const atualizarDadosDetalhesEndereco = {
-//         cepData: cep.value,
-//         estadoData: estado.value,
-//         cidadeData: cidade.value,
-//         bairroData: bairro.value,
-//         ruaData: endereco.value,
-//         numeroData: numero.value,
-//         complementoData: complemento.value
-//     }
-//     localStorage.setItem("atualizarEndereco", JSON.stringify(atualizarDadosDetalhesEndereco)); 
-
-//     const userEndereco = validarSession("dadosUsuario");
-
-//     const localStorageEnderecoAtualizado = {
-//         ...JSON.parse(localStorage.getItem("atualizarEndereco")),
-//         user: userEndereco
-//     }
-//     console.log(localStorageEnderecoAtualizado);
-
-//     const atualizarEndereco = {
-//         cep: localStorageEnderecoAtualizado.cepData,
-//         bairro: localStorageEnderecoAtualizado.bairroData,
-//         numero: localStorageEnderecoAtualizado.numeroData,
-//         rua: localStorageEnderecoAtualizado.ruaData,
-//         municipio: localStorageEnderecoAtualizado.cidadeData, 
-//         estado: localStorageEnderecoAtualizado.estadoData,
-//         complemento: localStorageAtualizarEndereco.complementoData,
-//     }
-
-//     console.log("atualizado", atualizarEndereco);
-
-//     const reqAtualizarEndereco = await ApiRequest("PUT", `http://localhost:3131//adress/${localStorageEnderecoAtualizado.user.idUsuario}`, atualizarEndereco);
-    
-
-//     console.log(reqAtualizarEndereco, );
-
-
-// }
-// document.getElementById("atualizarEnderecos").addEventListener("click", atualizarEndereco);
-
-// EXEMPLO
 async function atualizarEndereco(){
 
         const dadosEnderecoAtualizado = {
@@ -286,4 +278,25 @@ async function atualizarEndereco(){
 
 document.getElementById("atualizarEnderecos").addEventListener("click",atualizarEndereco);
 
-//  {nome}
+
+
+async function carregarDadosUsuario(data, endereco, contato){
+    console.log(contato);
+    // console.log(data);
+    let dataNascimento = document.getElementById("data");
+    let cidade = document.getElementById("cidadeUsuario");
+    let numeroCelular = document.getElementById("celular");
+    let numeroTelefone = document.getElementById("telefone");
+
+    dataNascimento.innerHTML = `${data.dataDeNascimento}`;
+    cidade.innerHTML = `${endereco.municipio}`;
+    numeroCelular.innerHTML = `${contato.numero}`;
+    numeroTelefone.innerHTML = `${contato.telefone}`
+
+
+
+}
+
+carregarDadosUsuario(dados, enderecos, contatos);
+
+

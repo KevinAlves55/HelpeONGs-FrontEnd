@@ -84,8 +84,9 @@ body {
         @include tamanhos(323px, inherit);
 
         img{
-            @include tamanhos(inherit, inherit);
+            @include tamanhos(inherit, 850px);
             border-radius: 6px;
+            background-size: cover;
         }
     }
     #perfil{
@@ -99,16 +100,18 @@ body {
             top: -75px;
             left: 20px;
 
-            #foto {
-                @include tamanhos(inherit, inherit);
-                background-image: url('../img/perfil-usuario-foto.webp');
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                object-fit: cover;
-                border-radius: 50%;
-                border: 6px solid $background;
-            }
+           #mini-foto-perfil{
+               position: relative;
+               border-radius:50%;
+
+               img{
+                   @include tamanhos(175px, 175px);
+                   border-radius: 50%;
+                   outline: 10px solid $background;
+                   position: absolute;
+                //    top: -35px;
+               }
+           }
         }
      
         #conteudo-perfil-centro{
@@ -126,6 +129,8 @@ body {
                     // @include tamanhos(33px, 200px);
                     @include textoEstilo(grau7, bold, $text, capitalize);
                     padding-top: 20px;
+                    padding-left: 20px;
+                    
                     
                 } 
         #botao{
