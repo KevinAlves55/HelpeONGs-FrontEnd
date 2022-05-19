@@ -1,6 +1,6 @@
 "use strict"
 
-import ApiRequest from "../utils/ApiRequest.js";
+// import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
@@ -11,7 +11,7 @@ import { getFormattedDate } from "../utils/DataFormat.js";
 
 const descricao = document.getElementById("text-post");
 
-let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
+// let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
 let ongLogado;
 
@@ -158,7 +158,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 } else {
 
-    Redirect("cadastroUsuario");
+    // Redirect("cadastroUsuario");
 
 }
 
@@ -207,10 +207,10 @@ async function handleFileSelect(evento) {
     var files = evento.target.files;
 
     if (files.length <= 3) {
-
+        let imagens = [];
         // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
         for (var i = 0, f; f = files[i]; i++) {
-
+            
             const reader = new FileReader();
             let infoArquivo = f;
             // console.log("File: ", infoArquivo);
@@ -239,27 +239,44 @@ async function handleFileSelect(evento) {
                 // console.log("Não existe arquivos");
             }
 
-            // if (f.type.match('image.*')) {
+            if (f.type.match('image.*')) {
 
-            //     // A leitura do arquivo é assíncrona 
-            //     reader.onload = (function (theFile) {
-            //         return function (e) {
+                // A leitura do arquivo é assíncrona 
+                reader.onload = (function (theFile) {
+                    return function (e) {
+                        
+                        const position = e.target.result.indexOf(",")+1;
+                        const tamanho = e.target.result.length;
+                        imagens.push(
+                            e.target.result.substring(position, tamanho)
+                        );
+                        
 
-            //             console.log("TODOS OS ARQUIVOS", files);
-                        
-            //             console.log('Img info',theFile);
-                        
-            //             // Gera a miniatura:
-            //             var img1 = document.querySelector(".preview1");
-            //             var img2 = document.querySelector(".preview2");
-            //             var img3 = document.querySelector(".preview3");
-            //             img1.src = e.target.result;
-            //             img2.src = e.target.result;
-            //             img3.src = e.target.result;
-            //         };
-            //     })(f);
-            // }
+                        // Gera a miniatura:
+                        // const img = document.querySelectorAll(".preview");
+                        // img[i].src = e.target.result;
+                        // console.log( `contador`, contador);
+                        // contador = contador+1;
+                    };
+                })(f);
+            }
         }
+
+        const img = [1,2,3]
+        console.log(img) 
+
+        console.log(imagens);
+        console.log("IMG", imagens[0]);
+        let img1 = document.querySelector(".preview1");
+        let img2 = document.querySelector(".preview2");
+        let img3 = document.querySelector(".preview3");
+
+        // img1.src = imagens[0];
+        // img2.src = imagens[1];
+        // img3.src = imagens[2];
+
+        img1.setAttribute("src", imagens[0]);
+
     } else {
         alert("Máximo de arquivos permitidos é 3");
     }
@@ -297,16 +314,16 @@ const PostarPost = async (e) => {
 
 }
 
-const CarregarTodosPost = async () => {
+// const CarregarTodosPost = async () => {
 
-    const container = document.querySelector(".feed");
-    const objetoPost = await ApiRequest("GET", "http://localhost:3131/post");
-    const dadosPost = objetoPost.data;
-    console.log(dadosPost);
-    const post = dadosPost.map(CriarPosts);
-    container.replaceChildren(...post);
+//     const container = document.querySelector(".feed");
+//     const objetoPost = await ApiRequest("GET", "http://localhost:3131/post");
+//     const dadosPost = objetoPost.data;
+//     console.log(dadosPost);
+//     const post = dadosPost.map(CriarPosts);
+//     container.replaceChildren(...post);
 
-}
+// }
 
 const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_media}) => {
     
@@ -550,4 +567,4 @@ document.querySelector("#trocar-select-vaga")
     TrocarTipoPostagem
 );
 document.getElementById("publicarPost").addEventListener("click", PostarPost);
-CarregarTodosPost();
+// CarregarTodosPost();
