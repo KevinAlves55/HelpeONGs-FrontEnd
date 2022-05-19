@@ -7,6 +7,7 @@ import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { closeModalEvento, closeModalPostagens, closeModalVaga, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
 import { imagemPreview } from "./upload.js";
+import { getFormattedDate } from "../utils/DataFormat.js";
 
 const descricao = document.getElementById("text-post");
 
@@ -298,9 +299,229 @@ const PostarPost = async (e) => {
 
 const CarregarTodosPost = async () => {
 
-    const container = document.getElementById("conteudo-feed");
-    const objetoPost = await ApiRequest("GET", "http://localhost:3131/ong/post");
-    console.log("Todos os Posts", objetoPost);
+    const container = document.querySelector(".feed");
+    const objetoPost = await ApiRequest("GET", "http://localhost:3131/post");
+    const dadosPost = objetoPost.data;
+    console.log(dadosPost);
+    const post = dadosPost.map(CriarPosts);
+    container.replaceChildren(...post);
+
+}
+
+const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_media}) => {
+    
+    const dataFormat = getFormattedDate(createdAt);
+
+    let corpo;
+   
+    corpo = document.createElement("div");
+    corpo.classList.add("feed");
+
+    if (tbl_post_media.length === 0) {
+        
+        corpo.innerHTML =
+        `
+        <div class="post">
+            <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${tbl_ong.nome}</h2>
+                        <span>${dataFormat}</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>28.5k Curtiram</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>3 Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input name="" id="" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        </div>
+        `;
+
+    } else if (tbl_post_media.length === 1) {
+        corpo.innerHTML =
+        `
+        <div class="post">
+            <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${tbl_ong.nome}</h2>
+                        <span>${dataFormat}</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
+
+                <div class="imagens-complementos">
+                </div>
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>28.5k Curtiram</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>3 Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input name="" id="" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        </div>
+        `;
+    } else if (tbl_post_media.length === 2) {
+        corpo.innerHTML =
+        `
+        <div class="post">
+            <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${tbl_ong.nome}</h2>
+                        <span>${dataFormat}</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
+
+                <div class="imagens-complementos">
+                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
+                </div>
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>28.5k Curtiram</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>3 Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input name="" id="" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        </div>
+        `;
+    } else {
+        corpo.innerHTML =
+        `
+        <div class="post">
+            <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${tbl_ong.nome}</h2>
+                        <span>${dataFormat}</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
+
+                <div class="imagens-complementos">
+                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
+                    <img src="${tbl_post_media[2].url}" class="baixo">
+                </div>
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>28.5k Curtiram</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>3 Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input name="" id="" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        </div>
+        `;
+    }
+
+    return corpo;
 
 }
 

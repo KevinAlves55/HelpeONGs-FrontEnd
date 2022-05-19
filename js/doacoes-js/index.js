@@ -195,11 +195,11 @@ const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
 
     corpo.innerHTML =
     `
-    <img src="assets/img/favoritar-sem-preenchimento.png" class="img-coracao" alt="Favoritos" title="Icon Coração" id="favoritar" data-idong="${idOng}">
-    <img src="${foto}" alt="${nome}" title="Imagem da ONG" class="img-ong">
-    <h2>${nome}</h2>
-    <span>${numeroDeSeguidores} seguidores</span>
-    <button type="button" data-idong="${idOng}">DOAR</button>
+        <img src="assets/img/favoritar-sem-preenchimento.png" class="img-coracao" alt="Favoritos" title="Icon Coração" id="favoritar" data-idong="${idOng}">
+        <img src="${foto}" alt="${nome}" title="Imagem da ONG" class="img-ong">
+        <h2>${nome}</h2>
+        <span>${numeroDeSeguidores} seguidores</span>
+        <button type="button" data-idong="${idOng}">DOAR</button>
     `;
 
     return corpo;

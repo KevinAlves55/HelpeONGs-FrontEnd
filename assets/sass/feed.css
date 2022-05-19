@@ -656,7 +656,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: red;
 }
 
 .modal-post .modal-conteudo-post #parte-superior #imagens-opcoes #conteudo-imagens #araste-imagens #primeiraPrevia {
@@ -2861,9 +2860,9 @@ main #itens-main #conteudo-feed {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3038,8 +3037,8 @@ main #itens-main #conteudo-feed #criar-postagem button img {
   margin-left: 8px;
 }
 
-main #itens-main #conteudo-feed .post {
-  min-height: 789px;
+main #itens-main #conteudo-feed .feed {
+  min-height: 500px;
   height: auto;
   width: inherit;
   display: -webkit-box;
@@ -3049,9 +3048,31 @@ main #itens-main #conteudo-feed .post {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 60px;
+}
+
+main #itens-main #conteudo-feed .feed .post {
+  min-height: 300px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -3065,7 +3086,7 @@ main #itens-main #conteudo-feed .post {
   padding: 18px;
 }
 
-main #itens-main #conteudo-feed .post .parte-superior {
+main #itens-main #conteudo-feed .feed .post .parte-superior {
   height: 80px;
   width: 736px;
   display: -webkit-box;
@@ -3086,9 +3107,10 @@ main #itens-main #conteudo-feed .post .parte-superior {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .post .parte-superior .info-ong {
+main #itens-main #conteudo-feed .feed .post .parte-superior .info-ong {
+  min-width: 290px;
   height: 80px;
-  width: 290px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3096,26 +3118,26 @@ main #itens-main #conteudo-feed .post .parte-superior .info-ong {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 12px;
 }
 
-main #itens-main #conteudo-feed .post .parte-superior .info-ong img {
+main #itens-main #conteudo-feed .feed .post .parte-superior .info-ong img {
   height: inherit;
   width: 80px;
   border-radius: 50%;
 }
 
-main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data {
+main #itens-main #conteudo-feed .feed .post .parte-superior .info-ong .info-nome-data {
   height: 55px;
-  width: 200px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3134,7 +3156,7 @@ main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data 
   gap: 3px;
 }
 
-main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data h2 {
+main #itens-main #conteudo-feed .feed .post .parte-superior .info-ong .info-nome-data h2 {
   font-size: 1.563rem;
   font-weight: 700;
   color: #292929;
@@ -3142,7 +3164,7 @@ main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data 
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data span {
+main #itens-main #conteudo-feed .feed .post .parte-superior .info-ong .info-nome-data span {
   font-size: 1rem;
   font-weight: 600;
   color: #8C8C8C;
@@ -3150,13 +3172,13 @@ main #itens-main #conteudo-feed .post .parte-superior .info-ong .info-nome-data 
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post .parte-superior img {
+main #itens-main #conteudo-feed .feed .post .parte-superior img {
   height: 21px;
   width: 31px;
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .post .imagens-postadas {
+main #itens-main #conteudo-feed .feed .post .imagens-postadas {
   height: 314px;
   width: 736px;
   display: -webkit-box;
@@ -3177,13 +3199,13 @@ main #itens-main #conteudo-feed .post .imagens-postadas {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .post .imagens-postadas img {
+main #itens-main #conteudo-feed .feed .post .imagens-postadas img {
   height: inherit;
   width: 435px;
   border-radius: 6px;
 }
 
-main #itens-main #conteudo-feed .post .imagens-postadas .imagens-complementos {
+main #itens-main #conteudo-feed .feed .post .imagens-postadas .imagens-complementos {
   height: inherit;
   width: 285px;
   display: -webkit-box;
@@ -3204,25 +3226,25 @@ main #itens-main #conteudo-feed .post .imagens-postadas .imagens-complementos {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .post .imagens-postadas .imagens-complementos .cima {
+main #itens-main #conteudo-feed .feed .post .imagens-postadas .imagens-complementos .cima {
   height: 125px;
   width: inherit;
   border-radius: 6px;
 }
 
-main #itens-main #conteudo-feed .post .imagens-postadas .imagens-complementos .baixo {
+main #itens-main #conteudo-feed .feed .post .imagens-postadas .imagens-complementos .baixo {
   height: 176px;
   width: inherit;
   border-radius: 6px;
 }
 
-main #itens-main #conteudo-feed .post p {
+main #itens-main #conteudo-feed .feed .post p {
   font-size: 1.125rem;
   font-weight: 500;
   color: #292929;
 }
 
-main #itens-main #conteudo-feed .post .interacoes {
+main #itens-main #conteudo-feed .feed .post .interacoes {
   height: 25px;
   width: 736px;
   display: -webkit-box;
@@ -3243,7 +3265,7 @@ main #itens-main #conteudo-feed .post .interacoes {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .post .interacoes .icone-funcao {
+main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao {
   min-width: 50px;
   height: inherit;
   width: auto;
@@ -3266,22 +3288,22 @@ main #itens-main #conteudo-feed .post .interacoes .icone-funcao {
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .post .interacoes .icone-funcao .curtir {
+main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao .curtir {
   height: 25px;
   width: 28px;
 }
 
-main #itens-main #conteudo-feed .post .interacoes .icone-funcao .comentar {
+main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao .comentar {
   height: 25px;
   width: 25px;
 }
 
-main #itens-main #conteudo-feed .post .interacoes .icone-funcao .compartilhar {
+main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao .compartilhar {
   height: 25px;
   width: 25px;
 }
 
-main #itens-main #conteudo-feed .post .interacoes .icone-funcao span {
+main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao span {
   font-size: 1.125rem;
   font-weight: 600;
   color: #292929;
@@ -3289,7 +3311,7 @@ main #itens-main #conteudo-feed .post .interacoes .icone-funcao span {
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post .comentarios {
+main #itens-main #conteudo-feed .feed .post .comentarios {
   min-height: 180px;
   height: auto;
   width: 736px;
@@ -3312,7 +3334,7 @@ main #itens-main #conteudo-feed .post .comentarios {
   margin-top: 12px;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario {
   min-height: 148px;
   min-width: 575px;
   height: auto;
@@ -3335,7 +3357,7 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .lateral-imagem {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .lateral-imagem {
   height: inherit;
   width: 74px;
   display: -webkit-box;
@@ -3356,13 +3378,13 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .lateral-im
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .lateral-imagem img {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .lateral-imagem img {
   height: 75px;
   width: 75px;
   border-radius: 50%;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info {
   min-height: 150px;
   height: auto;
   width: 482px;
@@ -3384,7 +3406,7 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   gap: 5px;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .comentario {
   height: inherit;
   width: inherit;
   display: -webkit-box;
@@ -3408,7 +3430,7 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   border-radius: 6px;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario h3 {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .comentario h3 {
   font-size: 1.313rem;
   font-weight: 700;
   color: #292929;
@@ -3416,7 +3438,7 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario p {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .comentario p {
   font-size: 1.125rem;
   font-weight: 500;
   color: #292929;
@@ -3424,7 +3446,7 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .comentario span {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .comentario span {
   font-size: 1.1rem;
   font-weight: 700;
   color: #292929;
@@ -3432,7 +3454,7 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario {
   min-width: 209px;
   height: 30px;
   width: auto;
@@ -3454,13 +3476,13 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   gap: 15px;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario span {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario span {
   font-size: 1.1rem;
   font-weight: 500;
   color: #292929;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario {
   min-width: 168px;
   height: inherit;
   width: auto;
@@ -3483,12 +3505,12 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario img {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario img {
   height: 20px;
   width: 25px;
 }
 
-main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario span {
+main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .acoes-comentario .curtir-comentario span {
   font-size: 1.125rem;
   font-weight: 600;
   color: #292929;
@@ -3497,7 +3519,7 @@ main #itens-main #conteudo-feed .post .comentarios .corpo-comentario .vertical-i
   margin-top: 2px;
 }
 
-main #itens-main #conteudo-feed .post #comentar {
+main #itens-main #conteudo-feed .feed .post #comentar {
   min-height: 50px;
   height: auto;
   width: 736px;
@@ -3519,7 +3541,7 @@ main #itens-main #conteudo-feed .post #comentar {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .post #comentar input {
+main #itens-main #conteudo-feed .feed .post #comentar input {
   height: 80px;
   width: 630px;
   font-size: 1.563rem;
@@ -3537,7 +3559,7 @@ main #itens-main #conteudo-feed .post #comentar input {
   padding-bottom: 20px;
 }
 
-main #itens-main #conteudo-feed .post #comentar input::-webkit-input-placeholder {
+main #itens-main #conteudo-feed .feed .post #comentar input::-webkit-input-placeholder {
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
@@ -3545,7 +3567,7 @@ main #itens-main #conteudo-feed .post #comentar input::-webkit-input-placeholder
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post #comentar input:-ms-input-placeholder {
+main #itens-main #conteudo-feed .feed .post #comentar input:-ms-input-placeholder {
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
@@ -3553,7 +3575,7 @@ main #itens-main #conteudo-feed .post #comentar input:-ms-input-placeholder {
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post #comentar input::-ms-input-placeholder {
+main #itens-main #conteudo-feed .feed .post #comentar input::-ms-input-placeholder {
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
@@ -3561,7 +3583,7 @@ main #itens-main #conteudo-feed .post #comentar input::-ms-input-placeholder {
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post #comentar input::placeholder {
+main #itens-main #conteudo-feed .feed .post #comentar input::placeholder {
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;
@@ -3569,7 +3591,7 @@ main #itens-main #conteudo-feed .post #comentar input::placeholder {
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .post #comentar #enviarComentario {
+main #itens-main #conteudo-feed .feed .post #comentar #enviarComentario {
   height: 70px;
   width: 70px;
   display: -webkit-box;
@@ -3593,7 +3615,7 @@ main #itens-main #conteudo-feed .post #comentar #enviarComentario {
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .post #comentar #enviarComentario img {
+main #itens-main #conteudo-feed .feed .post #comentar #enviarComentario img {
   height: 35px;
   width: 35px;
 }
@@ -4256,19 +4278,6 @@ main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button:hover {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
-}
-
-main #itens-main #conteudo-feed h4 {
-  font-size: 1.313rem;
-  font-weight: 700;
-  color: #FC595E;
-  text-transform: uppercase;
-  letter-spacing: none;
-  text-decoration: underline;
-  cursor: pointer;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  margin-right: 25px;
 }
 
 main #itens-main #esquerda-seguidores {
