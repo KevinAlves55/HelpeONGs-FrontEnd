@@ -1,6 +1,6 @@
 "use strict"
 
-// import ApiRequest from "../utils/ApiRequest.js";
+import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
@@ -11,7 +11,7 @@ import { getFormattedDate } from "../utils/DataFormat.js";
 
 const descricao = document.getElementById("text-post");
 
-// let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
+let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
 let ongLogado;
 
@@ -158,7 +158,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 } else {
 
-    // Redirect("cadastroUsuario");
+    Redirect("cadastroUsuario");
 
 }
 
@@ -201,13 +201,13 @@ const PesquisarONGs = (evento) => {
 }
 
 let media = [];
+let imagens = [];
 async function handleFileSelect(evento) {
 
     // Objeto FileList guarda todos os arquivos.
     var files = evento.target.files;
 
     if (files.length <= 3) {
-        let imagens = [];
         // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
         for (var i = 0, f; f = files[i]; i++) {
             
@@ -238,48 +238,126 @@ async function handleFileSelect(evento) {
             } else {
                 // console.log("Não existe arquivos");
             }
-
-            if (f.type.match('image.*')) {
-
-                // A leitura do arquivo é assíncrona 
-                reader.onload = (function (theFile) {
-                    return function (e) {
-                        
-                        const position = e.target.result.indexOf(",")+1;
-                        const tamanho = e.target.result.length;
-                        imagens.push(
-                            e.target.result.substring(position, tamanho)
-                        );
-                        
-
-                        // Gera a miniatura:
-                        // const img = document.querySelectorAll(".preview");
-                        // img[i].src = e.target.result;
-                        // console.log( `contador`, contador);
-                        // contador = contador+1;
-                    };
-                })(f);
-            }
         }
-
-        const img = [1,2,3]
-        console.log(img) 
-
-        console.log(imagens);
-        console.log("IMG", imagens[0]);
-        let img1 = document.querySelector(".preview1");
-        let img2 = document.querySelector(".preview2");
-        let img3 = document.querySelector(".preview3");
-
-        // img1.src = imagens[0];
-        // img2.src = imagens[1];
-        // img3.src = imagens[2];
-
-        img1.setAttribute("src", imagens[0]);
 
     } else {
         alert("Máximo de arquivos permitidos é 3");
     }
+}
+
+async function previewImagem(evento) {
+
+    var files= evento.target.files;
+    // console.log(files.item(0));
+    const imageArray = [files.item(0), files.item(1), files.item(2)]
+    // for (var i = 0; i < files.length -1 ; i++) {
+
+    //     let f = files[i]
+
+        // const preview = new FileReader();
+        // console.log(files[i]);
+        var array = [];
+        
+        imageArray.map((row,i)=>{
+            
+            const preview = new FileReader();
+            console.log(files.item(0));
+            console.log(row);
+            preview.readAsDataURL(row);
+            // console.log("ARQUIVOS SELECIONADOS", preview);
+            
+            preview.onloadend = (e) => {
+
+                array.push(
+                    document.querySelector(`.preview${i}`)
+                );
+                // console.log(document.querySelector(`.preview${i}`));
+                
+                array[i].src = e.target.result;
+                // console.log("PREVIEW", array);
+
+            }
+        })
+
+       
+
+        
+        
+        // if (files[0]) {
+        //     preview.readAsDataURL(files[0]);
+        // } else if(files[0] && files[1]){
+        //     preview.readAsDataURL(files[0]);
+        //     preview.readAsDataURL(files[1]);
+        // }else if(files[0] && files[1] && files[2]){
+        //     preview.readAsDataURL(files[0]);
+        //     preview.readAsDataURL(files[1]);
+        //     preview.readAsDataURL(files[2]);
+        // }
+
+        // preview.onloadend = (e) => {
+
+        //     let img = document.querySelector(`.preview0`)
+        //     let img1 = document.querySelector(`.preview1`)
+        //     let img2 = document.querySelector(`.preview2`)
+           
+        //     img[i].src = e.target.result;
+        //     console.log(e.target.result);
+
+        // }
+
+        // preview.addEventListener(
+        //     "load",
+        //     () => {
+        //         const dadosReader = preview.result;
+        //         let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
+
+        //         imagens.push(
+        //             {
+        //                 "base64": base64,
+        //             }
+        //         );
+        //     },
+        //     false
+        // );
+
+    // }
+
+    // setInterval(() => {
+    //     const base64Preview = imagens;
+    //     console.log("FINALMENTE", base64Preview);
+    // }, 5000);
+    // clearInterval()
+    // const leituraArquivo = reader.onload = () => {
+
+    //     const readerPreview = reader.result;
+    //     let base64Preview = readerPreview.replace(/^data:image\/[a-z]+;base64,/, "");
+    //     // console.log(base64Preview);
+    //     // const position = e.target.result.indexOf(",")+1;
+    //     // const tamanho = e.target.result.length;
+    //     imagens.push(
+    //         base64Preview
+    //     );
+
+    //     return imagens;
+    // }
+    // let img2 = document.querySelector(".preview2");
+    // let img3 = document.querySelector(".preview3");
+
+
+    // console.log("IMAGENS", leituraArquivo);
+
+    // // // A leitura do arquivo é assíncrona 
+    // // reader.onload = (function () {
+    // //     return function (e) {
+            
+    // //         const position = e.target.result.indexOf(",")+1;
+    // //         const tamanho = e.target.result.length;
+    // //         poha.push(
+    // //             e.target.result.substring(position, tamanho)
+    // //         );
+        
+    // //     };
+    // // })(f);
 }
 
 const PostarPost = async (e) => {
@@ -314,16 +392,15 @@ const PostarPost = async (e) => {
 
 }
 
-// const CarregarTodosPost = async () => {
+const CarregarTodosPost = async () => {
 
-//     const container = document.querySelector(".feed");
-//     const objetoPost = await ApiRequest("GET", "http://localhost:3131/post");
-//     const dadosPost = objetoPost.data;
-//     console.log(dadosPost);
-//     const post = dadosPost.map(CriarPosts);
-//     container.replaceChildren(...post);
+    const container = document.querySelector(".feed");
+    const objetoPost = await ApiRequest("GET", "http://localhost:3131/post");
+    const dadosPost = objetoPost.data;
+    const post = dadosPost.map(CriarPosts);
+    container.replaceChildren(...post);
 
-// }
+}
 
 const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_media}) => {
     
@@ -551,6 +628,7 @@ document.getElementById("modalClose").addEventListener("click", closeModalPostag
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
 document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
+document.getElementById("files").addEventListener('change', previewImagem);
 document.querySelector("#trocar-select-post")
 .addEventListener(
     "change", 
@@ -567,4 +645,4 @@ document.querySelector("#trocar-select-vaga")
     TrocarTipoPostagem
 );
 document.getElementById("publicarPost").addEventListener("click", PostarPost);
-// CarregarTodosPost();
+CarregarTodosPost();
