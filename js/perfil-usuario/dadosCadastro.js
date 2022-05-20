@@ -16,7 +16,7 @@ let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userL
 const contatos = reqContatos.data;
 
 
-function CarregarMiniPerfil(objectLocal) {
+function CarregarPerfil(objectLocal) {
 
     let nomeLogado = document.getElementById("mini-perfil-nome");
     let fotoLogado = document.getElementById("mini-perfil-foto");
@@ -40,7 +40,7 @@ function CarregarMiniPerfil(objectLocal) {
         fotoLogado.setAttribute("src", `${objectLocal.foto}`);
     }
 
-    // bome perfil
+    // nome perfil
     if (objectLocal.nome === null || objectLocal.nome === undefined) {
         nomePerfil.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
     } else {
@@ -57,16 +57,16 @@ function CarregarMiniPerfil(objectLocal) {
     }
 
     // banner perfil
-    if (objectLocal.foto === null || objectLocal.foto === undefined) {
+    if (objectLocal.banner === null || objectLocal.banner === undefined) {
         bannerPerfil.setAttribute("src", "../../assets/img/banner-vazio.png");
-    } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+    } else if (!objectLocal.banner.includes(".jpg") && !objectLocal.banner.includes(".jpeg") && !objectLocal.banner.includes(".png") && !objectLocal.banner.includes(".svg") && !objectLocal.banner.includes(".git")) {
         bannerPerfil.setAttribute("src", `../../assets/img/banner-vazio.png`)
     } else {
-        bannerPerfil.setAttribute("src", `${objectLocal.foto}`);
+        bannerPerfil.setAttribute("src", `${objectLocal.banner}`);
     }
 
 }
-CarregarMiniPerfil(dados);
+CarregarPerfil(dados);
 
 document.getElementById("sair").addEventListener("click", () => {
     localStorage.clear();
@@ -154,43 +154,44 @@ async function contatosUsuario(){
             numero: contatosUserUpdate.celular,
             telefone: contatosUserUpdate.telefone
         }
+        
         console.log(contatos);
-
         let reqUser = await ApiRequest(
             "POST",`http://localhost:3131/contact`,contatos
         );
     
         console.log(`REQ`, reqUser);
     }
-document.getElementById("buttonCadastrar").addEventListener("click", contatosUsuario);
+document.getElementById("cadastrarContatos").addEventListener("click", contatosUsuario);
 
-async function atualizarContatos(){
+async function AtualizarcontatosUsuario(){
     const userDataContato = validarSession("dadosUsuario");
-        console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
+    console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
 
-        const contatoUsuario = {
-            celular : celular.value,
-            telefone : telefone.value,
-        }
+    const atualizarcontatoUsuario = {
+        celular : celular.value,
+        telefone : telefone.value,
+    }
 
-        localStorage.setItem("enviarContato", JSON.stringify(contatoUsuario));
-        let contatosUserUpdate = JSON.parse(localStorage.getItem('enviarContato'));
+    localStorage.setItem("enviarContato", JSON.stringify(atualizarcontatoUsuario));
+    let contatosUserUpdate = JSON.parse(localStorage.getItem('enviarContato'));
 
-        const contatos = {
-            idLogin: userDataContato.idLogin,
-            numero: contatosUserUpdate.celular,
-            telefone: contatosUserUpdate.telefone
-        }
-        console.log(contatos);
-        
-        let reqUser = await ApiRequest(
-            "PUT",`http://localhost:3131/contact/${contatosUserUpdate.idUsuario}`,contatos
-        );
+    const atualizarcontatos = {
+        idLogin: userDataContato.idLogin,
+        numero: contatosUserUpdate.celular,
+        telefone: contatosUserUpdate.telefone
+    }
     
-        console.log(`REQ`, reqUser);
-}
-document.getElementById("formButton").addEventListener("click", atualizarContatos);
+    console.log(`contato atualizado`, atualizarcontatos);
+    let reqUser = await ApiRequest(
+        "GET",`http://localhost:3131/contact/${userLogado.idUsuario}`,atualizarcontatos
+    );
 
+    console.log(`REQ`, reqUser);
+}
+document.getElementById("editarContatos").addEventListener("click", AtualizarcontatosUsuario);
+
+//  
 async function dadosDetalhesEndereco() {
 
     const dadosDetalhesEndereco = {
@@ -281,8 +282,6 @@ document.getElementById("atualizarEnderecos").addEventListener("click",atualizar
 
 
 async function carregarDadosUsuario(data, endereco, contato){
-    console.log(contato);
-    // console.log(data);
     let dataNascimento = document.getElementById("data");
     let cidade = document.getElementById("cidadeUsuario");
     let numeroCelular = document.getElementById("celular");
@@ -293,10 +292,10 @@ async function carregarDadosUsuario(data, endereco, contato){
     numeroCelular.innerHTML = `${contato.numero}`;
     numeroTelefone.innerHTML = `${contato.telefone}`
 
-
-
 }
-
 carregarDadosUsuario(dados, enderecos, contatos);
+
+
+
 
 

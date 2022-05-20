@@ -602,64 +602,6 @@ body {
   border-radius: 6px;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone {
-  height: auto;
-  width: 850px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  margin-top: 20px;
-}
-
-#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone p {
-  font-size: 1.313rem;
-  font-weight: 400;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-}
-
-#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #celular {
-  height: 102px;
-  width: 355px;
-}
-
-#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #celular input {
-  height: 65px;
-  width: 350px;
-  border: 2px solid #CCCCCC;
-  border-radius: 6px;
-  font-size: 23px;
-  padding: 15px;
-}
-
-#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #telefone {
-  height: 102px;
-  width: 359px;
-}
-
-#centro #container-conteudo #container-conteudo-detalhes-de-conta #celular-telefone #telefone input {
-  height: 65px;
-  width: 350px;
-  font-size: 23px;
-  padding: 15px;
-  border: 2px solid #CCCCCC;
-  border-radius: 6px;
-}
-
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho {
   height: 65px;
   width: 850px;
@@ -1215,6 +1157,179 @@ body {
   font-size: 30px;
   color: #292929;
   background-color: #FF9F45;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #contatos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  display: none;
+  height: 285px;
+  width: 850px;
+}
+
+#centro #container-conteudo #contatos h1 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #contatos #contatos-tel-cel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  padding-top: 20px;
+}
+
+#centro #container-conteudo #contatos #contatos-tel-cel #telefone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: auto;
+  width: 355px;
+}
+
+#centro #container-conteudo #contatos #contatos-tel-cel #telefone h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-bottom: 10px;
+}
+
+#centro #container-conteudo #contatos #contatos-tel-cel #telefone input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 350px;
+  padding: 10px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  font-size: 23px;
+}
+
+#centro #container-conteudo #contatos #contatos-tel-cel #celular {
+  height: auto;
+  width: 355px;
+  padding-left: 143px;
+}
+
+#centro #container-conteudo #contatos #contatos-tel-cel #celular h3 {
+  font-size: 1.313rem;
+  font-weight: 400;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-bottom: 10px;
+}
+
+#centro #container-conteudo #contatos #contatos-tel-cel #celular input {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: none;
+  height: 65px;
+  width: 350px;
+  padding: 10px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #contatos #botao {
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-top: 40px;
+}
+
+#centro #container-conteudo #contatos #botao #butao-editar-contatos button {
+  height: 60px;
+  width: 232px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #292929;
+  background-color: #FF9F45;
+  border-radius: 6px;
+}
+
+#centro #container-conteudo #contatos #botao #botao-Finalizar {
+  padding-left: 20px;
+}
+
+#centro #container-conteudo #contatos #botao #botao-Finalizar button {
+  height: 60px;
+  width: 232px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #292929;
+  background-color: #FC595E;
   border-radius: 6px;
 }
 

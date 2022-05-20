@@ -93,11 +93,11 @@
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item2" >Detalhes da conta</span>
+                    <span id="item2" >Detalhes</span>
                     <div class="barra"></div>
                 </li>
                 <li >
-                    <span id="item3" >Detalhes do endereço</span>
+                    <span id="item3" >Endereço</span>
                     <div class="barra"></div>
                 </li>
                 <li >
@@ -106,6 +106,10 @@
                 </li>
                 <li >
                     <span id="item5">Conta</span>
+                    <div class="barra"></div>
+                </li>
+                <li >
+                    <span id="item6">Contatos</span>
                     <div class="barra"></div>
                 </li>
             </ul>
@@ -145,16 +149,7 @@
                             <input type="date" id="date" />
                         </div>
                     </div>
-                    <div id="celular-telefone">
-                        <div id="celular">
-                            <p>Celular</p>
-                            <input type="text" id="cel" />
-                        </div>
-                        <div id="telefone">
-                            <p>Telefone</p>
-                           <input type="text" id="tel"/>
-                        </div>
-                    </div>
+                
                     <div id="anexar-caminho">
                        
                             <div>
@@ -261,6 +256,29 @@
                     <button type="submit">Excluir conta</button>
                 </div>
             </div>
+            <form method="POST" enctype="multipart/form-data">
+                <div id="contatos" class="item">
+                    <div id="contatos-tel-cel">
+                        <div id="telefone">
+                            <h3>Telefone</h3>
+                            <input type="text" id="tel" placeholder="0000-0000">
+                        </div>
+
+                        <div id="celular">
+                            <h3>Celular</h3>
+                            <input type="text" id="cel" placeholder="(11) 90000-0000">
+                        </div>
+                    </div>
+                    <div id="botao">
+                        <div id="butao-editar-contatos">
+                            <button type="button" id="editarContatos">Editar</button>
+                        </div>
+                        <div id="botao-Finalizar">
+                            <button type="button" id="cadastrarContatos">finalizar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>
