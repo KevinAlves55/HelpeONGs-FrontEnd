@@ -16,10 +16,15 @@ function cartegoriaMudar(){
 
 }
 
-function receberDados(){
+ async function receberDados(){
     var categorias = document.getElementById('categoria-input').value;
 
     console.log(categorias);
+
+    const cadastrarCategoria = {
+        nome: nomeDaCategoria.value
+    }
+    localStorage.setItem("categoria", JSON.stringify(cadastrarCategoria)); 
 
 }
 
@@ -39,6 +44,8 @@ nomeCategoria);
 
 document.getElementById("categoria-input").addEventListener("keypress", 
 cartegoriaMudar);
+
+// let reqCategoria = await ApiRequest("GET", `http://localhost:3131/category${localStorageData.ong.idLogin}`,);
 
 
 

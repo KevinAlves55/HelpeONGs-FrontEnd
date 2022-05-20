@@ -310,10 +310,11 @@ body {
             @include displayFlex(column, $gap: 40px);
 
             #conteudo-sobre {
-                @include tamanhos(345px, inherit);
-                @include displayFlex(column, space-between);
+                min-height: 100px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 20px);
                 padding: 30px;
-                background: #FFFFFF;
+                background-color: #fff;
                 filter: $shadowMain;
                 border-radius: 20px;
     
@@ -325,11 +326,11 @@ body {
                 }
     
                 #conteudo-info-sobre {
-                    @include tamanhos(138px, 331px);
+                    @include tamanhos(138px, 780px);
                     @include displayFlex(column, space-between);
     
                     .info-sobre {
-                        @include tamanhos(auto, 400px);
+                        @include tamanhos(auto, auto);
                         @include displayFlex(row, $gap: 10px);
     
                         h2 {
@@ -801,7 +802,26 @@ body {
                     
                     }
         
-                }  
+                }
+
+                .botao-ONGS{
+                    
+                    @include tamanhos(75px, inherit);
+                    @include displayFlex($justify: flex-end);
+                    gap: 15px;
+
+                    button{
+                    @include tamanhos(inherit, 230px);
+                    @include displayFlex(row, center, center);
+
+                    @include textoEstilo(grau7, semiBold, $text, capitalize);
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    cursor: pointer;
+                    transition: .5s;
+                    }
+                }
+                
             }
         }
 
@@ -1925,6 +1945,117 @@ body {
 
 }
 
+//Modal editar
+.modalEditar{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+
+    #EditarBannerFoto{
+        @include tamanhos(469px, 850px);
+        @include displayFlex(row, );
+        border: 1px   solid $placeholder;
+        border-radius:20px;
+        background-color: #E4E6EB;
+        padding: 30px;
+        
+
+        #esquerdas{
+            @include displayFlex(column,);
+            @include tamanhos(430px, 316px);
+        
+
+            #editarPerfil{
+                @include tamanhos(auto, inherit);
+                @include displayFlex(center, center);
+                cursor: pointer;
+
+                img{
+                    @include tamanhos(120px, 120px);
+                
+                
+                }
+            }
+
+            #tituloFotoPerfil{
+                @include tamanhos(296px, 316px);
+                
+            
+                
+                h2{
+                    @include tamanhos(37px, inherit);
+                    @include displayFlex(center, center);
+                    @include textoEstilo(grau7, semiBold, $text);
+                    padding-top: 10px;
+                }
+            }
+        }
+        #Direitas{
+            @include tamanhos(430px, 463px);
+            @include displayFlex(column);
+        
+
+            #editarBanner{
+                @include tamanhos(auto, 463px);
+                @include displayFlex(center, center);
+                cursor: pointer;
+                
+                    img{
+                        @include tamanhos(227px, 414px);
+                    
+                    }
+
+            }
+            #tituloBannerPerfil{
+                @include tamanhos(auto, 463px);
+                @include displayFlex(center, center);
+                
+
+                    h2{
+                        @include textoEstilo(grau7, semiBold, $text);
+                        padding-top: 10px
+                    }
+            }
+            #botaoAlterar{
+                @include tamanhos(140px, 465px);
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 10px;
+
+                #botaoSairEditar{
+                    background-color: $deepSaffron;
+                }
+
+                button{
+                    @include tamanhos(65px, 180px);
+                    @include textoEstilo(grau8, semiBold, $text);
+                    background-color: $deepSaffron;
+                    border: 1px ;
+                    border-radius:6px;
+                    cursor: pointer;
+                
+                    
+
+                }
+            }
+        }
+
+    }
+}
+    
+
+
 #direita {
     min-height: 500px;
     @include tamanhos(auto, 322px);
@@ -2028,4 +2159,10 @@ body {
 
 .style-input.error small {
     visibility: visible;
+}
+
+.modalEditar.bg-active{
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
 }

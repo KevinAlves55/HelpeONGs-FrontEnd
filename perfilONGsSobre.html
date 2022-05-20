@@ -46,7 +46,7 @@
                     </li>
                     <li>
                         <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
-                        <a href="perfilUsuario.html">Perfil</a>
+                        <a href="perfilONGsSobre.html">Perfil</a>
                     </li>
                     <li>
                         <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
 
-                    <button>
+                    <button id="btnModal">
                         <img src="assets/img/edit-2.png" alt="Ediatr perfil" title="Icone lápis">
                         editar perfil
                     </button>
@@ -191,7 +191,7 @@
 
                         <div class="info-sobre">
                             <h2> Sede do local: </h2>
-                            <span></span>
+                            <span id="sede"></span>
                         </div>
                     </div>
                 </section>
@@ -199,12 +199,12 @@
                 <section id="container-conteudo-historia">
                     <h1>Nossa História</h1>
 
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+                    <p id="historiaSobre">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
                         consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet
                         minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
                         duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit
                         non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim
-                        velit mollit. Exercitation veniam consequat sunt nostrud amet. <span>Ver mais</span>
+                        velit mollit. Exercitation veniam consequat sunt nostrud amet.
                     </p>
                 </section>
 
@@ -370,8 +370,9 @@
                         </div>
                     </div>
     
-                    <div class="proximo">
+                    <div class="botao-ONGS">
                         <button id="button-detalhes-ONG" type="button">Proximo</button>
+                       
                     </div>
                 </form>
             </div>
@@ -946,6 +947,37 @@
             <img src="assets/img/seta-seguidores-perfilONG.png" alt="HelpONGS" title="Icone seta para baixo">
         </div>
     </div>
+
+    <div id="modalEditar" class="modalEditar">
+        <div id="EditarBannerFoto" >
+
+            <div id="esquerdas">
+                <div id="editarPerfil">
+                    <img src="./assets/img/sem-foto.png" alt="">
+                </div>
+                <div id="tituloFotoPerfil">
+                    <h2>Foto de perfil</h2>
+                </div>
+            </div>
+            <div id="Direitas">
+                <div id="editarBanner">
+                    <img src="./assets/img/image 16.png" alt="">
+                </div>
+                <div id="tituloBannerPerfil">
+                    <h2>Banner do perfil</h2>
+                </div>
+
+                <div id="botaoAlterar">
+                    <button type="button" id="botaoModalEditar">Alterar</button>
+                    <button type="button" id="botaoSairEditar">Sair</button>
+                </div>
+                
+
+
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

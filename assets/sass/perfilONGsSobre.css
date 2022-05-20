@@ -802,7 +802,8 @@ body {
 }
 
 #centro #container-conteudo #conteudo-inicio #conteudo-sobre {
-  height: 345px;
+  min-height: 100px;
+  height: auto;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -811,17 +812,17 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 20px;
   padding: 30px;
-  background: #FFFFFF;
+  background-color: #fff;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
           filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
   border-radius: 20px;
@@ -842,7 +843,7 @@ body {
 
 #centro #container-conteudo #conteudo-inicio #conteudo-sobre #conteudo-info-sobre {
   height: 138px;
-  width: 331px;
+  width: 780px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -863,7 +864,7 @@ body {
 
 #centro #container-conteudo #conteudo-inicio #conteudo-sobre #conteudo-info-sobre .info-sobre {
   height: auto;
-  width: 400px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1910,6 +1911,59 @@ body {
   height: 24px;
   width: 24px;
   cursor: pointer;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-ONGs form .botao-ONGS {
+  height: 75px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  gap: 15px;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-ONGs form .botao-ONGS button {
+  height: inherit;
+  width: 230px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border-radius: 6px;
+  background-color: #FF9F45;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco {
@@ -4598,6 +4652,245 @@ body {
   cursor: pointer;
 }
 
+.modalEditar {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  visibility: hidden;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: visibility 0s, opacity 0.5s;
+  transition: visibility 0s, opacity 0.5s;
+}
+
+.modalEditar #EditarBannerFoto {
+  height: 469px;
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border: 1px solid #8C8C8C;
+  border-radius: 20px;
+  background-color: #E4E6EB;
+  padding: 30px;
+}
+
+.modalEditar #EditarBannerFoto #esquerdas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  height: 430px;
+  width: 316px;
+}
+
+.modalEditar #EditarBannerFoto #esquerdas #editarPerfil {
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+}
+
+.modalEditar #EditarBannerFoto #esquerdas #editarPerfil img {
+  height: 120px;
+  width: 120px;
+}
+
+.modalEditar #EditarBannerFoto #esquerdas #tituloFotoPerfil {
+  height: 296px;
+  width: 316px;
+}
+
+.modalEditar #EditarBannerFoto #esquerdas #tituloFotoPerfil h2 {
+  height: 37px;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 10px;
+}
+
+.modalEditar #EditarBannerFoto #Direitas {
+  height: 430px;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #editarBanner {
+  height: auto;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #editarBanner img {
+  height: 227px;
+  width: 414px;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #tituloBannerPerfil {
+  height: auto;
+  width: 463px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #tituloBannerPerfil h2 {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  padding-top: 10px;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #botaoAlterar {
+  height: 140px;
+  width: 465px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 10px;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #botaoAlterar #botaoSairEditar {
+  background-color: #FF9F45;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #botaoAlterar button {
+  height: 65px;
+  width: 180px;
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #FF9F45;
+  border: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 #direita {
   min-height: 500px;
   height: auto;
@@ -4818,5 +5111,11 @@ body {
 
 .style-input.error small {
   visibility: visible;
+}
+
+.modalEditar.bg-active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
 }
 /*# sourceMappingURL=perfilONGsSobre.css.map */

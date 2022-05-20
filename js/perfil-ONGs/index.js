@@ -1,17 +1,19 @@
-
 'use strict';
-
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
 
 let ongLogado;
 ongLogado = validarSession("dadosOng");
 
+let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
+let dados = reqDados.data;
+
+let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${ongLogado.idOng}`);
+console.log(reqEndereco);
+
+let adress = reqEndereco.data;
 
 
-
-let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
-const dados = req.data;
 
 function CarregarMiniPerfil(objectLocal) {
 
@@ -59,10 +61,10 @@ function CarregarMiniPerfil(objectLocal) {
 
 
     //BANNER
-    if (objectLocal.foto === null || objectLocal.foto === undefined) {
+    if (objectLocal.banner === null || objectLocal.foto === undefined) {
         bannerPerfil.setAttribute("src", "../../assets/img/sem-foto.png");
     }
-    else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git")) {
+    else if (!objectLocal.banner.includes(".jpg") && !objectLocal.banner.includes(".jpeg") && !objectLocal.banner.includes(".png") && !objectLocal.banner.includes(".svg") && !objectLocal.banner.includes(".git")) {
         bannerPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         bannerPerfil.setAttribute("src", `${objectLocal.banner}`)
@@ -73,30 +75,41 @@ function CarregarMiniPerfil(objectLocal) {
 }
 CarregarMiniPerfil(dados);
 
+// Carregar dados no sobre
+async function carregarDadosSobre (objectLocal, endereco) {
+
+    let descricaosobre = document.getElementById("descricaoSobre");
+    let qtdaMembro = document.getElementById("qtdaMembros");
+    let anoDeFundacao = document.getElementById("anoFundacao");
+    let sedeLocal = document.getElementById("sede");
+    let historia = document.getElementById("historiaSobre");
+
+    descricaosobre.innerText = `${objectLocal.descricao}`;
+    qtdaMembro.innerHTML = `${objectLocal.qtdDeMembros}`;
+    anoDeFundacao.innerHTML = `${objectLocal.dataDeFundacao}`;
+    sedeLocal.innerHTML = `${endereco.municipio}, ${endereco.estado}`;
+    historia.innerText = `${objectLocal.historia}`;
+    
+}
+
+carregarDadosSobre(dados, adress);
 document.getElementById("sair").addEventListener("click", () => {
     localStorage.clear();
     Redirect("loginONGs");
 });
 
-//Carregar dados no sobre
-async function carregarDadosSobre (dadosSobre){
-    let descricaoSobre = document.getElementById("descricaoSobre");
-    let qtdaMembros = document.getElementById("qtdaMembros");
-    let anoFundacao = document.getElementById("anoFundacao");
-
-    descricaoSobre.innerHTML = `${dadosSobre.descricaoSobre}`;
-    qtdaMembros.innerHTML = `${dadosSobre.qtdaMembros}`;
-    anoFundacao.innerHTML = `${dadosSobre.anoFundacao}`;
-    
-
-    
-}
-
-carregarDadosSobre(dadosSobre);
-let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
-    const dadosSobre = reqDados.data
 
 
 
+// Modal Editar
+
+const openModalEditar = () => 
+document.getElementById("modalEditar").classList.add("bg-active");
+
+const closeModalEditar = () => 
+document.getElementById("modalEditar").classList.remove("bg-active");
 
 
+document.querySelector("#btnModal").addEventListener("click", openModalEditar);
+document.querySelector('#botaoSairEditar').addEventListener("click", closeModalEditar);
+document.getElementById("modalEditar").addEventListener("click", closeModalEditar);

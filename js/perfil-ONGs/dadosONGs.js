@@ -87,34 +87,6 @@ async function dadosDetalhesConta() {
 
         console.log(reqContato, reqOng);
 
-        // const dadosUpdate ={
-        //     telefone: "",
-        //     email: email.value,
-        //     numero: "",
-        // }
-        // localStorage.setItem("atualizarConta", JSON.stringify( dadosUpdate));
-        // let dadosONGUpdate = JSON.parse(localStorage.getItem("atualizarConta"));
-
-        // const body = {
-        //     "ONG": {
-        //        telefone: dadosONGUpdate.telefone,
-        //        numero: dadosONGUpdate.numero,
-        //        email: dadosONGUpdate.email
-
-        //     },
-        //     "login": {
-        //         email: dadosONGUpdate.email,
-        //         senha: dadosONGUpdate.senha
-        //     }
-        // }
-      
-        // let reqUser = await ApiRequest(
-        //     "PUT", 
-        //     `http://localhost:3131/contact/${dadosOng.idLogin}`, 
-        //     body
-        // );
-    
-        // console.log(`REQ`, reqUser);
 
     } else {
         console.log("erro nas validações");
@@ -290,14 +262,7 @@ document.getElementById("button-detalhes-endereco").addEventListener("click", da
 
 async function dadosMeiosDoacoes() {
 
-    // const validacoesDadosMeiosDoacoes = checkInputsDadosMeiosDoacoes();
 
-    // let result;
-    // validacoesDadosMeiosDoacoes.map(status => {
-    //     status === false ? result = false : "";
-    // });
-    
-    // if (result != false) {
 
     const dadosMeiosDoacoes = {
         siteData: linkSite.value,
