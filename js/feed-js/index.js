@@ -4,13 +4,30 @@ import ApiRequest from "../utils/ApiRequest.js";
 import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
-import { closeModalEvento, closeModalPostagens, closeModalVaga, openModalPostagens } from "./modalPostagens.js";
+import { closeModalEvento, closeModalPostagens, closeModalVaga, openModalEndereco, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
-import { imagemPreview } from "./PreviewImagem.js";
+import { imagemPreviewPost, imagemPreviewEvent } from "./PreviewImgFeed.js";
 import { getFormattedDate } from "../utils/DataFormat.js";
 import { hideLoading, showLoading } from "../utils/Loading.js";
 
+// POST
 const descricao = document.getElementById("text-post");
+
+// EVENTO
+const tituloEvento = document.getElementById("titulo-evento");
+const descEvento = document.getElementById("text-evento");
+const dataEvento = document.getElementById("data-evento");
+const horaEvento = document.getElementById("hora-evento");
+const candidato = document.getElementById("candidato");
+const cepEvent = document.getElementById("cep");
+const estadoEvent = document.getElementById("estado");
+const cidadeEvent = document.getElementById("cidade");
+const ruaEvent = document.getElementById("rua");
+const bairroEvent = document.getElementById("bairro");
+const numeroEvent = document.getElementById("numero");
+const complementosEvent = document.getElementById("complemento");
+
+
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
 let ongLogado;
@@ -312,11 +329,44 @@ const PostarPost = async (e) => {
 
 }
 
-const CarregarTodosPost = async () => {
+const PostarEvento = async () => {
+
+    const arquivosSelecionadosEvent = media;
+    const candidatoBoolean = candidato.options[candidato.selectedIndex].value;
+
+    const dom = {
+        idOng: ongLogado.idOng,
+        "evento": {
+            titulo: tituloEvento.value,
+            dataHora: Date(dataEvento),
+            objetivo: "",
+            descricao: descEvento.value,
+            candidato: candidatoBoolean,
+            numeroDeParticipantes: 0
+        },
+        "endereco": {
+            bairro: bairroEvent.value,
+            numero: Number(numeroEvent.value),
+            cep: cepEvent.value,
+            rua: ruaEvent.value,
+            complemento: complementosEvent.value,
+            municipio: cidadeEvent.value,
+            idLogin: ongLogado.idLogin
+        },
+        media: arquivosSelecionadosEvent
+    }
+    console.log(dom);
+
+}
+
+const CarregarFeed = async () => {
 
     const container = document.querySelector(".feed");
     const objetoPost = await ApiRequest("GET", "http://localhost:3131/post");
+    // const objetoEvent = await ApiRequest("GET", "http://localhost:3131/event");
     const dadosPost = objetoPost.data;
+    // const dadosEvent = dadosEvent.data;
+    // console.log(dadosEvent);
     const post = dadosPost.map(CriarPosts);
     container.replaceChildren(...post);
 
@@ -356,15 +406,18 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
             <div class="interacoes">
                 <div class="icone-funcao">
                     <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span>28.5k Curtiram</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span>3 Comentários</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
                     <span>Compartilhar</span>
+                </div>
+                <div id="modalCompartilhamento">
+                    <div id="shared"></div>
                 </div>
             </div>
 
@@ -405,11 +458,11 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
             <div class="interacoes">
                 <div class="icone-funcao">
                     <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span>28.5k Curtiram</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span>3 Comentários</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
@@ -457,11 +510,11 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
             <div class="interacoes">
                 <div class="icone-funcao">
                     <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span>28.5k Curtiram</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span>3 Comentários</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
@@ -510,11 +563,11 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
             <div class="interacoes">
                 <div class="icone-funcao">
                     <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span>28.5k Curtiram</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span>3 Comentários</span>
+                    <span></span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
@@ -545,7 +598,9 @@ document.getElementById("modalClose").addEventListener("click", closeModalPostag
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
 document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
-document.getElementById("files").addEventListener('change', imagemPreview);
+document.getElementById("filesEvent").addEventListener('change', handleFileSelect, false);
+document.getElementById("files").addEventListener('change', imagemPreviewPost);
+document.getElementById("filesEvent").addEventListener('change', imagemPreviewEvent);
 document.querySelector("#trocar-select-post")
 .addEventListener(
     "change", 
@@ -562,4 +617,6 @@ document.querySelector("#trocar-select-vaga")
     TrocarTipoPostagem
 );
 document.getElementById("publicarPost").addEventListener("click", PostarPost);
-CarregarTodosPost();
+document.getElementById("publicarEvent").addEventListener("click", PostarEvento);
+document.getElementById("modal-add-endereco").addEventListener("click", openModalEndereco);
+CarregarFeed();

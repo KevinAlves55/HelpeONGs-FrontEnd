@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="js/feed-js/index.js" defer type="module"></script>
+    <script src="js/feed-js/index.js" type="module" defer></script>
+    <script src="js/utils/Compartilhar.js" defer></script>
 </head>
 
 <body>
@@ -76,7 +77,7 @@
 
     <!-- MODAL POSTAGEM EVENTO -->
     <div class="modal-evento" id="postagem-evento">
-        <form action="" enctype="multipart/form-data" method="post" class="modal-conteudo-evento">
+        <form enctype="multipart/form-data" method="post" class="modal-conteudo-evento">
             <span class="modal-close" id="modalCloseEvento">&#10006;</span>
 
             <div id="parte-superior-evento">
@@ -104,24 +105,22 @@
                 </div>
 
                 <div id="complemento-evento">
-                    <div id="conteudo-img-eventos">
-                        <div id="opcoes-eventos">
-                            <button id="editar-imagens-eventos">
-                                <img src="assets/img/lapis-feed.png" alt="Editar as imagens">
-                                Editar
-                            </button>
-
-                            <button id="adicionar-imagem-eventos">
+                    <div id="conteudo-imagens">
+                        <div id="opcoes">
+                            <label for="filesEvent">
                                 <img src="assets/img/image.png" alt="POSTAR imagens">
-                                Adicionar imagem / vídeos
-                            </button>
+                                Adicionar imagens / vídeos
+                            </label>
+                            <input type="file" name="files[]" id="filesEvent" multiple="multiple" accept="image/*">
                         </div>
 
-                        <div id="araste-imagens-eventos">
-                            <div id="texto-dentro-eventos">
-                                <img src="assets/img/image.png" alt="POSTAR imagens" id="icone">
-                                <h2>Adicionar imagem / vídeos</h2>
-                                <span>ou arraste e solte</span>
+                        <div id="araste-imagens" class="list">
+                            <div id="primeiraPrevia">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="previewEvent0">
+                            </div>
+                            <div id="outras-previas">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="previewEvent1">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="previewEvent2">
                             </div>
                         </div>
                     </div>
@@ -130,11 +129,11 @@
                         <div id="superior-inputs">
                             <div class="style-input">
                                 <label>Data do Evento</label>
-                                <input placeholder="00-00-0000" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <input placeholder="00-00-0000" id="data-evento" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
                             </div>
                             <div class="style-input">
                                 <label>Hora do Evento</label>
-                                <input placeholder="00-00" type="text" onfocus="(this.type='time')" onblur="(this.type='text')">
+                                <input placeholder="00-00" id="hora-evento" type="text" onfocus="(this.type='time')" onblur="(this.type='text')">
                             </div>
                         </div>
                         <div id="adiconar-mais">
@@ -154,13 +153,13 @@
                 </div>
             </div>
 
-            <button type="button">Publicar</button>
+            <button type="button" id="publicarEvent">Publicar</button>
         </form>
     </div>
 
     <!-- MODAL POSTAGEM ENDEREÇO -->
     <div class="modal-endereco" id="postagem-endereco">
-        <div class="modal-conteudo-endereco">
+        <form action="" method="post" class="modal-conteudo-endereco">
             <div id="todas-inputs">
                 <div class="conteudo-inputs">
                     <div class="style-input">

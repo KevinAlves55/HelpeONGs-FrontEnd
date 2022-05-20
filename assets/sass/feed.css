@@ -884,8 +884,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0;
-  z-index: -1;
+  opacity: 1;
+  z-index: 1;
   background: #00000090;
 }
 
@@ -1171,8 +1171,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   gap: 0;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos {
-  height: 294px;
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens {
+  height: 310px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1181,9 +1181,9 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -1194,9 +1194,9 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   background-color: #F8F9FA;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #opcoes {
   height: 65px;
-  width: 526px;
+  width: 560px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1213,48 +1213,13 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-top: 24px;
-  padding-left: 24px;
+  padding-top: 13px;
+  padding-left: 21px;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #editar-imagens-eventos {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #opcoes label {
   height: 50px;
-  width: 143px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 12px;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #292929;
-  text-transform: capitalize;
-  letter-spacing: none;
-  padding: 0 30px 0 17px;
-  background-color: #E4E6EB;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #editar-imagens-eventos img {
-  height: 25px;
-  width: 25px;
-}
-
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #adicionar-imagem-eventos {
-  height: 50px;
-  width: 329px;
+  width: 375px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1271,7 +1236,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 14.25px;
-  font-size: 1.125rem;
+  font-size: 1.313rem;
   font-weight: 600;
   color: #292929;
   text-transform: none;
@@ -1282,13 +1247,17 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   cursor: pointer;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #opcoes-eventos #adicionar-imagem-eventos img {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #opcoes label img {
   height: 25px;
   width: 25px;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos {
-  height: calc(294px - 65px);
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #opcoes input[type='file'] {
+  display: none;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #araste-imagens {
+  height: 230px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1297,28 +1266,6 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  cursor: pointer;
-}
-
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos {
-  height: 88px;
-  width: 320px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1330,25 +1277,46 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   gap: 0;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos img {
-  height: 25px;
-  width: 25px;
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #araste-imagens #primeiraPrevia {
+  height: inherit;
+  width: 400px;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos h2 {
-  font-size: 1.380rem;
-  font-weight: 500;
-  color: #292929;
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #araste-imagens #primeiraPrevia img {
+  height: inherit;
+  width: inherit;
+  border-radius: 6px;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-img-eventos #araste-imagens-eventos #texto-dentro-eventos span {
-  font-size: 1.200rem;
-  font-weight: 500;
-  color: #8C8C8C;
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #araste-imagens #outras-previas {
+  height: inherit;
+  width: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #conteudo-imagens #araste-imagens #outras-previas img {
+  height: 110px;
+  width: inherit;
+  border-radius: 6px;
 }
 
 .modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs {
-  height: 244px;
+  height: 220px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1884,6 +1852,11 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
+}
+
+.modal-endereco.active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .modal-vaga {
@@ -3117,7 +3090,7 @@ main #itens-main #conteudo-feed .gap {
 }
 
 main #itens-main #conteudo-feed .feed {
-  min-height: 500px;
+  min-height: 50px;
   height: auto;
   width: inherit;
   display: -webkit-box;
@@ -3326,6 +3299,8 @@ main #itens-main #conteudo-feed .feed .post .imagens-postadas .tamanho-total {
 }
 
 main #itens-main #conteudo-feed .feed .post p {
+  height: auto;
+  width: 736px;
   font-size: 1.125rem;
   font-weight: 500;
   color: #292929;
@@ -3350,6 +3325,7 @@ main #itens-main #conteudo-feed .feed .post .interacoes {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
 }
 
 main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao {

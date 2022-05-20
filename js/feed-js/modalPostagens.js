@@ -13,9 +13,19 @@ const closeModalVaga = () => {
     document.getElementById("postagem-vaga").classList.remove("active")
 }
 
+const openModalEndereco = () => {
+    document.getElementById("postagem-endereco").classList.add("active");
+}
+
+const closeModalEndereco = () => {
+    document.getElementById("postagem-endereco").classList.remove("active");
+}
+
 export {
     openModalPostagens,
     closeModalPostagens,
     closeModalEvento,
-    closeModalVaga
+    closeModalVaga,
+    openModalEndereco,
+    closeModalEndereco
 }
