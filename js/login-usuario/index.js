@@ -33,8 +33,6 @@ const validarLogin = async (e) => {
             senha: dom.senha.toString()
         });
 
-        console.log(response);
-
         if (response.status == 404) {
             
             errorValidation(email, "Email incorreto")

@@ -33,12 +33,15 @@ const validarLogin = async (e) => {
             senha: dom.senha.toString()
         });
 
-        console.log(response);
+        if (response.status == 404) {
 
-        if (response.status == 401) {
+            errorValidation(email, "Email não encontrado");
+            errorValidation(password, "Senha inválida")
+
+        } else if (response.status == 401) {
             
-            errorValidation(email, response.message);
-            errorValidation(password, response.message);
+            errorValidation(email, "Email ou senha não conferem");
+            errorValidation(password, "Email ou senha não conferem");
         
         } else if (response.status == 200) {
 
@@ -46,7 +49,7 @@ const validarLogin = async (e) => {
             localStorage.clear();
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
             localStorage.setItem("emailSenha", JSON.stringify(dom));
-            Redirect("doacoesONGs");
+            Redirect("feed");
         
         }
 

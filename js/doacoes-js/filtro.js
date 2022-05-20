@@ -14,17 +14,17 @@ function getValues() {
     return values;
 }
 
-function carregarCardsCategorias(objeto) {
+function CarregarCardsCategorias(objeto) {
 
     const container = document.getElementById("ongs");
     const corpo = objeto;
     const cards = corpo.map(CriarONGs);
     container.replaceChildren(...cards);
-    carregarTamanhoArray(corpo);
+    CarregarTamanhoArray(corpo);
 
 }
 
-function carregarTamanhoArray(objeto) {
+function CarregarTamanhoArray(objeto) {
 
     let valor = document.getElementById("resultadoQtda");
     const tamanho = objeto;
@@ -70,7 +70,7 @@ const filtrar = async () => {
         request.data.includes(ong.nome)? filteredOngs.push(ong) : "";
     });
 
-    carregarCardsCategorias(filteredOngs);
+    CarregarCardsCategorias(filteredOngs);
 
 }
 

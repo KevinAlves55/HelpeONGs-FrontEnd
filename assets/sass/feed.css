@@ -286,6 +286,81 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   opacity: 1;
 }
 
+.loading {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #00000090;
+}
+
+.loading label {
+  font-size: 2.125rem;
+  font-weight: 600;
+  color: #F8F9FA;
+  text-transform: none;
+  letter-spacing: none;
+  -webkit-animation: typewriter 2s steps(13) infinite alternate, blink 800ms steps(13) infinite normal;
+          animation: typewriter 2s steps(13) infinite alternate, blink 800ms steps(13) infinite normal;
+  border-right: 5px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@-webkit-keyframes typewriter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 15.30%;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 15.30%;
+  }
+}
+
+@-webkit-keyframes blink {
+  from {
+    border-color: #F8F9FA;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-color: #F8F9FA;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
 .modal-post {
   height: 100%;
   width: 100%;
@@ -3037,6 +3112,10 @@ main #itens-main #conteudo-feed #criar-postagem button img {
   margin-left: 8px;
 }
 
+main #itens-main #conteudo-feed .gap {
+  gap: 30px;
+}
+
 main #itens-main #conteudo-feed .feed {
   min-height: 500px;
   height: auto;
@@ -3236,6 +3315,14 @@ main #itens-main #conteudo-feed .feed .post .imagens-postadas .imagens-complemen
   height: 176px;
   width: inherit;
   border-radius: 6px;
+}
+
+main #itens-main #conteudo-feed .feed .post .imagens-postadas .imagens-complementos .ocupar-tudo {
+  height: inherit;
+}
+
+main #itens-main #conteudo-feed .feed .post .imagens-postadas .tamanho-total {
+  width: inherit;
 }
 
 main #itens-main #conteudo-feed .feed .post p {

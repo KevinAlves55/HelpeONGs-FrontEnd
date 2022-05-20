@@ -6,11 +6,11 @@ import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { closeModalEvento, closeModalPostagens, closeModalVaga, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
-import { imagemPreview } from "./upload.js";
+import { imagemPreview } from "./PreviewImagem.js";
 import { getFormattedDate } from "../utils/DataFormat.js";
+import { hideLoading, showLoading } from "../utils/Loading.js";
 
 const descricao = document.getElementById("text-post");
-
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
 let ongLogado;
@@ -194,14 +194,51 @@ const PesquisarONGs = (evento) => {
     if (evento.key == "Enter") {
 
         const pesquisaNome = evento.target.value;
-        console.log(pesquisaNome);
+        FiltraNomeONG(pesquisaNome);
 
     }
 
 }
 
+const FiltraNomeONG = (valorDigitado) => {
+
+    const value = valorDigitado;
+
+    let allOngs = [];
+    allOngs = objeto;
+    const filteredOngs = [];
+    allOngs.data.filter(ong => {
+        value.includes(ong.nome)? filteredOngs.push(ong.idOng) : "";
+    });
+    
+    const id = filteredOngs[0];
+
+    CarregarPostPesquisa(id);
+
+}
+
+const CarregarPostPesquisa = async (idOng) => {
+
+    if (idOng === undefined) {
+        alert("Esta ONG não existe");
+        CarregarTodosPost();
+    } else {
+        const container = document.querySelector(".feed");
+        let req = await ApiRequest("GET", `http://localhost:3131/post/${idOng}`);
+        console.log(req);
+
+        if (req.status === 500) {
+            alert("Esta ONG não existe");
+        } else {
+            const dadosPost = req.data;
+            const post = dadosPost.map(CriarPosts);
+            container.replaceChildren(...post);
+        } 
+    }
+
+} 
+
 let media = [];
-let imagens = [];
 async function handleFileSelect(evento) {
 
     // Objeto FileList guarda todos os arquivos.
@@ -213,7 +250,6 @@ async function handleFileSelect(evento) {
             
             const reader = new FileReader();
             let infoArquivo = f;
-            // console.log("File: ", infoArquivo);
             
             reader.addEventListener(
                 "load",
@@ -233,131 +269,13 @@ async function handleFileSelect(evento) {
             );
 
             if (f) {
-                reader.readAsDataURL(f);
-                // console.log("OBT", reader);
-            } else {
-                // console.log("Não existe arquivos");
+                reader.readAsDataURL(f);;
             }
         }
 
     } else {
         alert("Máximo de arquivos permitidos é 3");
     }
-}
-
-async function previewImagem(evento) {
-
-    var files= evento.target.files;
-    // console.log(files.item(0));
-    const imageArray = [files.item(0), files.item(1), files.item(2)]
-    // for (var i = 0; i < files.length -1 ; i++) {
-
-    //     let f = files[i]
-
-        // const preview = new FileReader();
-        // console.log(files[i]);
-        var array = [];
-        
-        imageArray.map((row,i)=>{
-            
-            const preview = new FileReader();
-            console.log(files.item(0));
-            console.log(row);
-            preview.readAsDataURL(row);
-            // console.log("ARQUIVOS SELECIONADOS", preview);
-            
-            preview.onloadend = (e) => {
-
-                array.push(
-                    document.querySelector(`.preview${i}`)
-                );
-                // console.log(document.querySelector(`.preview${i}`));
-                
-                array[i].src = e.target.result;
-                // console.log("PREVIEW", array);
-
-            }
-        })
-
-       
-
-        
-        
-        // if (files[0]) {
-        //     preview.readAsDataURL(files[0]);
-        // } else if(files[0] && files[1]){
-        //     preview.readAsDataURL(files[0]);
-        //     preview.readAsDataURL(files[1]);
-        // }else if(files[0] && files[1] && files[2]){
-        //     preview.readAsDataURL(files[0]);
-        //     preview.readAsDataURL(files[1]);
-        //     preview.readAsDataURL(files[2]);
-        // }
-
-        // preview.onloadend = (e) => {
-
-        //     let img = document.querySelector(`.preview0`)
-        //     let img1 = document.querySelector(`.preview1`)
-        //     let img2 = document.querySelector(`.preview2`)
-           
-        //     img[i].src = e.target.result;
-        //     console.log(e.target.result);
-
-        // }
-
-        // preview.addEventListener(
-        //     "load",
-        //     () => {
-        //         const dadosReader = preview.result;
-        //         let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
-
-        //         imagens.push(
-        //             {
-        //                 "base64": base64,
-        //             }
-        //         );
-        //     },
-        //     false
-        // );
-
-    // }
-
-    // setInterval(() => {
-    //     const base64Preview = imagens;
-    //     console.log("FINALMENTE", base64Preview);
-    // }, 5000);
-    // clearInterval()
-    // const leituraArquivo = reader.onload = () => {
-
-    //     const readerPreview = reader.result;
-    //     let base64Preview = readerPreview.replace(/^data:image\/[a-z]+;base64,/, "");
-    //     // console.log(base64Preview);
-    //     // const position = e.target.result.indexOf(",")+1;
-    //     // const tamanho = e.target.result.length;
-    //     imagens.push(
-    //         base64Preview
-    //     );
-
-    //     return imagens;
-    // }
-    // let img2 = document.querySelector(".preview2");
-    // let img3 = document.querySelector(".preview3");
-
-
-    // console.log("IMAGENS", leituraArquivo);
-
-    // // // A leitura do arquivo é assíncrona 
-    // // reader.onload = (function () {
-    // //     return function (e) {
-            
-    // //         const position = e.target.result.indexOf(",")+1;
-    // //         const tamanho = e.target.result.length;
-    // //         poha.push(
-    // //             e.target.result.substring(position, tamanho)
-    // //         );
-        
-    // //     };
-    // // })(f);
 }
 
 const PostarPost = async (e) => {
@@ -380,13 +298,15 @@ const PostarPost = async (e) => {
             media: arquivosSelecionados
         }
 
+        showLoading();
         const request = await ApiRequest("POST", "http://localhost:3131/post", dom);
         console.log(request);
 
-        // if (request.status === 200) {
-        //     closeModalPostagens();
-        //     location.reload();
-        // }
+        if (request.status === 200) {
+            hideLoading();
+            closeModalPostagens();
+            location.reload();
+        }
 
     }
 
@@ -415,7 +335,7 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
         
         corpo.innerHTML =
         `
-        <div class="post">
+        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
             <div class="parte-superior">
                 <div class="info-ong">
                     <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
@@ -460,7 +380,7 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
     } else if (tbl_post_media.length === 1) {
         corpo.innerHTML =
         `
-        <div class="post">
+        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
             <div class="parte-superior">
                 <div class="info-ong">
                     <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
@@ -475,10 +395,7 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
             </div>
 
             <div class="imagens-postadas">
-                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
-
-                <div class="imagens-complementos">
-                </div>
+                <img src="${tbl_post_media[0].url}" class="principal tamanho-total"  alt="{NomeDoPost}" title="Imagem do postagens">
             </div>
 
             <p>
@@ -511,7 +428,7 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
     } else if (tbl_post_media.length === 2) {
         corpo.innerHTML =
         `
-        <div class="post">
+        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
             <div class="parte-superior">
                 <div class="info-ong">
                     <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
@@ -529,7 +446,7 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
                 <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
 
                 <div class="imagens-complementos">
-                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
+                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima ocupar-tudo">
                 </div>
             </div>
 
@@ -563,7 +480,7 @@ const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_medi
     } else {
         corpo.innerHTML =
         `
-        <div class="post">
+        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
             <div class="parte-superior">
                 <div class="info-ong">
                     <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
@@ -628,7 +545,7 @@ document.getElementById("modalClose").addEventListener("click", closeModalPostag
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
 document.getElementById("modalCloseVaga").addEventListener("click", closeModalVaga);
 document.getElementById('files').addEventListener('change', handleFileSelect, false);
-document.getElementById("files").addEventListener('change', previewImagem);
+document.getElementById("files").addEventListener('change', imagemPreview);
 document.querySelector("#trocar-select-post")
 .addEventListener(
     "change", 
