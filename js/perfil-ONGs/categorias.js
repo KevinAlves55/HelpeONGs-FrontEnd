@@ -45,6 +45,9 @@ nomeCategoria);
 document.getElementById("categoria-input").addEventListener("keypress", 
 cartegoriaMudar);
 
+
+
+
 // let reqCategoria = await ApiRequest("GET", `http://localhost:3131/category${localStorageData.ong.idLogin}`,);
 
 

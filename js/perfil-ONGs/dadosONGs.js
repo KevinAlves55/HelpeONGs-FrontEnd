@@ -128,11 +128,14 @@ async function dadosDetalhesONG() {
         console.log(localStorageDetalhes);
 
         const bodyDetalhes = {
-            descricao: localStorageDetalhes.descricaoData,
-            qtdaMembros: localStorageDetalhes.qtdaMebrosData,
-            dataFundacao: localStorageDetalhes.dataFundacaoData,
-            historia: localStorageDetalhes.historiaData,
+            ong: {
+                descricao: localStorageDetalhes.descricaoData,
+                qtdDeMembros: Number(localStorageDetalhes.qtdaMebrosData),
+                dataDeFundacao: new Date(localStorageDetalhes.dataFundacaoData),
+                historia: localStorageDetalhes.historiaData,
+            }
         }
+        console.log(`body: `, bodyDetalhes);
 
         const reqDetalhes = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageDetalhes.ong.idOng}`, bodyDetalhes);
         
