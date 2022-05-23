@@ -12,7 +12,7 @@ const dados = req.data;
 let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${userLogado.idUsuario}`);
 const enderecos = reqEndereco.data;
 
-let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userLogado.idUsuario}`);
+let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userLogado.idLogin}`);
 const contatos = reqContatos.data;
 
 
@@ -86,6 +86,16 @@ const bairro = document.getElementById('bairroEndereco');
 const endereco = document.getElementById('endereco');
 const numero = document.getElementById('numeroEndereco');
 const complemento = document.getElementById('complementoEndereco');
+
+
+const formatter = Intl.DateTimeFormat("pt-BR",{
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+});
+console.log(formatter);
+
 
 function customFormatter(date) {
     return date.replace("/", "-");
@@ -173,20 +183,22 @@ async function AtualizarcontatosUsuario(){
         telefone : telefone.value,
     }
 
-    localStorage.setItem("enviarContato", JSON.stringify(atualizarcontatoUsuario));
-    let contatosUserUpdate = JSON.parse(localStorage.getItem('enviarContato'));
+    localStorage.setItem("atualizarContato", JSON.stringify(atualizarcontatoUsuario));
+    let contatosUserUpdate = JSON.parse(localStorage.getItem('atualizarContato'));
 
     const atualizarcontatos = {
-        idLogin: userDataContato.idLogin,
-        numero: contatosUserUpdate.celular,
-        telefone: contatosUserUpdate.telefone
+      
+            idLogin: userDataContato.idLogin,
+            numero: contatosUserUpdate.celular,
+            telefone: contatosUserUpdate.telefone,
+            
+    
     }
     
     console.log(`contato atualizado`, atualizarcontatos);
-    let reqUser = await ApiRequest(
-        "GET",`http://localhost:3131/contact/${userLogado.idUsuario}`,atualizarcontatos
+    let reqUser = await ApiRequest("PUT", `http://localhost:3131/contact/${userLogado.idLogin}`,atualizarcontatos
     );
-
+    
     console.log(`REQ`, reqUser);
 }
 document.getElementById("editarContatos").addEventListener("click", AtualizarcontatosUsuario);
@@ -271,7 +283,7 @@ async function atualizarEndereco(){
            
           
         }
-        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${localStorageEnderecoAtualizado. idUsuario}`, bodyEnderecoAtualizado);
+        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${localStorageEnderecoAtualizado.idUsuario}`, bodyEnderecoAtualizado);
         
         console.log(reqEnderecoAtualizado);
 
@@ -295,7 +307,18 @@ async function carregarDadosUsuario(data, endereco, contato){
 }
 carregarDadosUsuario(dados, enderecos, contatos);
 
+// ALTERAR SENHA
+async function editarSenha(){
 
+}
+
+// ATRIBUINDO VALOR A INPUT
+
+var capturando = "";
+function capturar () {
+    capturando = document.getElementById('name').value;
+    document.getElementById('name').innerHTML = capturando;
+}
 
 
 

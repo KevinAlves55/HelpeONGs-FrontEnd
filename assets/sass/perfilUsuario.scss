@@ -227,13 +227,14 @@ body {
                     span{
                         @include textoEstilo(grau9, Bold, $text, );
                         font-weight: 520;
+                        padding-left: 6px;
                     }
                 }
              
             }
             #anexo{
                 @include displayFlex(row, space-between);
-                padding-top: 30px;
+                padding-top: 60px;
                 padding-left:5px;
 
                 h2{
