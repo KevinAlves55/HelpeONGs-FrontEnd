@@ -949,6 +949,52 @@ small {
     z-index: 1;
 }
 
+// MODAL INFO EVENTOS
+.modal-info-evento {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo {
+        @include tamanhos(332px, 787px);
+
+        .infos-conteudo {
+            @include tamanhos(inherit, inherit);
+            @include displayFlex(column, space-between);
+            padding: 32px;
+            background-color: $background;
+            border-radius: 20px;
+
+            .infos {
+                min-width: 20px;
+                min-height: 5px;
+                @include tamanhos(auto, auto);
+                @include displayFlex(row, $gap: 12px, $align: center);
+    
+                label {
+                    @include textoEstilo(grau9, medium, $text, $letter: -0.02em);
+                }
+    
+                h3 {
+                    font-size: 1.480rem;
+                    color: $tartOrange;
+                    font-weight: map-get($densidade, semiBold);
+                }
+            }
+        }
+    }
+}
+// ATIVA A MODAL DE INFO EVENTOS
+.modal-info-evento.active {
+    opacity: 1;
+    z-index: 1;
+}
+
 body {
     min-height: 100vh;
     @include displayFlex(column);

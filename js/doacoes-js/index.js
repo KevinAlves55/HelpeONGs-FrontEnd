@@ -467,7 +467,6 @@ const CarregarModal = async ({target}) => {
         if (req === null || req === undefined) {
             console.log("Objeto vazio");
         } else {
-            console.log(`Request inteira: `, req);
             const modal = CriarModal(req.objetoContatos, req.objetoBank, req.objetoDadosDonate);
 
             if (modal === false) {

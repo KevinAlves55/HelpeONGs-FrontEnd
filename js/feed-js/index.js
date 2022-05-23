@@ -7,10 +7,11 @@ import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { closeModalEndereco, closeModalEvento, closeModalPostagens, closeModalVaga, openModalEndereco, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs } from "../validator/validatorPostagem.js";
 import { imagemPreviewPost, imagemPreviewEvent } from "./PreviewImgFeed.js";
-import { getFormattedDate } from "../utils/DataFormat.js";
+import { getFormattedDate, getFormattedDateEvent } from "../utils/DataFormat.js";
 import { hideLoading, showLoading } from "../utils/Loading.js";
 import { PesquisarCep } from "../utils/ViaCep.js";
 import { CheckWindow } from "../utils/Menu.js";
+import { closeModalInfoEvento, openModalInfoEvento } from "./modalFeed.js";
 
 // POST
 const descricao = document.getElementById("text-post");
@@ -189,8 +190,6 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     Redirect("cadastroUsuario");
 
 }
-
-CheckWindow();
 
 const PesquisarONGs = (evento) => {
 
@@ -749,7 +748,9 @@ const CriarFeed = (
         dataDeCriacao,
         descricao, 
         idOng, 
-        idPost, 
+        idPost,
+        idVagas,
+        idEventos,
         tbl_ong, 
         tbl_post_media,
         titulo,
@@ -998,7 +999,7 @@ const CriarFeed = (
 
                 <div id="interesses">
                     <div id="conteudo-btn">
-                        <button type="button" id="saiba-mais-evento">Saiba nais</button>
+                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
                         <button type="button" id="candidatarEvento">Candidata-se</button>
                     </div>
                 </div>
@@ -1037,7 +1038,7 @@ const CriarFeed = (
 
                 <div id="interesses">
                     <div id="conteudo-btn">
-                        <button type="button" id="saiba-mais-evento">Saiba nais</button>
+                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
                         <button type="button" id="candidatarEvento">Candidata-se</button>
                     </div>
                 </div>
@@ -1080,7 +1081,7 @@ const CriarFeed = (
 
                 <div id="interesses">
                     <div id="conteudo-btn">
-                        <button type="button" id="saiba-mais-evento">Saiba nais</button>
+                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
                         <button type="button" id="candidatarEvento">Candidata-se</button>
                     </div>
                 </div>
@@ -1124,7 +1125,7 @@ const CriarFeed = (
 
                 <div id="interesses">
                     <div id="conteudo-btn">
-                        <button type="button" id="saiba-mais-evento">Saiba mais</button>
+                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
                         <button type="button" id="candidatarEvento">Candidata-se</button>
                     </div>
                 </div>
@@ -1202,6 +1203,123 @@ const GetNextFeed = () => {
 
 }
 
+const CarregarModalInfoEventos = ({target}) => {
+
+    if (target.id === "saiba-mais-evento") {
+
+        openModalInfoEvento();
+        const idEvento = target.dataset.idevento;
+        const idOng = target.dataset.idong;
+        DescarregaDadosModalEventos(idEvento, idOng);
+
+    }
+
+}
+
+const DescarregaDadosModalEventos = async (idEvento, idOng) => {
+
+    const container = document.querySelector(".modal-conteudo");
+    let req = await ApiRequest("GET", `http://localhost:3131/event/${idOng}/${idEvento}`);
+    let reqEndereco = await ApiRequest("GET", `http://localhost:3131/event/${idOng}`);
+    const dadosEvento = req.data;
+    const dadosEnderecoEvento = reqEndereco.data;
+
+    const filterEndereco = [];
+    dadosEnderecoEvento.filter(tbl_endereco => {
+        dadosEvento.idEndereco === tbl_endereco.idEndereco ? filterEndereco.push(tbl_endereco) : "";
+    });
+
+    const card = CriarModal(filterEndereco[0]);
+    container.replaceChildren(card);
+
+}
+
+const CriarModal = (dadosEvento) => {
+
+    let corpo;
+    
+    const modal = document.createElement("div");
+    modal.classList.add("modal-conteudo");
+    
+    const dataHora = getFormattedDateEvent(dadosEvento.dataHora);
+
+    const disponibilidadeEvento = new Date(dadosEvento.dataHora);
+    const dataAtual = new Date();
+
+    let status;
+    if (disponibilidadeEvento > dataAtual) {
+        status = "Não"
+    } else {
+        status = "Sim"
+    }
+
+    if (dadosEvento.candidatos === true) {
+
+        modal.innerHTML =
+        `
+        <div class="infos-conteudo">
+            <div class="infos">
+                <label>Objetivo: </label>
+                <h3>${dadosEvento.objetivo}</h3>
+            </div>
+            <div class="infos">
+                <label>Data e Hora: </label>
+                <h3>${dataHora}</h3>
+            </div>
+            <div class="infos">
+                <label>Aceitamos Candidatos: </label>
+                <h3>Sim</h3>
+            </div>
+            <div class="infos">
+                <label>Local: </label>
+                <h3>${dadosEvento.tbl_endereco.cep}, ${dadosEvento.tbl_endereco.municipio}, ${dadosEvento.tbl_endereco.rua}, ${dadosEvento.tbl_endereco.numero}</h3>
+            </div>
+            <div class="infos">
+                <label>Evento disponível: </label>
+                <h3>${status}</h3>
+            </div>
+        </div>
+        `;
+
+        corpo = modal;
+
+    }
+    
+    if (dadosEvento.candidatos === false) {
+
+        modal.innerHTML =
+        `
+            <div class="infos-conteudo">
+                <div class="infos">
+                    <label>Objetivo: </label>
+                    <h3>${dadosEvento.objetivo}</h3>
+                </div>
+                <div class="infos">
+                    <label>Data e Hora: </label>
+                    <h3>${dataHora}</h3>
+                </div>
+                <div class="infos">
+                    <label>Aceitamos Candidatos: </label>
+                    <h3>Não</h3>
+                </div>
+                <div class="infos">
+                    <label>Local: </label>
+                    <h3>${dadosEvento.tbl_endereco.cep}, ${dadosEvento.tbl_endereco.municipio}, ${dadosEvento.tbl_endereco.rua}, ${dadosEvento.tbl_endereco.numero}</h3>
+                </div>
+                <div class="infos">
+                    <label>Evento disponível: </label>
+                    <h3>${status}</h3>
+                </div>
+            </div>
+        `;
+
+        corpo = modal;
+    }
+
+    return corpo;
+
+}
+
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
@@ -1245,3 +1363,5 @@ document.getElementById("btnEndereco").addEventListener("click", openModalEndere
 CarregarEventosDestaque();
 CarregarVagasConvite();
 CarregarFeed();
+document.querySelector(".feed").addEventListener("click", CarregarModalInfoEventos);
+document.getElementById("info-evento").addEventListener("click", closeModalInfoEvento);
