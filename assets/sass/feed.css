@@ -3854,8 +3854,9 @@ main #itens-main #conteudo-feed .feed .evento-feed .parte-superior {
 }
 
 main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong {
+  min-width: 290px;
   height: 80px;
-  width: 290px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3863,15 +3864,15 @@ main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 12px;
 }
 
 main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong img {
@@ -3884,7 +3885,7 @@ main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong img
 
 main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong .info-nome-data {
   height: 55px;
-  width: 200px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4218,8 +4219,9 @@ main #itens-main #conteudo-feed .feed .vaga .parte-superior {
 }
 
 main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong {
+  min-width: 290px;
   height: 80px;
-  width: 290px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4227,15 +4229,15 @@ main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 12px;
 }
 
 main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong img {
@@ -4248,7 +4250,7 @@ main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong img {
 
 main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong .info-nome-data {
   height: 55px;
-  width: 200px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

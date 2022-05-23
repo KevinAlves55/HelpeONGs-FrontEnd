@@ -1538,8 +1538,9 @@ main {
                         @include displayFlex(row, space-between, center);
     
                         .info-ong {
-                            @include tamanhos(80px, 290px);
-                            @include displayFlex(row, space-between, center);
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
     
                             img {
                                 @include tamanhos(inherit, 80px);
@@ -1548,7 +1549,7 @@ main {
                             }
     
                             .info-nome-data {
-                                @include tamanhos(55px, 200px);
+                                @include tamanhos(55px, auto);
                                 @include displayFlex(column, $gap: 3px);
     
                                 h2 {
@@ -1762,8 +1763,9 @@ main {
                         @include displayFlex(row, space-between, center);
     
                         .info-ong {
-                            @include tamanhos(80px, 290px);
-                            @include displayFlex(row, space-between, center);
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
     
                             img {
                                 @include tamanhos(inherit, 80px);
@@ -1772,7 +1774,7 @@ main {
                             }
     
                             .info-nome-data {
-                                @include tamanhos(55px, 200px);
+                                @include tamanhos(55px, auto);
                                 @include displayFlex(column, $gap: 3px);
     
                                 h2 {

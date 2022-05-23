@@ -86,8 +86,10 @@ function getFormattedDateEvent(dataConvert) {
     }
 
     var formatterMinute
-    if (minuto === 0) {
-        formatterMinute = "00";
+    if (minuto.valueOf(0).valueOf(0)) {
+        formatterMinute = `0${minuto}`;
+    } else if (minuto == 0) {
+        formatterMinute = `00`;
     } else {
         formatterMinute = minuto
     }

@@ -668,14 +668,15 @@ const CarregarEventosDestaque = async () => {
 
 }
 
-const CriarEventosDestaque  = ({idEventos, tbl_ong, titulo, tbl_evento_media}) => {
+const CriarEventosDestaque  = ({idEventos, tbl_ong, titulo, tbl_evento_media, idOng}) => {
 
     const corpo = document.createElement("div");
     corpo.classList.add("evento");
+    corpo.id = "evento";
 
     corpo.innerHTML = 
     `
-        <img src="${tbl_evento_media[0].url}" data-idEvento="${idEventos}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
+        <img src="${tbl_evento_media[0].url}" data-idEvento="${idEventos}" data-idong="${idOng}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
         <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
         <h3>${titulo}</h3>
     `;
@@ -777,7 +778,7 @@ const CriarFeed = (
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
-                            <span>${dataFormat}</span>
+                            <span>${dataFormat} - POST</span>
                         </div>
                     </div>
 
@@ -820,7 +821,7 @@ const CriarFeed = (
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
-                            <span>${dataFormat}</span>
+                            <span>${dataFormat} - POST</span>
                         </div>
                     </div>
 
@@ -866,7 +867,7 @@ const CriarFeed = (
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
-                            <span>${dataFormat}</span>
+                            <span>${dataFormat} - POST</span>
                         </div>
                     </div>
 
@@ -916,7 +917,7 @@ const CriarFeed = (
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
-                            <span>${dataFormat}</span>
+                            <span>${dataFormat} - POST</span>
                         </div>
                     </div>
 
@@ -981,7 +982,7 @@ const CriarFeed = (
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
+                        <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
 
@@ -999,7 +1000,7 @@ const CriarFeed = (
 
                 <div id="interesses">
                     <div id="conteudo-btn">
-                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
+                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba mais</button>
                         <button type="button" id="candidatarEvento">Candidata-se</button>
                     </div>
                 </div>
@@ -1016,7 +1017,7 @@ const CriarFeed = (
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
+                        <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
 
@@ -1038,7 +1039,7 @@ const CriarFeed = (
 
                 <div id="interesses">
                     <div id="conteudo-btn">
-                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
+                        <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba mais</button>
                         <button type="button" id="candidatarEvento">Candidata-se</button>
                     </div>
                 </div>
@@ -1055,7 +1056,7 @@ const CriarFeed = (
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
+                        <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
 
@@ -1098,7 +1099,7 @@ const CriarFeed = (
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
+                        <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
 
@@ -1152,7 +1153,7 @@ const CriarFeed = (
 
                 <div class="info-nome-data">
                     <h2>${tbl_ong.nome}</h2>
-                    <span>${dataFormat}</span>
+                    <span>${dataFormat} - VAGA</span>
                 </div>
             </div>
 
@@ -1243,11 +1244,11 @@ const CriarModal = (dadosEvento) => {
     
     const dataHora = getFormattedDateEvent(dadosEvento.dataHora);
 
-    const disponibilidadeEvento = new Date(dadosEvento.dataHora);
+    const disponibilidadeEvento = new Date(dadosEvento.dataHora); 
     const dataAtual = new Date();
 
     let status;
-    if (disponibilidadeEvento > dataAtual) {
+    if (dataAtual - disponibilidadeEvento > 0) {
         status = "Não"
     } else {
         status = "Sim"
@@ -1320,6 +1321,202 @@ const CriarModal = (dadosEvento) => {
 
 }
 
+const CarregarEventoSelecionado = ({target}) => {
+
+    if (target.id === "eventoSelecionado") {
+
+        const idEvento = target.dataset.idevento;
+        const idOng = target.dataset.idong;
+        DescarregaEventoSelecionado(idEvento, idOng);
+
+    }
+
+}
+
+const DescarregaEventoSelecionado = async (idEvento, idOng) => {
+
+    const container = document.querySelector(".feed");
+    let req = await ApiRequest("GET", `http://localhost:3131/event/${idOng}/${idEvento}`);
+    const dadosEvento = req.data;
+    const eventoSelecionado = CriarEventoSelecionado(dadosEvento);
+    container.replaceChildren(eventoSelecionado);
+
+}
+
+const CriarEventoSelecionado = (dadosEvento) => {
+
+    let corpo;
+    corpo = document.createElement("div");
+    corpo.classList.add("evento-feed");
+       
+    const dataFormat = getFormattedDate(dadosEvento.dataDeCriacao);
+
+    if (dadosEvento.tbl_evento_media.length === 0) {
+        
+        corpo.innerHTML = 
+        `
+        <div class="parte-superior">
+            <div class="info-ong">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.vvtbl_ong.nome}">
+
+                <div class="info-nome-data">
+                    <h2>${dadosEvento.tbl_ong.nome}</h2>
+                    <span>${dataFormat} - EVENTO</span>
+                </div>
+            </div>
+
+            <img src="assets/img/mais-sobre-postagem.png" alt="">
+        </div>
+
+        <div class="info-evento">
+            <div class="info-superior">
+                <h2>${dadosEvento.titulo}</h2>
+
+                <p>
+                    ${dadosEvento.descricao}
+                </p>
+            </div>
+
+            <div id="interesses">
+                <div id="conteudo-btn">
+                    <button type="button" id="saiba-mais-evento" data-idOng="${dadosEvento.idOng}" data-idEvento="${dadosEvento.idEventos}">Saiba mais</button>
+                    <button type="button" id="candidatarEvento">Candidata-se</button>
+                </div>
+            </div>
+        </div>
+        `;
+
+    } else if (dadosEvento.tbl_evento_media.length === 1) {
+
+        corpo.innerHTML = 
+        `
+        <div class="parte-superior">
+            <div class="info-ong">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}">
+
+                <div class="info-nome-data">
+                    <h2>${dadosEvento.tbl_ong.nome}</h2>
+                    <span>${dataFormat} - EVENTO</span>
+                </div>
+            </div>
+
+            <img src="assets/img/mais-sobre-postagem.png" alt="">
+        </div>
+
+        <div class="info-evento">
+            <div class="info-superior">
+                <h2>${dadosEvento.titulo}</h2>
+
+                <p>
+                    ${dadosEvento.descricao}
+                </p>
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${dadosEvento.tbl_evento_media[0].url}" class="principal tamanho-total"  alt="{NomeDoPost}" title="Imagem do postagens">
+            </div>
+
+            <div id="interesses">
+                <div id="conteudo-btn">
+                    <button type="button" id="saiba-mais-evento" data-idOng="${dadosEvento.idOng}" data-idEvento="${dadosEvento.idEventos}">Saiba mais</button>
+                    <button type="button" id="candidatarEvento">Candidata-se</button>
+                </div>
+            </div>
+        </div>
+        `;
+
+    } else if (dadosEvento.tbl_evento_media.length === 2) {
+
+        corpo.innerHTML = 
+        `
+        <div class="parte-superior">
+            <div class="info-ong">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}">
+
+                <div class="info-nome-data">
+                    <h2>${dadosEvento.tbl_ong.nome}</h2>
+                    <span>${dataFormat} - EVENTO</span>
+                </div>
+            </div>
+
+            <img src="assets/img/mais-sobre-postagem.png" alt="">
+        </div>
+
+        <div class="info-evento">
+            <div class="info-superior">
+                <h2>${dadosEvento.titulo}</h2>
+
+                <p>
+                    ${dadosEvento.descricao}
+                </p>
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${dadosEvento.tbl_evento_media[0].url}" alt="{NomeDoPost}" title="Imagem do postagens">
+
+                <div class="imagens-complementos">
+                    <img src="${dadosEvento.tbl_evento_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima ocupar-tudo">
+                </div>
+            </div>
+
+            <div id="interesses">
+                <div id="conteudo-btn">
+                    <button type="button" id="saiba-mais-evento" data-idOng="${dadosEvento.idOng}" data-idEvento="${dadosEvento.idEventos}">Saiba mais</button>
+                    <button type="button" id="candidatarEvento">Candidata-se</button>
+                </div>
+            </div>
+        </div>
+        `;
+
+    } else {
+
+        corpo.innerHTML = 
+        `
+        <div class="parte-superior">
+            <div class="info-ong">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}">
+
+                <div class="info-nome-data">
+                    <h2>${dadosEvento.tbl_ong.nome}</h2>
+                    <span>${dataFormat} - EVENTO</span>
+                </div>
+            </div>
+
+            <img src="assets/img/mais-sobre-postagem.png" alt="">
+        </div>
+
+        <div class="info-evento">
+            <div class="info-superior">
+                <h2>${dadosEvento.titulo}</h2>
+
+                <p>
+                    ${dadosEvento.descricao}
+                </p>
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${dadosEvento.tbl_evento_media[0].url}" alt="{NomeDoPost}" title="Imagem do postagens">
+
+                <div class="imagens-complementos">
+                    <img src="${dadosEvento.tbl_evento_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
+                    <img src="${dadosEvento.tbl_evento_media[2].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="baixo">
+                </div>
+            </div>
+
+            <div id="interesses">
+                <div id="conteudo-btn">
+                    <button type="button" id="saiba-mais-evento" data-idOng="${dadosEvento.idOng}" data-idEvento="${dadosEvento.idEventos}">Saiba mais</button>
+                    <button type="button" id="candidatarEvento">Candidata-se</button>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
+    return corpo;
+
+}
+
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
@@ -1365,3 +1562,4 @@ CarregarVagasConvite();
 CarregarFeed();
 document.querySelector(".feed").addEventListener("click", CarregarModalInfoEventos);
 document.getElementById("info-evento").addEventListener("click", closeModalInfoEvento);
+document.getElementById("previa-eventos").addEventListener("click", CarregarEventoSelecionado);
