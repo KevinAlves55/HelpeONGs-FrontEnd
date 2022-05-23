@@ -100,6 +100,8 @@
 
                         <input type="text" placeholder="Escreva um título para seu evento" id="titulo-evento">
 
+                        <input type="text" placeholder="Qual o objetivo do evento" id="objetivo-evento">
+
                         <textarea id="text-evento" placeholder="Faça uma descrição do evento"></textarea>
                     </div>
                 </div>
@@ -140,14 +142,14 @@
                             <div class="style-input">
                                 <label>Terá Candidato?</label>
                                 <select id="candidato">
-                                    <option value="1">Sim</option>
-                                    <option value="0">Não</option>
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
                                 </select>
                             </div>
 
-                            <button id="modal-add-endereco">
+                            <span id="modal-add-endereco">
                                 Adicionar um endereço
-                            </button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -205,21 +207,21 @@
                     <button id="btnSalvar" type="button">Salvar</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- MODAL POSTAGEM VAGAS -->
     <div class="modal-vaga" id="postagem-vaga">
-        <form action="" enctype="multipart/form-data" method="post" class="modal-conteudo-vaga">
+        <form action="" method="post" class="modal-conteudo-vaga">
             <span class="modal-close" id="modalCloseVaga">&#10006;</span>
 
             <div id="parte-superior-vaga">
                 <div id="info-ong-trocar-vaga">
                     <div id="info-ong-vaga">
-                        <img src="assets/img/perfil-foto.png" id="imgOngVaga" alt="GreenPeace" title="Foto">
+                        <img src="" id="imgOngVaga" alt="GreenPeace" title="Foto">
 
                         <div id="info-nome-data-vaga">
-                            <h2 id="nomeOngVaga">GreenPeace</h2>
+                            <h2 id="nomeOngVaga"></h2>
                             <span>ONG</span>
                         </div>
                     </div>
@@ -245,29 +247,24 @@
                         <div class="style-input" id="requisitos-input">
                             <label>Requisitos da Vaga</label>
                             
-                            <textarea placeholder="Descreva os requisitos da vaga" id="requisitosVaga"></textarea>
+                            <textarea placeholder="Descreva os requisitos da vaga" id="requisitos-vaga"></textarea>
                         </div>
                         <div class="caixa">
                             <div id="superior-input">
-                                <div class="style-input">
-                                    <label>Inicío</label>
-                                    <input placeholder="00-00" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="temp-inicio">
-                                </div>
-                                <div class="style-input">
-                                    <label>Fim</label>
-                                    <input placeholder="00-00" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="temp-fim">
-                                </div>
+                                <label>Carga horária: </label>
+                                <select id="carga-horaria">
+                                    <option value="">Selecione uma carga horária</option>
+                                    <option value="4">4 Horas</option>
+                                    <option value="6">6 Horas</option>
+                                    <option value="8">8 Horas</option>
+                                    <option value="12">12 Horas</option>
+                                </select>
                             </div>
-                            
-                            <span>Insira esses campos para obter a carga horária</span>
                         </div>
                     </div>
                     <div id="parte-baixo">
                         <div id="botoes">
-                            <div id="botoes-cima">
-                                <button id="btnEndereco">Adicionar um endereço</button>
-                                <button id="btnContato">Adicionar contatos</button>
-                            </div>
+                            <span id="btnEndereco">Adicionar um endereço</span>
                         </div>
 
                         <button type="button" id="publicarVaga">Publicar</button>
@@ -321,21 +318,25 @@
                 
                 <nav id="menu">
                     <ul>
-                        <li>
-                            <img src="assets/img/feed-menu.png" alt="Feed" title="Icon-Feed">
-                            <a href="feed.html">Feed</a>
+                        <li id="feedActivity">
+                            <div id="barraFeed" class="barraActivity"></div>
+                            <img src="assets/img/icon-feed.svg" alt="Feed" title="Icon-Feed">
+                            <a href="feed.html" id="feedLink">Feed</a>
                         </li>
-                        <li>
+                        <li id="donateActivity">
+                            <div id="barraDonate" class="barraActivity"></div>
                             <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
-                            <a href="doacoesONGs.html">Doar</a>
+                            <a href="doacoesONGs.html" id="donateLink">Doar</a>
                         </li>
-                        <li>
+                        <li id="profileActivity">
+                            <div id="barraProfile" class="barraActivity"></div>
                             <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
-                            <a href="perfilUsuario.html">Perfil</a>
+                            <a href="perfilUsuario.html" id="profileLink">Perfil</a>
                         </li>
                         <li id="control">
+                            <div id="barraControl" class="barraActivity"></div>
                             <img src="assets/img/users-controles.png" alt="Eventos" title="Icon-controles">
-                            <a href="controles.html">Controles</a>
+                            <a href="controles.html" id="controlLink">Controles</a>
                         </li>
                         <li>
                             <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
@@ -346,7 +347,7 @@
 
                 <div id="convite-quantidade">
                     <h2>Convites</h2>
-                    <span>2</span>
+                    <span id="qtdaVagas"></span>
                 </div>
 
                 <section id="vagas-indicadas">
@@ -374,42 +375,12 @@
                             conferir vaga
                         </button>
                     </div>
-
-                    <img src="assets/img/seta-baixo-seguidores-feed.png" alt="Mais vagas" title="Icone seta para baixo">
                 </section>
             </div>
 
             <section id="conteudo-feed">
-
                 <!-- PRÉVIA DE EVENTOS -->
                 <div id="previa-eventos">
-                    <div class="evento">
-                        <img src="assets/img/evento-img.jpg" alt="Eventos de doação" class="fundo-evento">
-                        <img src="assets/img/pessoa-evento.png" alt="ONGs" class="perfil-postagem">
-
-                        <h3>Evento Mil</h3>
-                    </div>
-
-                    <div class="evento">
-                        <img src="assets/img/evento-img.jpg" alt="Eventos de doação" class="fundo-evento">
-                        <img src="assets/img/pessoa-evento.png" alt="ONGs" class="perfil-postagem">
-
-                        <h3>Evento Mil</h3>
-                    </div>
-
-                    <div class="evento">
-                        <img src="assets/img/evento-img.jpg" alt="Eventos de doação" class="fundo-evento">
-                        <img src="assets/img/pessoa-evento.png" alt="ONGs" class="perfil-postagem">
-
-                        <h3>Evento Mil</h3>
-                    </div>
-
-                    <div class="evento">
-                        <img src="assets/img/evento-img.jpg" alt="Eventos de doação" class="fundo-evento">
-                        <img src="assets/img/pessoa-evento.png" alt="ONGs" class="perfil-postagem">
-
-                        <h3>Evento Mil</h3>
-                    </div>
                 </div>
 
                 <!-- POSTAGEM -->
@@ -430,313 +401,12 @@
                 <div class="feed">
                     
                 </div>
-                <!-- POSTS 
-                <div class="post">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
 
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
-                    </div>
-
-                    <div class="imagens-postadas">
-                        <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" class="principal" title="Imagem do postagens">
-
-                        <div class="imagens-complementos">
-                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
-                            <img src="assets/img/fotos-postagens-post.png" alt="" title="" class="baixo">
-                        </div>
-                    </div>
-
-                    <p>
-                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                    </p>
-
-                    <div class="interacoes">
-                        <div class="icone-funcao">
-                            <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                            <span>28.5k Curtiram</span>
-                        </div>
-                        <div class="icone-funcao">
-                            <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                            <span>3 Comentários</span>
-                        </div>
-                        <div class="icone-funcao">
-                            <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
-                            <span>Compartilhar</span>
-                        </div>
-                    </div>
-
-                    <div id="comentar">
-                        <input name="" id="" placeholder="Digite seu comentário">
-                        <button type="button" id="enviarComentario">
-                            <img src="assets/img/navigation.png" alt="">
-                        </button>
-                    </div>
-                </div>-->
-
-                <!-- EVENTOS 
-                <div class="evento-feed">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="">
-
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="">
-                    </div>
-
-                    <div class="info-evento">
-                        <div class="info-superior">
-                            <h2>Expedição ao Mar</h2>
-
-                            <p>
-                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                            </p>
-                        </div>
-
-                        <div class="imagens-postadas">
-                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens">
-    
-                            <div class="imagens-complementos">
-                                <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
-                                <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="baixo">
-                            </div>
-                        </div>
-
-                        <div class="info-complementares">
-                            <div class="complementares-superior">
-                                <div class="info-esquerda">
-                                    <div class="item">
-                                        <h3>Obejetivo:</h3>
-                                        <span class="item-info">Salvar Peixes</span>
-                                    </div>
-
-                                    <div class="item">
-                                        <h3>Data e Hora:</h3>
-                                        <span class="item-info">26 de Janeiro, às 12:00</span>
-                                    </div>
-
-                                    <div class="item">
-                                        <h3>Data e Hora:</h3>
-                                        <span class="item-stts">Disponível</span>
-                                    </div>
-                                </div>
-
-                                <div class="botoes-direita">
-                                    <button class="botao">Candidatar-se</button>
-                                    <button class="botao">Participar</button>
-                                </div>
-                            </div>
-
-                            <div class="complementares-inferior">
-                                <span>Quantidade de participantes: <i>101</i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
-
-                <!-- VAGAS 
-                <div class="vaga">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
-
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
-                    </div>
-
-                    <div class="corpo-vaga">
-                        <h2>Professor de informática</h2>
-
-                        <p>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-
-                        <div class="vaga-botoes">
-                            <button>Saiba Mais</button>
-                            <button>Interesse</button>
-                        </div>
-                    </div>
-                </div>-->
-
-                <!-- <div class="post">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="GreenPeace" title="Foto">
-
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
-                    </div>
-
-                    <div class="imagens-postadas">
-                        <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens">
-
-                        <div class="imagens-complementos">
-                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
-                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="baixo">
-                        </div>
-                    </div>
-
-                    <p>
-                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                    </p>
-
-                    <div class="interacoes">
-                        <div class="icone-funcao">
-                            <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                            <span>28.5k Curtiram</span>
-                        </div>
-                        <div class="icone-funcao">
-                            <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                            <span>3 Comentários</span>
-                        </div>
-                        <div class="icone-funcao">
-                            <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
-                            <span>Compartilhar</span>
-                        </div>
-                    </div>
-
-                    <div class="comentarios">
-                        <div class="corpo-comentario">
-                            <div class="lateral-imagem">
-                                <img src="assets/img/foto-comentario.png" alt="{NomeDaPessoa}" title="Foto de perfil">
-                            </div>
-
-                            <div class="vertical-info">
-                                <div class="comentario">
-                                    <h3>Nome Da Pessoa</h3>
-
-                                    <p>
-                                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. 
-                                        <span>Ver mais</span>
-                                    </p>
-                                </div>
-
-                                <div class="acoes-comentario">
-                                    <span>1 h Atrás</span>
-
-                                    <div class="curtir-comentario">
-                                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
-                                        <span>28.5k Curtiram</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="evento-feed">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="">
-
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="">
-                    </div>
-
-                    <div class="info-evento">
-                        <div class="info-superior">
-                            <h2>Expedição ao Mar</h2>
-
-                            <p>
-                                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                            </p>
-                        </div>
-
-                        <div class="imagens-postadas">
-                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens">
-    
-                            <div class="imagens-complementos">
-                                <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
-                                <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="baixo">
-                            </div>
-                        </div>
-
-                        <div class="info-complementares">
-                            <div class="complementares-superior">
-                                <div class="info-esquerda">
-                                    <div class="item">
-                                        <h3>Obejetivo:</h3>
-                                        <span class="item-info">Salvar Peixes</span>
-                                    </div>
-
-                                    <div class="item">
-                                        <h3>Data e Hora:</h3>
-                                        <span class="item-info">26 de Janeiro, às 12:00</span>
-                                    </div>
-
-                                    <div class="item">
-                                        <h3>Data e Hora:</h3>
-                                        <span class="item-stts">Disponível</span>
-                                    </div>
-                                </div>
-
-                                <div class="botoes-direita">
-                                    <button class="botao">Candidatar-se</button>
-                                    <button class="botao">Participar</button>
-                                </div>
-                            </div>
-
-                            <div class="complementares-inferior">
-                                <span>Quantidade de participantes: <i>101</i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="vaga">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
-
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
-                    </div>
-
-                    <div class="corpo-vaga">
-                        <h2>Professor de informática</h2>
-
-                        <p>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-
-                        <div class="vaga-botoes">
-                            <button>Saiba Mais</button>
-                            <button>Interesse</button>
-                        </div>
-                    </div>
-                </div> -->
+                <div class="loader">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
             </section>
 
             <div id="esquerda-seguidores">

@@ -43,6 +43,7 @@ main {
                     border-radius: 50%;
                     margin-left: 8px;
                     margin-right: 8px;
+                    object-fit: cover;
                 }
 
                 h3 {
@@ -70,6 +71,20 @@ main {
                     li {
                         @include tamanhos(65px, inherit);
                         @include displayFlex(row-reverce, $align: center, $gap: 18px);
+                        position: relative;
+
+                        .barraActivity {
+                            @include tamanhos(inherit, 3px);
+                            background-color: $deepSaffron;
+                            border-radius: 3px 3px;
+                            left: -4px;
+                            position: absolute;
+                            opacity: 0;
+                        }
+
+                        .barraActivity.active {
+                            opacity: 1;
+                        }
 
                         &:hover {
                             background-color: $background;

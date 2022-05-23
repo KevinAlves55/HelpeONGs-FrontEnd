@@ -6,6 +6,7 @@ import { validarSession } from "../utils/ValidatorSession.js";
 import { openFiltro, filtrar } from "./filtro.js";
 import { openModal, closeModal } from "./modal.js"
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
+import { CheckWindow } from "../utils/Menu.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -150,6 +151,8 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     });
 
 }
+
+CheckWindow();
 
 const CarregarRecomendados = async () => {
 

@@ -87,6 +87,8 @@ header #itens-header #logo img {
   height: inherit;
   width: inherit;
   margin-top: 7px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 header #itens-header #lupa-atalhos {
@@ -181,6 +183,8 @@ header #itens-header #lupa-atalhos #atalhos {
 header #itens-header #lupa-atalhos #atalhos img {
   height: 32px;
   width: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
@@ -330,7 +334,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
     width: 0%;
   }
   to {
-    width: 15.30%;
+    width: 260px;
   }
 }
 
@@ -339,7 +343,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
     width: 0%;
   }
   to {
-    width: 15.30%;
+    width: 260px;
   }
 }
 
@@ -884,8 +888,8 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 1;
-  z-index: 1;
+  opacity: 0;
+  z-index: -1;
   background: #00000090;
 }
 
@@ -1102,7 +1106,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   letter-spacing: -0.02em;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar input {
   height: 64px;
   width: inherit;
   font-size: 22px;
@@ -1113,32 +1117,32 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   border: 2px solid #CCCCCC;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento::-webkit-input-placeholder {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar input::-webkit-input-placeholder {
   font-size: 22px;
   font-weight: 500;
   color: #8C8C8C;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento:-ms-input-placeholder {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar input:-ms-input-placeholder {
   font-size: 22px;
   font-weight: 500;
   color: #8C8C8C;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento::-ms-input-placeholder {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar input::-ms-input-placeholder {
   font-size: 22px;
   font-weight: 500;
   color: #8C8C8C;
 }
 
-.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar #titulo-evento::placeholder {
+.modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar input::placeholder {
   font-size: 22px;
   font-weight: 500;
   color: #8C8C8C;
 }
 
 .modal-evento .modal-conteudo-evento #parte-superior-evento #info-ong-trocar-evento .trocar textarea {
-  height: 205px;
+  height: 140px;
   width: 405px;
   border-radius: 8px;
   border: 2px solid #CCCCCC;
@@ -1463,6 +1467,13 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+}
+
+.modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais .style-input .block {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .modal-evento .modal-conteudo-evento #parte-superior-evento #complemento-evento #complemento-inputs #adiconar-mais .style-input label {
@@ -1856,7 +1867,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 
 .modal-endereco.active {
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
 }
 
 .modal-vaga {
@@ -1887,7 +1898,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 }
 
 .modal-vaga .modal-conteudo-vaga {
-  height: 648px;
+  height: 628px;
   width: 1164px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1945,7 +1956,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 }
 
 .modal-vaga .modal-conteudo-vaga #parte-superior-vaga {
-  height: 546px;
+  height: 521px;
   width: 1100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1966,7 +1977,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 }
 
 .modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga {
-  height: inherit;
+  height: 520px;
   width: 405px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2051,7 +2062,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 }
 
 .modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar {
-  height: 433px;
+  height: 395px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2107,7 +2118,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   width: 405px;
   font-size: 1.313rem;
   font-weight: 500;
-  color: #8C8C8C;
+  color: #292929;
   text-transform: none;
   letter-spacing: -0.02em;
   border: 2px solid #CCCCCC;
@@ -2115,6 +2126,38 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   padding: 0px 15px;
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input input::-webkit-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input input:-ms-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input input::-ms-input-placeholder {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input input::placeholder {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
 }
 
 .modal-vaga .modal-conteudo-vaga #parte-superior-vaga #info-ong-trocar-vaga .trocar .style-input textarea {
@@ -2153,7 +2196,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
 }
 
 .modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga {
-  height: inherit;
+  height: 520px;
   width: 614px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2246,10 +2289,10 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -2258,33 +2301,12 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 9px;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input {
-  height: 91px;
-  width: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
   gap: 0;
 }
 
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input {
-  height: inherit;
-  width: 246px;
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input {
+  height: 100px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2303,57 +2325,36 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   gap: 0;
 }
 
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input label {
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input label {
   font-size: 1.400rem;
   color: #292929;
   font-weight: 500;
-  text-transform: capitalize;
 }
 
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input {
-  height: 59px;
-  width: 232px;
-  border: 2px solid #CCCCCC;
-  border-radius: 8px;
-  font-size: 1.400rem;
-  color: #292929;
-  padding: 0 35px 0 20px;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input select {
+  height: 64px;
+  width: 597px;
+  font-size: 1.313rem;
   font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input::-webkit-input-placeholder {
-  font-size: 1.400rem;
   color: #8C8C8C;
-  font-weight: 500;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input:-ms-input-placeholder {
-  font-size: 1.400rem;
-  color: #8C8C8C;
-  font-weight: 500;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input::-ms-input-placeholder {
-  font-size: 1.400rem;
-  color: #8C8C8C;
-  font-weight: 500;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input .style-input input::placeholder {
-  font-size: 1.400rem;
-  color: #8C8C8C;
-  font-weight: 500;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa span {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #FC595E;
   text-transform: none;
-  letter-spacing: none;
+  letter-spacing: -0.02em;
+  border: 2px solid #CCCCCC;
+  border-radius: 15px;
+  padding: 0px 15px;
+  -webkit-appearance: none;
+          appearance: none;
+  -moz-appearance: none;
+  background: #fff url("../img/Icon-select.png") 95.5% 50% no-repeat;
+  margin-left: 13px;
+}
+
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-cima .caixa #superior-input select option {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #8C8C8C;
+  text-transform: none;
+  letter-spacing: -0.02em;
 }
 
 .modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo {
@@ -2377,7 +2378,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   gap: 0;
 }
 
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima {
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes {
   height: 55px;
   width: 614px;
   display: -webkit-box;
@@ -2387,9 +2388,9 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -2398,9 +2399,25 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   gap: 0;
 }
 
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnEndereco {
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes #btnEndereco {
   height: inherit;
   width: 290px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   background-color: #E4E6EB;
   border-radius: 6px;
   font-size: 1.400rem;
@@ -2412,27 +2429,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   font-family: 'Montserrat', sans-serif;
 }
 
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnEndereco:hover {
-  -webkit-transition: .1s;
-  transition: .1s;
-  opacity: 0.8;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnContato {
-  height: inherit;
-  width: 278px;
-  background-color: #E4E6EB;
-  border-radius: 6px;
-  font-size: 1.400rem;
-  color: #292929;
-  font-weight: 600;
-  cursor: pointer;
-  -webkit-transition: .1s;
-  transition: .1s;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes-cima #btnContato:hover {
+.modal-vaga .modal-conteudo-vaga #parte-superior-vaga #complemento-vaga #parte-baixo #botoes #btnEndereco:hover {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
@@ -2608,6 +2605,8 @@ main #itens-main #direita #mini-perfil img {
   border-radius: 50%;
   margin-left: 8px;
   margin-right: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #direita #mini-perfil h3 {
@@ -2670,6 +2669,21 @@ main #itens-main #direita #menu ul li {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 18px;
+  position: relative;
+}
+
+main #itens-main #direita #menu ul li .barraActivity {
+  height: inherit;
+  width: 3px;
+  background-color: #FF9F45;
+  border-radius: 3px 3px;
+  left: -4px;
+  position: absolute;
+  opacity: 0;
+}
+
+main #itens-main #direita #menu ul li .barraActivity.active {
+  opacity: 1;
 }
 
 main #itens-main #direita #menu ul li:hover {
@@ -2827,6 +2841,10 @@ main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga .vaga-fundo {
   width: inherit;
   position: relative;
   border-radius: 20px;
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga .perfil-postagem {
@@ -2837,9 +2855,13 @@ main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga .perfil-postag
   position: absolute;
   top: 43px;
   left: 38px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga h3 {
+  height: auto;
+  width: 210px;
   font-size: 1.313rem;
   font-weight: 800;
   color: #292929;
@@ -2847,7 +2869,7 @@ main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga h3 {
   letter-spacing: none;
   color: white;
   position: absolute;
-  top: 135px;
+  top: 235px;
   left: 35px;
 }
 
@@ -2888,15 +2910,6 @@ main #itens-main #direita #vagas-indicadas .vaga button:hover {
   opacity: 0.8;
 }
 
-main #itens-main #direita #vagas-indicadas img {
-  height: 35px;
-  width: 35px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  cursor: pointer;
-}
-
 main #itens-main #conteudo-feed {
   min-height: 750px;
   height: auto;
@@ -2920,7 +2933,8 @@ main #itens-main #conteudo-feed {
 }
 
 main #itens-main #conteudo-feed #previa-eventos {
-  height: 275px;
+  min-height: 275px;
+  height: auto;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2937,11 +2951,11 @@ main #itens-main #conteudo-feed #previa-eventos {
           align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 0;
+  gap: 20px;
 }
 
 main #itens-main #conteudo-feed #previa-eventos .evento {
-  height: inherit;
+  height: 275px;
   width: 175px;
   border-radius: 20px;
   position: relative;
@@ -2952,21 +2966,27 @@ main #itens-main #conteudo-feed #previa-eventos .evento .fundo-evento {
   width: inherit;
   border-radius: 20px;
   position: absolute;
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #conteudo-feed #previa-eventos .evento .perfil-postagem {
-  height: 45px;
-  width: 45px;
+  height: 50px;
+  width: 50px;
   border-radius: 6px;
   outline: 3px solid #F8F9FA;
   position: absolute;
-  top: 18px;
-  left: 18px;
+  top: 19px;
+  left: 19px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #conteudo-feed #previa-eventos .evento h3 {
-  font-size: 1.313rem;
-  font-weight: 800;
+  font-size: 1.125rem;
+  font-weight: 700;
   color: #292929;
   text-transform: capitalize;
   letter-spacing: none;
@@ -3030,6 +3050,8 @@ main #itens-main #conteudo-feed #criar-postagem #esquerda img {
   height: 68px;
   width: 72px;
   border-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #conteudo-feed #criar-postagem #esquerda h2 {
@@ -3185,6 +3207,8 @@ main #itens-main #conteudo-feed .feed .post .parte-superior .info-ong img {
   height: inherit;
   width: 80px;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #conteudo-feed .feed .post .parte-superior .info-ong .info-nome-data {
@@ -3299,11 +3323,11 @@ main #itens-main #conteudo-feed .feed .post .imagens-postadas .tamanho-total {
 }
 
 main #itens-main #conteudo-feed .feed .post p {
-  height: auto;
-  width: 736px;
-  font-size: 1.125rem;
+  font-size: 1.188rem;
   font-weight: 500;
   color: #292929;
+  height: auto;
+  width: 736px;
 }
 
 main #itens-main #conteudo-feed .feed .post .interacoes {
@@ -3367,7 +3391,7 @@ main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao .compartil
 }
 
 main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao span {
-  font-size: 1.125rem;
+  font-size: 1.313rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
@@ -3683,8 +3707,8 @@ main #itens-main #conteudo-feed .feed .post #comentar #enviarComentario img {
   width: 35px;
 }
 
-main #itens-main #conteudo-feed .evento-feed {
-  min-height: 789px;
+main #itens-main #conteudo-feed .feed .evento-feed {
+  min-height: 50px;
   height: auto;
   width: inherit;
   display: -webkit-box;
@@ -3710,7 +3734,7 @@ main #itens-main #conteudo-feed .evento-feed {
   padding: 18px;
 }
 
-main #itens-main #conteudo-feed .evento-feed .parte-superior {
+main #itens-main #conteudo-feed .feed .evento-feed .parte-superior {
   height: 80px;
   width: 736px;
   display: -webkit-box;
@@ -3731,7 +3755,7 @@ main #itens-main #conteudo-feed .evento-feed .parte-superior {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong {
+main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong {
   height: 80px;
   width: 290px;
   display: -webkit-box;
@@ -3752,13 +3776,15 @@ main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong img {
+main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong img {
   height: inherit;
   width: 80px;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nome-data {
+main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong .info-nome-data {
   height: 55px;
   width: 200px;
   display: -webkit-box;
@@ -3779,7 +3805,7 @@ main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nom
   gap: 3px;
 }
 
-main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nome-data h2 {
+main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong .info-nome-data h2 {
   font-size: 1.563rem;
   font-weight: 700;
   color: #292929;
@@ -3787,7 +3813,7 @@ main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nom
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nome-data span {
+main #itens-main #conteudo-feed .feed .evento-feed .parte-superior .info-ong .info-nome-data span {
   font-size: 1rem;
   font-weight: 600;
   color: #8C8C8C;
@@ -3795,14 +3821,14 @@ main #itens-main #conteudo-feed .evento-feed .parte-superior .info-ong .info-nom
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .evento-feed .parte-superior img {
+main #itens-main #conteudo-feed .feed .evento-feed .parte-superior img {
   height: 21px;
   width: 31px;
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento {
-  min-height: 632px;
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento {
+  min-height: 294px;
   height: auto;
   width: 736px;
   display: -webkit-box;
@@ -3823,8 +3849,8 @@ main #itens-main #conteudo-feed .evento-feed .info-evento {
   gap: 25px;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior {
-  min-height: 131px;
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .info-superior {
+  min-height: 10px;
   height: auto;
   width: 736px;
   display: -webkit-box;
@@ -3845,7 +3871,7 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior {
   gap: 25px;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior h2 {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .info-superior h2 {
   font-size: 1.813rem;
   font-weight: 600;
   color: #292929;
@@ -3853,7 +3879,9 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior h2 {
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior p {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .info-superior p {
+  height: auto;
+  width: 736px;
   font-size: 1.125rem;
   font-weight: 500;
   color: #292929;
@@ -3861,7 +3889,7 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .info-superior p {
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .imagens-postadas {
   height: 314px;
   width: 736px;
   display: -webkit-box;
@@ -3882,13 +3910,13 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas img {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .imagens-postadas img {
   height: inherit;
   width: 435px;
   border-radius: 6px;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas .imagens-complementos {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .imagens-postadas .imagens-complementos {
   height: inherit;
   width: 285px;
   display: -webkit-box;
@@ -3909,52 +3937,39 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas .ima
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas .imagens-complementos .cima {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .imagens-postadas .imagens-complementos .cima {
   height: 125px;
   width: inherit;
   border-radius: 6px;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .imagens-postadas .imagens-complementos .baixo {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .imagens-postadas .imagens-complementos .baixo {
   height: 176px;
   width: inherit;
   border-radius: 6px;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares {
-  height: 201px;
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .imagens-postadas .imagens-complementos .ocupar-tudo {
+  height: inherit;
+}
+
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento .imagens-postadas .tamanho-total {
+  width: inherit;
+}
+
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses {
+  height: 60px;
   width: 736px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior {
-  height: 159px;
-  width: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -3963,16 +3978,16 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #conteudo-btn {
   height: inherit;
-  width: 530px;
+  width: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -3984,7 +3999,9 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #conteudo-btn #saiba-mais-evento {
+  height: inherit;
+  width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3992,114 +4009,35 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 7px;
-}
-
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item h3 {
-  font-size: 1.450rem;
+  gap: 0;
+  font-size: 1.500rem;
   font-weight: 600;
-  color: #292929;
-}
-
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-info {
-  font-size: 1.450rem;
-  font-weight: 400;
-  color: #292929;
-}
-
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .info-esquerda .item .item-stts {
-  height: 35px;
-  width: 89px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  font-size: 0.85rem;
-  font-weight: 700;
-  background-color: #39CE04;
-  border-radius: 6px;
-}
-
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita {
-  height: 103px;
-  width: 160px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita .botao {
-  height: 40px;
-  width: 160px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  font-size: 1.200rem;
-  font-weight: 500;
-  color: #292929;
-  background-color: #CCCCCC;
+  text-transform: capitalize;
+  background-color: #FF9F45;
   border-radius: 6px;
   border: none;
-  cursor: pointer;
   -webkit-transition: .1s;
   transition: .1s;
+  cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-superior .botoes-direita .botao:hover {
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #conteudo-btn #saiba-mais-evento:hover {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-inferior {
-  height: 42px;
-  width: inherit;
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #conteudo-btn #candidatarEvento {
+  height: inherit;
+  width: 194px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4107,30 +4045,34 @@ main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  font-size: 1.500rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: #FF9F45;
+  border-radius: 6px;
+  border: none;
+  -webkit-transition: .1s;
+  transition: .1s;
+  cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-inferior span {
-  font-size: 1.200rem;
-  font-weight: 500;
-  color: #292929;
+main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #conteudo-btn #candidatarEvento:hover {
+  -webkit-transition: .1s;
+  transition: .1s;
+  opacity: 0.8;
 }
 
-main #itens-main #conteudo-feed .evento-feed .info-evento .info-complementares .complementares-inferior i {
-  font-weight: 400;
-  font-style: normal;
-}
-
-main #itens-main #conteudo-feed .vaga {
-  min-height: 475px;
+main #itens-main #conteudo-feed .feed .vaga {
+  min-height: 50px;
   height: auto;
   width: inherit;
   display: -webkit-box;
@@ -4148,7 +4090,7 @@ main #itens-main #conteudo-feed .vaga {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 55px;
+  gap: 30px;
   background-color: #fff;
   border-radius: 20px;
   -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
@@ -4156,7 +4098,7 @@ main #itens-main #conteudo-feed .vaga {
   padding: 25px;
 }
 
-main #itens-main #conteudo-feed .vaga .parte-superior {
+main #itens-main #conteudo-feed .feed .vaga .parte-superior {
   height: 80px;
   width: 736px;
   display: -webkit-box;
@@ -4177,7 +4119,7 @@ main #itens-main #conteudo-feed .vaga .parte-superior {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .vaga .parte-superior .info-ong {
+main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong {
   height: 80px;
   width: 290px;
   display: -webkit-box;
@@ -4198,13 +4140,15 @@ main #itens-main #conteudo-feed .vaga .parte-superior .info-ong {
   gap: 0;
 }
 
-main #itens-main #conteudo-feed .vaga .parte-superior .info-ong img {
+main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong img {
   height: inherit;
   width: 80px;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data {
+main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong .info-nome-data {
   height: 55px;
   width: 200px;
   display: -webkit-box;
@@ -4225,7 +4169,7 @@ main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data 
   gap: 3px;
 }
 
-main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data h2 {
+main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong .info-nome-data h2 {
   font-size: 1.563rem;
   font-weight: 700;
   color: #292929;
@@ -4233,7 +4177,7 @@ main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data 
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data span {
+main #itens-main #conteudo-feed .feed .vaga .parte-superior .info-ong .info-nome-data span {
   font-size: 1rem;
   font-weight: 600;
   color: #8C8C8C;
@@ -4241,14 +4185,15 @@ main #itens-main #conteudo-feed .vaga .parte-superior .info-ong .info-nome-data 
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .vaga .parte-superior img {
+main #itens-main #conteudo-feed .feed .vaga .parte-superior img {
   height: 21px;
   width: 31px;
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .vaga .corpo-vaga {
-  height: 281px;
+main #itens-main #conteudo-feed .feed .vaga .corpo-vaga {
+  min-height: 10px;
+  height: auto;
   width: 736px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4257,34 +4202,34 @@ main #itens-main #conteudo-feed .vaga .corpo-vaga {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 30px;
 }
 
-main #itens-main #conteudo-feed .vaga .corpo-vaga h2 {
-  font-size: 1.563rem;
+main #itens-main #conteudo-feed .feed .vaga .corpo-vaga h2 {
+  font-size: 1.813rem;
   font-weight: 600;
   color: #292929;
   text-transform: none;
   letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .vaga .corpo-vaga p {
-  font-size: 1.313rem;
+main #itens-main #conteudo-feed .feed .vaga .corpo-vaga p {
+  height: auto;
+  width: 736px;
+  font-size: 1.188rem;
   font-weight: 500;
   color: #292929;
-  text-transform: none;
-  letter-spacing: none;
 }
 
-main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes {
+main #itens-main #conteudo-feed .feed .vaga .corpo-vaga .vaga-botoes {
   height: 60px;
   width: 350px;
   display: -webkit-box;
@@ -4307,7 +4252,7 @@ main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes {
       align-self: center;
 }
 
-main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button {
+main #itens-main #conteudo-feed .feed .vaga .corpo-vaga .vaga-botoes button {
   height: inherit;
   width: 150px;
   display: -webkit-box;
@@ -4327,7 +4272,7 @@ main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button {
       flex-wrap: nowrap;
   gap: 0;
   font-size: 1.450rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: capitalize;
   background-color: #FF9F45;
   border-radius: 6px;
@@ -4337,7 +4282,7 @@ main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button {
   cursor: pointer;
 }
 
-main #itens-main #conteudo-feed .vaga .corpo-vaga .vaga-botoes button:hover {
+main #itens-main #conteudo-feed .feed .vaga .corpo-vaga .vaga-botoes button:hover {
   -webkit-transition: .1s;
   transition: .1s;
   opacity: 0.8;
@@ -4516,5 +4461,64 @@ main #itens-main #esquerda-seguidores #seguindo img {
       -ms-grid-row-align: center;
       align-self: center;
   cursor: pointer;
+}
+
+main #itens-main .loader {
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  bottom: 7px;
+  -webkit-transition: opacity 0.3s ease-in;
+  transition: opacity 0.3s ease-in;
+}
+
+main #itens-main .loader.show {
+  opacity: 1;
+}
+
+main #itens-main .circle {
+  background-color: #FC595E;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  -webkit-animation: bounce 0.5s ease-in infinite;
+          animation: bounce 0.5s ease-in infinite;
+}
+
+main #itens-main .circle:nth-of-type(2) {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+main #itens-main .circle:nth-of-type(3) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+@-webkit-keyframes bounce {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
 }
 /*# sourceMappingURL=feed.css.map */

@@ -15,6 +15,7 @@ header {
             img {
                 @include tamanhos(inherit, inherit);
                 margin-top: 7px;
+                object-fit: cover;
             }
         }
         
@@ -53,6 +54,7 @@ header {
     
                 img {
                     @include tamanhos(32px, 32px);
+                    object-fit: cover;
                 }
     
                 #atalhos-perfil {

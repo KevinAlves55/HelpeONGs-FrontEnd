@@ -27,7 +27,7 @@
         width: 0%;
       }
       to {
-        width: 15.30%;
+        width: 260px;
       }
     }
     @keyframes blink {
@@ -276,8 +276,8 @@ small {
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 1;
-    z-index: 1;
+    opacity: 0;
+    z-index: -1;
     background: #00000090;
 
     .modal-conteudo-evento {
@@ -353,7 +353,7 @@ small {
                         }
                     }
 
-                    #titulo-evento {
+                    input {
                         @include tamanhos(64px, inherit);
                         font-size: 22px;
                         font-weight: map-get($densidade, medium);
@@ -370,7 +370,7 @@ small {
                     }
 
                     textarea {
-                        @include tamanhos(205px, 405px);
+                        @include tamanhos(140px, 405px);
                         border-radius: 8px;
                         border: 2px solid $border;
                         resize: none;
@@ -493,6 +493,10 @@ small {
                         .style-input {
                             @include tamanhos(inherit, 267px);
                             @include displayFlex(column, space-between);
+
+                            .block {
+                                user-select: none;
+                            }
 
                             label {
                                 font-size: 1.450rem;
@@ -685,7 +689,7 @@ small {
 // ATIVA A MODAL ENDEREÇO
 .modal-endereco.active {
     opacity: 1;
-    z-index: 1;
+    z-index: 2;
 }
 
 // MODAL VAGA
@@ -700,7 +704,7 @@ small {
     z-index: -1;
 
     .modal-conteudo-vaga {
-        @include tamanhos(648px, 1164px);
+        @include tamanhos(628px, 1164px);
         @include displayFlex(column, space-between);
         border-radius: 20px;
         padding: 30px;
@@ -721,11 +725,11 @@ small {
         }
 
         #parte-superior-vaga {
-            @include tamanhos(546px, 1100px);
+            @include tamanhos(521px, 1100px);
             @include displayFlex(row, space-between);
 
             #info-ong-trocar-vaga {
-                @include tamanhos(inherit, 405px);
+                @include tamanhos(520px, 405px);
                 @include displayFlex(column, space-between);
 
                 #info-ong-vaga {
@@ -752,7 +756,7 @@ small {
                 }
 
                 .trocar {
-                    @include tamanhos(433px, inherit);
+                    @include tamanhos(395px, inherit);
                     @include displayFlex(column, space-between);
 
                     select {
@@ -776,11 +780,15 @@ small {
 
                         input {
                             @include tamanhos(64px, 405px);
-                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                            @include textoEstilo(grau9, medium, $text, $letter: -0.02em);
                             border: 2px solid $border;
                             border-radius: 15px;
                             padding: 0px 15px;
                             align-self: flex-end;
+
+                            &::placeholder {
+                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                            }
                         }
 
                         textarea {
@@ -820,7 +828,7 @@ small {
             }
 
             #complemento-vaga {
-                @include tamanhos(inherit, 614px);
+                @include tamanhos(520px, 614px);
                 @include displayFlex(column, space-between);
 
                 #parte-cima {
@@ -857,45 +865,33 @@ small {
 
                     .caixa {
                         @include tamanhos(122px, inherit);
-                        @include displayFlex(column, $gap: 9px);
+                        @include displayFlex(row);
 
                         #superior-input {
-                            @include tamanhos(91px, inherit);
-                            @include displayFlex(row, space-between);
+                            @include tamanhos(100px, inherit);
+                            @include displayFlex(column, space-between);
 
-                            .style-input {
-                                @include tamanhos(inherit, 246px);
-                                @include displayFlex(column, space-between);
+                            label {
+                                font-size: 1.400rem;
+                                color: $text;
+                                font-weight: map-get($densidade, medium);
+                            }
 
-                                label {
-                                    font-size: 1.400rem;
-                                    color: $text;
-                                    font-weight: map-get($densidade, medium);
-                                    text-transform: capitalize;
-                                }
-
-                                input {
-                                    @include tamanhos(59px, 232px);
-                                    border: 2px solid $border;
-                                    border-radius: 8px;
-                                    font-size: 1.400rem;
-                                    color: $text;
-                                    padding: 0 35px 0 20px;
-                                    align-self: flex-end;
-                                    font-weight: map-get($densidade, medium);
-                                    font-family: 'Montserrat', sans-serif;
-
-                                    &::placeholder {
-                                        font-size: 1.400rem;
-                                        color: $placeholder;
-                                        font-weight: map-get($densidade, medium);
-                                    }
+                            select {
+                                @include tamanhos(64px, 597px);
+                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                border: 2px solid $border;
+                                border-radius: 15px;
+                                padding: 0px 15px;
+                                appearance: none;
+                                -moz-appearance: none;
+                                background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+                                margin-left: 13px;
+        
+                                option {
+                                    @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
                                 }
                             }
-                        }
-
-                        span {
-                            @include textoEstilo(grau10, bold, $tartOrange);
                         }
                     }
                 }
@@ -904,29 +900,13 @@ small {
                     @include tamanhos(161px, inherit);
                     @include displayFlex(column, space-between);
 
-                    #botoes-cima {
+                    #botoes {
                         @include tamanhos(55px, 614px);
-                        @include displayFlex(row, space-between);
+                        @include displayFlex(row, center);
 
                         #btnEndereco {
                             @include tamanhos(inherit, 290px);
-                            background-color: $cinza;
-                            border-radius: 6px;
-                            font-size: 1.400rem;
-                            color: $text;
-                            font-weight: map-get($densidade, semiBold);
-                            cursor: pointer;
-                            transition: .1s;
-                            font-family: 'Montserrat', sans-serif;
-
-                            &:hover {
-                                transition: .1s;
-                                opacity: 0.8;
-                            }
-                        }
-
-                        #btnContato {
-                            @include tamanhos(inherit, 278px);
+                            @include displayFlex(row, center, center);
                             background-color: $cinza;
                             border-radius: 6px;
                             font-size: 1.400rem;
@@ -1010,6 +990,7 @@ main {
                     border-radius: 50%;
                     margin-left: 8px;
                     margin-right: 8px;
+                    object-fit: cover;
                 }
 
                 h3 {
@@ -1033,6 +1014,20 @@ main {
                     li {
                         @include tamanhos(65px, inherit);
                         @include displayFlex(row-reverce, $align: center, $gap: 18px);
+                        position: relative;
+
+                        .barraActivity {
+                            @include tamanhos(inherit, 3px);
+                            background-color: $deepSaffron;
+                            border-radius: 3px 3px;
+                            left: -4px;
+                            position: absolute;
+                            opacity: 0;
+                        }
+
+                        .barraActivity.active {
+                            opacity: 1;
+                        }
 
                         &:hover {
                             background-color: $background;
@@ -1097,6 +1092,8 @@ main {
                             @include tamanhos(inherit, inherit);
                             position: relative;
                             border-radius: 20px;
+                            filter: brightness(50%);
+                            object-fit: cover;
                         }
 
                         .perfil-postagem {
@@ -1106,13 +1103,16 @@ main {
                             position: absolute;
                             top: 43px;
                             left: 38px;
+                            object-fit: cover;
                         }
 
                         h3 {
+                            height: auto;
+                            width: 210px;
                             @include textoEstilo(grau9, extraBold, $case: capitalize);
                             color: white;
                             position: absolute;
-                            top: 135px;
+                            top: 235px;
                             left: 35px;
                         }
                     }
@@ -1132,12 +1132,6 @@ main {
                         }
                     }
                 }
-
-                img {
-                    @include tamanhos(35px, 35px);
-                    align-self: center;
-                    cursor: pointer;
-                }
             }
         }
 
@@ -1148,11 +1142,12 @@ main {
             @include displayFlex(column, $align: center, $gap: 45px);
 
             #previa-eventos {
-                @include tamanhos(275px, inherit);
-                @include displayFlex(row, space-between, $wrap: wrap);
+                min-height: 275px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(row, space-between,  $wrap: wrap, $gap: 20px);
 
                 .evento {
-                    @include tamanhos(inherit, 175px);
+                    @include tamanhos(275px, 175px);
                     border-radius: 20px;
                     position: relative;
 
@@ -1160,19 +1155,22 @@ main {
                         @include tamanhos(inherit, inherit);
                         border-radius: 20px;
                         position: absolute;
+                        filter: brightness(50%);
+                        object-fit: cover;
                     }
 
                     .perfil-postagem {
-                        @include tamanhos(45px, 45px);
+                        @include tamanhos(50px, 50px);
                         border-radius: 6px;
                         outline: 3px solid $background;
                         position: absolute;
-                        top: 18px;
-                        left: 18px;
+                        top: 19px;
+                        left: 19px;
+                        object-fit: cover;
                     }
 
                     h3 {
-                        @include textoEstilo(grau9, extraBold, $case: capitalize);
+                        @include textoEstilo(grau10, bold, $case: capitalize);
                         color: white;
                         position: absolute;
                         bottom: 18px;
@@ -1199,6 +1197,7 @@ main {
                     img {
                         @include tamanhos(68px, 72px);
                         border-radius: 8px;
+                        object-fit: cover;
                     }
 
                     h2 {
@@ -1268,6 +1267,7 @@ main {
                             img {
                                 @include tamanhos(inherit, 80px);
                                 border-radius: 50%;
+                                object-fit: cover;
                             }
     
                             .info-nome-data {
@@ -1324,11 +1324,11 @@ main {
                     }
     
                     p {
-                        height: auto;
-                        width: 736px;
-                        font-size: 1.125rem;
+                        font-size: 1.188rem;
                         font-weight: map-get($densidade, medium);
                         color: $text;
+                        height: auto;
+                        width: 736px;
                     }
     
                     .interacoes {
@@ -1355,7 +1355,7 @@ main {
                             }
     
                             span {
-                                @include textoEstilo(grau10, semiBold, $text, capitalize);
+                                @include textoEstilo(grau9, semiBold, $text, capitalize);
                             }
                         }
                     }
@@ -1477,148 +1477,142 @@ main {
                         }
                     } 
                 }
-            }
 
-            .evento-feed {
-                min-height: 789px;
-                @include tamanhos(auto, inherit);
-                @include displayFlex(column, space-between, $gap: 25px);
-                background-color: #fff;
-                border-radius: 20px;
-                filter: $shadowMain;
-                padding: 18px;
-
-                .parte-superior {
-                    @include tamanhos(80px, 736px);
-                    @include displayFlex(row, space-between, center);
-
-                    .info-ong {
-                        @include tamanhos(80px, 290px);
-                        @include displayFlex(row, space-between, center);
-
-                        img {
-                            @include tamanhos(inherit, 80px);
-                            border-radius: 50%;
-                        }
-
-                        .info-nome-data {
-                            @include tamanhos(55px, 200px);
-                            @include displayFlex(column, $gap: 3px);
-
-                            h2 {
-                                @include textoEstilo(grau8, bold, $text);
-                            }
-
-                            span {
-                                @include textoEstilo(grau11, semiBold, $placeholder);
-                            }
-                        }
-                    }
-
-                    img {
-                        @include tamanhos(21px, 31px);
-                        cursor: pointer;
-                    }
-                }
-
-                .info-evento {
-                    min-height: 632px;
-                    @include tamanhos(auto, 736px);
+                .evento-feed {
+                    min-height: 50px;
+                    @include tamanhos(auto, inherit);
                     @include displayFlex(column, space-between, $gap: 25px);
-
-                    .info-superior {
-                        min-height: 131px;
-                        @include tamanhos(auto, 736px);
-                        @include displayFlex(column, space-between, $gap: 25px);
-
-                        h2 {
-                            @include textoEstilo(grau7, semiBold, $text);
-                        }
-
-                        p {
-                            @include textoEstilo(grau10, medium, $text);
-                        }
-                    }
-
-                    .imagens-postadas {
-                        @include tamanhos(314px, 736px);
-                        @include displayFlex(row, space-between);
-
-                        img {
-                            @include tamanhos(inherit, 435px);
-                            border-radius: 6px;
-                        }
-
-                        .imagens-complementos {
-                            @include tamanhos(inherit, 285px);
-                            @include displayFlex(column, space-between);
-
-                            .cima {
-                                @include tamanhos(125px, inherit);
-                                border-radius: 6px;
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 18px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        .info-ong {
+                            @include tamanhos(80px, 290px);
+                            @include displayFlex(row, space-between, center);
+    
+                            img {
+                                @include tamanhos(inherit, 80px);
+                                border-radius: 50%;
+                                object-fit: cover;
                             }
-
-                            .baixo {
-                                @include tamanhos(176px, inherit);
-                                border-radius: 6px;
-                            }
-                        }
-                    }
-
-                    .info-complementares {
-                        @include tamanhos(201px, 736px);
-                        @include displayFlex(column);
-
-                        .complementares-superior {
-                            @include tamanhos(159px, inherit);
-                            @include displayFlex(row, space-between);
-
-                            .info-esquerda {
-                                @include tamanhos(inherit, 530px);
-                                @include displayFlex(column, space-between);
-
-                                .item {
-                                    @include displayFlex($gap: 7px);
-
-                                    h3 {
-                                        font-size: 1.450rem;
-                                        font-weight: map-get($densidade, semiBold);
-                                        color: $text;
-                                    }
-
-                                    .item-info {
-                                        font-size: 1.450rem;
-                                        font-weight: map-get($densidade, regular);
-                                        color: $text;
-                                    }
-
-                                    .item-stts {
-                                        @include tamanhos(35px, 89px);
-                                        @include displayFlex(row, center, center);
-                                        font-size: 0.85rem;
-                                        font-weight: map-get($densidade, bold);
-                                        background-color: $verde;
-                                        border-radius: 6px;
-                                    }
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, 200px);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
+                                }
+    
+                                span {
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
                                 }
                             }
-
-                            .botoes-direita {
-                                @include tamanhos(103px, 160px);
+                        }
+    
+                        img {
+                            @include tamanhos(21px, 31px);
+                            cursor: pointer;
+                        }
+                    }
+    
+                    .info-evento {
+                        min-height: 294px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, space-between, $gap: 25px);
+    
+                        .info-superior {
+                            min-height: 10px;
+                            @include tamanhos(auto, 736px);
+                            @include displayFlex(column, space-between, $gap: 25px);
+    
+                            h2 {
+                                @include textoEstilo(grau7, semiBold, $text);
+                            }
+    
+                            p {
+                                height: auto;
+                                width: 736px;
+                                @include textoEstilo(grau10, medium, $text);
+                            }
+                        }
+    
+                        .imagens-postadas {
+                            @include tamanhos(314px, 736px);
+                            @include displayFlex(row, space-between);
+        
+                            img {
+                                @include tamanhos(inherit, 435px);
+                                border-radius: 6px;
+                            }
+        
+                            .imagens-complementos {
+                                @include tamanhos(inherit, 285px);
                                 @include displayFlex(column, space-between);
+        
+                                .cima {
+                                    @include tamanhos(125px, inherit);
+                                    border-radius: 6px;
+                                }
+        
+                                .baixo {
+                                    @include tamanhos(176px, inherit);
+                                    border-radius: 6px;
+                                }
+    
+                                .ocupar-tudo {
+                                    height: inherit;
+                                }
+                            }
+    
+                            .tamanho-total {
+                                width: inherit;
+                            }
+                        }
 
-                                .botao {
-                                    @include tamanhos(40px, 160px);
+                        #interesses {
+                            @include tamanhos(60px, 736px);
+                            @include displayFlex(row, center);
+
+                            #conteudo-btn {
+                                @include tamanhos(inherit, 400px);
+                                @include displayFlex(row, space-between);
+
+                                #saiba-mais-evento {
+                                    @include tamanhos(inherit, 150px);
                                     @include displayFlex(row, center, center);
-                                    font-size: 1.200rem;
-                                    font-weight: map-get($densidade, medium);
-                                    color: $text;
-                                    background-color: $border;
+                                    font-size: 1.500rem;
+                                    font-weight: map-get($densidade, semiBold);
+                                    text-transform: capitalize;
+                                    background-color: $deepSaffron;
                                     border-radius: 6px;
                                     border: none;
-                                    cursor: pointer;
                                     transition: .1s;
+                                    cursor: pointer;
+        
+                                    &:hover {
+                                        transition: .1s;
+                                        opacity: 0.8;
+                                    }
+                                }
 
+                                #candidatarEvento {
+                                    @include tamanhos(inherit, 194px);
+                                    @include displayFlex(row, center, center);
+                                    font-size: 1.500rem;
+                                    font-weight: map-get($densidade, semiBold);
+                                    text-transform: capitalize;
+                                    background-color: $deepSaffron;
+                                    border-radius: 6px;
+                                    border: none;
+                                    transition: .1s;
+                                    cursor: pointer;
+        
                                     &:hover {
                                         transition: .1s;
                                         opacity: 0.8;
@@ -1626,100 +1620,169 @@ main {
                                 }
                             }
                         }
-
-                        .complementares-inferior {
-                            @include tamanhos(42px, inherit);
-                            @include displayFlex(row, flex-end, center);
-
-                            span {
-                                font-size: 1.200rem;
-                                font-weight: map-get($densidade, medium);
-                                color: $text;
-                            }
-
-                            i {
-                                font-weight: map-get($densidade, regular);
-                                font-style: normal;
-                            }
-                        }
+    
+                        // .info-complementares {
+                        //     @include tamanhos(201px, 736px);
+                        //     @include displayFlex(column);
+    
+                        //     .complementares-superior {
+                        //         @include tamanhos(159px, inherit);
+                        //         @include displayFlex(row, space-between);
+    
+                        //         .info-esquerda {
+                        //             @include tamanhos(inherit, 530px);
+                        //             @include displayFlex(column, space-between);
+    
+                        //             .item {
+                        //                 @include displayFlex($gap: 7px);
+    
+                        //                 h3 {
+                        //                     font-size: 1.450rem;
+                        //                     font-weight: map-get($densidade, semiBold);
+                        //                     color: $text;
+                        //                 }
+    
+                        //                 .item-info {
+                        //                     font-size: 1.450rem;
+                        //                     font-weight: map-get($densidade, regular);
+                        //                     color: $text;
+                        //                 }
+    
+                        //                 .item-stts {
+                        //                     @include tamanhos(35px, 89px);
+                        //                     @include displayFlex(row, center, center);
+                        //                     font-size: 0.85rem;
+                        //                     font-weight: map-get($densidade, bold);
+                        //                     background-color: $verde;
+                        //                     border-radius: 6px;
+                        //                 }
+                        //             }
+                        //         }
+    
+                        //         .botoes-direita {
+                        //             @include tamanhos(103px, 160px);
+                        //             @include displayFlex(column, space-between);
+    
+                        //             .botao {
+                        //                 @include tamanhos(40px, 160px);
+                        //                 @include displayFlex(row, center, center);
+                        //                 font-size: 1.200rem;
+                        //                 font-weight: map-get($densidade, medium);
+                        //                 color: $text;
+                        //                 background-color: $border;
+                        //                 border-radius: 6px;
+                        //                 border: none;
+                        //                 cursor: pointer;
+                        //                 transition: .1s;
+    
+                        //                 &:hover {
+                        //                     transition: .1s;
+                        //                     opacity: 0.8;
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+    
+                        //     .complementares-inferior {
+                        //         @include tamanhos(42px, inherit);
+                        //         @include displayFlex(row, flex-end, center);
+    
+                        //         span {
+                        //             font-size: 1.200rem;
+                        //             font-weight: map-get($densidade, medium);
+                        //             color: $text;
+                        //         }
+    
+                        //         i {
+                        //             font-weight: map-get($densidade, regular);
+                        //             font-style: normal;
+                        //         }
+                        //     }
+                        // }
                     }
                 }
-            }
-
-            .vaga {
-                min-height: 475px;
-                @include tamanhos(auto, inherit);
-                @include displayFlex(column, $gap: 55px);
-                background-color: #fff;
-                border-radius: 20px;
-                filter: $shadowMain;
-                padding: 25px;
-
-                .parte-superior {
-                    @include tamanhos(80px, 736px);
-                    @include displayFlex(row, space-between, center);
-
-                    .info-ong {
-                        @include tamanhos(80px, 290px);
+    
+                .vaga {
+                    min-height: 50px;
+                    @include tamanhos(auto, inherit);
+                    @include displayFlex(column, $gap: 30px);
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 25px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
                         @include displayFlex(row, space-between, center);
-
+    
+                        .info-ong {
+                            @include tamanhos(80px, 290px);
+                            @include displayFlex(row, space-between, center);
+    
+                            img {
+                                @include tamanhos(inherit, 80px);
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, 200px);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
+                                }
+    
+                                span {
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
+                                }
+                            }
+                        }
+    
                         img {
-                            @include tamanhos(inherit, 80px);
-                            border-radius: 50%;
-                        }
-
-                        .info-nome-data {
-                            @include tamanhos(55px, 200px);
-                            @include displayFlex(column, $gap: 3px);
-
-                            h2 {
-                                @include textoEstilo(grau8, bold, $text);
-                            }
-
-                            span {
-                                @include textoEstilo(grau11, semiBold, $placeholder);
-                            }
-                        }
-                    }
-
-                    img {
-                        @include tamanhos(21px, 31px);
-                        cursor: pointer;
-                    }
-                }
-
-                .corpo-vaga {
-                    @include tamanhos(281px, 736px);
-                    @include displayFlex(column, space-between);
-
-                    h2 {
-                        @include textoEstilo(grau8, semiBold, $text);
-                    }
-
-                    p {
-                        @include textoEstilo(grau9, medium, $text);
-                    }
-
-                    .vaga-botoes {
-                        @include tamanhos(60px, 350px);
-                        @include displayFlex(row, space-between);
-                        align-self: center;
-
-                        button {
-                            @include tamanhos(inherit, 150px);
-                            @include displayFlex(row, center, center);
-                            font-size: 1.450rem;
-                            font-weight: map-get($densidade, medium);
-                            text-transform: capitalize;
-                            background-color: $deepSaffron;
-                            border-radius: 6px;
-                            border: none;
-                            transition: .1s;
+                            @include tamanhos(21px, 31px);
                             cursor: pointer;
-
-                            &:hover {
+                        }
+                    }
+    
+                    .corpo-vaga {
+                        min-height: 10px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, $gap: 30px);
+    
+                        h2 {
+                            @include textoEstilo(grau7, semiBold, $text);
+                        }
+    
+                        p {
+                            height: auto;
+                            width: 736px;
+                            font-size: 1.188rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $text;
+                        }
+    
+                        .vaga-botoes {
+                            @include tamanhos(60px, 350px);
+                            @include displayFlex(row, space-between);
+                            align-self: center;
+    
+                            button {
+                                @include tamanhos(inherit, 150px);
+                                @include displayFlex(row, center, center);
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, semiBold);
+                                text-transform: capitalize;
+                                background-color: $deepSaffron;
+                                border-radius: 6px;
+                                border: none;
                                 transition: .1s;
-                                opacity: 0.8;
+                                cursor: pointer;
+    
+                                &:hover {
+                                    transition: .1s;
+                                    opacity: 0.8;
+                                }
                             }
                         }
                     }
@@ -1788,6 +1851,46 @@ main {
                     align-self: center;
                     cursor: pointer;
                 }
+            }
+        }
+
+        .loader {
+            opacity: 0;
+            display: flex;
+            position: fixed;
+            bottom: 7px;
+            transition: opacity 0.3s ease-in;
+        }
+          
+        .loader.show {
+            opacity: 1;
+        }
+          
+        .circle {
+            background-color: $tartOrange;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 5px;
+            animation: bounce 0.5s ease-in infinite;
+        }
+          
+        .circle:nth-of-type(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .circle:nth-of-type(3) {
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            
+            50% {
+                transform: translateY(-10px);
             }
         }
     }

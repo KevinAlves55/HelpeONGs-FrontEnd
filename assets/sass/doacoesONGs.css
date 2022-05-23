@@ -87,6 +87,8 @@ header #itens-header #logo img {
   height: inherit;
   width: inherit;
   margin-top: 7px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 header #itens-header #lupa-atalhos {
@@ -181,6 +183,8 @@ header #itens-header #lupa-atalhos #atalhos {
 header #itens-header #lupa-atalhos #atalhos img {
   height: 32px;
   width: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
@@ -913,6 +917,8 @@ main #itens-main #direita #mini-perfil img {
   border-radius: 50%;
   margin-left: 8px;
   margin-right: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #direita #mini-perfil h3 {
@@ -979,6 +985,21 @@ main #itens-main #direita #menu ul li {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 18px;
+  position: relative;
+}
+
+main #itens-main #direita #menu ul li .barraActivity {
+  height: inherit;
+  width: 3px;
+  background-color: #FF9F45;
+  border-radius: 3px 3px;
+  left: -4px;
+  position: absolute;
+  opacity: 0;
+}
+
+main #itens-main #direita #menu ul li .barraActivity.active {
+  opacity: 1;
 }
 
 main #itens-main #direita #menu ul li:hover {

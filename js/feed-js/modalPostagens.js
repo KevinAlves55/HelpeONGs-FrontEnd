@@ -1,7 +1,9 @@
 "use strict"
 
-const openModalPostagens  = () =>
-document.getElementById("postagem-post").classList.add("active");
+const openModalPostagens  = () => {
+    document.getElementById("postagem-post").classList.add("active");
+    document.getElementById("trocar-select-post")[0].selected = true;
+}
 
 const closeModalPostagens = () =>
 document.getElementById("postagem-post").classList.remove("active");
