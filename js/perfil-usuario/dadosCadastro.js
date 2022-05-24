@@ -88,15 +88,6 @@ const numero = document.getElementById('numeroEndereco');
 const complemento = document.getElementById('complementoEndereco');
 
 
-const formatter = Intl.DateTimeFormat("pt-BR",{
-    weekday: "long",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-});
-console.log(formatter);
-
-
 function customFormatter(date) {
     return date.replace("/", "-");
 }
@@ -137,11 +128,12 @@ async function dadosDetalhesConta() {
   
     let reqUser = await ApiRequest(
         "PUT", 
-        `http://localhost:3131/user/${userData.idLogin}`, 
+        `http://localhost:3131/user/${userData.idUsuario}`, 
         body
     );
 
     console.log(`REQ`, reqUser);
+    alert("DADOS ATUALIZADO COM SUCESSO")
      
 }
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
@@ -171,6 +163,7 @@ async function contatosUsuario(){
         );
     
         console.log(`REQ`, reqUser);
+        alert("CONTATO CADASTRADO COM SUCESSO")
     }
 document.getElementById("cadastrarContatos").addEventListener("click", contatosUsuario);
 
@@ -200,6 +193,7 @@ async function AtualizarcontatosUsuario(){
     );
     
     console.log(`REQ`, reqUser);
+    alert("CONTATO ATUALIZADO COM SUCESSO")
 }
 document.getElementById("editarContatos").addEventListener("click", AtualizarcontatosUsuario);
 
@@ -282,11 +276,11 @@ async function atualizarEndereco(){
             complemento: localStorageEnderecoAtualizado.complementoData,
            
           
-        }
-        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${localStorageEnderecoAtualizado.idUsuario}`, bodyEnderecoAtualizado);
+        } 
+        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${userLogado.idLogin}`, bodyEnderecoAtualizado);
         
         console.log(reqEnderecoAtualizado);
-
+        alert("ENDEREÇO ATUALIZADO COM SUCESSO")
     }
 
 document.getElementById("atualizarEnderecos").addEventListener("click",atualizarEndereco);
@@ -300,7 +294,7 @@ async function carregarDadosUsuario(data, endereco, contato){
     let numeroTelefone = document.getElementById("telefone");
 
     dataNascimento.innerHTML = `${data.dataDeNascimento}`;
-    cidade.innerHTML = `${endereco.municipio}`;
+    cidade.innerHTML = `${endereco.municipio}, ${endereco.estado}`;
     numeroCelular.innerHTML = `${contato.numero}`;
     numeroTelefone.innerHTML = `${contato.telefone}`
 
@@ -313,12 +307,15 @@ async function editarSenha(){
 }
 
 // ATRIBUINDO VALOR A INPUT
-
-var capturando = "";
+var capturando = "mhghg";
 function capturar () {
     capturando = document.getElementById('name').value;
     document.getElementById('name').innerHTML = capturando;
 }
+
+capturar();
+
+// EXCLUIR CONTA
 
 
 
