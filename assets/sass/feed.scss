@@ -3,6 +3,10 @@
 @import '_resert';
 @import '_header';
 
+html {
+  scroll-behavior: smooth;
+}
+
 // Loading
 .loading {
     @include tamanhos(100%, 100%);
@@ -995,6 +999,53 @@ small {
     z-index: 1;
 }
 
+// MODAL INFO VAGAS
+.modal-info-vaga {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 1;
+    z-index: 1;
+
+    .modal-conteudo-vaga {
+        @include tamanhos(604px, 1025px);
+
+        .infos-conteudo {
+            @include tamanhos(inherit, inherit);
+            @include displayFlex(column, $gap: 28px);
+            background-color: #fff;
+            padding: 37px;
+            border-radius: 20px;
+
+            #requisitos {
+                min-height: 245px;
+                @include tamanhos(auto, 946px);
+                @include displayFlex(column, $gap: 21px);
+
+                label {
+                    font-size: 1.480rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $text;
+                }
+
+                h2 {
+                    font-size: 1.480rem;
+                    font-weight: map-get($densidade, semiBold);
+                    color: $tartOrange;
+                }
+            }
+        }
+    }
+}
+// ATIVA A MODAL DE INFO VAGAS
+.modal-info-vaga.active {
+    opacity: 1;
+    z-index: 1;
+}
+
 body {
     min-height: 100vh;
     @include displayFlex(column);
@@ -1624,11 +1675,11 @@ main {
 
                         #interesses {
                             @include tamanhos(60px, 736px);
-                            @include displayFlex(row, center);
+                            @include displayFlex(row, center, center);
 
                             #conteudo-btn {
-                                @include tamanhos(inherit, 400px);
-                                @include displayFlex(row, space-between);
+                                @include tamanhos(inherit, auto);
+                                @include displayFlex(row, $gap: 56px);
 
                                 #saiba-mais-evento {
                                     @include tamanhos(inherit, 150px);
@@ -1667,85 +1718,6 @@ main {
                                 }
                             }
                         }
-    
-                        // .info-complementares {
-                        //     @include tamanhos(201px, 736px);
-                        //     @include displayFlex(column);
-    
-                        //     .complementares-superior {
-                        //         @include tamanhos(159px, inherit);
-                        //         @include displayFlex(row, space-between);
-    
-                        //         .info-esquerda {
-                        //             @include tamanhos(inherit, 530px);
-                        //             @include displayFlex(column, space-between);
-    
-                        //             .item {
-                        //                 @include displayFlex($gap: 7px);
-    
-                        //                 h3 {
-                        //                     font-size: 1.450rem;
-                        //                     font-weight: map-get($densidade, semiBold);
-                        //                     color: $text;
-                        //                 }
-    
-                        //                 .item-info {
-                        //                     font-size: 1.450rem;
-                        //                     font-weight: map-get($densidade, regular);
-                        //                     color: $text;
-                        //                 }
-    
-                        //                 .item-stts {
-                        //                     @include tamanhos(35px, 89px);
-                        //                     @include displayFlex(row, center, center);
-                        //                     font-size: 0.85rem;
-                        //                     font-weight: map-get($densidade, bold);
-                        //                     background-color: $verde;
-                        //                     border-radius: 6px;
-                        //                 }
-                        //             }
-                        //         }
-    
-                        //         .botoes-direita {
-                        //             @include tamanhos(103px, 160px);
-                        //             @include displayFlex(column, space-between);
-    
-                        //             .botao {
-                        //                 @include tamanhos(40px, 160px);
-                        //                 @include displayFlex(row, center, center);
-                        //                 font-size: 1.200rem;
-                        //                 font-weight: map-get($densidade, medium);
-                        //                 color: $text;
-                        //                 background-color: $border;
-                        //                 border-radius: 6px;
-                        //                 border: none;
-                        //                 cursor: pointer;
-                        //                 transition: .1s;
-    
-                        //                 &:hover {
-                        //                     transition: .1s;
-                        //                     opacity: 0.8;
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-    
-                        //     .complementares-inferior {
-                        //         @include tamanhos(42px, inherit);
-                        //         @include displayFlex(row, flex-end, center);
-    
-                        //         span {
-                        //             font-size: 1.200rem;
-                        //             font-weight: map-get($densidade, medium);
-                        //             color: $text;
-                        //         }
-    
-                        //         i {
-                        //             font-weight: map-get($densidade, regular);
-                        //             font-style: normal;
-                        //         }
-                        //     }
-                        // }
                     }
                 }
     

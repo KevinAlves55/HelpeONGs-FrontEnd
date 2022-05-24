@@ -698,7 +698,7 @@ const CarregarVagasConvite = async () => {
 
 }
 
-const CriarVagasDestaques = ({idVagas, tbl_ong, titulo}) => {
+const CriarVagasDestaques = ({idVagas, tbl_ong, titulo, idOng}) => {
 
     const corpo = document.createElement("div");
     corpo.classList.add("vaga");
@@ -712,7 +712,7 @@ const CriarVagasDestaques = ({idVagas, tbl_ong, titulo}) => {
             <h3>${titulo}</h3>
         </div>
 
-        <button type="button" data-idVaga="${idVagas}">
+        <button type="button" id="vagaSelecionado" data-idong="${idOng}" data-idVaga="${idVagas}">
             conferir vaga
         </button>
     `;
@@ -972,6 +972,17 @@ const CriarFeed = (
         corpo = document.createElement("div");
         corpo.classList.add("evento-feed");
 
+        let buttonCandidato;
+        if (candidatos === true) {
+
+            buttonCandidato = `<button type="button" id="candidatarEvento">Candidata-se</button>`;
+            
+        } else if (candidatos === false) {
+
+            buttonCandidato = ``;
+
+        }
+
         if (tbl_evento_media.length === 0) {
             
             corpo.innerHTML = 
@@ -1001,7 +1012,7 @@ const CriarFeed = (
                 <div id="interesses">
                     <div id="conteudo-btn">
                         <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba mais</button>
-                        <button type="button" id="candidatarEvento">Candidata-se</button>
+                        ${buttonCandidato}
                     </div>
                 </div>
             </div>
@@ -1040,7 +1051,7 @@ const CriarFeed = (
                 <div id="interesses">
                     <div id="conteudo-btn">
                         <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba mais</button>
-                        <button type="button" id="candidatarEvento">Candidata-se</button>
+                        ${buttonCandidato}
                     </div>
                 </div>
             </div>
@@ -1083,7 +1094,7 @@ const CriarFeed = (
                 <div id="interesses">
                     <div id="conteudo-btn">
                         <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
-                        <button type="button" id="candidatarEvento">Candidata-se</button>
+                        ${buttonCandidato}
                     </div>
                 </div>
             </div>
@@ -1127,7 +1138,7 @@ const CriarFeed = (
                 <div id="interesses">
                     <div id="conteudo-btn">
                         <button type="button" id="saiba-mais-evento" data-idOng="${idOng}" data-idEvento="${idEventos}">Saiba nais</button>
-                        <button type="button" id="candidatarEvento">Candidata-se</button>
+                        ${buttonCandidato}
                     </div>
                 </div>
             </div>
@@ -1221,21 +1232,13 @@ const DescarregaDadosModalEventos = async (idEvento, idOng) => {
 
     const container = document.querySelector(".modal-conteudo");
     let req = await ApiRequest("GET", `http://localhost:3131/event/${idOng}/${idEvento}`);
-    let reqEndereco = await ApiRequest("GET", `http://localhost:3131/event/${idOng}`);
     const dadosEvento = req.data;
-    const dadosEnderecoEvento = reqEndereco.data;
-
-    const filterEndereco = [];
-    dadosEnderecoEvento.filter(tbl_endereco => {
-        dadosEvento.idEndereco === tbl_endereco.idEndereco ? filterEndereco.push(tbl_endereco) : "";
-    });
-
-    const card = CriarModal(filterEndereco[0]);
+    const card = CriarModalEventos(dadosEvento);
     container.replaceChildren(card);
 
 }
 
-const CriarModal = (dadosEvento) => {
+const CriarModalEventos = (dadosEvento) => {
 
     let corpo;
     
@@ -1273,7 +1276,7 @@ const CriarModal = (dadosEvento) => {
             </div>
             <div class="infos">
                 <label>Local: </label>
-                <h3>${dadosEvento.tbl_endereco.cep}, ${dadosEvento.tbl_endereco.municipio}, ${dadosEvento.tbl_endereco.rua}, ${dadosEvento.tbl_endereco.numero}</h3>
+                <h3>${dadosEvento.tbl_endereco.cep}, ${dadosEvento.tbl_endereco.municipio} ${dadosEvento.tbl_endereco.tbl_estado.nome}, ${dadosEvento.tbl_endereco.rua}, ${dadosEvento.tbl_endereco.numero}</h3>
             </div>
             <div class="infos">
                 <label>Evento disponível: </label>
@@ -1305,7 +1308,7 @@ const CriarModal = (dadosEvento) => {
                 </div>
                 <div class="infos">
                     <label>Local: </label>
-                    <h3>${dadosEvento.tbl_endereco.cep}, ${dadosEvento.tbl_endereco.municipio}, ${dadosEvento.tbl_endereco.rua}, ${dadosEvento.tbl_endereco.numero}</h3>
+                    <h3>${dadosEvento.tbl_endereco.cep}, ${dadosEvento.tbl_endereco.municipio} ${dadosEvento.tbl_endereco.tbl_estado.sigla}, ${dadosEvento.tbl_endereco.rua} ${dadosEvento.tbl_endereco.numero}</h3>
                 </div>
                 <div class="infos">
                     <label>Evento disponível: </label>
@@ -1380,7 +1383,7 @@ const CriarEventoSelecionado = (dadosEvento) => {
             <div id="interesses">
                 <div id="conteudo-btn">
                     <button type="button" id="saiba-mais-evento" data-idOng="${dadosEvento.idOng}" data-idEvento="${dadosEvento.idEventos}">Saiba mais</button>
-                    <button type="button" id="candidatarEvento">Candidata-se</button>
+                    ${buttonCandidato}
                 </div>
             </div>
         </div>
@@ -1419,7 +1422,7 @@ const CriarEventoSelecionado = (dadosEvento) => {
             <div id="interesses">
                 <div id="conteudo-btn">
                     <button type="button" id="saiba-mais-evento" data-idOng="${dadosEvento.idOng}" data-idEvento="${dadosEvento.idEventos}">Saiba mais</button>
-                    <button type="button" id="candidatarEvento">Candidata-se</button>
+                    ${buttonCandidato}
                 </div>
             </div>
         </div>
@@ -1517,6 +1520,70 @@ const CriarEventoSelecionado = (dadosEvento) => {
 
 }
 
+const CarregarVagasSelecionado = ({target}) => {
+
+    if (target.id === "vagaSelecionado") {
+
+        const idVaga = target.dataset.idvaga;
+        const idOng = target.dataset.idong;
+        window.scrollTo(0, 0);
+        DescarregaVagaSelecionada(idVaga, idOng);
+    
+    }
+
+}
+
+const DescarregaVagaSelecionada = async (idVaga, idOng) => {
+
+    const container = document.querySelector(".feed");
+    let req = await ApiRequest("GET", `http://localhost:3131/vacancy/${idOng}/${idVaga}`);
+    const dadosVaga = req.data;
+    const vagaSelecionada = CriarVagaSelecionada(dadosVaga);
+    container.replaceChildren(vagaSelecionada);
+
+}
+
+const CriarVagaSelecionada = (dadosVaga) => {
+
+    let corpo;
+    corpo = document.createElement("div");
+    corpo.classList.add("vaga");
+
+    const dataFormat = getFormattedDate(dadosVaga.dataDeCriacao);
+
+    corpo.innerHTML =
+    `
+    <div class="parte-superior">
+        <div class="info-ong">
+            <img src="${dadosVaga.tbl_ong.foto}" alt="${dadosVaga.tbl_ong.nome}" title="${dadosVaga.tbl_ong.nome}">
+
+            <div class="info-nome-data">
+                <h2>${dadosVaga.tbl_ong.nome}</h2>
+                <span>${dataFormat} - VAGA</span>
+            </div>
+        </div>
+
+        <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
+    </div>
+
+    <div class="corpo-vaga">
+        <h2>${dadosVaga.titulo}</h2>
+
+        <p>
+            ${dadosVaga.descricao}
+        </p>
+
+        <div class="vaga-botoes">
+            <button>Saiba Mais</button>
+            <button>Interesse</button>
+        </div>
+    </div>
+    `;
+
+    return corpo;
+
+}
+
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
@@ -1563,3 +1630,4 @@ CarregarFeed();
 document.querySelector(".feed").addEventListener("click", CarregarModalInfoEventos);
 document.getElementById("info-evento").addEventListener("click", closeModalInfoEvento);
 document.getElementById("previa-eventos").addEventListener("click", CarregarEventoSelecionado);
+document.getElementById("vagas-indicadas").addEventListener("click", CarregarVagasSelecionado);

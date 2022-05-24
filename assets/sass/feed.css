@@ -290,6 +290,10 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   opacity: 1;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .loading {
   height: 100%;
   width: 100%;
@@ -2577,6 +2581,101 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   z-index: 1;
 }
 
+.modal-info-vaga {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 1;
+  z-index: 1;
+}
+
+.modal-info-vaga .modal-conteudo-vaga {
+  height: 604px;
+  width: 1025px;
+}
+
+.modal-info-vaga .modal-conteudo-vaga .infos-conteudo {
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 28px;
+  background-color: #fff;
+  padding: 37px;
+  border-radius: 20px;
+}
+
+.modal-info-vaga .modal-conteudo-vaga .infos-conteudo #requisitos {
+  min-height: 245px;
+  height: auto;
+  width: 946px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 21px;
+}
+
+.modal-info-vaga .modal-conteudo-vaga .infos-conteudo #requisitos label {
+  font-size: 1.480rem;
+  font-weight: 500;
+  color: #292929;
+}
+
+.modal-info-vaga .modal-conteudo-vaga .infos-conteudo #requisitos h2 {
+  font-size: 1.480rem;
+  font-weight: 600;
+  color: #FC595E;
+}
+
+.modal-info-vaga.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 body {
   min-height: 100vh;
   display: -webkit-box;
@@ -4069,9 +4168,9 @@ main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
@@ -4079,7 +4178,7 @@ main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses {
 
 main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #conteudo-btn {
   height: inherit;
-  width: 400px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4087,15 +4186,15 @@ main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #con
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 56px;
 }
 
 main #itens-main #conteudo-feed .feed .evento-feed .info-evento #interesses #conteudo-btn #saiba-mais-evento {
