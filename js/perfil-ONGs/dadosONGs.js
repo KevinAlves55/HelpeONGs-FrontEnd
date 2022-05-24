@@ -16,7 +16,7 @@ const cnpj = document.getElementById("cnpjOng");
 const celular = document.getElementById("celularOng");
 const telefone = document.getElementById("telefoneOng");
 const descriacao = document.getElementById("descriacaoOng");
-const qtdaMembros = document.getElementById("qtdaMembrosOng");
+const qtdMembros = document.getElementById("qtdaMembrosOng");
 const dataFundacao = document.getElementById("fundacaoOng");
 const historia = document.getElementById("historiaOng");
 const cep = document.getElementById("cep");
@@ -113,7 +113,7 @@ async function dadosDetalhesONG() {
     if (result != false) {
         const DadosdetalhesONGs = {
             descricaoData: descriacao.value,
-            qtdaMembrosData: qtdaMembros.value,
+            qtdaMembrosData: qtdMembros.value,
             dataFundacaoData: dataFundacao.value,
             historiaData: historia.value
         }
@@ -130,7 +130,7 @@ async function dadosDetalhesONG() {
         const bodyDetalhes = {
             ong: {
                 descricao: localStorageDetalhes.descricaoData,
-                qtdDeMembros: Number(localStorageDetalhes.qtdaMebrosData),
+                qtdDeMembros: Number(localStorageDetalhes.qtdaMembrosData),
                 dataDeFundacao: new Date(localStorageDetalhes.dataFundacaoData),
                 historia: localStorageDetalhes.historiaData,
             }

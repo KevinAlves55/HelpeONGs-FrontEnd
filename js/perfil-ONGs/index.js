@@ -1,6 +1,7 @@
 'use strict';
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
+import { closeModal, openModal } from "../doacoes-js/modal.js";
 
 let ongLogado;
 ongLogado = validarSession("dadosOng");
@@ -113,3 +114,5 @@ document.getElementById("modalEditar").classList.remove("bg-active");
 document.querySelector("#btnModal").addEventListener("click", openModalEditar);
 document.querySelector('#botaoSairEditar').addEventListener("click", closeModalEditar);
 document.getElementById("modalEditar").addEventListener("click", closeModalEditar);
+document.getElementById("doar-ong").addEventListener("click", openModal);
+document.getElementById("modalClose").addEventListener("click", closeModal);

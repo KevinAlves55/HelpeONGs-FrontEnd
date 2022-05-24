@@ -1,6 +1,7 @@
 @import '_variaveis';
 @import '_mixins';
 @import '_resert';
+@import '_modalDoacoes';
 
 body {
     min-height: 100vh;
@@ -355,6 +356,7 @@ body {
                 background: #FFFFFF;
                 filter: $shadowMain;
                 border-radius: 20px;
+                
         
                 h1 {
                     @include textoEstilo(grau8, semiBold, $text);
@@ -2053,8 +2055,6 @@ body {
 
     }
 }
-    
-
 
 #direita {
     min-height: 500px;

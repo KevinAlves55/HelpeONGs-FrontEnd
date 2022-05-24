@@ -28,12 +28,10 @@ const validarLogin = async (e) => {
         
         };
 
-        const response = await ApiRequest("POST", `${DEFAULT_URL}/user/login`, {
+        const response = await ApiRequest("POST", `http://localhost:3131/user/login`, {
             email: dom.email.toString().toLowerCase(),
             senha: dom.senha.toString()
         });
-
-        console.log(response);
 
         if (response.status == 404) {
             
@@ -46,7 +44,9 @@ const validarLogin = async (e) => {
         } else if (response.status == 200) {
     
             const dadosUsuario = response.usuario;
+            localStorage.clear();
             localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
+            localStorage.setItem("emailSenha", JSON.stringify(dom));
             window.location.href = "doacoesONGs.html";
         
         }

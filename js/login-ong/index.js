@@ -3,7 +3,7 @@
 import ApiRequest from "../utils/ApiRequest.js";
 import DEFAULT_URL from "./global-env.js";
 import { checkInputs, errorValidation } from "../validator/validatorLogin.js";
-import Redirect from "../utils/ApiRequest.js";
+import Redirect from "../utils/Redirect.js";
 
 const email = document.getElementById("email");
 const password = document.getElementById("senha");
@@ -28,23 +28,28 @@ const validarLogin = async (e) => {
         
         };
 
-        const response = await ApiRequest("POST", `${DEFAULT_URL}/ong/login`, {
+        const response = await ApiRequest("POST", "http://localhost:3131/ong/login", {
             email: dom.email.toString().toLowerCase(),
             senha: dom.senha.toString()
         });
 
-        console.log(response);
+        if (response.status == 404) {
 
-        if (response.status == 401) {
+            errorValidation(email, "Email não encontrado");
+            errorValidation(password, "Senha inválida")
+
+        } else if (response.status == 401) {
             
-            errorValidation(email, response.message);
-            errorValidation(password, response.message);
+            errorValidation(email, "Email ou senha não conferem");
+            errorValidation(password, "Email ou senha não conferem");
         
         } else if (response.status == 200) {
 
             const dadosOng = response.data[0];
+            localStorage.clear();
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
-            window.location.href = "doacoesONGs.html";
+            localStorage.setItem("emailSenha", JSON.stringify(dom));
+            Redirect("doacoesONGs");
         
         }
 
