@@ -5,6 +5,8 @@ import ApiRequest from "../utils/ApiRequest.js";
 let userLogado;
 userLogado = validarSession("dadosUsuario");
 
+let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
+
 let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
 
 const dados = req.data;
@@ -13,7 +15,8 @@ let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${userLo
 const enderecos = reqEndereco.data;
 
 let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userLogado.idLogin}`);
-const contatos = reqContatos.data;
+const contato = reqContatos.data;
+
 
 
 function CarregarPerfil(objectLocal) {
@@ -86,6 +89,7 @@ const bairro = document.getElementById('bairroEndereco');
 const endereco = document.getElementById('endereco');
 const numero = document.getElementById('numeroEndereco');
 const complemento = document.getElementById('complementoEndereco');
+const SenhaAtual = document.getElementById('senhaAtual');
 
 
 function customFormatter(date) {
@@ -93,6 +97,8 @@ function customFormatter(date) {
 }
 
 async function dadosDetalhesConta() {
+
+    let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));  
 
     const dataFormatada = customFormatter(data.value);
 
@@ -106,7 +112,7 @@ async function dadosDetalhesConta() {
         foto: "",
         dataDeNascimento: dataFormatada,
         email: email.value,
-        senha: "123456789"
+        senha: dadosSenhaEmail.emailSenha
     }
     
     localStorage.setItem("atualizarPerfilConta", JSON.stringify(dadosUpdatePerfil));
@@ -277,7 +283,7 @@ async function atualizarEndereco(){
            
           
         } 
-        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${userLogado.idLogin}`, bodyEnderecoAtualizado);
+        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${userLogado.idUsuario}`, bodyEnderecoAtualizado);
         
         console.log(reqEnderecoAtualizado);
         alert("ENDEREÇO ATUALIZADO COM SUCESSO")
@@ -287,35 +293,61 @@ document.getElementById("atualizarEnderecos").addEventListener("click",atualizar
 
 
 
-async function carregarDadosUsuario(data, endereco, contato){
+async function carregarDadosUsuario(dados, endereco, contato){
     let dataNascimento = document.getElementById("data");
     let cidade = document.getElementById("cidadeUsuario");
     let numeroCelular = document.getElementById("celular");
     let numeroTelefone = document.getElementById("telefone");
 
-    dataNascimento.innerHTML = `${data.dataDeNascimento}`;
+    dataNascimento.innerHTML = `${dados.dataDeNascimento}`;
     cidade.innerHTML = `${endereco.municipio}, ${endereco.estado}`;
     numeroCelular.innerHTML = `${contato.numero}`;
     numeroTelefone.innerHTML = `${contato.telefone}`
-
 }
-carregarDadosUsuario(dados, enderecos, contatos);
+carregarDadosUsuario(dados, enderecos, contato);
 
 // ALTERAR SENHA
+
+
 async function editarSenha(){
 
+    const senha ={
+        senha: dadosSenhaEmail.emailSenha,
+        SenhaAtual: dadosSenhaEmail.value
+    }
+
+    localStorage.setItem("editarSenha", JSON.stringify(senha));
+    let senhaUser = JSON.parse(localStorage.getItem('editarSenha'));
+    //  console.log('dados', dadosSenhaEmail);
+
+    const editarSenha ={
+        
+    }
 }
+document.getElementById("butao-editar").addEventListener("click",editarSenha);
+
+function AtribuirValor() {
+    nome.value = dados.nome;
+    email.value = dadosSenhaEmail.email;
+}
+
+AtribuirValor();
 
 // ATRIBUINDO VALOR A INPUT
-var capturando = "mhghg";
-function capturar () {
-    capturando = document.getElementById('name').value;
-    document.getElementById('name').innerHTML = capturando;
-}
+// var capturando = "mhghg";
+// function capturar () {
+//     capturando = document.getElementById('name').value;
+//     document.getElementById('name').innerHTML = capturando;
+// }
 
-capturar();
+// capturar();
 
 // EXCLUIR CONTA
 
+ async function apagarUsuario() {
+    const dados = await fetch({idUsuario});
 
 
+
+ }
+ document.getElementById("excluirUsuario").addEventListener("click",apagarUsuario);

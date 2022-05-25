@@ -218,43 +218,47 @@
             </div>
 
             <div id="senha" class="item">
-                <h1>Editar informações da senha</h1>
-                <div id="editar-senha">
-                    <div id="senha-atual">
-                        <h3>Senha atual</h3>
-                        <input type="text" id="" placeholder="Digite senha atual">
-                    </div>
-                    <div id="nova-confirmar">
-                        <div id="nova-senha">
-                            <h3>Nova senha</h3>
-                            <input type="text" id="" placeholder="Digite nova senha">
+                <form method="POST" enctype="multipart/form-data">
+                    <h1>Editar informações da senha</h1>
+                    <div id="editar-senha">
+                        <div id="senha-atual">
+                            <h3>Senha atual</h3>
+                            <input type="text" id="senhaAtual" placeholder="Digite senha atual">
                         </div>
+                        <div id="nova-confirmar">
+                            <div id="nova-senha">
+                                <h3>Nova senha</h3>
+                                <input type="text" id="" placeholder="Digite nova senha">
+                            </div>
 
-                        <div id="confirmar-senha">
-                            <h3>Confirmar nova senha</h3>
-                            <input type="text" id="" placeholder="Confirme senha">
+                            <div id="confirmar-senha">
+                                <h3>Confirmar nova senha</h3>
+                                <input type="text" id="" placeholder="Confirme senha">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="botao">
-                    <div id="butao-editar">
-                        <button type="submit">Editar</button>
+                    <div id="botao">
+                        <div id="butao-editar">
+                            <button type="submit">Editar</button>
+                        </div>
+                        <div id="botao-cancelar">
+                            <button type="submit">Cancelar</button>
+                        </div>
                     </div>
-                    <div id="botao-cancelar">
-                        <button type="submit">Cancelar</button>
-                    </div>
-                </div>
+                </form>
             </div>
 
             <div id="conta" class="item">
-                <h2>
-                    Caso esteja insatisfeito em nossa plataforma, você tem a opção de 
-                    excluir sua conta, mas lembresse, todos os seus dados salvos não 
-                    estaram mais aqui  
-                </h2>
-                <div id="Botao">
-                    <button type="submit">Excluir conta</button>
-                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <h2>
+                        Caso esteja insatisfeito em nossa plataforma, você tem a opção de 
+                        excluir sua conta, mas lembresse, todos os seus dados salvos não 
+                        estaram mais aqui  
+                    </h2>
+                    <div id="Botao">
+                        <button type="button" id="excluirUsuario">Excluir conta</button>
+                    </div>
+                </form>
             </div>
             <form method="POST" enctype="multipart/form-data">
                 <div id="contatos" class="item">
