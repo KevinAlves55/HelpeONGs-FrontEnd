@@ -37,6 +37,6 @@ function mascaraSenha(senha) {
 function mascaraSenhaConfirm(confirmPassword) {
 
     confirmPassword.value = confirmPassword.value.replace(/['"]/g, "");
-    confirmPassword.value = confirmPassword.value.replace(/[d]/g, "");
+    confirmPassword.value = confirmPassword.value.replace(/['"]/g, "");
 
 }

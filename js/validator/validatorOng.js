@@ -44,9 +44,6 @@ function checkInputs() {
     } else if (emailValue.includes("@.com")) {
         errorValidation(email, `O uso do '.' em '.com' está de forma incorreta`);
         status.push(false);
-    } else if (!emailValue.includes(".com")) {
-        errorValidation(email, "Adicione um sub dominio no final");
-        status.push(false);
     } else if (emailValue.length >= 256) {
         errorValidation(email, "Exesso de caracteres atingido");
         status.push(false);
