@@ -42,47 +42,73 @@ async function dadosDetalhesConta() {
     validacoesDadosDetalhesConta.map(status => {
         status === false ? result = false : "";
     });
-    
+    let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
     if (result != false) {
         const dadosDetalhes = {
-            nomeData: nome.value,
-            cnpjData: cnpj.value
+            nome: nome.value,
+            descricao: "",
+            numeroDeSeguidores: 0,
+            cnpj: "",
+            banner: "",
+            historia: "",
+            foto: "",
+            qtdDeMembros: "",
+            dataDeFundacao: "",
+            email: email.value,
+            senha: dadosSenhaEmail.senha
+           
         }
         console.log(dadosDetalhes);
         localStorage.setItem("detalhesConta", JSON.stringify(dadosDetalhes));
-    
+            
         const dadosDetalhesContatos = {
-            emailData: email.value,
             celularData: celular.value,
             telefoneData: telefone.value
-        }
-        localStorage.setItem("detalhesContatos", JSON.stringify(dadosDetalhesContatos));
+        };
 
-        
+        localStorage.setItem(
+            "detalhesContatos",
+            JSON.stringify(dadosDetalhesContatos)
+        );
+
 
         const ongData = validarSession("dadosOng");
 
         const localStorageData = {
-            ...JSON.parse(localStorage.getItem("detalhesContatos")),
             ...JSON.parse(localStorage.getItem("detalhesConta")),
+            ...JSON.parse(localStorage.getItem("detalhesContatos")),
             ong: ongData
         }
-        console.log(localStorageData);
 
         const bodyOng = {
-            nome: localStorageData.nomeData,
-            email: localStorage.emailData,
-            celular: localStorage.celularData,
+            "ong":{
+                nome: localStorageData.nome,
+                descricao: localStorageData.descricao,
+                numeroDeSeguidores: localStorageData.numeroDeSeguidores,
+                cnpj: localStorageData.cnpj,
+                banner: localStorageData.banner,
+                historia: localStorageData.historia,
+                foto: localStorageData.foto,
+                qtdDeMembros: Number(localStorageData.qtdDeMembros),
+                dataDeFundacao: new Date(localStorageData.dataDeFundacao)
+                
+               
+            },
+            "login":{
+                email: localStorageData.email,
+                senha: localStorageData.senha
+
+            }
         }
 
-        const bodyContato = {
-            idLogin: localStorageData.ong.idLogin,
-            email: localStorageData.emailData,
+        const contactBody = {
             telefone: localStorageData.telefoneData,
-            numero: localStorageData.celularData,
+            numero:  localStorageData.celularData,
+
         }
 
-        const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.ong.idLogin}`, bodyContato);
+
+        const reqContato = await ApiRequest("PUT", `http://localhost:3131/contact/${localStorageData.ong.idLogin}`, contactBody);
         const reqOng = await ApiRequest("PUT", `http://localhost:3131/ong/${localStorageData.ong.idLogin}`, bodyOng);
 
         console.log(reqContato, reqOng);
