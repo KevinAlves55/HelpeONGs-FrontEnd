@@ -122,6 +122,7 @@ body {
         img {
             @include tamanhos(inherit, inherit);
             border-radius: 6px;
+            object-fit: cover;
         }
     }
 

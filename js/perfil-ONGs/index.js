@@ -3,20 +3,38 @@ import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
 import { closeModal, openModal } from "../doacoes-js/modal.js";
 
+const nome = document.getElementById('nomeOng');
+const email = document.getElementById("emailOng");
+const cnpj = document.getElementById("cnpjOng");
+const celular = document.getElementById("celularOng");
+const telefone = document.getElementById("telefoneOng");
+const descricao = document.getElementById("descriacaoOng");
+const qtdMembros = document.getElementById("qtdaMembrosOng");
+const dataFundacao = document.getElementById("fundacaoOng");
+// console.log(dataFundacao);
+const historia = document.getElementById("historiaOng");
+const cep = document.getElementById("cep");
+const estado = document.getElementById("estado");
+const cidade = document.getElementById("cidade");
+const bairro = document.getElementById("bairro");
+const endereco = document.getElementById("endereco");
+const numero = document.getElementById("numero");
+const complemento = document.getElementById("complemento");
+
 let ongLogado;
 ongLogado = validarSession("dadosOng");
 
 let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
+
+let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
 let dados = reqDados.data;
+console.log(dados);
 
-let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${ongLogado.idOng}`);
-console.log(reqEndereco);
+function formatarValor(valor) {
+    return valor.toLocaleString('pt-BR');
+}
 
-let adress = reqEndereco.data;
-
-
-
-function CarregarMiniPerfil(objectLocal) {
+function CarregarPerfil(objectLocal) {
 
     let nomeLogado = document.getElementById("mini-perfil-nome");
     let fotoLogado = document.getElementById("mini-perfil-foto");
@@ -31,7 +49,6 @@ function CarregarMiniPerfil(objectLocal) {
         nomeLogado.innerHTML = `${objectLocal.nome}`;
     }
 
-
     //Foto Mini Perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
@@ -40,7 +57,6 @@ function CarregarMiniPerfil(objectLocal) {
     } else {
         fotoLogado.setAttribute("src", `${objectLocal.foto}`);
     }
-
 
     //Foto de Perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
@@ -52,14 +68,12 @@ function CarregarMiniPerfil(objectLocal) {
         fotoPerfil.setAttribute("src", `${objectLocal.foto}`)
     }
 
-
     //Nome de Perfil
     if (objectLocal.nome === null || objectLocal.nome === undefined) {
         nomePerfil.innerHTML = `<a href="login.html">Login</a>  / <a href="cadastroUsuario.html">Cadastrar</a>`;
     } else {
         nomePerfil.innerHTML = `${objectLocal.nome}`;
     }
-
 
     //BANNER
     if (objectLocal.banner === null || objectLocal.foto === undefined) {
@@ -71,13 +85,11 @@ function CarregarMiniPerfil(objectLocal) {
         bannerPerfil.setAttribute("src", `${objectLocal.banner}`)
     }
 
-
-
 }
-CarregarMiniPerfil(dados);
+CarregarPerfil(dados);
 
 // Carregar dados no sobre
-async function carregarDadosSobre (objectLocal, endereco) {
+async function CarregarDadosSobre (dadosOng) {
 
     let descricaosobre = document.getElementById("descricaoSobre");
     let qtdaMembro = document.getElementById("qtdaMembros");
@@ -85,34 +97,124 @@ async function carregarDadosSobre (objectLocal, endereco) {
     let sedeLocal = document.getElementById("sede");
     let historia = document.getElementById("historiaSobre");
 
-    descricaosobre.innerText = `${objectLocal.descricao}`;
-    qtdaMembro.innerHTML = `${objectLocal.qtdDeMembros}`;
-    anoDeFundacao.innerHTML = `${objectLocal.dataDeFundacao}`;
-    sedeLocal.innerHTML = `${endereco.municipio}, ${endereco.estado}`;
-    historia.innerText = `${objectLocal.historia}`;
+    let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${dados.idOng}`);
+    const endereco = reqEndereco.data;
+
+    if (reqEndereco.status === 400) {
+        sedeLocal.innerHTML = `Nenhum endereço cadastrado`;
+    } else {
+        sedeLocal.innerHTML = `${endereco.municipio}, ${endereco.estado}`;
+    }
+
+    if (dadosOng.descricao !== null) {
+        descricaosobre.innerText = `${dadosOng.descricao}`;
+    } else {
+        descricaosobre.innerText = `Nenhuma descrição cadastrada`;
+    }
+
+    if (dadosOng.qtdDeMembros !== null) {
+        qtdaMembro.innerHTML = `${formatarValor(dadosOng.qtdDeMembros)}`;        
+    } else {
+        qtdaMembro.innerHTML = `Nada encontrado`;
+    }
+
+    if (dadosOng.dataDeFundacao !== null) {
+        anoDeFundacao.innerHTML = `${dadosOng.dataDeFundacao}`;        
+    } else {
+        anoDeFundacao.innerHTML = `Nada encontrado`;
+    }
+
+    if (dadosOng.historia !== null) {
+        historia.innerText = `${dadosOng.historia}`;
+    } else {
+        historia.innerText = `Nada encontrado`;
+    }
+
     
 }
+CarregarDadosSobre(dados);
 
-carregarDadosSobre(dados, adress);
-document.getElementById("sair").addEventListener("click", () => {
-    localStorage.clear();
-    Redirect("loginONGs");
-});
+// Carrega as inputs
+async function AtribuirValor(dadosOng) {
 
+    let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${ongLogado.idOng}`);
+    let adress = reqEndereco.data;
 
+    let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${dados.idOng}`);
+    let contato = reqContatos.data;
 
+    nome.value = dadosOng.nome;
+    cnpj.value = dadosOng.cnpj;
+    email.value = dadosSenhaEmail.email;
+
+    if (reqContatos.status == 404) {
+        celular.value = ``;
+        celular.placeholder = ``;
+    } else {
+        celular.value = contato.numero;
+    }
+
+    if (reqContatos.status == 404) {
+        telefone.value = ``;
+        telefone.placeholder = ``;
+    } else {
+        telefone.value = contato.telefone;
+    }
+
+    if (dadosOng.descricao !== null) {
+        descricao.value = dadosOng.descricao;        
+    } else {
+        descricao.value = ``;
+    }
+
+    if (dadosOng.qtdDeMembros !== null) {
+        qtdMembros.value = dadosOng.qtdDeMembros;        
+    } else {
+        qtdMembros.value = ``;
+    }
+
+    if (dadosOng.dataDeFundacao !== null) {
+        dataFundacao.value = dadosOng.dataDeFundacao;
+    } else {
+        dataFundacao.value = ``;
+    }
+
+    if (dadosOng.historia !== null) {  
+        historia.value = dadosOng.historia;
+    } else {
+        historia.value = ``;
+    }
+
+    if (reqEndereco.status !== 400) {
+        cep.value = adress.cep;
+        estado.value = adress.estado;
+        cidade.value = adress.municipio;
+        bairro.value = adress.bairro;
+        endereco.value = adress.rua;
+        numero.value = adress.numero;
+    } else {
+        cep.value = ``;
+        estado.value = ``;
+        cidade.value = ``;
+        bairro.value = ``;
+        endereco.value = ``;
+        numero.value = ``;
+    }
+}
+AtribuirValor(dados);
 
 // Modal Editar
-
 const openModalEditar = () => 
 document.getElementById("modalEditar").classList.add("bg-active");
 
 const closeModalEditar = () => 
 document.getElementById("modalEditar").classList.remove("bg-active");
 
-
 document.querySelector("#btnModal").addEventListener("click", openModalEditar);
 document.querySelector('#botaoSairEditar').addEventListener("click", closeModalEditar);
-document.getElementById("modalEditar").addEventListener("click", closeModalEditar);
 document.getElementById("doar-ong").addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("sair").addEventListener("click", () => {
+    localStorage.clear();
+    Redirect("loginONGs");
+});
