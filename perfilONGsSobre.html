@@ -346,9 +346,6 @@
                     </div>
 
                     <div class="botao-conta">
-                        <button id="formButton" type="button">
-                            Cadastrar
-                        </button>
                         <button id="button-detalhes-conta-Atualizado" type="button">
                             Atualizar
                         </button>
@@ -379,7 +376,7 @@
         
                             <div id="data-fundacao" class="style-input">
                                 <label>Data fundação</label>
-                                <input type="date" id="fundacaoOng" value=""/> 
+                                <input placeholder="00-00-0000" id="fundacaoOng" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
                                 <small>Error</small>
                                 <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
                                 <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
@@ -507,7 +504,7 @@
 
                     <div class="botao-endereco">
                         <button id="button-detalhes-endereco" type="button">
-                            Proximo
+                            Cadastrar
                         </button>
                         <button id="button-detalhes-endereco-Atualizado" type="button">
                             Atualizar

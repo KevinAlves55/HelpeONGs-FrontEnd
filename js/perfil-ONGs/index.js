@@ -2,6 +2,7 @@
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
 import { closeModal, openModal } from "../doacoes-js/modal.js";
+import { getFormattedDate } from "../utils/DataFormat.js";
 
 const nome = document.getElementById('nomeOng');
 const email = document.getElementById("emailOng");
@@ -11,7 +12,6 @@ const telefone = document.getElementById("telefoneOng");
 const descricao = document.getElementById("descriacaoOng");
 const qtdMembros = document.getElementById("qtdaMembrosOng");
 const dataFundacao = document.getElementById("fundacaoOng");
-// console.log(dataFundacao);
 const historia = document.getElementById("historiaOng");
 const cep = document.getElementById("cep");
 const estado = document.getElementById("estado");
@@ -25,10 +25,20 @@ let ongLogado;
 ongLogado = validarSession("dadosOng");
 
 let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
+let dados = reqDados.data;
+console.log(dados.idOng);
+
+let reqEndereco = await ApiRequest(
+    "GET", 
+    `http://localhost:3131/adress/${dados.idLogin}`
+);
+console.log(reqEndereco);
+let adress = reqEndereco.data;
+
+let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${dados.idOng}`);
+let contato = reqContatos.data;
 
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
-let dados = reqDados.data;
-console.log(dados);
 
 function formatarValor(valor) {
     return valor.toLocaleString('pt-BR');
@@ -97,13 +107,10 @@ async function CarregarDadosSobre (dadosOng) {
     let sedeLocal = document.getElementById("sede");
     let historia = document.getElementById("historiaSobre");
 
-    let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${dados.idOng}`);
-    const endereco = reqEndereco.data;
-
     if (reqEndereco.status === 400) {
         sedeLocal.innerHTML = `Nenhum endereço cadastrado`;
     } else {
-        sedeLocal.innerHTML = `${endereco.municipio}, ${endereco.estado}`;
+        sedeLocal.innerHTML = `${adress.municipio}, ${adress.estado}`;
     }
 
     if (dadosOng.descricao !== null) {
@@ -119,7 +126,7 @@ async function CarregarDadosSobre (dadosOng) {
     }
 
     if (dadosOng.dataDeFundacao !== null) {
-        anoDeFundacao.innerHTML = `${dadosOng.dataDeFundacao}`;        
+        anoDeFundacao.innerHTML = `${getFormattedDate(dadosOng.dataDeFundacao)}`;        
     } else {
         anoDeFundacao.innerHTML = `Nada encontrado`;
     }
@@ -136,12 +143,6 @@ CarregarDadosSobre(dados);
 
 // Carrega as inputs
 async function AtribuirValor(dadosOng) {
-
-    let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${ongLogado.idOng}`);
-    let adress = reqEndereco.data;
-
-    let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${dados.idOng}`);
-    let contato = reqContatos.data;
 
     nome.value = dadosOng.nome;
     cnpj.value = dadosOng.cnpj;
@@ -174,7 +175,7 @@ async function AtribuirValor(dadosOng) {
     }
 
     if (dadosOng.dataDeFundacao !== null) {
-        dataFundacao.value = dadosOng.dataDeFundacao;
+        dataFundacao.placeholder = getFormattedDate(dadosOng.dataDeFundacao);
     } else {
         dataFundacao.value = ``;
     }
@@ -192,13 +193,15 @@ async function AtribuirValor(dadosOng) {
         bairro.value = adress.bairro;
         endereco.value = adress.rua;
         numero.value = adress.numero;
+        
+        if (adress.complemento === "") {
+            complemento.value = ``;
+        } else {
+            complemento.value = adress.complemento;
+        }
+
     } else {
-        cep.value = ``;
-        estado.value = ``;
-        cidade.value = ``;
-        bairro.value = ``;
-        endereco.value = ``;
-        numero.value = ``;
+        console.log("Não tem addrss");
     }
 }
 AtribuirValor(dados);
