@@ -1,23 +1,39 @@
 'use strict'
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
+import { getFormattedDate } from "../utils/DataFormat.js";
 
 let userLogado;
 userLogado = validarSession("dadosUsuario");
 
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
+console.log(dadosSenhaEmail);
 
 let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
 
 const dados = req.data;
 
 let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${userLogado.idUsuario}`);
-const enderecos = reqEndereco.data;
+let enderecos = reqEndereco.data;
+
 
 let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userLogado.idLogin}`);
 const contato = reqContatos.data;
 
-
+// Objeto de captura das INPUTS
+const nome = document.getElementById('name');
+const email = document.getElementById("mail");
+const data = document.getElementById("date");
+const celular = document.getElementById("cel");
+const telefone = document.getElementById("tel");
+const cep = document.getElementById("cepEndereco");
+const estado = document.getElementById('estadoEndereco');
+const cidade = document.getElementById('cidadeEndereco');
+const bairro = document.getElementById('bairroEndereco');
+const endereco = document.getElementById('endereco');
+const numero = document.getElementById('numeroEndereco');
+const complemento = document.getElementById('complementoEndereco');
+const SenhaAtual = document.getElementById('senhaAtual');
 
 function CarregarPerfil(objectLocal) {
 
@@ -75,22 +91,6 @@ document.getElementById("sair").addEventListener("click", () => {
     localStorage.clear();
     Redirect("loginUsuario");
 });
-
-// Objeto de captura das INPUTS
-const nome = document.getElementById('name');
-const email = document.getElementById("mail");
-const data = document.getElementById("date");
-const celular = document.getElementById("cel");
-const telefone = document.getElementById("tel");
-const cep = document.getElementById("cepEndereco");
-const estado = document.getElementById('estadoEndereco');
-const cidade = document.getElementById('cidadeEndereco');
-const bairro = document.getElementById('bairroEndereco');
-const endereco = document.getElementById('endereco');
-const numero = document.getElementById('numeroEndereco');
-const complemento = document.getElementById('complementoEndereco');
-const SenhaAtual = document.getElementById('senhaAtual');
-
 
 function customFormatter(date) {
     return date.replace("/", "-");
@@ -293,61 +293,128 @@ document.getElementById("atualizarEnderecos").addEventListener("click",atualizar
 
 
 
-async function carregarDadosUsuario(dados, endereco, contato){
+async function carregarDadosUsuario(dados, enderecos, contato){
+
     let dataNascimento = document.getElementById("data");
     let cidade = document.getElementById("cidadeUsuario");
     let numeroCelular = document.getElementById("celular");
     let numeroTelefone = document.getElementById("telefone");
 
-    dataNascimento.innerHTML = `${dados.dataDeNascimento}`;
-    cidade.innerHTML = `${endereco.municipio}, ${endereco.estado}`;
+    dataNascimento.innerHTML = `${getFormattedDate(dados.dataDeNascimento)}`;
+    cidade.innerHTML = `${enderecos.municipio}, ${enderecos.estado}`;
     numeroCelular.innerHTML = `${contato.numero}`;
-    numeroTelefone.innerHTML = `${contato.telefone}`
+    numeroTelefone.innerHTML = `${contato.telefone}`;
+
 }
 carregarDadosUsuario(dados, enderecos, contato);
 
 // ALTERAR SENHA
+// async function editarSenha(){
+
+//     if (SenhaAtual == dadosSenhaEmail) {
+//         senha.value = ``;
+     
+//     } else {
+       
+//     }
+// }
+// document.getElementById("butao-editar").addEventListener("click",editarSenha);
 
 
-async function editarSenha(){
+// Carregar dados no sobre
 
-    const senha ={
-        senha: dadosSenhaEmail.emailSenha,
-        SenhaAtual: dadosSenhaEmail.value
-    }
+// async function CarregarDadosSobre (dadosUsuario) {
 
-    localStorage.setItem("editarSenha", JSON.stringify(senha));
-    let senhaUser = JSON.parse(localStorage.getItem('editarSenha'));
-    //  console.log('dados', dadosSenhaEmail);
+//     let descricaosobre = document.getElementById("descricaoSobre");
+//     let qtdaMembro = document.getElementById("qtdaMembros");
+//     let anoDeFundacao = document.getElementById("anoFundacao");
+//     let sedeLocal = document.getElementById("sede");
+//     let historia = document.getElementById("historiaSobre");
 
-    const editarSenha ={
-        
-    }
-}
-document.getElementById("butao-editar").addEventListener("click",editarSenha);
+//     if (reqEndereco.status === 400) {
+//         sedeLocal.innerHTML = `Nenhum endereço cadastrado`;
+//     } else {
+//         sedeLocal.innerHTML = `${adress.municipio}, ${adress.estado}`;
+//     }
+
+//     if (dadosOng.descricao !== null) {
+//         descricaosobre.innerText = `${dadosOng.descricao}`;
+//     } else {
+//         descricaosobre.innerText = `Nenhuma descrição cadastrada`;
+//     }
+
+//     if (dadosOng.qtdDeMembros !== null) {
+//         qtdaMembro.innerHTML = `${formatarValor(dadosOng.qtdDeMembros)}`;        
+//     } else {
+//         qtdaMembro.innerHTML = `Nada encontrado`;
+//     }
+
+//     if (dadosOng.dataDeFundacao !== null) {
+//         anoDeFundacao.innerHTML = `${getFormattedDate(dadosOng.dataDeFundacao)}`;        
+//     } else {
+//         anoDeFundacao.innerHTML = `Nada encontrado`;
+//     }
+
+//     if (dadosOng.historia !== null) {
+//         historia.innerText = `${dadosOng.historia}`;
+//     } else {
+//         historia.innerText = `Nada encontrado`;
+//     }
+
+    
+// }
+
+
+
+// carregar dados na inputs
 
 function AtribuirValor() {
     nome.value = dados.nome;
     email.value = dadosSenhaEmail.email;
-}
+ 
+    if (reqContatos.status == 404) {
+        celular.value = ``;
+        celular.placeholder = ``;
+    } else {
+        celular.value = contato.numero;
+    }
 
+    if (reqContatos.status == 404) {
+        telefone.value = ``;
+        telefone.placeholder = ``;
+    } else {
+        telefone.value = contato.telefone;
+    }
+
+    if (dados.dataDeNascimento !== null) {
+        data.placeholder = getFormattedDate(dados.dataDeNascimento);
+    } else {
+        data.value = ``;
+    }
+
+    // if (reqEndereco.status !== 400) {
+
+    //     cep.value = endereco.cep;
+    //     estado.value = endereco.estado;
+    //     cidade.value = endereco.municipio;
+    //     bairro.value = endereco.bairro;
+    //     endereco.value = endereco.rua;
+    //     numero.value = endereco.numero;
+        
+    //     if (endereco.complemento === "") {
+    //         complemento.value = ``;
+       
+    //     } else {
+    //         complemento.value = endereco.complemento;
+    //     }
+
+    // } else {
+    //     console.log("Não tem endereço");
+    // }
+
+}
 AtribuirValor();
 
-// ATRIBUINDO VALOR A INPUT
-// var capturando = "mhghg";
-// function capturar () {
-//     capturando = document.getElementById('name').value;
-//     document.getElementById('name').innerHTML = capturando;
-// }
-
-// capturar();
-
-// EXCLUIR CONTA
-
- async function apagarUsuario() {
-    const dados = await fetch({idUsuario});
 
 
-
- }
- document.getElementById("excluirUsuario").addEventListener("click",apagarUsuario);
+//deletar usuario => /user/$id
