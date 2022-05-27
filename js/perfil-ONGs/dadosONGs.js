@@ -2,7 +2,7 @@
 
 import ApiRequest from "../utils/ApiRequest.js";
 import { validarSession } from "../utils/ValidatorSession.js";
-import { imagemPreview } from "./imagemPreview.js";
+import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./imagemPreview.js";
 
 let ongLogado;
 ongLogado = validarSession("dadosOng");
@@ -13,8 +13,6 @@ let dados = reqDados.data;
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
 
 // Objeto de captura das INPUTS
-const imagem = document.getElementById("preview")
-const file = document.getElementById("fileSponsor")
 const nome = document.getElementById('nomeOng');
 const email = document.getElementById("emailOng");
 const cnpj = document.getElementById("cnpjOng");
@@ -123,7 +121,7 @@ async function dadosEnderecoAtualizado() {
         complemento: complemento.value,
     }
 
-    const reqEnderecoAtualizado = await ApiRequest(
+    let reqEnderecoAtualizado = await ApiRequest(
         "PUT", 
         `http://localhost:3131/adress/${dados.idLogin}`, 
         bodyEnderecoAtualizado
@@ -176,8 +174,8 @@ async function dadosMeiosDoacoes() {
 
 }
 
-let media = [];
-async function handleFileSelect(evento) {
+let mediaSponsor = [];
+async function handleFileSelectSponsor(evento) {
 
     // Objeto FileList guarda todos os arquivos.
     var files = evento.target.files;
@@ -195,7 +193,7 @@ async function handleFileSelect(evento) {
                     const dadosReader = reader.result;
                     let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
 
-                    media.push(
+                    mediaSponsor.push(
                         {
                             "fileName": infoArquivo.name,
                             "base64": base64,
@@ -216,9 +214,89 @@ async function handleFileSelect(evento) {
     }
 }
 
+let mediaProfile = [];
+async function handleFileSelectProfile(evento) {
+
+    // Objeto FileList guarda todos os arquivos.
+    var files = evento.target.files;
+
+    if (files.length <= 3) {
+        // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
+        for (var i = 0, f; f = files[i]; i++) {
+            
+            const reader = new FileReader();
+            let infoArquivo = f;
+            
+            reader.addEventListener(
+                "load",
+                () => {
+                    const dadosReader = reader.result;
+                    let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
+
+                    mediaProfile.push(
+                        {
+                            "fileName": infoArquivo.name,
+                            "base64": base64,
+                            "type": infoArquivo.type
+                        }
+                    );
+                },
+                false
+            );
+
+            if (f) {
+                reader.readAsDataURL(f);
+            }
+        }
+
+    } else {
+        alert("Máximo de arquivos permitidos é 3");
+    }
+}
+
+let mediaBanner = [];
+async function handleFileSelectBanner(evento) {
+
+    // Objeto FileList guarda todos os arquivos.
+    var files = evento.target.files;
+
+    if (files.length <= 3) {
+        // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
+        for (var i = 0, f; f = files[i]; i++) {
+            
+            const reader = new FileReader();
+            let infoArquivo = f;
+            
+            reader.addEventListener(
+                "load",
+                () => {
+                    const dadosReader = reader.result;
+                    let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
+
+                    mediaBanner.push(
+                        {
+                            "fileName": infoArquivo.name,
+                            "base64": base64,
+                            "type": infoArquivo.type
+                        }
+                    );
+                },
+                false
+            );
+
+            if (f) {
+                reader.readAsDataURL(f);
+            }
+        }
+
+    } else {
+        alert("Máximo de arquivos permitidos é 3");
+    }
+}
+
 async function dadosPatocinios() {
 
-    const imagemSponsor = media;
+    const imagemSponsor = mediaSponsor;
     console.log(imagemSponsor);
 
     const bodySponsor = {
@@ -230,12 +308,45 @@ async function dadosPatocinios() {
 
 }
 
+async function atualizarImagensPerfil() {
+
+    const foto = mediaProfile;
+    const banner = mediaBanner;
+
+    const imagensOng = {
+        "foto": [
+            foto[0]
+        ],
+        "banner": [
+            banner[0]
+        ]
+    };
+
+    console.log(imagensOng.foto);
+
+    let reqUpdateMedia = await ApiRequest("PUT", `http://localhost:3131/ong/media/${dados.idOng}`, imagensOng);
+    console.log(reqUpdateMedia);
+
+    if (reqUpdateMedia.status === 200) {
+        alert("Imagens atualizadas com sucesso!");
+        window.location.reload();
+    } else {
+        alert("Erro ao atualizar imagens");
+    }
+
+}
+
 document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);
 document.getElementById("button-detalhes-conta-Atualizado").addEventListener("click", dadosDetalhesConta);
 document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDetalhesONG);
 document.getElementById("button-detalhes-endereco").addEventListener("click", dadosDetalhesEndereco);
 document.getElementById("button-detalhes-endereco-Atualizado").addEventListener("click",dadosEnderecoAtualizado);
 document.getElementById("button-meiosDoacoes").addEventListener("click", dadosMeiosDoacoes);
-document.getElementById("fileSponsor").addEventListener("change", handleFileSelect, false);
+document.getElementById("fileSponsor").addEventListener("change", handleFileSelectSponsor, false);
 document.getElementById("fileSponsor").addEventListener('change', imagemPreview);
 document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);
+document.getElementById("filePerfil").addEventListener("change", handleFileSelectProfile, false);
+document.getElementById("fileBanner").addEventListener("change", handleFileSelectBanner, false);
+document.getElementById("filePerfil").addEventListener("change", imagemPreviewPerfil);
+document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
+document.getElementById("botaoModalEditar").addEventListener("click", atualizarImagensPerfil);

@@ -3611,31 +3611,30 @@ body {
 
 #centro #container-conteudo #container-post {
   display: none;
-  min-height: 789px;
+  min-height: 50px;
   height: auto;
-  width: 824px;
+  width: 775px;
+  background-color: red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: center;
-          flex-direction: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
-  -ms-flex-item-align: center;
-      align-self: center;
+  gap: 60px;
 }
 
 #centro #container-conteudo #container-post .post {
-  min-height: 789px;
+  min-height: 300px;
   height: auto;
   width: inherit;
   display: -webkit-box;
@@ -3645,9 +3644,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -3683,8 +3682,9 @@ body {
 }
 
 #centro #container-conteudo #container-post .post .parte-superior .info-ong {
+  min-width: 290px;
   height: 80px;
-  width: 290px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3692,26 +3692,28 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 12px;
 }
 
 #centro #container-conteudo #container-post .post .parte-superior .info-ong img {
   height: inherit;
   width: 80px;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #centro #container-conteudo #container-post .post .parte-superior .info-ong .info-nome-data {
   height: 55px;
-  width: 200px;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3812,10 +3814,20 @@ body {
   border-radius: 6px;
 }
 
+#centro #container-conteudo #container-post .post .imagens-postadas .imagens-complementos .ocupar-tudo {
+  height: inherit;
+}
+
+#centro #container-conteudo #container-post .post .imagens-postadas .tamanho-total {
+  width: inherit;
+}
+
 #centro #container-conteudo #container-post .post p {
-  font-size: 1.125rem;
+  font-size: 1.188rem;
   font-weight: 500;
   color: #292929;
+  height: auto;
+  width: 736px;
 }
 
 #centro #container-conteudo #container-post .post .interacoes {
@@ -3837,6 +3849,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
 }
 
 #centro #container-conteudo #container-post .post .interacoes .icone-funcao {
@@ -3878,7 +3891,7 @@ body {
 }
 
 #centro #container-conteudo #container-post .post .interacoes .icone-funcao span {
-  font-size: 1.125rem;
+  font-size: 1.313rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
@@ -4091,6 +4104,107 @@ body {
   text-transform: capitalize;
   letter-spacing: none;
   margin-top: 2px;
+}
+
+#centro #container-conteudo #container-post .post #comentar {
+  min-height: 50px;
+  height: auto;
+  width: 736px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+}
+
+#centro #container-conteudo #container-post .post #comentar input {
+  height: 80px;
+  width: 630px;
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  background-color: #E4E6EB;
+  border-radius: 44px;
+  resize: none;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 35px;
+  padding-top: 22px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+#centro #container-conteudo #container-post .post #comentar input::-webkit-input-placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-post .post #comentar input:-ms-input-placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-post .post #comentar input::-ms-input-placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-post .post #comentar input::placeholder {
+  font-size: 1.563rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-post .post #comentar #enviarComentario {
+  height: 70px;
+  width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  border-radius: 50%;
+  background-color: #FF9F45;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #container-post .post #comentar #enviarComentario img {
+  height: 35px;
+  width: 35px;
 }
 
 #centro #container-conteudo #container-evento {
@@ -5149,9 +5263,24 @@ body {
   cursor: pointer;
 }
 
-.modalEditar #EditarBannerFoto #esquerdas #editarPerfil img {
+.modalEditar #EditarBannerFoto #esquerdas #editarPerfil label {
   height: 120px;
   width: 120px;
+  border-radius: 50%;
+  display: block;
+}
+
+.modalEditar #EditarBannerFoto #esquerdas #editarPerfil label img {
+  cursor: pointer;
+  height: inherit;
+  width: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.modalEditar #EditarBannerFoto #esquerdas #editarPerfil input[type='file'] {
+  display: none;
 }
 
 .modalEditar #EditarBannerFoto #esquerdas #tituloFotoPerfil {
@@ -5229,9 +5358,24 @@ body {
   cursor: pointer;
 }
 
-.modalEditar #EditarBannerFoto #Direitas #editarBanner img {
+.modalEditar #EditarBannerFoto #Direitas #editarBanner label {
   height: 227px;
   width: 414px;
+  border-radius: 6px;
+  display: block;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #editarBanner label img {
+  cursor: pointer;
+  height: inherit;
+  width: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px;
+}
+
+.modalEditar #EditarBannerFoto #Direitas #editarBanner input[type='file'] {
+  display: none;
 }
 
 .modalEditar #EditarBannerFoto #Direitas #tituloBannerPerfil {

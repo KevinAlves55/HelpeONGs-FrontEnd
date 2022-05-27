@@ -35,7 +35,7 @@ ongLogado = validarSession("dadosOng");
 
 let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
 let dados = reqDados.data;
-console.log(dados.idOng);
+console.log(dados);
 
 let reqEndereco = await ApiRequest(
     "GET", 
@@ -110,10 +110,10 @@ function CarregarPerfil(objectLocal) {
     }
 
     //BANNER
-    if (objectLocal.banner === null || objectLocal.foto === undefined) {
+    if (objectLocal.banner === null || objectLocal.banner === undefined) {
         bannerPerfil.setAttribute("src", "../../assets/img/sem-foto.png");
     }
-    else if (!objectLocal.banner.includes(".jpg") && !objectLocal.banner.includes(".jpeg") && !objectLocal.banner.includes(".png") && !objectLocal.banner.includes(".svg") && !objectLocal.banner.includes(".git")) {
+    else if (!objectLocal.banner.includes(".jpg") && !objectLocal.banner.includes(".jpeg") && !objectLocal.banner.includes(".png") && !objectLocal.banner.includes(".svg") && !objectLocal.banner.includes(".git") && !objectLocal.banner.includes("")) {
         bannerPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         bannerPerfil.setAttribute("src", `${objectLocal.banner}`)
@@ -253,7 +253,6 @@ async function AtribuirValor(dadosOng) {
         agencia.value = bank.agencia;
         banco.value = bank.banco;
         conta.value = bank.conta;
-        tipoConta.selected[0] = bank.tipo;
         
     } else {
 
@@ -264,6 +263,234 @@ async function AtribuirValor(dadosOng) {
     }
 }
 AtribuirValor(dados);
+
+// Carrega todos os POSTS
+const CarregarPost = async () => {
+
+    const container = document.getElementById("container-post");
+    const objetoPost = await ApiRequest("GET", `http://localhost:3131/feed/post/ong/${dados.idOng}/0`);
+    const dadosFeedPost = objetoPost.data;
+    console.log(dadosFeedPost);
+    const elementos = dadosFeedPost.map(CriarFeedPost);
+    const elementosHtml = elementos.map(({outerHTML}) => {
+        return outerHTML
+    }).join('');
+    container.innerHTML += elementosHtml;
+
+}
+
+const CriarFeedPost = (
+    {
+        dataDeCriacao,
+        descricao, 
+        idOng,
+        tbl_post_media,
+    }
+) => {
+
+    let corpo;
+        
+    const dataFormat = getFormattedDate(dataDeCriacao);
+
+    corpo = document.createElement("div");
+    corpo.classList.add("post");
+
+    if (tbl_post_media.length === 0) {
+        
+        corpo.innerHTML =
+        `
+        <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${dados.foto}" alt="${dados.nome}" title="${dados.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${dados.nome}</h2>
+                        <span>${dataFormat} - POST</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>0 Curtidas</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input type="text" name="" class="testoComentario" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        `;
+
+    } else if (tbl_post_media.length === 1) {
+        corpo.innerHTML =
+        `
+        <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${dados.foto}" alt="${dados.nome}" title="${dados.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${dados.nome}</h2>
+                        <span>${dataFormat} - POST</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${tbl_post_media[0].url}" class="principal tamanho-total"  alt="{NomeDoPost}" title="Imagem do postagens">
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>0 Curtidas</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input type="text" name="" class="testoComentario" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        `;
+    } else if (tbl_post_media.length === 2) {
+        corpo.innerHTML =
+        `
+        <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${dados.foto}" alt="${dados.nome}" title="${dados.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${dados.nome}</h2>
+                        <span>${dataFormat} - POST</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
+
+                <div class="imagens-complementos">
+                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima ocupar-tudo">
+                </div>
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>0 Curtidas</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input type="text" name="" class="testoComentario" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        `;
+    } else {
+        corpo.innerHTML =
+        `
+        <div class="parte-superior">
+                <div class="info-ong">
+                    <img src="${dados.foto}" alt="${dados.nome}" title="${dados.nome}">
+
+                    <div class="info-nome-data">
+                        <h2>${dados.nome}</h2>
+                        <span>${dataFormat} - POST</span>
+                    </div>
+                </div>
+
+                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
+            </div>
+
+            <div class="imagens-postadas">
+                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
+
+                <div class="imagens-complementos">
+                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
+                    <img src="${tbl_post_media[2].url}" class="baixo">
+                </div>
+            </div>
+
+            <p>
+                ${descricao}
+            </p>
+
+            <div class="interacoes">
+                <div class="icone-funcao">
+                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
+                    <span>0 Curtidas</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
+                    <span>Comentários</span>
+                </div>
+                <div class="icone-funcao">
+                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
+                    <span>Compartilhar</span>
+                </div>
+            </div>
+
+            <div id="comentar">
+                <input type="text" name="" class="testoComentario" placeholder="Digite seu comentário">
+                <button type="button" id="enviarComentario">
+                    <img src="assets/img/navigation.png" alt="">
+                </button>
+            </div>
+        `;
+    }
+
+    return corpo;
+
+}
 
 // Modal Editar
 const openModalEditar = () => 
@@ -280,3 +507,4 @@ document.getElementById("sair").addEventListener("click", () => {
     localStorage.clear();
     Redirect("loginONGs");
 });
+CarregarPost();

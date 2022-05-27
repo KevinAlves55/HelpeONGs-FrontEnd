@@ -31,12 +31,67 @@ async function imagemPreview(evento) {
     const imagem = document.querySelector(".preview")
     preview.onloadend = (e) => {
         
-        console.log(e);
+        imagem.src = e.target.result;
+
+    }
+}
+
+async function imagemPreviewPerfil(evento) {
+
+    var file = evento.target.files[0];
+
+    const preview = new FileReader();
+
+    if (file) {
+
+        preview.readAsDataURL(file);
+
+    } else {
+
+        preview.src = '';
+
+    }
+    
+    const nomeImagem = document.getElementById("nomeImagem");
+    nomeImagem.innerHTML = file.name;
+
+    const imagem = document.querySelector(".previewPerfil")
+    preview.onloadend = (e) => {
+        
+        imagem.src = e.target.result;
+
+    }
+}
+
+async function imagemPreviewBanner(evento) {
+
+    var file = evento.target.files[0];
+
+    const preview = new FileReader();
+
+    if (file) {
+
+        preview.readAsDataURL(file);
+
+    } else {
+
+        preview.src = '';
+
+    }
+    
+    const nomeImagem = document.getElementById("nomeImagem");
+    nomeImagem.innerHTML = file.name;
+
+    const imagem = document.querySelector(".previewBanner")
+    preview.onloadend = (e) => {
+        
         imagem.src = e.target.result;
 
     }
 }
 
 export {
-    imagemPreview
+    imagemPreview,
+    imagemPreviewPerfil,
+    imagemPreviewBanner
 }
