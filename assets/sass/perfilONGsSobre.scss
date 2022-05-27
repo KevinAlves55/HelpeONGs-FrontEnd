@@ -302,9 +302,7 @@ body {
         min-height: 300px;
         @include tamanhos(auto, inherit);
         @include displayFlex(column);
-        
-
-
+    
         #conteudo-inicio{
             display: none;
             min-height: 332px;
@@ -630,7 +628,7 @@ body {
                     }
     
                     #qtda-fundacao{
-                        @include tamanhos(255px, 284px);
+                        @include tamanhos(inherit, 296px);
                         @include displayFlex(column, space-between, flex-end);
     
                         #quantidade-membros {
@@ -1073,11 +1071,11 @@ body {
 
         #container-conteudo-meios-doacoes{
             display: none;
-            @include tamanhos(360px, inherit);
+            @include tamanhos(420px, inherit);
 
             form {
                 @include tamanhos(inherit, inherit);
-                @include displayFlex(column, space-between);  
+                @include displayFlex(column, space-between);
 
                 #fileira-doacoes{
                     @include tamanhos(103px, inherit);
@@ -1141,7 +1139,7 @@ body {
                     @include displayFlex(row, space-between);
         
                     #agencia{
-                        @include tamanhos(101px, 153px);
+                        @include tamanhos(101px, 400px);
                         @include displayFlex(column, space-between);
         
                         label{
@@ -1151,7 +1149,7 @@ body {
                         }
                         
                         input{
-                            @include tamanhos(65px, 146px);
+                            @include tamanhos(65px, 395px);
                             border: 2px solid $border;
                             font-size: 1.450rem;
                             border-radius: 6px;
@@ -1164,37 +1162,10 @@ body {
                                 color: $placeholder;
                             }
                         }
-                    }
-
-                    #conta{
-                        @include tamanhos(103px, 360px);
-                        @include displayFlex(column, space-between);
-        
-                        label{
-                            font-size: 1.450rem;
-                            font-weight: map-get($densidade, regular);
-                            color: $text;
-                        }
-                        
-                        input{
-                            @include tamanhos(65px, 354px);
-                            border: 2px solid $border;
-                            font-size: 1.450rem;
-                            border-radius: 6px;
-                            color: $text;
-                            padding-left: 12px;
-                            align-self: flex-end;
-
-                            &::placeholder {
-                                font-weight: map-get($densidade, medium);
-                                color: $placeholder;
-                            }
-                        }
-        
                     }
 
                     #tipo-conta{
-                        @include tamanhos(103px, 243px);
+                        @include tamanhos(103px, 400px);
                         @include displayFlex(column, space-between);
     
                         label{
@@ -1204,7 +1175,7 @@ body {
                         }
     
                         select {
-                            @include tamanhos(65px, 235px);
+                            @include tamanhos(65px, 395px);
                             @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
                             border: 2px solid $border;
                             border-radius: 6px;
@@ -1222,55 +1193,125 @@ body {
         
                     }
                 }
+
+                #fileira-complemento-info {
+                    @include tamanhos(103px, inherit);
+                    @include displayFlex(row, space-between);
+
+                    #banco {
+                        @include tamanhos(101px, 400px);
+                        @include displayFlex(column, space-between);
+        
+                        label{
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, regular);
+                            color: $text;
+                        }
+                        
+                        input{
+                            @include tamanhos(65px, 395px);
+                            border: 2px solid $border;
+                            font-size: 1.450rem;
+                            border-radius: 6px;
+                            color: $text;
+                            padding-left: 12px;
+                            align-self: flex-end;
+
+                            &::placeholder {
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+                        }
+                    }
+
+                    #conta{
+                        @include tamanhos(103px, 400px);
+                        @include displayFlex(column, space-between);
+        
+                        label{
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, regular);
+                            color: $text;
+                        }
+                        
+                        input{
+                            @include tamanhos(65px, 395px);
+                            border: 2px solid $border;
+                            font-size: 1.450rem;
+                            border-radius: 6px;
+                            color: $text;
+                            padding-left: 12px;
+                            align-self: flex-end;
+
+                            &::placeholder {
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+                        }
+        
+                    }
+                }
             }
             
         }
     
         #container-conteudo-patrocinios{
+            min-height: 100px;
             display: none;
-            @include tamanhos(550px, 850px);
-            @include displayFlex(column);
-          
-    
-            #editar-imagen{
-                @include tamanhos(100px, 774px);
-                @include displayFlex(row);
+            @include tamanhos(auto, 850px);
+            @include displayFlex(column, $gap: 17px);
 
-                img{
-                    @include tamanhos(80px, 80px);
+            #editar-imagen{
+                @include tamanhos(100px, auto);
+                @include displayFlex(row, $align: center, $gap: 14px);
+
+                label {
+                    @include tamanhos(100px, 100px); 
+                    border-radius: 50%;
+                    display: block;
+
+                    img {
+                        cursor: pointer;
+                        @include tamanhos(inherit, inherit);
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+
+                input[type='file'] {
+                    display: none
+                }
+
+                h2{
+                    @include textoEstilo(grau9, semiBold, $text);
                 }
                
             }
     
-            h2{
-                @include textoEstilo(grau9, semiBold, $text);
-                padding-top: 25px;
-                padding-left: 10px;
-            }
             #editar-nome-link{
-                @include displayFlex(row, space-between, center);
-                @include tamanhos(271px, 774px);
-               
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column);
     
                 #nome-link{
-                    @include displayFlex(column);
-                    
-    
+                    @include tamanhos(140px, inherit);
+                    @include displayFlex(row, space-between);
+
                     #nome-do-patrocinador{
-                        @include tamanhos(102px, 276px);
+                        @include tamanhos(100px, 400px);
+                        @include displayFlex(column, space-between);
                         
                         label{
                             @include textoEstilo(grau9, regular, $text);
-                            
-                            
-                            
+  
                         }
+
                         input{
-                            @include tamanhos(65px, 266px);
+                            @include tamanhos(65px, 395px);
                             font-size: 22px;
                             border: 2px solid $border;
                             border-radius:6px;
                             padding: 15px;
+                            align-self: flex-end;
     
                             &::placeholder{
                                 @include textoEstilo(grau9, regular, $border);
@@ -1280,22 +1321,22 @@ body {
                             }
                         }
                     }
+
                     #link-do-site{
-                        @include tamanhos(102px, 276px);
-                        @include displayFlex(column);
+                        @include tamanhos(100px, 400px);
+                        @include displayFlex(column, space-between);
     
                         label{
                             @include textoEstilo(grau9, regular, $text);
-                            
-    
                         }
     
                         input{
-                            @include tamanhos(65px, 266px);
+                            @include tamanhos(65px, 395px);
                             border: 2px solid $border;
                             border-radius:6px;
                             font-size: 22px;
                             padding: 15px;
+                            align-self: flex-end;
     
                             &::placeholder {
                                 @include textoEstilo(grau9, regular, $border);
@@ -1304,59 +1345,32 @@ body {
                         }
                     }
                 }
-                #container-principal{
-                    @include tamanhos(271px, 317px);
-            
-                    .container{
-                        @include tamanhos(87px, 317px);
-                        @include displayFlex(row);
-                        border: 2px solid $border;
-                        border-radius:3px;
-    
-                        .imagens{
-                            padding: 5px;
-    
-                        }
-    
-                        .nome{
-                            h2{
-                                @include textoEstilo(grau9, Montserrat, $text);
-                               
-                            }
-               
-                        }
-                        
-                    }
-    
-                }
                
             }
+
             #botoes{
                 @include displayFlex(row);
-                @include tamanhos(55px, 185px);
-                padding: 20px;
-                gap: 40px;
-                margin-left: 110px;
-               
-                
+                @include tamanhos(75px, 250px);
+                align-self: flex-end;
                 
                 button{
-                    @include textoEstilo (grau9, semiBold, $text);
-                    @include tamanhos(55px, 185px);
-                    font-size: 1.450rem;
-                    font-weight: map-get($densidade, medium);
+                    @include textoEstilo (grau7, semiBold, $text);
+                    @include tamanhos(inherit, inherit);
                     text-transform: capitalize;
                     background-color: $deepSaffron;
                     border-radius: 6px;
                     border: none;
                     transition: .1s;
                     cursor: pointer;
-                        
+                    font-family: 'Montserrat', sans-serif;
+                    
+                    &:hover {
+                        transition: .1s;
+                        opacity: 0.8;
+                    }
                 }
                 
             }
-    
-    
         }
 
         #container-post{

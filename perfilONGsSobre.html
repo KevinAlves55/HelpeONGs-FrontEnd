@@ -520,34 +520,26 @@
                         <div id="site" class="style-input">
                             <label>Site</label>
                             <input type="link" id="linkSiteOng" placeholder="Insira o link de seu site"/>
-                            <small>Error</small>
+                            <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
                         </div>
                         <div id="pix" class="style-input">
                             <label>Pix</label>
                             <input type="text" id="pixOng" placeholder="Insira seu Pix"/>
-                            <small>Error</small>
+                            <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
                         </div>
                     </div>
                     
                     <div id="fileira-agencia">
                         <div id="agencia" class="style-input">
                             <label>Agencia</label>
-                            <input type="text" id="agenciaOng"/>
-                            <small>Error</small>
+                            <input type="text" id="agenciaOng" placeholder="0001"/>
+                            <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
-                        </div>
-
-                        <div id="conta" class="style-input">
-                            <label>Conta</label>
-                            <input type="text" id="contaOng"/>
-                            <small>Error</small>
-                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
                         </div>
 
                         <div id="tipo-conta" class="style-input">
@@ -555,12 +547,30 @@
         
                             <select name="sltContas" id="contaTipoOng">
                                 <option value="">Selecione</option>
-                                <option value="CC">Conta Correntes</option>
+                                <option value="CC">Conta Corrente</option>
                                 <option value="P">Poupança</option>
                             </select>
-                            <small>Error</small>
+                            <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                    </div>
+
+                    <div id="fileira-complemento-info">
+                        <div id="banco" class="style-input">
+                            <label>Banco</label>
+                            <input type="text" id="bancoOng" placeholder="Bradesco">
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+
+                        <div id="conta" class="style-input">
+                            <label>Conta</label>
+                            <input type="text" id="contaOng" placeholder="43215498-9"/>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
                         </div>
                     </div>
 
@@ -574,69 +584,36 @@
             <div id="container-conteudo-patrocinios" class="item">
 
                <div id="editar-imagen">
-                    <div>
-                        <img src="./assets/img/x-circle.png">
-                    </div>
-                    <h2>Adicionar Imagem</h2>
+                    <label for="fileSponsor" id="img-file">
+                        <img src="assets/img/perfilONG-sem-foto.png" class="preview">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="fileSponsor">
+                    <h2 id="nomeImagem">Adicione uma imagem</h2>
                </div>
 
                <div id="editar-nome-link">
                     <div id="nome-link">
-
                         <div id="nome-do-patrocinador" class="style-input">
                             <label>Nome do Patrocinador</label>
                             <input type="text" id="nomePatrocinadorOng" placeholder="Coca-Cola">
-                            <small>Error</small>
+                            <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
                         </div>
 
                         <div id="link-do-site" class="style-input">
                             <label>Link do site</label>
                             <input type="text" id="linkSitePatrocinador" placeholder="www.cocacola.com">
-                            <small>Error</small>
+                            <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
                         </div>
                     </div>
 
-                    <div id="container-principal">
-                        <div class="container">
-                            <div class="imagens">
-                                <img src="/assets/img/Ellipse 1.png">
-                            </div>
-                            <div class="nome">
-                                <h2>Coca-Cola</h2>
-                            </div>
-                        </div>
 
-                        <div class="container">
-                            <div class="imagens">
-                                <img src="/assets/img/Ellipse 1.png">
-                            </div>
-                            <div class="nome">
-                                <h2>Coca-Cola</h2>
-                            </div>
-                        </div>
-
-                        <div class="container">
-                            <div class="imagens">
-                                <img src="/assets/img/Ellipse 1.png">
-                            </div>
-                            <div class="nome">
-                                <h2>Coca-Cola</h2>
-                            </div>
-                        </div>
-
-                        <div id="botoes">
-                            <div id="botao-finalizar">
-                                <button id="button-patrocinios">Finalizar</button>
-                            </div>
-                       </div>
-                  
+                    <div id="botoes">
+                        <button id="button-patrocinios">Cadastrar</button>
                     </div>
-
-                   
                 </div>
 
               

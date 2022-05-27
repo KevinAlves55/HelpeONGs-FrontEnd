@@ -1,4 +1,5 @@
 'use strict';
+
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
 import { closeModal, openModal } from "../doacoes-js/modal.js";
@@ -20,6 +21,14 @@ const bairro = document.getElementById("bairro");
 const endereco = document.getElementById("endereco");
 const numero = document.getElementById("numero");
 const complemento = document.getElementById("complemento");
+const linkSite = document.getElementById("linkSiteOng");
+const pix = document.getElementById("pixOng");
+const agencia = document.getElementById("agenciaOng");
+const banco = document.getElementById("bancoOng");
+const conta = document.getElementById("contaOng");
+const tipoConta = document.getElementById("contaTipoOng");
+const nomePatrocinador = document.getElementById("nomePatrocinadorOng");
+const sitePatrocinador = document.getElementById("linkSitePatrocinador");
 
 let ongLogado;
 ongLogado = validarSession("dadosOng");
@@ -35,8 +44,23 @@ let reqEndereco = await ApiRequest(
 console.log(reqEndereco);
 let adress = reqEndereco.data;
 
-let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${dados.idOng}`);
+let reqContatos = await ApiRequest(
+    "GET", 
+    `http://localhost:3131/contact/${dados.idOng}`
+);
 let contato = reqContatos.data;
+
+let reqDataDonation = await ApiRequest(
+    "GET",
+    `http://localhost:3131/donation-data/${dados.idOng}`
+);
+let donation = reqDataDonation.data;
+
+let reqDataBank = await ApiRequest(
+    "GET",
+    `http://localhost:3131/bank-data/${dados.idOng}`
+);
+let bank = reqDataBank.data;
 
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
 
@@ -202,6 +226,41 @@ async function AtribuirValor(dadosOng) {
 
     } else {
         console.log("Não tem addrss");
+    }
+
+    if (reqDataDonation.status !== 404) {
+
+        if (donation.site === null) {
+            linkSite.value = ``;
+        } else {
+            linkSite.value = donation.site;
+        }
+
+        if (donation.pix === null) {
+            pix.value = ``;
+        } else {
+            pix.value = donation.pix;
+        }
+    } else {
+
+        linkSite.value = ``;
+        pix.value = ``;
+
+    }
+
+    if (reqDataBank.status !== 404) {
+
+        agencia.value = bank.agencia;
+        banco.value = bank.banco;
+        conta.value = bank.conta;
+        tipoConta.selected[0] = bank.tipo;
+        
+    } else {
+
+        agencia.value = ``;
+        banco.value = ``;
+        conta.value = ``;
+
     }
 }
 AtribuirValor(dados);
