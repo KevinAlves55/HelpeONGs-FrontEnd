@@ -49,7 +49,7 @@ const validarLogin = async (e) => {
             localStorage.clear();
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
             localStorage.setItem("emailSenha", JSON.stringify(dom));
-            Redirect("doacoesONGs");
+            Redirect("feed");
         
         }
 

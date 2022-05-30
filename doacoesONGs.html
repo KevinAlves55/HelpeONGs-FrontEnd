@@ -19,64 +19,13 @@
         <div class="modal-conteudo">
             <span class="modal-close" id="modalClose">&#10006;</span>
 
-            <div id="informacoes">
+            <div id="informacoes" class="informacoes">
                 <div id="esquerda-informacoes">
                     <h1>Utilize as informações <br> para fazer uma doação</h1>
 
                     <img src="assets/img/fundo-modal.png" alt="Doar agora" title="Imagem de fundo">
                 </div>
-                <div id="direita-informacoes">
-                    <div id="direita-contatos">
-                        <h2>Informações de contato</h2>
-
-                        <div class="caixa">
-                            <span>Celular: </span>
-                            <h3>(11) 94536-7654</h3>
-                        </div>
-                        <div class="caixa">
-                            <span>Telefone: </span>
-                            <h3>(11) 94536-7654</h3>
-                        </div>
-                        <div class="caixa">
-                            <span>Email: </span>
-                            <h3>ongBrasil@gmail.com</h3>
-                        </div>
-                        <div class="caixa">
-                            <span>Site: </span>
-                            <h3><a target="_blank" href="https://www.vibraenergia.com.br/">www.br.com.br</a></h3>
-                        </div>
-                    </div>
-                    <div id="direita-meios-doacoes">
-                        <div id="direita-meios">
-                            <h2>Meios de doação</h2>
-
-                            <div class="caixa">
-                                <span>Conta: </span>
-                                <h3>6654356-9</h3>
-                            </div>
-                            <div class="caixa">
-                                <span>Tipo: </span>
-                                <h3>Corrente</h3>
-                            </div>
-                            <div class="caixa">
-                                <span>Agência: </span>
-                                <h3>0001</h3>
-                            </div>
-                            <div class="caixa">
-                                <span>Banco: </span>
-                                <h3>Bradesco</h3>
-                            </div>
-                            <div class="caixa">
-                                <span>Pix: </span>
-                                <h3>330.453.908.09</h3>
-                            </div>
-
-                            <div id="esquerda-imagem">
-                                <img src="assets/img/foto-banco.png" alt="Banco" title="Foto do Banco">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="direita-informacoes" class="info"></div>
             </div>
         </div>
     </div>
@@ -97,8 +46,15 @@
                     <img src="assets/img/notification-doacoes.png" alt="Notificações" id="sinoNotification">
     
                     <div id="atalhos-perfil">
-                        <img src="assets/img/sem-foto.png" id="foto" alt="Perfil" title="Sair">
+                        <img src="assets/img/sem-foto.png" id="foto-header" alt="Perfil" title="Sair">
                         <img src="assets/img/seta-doaces.png" id="seta-baixo" alt="Modal" title="Flexa Para Baixo">
+
+                        <div class="mais-opcoes" id="mais-opcoes">
+                            <span
+                            id="perfil-header">Perfil</span>
+                            <span id="sair-header">Sair</span>
+                            <span id="cancelar-header">Cancelar</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,17 +73,25 @@
                 
                 <nav id="menu">
                     <ul>
-                        <li>
+                        <li id="feedActivity">
+                            <div id="barraFeed" class="barraActivity"></div>
+                            <img src="assets/img/icon-feed.svg" alt="Feed" title="Icon-Feed">
+                            <a href="feed.html" id="feedLink">Feed</a>
+                        </li>
+                        <li id="donateActivity">
+                            <div id="barraDonate" class="barraActivity"></div>
                             <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
-                            <a href="doacoesONGs.html">Doar</a>
+                            <a href="doacoesONGs.html" id="donateLink">Doar</a>
                         </li>
-                        <li id="feed">
-                            <img src="assets/img/feed-menu.png" alt="Feed" title="Icon-Feed">
-                            <a href="feed.html">Feed</a>
-                        </li>
-                        <li id="perfil">
+                        <li id="profileActivity">
+                            <div id="barraProfile" class="barraActivity"></div>
                             <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
-                            <a href="perfilONGsSobre.html">Perfil</a>
+                            <a href="perfilUsuario.html" id="profileLink">Perfil</a>
+                        </li>
+                        <li id="control">
+                            <div id="barraControl" class="barraActivity"></div>
+                            <img src="assets/img/users-controles.png" alt="Eventos" title="Icon-controles">
+                            <a href="controles.html" id="controlLink">Controles</a>
                         </li>
                         <li>
                             <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
@@ -143,7 +107,7 @@
                         <label>Filtrar por estado:</label>
 
                         <select id="estados-select">
-                            <option selected="true">Selecione um estado</option>
+                            <option>Selecione um estado</option>
                         </select>
                     </div>
     

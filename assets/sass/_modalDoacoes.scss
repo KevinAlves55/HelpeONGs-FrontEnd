@@ -1,5 +1,6 @@
 .modal {
     @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
     position: fixed;
     top: 0;
     left: 0;

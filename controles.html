@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controles de envento e vagas</title>
+    <link rel="stylesheet" href="assets/sass/controles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="js/controles-js/index.js" defer type="module"></script>
+</head>
+
+<body>
+
+    <header>
+        <div id="itens-header" class="ajust">
+            <div id="logo">
+                <img src="assets/img/logo-header.png" alt="Doações" title="HelpOngs">
+            </div>
+
+            <div id="lupa-atalhos">
+                <div id="atalhos">
+                    <img src="assets/img/notification-doacoes.png" alt="Notificações" id="sinoNotification">
+    
+                    <div id="atalhos-perfil">
+                        <img src="assets/img/sem-foto.png" id="foto-header" alt="Perfil" title="Sair">
+                        <img src="assets/img/seta-doaces.png" id="seta-baixo" alt="Modal" title="Flexa Para Baixo">
+
+                        <div class="mais-opcoes" id="mais-opcoes">
+                            <span
+                            id="perfil-header">Perfil</span>
+                            <span id="sair-header">Sair</span>
+                            <span id="cancelar-header">Cancelar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div id="itens-main">
+            <div id="direita">  
+                <!-- MINI PERFIL (COPIAR) -->
+                <div id="mini-perfil">
+                    <img src="" alt="Perfil" title="Perfil" id="mini-perfil-foto">
+
+                    <h3 id="mini-perfil-nome"> 
+                    </h3>
+                </div>
+                
+                <nav id="menu">
+                    <ul>
+                        <li>
+                            <img src="assets/img/feed-menu.png" alt="Feed" title="Icon-Feed">
+                            <a href="feed.html">Feed</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
+                            <a href="doacoesONGs.html">Doar</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
+                            <a href="perfilUsuario.html">Perfil</a>
+                        </li>
+                        <li id="control">
+                            <img src="assets/img/users-controles.png" alt="Eventos" title="Icon-controles">
+                            <a href="controles.html">Controles</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
+                            <a id="sair" style="cursor: pointer;">Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <section>
+                <div id="filtros-selects">
+                    <select name="sltTipo" id="">
+                        <option value="">Selecione o tipo de controle</option>
+                        <option value="">Eventos</option>
+                        <option value="">Vagas</option>
+                    </select>
+                    <select name="sltOpcaoTipo">
+                        <option value="">Selecione o evento que deseja</option>
+                    </select>
+                    <div id="filtro">
+                        <img src="assets/img/filter-button.png" alt="Controles" title="Icone filtro">
+                        <span>Filtros (6)</span>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <td class="titulos-tabela">Nome</td>
+                        <td class="titulos-tabela">Idade</td>
+                        <td class="titulos-tabela">Endereço</td>
+                        <td class="titulos-tabela">Currículo</td>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="resultados">Kevin Alves da Silva</td>
+                            <td class="resultados">16</td>
+                            <td class="resultados">06665022 SP, Itapevi</td>
+                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
+                            <td>
+                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="resultados">Kevin Alves da Silva</td>
+                            <td class="resultados">16</td>
+                            <td class="resultados">06665022 SP, Itapevi</td>
+                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
+                            <td>
+                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="resultados">Kevin Alves da Silva</td>
+                            <td class="resultados">16</td>
+                            <td class="resultados">06665022 SP, Itapevi</td>
+                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
+                            <td>
+                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="resultados">Kevin Alves da Silva</td>
+                            <td class="resultados">16</td>
+                            <td class="resultados">06665022 SP, Itapevi</td>
+                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
+                            <td>
+                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="resultados">Kevin Alves da Silva</td>
+                            <td class="resultados">16</td>
+                            <td class="resultados">06665022 SP, Itapevi</td>
+                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
+                            <td>
+                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="resultados">Kevin Alves da Silva</td>
+                            <td class="resultados">16</td>
+                            <td class="resultados">06665022 SP, Itapevi</td>
+                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
+                            <td>
+                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="resultados">Kevin Alves da Silva</td>
+                            <td class="resultados">16</td>
+                            <td class="resultados">06665022 SP, Itapevi</td>
+                            <td class="resultados"><a href="">MeuCurriculo.png</a></td>
+                            <td>
+                                <img src="assets/img/mais-opcoes.png" alt="Mais opções">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id="setas">
+                    <div class="seta">
+                        <img src="assets/img/chevron-left.png" alt="Todos os dados" title="Icone setas">
+                    </div>
+                    <div class="seta">
+                        <img src="assets/img/chevron-right.png" alt="Todos os dados" title="Icone setas">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+
+</html>

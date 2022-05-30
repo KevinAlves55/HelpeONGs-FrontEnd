@@ -128,7 +128,6 @@ button {
 }
 
 body {
-  height: 120vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -148,8 +147,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-image: url("../img/Fundo.png");
   background-repeat: no-repeat;
-  background-size: 62.04vw;
-  background-position: bottom left;
+  background-size: 61.20vw;
+  background-position-y: 405px;
 }
 
 .conteudo, #topo #itens-topo, #conteudoTodo #itens-todo {

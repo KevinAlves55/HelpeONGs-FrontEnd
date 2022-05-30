@@ -19,31 +19,65 @@ const cadastrarOng = async (e) => {
     // Função responsável por validar todos os campos
     const validacoes = checkInputs();
 
-    // Validando a resposta da função
+    // // Validando a resposta da função
     let result;
     validacoes.map(status => {
         status === false ? result = false : "";
     });
-    
+
     if (result != false) {
-        
-        const ongData = {
-            nome: nome.value,
-            cnpj: cnpj.value,
-            email: email.value,
-            senha: password.value
-        }
 
-        let request;
-        request = await ApiRequest("POST", "http://localhost:3131/ong/pre-register", ongData);
-        console.log(request);
+        const validatorCnpj = await validarCNPJApi();
 
-        if (request.status === 200) {
-            openMessage();
-        } else if (request.status === 400) {
-            errorValidation(email, "O Email digitado já foi cadastrado");
+        if (validatorCnpj === undefined || validatorCnpj === false) {
+            errorValidation(cnpj, "CNPJ inválido");
+        } else {
+            
+            const ongData = {
+                nome: nome.value,
+                cnpj: cnpj.value,
+                email: email.value,
+                senha: password.value
+            }
+    
+            let request;
+            request = await ApiRequest("POST", "http://localhost:3131/ong/pre-register", ongData);
+            console.log(request);
+    
+            if (request.status === 200) {
+                openMessage();
+            } else if (request.status === 400) {
+                errorValidation(email, "O Email digitado já foi cadastrado");
+            }
+
         }
     }
+
+}
+
+const validarCNPJApi = async () => {
+
+    const cnpjFormatado = limparCnpj();
+    const url = `https://publica.cnpj.ws/cnpj/${cnpjFormatado}`;
+    const response = await fetch(url);
+    const corpo = await response.json();
+
+    if (corpo.status === 400) {
+        false
+    } else if (response.status === 200) {
+        return corpo;
+    } 
+    else {
+        null;
+    }
+
+}
+
+function limparCnpj() {
+
+    const cnpjValue = cnpj.value;
+    const formatCnpj = cnpjValue.replace(/[^0-9]/g, '');
+    return formatCnpj;
 
 }
 

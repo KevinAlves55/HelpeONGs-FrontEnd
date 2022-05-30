@@ -1,7 +1,7 @@
 "use strict";
 
 import ApiRequest from "../utils/ApiRequest.js";
-import { CriarONGs } from "./index.js";
+import { CarregarTodasONGs, CriarONGs } from "./index.js";
 
 function getValues() {
 
@@ -14,23 +14,32 @@ function getValues() {
     return values;
 }
 
-function carregarCardsCategorias(objeto) {
+function CarregarCardsCategorias(objeto) {
 
     const container = document.getElementById("ongs");
     const corpo = objeto;
     const cards = corpo.map(CriarONGs);
     container.replaceChildren(...cards);
-    carregarTamanhoArray(corpo);
+    CarregarTamanhoArray(corpo);
 
 }
 
-function carregarTamanhoArray(objeto) {
+function CarregarTamanhoArray(objeto) {
 
-    const tamanho = objeto;
     let valor = document.getElementById("resultadoQtda");
+    const tamanho = objeto;
     const corpo = tamanho.length;
 
-    valor.innerText = `${corpo} Resultados`;
+    if (corpo === 0) {
+        valor.innerText = "Nenhuma ONG encontrada para esse filtro";
+        const container = document.getElementById("ongs");
+        container.innerHTML = "";
+        CarregarTodasONGs();
+    } else if (tamanho === 1) {
+        valor.innerText = `${corpo} Resultado`;
+    } else {
+        valor.innerText = `${corpo} Resultados`;   
+    }
 
 }
 
@@ -61,7 +70,7 @@ const filtrar = async () => {
         request.data.includes(ong.nome)? filteredOngs.push(ong) : "";
     });
 
-    carregarCardsCategorias(filteredOngs);
+    CarregarCardsCategorias(filteredOngs);
 
 }
 

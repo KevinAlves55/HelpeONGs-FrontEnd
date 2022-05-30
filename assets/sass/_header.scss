@@ -15,9 +15,10 @@ header {
             img {
                 @include tamanhos(inherit, inherit);
                 margin-top: 7px;
+                object-fit: cover;
             }
         }
-
+        
         #lupa-atalhos {
             @include tamanhos(inherit, 730px);
             @include displayFlex(row, space-between, center);
@@ -49,26 +50,66 @@ header {
     
             #atalhos {
                 @include tamanhos(inherit, 170px);
-                @include displayFlex(row, space-between, center);
+                @include displayFlex(row, space-between, center);      
     
                 img {
                     @include tamanhos(32px, 32px);
+                    object-fit: cover;
                 }
     
                 #atalhos-perfil {
                     @include tamanhos(90px, 120px);
                     @include displayFlex(row, space-between, center);
+                    position: relative;
     
-                    #foto {
+                    #foto-header {
                         @include tamanhos(inherit, 90px);
                         border-radius: 50%;
                     }
     
                     #seta-baixo {
                         @include tamanhos(24px, 24px);
+                        cursor: pointer;
+                    }
+
+                    .mais-opcoes {
+                        min-height: 130px;
+                        @include tamanhos(auto, 150px);
+                        @include displayFlex(column, center, $gap: 10px);
+                        background-color: $placeholder;
+                        border-radius: 10px;
+                        position: absolute;
+                        right: 0;
+                        top: 60px;
+                        filter: $shadowMain;
+                        z-index: -3;
+                        opacity: 0;
+                        padding: 8px 0 8px;
+
+                        span {
+                            @include tamanhos(35px, 100%);
+                            @include textoEstilo(grau10, medium, $text, capitalize);
+                            @include displayFlex(row, $align: center);
+                            cursor: pointer;
+                            padding-left: 12px;
+
+                            &:hover {
+                                background-color: $border;
+                            }
+                        }
                     }
                 }
             }
         }
     }
+}
+
+header 
+#itens-header 
+#lupa-atalhos 
+#atalhos 
+#atalhos-perfil 
+.mais-opcoes.active {
+    z-index: 3;
+    opacity: 1;
 }

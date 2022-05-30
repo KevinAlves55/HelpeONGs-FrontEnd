@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpONGs - Feed</title>
+    <link rel="stylesheet" href="assets/sass/feed.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="js/feed-js/index.js" type="module" defer></script>
+    <script src="js/utils/Compartilhar.js" defer></script>
+</head>
+
+<body>
+
+    <!-- MODAL POST -->
+    <div class="modal-post" id="postagem-post">
+        <form action="" enctype="multipart/form-data" method="POST" class="modal-conteudo-post" id="postModal">
+            <span class="modal-close" id="modalClose">&#10006;</span>
+
+            <div id="parte-superior">
+                <div id="info-ong-trocar">
+                    <div id="info-ong">
+                        <img src="" id="imgOngPostagem" alt="GreenPeace" title="Foto">
+
+                        <div id="info-nome-data">
+                            <h2 id="nomeOngPostagem"></h2>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+
+                    <div id="trocar">
+                        <select id="trocar-select-post">
+                            <option value="P">Post</option>
+                            <option value="E">Evento</option>
+                            <option value="V">Vaga</option>
+                        </select>
+
+                        <div class="style-input">
+                            <textarea id="text-post" placeholder="Faça uma descrição de seu post"></textarea>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            <small>Error mensager</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="imagens-opcoes" class="style-input">
+                    <div id="conteudo-imagens">
+                        <div id="opcoes">
+                            <label for="files">
+                                <img src="assets/img/image.png" alt="POSTAR imagens">
+                                Adicionar imagens / vídeos
+                            </label>
+                            <input type="file" name="files[]" id="files" multiple="multiple" accept="image/*">
+                        </div>
+
+                        <div id="araste-imagens" class="list">
+                            <div id="primeiraPrevia">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="preview0">
+                            </div>
+                            <div id="outras-previas">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="preview1">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="preview2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="publicarPost">Publicar</button>
+        </form>
+    </div>
+
+    <!-- MODAL EVENTO -->
+    <div class="modal-evento" id="postagem-evento">
+        <form enctype="multipart/form-data" method="post" class="modal-conteudo-evento">
+            <span class="modal-close" id="modalCloseEvento">&#10006;</span>
+
+            <div id="parte-superior-evento">
+                <div id="info-ong-trocar-evento">
+                    <div id="info-ong-evento">
+                        <img src="" id="imgOngEvento" alt="GreenPeace" title="Foto">
+
+                        <div id="info-nome-data-evento">
+                            <h2 id="nomeOngEvento"></h2>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+
+                    <div class="trocar">
+                        <select id="trocar-select-evento">
+                            <option value="P">Post</option>
+                            <option value="E">Evento</option>
+                            <option value="V">Vaga</option>
+                        </select>
+
+                        <input type="text" placeholder="Escreva um título para seu evento" id="titulo-evento">
+
+                        <input type="text" placeholder="Qual o objetivo do evento" id="objetivo-evento">
+
+                        <textarea id="text-evento" placeholder="Faça uma descrição do evento"></textarea>
+                    </div>
+                </div>
+
+                <div id="complemento-evento">
+                    <div id="conteudo-imagens">
+                        <div id="opcoes">
+                            <label for="filesEvent">
+                                <img src="assets/img/image.png" alt="POSTAR imagens">
+                                Adicionar imagens / vídeos
+                            </label>
+                            <input type="file" name="files[]" id="filesEvent" multiple="multiple" accept="image/*">
+                        </div>
+
+                        <div id="araste-imagens" class="list">
+                            <div id="primeiraPrevia">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="previewEvent0">
+                            </div>
+                            <div id="outras-previas">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="previewEvent1">
+                                <img src="assets/img/sem-imagem-feed.jpeg" alt="" class="previewEvent2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="complemento-inputs">
+                        <div id="superior-inputs">
+                            <div class="style-input">
+                                <label>Data do Evento</label>
+                                <input placeholder="00-00-0000" id="data-evento" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            </div>
+                            <div class="style-input">
+                                <label>Hora do Evento</label>
+                                <input placeholder="00-00" id="hora-evento" type="text" onfocus="(this.type='time')" onblur="(this.type='text')">
+                            </div>
+                        </div>
+                        <div id="adiconar-mais">
+                            <div class="style-input">
+                                <label>Terá Candidato?</label>
+                                <select id="candidato">
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
+                                </select>
+                            </div>
+
+                            <span id="modal-add-endereco">
+                                Adicionar um endereço
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="publicarEvent">Publicar</button>
+        </form>
+    </div>
+
+    <!-- MODAL ENDEREÇO -->
+    <div class="modal-endereco" id="postagem-endereco">
+        <form action="" method="post" class="modal-conteudo-endereco">
+            <div id="todas-inputs">
+                <div class="conteudo-inputs">
+                    <div class="style-input">
+                        <label>Cep</label>
+                        <input type="text" id="cep" placeholder="00000-000"></input>
+                    </div>
+                    <div class="style-input">
+                        <label>Estado</label>
+                        <input type="text" id="estado"></input>
+                    </div>
+                </div>
+                <div class="conteudo-inputs">
+                    <div class="style-input">
+                        <label>Cidade</label>
+                        <input type="text" id="cidade"></input>
+                    </div>
+                    <div class="style-input">
+                        <label>Rua</label>
+                        <input type="text" id="rua"></input>
+                    </div>
+                </div>
+                <div class="conteudo-inputs">
+                    <div class="style-input">
+                        <label>Bairro</label>
+                        <input type="text" id="bairro"></input>
+                    </div>
+                    <div class="style-input">
+                        <label>Número</label>
+                        <input type="number" id="numero" placeholder="000"></input>
+                    </div>
+                </div>
+                <div id="complemento-input">
+                    <div class="style-input">
+                        <label>Complemento</label>
+                        <input type="text" id="complemento" placeholder="TORRE A AP 0"></input>
+                    </div>
+                </div>
+            </div>
+
+            <div id="op-btn">
+                <div id="conteudo-btn">
+                    <button id="btnCancelar" type="button">Cancelar</button>
+                    <button id="btnSalvar" type="button">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- MODAL VAGAS -->
+    <div class="modal-vaga" id="postagem-vaga">
+        <form action="" method="post" class="modal-conteudo-vaga">
+            <span class="modal-close" id="modalCloseVaga">&#10006;</span>
+
+            <div id="parte-superior-vaga">
+                <div id="info-ong-trocar-vaga">
+                    <div id="info-ong-vaga">
+                        <img src="" id="imgOngVaga" alt="GreenPeace" title="Foto">
+
+                        <div id="info-nome-data-vaga">
+                            <h2 id="nomeOngVaga"></h2>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+
+                    <div class="trocar">
+                        <select id="trocar-select-vaga">
+                            <option value="P">Post</option>
+                            <option value="E">Evento</option>
+                            <option value="V">Vaga</option>
+                        </select>
+
+                        <div class="style-input">
+                            <input type="text" placeholder="Escreva um título para a vaga" id="titulo-vaga">
+                        </div>
+                        <div class="style-input">
+                            <textarea id="descricao-vaga" placeholder="Faça uma descrição da vaga"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="complemento-vaga">
+                    <div id="parte-cima">
+                        <div class="style-input" id="requisitos-input">
+                            <label>Requisitos da Vaga</label>
+                            
+                            <textarea placeholder="Descreva os requisitos da vaga" id="requisitos-vaga"></textarea>
+                        </div>
+                        <div class="caixa">
+                            <div id="superior-input">
+                                <label>Carga horária: </label>
+                                <select id="carga-horaria">
+                                    <option value="">Selecione uma carga horária</option>
+                                    <option value="4">4 Horas</option>
+                                    <option value="6">6 Horas</option>
+                                    <option value="8">8 Horas</option>
+                                    <option value="12">12 Horas</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="parte-baixo">
+                        <div id="botoes">
+                            <span id="btnEndereco">Adicionar um endereço</span>
+                        </div>
+
+                        <button type="button" id="publicarVaga">Publicar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- MODAL INFO EVENTOS -->
+    <div id="info-evento" class="modal-info-evento">
+        <div class="modal-conteudo">
+            <div class="infos-conteudo">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL INFO VAGAS -->
+    <div id="info-vaga" class="modal-info-vaga">
+        <div class="modal-conteudo-vaga">
+            <div class="infos-conteudo">
+                <div id="requisitos">
+                    <label>Requisitos</label>
+
+                    <h2>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </h2>
+                </div>
+
+                <div class="info-vaga">
+                    <label>Carga horária:</label>
+                    <h2>6 horas</h2>
+                </div>
+                <div class="info-vaga">
+                    <label>Local:</label>
+                    <h2>06665022, Itapevi SP, avenida b, número 101</h2>
+                </div>
+                <div class="info-vaga">
+                    <label>Telefone: </label>
+                    <h2>(11) 96362-0881</h2>
+                </div>
+                <div class="info-vaga">
+                    <label>Celular: </label>
+                    <h2>(11) 96362-0881</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div id="itens-header">
+            <div id="logo">
+                <img src="assets/img/logo-header.png" alt="Doações" title="HelpOngs">
+            </div>
+
+            <div id="lupa-atalhos">
+                <div id="lupa-pesquisa">
+                    <img src="assets/img/lupa-pesquisa-doacoes.png" id="lupa" alt="Doações" title="Pesquisar" style="cursor: pointer;">
+                    <input type="text" id="pesquisar" placeholder="Procurar por ONGs">
+                </div>
+    
+                <div id="atalhos">
+                    <img src="assets/img/notification-doacoes.png" alt="Notificações" id="sinoNotification">
+    
+                    <div id="atalhos-perfil">
+                        <img src="assets/img/sem-foto.png" id="foto-header" alt="Perfil" title="Sair">
+                        <img src="assets/img/seta-doaces.png" id="seta-baixo" alt="Modal" title="Flexa Para Baixo">
+
+                        <div class="mais-opcoes" id="mais-opcoes">
+                            <span
+                            id="perfil-header">Perfil</span>
+                            <span id="sair-header">Sair</span>
+                            <span id="cancelar-header">Cancelar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div id="itens-main">
+            <div id="direita">
+                <div id="mini-perfil">
+                    <img src="" alt="Perfil" title="Perfil" id="mini-perfil-foto">
+
+                    <h3 id="mini-perfil-nome"> 
+                    </h3>
+                </div>
+                
+                <nav id="menu">
+                    <ul>
+                        <li id="feedActivity">
+                            <div id="barraFeed" class="barraActivity"></div>
+                            <img src="assets/img/icon-feed.svg" alt="Feed" title="Icon-Feed">
+                            <a href="feed.html" id="feedLink">Feed</a>
+                        </li>
+                        <li id="donateActivity">
+                            <div id="barraDonate" class="barraActivity"></div>
+                            <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
+                            <a href="doacoesONGs.html" id="donateLink">Doar</a>
+                        </li>
+                        <li id="profileActivity">
+                            <div id="barraProfile" class="barraActivity"></div>
+                            <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
+                            <a href="perfilONGs.html" id="profileLink">Perfil</a>
+                        </li>
+                        <li id="control">
+                            <div id="barraControl" class="barraActivity"></div>
+                            <img src="assets/img/users-controles.png" alt="Eventos" title="Icon-controles">
+                            <a href="controles.html" id="controlLink">Controles</a>
+                        </li>
+                        <li>
+                            <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
+                            <a id="sair" style="cursor: pointer;">Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div id="convite-quantidade">
+                    <h2>Convites</h2>
+                    <span id="qtdaVagas"></span>
+                </div>
+
+                <section id="vagas-indicadas">
+                </section>
+            </div>
+
+            <section id="conteudo-feed">
+                <!-- PRÉVIA DE EVENTOS -->
+                <div id="previa-eventos">
+                </div>
+
+                <!-- POSTAGEM -->
+                <div id="criar-postagem">
+                    <div id="esquerda">
+                        <img src="" alt="Postar" title="Meu perfil" id="foto-postagem">
+
+                        <h2>O que há de novo, <span id="nome-postagem"></span></h2>
+                    </div>
+
+                    <button type="button" id="postagens">
+                        <img src="assets/img/adicionar-postagem-feed.png" alt="ONGs" title="Icone de mais">
+
+                        Criar Postagem
+                    </button>
+                </div>
+
+                <div class="feed">
+                    
+                </div>
+
+                <div class="loader">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </section>
+
+            <div id="esquerda-seguidores">
+                <div id="info-seguidores">
+                    <h3>SEGUINDO</h3>
+                    <span>48</span>
+                </div>
+
+                <div id="seguindo">
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly Texto</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly Texto</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly Texto</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly Texto</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly Texto</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+                    <div class="info-seguindo">
+                        <img src="assets/img/mini-perfil-foto.png" alt="{nomeDoSeguidor}">
+
+                        <div class="identificador">
+                            <h3>Dolly Texto</h3>
+                            <span>ONG</span>
+                        </div>
+                    </div>
+
+                    <img src="assets/img/seta-baixo-seguidores-feed.png" alt="Mais seguidores" title="Icone seta">
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

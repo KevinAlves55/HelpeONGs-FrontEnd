@@ -1,6 +1,6 @@
 "use strict";
 
-const openModal = () => 
+const openModal = () =>
 document.getElementById("modal").classList.add("active");
 
 const closeModal = () => 

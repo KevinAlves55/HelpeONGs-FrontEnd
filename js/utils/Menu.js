@@ -1,0 +1,34 @@
+"use strict";
+
+const CheckWindow = () => {
+
+    const windowThis = window.location.href;
+
+    if (windowThis.includes("feed")) {
+
+        const feed = document.getElementById("feedLink");
+        const barraActivity = document.getElementById("barraFeed");
+        const feedActivity = document.getElementById("feedActivity");
+        feed.style.color = "#FF9F45";
+        feed.style.fontWeight = "600";
+        feedActivity.style.backgroundColor = "#F8F9FA";
+        barraActivity.classList.add("active");
+
+    } else if (windowThis.includes("doacoesONGs")) {
+
+        const donate = document.getElementById("donateLink");
+        const barraActivity = document.getElementById("barraDonate");
+        const donateActivity = document.getElementById("donateActivity");
+        console.log(donate);
+        donate.style.color = "#FF9F45";
+        donate.style.fontWeight = "600";
+        donateActivity.style.backgroundColor = "#F8F9FA";
+        barraActivity.classList.add("active");
+
+    }
+
+}
+
+export {
+    CheckWindow
+}

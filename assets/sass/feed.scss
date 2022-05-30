@@ -1,0 +1,1917 @@
+@import '_variaveis';
+@import '_mixins';
+@import '_resert';
+@import '_header';
+
+html {
+  scroll-behavior: smooth;
+}
+
+// Loading
+.loading {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: #00000090;
+
+    label {
+        @include textoEstilo(grau6, semiBold, $background);
+        animation: typewriter 2s steps(13) infinite alternate,
+        blink 800ms steps(13) infinite normal;
+        border-right: 5px solid black;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 260px;
+      }
+    }
+    @keyframes blink {
+      from {
+        border-color: $background;
+      }
+      to {
+        border-color: transparent;
+      }
+    }
+}
+
+// MODAL POST
+.modal-post {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-post {
+        @include tamanhos(635px, 1200px);
+        @include displayFlex(column, space-between);
+        padding: 28px 37px 30px 37px;
+        background-color: white;
+        border-radius: 20px;
+
+        #parte-superior {
+            @include tamanhos(431px, 1126px);
+            @include displayFlex(row, space-between);
+
+            #info-ong-trocar {
+                @include tamanhos(inherit, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+
+                    #info-nome-data {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                #trocar {
+                    @include tamanhos(305px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    .style-input {
+                        @include tamanhos(205px, 405px);
+                        position: relative;
+
+                        textarea {
+                            @include tamanhos(205px, 405px);
+                            border-radius: 8px;
+                            border: 2px solid $border;
+                            resize: none;
+                            padding: 13px 35px 0 18px;
+                            font-size: 1.380rem;
+                            font-weight: map-get($densidade, medium);
+                            font-family: 'Montserrat', sans-serif;
+                            color: $text;
+                        }
+
+                        img {
+                            @include tamanhos(30px, 30px);
+                            cursor: pointer;
+                        }
+    
+                        .icone-validation {
+                            position: absolute;
+                            right: 8px;
+                            top: 15px;
+                            visibility: hidden;
+                        }
+    
+    
+                        small {
+                            visibility: hidden; 
+                            font-size: 1.2rem;
+                            color: $tartOrange;
+                            font-weight: map-get($densidade, medium);
+                            margin-left: 10px;
+                        }
+                    }
+
+                }
+
+            }
+
+            #imagens-opcoes {
+                @include tamanhos(inherit, 618px);
+                @include displayFlex(row, center, center);
+
+                #conteudo-imagens {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, space-between);
+                    border-radius: 20px;
+                    background-color: $background;
+
+                    #opcoes {
+                        @include tamanhos(65px, 560px);
+                        @include displayFlex(row, space-between);
+                        padding-top: 17px;
+                        padding-left: 24px;
+
+                        label {
+                            @include tamanhos(50px, 375px);
+                            @include displayFlex(row, $align: center, $gap: 14.25px);
+                            @include textoEstilo(grau9, semiBold, $text);
+                            padding: 0 11px 0 10px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+
+                        input[type='file'] {
+                            display: none
+                        }
+                    }
+
+                    #araste-imagens {
+                        @include tamanhos(calc(431px - 85px), inherit);
+                        @include displayFlex(row, space-between, center);
+
+                        #primeiraPrevia {
+                            @include tamanhos(inherit, 420px);
+
+                            img {
+                                @include tamanhos(inherit, inherit);
+                                border-radius: 6px;
+                            }
+                        }
+
+                        #outras-previas {
+                            @include tamanhos(inherit, calc(618px - 430px));
+                            @include displayFlex(column, space-between);
+
+                            img {
+                                @include tamanhos(170px, inherit);
+                                border-radius: 6px;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        button {
+            @include tamanhos(75px, 250px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau7, semiBold, $text, capitalize);
+            background-color: $deepSaffron;
+            border-radius: 6px;
+            cursor: pointer;
+            align-self: flex-end;
+            transition: .1s;
+            margin-top: 15px;
+
+            &:hover {
+                transition: .1s;
+                opacity: 0.8;
+            }
+        }
+
+        .modal-close {
+            @include tamanhos(30px, 30px);
+            @include displayFlex(row, center, center);
+            user-select: none;
+            cursor: pointer;
+            border-radius: 50%;
+            align-self: flex-start;
+    
+            &:hover {
+                background-color: #ff4949;
+                color: white;
+            }
+        }
+
+    }
+}
+// ATIVA A MODAL DE POST
+.modal-post.active {
+    opacity: 1;
+    z-index: 1;
+}
+// STYLES DE VALIDAÇÃO DO POST
+.style-input.sucess i .img-sucess {
+    visibility: visible;
+}
+.style-input.error i .img-error {
+    visibility: visible;
+}
+.modal-post 
+.modal-conteudo-post 
+#parte-superior 
+#info-ong-trocar 
+#trocar 
+.style-input.error 
+small {
+    visibility: visible;
+}
+
+// MODAL EVENTO
+.modal-evento {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    background: #00000090;
+
+    .modal-conteudo-evento {
+        @include tamanhos(757px, 1200px);
+        @include displayFlex(column, space-between);
+        padding: 29px 30px 30px 30px;
+        border-radius: 20px;
+        background-color: #fff;
+
+        .modal-close {
+            @include tamanhos(30px, 30px);
+            @include displayFlex(row, center, center);
+            user-select: none;
+            cursor: pointer;
+            border-radius: 50%;
+            align-self: flex-start;
+    
+            &:hover {
+                background-color: #ff4949;
+                color: white;
+            }
+        }
+
+        #parte-superior-evento {
+            @include tamanhos(562px, 1138px);
+            @include displayFlex(row, space-between);
+            margin-top: 15px;
+
+            #info-ong-trocar-evento {
+                @include tamanhos(inherit, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong-evento {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+
+                    #info-nome-data-evento {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                .trocar {
+                    @include tamanhos(436px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    input {
+                        @include tamanhos(64px, inherit);
+                        font-size: 22px;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        padding: 0 22px 0 16px;
+                        border-radius: 20px;
+                        border: 2px solid $border;
+
+                        &::placeholder {
+                            font-size: 22px;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+
+                    textarea {
+                        @include tamanhos(140px, 405px);
+                        border-radius: 8px;
+                        border: 2px solid $border;
+                        resize: none;
+                        padding: 15px;
+                        font-size: 1.380rem;
+                        font-weight: map-get($densidade, medium);
+                        font-family: 'Montserrat', sans-serif;
+                        color: $text;
+                    }
+
+                }
+
+            }
+
+            #complemento-evento {
+                @include tamanhos(inherit, 618px);
+                @include displayFlex(column, space-between);
+    
+                #conteudo-imagens {
+                    @include tamanhos(310px, inherit);
+                    @include displayFlex(column, space-between);
+                    border-radius: 20px;
+                    background-color: $background;
+
+                    #opcoes {
+                        @include tamanhos(65px, 560px);
+                        @include displayFlex(row, space-between);
+                        padding-top: 13px;
+                        padding-left: 21px;
+
+                        label {
+                            @include tamanhos(50px, 375px);
+                            @include displayFlex(row, $align: center, $gap: 14.25px);
+                            @include textoEstilo(grau9, semiBold, $text);
+                            padding: 0 11px 0 10px;
+                            background-color: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            
+                            img {
+                                @include tamanhos(25px, 25px);
+                            }
+                        }
+
+                        input[type='file'] {
+                            display: none
+                        }
+                    }
+
+                    #araste-imagens {
+                        @include tamanhos(230px, inherit);
+                        @include displayFlex(row, space-between, center);
+
+                        #primeiraPrevia {
+                            @include tamanhos(inherit, 400px);
+
+                            img {
+                                @include tamanhos(inherit, inherit);
+                                border-radius: 6px;
+                            }
+                        }
+
+                        #outras-previas {
+                            @include tamanhos(inherit, 180px);
+                            @include displayFlex(column, space-between);
+
+                            img {
+                                @include tamanhos(110px, inherit);
+                                border-radius: 6px;
+                            }
+                        }
+                    }
+
+                }
+
+                #complemento-inputs {
+                    @include tamanhos(220px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    #superior-inputs {
+                        @include tamanhos(104px, inherit);
+                        @include displayFlex(row, space-between);
+
+                        .style-input {
+                            @include tamanhos(inherit, 267px);
+                            @include displayFlex(column, space-between);
+
+                            label {
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                            }
+
+                            input {
+                                @include tamanhos(64px, 257px);
+                                border: 2px solid $border;
+                                border-radius: 20px;
+                                align-self: flex-end;
+                                padding: 19px 20px 19px 16px;
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                                font-family: 'Montserrat', sans-serif;
+                                cursor: pointer;
+
+                                &::placeholder {
+                                    font-size: 1.450rem;
+                                    font-weight: map-get($densidade, medium);
+                                    color: $text;
+                                }
+                            }
+
+                        }
+                    }
+
+                    #adiconar-mais {
+                        @include tamanhos(94px, inherit);
+                        @include displayFlex(row, space-between, flex-end);
+
+                        .style-input {
+                            @include tamanhos(inherit, 267px);
+                            @include displayFlex(column, space-between);
+
+                            .block {
+                                user-select: none;
+                            }
+
+                            label {
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
+                            }
+
+                            select {
+                                @include tamanhos(55px, 257px);
+                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                border: 2px solid $border;
+                                border-radius: 20px;
+                                padding: 0px 15px;
+                                align-self: flex-end;
+                                appearance: none;
+                                -moz-appearance: none;
+                                background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                                option {
+                                    @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                }
+                            }
+                        }
+
+                        #modal-add-endereco {
+                            @include tamanhos(55px, 315px);
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, semiBold);
+                            color: $text;
+                            background: #E4E6EB;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            transition: .1s;
+                            font-family: 'Montserrat', sans-serif;
+                            padding: 13px;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        button {
+            @include tamanhos(75px, 250px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau7, semiBold, $text, capitalize);
+            background-color: $deepSaffron;
+            border-radius: 6px;
+            cursor: pointer;
+            align-self: flex-end;
+            transition: .1s;
+            margin-top: 15px;
+    
+            &:hover {
+                transition: .1s;
+                opacity: 0.8;
+            }
+        }
+
+    }
+}
+// ATIVA A MODAL DE EVENTO
+.modal-evento.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+// MODAL ENDEREÇO
+.modal-endereco {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-endereco {
+        @include tamanhos(678px, 863px);
+        @include displayFlex(column, space-between);
+        border-radius: 20px;
+        padding: 39px;
+        background-color: $background;
+
+        #todas-inputs {
+            @include tamanhos(502px, 777px);
+            @include displayFlex(column, space-between);
+
+            .conteudo-inputs {
+                @include tamanhos(104px, inherit);
+                @include displayFlex(row, space-between);
+
+                .style-input {
+                    @include tamanhos(inherit, 361px);
+                    @include displayFlex(column, space-between);
+
+                    label {
+                        font-size: 1.480rem;
+                        font-weight: map-get($densidade, regular);
+                        color: $text;
+                    }
+
+                    input {
+                        @include tamanhos(65px, 351px);
+                        border: 2px solid $border;
+                        border-radius: 6px;
+                        align-self: flex-end;
+                        padding: 19px 20px 19px 16px;
+                        font-size: 1.450rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        font-family: 'Montserrat', sans-serif;
+
+                        &::placeholder {
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+                }
+            }
+
+            #complemento-input {
+                @include tamanhos(105px, inherit);
+
+                .style-input {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, space-between);
+
+                    label {
+                        font-size: 1.480rem;
+                        font-weight: map-get($densidade, regular);
+                        color: $text;
+                    }
+
+                    input {
+                        @include tamanhos(65px, 767px);
+                        border: 2px solid $border;
+                        border-radius: 6px;
+                        align-self: flex-end;
+                        padding: 19px 20px 19px 16px;
+                        font-size: 1.450rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        font-family: 'Montserrat', sans-serif;
+
+                        &::placeholder {
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $placeholder;
+                        }
+                    }
+                }
+            }
+        }
+
+        #op-btn {
+            @include tamanhos(75px, 778px);
+            @include displayFlex(row, flex-end);
+
+            #conteudo-btn {
+                @include tamanhos(inherit, 540px);
+                @include displayFlex(row, space-between);
+
+                button {
+                    @include tamanhos(inherit, 250px);
+                    background-color: $deepSaffron;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-size: 1.8rem;
+                    font-weight: map-get($densidade, medium);
+                    text-transform: capitalize;
+                    font-family: 'Montserrat', sans-serif;
+                    transition: .1s;
+
+                    &:hover {
+                        transition: .1s;
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
+// ATIVA A MODAL ENDEREÇO
+.modal-endereco.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+// MODAL VAGA
+.modal-vaga {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-vaga {
+        @include tamanhos(628px, 1164px);
+        @include displayFlex(column, space-between);
+        border-radius: 20px;
+        padding: 30px;
+        background-color: $background;
+
+        .modal-close {
+            @include tamanhos(30px, 30px);
+            @include displayFlex(row, center, center);
+            user-select: none;
+            cursor: pointer;
+            border-radius: 50%;
+            align-self: flex-start;
+    
+            &:hover {
+                background-color: #ff4949;
+                color: white;
+            }
+        }
+
+        #parte-superior-vaga {
+            @include tamanhos(521px, 1100px);
+            @include displayFlex(row, space-between);
+
+            #info-ong-trocar-vaga {
+                @include tamanhos(520px, 405px);
+                @include displayFlex(column, space-between);
+
+                #info-ong-vaga {
+                    @include tamanhos(80px, 290px);
+                    @include displayFlex(row, space-between, center);
+
+                    img {
+                        @include tamanhos(inherit, 80px);
+                        border-radius: 50%;
+                    }
+
+                    #info-nome-data-vaga {
+                        @include tamanhos(55px, 200px);
+                        @include displayFlex(column, $gap: 3px);
+
+                        h2 {
+                            @include textoEstilo(grau8, bold, $text);
+                        }
+
+                        span {
+                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        }
+                    }
+                }
+
+                .trocar {
+                    @include tamanhos(395px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    select {
+                        @include tamanhos(64px, 405px);
+                        @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        border: 2px solid $border;
+                        border-radius: 15px;
+                        padding: 0px 15px;
+                        align-self: flex-end;
+                        appearance: none;
+                        -moz-appearance: none;
+                        background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+
+                        option {
+                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                        }
+                    }
+
+                    .style-input {
+                        position: relative;
+
+                        input {
+                            @include tamanhos(64px, 405px);
+                            @include textoEstilo(grau9, medium, $text, $letter: -0.02em);
+                            border: 2px solid $border;
+                            border-radius: 15px;
+                            padding: 0px 15px;
+                            align-self: flex-end;
+
+                            &::placeholder {
+                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                            }
+                        }
+
+                        textarea {
+                            @include tamanhos(205px, 405px);
+                            border-radius: 8px;
+                            border: 2px solid $border;
+                            resize: none;
+                            padding: 13px 35px 0 18px;
+                            font-size: 1.380rem;
+                            font-weight: map-get($densidade, medium);
+                            font-family: 'Montserrat', sans-serif;
+                            color: $text;
+                            margin-bottom: -4px;
+                        }
+
+                        img {
+                            @include tamanhos(30px, 30px);
+                            cursor: pointer;
+                        }
+    
+                        .icone-validation {
+                            position: absolute;
+                            right: 8px;
+                            top: 15px;
+                            visibility: hidden;
+                        }
+    
+                        small {
+                            visibility: hidden; 
+                            font-size: 1.2rem;
+                            color: $tartOrange;
+                            font-weight: map-get($densidade, medium);
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+
+            #complemento-vaga {
+                @include tamanhos(520px, 614px);
+                @include displayFlex(column, space-between);
+
+                #parte-cima {
+                    @include tamanhos(346px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    #requisitos-input {
+                        @include tamanhos(193px, inherit);
+                        @include displayFlex(column, space-between);
+                    }
+
+                    .style-input {
+                        position: relative;
+
+                        label {
+                            font-size: 1.400rem;
+                            color: $text;
+                            font-weight: map-get($densidade, medium);
+                        }
+
+                        textarea {
+                            @include tamanhos(158px, 600px);
+                            border-radius: 8px;
+                            border: 2px solid $border;
+                            resize: none;
+                            padding: 10px 35px 0 17px;
+                            font-size: 1.380rem;
+                            font-weight: map-get($densidade, medium);
+                            font-family: 'Montserrat', sans-serif;
+                            color: $text;
+                            align-self: flex-end;
+                        }
+                    }
+
+                    .caixa {
+                        @include tamanhos(122px, inherit);
+                        @include displayFlex(row);
+
+                        #superior-input {
+                            @include tamanhos(100px, inherit);
+                            @include displayFlex(column, space-between);
+
+                            label {
+                                font-size: 1.400rem;
+                                color: $text;
+                                font-weight: map-get($densidade, medium);
+                            }
+
+                            select {
+                                @include tamanhos(64px, 597px);
+                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                border: 2px solid $border;
+                                border-radius: 15px;
+                                padding: 0px 15px;
+                                appearance: none;
+                                -moz-appearance: none;
+                                background: #fff url('../img/Icon-select.png') 95.5% 50% no-repeat;
+                                margin-left: 13px;
+        
+                                option {
+                                    @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                #parte-baixo {
+                    @include tamanhos(161px, inherit);
+                    @include displayFlex(column, space-between);
+
+                    #botoes {
+                        @include tamanhos(55px, 614px);
+                        @include displayFlex(row, center);
+
+                        #btnEndereco {
+                            @include tamanhos(inherit, 290px);
+                            @include displayFlex(row, center, center);
+                            background-color: $cinza;
+                            border-radius: 6px;
+                            font-size: 1.400rem;
+                            color: $text;
+                            font-weight: map-get($densidade, semiBold);
+                            cursor: pointer;
+                            transition: .1s;
+                            font-family: 'Montserrat', sans-serif;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+
+                    #publicarVaga {
+                        @include tamanhos(75px, 250px);
+                        @include displayFlex(row, center, center);
+                        @include textoEstilo(grau7, semiBold, $text, capitalize);
+                        background-color: $deepSaffron;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        align-self: flex-end;
+                        transition: .1s;
+
+                        &:hover {
+                            transition: .1s;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// ATIVA A MODAL VAGA
+.modal-vaga.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+// MODAL INFO EVENTOS
+.modal-info-evento {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo {
+        @include tamanhos(332px, 787px);
+
+        .infos-conteudo {
+            @include tamanhos(inherit, inherit);
+            @include displayFlex(column, space-between);
+            padding: 32px;
+            background-color: $background;
+            border-radius: 20px;
+
+            .infos {
+                min-width: 20px;
+                min-height: 5px;
+                @include tamanhos(auto, auto);
+                @include displayFlex(row, $gap: 12px, $align: center);
+    
+                label {
+                    @include textoEstilo(grau9, medium, $text, $letter: -0.02em);
+                }
+    
+                h3 {
+                    font-size: 1.480rem;
+                    color: $tartOrange;
+                    font-weight: map-get($densidade, semiBold);
+                }
+            }
+        }
+    }
+}
+// ATIVA A MODAL DE INFO EVENTOS
+.modal-info-evento.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+// MODAL INFO VAGAS
+.modal-info-vaga {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-conteudo-vaga {
+        @include tamanhos(604px, 1025px);
+
+        .infos-conteudo {
+            @include tamanhos(inherit, inherit);
+            @include displayFlex(column, $gap: 28px);
+            background-color: #fff;
+            padding: 37px;
+            border-radius: 20px;
+
+            #requisitos {
+                min-height: 245px;
+                @include tamanhos(auto, 946px);
+                @include displayFlex(column, $gap: 21px);
+
+                label {
+                    font-size: 1.480rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $text;
+                }
+
+                h2 {
+                    font-size: 1.480rem;
+                    font-weight: map-get($densidade, semiBold);
+                    color: $tartOrange;
+                }
+            }
+        }
+    }
+}
+// ATIVA A MODAL DE INFO VAGAS
+.modal-info-vaga.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+body {
+    min-height: 100vh;
+    @include displayFlex(column);
+    font-family: 'Montserrat', sans-serif;
+    background-color: $background;
+}
+
+.conteudo {
+    @include tamanhos(inherit, 1440px);
+}
+
+main {
+    width: 100%;
+    flex-grow: 1;
+    @include displayFlex($justify: center);
+    margin-bottom: 25px;
+    padding: 15px;
+
+    #itens-main {
+        @extend .conteudo;
+        @include displayFlex(row, space-between, $wrap: wrap);
+        margin-top: 45px;
+
+        #direita {
+            min-height: 500px;
+            @include tamanhos(auto, 279px);
+            @include displayFlex(column);
+
+            #mini-perfil {
+                @include tamanhos(112px, inherit);
+                @include displayFlex($align: center);
+                background: #FFFFFF;
+                filter: $shadowMain;
+                border-radius: 20px;
+                cursor: pointer;
+
+                img {
+                    @include tamanhos(75px, 75px);
+                    border-radius: 50%;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                    object-fit: cover;
+                }
+
+                h3 {
+                    @include textoEstilo(grau9, semiBold, $text, capitalize);
+                }
+            }
+
+            #menu {
+                min-height: 200 px;
+                @include tamanhos(auto, 279px);
+                background: #FFFFFF;
+                filter: $shadowMain;
+                border-radius: 20px;
+                margin-top: 45px;
+
+                ul {
+                    @include tamanhos(inherit, inherit);
+                    @include displayFlex(column, $gap: 25px);
+                    padding: 25px 0 25px;
+
+                    li {
+                        @include tamanhos(65px, inherit);
+                        @include displayFlex(row-reverce, $align: center, $gap: 18px);
+                        position: relative;
+
+                        .barraActivity {
+                            @include tamanhos(inherit, 3px);
+                            background-color: $deepSaffron;
+                            border-radius: 3px 3px;
+                            left: -4px;
+                            position: absolute;
+                            opacity: 0;
+                        }
+
+                        .barraActivity.active {
+                            opacity: 1;
+                        }
+
+                        &:hover {
+                            background-color: $background;
+                        }
+
+                        img {
+                            @include tamanhos(35px, 35px);
+                            margin-left: 26px;
+                        }
+
+                        a {
+                            display: block;
+                            @include tamanhos(inherit, inherit);
+                            @include displayFlex(row, $align: center);
+                            @include textoEstilo(grau8, regular, $placeholder, capitalize, -0.02px);
+                        }
+
+                    }
+                }
+            }
+
+            #convite-quantidade {
+                @include tamanhos(50px, 210px);
+                @include displayFlex(row, space-between, center);
+                align-self: center;
+                margin-top: 28px;
+                margin-bottom: 25px;
+
+                h2 {
+                    font-size: 1.400rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $placeholder;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    @include tamanhos(35px, 35px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau9, medium, $background);
+                    border-radius: 50%;
+                    background-color: $tartOrange;
+                }
+            }
+
+            #vagas-indicadas {
+                min-height: 500px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 30px);
+
+                .vaga {
+                    @include tamanhos(424px, inherit);
+                    @include displayFlex(column, $align: center, $gap: 30px);
+                    padding: 25px;
+                    border-radius: 20px;
+                    background-color: #fff;
+                    filter: $shadowMain;
+
+                    .info-fundo-vaga {
+                        @include tamanhos(279px, 237px);
+
+                        .vaga-fundo {
+                            @include tamanhos(inherit, inherit);
+                            position: relative;
+                            border-radius: 20px;
+                            filter: brightness(50%);
+                            object-fit: cover;
+                        }
+
+                        .perfil-postagem {
+                            @include tamanhos(45px, 45px);
+                            border-radius: 6px;
+                            outline: 3px solid $background;
+                            position: absolute;
+                            top: 43px;
+                            left: 38px;
+                            object-fit: cover;
+                        }
+
+                        h3 {
+                            height: auto;
+                            width: 210px;
+                            @include textoEstilo(grau9, extraBold, $case: capitalize);
+                            color: white;
+                            position: absolute;
+                            top: 235px;
+                            left: 35px;
+                        }
+                    }
+
+                    button {
+                        @include tamanhos(50px, 237px);
+                        @include displayFlex(row, center, center);
+                        @include textoEstilo(grau9, semiBold, $text, capitalize);
+                        background-color: $deepSaffron;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        transition: .1s;
+
+                        &:hover {
+                            transition: .1s;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+
+        #conteudo-feed {
+            min-height: 750px;
+            height: auto;
+            width: 775px;
+            @include displayFlex(column, $align: center, $gap: 45px);
+
+            #previa-eventos {
+                min-height: 275px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(row, space-between,  $wrap: wrap, $gap: 20px);
+
+                .evento {
+                    @include tamanhos(275px, 175px);
+                    border-radius: 20px;
+                    position: relative;
+
+                    .fundo-evento {
+                        @include tamanhos(inherit, inherit);
+                        border-radius: 20px;
+                        position: absolute;
+                        filter: brightness(50%);
+                        object-fit: cover;
+                    }
+
+                    .perfil-postagem {
+                        @include tamanhos(50px, 50px);
+                        border-radius: 6px;
+                        outline: 3px solid $background;
+                        position: absolute;
+                        top: 19px;
+                        left: 19px;
+                        object-fit: cover;
+                    }
+
+                    h3 {
+                        @include textoEstilo(grau10, bold, $case: capitalize);
+                        color: white;
+                        position: absolute;
+                        bottom: 18px;
+                        left: 10px;
+                    }
+                }
+            }
+
+            #criar-postagem {
+                min-height: 90px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(rows, space-between, center);
+                background-color: #fff;
+                filter: $shadowMain;
+                border-radius: 20px;
+                padding: 15px;
+
+                #esquerda {
+                    min-height: 68px;
+                    min-width: 100px;
+                    @include tamanhos(auto, auto);
+                    @include displayFlex(row, $align: center, $gap: 13px);
+
+                    img {
+                        @include tamanhos(68px, 72px);
+                        border-radius: 8px;
+                        object-fit: cover;
+                    }
+
+                    h2 {
+                        width: 382px;
+                        font-size: 1.490rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $placeholder;
+                    }
+
+                    span {
+                        font-family: 'Montserrat Alternates', sans-serif;
+                    }
+                }
+
+                button {
+                    @include tamanhos(50px, 210px);
+                    @include displayFlex(row, space-around, center);
+                    font-size: 1.25rem;
+                    font-weight: map-get($densidade, semiBold);
+                    color: $text;
+                    background-color: $deepSaffron;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    padding-right: 7px;
+                    transition: .1s;
+                    font-family: 'Montserrat', sans-serif;
+
+                    &:hover {
+                        transition: .1s;
+                        opacity: 0.8;
+                    }
+
+                    img {
+                        @include tamanhos(24px, 24px);
+                        margin-left: 8px;
+                    }
+                }
+            }
+
+            .gap {
+                gap: 30px;
+            }
+
+            .feed {
+                min-height: 50px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 60px);
+
+                .post {
+                    min-height: 300px;
+                    @include tamanhos(auto, inherit);
+                    @include displayFlex(column, $gap: 25px);
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 18px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        .info-ong {
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+    
+                            img {
+                                @include tamanhos(inherit, 80px);
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, auto);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
+                                }
+    
+                                span {
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
+                                }
+                            }
+                        }
+    
+                        img {
+                            @include tamanhos(21px, 31px);
+                            cursor: pointer;
+                        }
+                    }
+    
+                    .imagens-postadas {
+                        @include tamanhos(314px, 736px);
+                        @include displayFlex(row, space-between);
+    
+                        img {
+                            @include tamanhos(inherit, 435px);
+                            border-radius: 6px;
+                        }
+    
+                        .imagens-complementos {
+                            @include tamanhos(inherit, 285px);
+                            @include displayFlex(column, space-between);
+    
+                            .cima {
+                                @include tamanhos(125px, inherit);
+                                border-radius: 6px;
+                            }
+    
+                            .baixo {
+                                @include tamanhos(176px, inherit);
+                                border-radius: 6px;
+                            }
+
+                            .ocupar-tudo {
+                                height: inherit;
+                            }
+                        }
+
+                        .tamanho-total {
+                            width: inherit;
+                        }
+                    }
+    
+                    p {
+                        font-size: 1.188rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        height: auto;
+                        width: 736px;
+                    }
+    
+                    .interacoes {
+                        @include tamanhos(25px, 736px);
+                        @include displayFlex(row, space-between, center);
+                        position: relative;
+    
+                        .icone-funcao {
+                            min-width: 50px;
+                            @include tamanhos(inherit, auto);
+                            @include displayFlex(row, $align: center, $gap: 7px);
+                            cursor: pointer;
+    
+                            .curtir {
+                                @include tamanhos(25px, 28px);
+                            }
+    
+                            .comentar {
+                                @include tamanhos(25px, 25px);
+                            }
+    
+                            .compartilhar {
+                                @include tamanhos(25px, 25px);
+                            }
+    
+                            span {
+                                @include textoEstilo(grau9, semiBold, $text, capitalize);
+                            }
+                        }
+                    }
+    
+                    .comentarios {
+                        min-height: 180px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, $gap: 20px);
+                        margin-top: 12px;
+    
+                        .corpo-comentario {
+                            min-height: 148px;
+                            min-width: 575px;
+                            @include tamanhos(auto, auto);
+                            @include displayFlex(row, space-between);
+    
+                            .lateral-imagem {
+                                @include tamanhos(inherit, 74px);
+                                @include displayFlex();
+    
+                                img {
+                                    @include tamanhos(75px, 75px);
+                                    border-radius: 50%;
+                                }
+                            }
+    
+                            .vertical-info {
+                                min-height: 150px;
+                                @include tamanhos(auto, 482px);
+                                @include displayFlex(column, $gap: 5px);
+    
+                                .comentario {
+                                    @include tamanhos(inherit, inherit);
+                                    @include displayFlex(column, $gap: 8px);
+                                    background-color: $deepSaffron;
+                                    padding: 12px;
+                                    border-radius: 6px;
+    
+                                    h3 {
+                                        @include textoEstilo(grau9, bold, $text);
+                                    }
+    
+                                    p {
+                                        @include textoEstilo(grau10, medium, $text);
+                                    }
+    
+                                    span {
+                                        font-size: 1.1rem;
+                                        font-weight: map-get($densidade, bold);
+                                        color: $text;
+                                        text-decoration: underline;
+                                        cursor: pointer;
+                                    }
+                                }
+    
+                                .acoes-comentario {
+                                    min-width: 209px;
+                                    @include tamanhos(30px, auto);
+                                    @include displayFlex(row, $align: center, $gap: 15px);
+    
+                                    span {
+                                        font-size: 1.1rem;
+                                        font-weight: map-get($densidade, medium);
+                                        color: $text;
+                                    }
+    
+                                    .curtir-comentario {
+                                        min-width: 168px;
+                                        @include tamanhos(inherit, auto);
+                                        @include displayFlex(row, $align: center, $gap: 6px);
+                                        cursor: pointer;
+    
+                                        img {
+                                            @include tamanhos(20px, 25px);
+                                        }
+    
+                                        span {
+                                            @include textoEstilo(grau10, semiBold, $text, capitalize);
+                                            margin-top: 2px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+    
+                    #comentar {
+                        min-height: 50px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        input {
+                            @include tamanhos(80px, 630px);
+                            @include textoEstilo(grau8, medium, $text);
+                            background-color: $cinza;
+                            border-radius: 44px;
+                            resize: none;
+                            font-family: 'Montserrat', sans-serif;
+                            padding-left: 35px;
+                            padding-top: 22px;
+                            padding-right: 20px;
+                            padding-bottom: 20px;
+    
+                            &::placeholder {
+                                @include textoEstilo(grau8, medium, $text);
+                            }
+                        }
+    
+                        #enviarComentario {
+                            @include tamanhos(70px, 70px);
+                            @include displayFlex(row, center, center);
+                            border-radius: 50%;
+                            background-color: $deepSaffron;
+                            cursor: pointer;
+    
+                            img {
+                                @include tamanhos(35px, 35px);
+                            }
+                        }
+                    } 
+                }
+
+                .evento-feed {
+                    min-height: 50px;
+                    @include tamanhos(auto, inherit);
+                    @include displayFlex(column, space-between, $gap: 25px);
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 18px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        .info-ong {
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+    
+                            img {
+                                @include tamanhos(inherit, 80px);
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, auto);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
+                                }
+    
+                                span {
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
+                                }
+                            }
+                        }
+    
+                        img {
+                            @include tamanhos(21px, 31px);
+                            cursor: pointer;
+                        }
+                    }
+    
+                    .info-evento {
+                        min-height: 294px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, space-between, $gap: 25px);
+    
+                        .info-superior {
+                            min-height: 10px;
+                            @include tamanhos(auto, 736px);
+                            @include displayFlex(column, space-between, $gap: 25px);
+    
+                            h2 {
+                                @include textoEstilo(grau7, semiBold, $text);
+                            }
+    
+                            p {
+                                height: auto;
+                                width: 736px;
+                                @include textoEstilo(grau10, medium, $text);
+                            }
+                        }
+    
+                        .imagens-postadas {
+                            @include tamanhos(314px, 736px);
+                            @include displayFlex(row, space-between);
+        
+                            img {
+                                @include tamanhos(inherit, 435px);
+                                border-radius: 6px;
+                            }
+        
+                            .imagens-complementos {
+                                @include tamanhos(inherit, 285px);
+                                @include displayFlex(column, space-between);
+        
+                                .cima {
+                                    @include tamanhos(125px, inherit);
+                                    border-radius: 6px;
+                                }
+        
+                                .baixo {
+                                    @include tamanhos(176px, inherit);
+                                    border-radius: 6px;
+                                }
+    
+                                .ocupar-tudo {
+                                    height: inherit;
+                                }
+                            }
+    
+                            .tamanho-total {
+                                width: inherit;
+                            }
+                        }
+
+                        #interesses {
+                            @include tamanhos(60px, 736px);
+                            @include displayFlex(row, center, center);
+
+                            #conteudo-btn {
+                                @include tamanhos(inherit, auto);
+                                @include displayFlex(row, $gap: 56px);
+
+                                #saiba-mais-evento {
+                                    @include tamanhos(inherit, 150px);
+                                    @include displayFlex(row, center, center);
+                                    font-size: 1.500rem;
+                                    font-weight: map-get($densidade, semiBold);
+                                    text-transform: capitalize;
+                                    background-color: $deepSaffron;
+                                    border-radius: 6px;
+                                    border: none;
+                                    transition: .1s;
+                                    cursor: pointer;
+        
+                                    &:hover {
+                                        transition: .1s;
+                                        opacity: 0.8;
+                                    }
+                                }
+
+                                #candidatarEvento {
+                                    @include tamanhos(inherit, 194px);
+                                    @include displayFlex(row, center, center);
+                                    font-size: 1.500rem;
+                                    font-weight: map-get($densidade, semiBold);
+                                    text-transform: capitalize;
+                                    background-color: $deepSaffron;
+                                    border-radius: 6px;
+                                    border: none;
+                                    transition: .1s;
+                                    cursor: pointer;
+        
+                                    &:hover {
+                                        transition: .1s;
+                                        opacity: 0.8;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+    
+                .vaga {
+                    min-height: 50px;
+                    @include tamanhos(auto, inherit);
+                    @include displayFlex(column, $gap: 30px);
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 25px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        .info-ong {
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+    
+                            img {
+                                @include tamanhos(inherit, 80px);
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, auto);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
+                                }
+    
+                                span {
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
+                                }
+                            }
+                        }
+    
+                        img {
+                            @include tamanhos(21px, 31px);
+                            cursor: pointer;
+                        }
+                    }
+    
+                    .corpo-vaga {
+                        min-height: 10px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, $gap: 30px);
+    
+                        h2 {
+                            @include textoEstilo(grau7, semiBold, $text);
+                        }
+    
+                        p {
+                            height: auto;
+                            width: 736px;
+                            font-size: 1.188rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $text;
+                        }
+    
+                        .vaga-botoes {
+                            @include tamanhos(60px, 350px);
+                            @include displayFlex(row, space-between);
+                            align-self: center;
+    
+                            button {
+                                @include tamanhos(inherit, 150px);
+                                @include displayFlex(row, center, center);
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, semiBold);
+                                text-transform: capitalize;
+                                background-color: $deepSaffron;
+                                border-radius: 6px;
+                                border: none;
+                                transition: .1s;
+                                cursor: pointer;
+    
+                                &:hover {
+                                    transition: .1s;
+                                    opacity: 0.8;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #esquerda-seguidores {
+            min-height: 500px;
+            @include tamanhos(auto, 261px);
+            @include displayFlex(column, $gap: 25px);
+
+            #info-seguidores {
+                @include tamanhos(30px, 223px);
+                @include displayFlex($justify: space-around, $align: center);
+
+                h3 {
+                    font-size: 1.450rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $placeholder;
+                    text-transform: uppercase;
+                }
+
+                span {
+                    @include tamanhos(28px, 52px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau10, semiBold, $text);
+                    background-color: $deepSaffron;
+                    padding-right: 3px;
+                    border-radius: 25px;
+                }
+            }
+
+            #seguindo {
+                @include tamanhos(auto, 261px);
+                @include displayFlex(column, $gap: 20px);
+                padding: 23px 0 10px 10px;
+                border-radius: 20px;
+                background-color: #fff;
+
+                .info-seguindo {
+                    min-height: 50px;
+                    @include tamanhos(60px, auto);
+                    @include displayFlex(row, $align: center, $gap: 15px);
+
+                    img {
+                        @include tamanhos(inherit, 60px);
+                    }
+
+                    .identificador {
+                        @include tamanhos(50px, auto);
+                        @include displayFlex(column, space-between);
+
+                        h3 {
+                            @include textoEstilo(grau9, semiBold, $text);
+                        }
+
+                        span {
+                            @include textoEstilo(grau10, medium, $placeholder);
+                        }
+                    }
+                }
+
+                img {
+                    @include tamanhos(35px, 35px);
+                    align-self: center;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .loader {
+            opacity: 0;
+            display: flex;
+            position: fixed;
+            bottom: 7px;
+            transition: opacity 0.3s ease-in;
+        }
+          
+        .loader.show {
+            opacity: 1;
+        }
+          
+        .circle {
+            background-color: $tartOrange;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 5px;
+            animation: bounce 0.5s ease-in infinite;
+        }
+          
+        .circle:nth-of-type(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .circle:nth-of-type(3) {
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    }
+}

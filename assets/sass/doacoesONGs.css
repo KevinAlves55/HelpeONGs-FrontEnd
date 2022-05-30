@@ -87,6 +87,8 @@ header #itens-header #logo img {
   height: inherit;
   width: inherit;
   margin-top: 7px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 header #itens-header #lupa-atalhos {
@@ -181,6 +183,8 @@ header #itens-header #lupa-atalhos #atalhos {
 header #itens-header #lupa-atalhos #atalhos img {
   height: 32px;
   width: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
@@ -202,9 +206,10 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  position: relative;
 }
 
-header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto {
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto-header {
   height: inherit;
   width: 90px;
   border-radius: 50%;
@@ -213,11 +218,97 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #foto {
 header #itens-header #lupa-atalhos #atalhos #atalhos-perfil #seta-baixo {
   height: 24px;
   width: 24px;
+  cursor: pointer;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes {
+  min-height: 130px;
+  height: auto;
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 10px;
+  background-color: #8C8C8C;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  z-index: -3;
+  opacity: 0;
+  padding: 8px 0 8px;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes span {
+  height: 35px;
+  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: capitalize;
+  letter-spacing: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  cursor: pointer;
+  padding-left: 12px;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes span:hover {
+  background-color: #CCCCCC;
+}
+
+header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active {
+  z-index: 3;
+  opacity: 1;
 }
 
 .modal {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -826,6 +917,8 @@ main #itens-main #direita #mini-perfil img {
   border-radius: 50%;
   margin-left: 8px;
   margin-right: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 main #itens-main #direita #mini-perfil h3 {
@@ -892,6 +985,21 @@ main #itens-main #direita #menu ul li {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 18px;
+  position: relative;
+}
+
+main #itens-main #direita #menu ul li .barraActivity {
+  height: inherit;
+  width: 3px;
+  background-color: #FF9F45;
+  border-radius: 3px 3px;
+  left: -4px;
+  position: absolute;
+  opacity: 0;
+}
+
+main #itens-main #direita #menu ul li .barraActivity.active {
+  opacity: 1;
 }
 
 main #itens-main #direita #menu ul li:hover {
@@ -905,6 +1013,25 @@ main #itens-main #direita #menu ul li img {
 }
 
 main #itens-main #direita #menu ul li a {
+  display: block;
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   font-size: 1.563rem;
   font-weight: 400;
   color: #8C8C8C;
