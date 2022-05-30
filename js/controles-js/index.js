@@ -5,6 +5,7 @@ import Redirect from "../utils/Redirect.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { checkInputs, errorValidation } from "../validator/validatorPostagem.js";
+import { CheckWindow } from "../utils/Menu.js";
 
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
@@ -20,6 +21,9 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     console.log("Logado como ONG");
     ongLogado = validarSession("dadosOng");
     console.log(ongLogado);
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilONGs.html`;
 
     let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
     console.log(req);
@@ -67,6 +71,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 }
 
+CheckWindow();
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);

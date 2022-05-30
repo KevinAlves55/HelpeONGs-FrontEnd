@@ -42,7 +42,7 @@ function getFormattedDate(dataConvert) {
     return formatterDay + ' de ' + formatterMonth + ' de ' + year;
 }
 
-function getFormattedDateEvent(dataConvert) {
+function getFormattedDateFeed(dataConvert) {
     
     var date = new Date(dataConvert);
     var day = date.getDate();
@@ -99,5 +99,5 @@ function getFormattedDateEvent(dataConvert) {
 
 export {
     getFormattedDate,
-    getFormattedDateEvent
+    getFormattedDateFeed
 }

@@ -139,7 +139,8 @@ main {
             }
 
             #menu {
-                @include tamanhos(485px, 279px);
+                min-height: 200 px;
+                @include tamanhos(auto, 279px);
                 background: #FFFFFF;
                 filter: $shadowMain;
                 border-radius: 20px;
@@ -147,12 +148,26 @@ main {
 
                 ul {
                     @include tamanhos(inherit, inherit);
-                    @include displayFlex(column, space-around);
-                    padding: 15px 0 15px;
+                    @include displayFlex(column, $gap: 25px);
+                    padding: 25px 0 25px;
 
                     li {
                         @include tamanhos(65px, inherit);
                         @include displayFlex(row-reverce, $align: center, $gap: 18px);
+                        position: relative;
+
+                        .barraActivity {
+                            @include tamanhos(inherit, 3px);
+                            background-color: $deepSaffron;
+                            border-radius: 3px 3px;
+                            left: -4px;
+                            position: absolute;
+                            opacity: 0;
+                        }
+
+                        .barraActivity.active {
+                            opacity: 1;
+                        }
 
                         &:hover {
                             background-color: $background;
@@ -164,6 +179,9 @@ main {
                         }
 
                         a {
+                            display: block;
+                            @include tamanhos(inherit, inherit);
+                            @include displayFlex(row, $align: center);
                             @include textoEstilo(grau8, regular, $placeholder, capitalize, -0.02px);
                         }
 

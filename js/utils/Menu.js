@@ -25,6 +25,39 @@ const CheckWindow = () => {
         donateActivity.style.backgroundColor = "#F8F9FA";
         barraActivity.classList.add("active");
 
+    } else if (windowThis.includes("perfilONGs")) {
+
+        const profile = document.getElementById("profileLink");
+        const barraActivity = document.getElementById("barraProfile");
+        const profileActivity = document.getElementById("profileActivity");
+        profile.style.color = "#FF9F45";
+        profile.style.fontWeight = "600";
+        profileActivity.style.backgroundColor = "#F8F9FA";
+        barraActivity.classList.add("active");
+
+
+    } else if (windowThis.includes("perfilUsuario")) {
+
+        const profile = document.getElementById("profileLink");
+        const barraActivity = document.getElementById("barraProfile");
+        const profileActivity = document.getElementById("profileActivity");
+        profile.style.color = "#FF9F45";
+        profile.style.fontWeight = "600";
+        profileActivity.style.backgroundColor = "#F8F9FA";
+        barraActivity.classList.add("active");
+
+    } else if (windowThis.includes("controles")) {
+
+        const control = document.getElementById("controlLink");
+        const barraActivity = document.getElementById("barraControl");
+        const controlActivity = document.getElementById("control");
+        console.log(controlActivity);
+        control.style.color = "#FF9F45";
+        control.style.fontWeight = "600";
+        controlActivity.style.backgroundColor = "#F8F9FA";
+        barraActivity.classList.add("active");
+
+
     }
 
 }

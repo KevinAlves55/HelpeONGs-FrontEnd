@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpONGs - Meu perfil</title>
+    <link rel="stylesheet" href="assets/sass/perfilONGsSobre.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="js/perfil-ONGs/index.js" defer></script>
+    <script type="module" src="js/perfil-ONGs/dadosONGs.js" defer></script>
+    <script src="js/perfil-ONGs/paginacaoPerfilONGs.js" defer></script>
+    <script type="module" src="js/perfil-ONGs/apiCep.js"></script>
+    <script type="module" src="js/perfil-ONGs/categorias.js"></script>
+    
+    
+</head>
+
+<body>  
+
+    <!-- MODAL DE DOAÇÃO -->
+    <div class="modal" id="modal">
+        <div class="modal-conteudo">
+            <span class="modal-close" id="modalClose">&#10006;</span>
+
+            <div id="informacoes">
+                <div id="esquerda-informacoes">
+                    <h1>Utilize as informações <br> para fazer uma doação</h1>
+
+                    <img src="assets/img/fundo-modal.png" alt="Doar agora" title="Imagem de fundo">
+                </div>
+                <div id="direita-informacoes">
+                    <div id="direita-contatos">
+                        <h2>Informações de contato</h2>
+
+                        <div class="caixa">
+                            <span>Celular: </span>
+                            <h3>(11) 94536-7654</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Telefone: </span>
+                            <h3>(11) 94536-7654</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Email: </span>
+                            <h3>ongBrasil@gmail.com</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Site: </span>
+                            <h3><a target="_blank" href="https://www.vibraenergia.com.br/">www.br.com.br</a></h3>
+                        </div>
+                    </div>
+                    <div id="direita-meios-doacoes">
+                        <div id="direita-meios">
+                            <h2>Meios de doação</h2>
+
+                            <div class="caixa">
+                                <span>Conta: </span>
+                                <h3>6654356-9</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Tipo: </span>
+                                <h3>Corrente</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Agência: </span>
+                                <h3>0001</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Banco: </span>
+                                <h3>Bradesco</h3>
+                            </div>
+                            <div class="caixa">
+                                <span>Pix: </span>
+                                <h3>330.453.908.09</h3>
+                            </div>
+
+                            <div id="esquerda-imagem">
+                                <img src="assets/img/foto-banco.png" alt="Banco" title="Foto do Banco">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE ADD CATEGORIAS -->
+    <div class="modal-categorias" id="modalCategorias">
+        <div class="modal-container-categorias">
+            <label>Selecione as causas que deseja</label>
+
+            <div class="todas-categorias">
+            </div>
+
+            <div id="botoes">
+                <div id="opcoes">
+                    <button type="button" id="cancelar">Cancelar</button>
+                    <button type="button" id="adicionarCategorias">Adicionar</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Esquerda -->
+    <header id="esquerda">
+        <div id="logo">
+            <img src="./assets/img/image 11.png">
+        </div>
+
+        <div id="conteudo-header">
+            <div id="mini-perfil">
+                <img src="" alt="Perfil" title="" id="mini-perfil-foto">
+
+                <h3 id="mini-perfil-nome"></h3>
+            </div>
+
+            <nav id="menu">
+                <ul>
+                    <li id="feedActivity">
+                        <div id="barraFeed" class="barraActivity"></div>
+                        <img src="assets/img/icon-feed.svg" alt="Feed" title="Icon-Feed">
+                        <a href="feed.html" id="feedLink">Feed</a>
+                    </li>
+                    <li id="donateActivity">
+                        <div id="barraDonate" class="barraActivity"></div>
+                        <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
+                        <a href="doacoesONGs.html" id="donateLink">Doar</a>
+                    </li>
+                    <li id="profileActivity">
+                        <div id="barraProfile" class="barraActivity"></div>
+                        <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
+                        <a href="" id="profileLink">Perfil</a>
+                    </li>
+                    <li id="control">
+                        <div id="barraControl" class="barraActivity"></div>
+                        <img src="assets/img/users-controles.png" alt="Eventos" title="Icon-controles">
+                        <a href="controles.html" id="controlLink">Controles</a>
+                    </li>
+                    <li>
+                        <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
+                        <a id="sair" style="cursor: pointer;">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Centro -->
+    <main id="centro">
+        <div id="banner">
+            <img src="" id="perfil-banner">
+        </div>
+
+        <section id="meu-perfil">
+            <div id="minha-foto-perfil">
+                <img src="" alt="nomeDaONG" title="Foto da ONG" id="perfil-foto">
+            </div>
+            
+            <div id="conteudo-perfil-centro">
+                <div id="info-esquerda">
+                    <div id="nome-qtda-seguidores">
+                        <h1 id="perfil-nome"></h1>
+                        <h2 id="qtdaSeguidores"></h2>
+                    </div>
+                    
+                    <div id="todas-categorias-perfil">
+                    </div>
+                </div>
+
+                <div id="info-direito">
+                    <div id="opcoes-info">
+                        <div class="opcoes" id="doar-ong">
+                            <img src="assets/img/heart.png">
+                            <span>Doar</span>
+                        </div>
+
+                        <div class="opcoes">
+                            <img src="assets/img/activity.png">
+                            <span>Seguir</span>
+                        </div>
+                    </div>
+
+                    <button id="btnModal">
+                        <img src="assets/img/edit-2.png" alt="Ediatr perfil" title="Icone lápis">
+                        editar perfil
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <nav id="menu-opcoes-perfil">
+            <ul id="menu-opcoes-principal">
+                <li>
+                    <span id="item1">Sobre</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item2">Conta</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item3">Detalhes da ONG</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item4">Endereço</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item5">Contatos</span>
+                    <div class="barra"></div>
+                </li>
+            </ul>
+
+            <ul id="menu-opcoes-outros">
+                <li>
+                    <span id="item6">Meios de doação</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item7">Patrocínios</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item8">Posts</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item9">Eventos</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item10">Vagas</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item11">Senha</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item12">Conta</span>
+                    <div class="barra"></div>
+                </li>
+            </ul>
+
+            <div id="troca-de-menus">
+                <img src="assets/img/seta-direita-menu.png" alt="Trocar" title="Icone seta" id="trocar-direita"/>
+                <img src="assets/img/seta-esquerda-menu.png" alt="Trocar" title="Icone seta" id="trocar-esquerda">
+            </div>
+        </nav>
+
+        <div id="container-conteudo">
+
+            <!-- APARECER NO INICÍO -->
+            <div id="conteudo-inicio">
+                <section id="conteudo-sobre">
+                    <div id="texto-sobre">
+                        <p id="descricaoSobre">
+                            
+                            
+                        </p>
+                    </div>
+    
+                    <div id="conteudo-info-sobre">
+                        <div class="info-sobre">
+                            <h2>Quantidade de membros: </h2>
+                            <span id="qtdaMembros"></span>
+                        </div>
+    
+                        <div class="info-sobre">
+                            <h2>Ano de fundação: </h2>
+                            <span id="anoFundacao"></span>
+                        </div>
+
+                        <div class="info-sobre">
+                            <h2> Sede do local: </h2>
+                            <span id="sede"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="container-conteudo-historia">
+                    <h1>Nossa História</h1>
+
+                    <p id="historiaSobre">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+                        consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet
+                        minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat
+                        duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit
+                        non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim
+                        velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                    </p>
+                </section>
+
+                <section id="conteudo-patrocinios">
+                    <h2>Patrocínios</h2>
+                    
+                    <div id="todos-patrocinios">
+                        <div class="patrocinador">
+                            <img src="assets/img/Ellipse 1.png">
+                            <span>Coca-Cola</span>
+                        </div>
+                        <div class="patrocinador">
+                            <img src="assets/img/Ellipse 4.png">
+                            <span>GoPro</span>
+                        </div>
+                        <div class="patrocinador">
+                            <img src="assets/img/Ellipse 3.png">
+                            <span>SeptWolves</span>
+                        </div>
+                        <div class="patrocinador">
+                            <img src="assets/img/Ellipse 2.png">
+                            <span>The North Face</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- DETALHES DA CONTA -->
+            <div id="container-conteudo-detalhes-conta">
+                <form>
+                    <div id="nome" class="style-input">
+                        <label>Nome da ONG</label>
+                        <input type="text" id="nomeOng"  placeholder="Insira o nome da ONG"/>
+                        <small>Error</small>
+                        <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                        <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                    </div>
+
+                    <div id="email-cnpj">
+                        <div id="email" class="style-input">
+                            <label>E-mail</label>
+                            <input type="email" id="emailOng" placeholder="Digite seu E-mail"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+
+                        <div id="cnpj" class="style-input">
+                            <label>CNPJ</label>
+                            <input type="String" id="cnpjOng" placeholder="Digite seu CNPJ"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                    </div>
+
+                    <div class="botao-conta">
+                        <button id="button-detalhes-conta-Atualizado" type="button">
+                            Atualizar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- DETALHES DA ONGs -->
+            <div id="container-conteudo-detalhes-ONGs">
+                <form>
+                    <div id="fileira-descricao">
+                        <div id="descricao" class="style-input">
+                            <label>Descrição da ONG</label>
+                            <textarea placeholder="Insira uma descrição para dar credibilidade a sua ONG" name="" id="descriacaoOng" cols="30" rows="10"></textarea>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+    
+                        <div id="qtda-fundacao">
+                            <div id="quantidade-membros" class="style-input">
+                                <label>Quantidade de membros</label>
+                                <input type="number" placeholder="0" id="qtdaMembrosOng"/>
+                                <small>Error</small>
+                                <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                                <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            </div>
+        
+                            <div id="data-fundacao" class="style-input">
+                                <label>Data fundação</label>
+                                <input placeholder="00-00-0000" id="fundacaoOng" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <small>Error</small>
+                                <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                                <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div id="historia-ONG" class="style-input">
+                        <label>História da ONG</label>
+                        <textarea name="" placeholder="Descreva uma história de criação da sua ONG" id="historiaOng" cols="30" rows="10"></textarea>
+                        <small>Error</small>
+                        <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                        <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                    </div>
+    
+                    <div id="categoria-detalhes-ONG"> 
+
+                        <label>Causas da ONG</label>
+
+                        <div id="lista-de-categoria">
+                            <div id="todas-categorias">
+                            </div>
+
+                            <button type="button" id="add-causas-ong">
+                                Adicionar causas
+                            </button>
+                        </div>
+                    </div>
+    
+                    <div class="botao-ONGS">
+                        <button id="button-detalhes-ONG" type="button">Atualizar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- DETALHES DO ENDEREÇO -->
+            <div id="container-conteudo-detalhes-do-endereco">
+                <form>
+                    <div id="primeira-fileira">
+                        <div id="cep-input" class="style-input">
+                            <label>Cep</label>
+                            <input type="text" id="cep"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                        <div id="estado-input" class="style-input">
+                            <label>Estado</label>
+                            <input type="text" id="estado"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                        <div id="cidade-input" class="style-input">
+                            <label>Cidade</label>
+                            <input type="text" id="cidade"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                    </div>
+
+                    <div id="segunda-fileira">
+                        <div id="bairro-input" class="style-input">
+                            <label>Bairro</label>
+                            <input type="text" id="bairro"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                        <div id="rua-input" class="style-input">
+                            <label>Rua</label>
+                            <input type="text" id="endereco"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                        <div id="numero-input" class="style-input">
+                            <label>Número</label>
+                            <input type="number" id="numero"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                    </div>
+
+                    <div id="terceira-fileira">
+                        <div id="complemento-input" class="style-input">
+                            <label>Complemento</label>
+                            <input type="text" id="complemento"/>
+                            <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
+                        </div>
+                    </div>
+
+                    <div class="botao-endereco">
+                        <button id="button-detalhes-endereco" type="button">
+                            Cadastrar
+                        </button>
+
+                        <button id="button-detalhes-endereco-Atualizado" type="button">
+                            Atualizar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- DETALHES DE CONTATOS -->
+            <div id="container-conteudo-detalhes-de-contatos">
+                <form action="">
+                    <div id="celular-telefone">
+                        <div id="celular" class="style-input">
+                            <label>Celular</label>
+                            <input type="text" id="celularOng" placeholder="(11) 4342-5898" />
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+    
+                        <div id="telefone" class="style-input">
+                            <label>Telefone</label>
+                            <input type="text" id="telefoneOng" placeholder="(11) 4342-5898"/>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                    </div>
+
+                    <div id="botoes-contato">
+                        <button type="button" id="cadastrarContatos">Cadastrar</button>
+                        <button type="button" id="atualizarContatos">Atualizar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- MEIOS DE DOAÇÕES -->
+            <div id="container-conteudo-meios-doacoes">
+                <form>
+                    <div id="fileira-doacoes">
+                        <div id="site" class="style-input">
+                            <label>Site</label>
+                            <input type="link" id="linkSiteOng" placeholder="Insira o link de seu site"/>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                        <div id="pix" class="style-input">
+                            <label>Pix</label>
+                            <input type="text" id="pixOng" placeholder="Insira seu Pix"/>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                    </div>
+                    
+                    <div id="fileira-agencia">
+                        <div id="agencia" class="style-input">
+                            <label>Agencia</label>
+                            <input type="text" id="agenciaOng" placeholder="0001"/>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+
+                        <div id="tipo-conta" class="style-input">
+                            <label>Tipo</label>
+        
+                            <select name="sltContas" id="contaTipoOng">
+                                <option value="">Selecione</option>
+                                <option value="Conta Corrente">Conta Corrente</option>
+                                <option value="Poupança">Poupança</option>
+                            </select>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                    </div>
+
+                    <div id="fileira-complemento-info">
+                        <div id="banco" class="style-input">
+                            <label>Banco</label>
+                            <input type="text" id="bancoOng" placeholder="Bradesco">
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+
+                        <div id="conta" class="style-input">
+                            <label>Conta</label>
+                            <input type="text" id="contaOng" placeholder="43215498-9"/>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                    </div>
+
+                    <div class="proximo">
+                        <button id="button-meiosDoacoes-atualizar" type="button">Atulizar</button>
+                        <button id="button-meiosDoacoes" type="button">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- PATROCINIOS -->
+            <div id="container-conteudo-patrocinios">
+
+                <div id="editar-imagen">
+                    <label for="fileSponsor" id="img-file">
+                        <img src="assets/img/perfilONG-sem-foto.png" class="preview">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="fileSponsor">
+                    <h2 id="nomeImagem">Adicione uma imagem</h2>
+                </div>
+
+                <div id="editar-nome-link">
+                    <div id="nome-link">
+                        <div id="nome-do-patrocinador" class="style-input">
+                            <label>Nome do Patrocinador</label>
+                            <input type="text" id="nomePatrocinadorOng" placeholder="Coca-Cola">
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+
+                        <div id="link-do-site" class="style-input">
+                            <label>Link do site</label>
+                            <input type="text" id="linkSitePatrocinador" placeholder="www.cocacola.com">
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                    </div>
+
+                    <div id="botoes">
+                        <button id="button-patrocinios">Cadastrar</button>
+                    </div>
+                </div>       
+            </div>
+
+            <!--POSTS -->
+            <div id="container-post">
+                <div id="todos-post">
+
+                </div>
+
+                <div class="loader">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div> 
+            </div>
+
+            <!-- EVENTOS -->
+            <div id="container-evento">    
+                <div id="todos-evento">
+
+                </div>
+
+                <div class="loaderEvento">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div> 
+            </div>
+
+            <!-- VAGAS -->
+            <div id="container-vagas">
+                <div id="todas-vaga">
+
+                </div>
+
+                <div class="loaderVaga">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>  
+
+            <!-- SENHA -->
+            <div id="container-senha">
+                <h1>Editar informações da senha</h1>
+                <div id="editar-senha">
+                    <div id="senha-atual">
+                        <h3>Senha atual</h3>
+                        <input type="password" id="senhaAtual" placeholder="Digite senha atual">
+                    </div>
+                    <div id="nova-confirmar">
+                        <div id="nova-senha">
+                            <h3>Nova senha</h3>
+                            <input type="password" id="novaSenha" placeholder="Digite nova senha">
+                        </div>
+
+                        <div id="confirmar-senha">
+                            <h3>Confirmar nova senha</h3>
+                            <input type="password" id="confirmarNovaSenha" placeholder="Confirme senha">
+                        </div>
+                    </div>
+                </div>
+                <div id="botao">
+                    <div id="botao-editar-senha">
+                        <button type="submit">Editar</button>
+                    </div>
+                    <div id="botao-cancelar-senha">
+                        <button type="submit">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EXCLUIR CONTA -->
+            <div id="container-conta">
+                <p>
+                    Caso esteja insatisfeito em nossa plataforma, você tem a opção de 
+                    excluir sua conta, mas lembresse, todos os seus dados salvos não 
+                    estaram mais aqui  
+                </p>
+                <div id="Botao">
+                    <button type="submit">Excluir conta</button>
+                </div>
+            </div>
+            
+        </div>   
+    </main>
+    
+    <!-- Direita -->   
+    <div id="direita">
+
+        <div id="info-seguidores">
+            <h3>SEGUIDORES</h3>
+            <span>48</span>
+        </div>
+
+        <div id="container-direita">
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div>
+                    <h3>MilGraus</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div class="nome-perfil">
+                    <h3>DollyGuarana</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div>
+                    <h3>Ana Clara</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div>
+                    <h3>Milly Mils</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div>
+                    <h3>Milly Mils</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div>
+                    <h3>Milly Mils</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div>
+                    <h3>Milly Mils</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            <div class="perfil-direita">
+                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                <div>
+                    <h3>Milly Mils</h3>
+                    <p>ONG</p>
+                </div>
+            </div>
+            
+            <img src="assets/img/seta-seguidores-perfilONG.png" alt="HelpONGS" title="Icone seta para baixo">
+        </div>
+    </div>
+
+    <div id="modalEditar" class="modalEditar">
+        <div id="EditarBannerFoto" >
+            <div id="esquerdas">
+                <div id="editarPerfil">
+                    <label for="filePerfil" id="img-file">
+                        <img src="./assets/img/sem-foto.png" alt="" class="previewPerfil">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="filePerfil">
+                </div>
+                <div id="tituloFotoPerfil">
+                    <h2>Foto de perfil</h2>
+                </div>
+            </div>
+            <div id="Direitas">
+                <div id="editarBanner">
+                    <label for="fileBanner">
+                        <img src="./assets/img/image 16.png" alt="" class="previewBanner">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="fileBanner">
+                </div>
+                <div id="tituloBannerPerfil">
+                    <h2>Banner do perfil</h2>
+                </div>
+
+                <div id="botaoAlterar">
+                    <button type="button" id="botaoModalEditar">Alterar</button>
+                    <button type="button" id="botaoSairEditar">Sair</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

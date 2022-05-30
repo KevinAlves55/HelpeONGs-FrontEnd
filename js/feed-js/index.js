@@ -7,11 +7,11 @@ import { openSetaHeader, closeSetaHeader } from "../utils/MiniOpMenu.js";
 import { closeModalEndereco, closeModalEvento, closeModalPostagens, closeModalVaga, openModalEndereco, openModalPostagens } from "./modalPostagens.js";
 import { checkInputs } from "../validator/validatorPostagem.js";
 import { imagemPreviewPost, imagemPreviewEvent } from "./PreviewImgFeed.js";
-import { getFormattedDate, getFormattedDateEvent } from "../utils/DataFormat.js";
+import { getFormattedDate, getFormattedDateFeed } from "../utils/DataFormat.js";
 import { hideLoading, showLoading } from "../utils/Loading.js";
 import { PesquisarCep } from "../utils/ViaCep.js";
 import { CheckWindow } from "../utils/Menu.js";
-import { closeModalInfoEvento, openModalInfoEvento } from "./modalFeed.js";
+import { closeModalInfoEvento, closeModalInfoVaga, openModalInfoEvento, openModalInfoVaga } from "./modalFeed.js";
 
 // POST
 const descricao = document.getElementById("text-post");
@@ -40,6 +40,7 @@ const cargaHorariaVaga = document.getElementById("carga-horaria");
 let objeto = await ApiRequest("GET", "http://localhost:3131/ong");
 let userLogado;
 let ongLogado;
+let dadosOng;
 
 const loaderContainer = document.querySelector(".loader");
 let page = 0;
@@ -48,7 +49,10 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
     userLogado = validarSession("dadosUsuario");
     let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
-    const dadosUsuario = req.data
+    const dadosUsuario = req.data;
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilUsuario.html`;
 
     if (!dadosUsuario.foto || !dadosUsuario.banner || !dadosUsuario.dataDeNascimento) {
         Redirect("perfilUsuario");
@@ -99,7 +103,10 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
     ongLogado = validarSession("dadosOng");
     let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
-    const dadosOng = req.data
+    dadosOng = req.data;
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilONGs.html`;
 
     if (!dadosOng.foto || !dadosOng.banner || !dadosOng.historia || !dadosOng.descricao) {
         Redirect("perfilONGs");
@@ -752,7 +759,7 @@ const CriarFeed = (
         idPost,
         idVagas,
         idEventos,
-        tbl_ong, 
+        tbl_ong,
         tbl_post_media,
         titulo,
         candidatos,
@@ -1179,8 +1186,8 @@ const CriarFeed = (
             </p>
 
             <div class="vaga-botoes">
-                <button>Saiba Mais</button>
-                <button>Interesse</button>
+                <button type="button" id="saiba-mais-vaga" data-idvaga="${idVagas}" data-idong="${idOng}">Saiba Mais</button>
+                <button type="button" id="interesse-vaga">Interesse</button>
             </div>
         </div>
         `;
@@ -1245,7 +1252,7 @@ const CriarModalEventos = (dadosEvento) => {
     const modal = document.createElement("div");
     modal.classList.add("modal-conteudo");
     
-    const dataHora = getFormattedDateEvent(dadosEvento.dataHora);
+    const dataHora = getFormattedDateFeed(dadosEvento.dataHora);
 
     const disponibilidadeEvento = new Date(dadosEvento.dataHora); 
     const dataAtual = new Date();
@@ -1324,6 +1331,41 @@ const CriarModalEventos = (dadosEvento) => {
 
 }
 
+const CarregarModalInfoVagas = ({target}) => {
+
+    if (target.id === "saiba-mais-vaga") {
+
+        openModalInfoVaga();
+        const idVaga = target.dataset.idvaga;
+        const idOng = target.dataset.idong;
+        DescarregaDadosModalVagas(idVaga, idOng);
+
+    }
+
+
+}
+
+const DescarregaDadosModalVagas = async (idVaga, idOng) => {
+
+    const container = document.querySelector(".modal-conteudo");
+    let req = await ApiRequest("GET", `http://localhost:3131/vacancy/${idOng}/${idVaga}`);
+    const dadosVaga = req.data;
+    const card = CriarModalVagas(dadosVaga);
+    container.replaceChildren(card);
+
+}
+
+const CriarModalVagas = (dadosVaga) => {
+
+    let corpo;
+
+    const modal = document.createElement("div");
+    modal.classList.add("modal-conteudo-vaga");
+
+    const dataHora = getFormattedDateFeed(dadosVaga.dataHora);
+
+}
+
 const CarregarEventoSelecionado = ({target}) => {
 
     if (target.id === "eventoSelecionado") {
@@ -1354,6 +1396,16 @@ const CriarEventoSelecionado = (dadosEvento) => {
        
     const dataFormat = getFormattedDate(dadosEvento.dataDeCriacao);
 
+    let buttonCandidato;
+    if (dadosEvento.candidatos === true) {
+
+        buttonCandidato = `<button type="button" id="candidatarEvento">Candidata-se</button>`;
+        
+    } else if (dadosEvento.candidatos === false) {
+
+        buttonCandidato = ``;
+
+    }
     if (dadosEvento.tbl_evento_media.length === 0) {
         
         corpo.innerHTML = 
@@ -1628,6 +1680,8 @@ CarregarEventosDestaque();
 CarregarVagasConvite();
 CarregarFeed();
 document.querySelector(".feed").addEventListener("click", CarregarModalInfoEventos);
+document.querySelector(".feed").addEventListener("click", CarregarModalInfoVagas);
 document.getElementById("info-evento").addEventListener("click", closeModalInfoEvento);
+document.getElementById("info-vaga").addEventListener("click", closeModalInfoVaga);
 document.getElementById("previa-eventos").addEventListener("click", CarregarEventoSelecionado);
 document.getElementById("vagas-indicadas").addEventListener("click", CarregarVagasSelecionado);
