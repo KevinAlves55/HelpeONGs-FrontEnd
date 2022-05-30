@@ -35,6 +35,22 @@ button {
 .modal {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -894,7 +910,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 39px 29px 39px 29px;
+  padding: 39px 90px 39px 90px;
   background-color: #F8F9FA;
 }
 
@@ -999,7 +1015,7 @@ body {
 }
 
 #esquerda #conteudo-header #menu {
-  min-height: 200px;
+  min-height: 200 px;
   height: auto;
   width: 279px;
   background: #FFFFFF;
@@ -1050,6 +1066,21 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 18px;
+  position: relative;
+}
+
+#esquerda #conteudo-header #menu ul li .barraActivity {
+  height: inherit;
+  width: 3px;
+  background-color: #FF9F45;
+  border-radius: 3px 3px;
+  left: -4px;
+  position: absolute;
+  opacity: 0;
+}
+
+#esquerda #conteudo-header #menu ul li .barraActivity.active {
+  opacity: 1;
 }
 
 #esquerda #conteudo-header #menu ul li:hover {
@@ -1063,6 +1094,25 @@ body {
 }
 
 #esquerda #conteudo-header #menu ul li a {
+  display: block;
+  height: inherit;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
   font-size: 1.563rem;
   font-weight: 400;
   color: #8C8C8C;

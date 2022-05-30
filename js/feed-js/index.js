@@ -49,7 +49,10 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
     userLogado = validarSession("dadosUsuario");
     let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
-    const dadosUsuario = req.data
+    const dadosUsuario = req.data;
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilUsuario.html`;
 
     if (!dadosUsuario.foto || !dadosUsuario.banner || !dadosUsuario.dataDeNascimento) {
         Redirect("perfilUsuario");
@@ -100,7 +103,10 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
     ongLogado = validarSession("dadosOng");
     let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
-    dadosOng = req.data
+    dadosOng = req.data;
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilONGs.html`;
 
     if (!dadosOng.foto || !dadosOng.banner || !dadosOng.historia || !dadosOng.descricao) {
         Redirect("perfilONGs");
@@ -753,6 +759,7 @@ const CriarFeed = (
         idPost,
         idVagas,
         idEventos,
+        tbl_ong,
         tbl_post_media,
         titulo,
         candidatos,
@@ -774,10 +781,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${dadosOng.foto}" alt="${dadosOng.nome}" title="${dadosOng.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
 
                         <div class="info-nome-data">
-                            <h2>${dadosOng.nome}</h2>
+                            <h2>${tbl_ong.nome}</h2>
                             <span>${dataFormat} - POST</span>
                         </div>
                     </div>
@@ -817,10 +824,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${dadosOng.foto}" alt="${dadosOng.nome}" title="${dadosOng.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
 
                         <div class="info-nome-data">
-                            <h2>${dadosOng.nome}</h2>
+                            <h2>${tbl_ong.nome}</h2>
                             <span>${dataFormat} - POST</span>
                         </div>
                     </div>
@@ -863,10 +870,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${dadosOng.foto}" alt="${dadosOng.nome}" title="${dadosOng.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
 
                         <div class="info-nome-data">
-                            <h2>${dadosOng.nome}</h2>
+                            <h2>${tbl_ong.nome}</h2>
                             <span>${dataFormat} - POST</span>
                         </div>
                     </div>
@@ -913,10 +920,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${dadosOng.foto}" alt="${dadosOng.nome}" title="${dadosOng.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
 
                         <div class="info-nome-data">
-                            <h2>${dadosOng.nome}</h2>
+                            <h2>${tbl_ong.nome}</h2>
                             <span>${dataFormat} - POST</span>
                         </div>
                     </div>
@@ -989,10 +996,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${dadosOng.foto}" alt="${dadosOng.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
 
                     <div class="info-nome-data">
-                        <h2>${dadosOng.nome}</h2>
+                        <h2>${tbl_ong.nome}</h2>
                         <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
@@ -1024,10 +1031,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${dadosOng.foto}" alt="${dadosOng.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
 
                     <div class="info-nome-data">
-                        <h2>${dadosOng.nome}</h2>
+                        <h2>${tbl_ong.nome}</h2>
                         <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
@@ -1063,10 +1070,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${dadosOng.foto}" alt="${dadosOng.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
 
                     <div class="info-nome-data">
-                        <h2>${dadosOng.nome}</h2>
+                        <h2>${tbl_ong.nome}</h2>
                         <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
@@ -1106,10 +1113,10 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${dadosOng.foto}" alt="${dadosOng.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
 
                     <div class="info-nome-data">
-                        <h2>${dadosOng.nome}</h2>
+                        <h2>${tbl_ong.nome}</h2>
                         <span>${dataFormat} - EVENTO</span>
                     </div>
                 </div>
@@ -1160,7 +1167,7 @@ const CriarFeed = (
         `
         <div class="parte-superior">
             <div class="info-ong">
-                <img src="${dadosOng.foto}" alt="${dadosOng.nome}" title="${dadosOng.nome}">
+                <img src="${tbl_ong.foto}" alt="${dadosOng.nome}" title="${dadosOng.nome}">
 
                 <div class="info-nome-data">
                     <h2>${dadosOng.nome}</h2>
@@ -1354,6 +1361,16 @@ const CriarEventoSelecionado = (dadosEvento) => {
        
     const dataFormat = getFormattedDate(dadosEvento.dataDeCriacao);
 
+    let buttonCandidato;
+    if (dadosEvento.candidatos === true) {
+
+        buttonCandidato = `<button type="button" id="candidatarEvento">Candidata-se</button>`;
+        
+    } else if (dadosEvento.candidatos === false) {
+
+        buttonCandidato = ``;
+
+    }
     if (dadosEvento.tbl_evento_media.length === 0) {
         
         corpo.innerHTML = 

@@ -20,7 +20,10 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
     let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
     console.log(req);
-    const dadosUsuario = req.data
+    const dadosUsuario = req.data;
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilUsuario.html`;
 
     const controlNone = () => document.getElementById("control").style.display = "none";
     controlNone();
@@ -81,7 +84,10 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
     let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
     console.log(req);
-    const dadosOng = req.data
+    const dadosOng = req.data;
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilONGs.html`;
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();

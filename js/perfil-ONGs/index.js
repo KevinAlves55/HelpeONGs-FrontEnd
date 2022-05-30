@@ -5,6 +5,7 @@ import ApiRequest from "../utils/ApiRequest.js";
 import { closeModal, openModal } from "../doacoes-js/modal.js";
 import { getFormattedDate } from "../utils/DataFormat.js";
 import { closeModalCategorias, closeModalEditar, openModalCategorias, openModalEditar } from "./modaisPerfil.js";
+import { CheckWindow } from "../utils/Menu.js";
 
 const previewPerfil = document.querySelector(".previewPerfil");
 const previewBanner = document.querySelector(".previewBanner");
@@ -972,6 +973,7 @@ const AdicionarCategorias = ({target}) => {
 
 }
 
+CheckWindow();
 CarregarPerfil(dados);
 CarregarDadosSobre(dados);
 AtribuirValor(dados);
