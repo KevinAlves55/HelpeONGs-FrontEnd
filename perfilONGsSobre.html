@@ -21,6 +21,7 @@
 
 <body>  
 
+    <!-- MODAL DE DOAÇÃO -->
     <div class="modal" id="modal">
         <div class="modal-conteudo">
             <span class="modal-close" id="modalClose">&#10006;</span>
@@ -87,6 +88,23 @@
         </div>
     </div>
 
+    <!-- MODAL DE ADD CATEGORIAS -->
+    <div class="modal-categorias" id="modalCategorias">
+        <div class="modal-container-categorias">
+            <label>Selecione as causas que deseja</label>
+
+            <div class="todas-categorias">
+            </div>
+
+            <div id="botoes">
+                <div id="opcoes">
+                    <button type="button" id="cancelar">Cancelar</button>
+                    <button type="button" id="adicionarCategorias">Adicionar</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Esquerda -->
     <header id="esquerda">
         <div id="logo">
@@ -139,19 +157,10 @@
                 <div id="info-esquerda">
                     <div id="nome-qtda-seguidores">
                         <h1 id="perfil-nome"></h1>
-                        <h2>127 seguidores</h2>
+                        <h2 id="qtdaSeguidores"></h2>
                     </div>
                     
                     <div id="todas-categorias-perfil">
-                        <div class="categoria">
-                            <span>Tropical</span>
-                        </div>
-                        <div class="categoria">
-                            <span>Amazônia</span>
-                        </div>
-                        <div class="categoria">
-                            <span>Floresta</span>
-                        </div>
                     </div>
                 </div>
 
@@ -183,7 +192,7 @@
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item2">Detalhes da conta</span>
+                    <span id="item2">Conta</span>
                     <div class="barra"></div>
                 </li>
                 <li>
@@ -191,38 +200,42 @@
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item4">Detalhes do endereço</span>
+                    <span id="item4">Endereço</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item5">Contatos</span>
                     <div class="barra"></div>
                 </li>
             </ul>
 
             <ul id="menu-opcoes-outros">
                 <li>
-                    <span id="item5">Meios de doação</span>
+                    <span id="item6">Meios de doação</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item6">Patrocínios</span>
+                    <span id="item7">Patrocínios</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item7">Posts</span>
+                    <span id="item8">Posts</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item8">Eventos</span>
+                    <span id="item9">Eventos</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item9">Vagas</span>
+                    <span id="item10">Vagas</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item10">Senha</span>
+                    <span id="item11">Senha</span>
                     <div class="barra"></div>
                 </li>
                 <li>
-                    <span id="item11">Conta</span>
+                    <span id="item12">Conta</span>
                     <div class="barra"></div>
                 </li>
             </ul>
@@ -300,7 +313,7 @@
             </div>
 
             <!-- DETALHES DA CONTA -->
-            <div id="container-conteudo-detalhes-conta" class="item">
+            <div id="container-conteudo-detalhes-conta">
                 <form>
                     <div id="nome" class="style-input">
                         <label>Nome da ONG</label>
@@ -328,23 +341,6 @@
                         </div>
                     </div>
 
-                    <div id="celular-telefone">
-                        <div id="celular" class="style-input">
-                            <label>Celular</label>
-                            <input type="text" id="celularOng" placeholder="(11) 4342-5898" />
-                            <small>Error</small>
-                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
-                        </div>
-                        <div id="telefone" class="style-input">
-                            <label>Telefone</label>
-                            <input type="text" id="telefoneOng" placeholder="(11) 4342-5898"/>
-                            <small>Error</small>
-                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
-                        </div>
-                    </div>
-
                     <div class="botao-conta">
                         <button id="button-detalhes-conta-Atualizado" type="button">
                             Atualizar
@@ -354,7 +350,7 @@
             </div>
 
             <!-- DETALHES DA ONGs -->
-            <div id="container-conteudo-detalhes-ONGs" class="item">
+            <div id="container-conteudo-detalhes-ONGs">
                 <form>
                     <div id="fileira-descricao">
                         <div id="descricao" class="style-input">
@@ -392,57 +388,28 @@
                         <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
                     </div>
     
-                    <div id="categoria-detalhes-ONG">
-                        <div id="categoria-detalhes" class="style-input">
-                            <label>Categoria</label>
-                            <input type="text" id="categoria-input" placeholder="Ex: Floresta"  >
-                            <small>Error</small>
-                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
-                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i>
-                        </div>
-    
+                    <div id="categoria-detalhes-ONG"> 
+
+                        <label>Causas da ONG</label>
+
                         <div id="lista-de-categoria">
-                            <!-- <div class="categoria">
-                                <span>Cachorros</span>
-                                <img src="assets/img/x-circle.png" alt="${categoria}" id="image"title="Icone categoria">
-                            </div> -->
-
-                            <!-- <div class="categoria">
-                                <span>Cachorros</span>
-                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
+                            <div id="todas-categorias">
                             </div>
 
-                            <div class="categoria">
-                                <span>Cachorros</span>
-                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
-                            </div>
-
-                            <div class="categoria">
-                                <span>Cachorros</span>
-                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
-                            </div>
-
-                            <div class="categoria">
-                                <span>Cachorros</span>
-                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
-                            </div> -->
-
-                            <div class="categoria">
-                                <span id="categoria-span" onkeyup="cartegoriaMudar()">Cachorros</span>
-                                <img src="assets/img/x-circle.png" alt="${categoria}" title="Icone categoria">
-                            </div>
+                            <button type="button" id="add-causas-ong">
+                                Adicionar causas
+                            </button>
                         </div>
                     </div>
     
                     <div class="botao-ONGS">
-                        <button id="button-detalhes-ONG" type="button">Proximo</button>
-                       
+                        <button id="button-detalhes-ONG" type="button">Atualizar</button>
                     </div>
                 </form>
             </div>
 
             <!-- DETALHES DO ENDEREÇO -->
-            <div id="container-conteudo-detalhes-do-endereco" class="item">
+            <div id="container-conteudo-detalhes-do-endereco">
                 <form>
                     <div id="primeira-fileira">
                         <div id="cep-input" class="style-input">
@@ -506,6 +473,7 @@
                         <button id="button-detalhes-endereco" type="button">
                             Cadastrar
                         </button>
+
                         <button id="button-detalhes-endereco-Atualizado" type="button">
                             Atualizar
                         </button>
@@ -513,8 +481,36 @@
                 </form>
             </div>
 
+            <!-- DETALHES DE CONTATOS -->
+            <div id="container-conteudo-detalhes-de-contatos">
+                <form action="">
+                    <div id="celular-telefone">
+                        <div id="celular" class="style-input">
+                            <label>Celular</label>
+                            <input type="text" id="celularOng" placeholder="(11) 4342-5898" />
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+    
+                        <div id="telefone" class="style-input">
+                            <label>Telefone</label>
+                            <input type="text" id="telefoneOng" placeholder="(11) 4342-5898"/>
+                            <!-- <small>Error</small>
+                            <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
+                            <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->
+                        </div>
+                    </div>
+
+                    <div id="botoes-contato">
+                        <button type="button" id="cadastrarContatos">Cadastrar</button>
+                        <button type="button" id="atualizarContatos">Atualizar</button>
+                    </div>
+                </form>
+            </div>
+
             <!-- MEIOS DE DOAÇÕES -->
-            <div id="container-conteudo-meios-doacoes" class="item">
+            <div id="container-conteudo-meios-doacoes">
                 <form>
                     <div id="fileira-doacoes">
                         <div id="site" class="style-input">
@@ -547,8 +543,8 @@
         
                             <select name="sltContas" id="contaTipoOng">
                                 <option value="">Selecione</option>
-                                <option value="CC">Conta Corrente</option>
-                                <option value="P">Poupança</option>
+                                <option value="Conta Corrente">Conta Corrente</option>
+                                <option value="Poupança">Poupança</option>
                             </select>
                             <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
@@ -575,13 +571,14 @@
                     </div>
 
                     <div class="proximo">
-                        <button id="button-meiosDoacoes" type="button">Proximo</button>
+                        <button id="button-meiosDoacoes-atualizar" type="button">Atulizar</button>
+                        <button id="button-meiosDoacoes" type="button">Cadastrar</button>
                     </div>
                 </form>
             </div>
 
             <!-- PATROCINIOS -->
-            <div id="container-conteudo-patrocinios" class="item">
+            <div id="container-conteudo-patrocinios">
 
                 <div id="editar-imagen">
                     <label for="fileSponsor" id="img-file">
@@ -617,140 +614,46 @@
             </div>
 
             <!--POSTS -->
-            <div id="container-post" class="item">
-                
+            <div id="container-post">
+                <div id="todos-post">
+
+                </div>
+
+                <div class="loader">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div> 
             </div>
 
             <!-- EVENTOS -->
-            <div id="container-evento" class="item">    
-                <div class="parte-superior">
-                    <div class="info-ong">
-                        <img src="assets/img/foto-ong-perfil.png" alt="">
+            <div id="container-evento">    
+                <div id="todos-evento">
 
-                        <div class="info-nome-data">
-                            <h2>GreenPeace</h2>
-                            <span>24 de Setembro de 2021</span>
-                        </div>
-                    </div>
-
-                    <img src="assets/img/mais-sobre-postagem.png" alt="">
                 </div>
 
-                <div class="info-evento">
-                    <div class="info-superior">
-                        <h2>Expedição ao Mar</h2>
-
-                        <p>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-                    </div>
-
-                    <div class="imagens-postadas">
-                        <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens">
-
-                        <div class="imagens-complementos">
-                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
-                            <img src="assets/img/fotos-postagens-post.png" alt="{NomeDoPost}" title="Imagem do postagens" class="baixo">
-                        </div>
-                    </div>
-
-                    <div class="info-complementares">
-                        <div class="complementares-superior">
-                            <div class="info-esquerda">
-                                <div class="item">
-                                    <h3>Obejetivo:</h3>
-                                    <span class="item-info">Salvar Peixes</span>
-                                </div>
-
-                                <div class="item">
-                                    <h3>Data e Hora:</h3>
-                                    <span class="item-info">26 de Janeiro, às 12:00</span>
-                                </div>
-
-                                <div class="item">
-                                    <h3>Data e Hora:</h3>
-                                    <span class="item-stts">Disponível</span>
-                                </div>
-                            </div>
-
-                            <div class="botoes-direita">
-                                <button class="botao">Candidatar-se</button>
-                                <button class="botao">Participar</button>
-                            </div>
-                        </div>
-
-                        <div class="complementares-inferior">
-                            <span>Quantidade de participantes: <i>101</i></span>
-                        </div>
-                    </div>
-                </div>
+                <div class="loaderEvento">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div> 
             </div>
 
             <!-- VAGAS -->
-            <div id="container-vagas" class="item">
-                <div class="vaga">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
+            <div id="container-vagas">
+                <div id="todas-vaga">
 
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
-                    </div>
-
-                    <div class="corpo-vaga">
-                        <h2>Professor de informática</h2>
-
-                        <p>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-
-                        <div class="vaga-botoes">
-                            <button>Saiba Mais</button>
-                            <button>Interesse</button>
-                        </div>
-                    </div>
-
-                    
                 </div>
 
-                <div class="vaga">
-                    <div class="parte-superior">
-                        <div class="info-ong">
-                            <img src="assets/img/foto-ong-perfil.png" alt="" title="VAGAS">
-
-                            <div class="info-nome-data">
-                                <h2>GreenPeace</h2>
-                                <span>24 de Setembro de 2021</span>
-                            </div>
-                        </div>
-
-                        <img src="assets/img/mais-sobre-postagem.png" alt="{nomeDoEvento}">
-                    </div>
-
-                    <div class="corpo-vaga">
-                        <h2>Professor de matematica</h2>
-
-                        <p>
-                            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                        </p>
-
-                        <div class="vaga-botoes">
-                            <button>Saiba Mais</button>
-                            <button>Interesse</button>
-                        </div>
-                    </div>
-
-                    
+                <div class="loaderVaga">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
                 </div>
             </div>  
 
             <!-- SENHA -->
-            <div id="container-senha" class="item">
+            <div id="container-senha">
                 <h1>Editar informações da senha</h1>
                 <div id="editar-senha">
                     <div id="senha-atual">
@@ -780,7 +683,7 @@
             </div>
             
             <!-- EXCLUIR CONTA -->
-            <div id="container-conta" class="item">
+            <div id="container-conta">
                 <p>
                     Caso esteja insatisfeito em nossa plataforma, você tem a opção de 
                     excluir sua conta, mas lembresse, todos os seus dados salvos não 

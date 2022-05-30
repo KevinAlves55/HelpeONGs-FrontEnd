@@ -1,49 +1,49 @@
-'use strict';
+// 'use strict';
 
-import ApiRequest from "../utils/ApiRequest.js";
-
-
-const nomeDaCategoria = document.getElementById('categoria-input');
+// import ApiRequest from "../utils/ApiRequest.js";
 
 
-function cartegoriaMudar(){
-
-    const category = document.getElementById("categoria-detalhes").value;
-    console.log(category);
-
-    document.getElementById("categoria-span").innerHTML =  category;
+// const nomeDaCategoria = document.getElementById('categoria-input');
 
 
-}
+// function cartegoriaMudar(){
 
- async function receberDados(){
-    var categorias = document.getElementById('categoria-input').value;
+//     const category = document.getElementById("categoria-detalhes").value;
+//     console.log(category);
 
-    console.log(categorias);
+//     document.getElementById("categoria-span").innerHTML =  category;
 
-    const cadastrarCategoria = {
-        nome: nomeDaCategoria.value
-    }
-    localStorage.setItem("categoria", JSON.stringify(cadastrarCategoria)); 
 
-}
+// }
 
-const nomeCategoria = (evento) => {
+//  async function receberDados(){
+//     var categorias = document.getElementById('categoria-input').value;
 
-    if (evento.key == "Enter") {
+//     console.log(categorias);
 
-        const pesquisaNome = evento.target.value;
-        console.log(pesquisaNome);
+//     const cadastrarCategoria = {
+//         nome: nomeDaCategoria.value
+//     }
+//     localStorage.setItem("categoria", JSON.stringify(cadastrarCategoria)); 
 
-    }
+// }
 
-}
+// const nomeCategoria = (evento) => {
 
-document.getElementById("categoria-input").addEventListener("keypress", 
-nomeCategoria);
+//     if (evento.key == "Enter") {
 
-document.getElementById("categoria-input").addEventListener("keypress", 
-cartegoriaMudar);
+//         const pesquisaNome = evento.target.value;
+//         console.log(pesquisaNome);
+
+//     }
+
+// }
+
+// document.getElementById("categoria-input").addEventListener("keypress", 
+// nomeCategoria);
+
+// document.getElementById("categoria-input").addEventListener("keypress", 
+// cartegoriaMudar);
 
 
 
@@ -66,4 +66,3 @@ cartegoriaMudar);
 // const reqCategoria = await ApiRequest("GET", `http://localhost:3131/category/{$localStoreCategorias.ong.idOng}`);
 
 // console.log(reqCategoria);
-

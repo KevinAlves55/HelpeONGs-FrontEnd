@@ -5,13 +5,14 @@ const nav = {
     btnDetalhesConta: document.getElementById("item2"),
     btnDetalhesOngs: document.getElementById("item3"),
     btnDetalhesEnderecos: document.getElementById("item4"),
-    btnMeiosDoacoes: document.getElementById("item5"),
-    btnPatrocinios: document.getElementById("item6"),
-    btnPost: document.getElementById("item7"),
-    btnEvento: document.getElementById("item8"),
-    btnVagas: document.getElementById("item9"),
-    btnSenha: document.getElementById("item10"),
-    btnConta: document.getElementById("item11"),
+    btnDetalhesContatos: document.getElementById("item5"),
+    btnMeiosDoacoes: document.getElementById("item6"),
+    btnPatrocinios: document.getElementById("item7"),
+    btnPost: document.getElementById("item8"),
+    btnEvento: document.getElementById("item9"),
+    btnVagas: document.getElementById("item10"),
+    btnSenha: document.getElementById("item11"),
+    btnConta: document.getElementById("item12"),
     btntrocarDireta: document.getElementById("trocar-direita"),
     btntrocaresquerda: document.getElementById("trocar-esquerda"),
     menuOpcoesOutros: document.getElementById("menu-opcoes-outros"),
@@ -23,6 +24,7 @@ const dom = {
     detalhesConta: document.getElementById("container-conteudo-detalhes-conta"),
     detalhesOngs: document.getElementById("container-conteudo-detalhes-ONGs"),
     detalhesEndereco: document.getElementById("container-conteudo-detalhes-do-endereco"),
+    detalhesContatos: document.getElementById("container-conteudo-detalhes-de-contatos"),
     meiosDoacoes: document.getElementById("container-conteudo-meios-doacoes"),
     patrocinios: document.getElementById("container-conteudo-patrocinios"),
     post: document.getElementById("container-post"),
@@ -41,6 +43,7 @@ nav.btnSobre.addEventListener("click", event => {
     dom.detalhesConta.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesEndereco.style.display = "none";
+    dom.detalhesContatos.style.display = "none";
     dom.meiosDoacoes.style.display = "none";
     dom.patrocinios.style.display = "none";
     dom.post.style.display = "none";
@@ -50,23 +53,26 @@ nav.btnSobre.addEventListener("click", event => {
     dom.conta.style.display = "none";
 });
 
-nav.btnDetalhesConta.addEventListener("click", event => {
-    dom.detalhesConta.style.display = "flex";
+nav.btnDetalhesContatos.addEventListener("click", event => {
+
+    dom.detalhesContatos.style.display = "flex";
     dom.sobre.style.display = "none";
     dom.detalhesEndereco.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.meiosDoacoes.style.display = "none";
     dom.patrocinios.style.display = "none";
+    dom.detalhesConta.style.display = "none";
     dom.post.style.display = "none";
     dom.evento.style.display = "none";
     dom.vagas.style.display = "none";
     dom.senha.style.display = "none";
     dom.conta.style.display = "none";
-   
+
 });
 
 nav.btnDetalhesEnderecos.addEventListener("click", event => {
     dom.detalhesEndereco.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
     dom.detalhesOngs.style.display = "none";
@@ -80,8 +86,25 @@ nav.btnDetalhesEnderecos.addEventListener("click", event => {
    
 });
 
+
+nav.btnDetalhesConta.addEventListener("click", event => {
+    dom.detalhesConta.style.display = "flex";
+    dom.sobre.style.display = "none";
+    dom.detalhesContatos.style.display = "none";
+    dom.detalhesEndereco.style.display = "none";
+    dom.detalhesOngs.style.display = "none";
+    dom.meiosDoacoes.style.display = "none";
+    dom.patrocinios.style.display = "none";
+    dom.post.style.display = "none";
+    dom.evento.style.display = "none";
+    dom.vagas.style.display = "none";
+    dom.senha.style.display = "none";
+    dom.conta.style.display = "none";
+});
+
 nav.btnDetalhesOngs.addEventListener("click", event => {
     dom.detalhesOngs.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
     dom.detalhesEndereco.style.display = "none";
@@ -98,6 +121,7 @@ nav.btnDetalhesOngs.addEventListener("click", event => {
 
 nav.btnMeiosDoacoes.addEventListener("click", event => {
     dom.meiosDoacoes.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
@@ -113,6 +137,7 @@ nav.btnMeiosDoacoes.addEventListener("click", event => {
 
 nav.btnPatrocinios.addEventListener("click", event => {
     dom.patrocinios.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
@@ -128,6 +153,7 @@ nav.btnPatrocinios.addEventListener("click", event => {
 
 nav.btnPost.addEventListener("click", event => {
     dom.post.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
@@ -143,6 +169,7 @@ nav.btnPost.addEventListener("click", event => {
 
 nav.btnEvento.addEventListener("click", event => {
     dom.evento.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
@@ -158,6 +185,7 @@ nav.btnEvento.addEventListener("click", event => {
 
 nav.btnVagas.addEventListener("click", event => {
     dom.vagas.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
@@ -173,6 +201,7 @@ nav.btnVagas.addEventListener("click", event => {
 
 nav.btnSenha.addEventListener("click", event => {
     dom.senha.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";
@@ -188,6 +217,7 @@ nav.btnSenha.addEventListener("click", event => {
 
 nav.btnConta.addEventListener("click", event => {
     dom.conta.style.display = "flex";
+    dom.detalhesContatos.style.display = "none";
     dom.detalhesOngs.style.display = "none";
     dom.detalhesConta.style.display = "none";
     dom.sobre.style.display = "none";

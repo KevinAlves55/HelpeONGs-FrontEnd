@@ -174,6 +174,38 @@ async function dadosMeiosDoacoes() {
 
 }
 
+async function dadosMeiosDoacoesAtualizado() {
+
+    let tipoSelecionado = tipoConta.options[tipoConta.selectedIndex].value;
+    const dadosDonation = {
+        pix: pix.value,
+        site: linkSite.value
+    }
+    console.log(`DadosDonation`, dadosDonation);
+    const dadosBank = {
+        banco: banco.value,
+        agencia: agencia.value,
+        conta: conta.value,
+        tipo: tipoSelecionado,
+    }
+    console.log(`DadosBanck`, dadosBank);
+
+    let reqMeiosDoacoes = await ApiRequest(
+        "PUT", 
+        `http://localhost:3131/donation-data/${dados.idOng}`, 
+        dadosDonation
+    );
+    console.log(`ReqDonation`, reqMeiosDoacoes);
+    
+    let reqBancario = await ApiRequest(
+        "PUT", 
+        `http://localhost:3131/bank-data/${dados.idOng}`, 
+        dadosBank
+    );
+    console.log(`reqBanck`, reqBancario);
+
+}
+
 let mediaSponsor = [];
 async function handleFileSelectSponsor(evento) {
 
@@ -342,6 +374,7 @@ document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDe
 document.getElementById("button-detalhes-endereco").addEventListener("click", dadosDetalhesEndereco);
 document.getElementById("button-detalhes-endereco-Atualizado").addEventListener("click",dadosEnderecoAtualizado);
 document.getElementById("button-meiosDoacoes").addEventListener("click", dadosMeiosDoacoes);
+document.getElementById("button-meiosDoacoes-atualizar").addEventListener("click", dadosMeiosDoacoesAtualizado);
 document.getElementById("fileSponsor").addEventListener("change", handleFileSelectSponsor, false);
 document.getElementById("fileSponsor").addEventListener('change', imagemPreview);
 document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);

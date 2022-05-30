@@ -3,6 +3,248 @@
 @import '_resert';
 @import '_modalDoacoes';
 
+// MODAL DE ADD CATEGORIAS
+.modal-categorias {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(column, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s;
+    opacity: 0;
+    z-index: -1;
+
+    .modal-container-categorias {
+        min-height: 100px;
+        @include tamanhos(auto, 780px);
+        @include displayFlex(column, $gap: 22px);
+        background: #FFFFFF;
+        filter: $shadowMain;
+        border-radius: 20px;
+        padding: 25px;
+
+        label{
+            font-size: 1.450rem;
+            font-weight: map-get($densidade, medium);
+            color: $text;
+        }
+
+        .todas-categorias {
+            @include tamanhos(300px, 700px);
+            @include displayFlex(row, space-between, center, wrap, 24px);
+            overflow-y: auto;
+            align-self: flex-end;
+            padding: 34px 32px;
+            border: 2px solid $border;
+            border-radius: 6px;
+            background-color: #fff;
+
+            .categoria {
+                min-width: 50px;
+                @include tamanhos(43px, auto);
+                @include displayFlex(row, $align: center);
+                padding: 0 20px 0 20px;
+                background-color: $border;
+                border-radius: 20px;
+                cursor: pointer;
+
+                span {
+                    font-size: 1.600rem;
+                    font-weight: map-get($densidade, medium);
+                    color: $text;
+                }
+
+            }
+        }
+
+        #botoes {
+            @include tamanhos(75px, 728px);
+            @include displayFlex(row, flex-end);
+            
+            #opcoes {
+                @include tamanhos(inherit, 525px);
+                @include displayFlex(row, space-between);
+
+                #cancelar {
+                    @include tamanhos(inherit, 250px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau7, semiBold, $text, capitalize);
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    cursor: pointer;
+                    transition: .5s;
+                    
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
+                    }
+                }
+
+                #adicionarCategorias {
+                    @include tamanhos(inherit, 250px);
+                    @include displayFlex(row, center, center);
+                    @include textoEstilo(grau7, semiBold, $text, capitalize);
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    cursor: pointer;
+                    transition: .5s;
+                    
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+}
+.modal-categorias.active {
+    opacity: 1;
+    z-index: 1;
+    visibility: visible;
+}
+
+//Modal editar
+.modalEditar{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+
+    #EditarBannerFoto{
+        @include tamanhos(469px, 850px);
+        @include displayFlex(row, );
+        border: 1px   solid $placeholder;
+        border-radius:20px;
+        background-color: #E4E6EB;
+        padding: 30px;
+        
+
+        #esquerdas{
+            @include displayFlex(column,);
+            @include tamanhos(430px, 316px);
+        
+
+            #editarPerfil{
+                @include tamanhos(auto, inherit);
+                @include displayFlex(center, center);
+                cursor: pointer;
+
+                label {
+                    @include tamanhos(120px, 120px); 
+                    border-radius: 50%;
+                    display: block;
+
+                    img {
+                        cursor: pointer;
+                        @include tamanhos(inherit, inherit);
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+
+                input[type='file'] {
+                    display: none
+                }
+            }
+
+            #tituloFotoPerfil{
+                @include tamanhos(296px, 316px);
+                
+            
+                
+                h2{
+                    @include tamanhos(37px, inherit);
+                    @include displayFlex(center, center);
+                    @include textoEstilo(grau7, semiBold, $text);
+                    padding-top: 10px;
+                }
+            }
+        }
+        #Direitas{
+            @include tamanhos(430px, 463px);
+            @include displayFlex(column);
+        
+
+            #editarBanner{
+                @include tamanhos(auto, 463px);
+                @include displayFlex(center, center);
+                cursor: pointer;
+                
+                label {
+                    @include tamanhos(227px, 414px); 
+                    border-radius: 6px;
+                    display: block;
+
+                    img {
+                        cursor: pointer;
+                        @include tamanhos(inherit, inherit);
+                        object-fit: cover;
+                        border-radius: 6px;
+                    }
+                }
+
+                input[type='file'] {
+                    display: none
+                }
+
+            }
+
+            #tituloBannerPerfil{
+                @include tamanhos(auto, 463px);
+                @include displayFlex(center, center);
+                
+
+                    h2{
+                        @include textoEstilo(grau7, semiBold, $text);
+                        padding-top: 10px
+                    }
+            }
+
+            #botaoAlterar{
+                @include tamanhos(140px, 465px);
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 10px;
+
+                #botaoSairEditar{
+                    background-color: $deepSaffron;
+                }
+
+                button{
+                    @include tamanhos(65px, 180px);
+                    @include textoEstilo(grau8, semiBold, $text);
+                    background-color: $deepSaffron;
+                    border: 1px ;
+                    border-radius:6px;
+                    cursor: pointer;
+                
+                    
+
+                }
+            }
+        }
+
+    }
+}
+.modalEditar.bg-active{
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+
 body {
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
@@ -91,8 +333,8 @@ body {
 
 .proximo{
     @include tamanhos(75px, inherit);
-    @include displayFlex($justify: flex-end);
-    
+    @include displayFlex($justify: flex-end, $gap: 25px);
+    margin-top: 25px;
 
     button{
         @include tamanhos(inherit, 230px);
@@ -149,7 +391,7 @@ body {
         #conteudo-perfil-centro {
             @include tamanhos(inherit, inherit);
             @include displayFlex(row, space-between);
-            padding-top: 5px;
+            padding-top: 10px;
 
             #info-esquerda {
                 min-width: 270px;
@@ -161,6 +403,7 @@ body {
 
                     h1 {
                         @include textoEstilo(grau7, bold, $text);
+                        width: 310px;
                     }
 
                     h2 {
@@ -216,7 +459,7 @@ body {
                 }
 
                 button {
-                    @include tamanhos(50px, 187px);
+                    @include tamanhos(50px, 210px);
                     @include displayFlex(row, $align: center, $gap: 12px);
                     font-size: 1.250rem;
                     font-weight: map-get($densidade, semiBold);
@@ -299,7 +542,7 @@ body {
     }
 
     #container-conteudo {
-        min-height: 300px;
+        min-height: 200px;
         @include tamanhos(auto, inherit);
         @include displayFlex(column);
     
@@ -412,7 +655,7 @@ body {
 
         #container-conteudo-detalhes-conta{   
             display: none;     
-            @include tamanhos(466px, inherit);
+            @include tamanhos(320px, inherit);
     
             form {
                 @include tamanhos(inherit, inherit);
@@ -588,18 +831,17 @@ body {
                     
 
                 }
-            } 
-    
+            }
         }
 
         #container-conteudo-detalhes-ONGs{
             display: none;
-            min-height: 961px;
+            min-height: 100px;
             @include tamanhos(auto, inherit);
     
             form {
                 @include tamanhos(inherit, inherit);
-                @include displayFlex(column, $gap: 30px);
+                @include displayFlex(column, $gap: 25px);
     
                 #fileira-descricao{
                     @include tamanhos(234px, inherit);
@@ -736,77 +978,74 @@ body {
                 #categoria-detalhes-ONG{
                     min-height: 220px;
                     @include tamanhos(auto, inherit);
-                    @include displayFlex(column, $gap: 22px);
+                    @include displayFlex(column, $gap: 8px);
         
-                    #categoria-detalhes{
-                        @include tamanhos(125px, inherit);
-                        @include displayFlex(column, space-between);
-        
-                        label{
-                            font-size: 1.450rem;
-                            font-weight: map-get($densidade, regular);
-                            color: $text;
-                        }
-
-                        .icone-validation {
-                            top: 50px;
-                        }
-        
-                        input{
-                            @include tamanhos(65px, 841px);
-                            border: 2px solid $border;
-                            font-size: 1.750rem;
-                            border-radius: 6px;
-                            color: $text;
-                            padding-left: 12px;
-                            align-self: flex-end;
-    
-                            &::placeholder {
-                                font-weight: map-get($densidade, medium);
-                                color: $placeholder;
-                            }
-    
-                        }
-        
+                    label{
+                        font-size: 1.450rem;
+                        font-weight: map-get($densidade, regular);
+                        color: $text;
                     }
     
                     #lista-de-categoria{
                         min-height: 103px;
                         @include tamanhos(auto, 841px);
-                        @include displayFlex(row, space-between, center, wrap, 24px);
+                        @include displayFlex(column, space-between, $gap: 28px);
                         padding: 34px 32px;
                         border: 2px solid $border;
                         border-radius: 6px;
                         background-color: #fff;
                         align-self: flex-end;
+
+                        #todas-categorias {
+                            @include displayFlex(row, space-between, center, wrap, 24px);
+
+                            .categoria {
+                                min-width: 50px;
+                                @include tamanhos(43px, auto);
+                                @include displayFlex(row, $align: center, $gap: 16px);
+                                padding: 0 20px 0 20px;
+                                background-color: $tartOrange;
+                                border-radius: 20px;
         
-                        .categoria {
-                            min-width: 210px;
-                            @include tamanhos(43px, auto);
-                            @include displayFlex(row, $align: center, $gap: 16px);
-                            padding: 0 20px 0 20px;
+                                span {
+                                    font-size: 1.600rem;
+                                    font-weight: map-get($densidade, medium);
+                                    color: $text;
+                                }
+        
+                                img {
+                                    @include tamanhos(24px, 24px);
+                                    cursor: pointer;
+                                    object-fit: cover;
+                                }
+        
+                            }
+                        }
+
+                        button {
+                            @include tamanhos(75px, 775px);
+                            @include displayFlex(row, center, center);
                             background-color: $deepSaffron;
                             border-radius: 20px;
-    
-                            span {
-                                font-size: 1.600rem;
-                                font-weight: map-get($densidade, medium);
-                                color: $text;
+                            color: $text;
+                            font-size: 1.600rem;
+                            font-weight: map-get($densidade, semiBold);
+                            padding: 10px 20px;
+                            cursor: pointer;
+                            text-transform: capitalize;
+                            transition: .1s;
+
+                            &:hover {
+                                transition: .1s;
+                                opacity: 0.8;
                             }
-    
-                            img {
-                                @include tamanhos(24px, 24px);
-                                cursor: pointer;
-                            }
-    
                         }
                     
                     }
         
                 }
 
-                .botao-ONGS{
-                    
+                .botao-ONGS{                  
                     @include tamanhos(75px, inherit);
                     @include displayFlex($justify: flex-end);
                     gap: 15px;
@@ -1069,9 +1308,99 @@ body {
             }
         }
 
+        #container-conteudo-detalhes-de-contatos {
+            display: none;     
+            @include tamanhos(230px, inherit);
+    
+            form {
+                @include tamanhos(inherit, inherit);
+                @include displayFlex(column, $gap: 45px);
+
+                #celular-telefone{
+                    @include tamanhos(115px, inherit);
+                    @include displayFlex(row, space-between);
+
+                    #celular{
+                        @include tamanhos(115px, 392px);
+                        @include displayFlex(column, space-between);
+                    
+                        label{
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, regular);
+                            color: $text;
+                        }
+    
+                        input{
+                            @include tamanhos(65px, 390px);
+                            border: 2px solid $border;
+                            font-size: 1.450rem;
+                            border-radius: 6px;
+                            color: $text;
+                            padding-left: 12px;
+                            align-self: flex-end;
+    
+                            &::placeholder {
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+    
+                        }
+                    }
+
+                    #telefone{
+                        @include tamanhos(115px, 392px);
+                        @include displayFlex(column, space-between);
+                    
+                        label{
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, regular);
+                            color: $text;
+                        }
+    
+                        input{
+                            @include tamanhos(65px, 390px);
+                            border: 2px solid $border;
+                            font-size: 1.450rem;
+                            border-radius: 6px;
+                            color: $text;
+                            padding-left: 12px;
+                            align-self: flex-end;
+    
+                            &::placeholder {
+                                font-weight: map-get($densidade, medium);
+                                color: $placeholder;
+                            }
+    
+                        }
+                    }
+        
+                }
+
+                #botoes-contato {
+                    @include tamanhos(75px, inherit);
+                    @include displayFlex(row, flex-end, $gap: 25px);
+                    
+                    button{
+                        @include tamanhos(inherit, 230px);
+                        @include displayFlex(row, center, center);
+                        @include textoEstilo(grau7, semiBold, $text, capitalize);
+                        border-radius: 6px;
+                        background-color: $deepSaffron;
+                        cursor: pointer;
+                        transition: .5s;
+                    
+                        &:hover {
+                            transition: .5s;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            } 
+        }
+
         #container-conteudo-meios-doacoes{
             display: none;
-            @include tamanhos(420px, inherit);
+            @include tamanhos(440px, inherit);
 
             form {
                 @include tamanhos(inherit, inherit);
@@ -1176,7 +1505,9 @@ body {
     
                         select {
                             @include tamanhos(65px, 395px);
-                            @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                            font-size: 1.450rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $text;
                             border: 2px solid $border;
                             border-radius: 6px;
                             padding: 0px 15px;
@@ -1187,7 +1518,9 @@ body {
                             align-self: flex-end;
     
                             option {
-                                @include textoEstilo(grau9, medium, $placeholder, $letter: -0.02em);
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, medium);
+                                color: $text;
                             }
                         }             
         
@@ -1256,10 +1589,10 @@ body {
         }
     
         #container-conteudo-patrocinios{
+            @include displayFlex(column, $gap: 17px);
             min-height: 100px;
             display: none;
             @include tamanhos(auto, 850px);
-            @include displayFlex(column, $gap: 17px);
 
             #editar-imagen{
                 @include tamanhos(100px, auto);
@@ -1374,579 +1707,497 @@ body {
         }
 
         #container-post {
+            @include displayFlex(column, $gap: 15px, $align: center);
             display: none;
             min-height: 50px;
-            @include tamanhos(auto, 775px);
-            background-color: red;
-            @include displayFlex(column, $gap: 60px);
+            @include tamanhos(auto, inherit);
 
-            .post {
-                min-height: 300px;
+            #todos-post {
+                min-height: 50px;
                 @include tamanhos(auto, inherit);
-                @include displayFlex(column, $gap: 25px);
-                background-color: #fff;
-                border-radius: 20px;
-                filter: $shadowMain;
-                padding: 18px;
+                @include displayFlex(column, $align: center, $gap: 60px);
 
-                .parte-superior {
-                    @include tamanhos(80px, 736px);
-                    @include displayFlex(row, space-between, center);
-
-                    .info-ong {
-                        min-width: 290px;
-                        @include tamanhos(80px, auto);
-                        @include displayFlex(row, $align: center, $gap: 12px);
-
-                        img {
-                            @include tamanhos(inherit, 80px);
-                            border-radius: 50%;
-                            object-fit: cover;
-                        }
-
-                        .info-nome-data {
-                            @include tamanhos(55px, auto);
-                            @include displayFlex(column, $gap: 3px);
-
-                            h2 {
-                                @include textoEstilo(grau8, bold, $text);
-                            }
-
-                            span {
-                                @include textoEstilo(grau11, semiBold, $placeholder);
-                            }
-                        }
-                    }
-
-                    img {
-                        @include tamanhos(21px, 31px);
-                        cursor: pointer;
-                    }
-                }
-
-                .imagens-postadas {
-                    @include tamanhos(314px, 736px);
-                    @include displayFlex(row, space-between);
-
-                    img {
-                        @include tamanhos(inherit, 435px);
-                        border-radius: 6px;
-                    }
-
-                    .imagens-complementos {
-                        @include tamanhos(inherit, 285px);
-                        @include displayFlex(column, space-between);
-
-                        .cima {
-                            @include tamanhos(125px, inherit);
-                            border-radius: 6px;
-                        }
-
-                        .baixo {
-                            @include tamanhos(176px, inherit);
-                            border-radius: 6px;
-                        }
-
-                        .ocupar-tudo {
-                            height: inherit;
-                        }
-                    }
-
-                    .tamanho-total {
-                        width: inherit;
-                    }
-                }
-
-                p {
-                    font-size: 1.188rem;
-                    font-weight: map-get($densidade, medium);
-                    color: $text;
-                    height: auto;
-                    width: 736px;
-                }
-
-                .interacoes {
-                    @include tamanhos(25px, 736px);
-                    @include displayFlex(row, space-between, center);
-                    position: relative;
-
-                    .icone-funcao {
-                        min-width: 50px;
-                        @include tamanhos(inherit, auto);
-                        @include displayFlex(row, $align: center, $gap: 7px);
-                        cursor: pointer;
-
-                        .curtir {
-                            @include tamanhos(25px, 28px);
-                        }
-
-                        .comentar {
-                            @include tamanhos(25px, 25px);
-                        }
-
-                        .compartilhar {
-                            @include tamanhos(25px, 25px);
-                        }
-
-                        span {
-                            @include textoEstilo(grau9, semiBold, $text, capitalize);
-                        }
-                    }
-                }
-
-                .comentarios {
-                    min-height: 180px;
-                    @include tamanhos(auto, 736px);
-                    @include displayFlex(column, $gap: 20px);
-                    margin-top: 12px;
-
-                    .corpo-comentario {
-                        min-height: 148px;
-                        min-width: 575px;
-                        @include tamanhos(auto, auto);
-                        @include displayFlex(row, space-between);
-
-                        .lateral-imagem {
-                            @include tamanhos(inherit, 74px);
-                            @include displayFlex();
-
+                .post {
+                    min-height: 300px;
+                    @include tamanhos(auto, 775px);
+                    @include displayFlex(column, $gap: 25px);
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 18px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        .info-ong {
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+    
                             img {
-                                @include tamanhos(75px, 75px);
+                                @include tamanhos(inherit, 80px);
                                 border-radius: 50%;
+                                object-fit: cover;
                             }
-                        }
-
-                        .vertical-info {
-                            min-height: 150px;
-                            @include tamanhos(auto, 482px);
-                            @include displayFlex(column, $gap: 5px);
-
-                            .comentario {
-                                @include tamanhos(inherit, inherit);
-                                @include displayFlex(column, $gap: 8px);
-                                background-color: $deepSaffron;
-                                padding: 12px;
-                                border-radius: 6px;
-
-                                h3 {
-                                    @include textoEstilo(grau9, bold, $text);
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, auto);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
                                 }
-
-                                p {
-                                    @include textoEstilo(grau10, medium, $text);
-                                }
-
+    
                                 span {
-                                    font-size: 1.1rem;
-                                    font-weight: map-get($densidade, bold);
-                                    color: $text;
-                                    text-decoration: underline;
-                                    cursor: pointer;
-                                }
-                            }
-
-                            .acoes-comentario {
-                                min-width: 209px;
-                                @include tamanhos(30px, auto);
-                                @include displayFlex(row, $align: center, $gap: 15px);
-
-                                span {
-                                    font-size: 1.1rem;
-                                    font-weight: map-get($densidade, medium);
-                                    color: $text;
-                                }
-
-                                .curtir-comentario {
-                                    min-width: 168px;
-                                    @include tamanhos(inherit, auto);
-                                    @include displayFlex(row, $align: center, $gap: 6px);
-                                    cursor: pointer;
-
-                                    img {
-                                        @include tamanhos(20px, 25px);
-                                    }
-
-                                    span {
-                                        @include textoEstilo(grau10, semiBold, $text, capitalize);
-                                        margin-top: 2px;
-                                    }
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
                                 }
                             }
                         }
-                    }
-                }
-
-                #comentar {
-                    min-height: 50px;
-                    @include tamanhos(auto, 736px);
-                    @include displayFlex(row, space-between, center);
-
-                    input {
-                        @include tamanhos(80px, 630px);
-                        @include textoEstilo(grau8, medium, $text);
-                        background-color: $cinza;
-                        border-radius: 44px;
-                        resize: none;
-                        font-family: 'Montserrat', sans-serif;
-                        padding-left: 35px;
-                        padding-top: 22px;
-                        padding-right: 20px;
-                        padding-bottom: 20px;
-
-                        &::placeholder {
-                            @include textoEstilo(grau8, medium, $text);
-                        }
-                    }
-
-                    #enviarComentario {
-                        @include tamanhos(70px, 70px);
-                        @include displayFlex(row, center, center);
-                        border-radius: 50%;
-                        background-color: $deepSaffron;
-                        cursor: pointer;
-
+    
                         img {
-                            @include tamanhos(35px, 35px);
+                            @include tamanhos(21px, 31px);
+                            cursor: pointer;
                         }
                     }
-                } 
-            }
-        }    
-        // #container-post{
-        //     display: none;
-        //     min-height: 789px;
-        //     @include tamanhos(auto, 824px);
-        //     @include displayFlex(center, center);
-        //     align-self: center;
-        
-        //     .post {
-        //         min-height: 789px;
-        //         @include tamanhos(auto, inherit);
-        //         @include displayFlex(column, space-between, $gap: 25px);
-        //         background-color: #fff;
-        //         border-radius: 20px;
-        //         filter: $shadowMain;
-        //         padding: 18px;
-                
-        
-        //         .parte-superior {
-        //             @include tamanhos(80px, 736px);
-        //             @include displayFlex(row, space-between, center);
-        
-        //             .info-ong {
-        //                 @include tamanhos(80px, 290px);
-        //                 @include displayFlex(row, space-between, center);
-        
-        //                 img {
-        //                     @include tamanhos(inherit, 80px);
-        //                     border-radius: 50%;
-        //                 }
-        
-        //                 .info-nome-data {
-        //                     @include tamanhos(55px, 200px);
-        //                     @include displayFlex(column, $gap: 3px);
-        
-        //                     h2 {
-        //                         @include textoEstilo(grau8, bold, $text);
-        //                     }
-        
-        //                     span {
-        //                         @include textoEstilo(grau11, semiBold, $placeholder);
-        //                     }
-        //                 }
-        //             }
-        
-        //             img {
-        //                 @include tamanhos(21px, 31px);
-        //                 cursor: pointer;
-        //             }
-        //         }
-        
-        //         .imagens-postadas {
-        //             @include tamanhos(314px, 736px);
-        //             @include displayFlex(row, space-between);
-                    
-        
-        //             img {
-        //                 @include tamanhos(inherit, 435px);
-        //                 border-radius: 6px;
-        //             }
-        
-        //             .imagens-complementos {
-        //                 @include tamanhos(inherit, 285px);
-        //                 @include displayFlex(column, space-between);
-        
-        //                 .cima {
-        //                     @include tamanhos(125px, inherit);
-        //                     border-radius: 6px;
-        //                 }
-        
-        //                 .baixo {
-        //                     @include tamanhos(176px, inherit);
-        //                     border-radius: 6px;  
-        //                 }
-        //             }
-        //         }
-        
-        //         p {
-        //             font-size: 1.125rem;
-        //             font-weight: map-get($densidade, medium);
-        //             color: $text;
-        //         }
-        
-        //         .interacoes {
-        //             @include tamanhos(25px, 736px);
-        //             @include displayFlex(row, space-between, center);
-        
-        //             .icone-funcao {
-        //                 min-width: 50px;
-        //                 @include tamanhos(inherit, auto);
-        //                 @include displayFlex(row, $align: center, $gap: 7px);
-        //                 cursor: pointer;
-        
-        //                 .curtir {
-        //                     @include tamanhos(25px, 28px);
-        //                 }
-        
-        //                 .comentar {
-        //                     @include tamanhos(25px, 25px);
-        //                 }
-        
-        //                 .compartilhar {
-        //                     @include tamanhos(25px, 25px);
-        //                 }
-        
-        //                 span {
-        //                     @include textoEstilo(grau10, semiBold, $text, capitalize);
-        //                 }
-        //             }
-        //         }
-        
-        //         .comentarios {
-        //             min-height: 180px;
-        //             @include tamanhos(auto, 736px);
-        //             @include displayFlex(column, $gap: 20px);
-        //             margin-top: 12px;
-        
-        //             .corpo-comentario {
-        //                 min-height: 148px;
-        //                 min-width: 575px;
-        //                 @include tamanhos(auto, auto);
-        //                 @include displayFlex(row, space-between);
-        
-        //                 .lateral-imagem {
-        //                     @include tamanhos(inherit, 74px);
-        //                     @include displayFlex();
-        
-        //                     img {
-        //                         @include tamanhos(75px, 75px);
-        //                         border-radius: 50%;
-        //                     }
-        //                 }
-        
-        //                 .vertical-info {
-        //                     min-height: 150px;
-        //                     @include tamanhos(auto, 482px);
-        //                     @include displayFlex(column, $gap: 5px);
-        
-        //                     .comentario {
-        //                         @include tamanhos(inherit, inherit);
-        //                         @include displayFlex(column, $gap: 8px);
-        //                         background-color: $deepSaffron;
-        //                         padding: 12px;
-        //                         border-radius: 6px;
-        
-        //                         h3 {
-        //                             @include textoEstilo(grau9, bold, $text);
-        //                         }
-        
-        //                         p {
-        //                             @include textoEstilo(grau10, medium, $text);
-        //                         } 
-                                
-        //                         span {
-        //                             font-size: 1.1rem;
-        //                             font-weight: map-get($densidade, bold);
-        //                             color: $text;
-        //                             text-decoration: underline;
-        //                             cursor: pointer;
-        //                         }
-        //                     }
-        
-        //                     .acoes-comentario {
-        //                         min-width: 209px;
-        //                         @include tamanhos(30px, auto);
-        //                         @include displayFlex(row, $align: center, $gap: 15px);
-        
-        //                         span {
-        //                             font-size: 1.1rem;
-        //                             font-weight: map-get($densidade, medium);
-        //                             color: $text;
-        //                         }
-        
-        //                         .curtir-comentario {
-        //                             min-width: 168px;
-        //                             @include tamanhos(inherit, auto);
-        //                             @include displayFlex(row, $align: center, $gap: 6px);
-        //                             cursor: pointer;
-        
-        //                             img {
-        //                                 @include tamanhos(20px, 25px);
-        //                             }
-        
-        //                             span {
-        //                                 @include textoEstilo(grau10, semiBold, $text, capitalize);
-        //                                 margin-top: 2px;
-        //                             } 
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // } 
-
-        #container-evento{
-            display: none;
-            min-height: 789px;
-            @include tamanhos(auto, 824px);
-            @include displayFlex(column, space-between, $gap: 25px);
-            background-color: #fff;
-            border-radius: 20px;
-            filter: $shadowMain;
-            padding: 18px;
-            align-self: center;
     
-            .parte-superior {
-                @include tamanhos(80px, 736px);
-                @include displayFlex(row, space-between, center);
+                    .imagens-postadas {
+                        @include tamanhos(314px, 736px);
+                        @include displayFlex(row, space-between);
     
-                .info-ong {
-                    @include tamanhos(80px, 290px);
-                    @include displayFlex(row, space-between, center);
-    
-                    img {
-                        @include tamanhos(inherit, 80px);
-                        border-radius: 50%;
-                    }
-    
-                    .info-nome-data {
-                        @include tamanhos(55px, 200px);
-                        @include displayFlex(column, $gap: 3px);
-    
-                        h2 {
-                            @include textoEstilo(grau8, bold, $text);
+                        img {
+                            @include tamanhos(inherit, 435px);
+                            border-radius: 6px;
                         }
     
-                        span {
-                            @include textoEstilo(grau11, semiBold, $placeholder);
+                        .imagens-complementos {
+                            @include tamanhos(inherit, 285px);
+                            @include displayFlex(column, space-between);
+    
+                            .cima {
+                                @include tamanhos(125px, inherit);
+                                border-radius: 6px;
+                            }
+    
+                            .baixo {
+                                @include tamanhos(176px, inherit);
+                                border-radius: 6px;
+                            }
+    
+                            .ocupar-tudo {
+                                height: inherit;
+                            }
                         }
-                    }
-                }
     
-                img {
-                    @include tamanhos(21px, 31px);
-                    cursor: pointer;
-                }
-            }
-    
-            .info-evento {
-                min-height: 632px;
-                @include tamanhos(auto, 736px);
-                @include displayFlex(column, space-between, $gap: 25px);
-    
-                .info-superior {
-                    min-height: 131px;
-                    @include tamanhos(auto, 736px);
-                    @include displayFlex(column, space-between, $gap: 25px);
-    
-                    h2 {
-                        @include textoEstilo(grau7, semiBold, $text);
+                        .tamanho-total {
+                            width: inherit;
+                        }
                     }
     
                     p {
-                        @include textoEstilo(grau10, medium, $text);
-                    }
-                }
-    
-                .imagens-postadas {
-                    @include tamanhos(314px, 736px);
-                    @include displayFlex(row, space-between);
-    
-                    img {
-                        @include tamanhos(inherit, 435px);
-                        border-radius: 6px;
+                        font-size: 1.188rem;
+                        font-weight: map-get($densidade, medium);
+                        color: $text;
+                        height: auto;
+                        width: 736px;
                     }
     
-                    .imagens-complementos {
-                        @include tamanhos(inherit, 285px);
-                        @include displayFlex(column, space-between);
+                    .interacoes {
+                        @include tamanhos(25px, 736px);
+                        @include displayFlex(row, space-between, center);
+                        position: relative;
     
-                        .cima {
-                            @include tamanhos(125px, inherit);
-                            border-radius: 6px;
+                        .icone-funcao {
+                            min-width: 50px;
+                            @include tamanhos(inherit, auto);
+                            @include displayFlex(row, $align: center, $gap: 7px);
+                            cursor: pointer;
+    
+                            .curtir {
+                                @include tamanhos(25px, 28px);
+                            }
+    
+                            .comentar {
+                                @include tamanhos(25px, 25px);
+                            }
+    
+                            .compartilhar {
+                                @include tamanhos(25px, 25px);
+                            }
+    
+                            span {
+                                @include textoEstilo(grau9, semiBold, $text, capitalize);
+                            }
                         }
-    
-                        .baixo {
-                            @include tamanhos(176px, inherit);
-                            border-radius: 6px;  
-                        }
                     }
-                }
     
-                .info-complementares {
-                    @include tamanhos(201px, 736px);
-                    @include displayFlex(column);
+                    .comentarios {
+                        min-height: 180px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, $gap: 20px);
+                        margin-top: 12px;
     
-                    .complementares-superior {
-                        @include tamanhos(159px, inherit);
-                        @include displayFlex(row, space-between);
+                        .corpo-comentario {
+                            min-height: 148px;
+                            min-width: 575px;
+                            @include tamanhos(auto, auto);
+                            @include displayFlex(row, space-between);
     
-                        .info-esquerda {
-                            @include tamanhos(inherit, 530px);
-                            @include displayFlex(column, space-between);
+                            .lateral-imagem {
+                                @include tamanhos(inherit, 74px);
+                                @include displayFlex();
     
-                            .item {
-                                @include displayFlex($gap: 7px);
-    
-                                h3 {
-                                    font-size: 1.450rem;
-                                    font-weight: map-get($densidade, semiBold);
-                                    color: $text;
+                                img {
+                                    @include tamanhos(75px, 75px);
+                                    border-radius: 50%;
                                 }
+                            }
     
-                                .item-info {
-                                    font-size: 1.450rem;
-                                    font-weight: map-get($densidade, regular);
-                                    color: $text;
-                                }
+                            .vertical-info {
+                                min-height: 150px;
+                                @include tamanhos(auto, 482px);
+                                @include displayFlex(column, $gap: 5px);
     
-                                .item-stts {
-                                    @include tamanhos(35px, 89px);
-                                    @include displayFlex(row, center, center);
-                                    font-size: 0.85rem;
-                                    font-weight: map-get($densidade, bold);
-                                    background-color: $verde;
+                                .comentario {
+                                    @include tamanhos(inherit, inherit);
+                                    @include displayFlex(column, $gap: 8px);
+                                    background-color: $deepSaffron;
+                                    padding: 12px;
                                     border-radius: 6px;
+    
+                                    h3 {
+                                        @include textoEstilo(grau9, bold, $text);
+                                    }
+    
+                                    p {
+                                        @include textoEstilo(grau10, medium, $text);
+                                    }
+    
+                                    span {
+                                        font-size: 1.1rem;
+                                        font-weight: map-get($densidade, bold);
+                                        color: $text;
+                                        text-decoration: underline;
+                                        cursor: pointer;
+                                    }
+                                }
+    
+                                .acoes-comentario {
+                                    min-width: 209px;
+                                    @include tamanhos(30px, auto);
+                                    @include displayFlex(row, $align: center, $gap: 15px);
+    
+                                    span {
+                                        font-size: 1.1rem;
+                                        font-weight: map-get($densidade, medium);
+                                        color: $text;
+                                    }
+    
+                                    .curtir-comentario {
+                                        min-width: 168px;
+                                        @include tamanhos(inherit, auto);
+                                        @include displayFlex(row, $align: center, $gap: 6px);
+                                        cursor: pointer;
+    
+                                        img {
+                                            @include tamanhos(20px, 25px);
+                                        }
+    
+                                        span {
+                                            @include textoEstilo(grau10, semiBold, $text, capitalize);
+                                            margin-top: 2px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+    
+                    #comentar {
+                        min-height: 50px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        input {
+                            @include tamanhos(80px, 630px);
+                            @include textoEstilo(grau8, medium, $text);
+                            background-color: $cinza;
+                            border-radius: 44px;
+                            resize: none;
+                            font-family: 'Montserrat', sans-serif;
+                            padding-left: 35px;
+                            padding-top: 22px;
+                            padding-right: 20px;
+                            padding-bottom: 20px;
+    
+                            &::placeholder {
+                                @include textoEstilo(grau8, medium, $text);
+                            }
+                        }
+    
+                        #enviarComentario {
+                            @include tamanhos(70px, 70px);
+                            @include displayFlex(row, center, center);
+                            border-radius: 50%;
+                            background-color: $deepSaffron;
+                            cursor: pointer;
+    
+                            img {
+                                @include tamanhos(35px, 35px);
+                            }
+                        }
+                    } 
+                }
+            }
+        } 
+
+        #container-evento{
+            @include displayFlex(column, $gap: 15px, $align: center);
+            display: none;
+            min-height: 50px;
+            @include tamanhos(auto, inherit);
+
+            #todos-evento {
+                min-height: 50px;
+                @include tamanhos(auto, 775px);
+                @include displayFlex(column, $align: center, $gap: 60px);
+
+                .evento-feed {
+                    min-height: 50px;
+                    @include tamanhos(auto, inherit);
+                    @include displayFlex(column, space-between, $gap: 25px);
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 18px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        .info-ong {
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+    
+                            img {
+                                @include tamanhos(inherit, 80px);
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, auto);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
+                                }
+    
+                                span {
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
                                 }
                             }
                         }
     
-                        .botoes-direita {
-                            @include tamanhos(103px, 160px);
-                            @include displayFlex(column, space-between);
+                        img {
+                            @include tamanhos(21px, 31px);
+                            cursor: pointer;
+                        }
+                    }
     
-                            .botao {
-                                @include tamanhos(40px, 160px);
+                    .info-evento {
+                        min-height: 294px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, space-between, $gap: 25px);
+    
+                        .info-superior {
+                            min-height: 10px;
+                            @include tamanhos(auto, 736px);
+                            @include displayFlex(column, space-between, $gap: 25px);
+    
+                            h2 {
+                                @include textoEstilo(grau7, semiBold, $text);
+                            }
+    
+                            p {
+                                height: auto;
+                                width: 736px;
+                                @include textoEstilo(grau10, medium, $text);
+                            }
+                        }
+    
+                        .imagens-postadas {
+                            @include tamanhos(314px, 736px);
+                            @include displayFlex(row, space-between);
+        
+                            img {
+                                @include tamanhos(inherit, 435px);
+                                border-radius: 6px;
+                            }
+        
+                            .imagens-complementos {
+                                @include tamanhos(inherit, 285px);
+                                @include displayFlex(column, space-between);
+        
+                                .cima {
+                                    @include tamanhos(125px, inherit);
+                                    border-radius: 6px;
+                                }
+        
+                                .baixo {
+                                    @include tamanhos(176px, inherit);
+                                    border-radius: 6px;
+                                }
+    
+                                .ocupar-tudo {
+                                    height: inherit;
+                                }
+                            }
+    
+                            .tamanho-total {
+                                width: inherit;
+                            }
+                        }
+    
+                        #interesses {
+                            @include tamanhos(60px, 736px);
+                            @include displayFlex(row, center, center);
+    
+                            #conteudo-btn {
+                                @include tamanhos(inherit, auto);
+                                @include displayFlex(row, $gap: 56px);
+    
+                                #saiba-mais-evento {
+                                    @include tamanhos(inherit, 150px);
+                                    @include displayFlex(row, center, center);
+                                    font-size: 1.500rem;
+                                    font-weight: map-get($densidade, semiBold);
+                                    text-transform: capitalize;
+                                    background-color: $deepSaffron;
+                                    border-radius: 6px;
+                                    border: none;
+                                    transition: .1s;
+                                    cursor: pointer;
+        
+                                    &:hover {
+                                        transition: .1s;
+                                        opacity: 0.8;
+                                    }
+                                }
+    
+                                #candidatarEvento {
+                                    @include tamanhos(inherit, 194px);
+                                    @include displayFlex(row, center, center);
+                                    font-size: 1.500rem;
+                                    font-weight: map-get($densidade, semiBold);
+                                    text-transform: capitalize;
+                                    background-color: $deepSaffron;
+                                    border-radius: 6px;
+                                    border: none;
+                                    transition: .1s;
+                                    cursor: pointer;
+        
+                                    &:hover {
+                                        transition: .1s;
+                                        opacity: 0.8;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #container-vagas{
+            @include displayFlex(column, $gap: 15px, $align: center);
+            min-height: 50px;
+            display: none;
+            @include tamanhos(auto, inherit);
+
+            #todas-vaga {
+                min-height: 50px;
+                @include tamanhos(auto, 775px);
+                @include displayFlex(column, $align: center, $gap: 60px);
+
+                .vaga {
+                    min-height: 50px;
+                    @include tamanhos(auto, inherit);
+                    @include displayFlex(column, $gap: 30px);
+                    background-color: #fff;
+                    border-radius: 20px;
+                    filter: $shadowMain;
+                    padding: 25px;
+    
+                    .parte-superior {
+                        @include tamanhos(80px, 736px);
+                        @include displayFlex(row, space-between, center);
+    
+                        .info-ong {
+                            min-width: 290px;
+                            @include tamanhos(80px, auto);
+                            @include displayFlex(row, $align: center, $gap: 12px);
+    
+                            img {
+                                @include tamanhos(inherit, 80px);
+                                border-radius: 50%;
+                                object-fit: cover;
+                            }
+    
+                            .info-nome-data {
+                                @include tamanhos(55px, auto);
+                                @include displayFlex(column, $gap: 3px);
+    
+                                h2 {
+                                    @include textoEstilo(grau8, bold, $text);
+                                }
+    
+                                span {
+                                    @include textoEstilo(grau11, semiBold, $placeholder);
+                                }
+                            }
+                        }
+    
+                        img {
+                            @include tamanhos(21px, 31px);
+                            cursor: pointer;
+                        }
+                    }
+    
+                    .corpo-vaga {
+                        min-height: 10px;
+                        @include tamanhos(auto, 736px);
+                        @include displayFlex(column, $gap: 30px);
+    
+                        h2 {
+                            @include textoEstilo(grau7, semiBold, $text);
+                        }
+    
+                        p {
+                            height: auto;
+                            width: 736px;
+                            font-size: 1.188rem;
+                            font-weight: map-get($densidade, medium);
+                            color: $text;
+                        }
+    
+                        .vaga-botoes {
+                            @include tamanhos(60px, 350px);
+                            @include displayFlex(row, space-between);
+                            align-self: center;
+    
+                            button {
+                                @include tamanhos(inherit, 150px);
                                 @include displayFlex(row, center, center);
-                                font-size: 1.200rem;
-                                font-weight: map-get($densidade, medium);
-                                color: $text;
-                                background-color: $border;
+                                font-size: 1.450rem;
+                                font-weight: map-get($densidade, semiBold);
+                                text-transform: capitalize;
+                                background-color: $deepSaffron;
                                 border-radius: 6px;
                                 border: none;
-                                cursor: pointer;
                                 transition: .1s;
+                                cursor: pointer;
     
                                 &:hover {
                                     transition: .1s;
@@ -1955,124 +2206,13 @@ body {
                             }
                         }
                     }
-    
-                    .complementares-inferior {
-                        @include tamanhos(42px, inherit);
-                        @include displayFlex(row, flex-end, center);
-    
-                        span {
-                            font-size: 1.200rem;
-                            font-weight: map-get($densidade, medium);
-                            color: $text; 
-                        }
-    
-                        i {
-                            font-weight: map-get($densidade, regular);
-                            font-style: normal;
-                        }
-                    }
                 }
-            }
-        }
-
-        #container-vagas{
-            display: none;
-            @include tamanhos(auto, inherit);
-            @include displayFlex(row, space-between);
-
-
-            .vaga {
-                @include tamanhos(509px, 370px);
-                @include displayFlex(column, $gap: 20px);
-                background-color: #fff;
-                border-radius: 20px;
-                filter: $shadowMain;
-                padding: 15px;
-        
-                .parte-superior {
-                    @include tamanhos(80px, 318px);
-                    @include displayFlex(row, space-between, center);
-                   
-        
-                    .info-ong {
-                        @include tamanhos(80px, 277px);
-                        @include displayFlex(row, space-between, center);
-        
-                        img {
-                            @include tamanhos(inherit, 80px);
-                            border-radius: 50%;
-                            padding: 5px;
-                        }
-        
-                        .info-nome-data {
-                            @include tamanhos(55px, 200px);
-                            @include displayFlex(column, $gap: 3px);
-        
-                            h2 {
-                                @include textoEstilo(grau8, bold, $text);
-                            }
-        
-                            span {
-                                @include textoEstilo(grau11, semiBold, $placeholder);
-                            }
-                        }
-                    }
-        
-                    img {
-                        @include tamanhos(21px, 31px);
-                        cursor: pointer;
-                    }
-                }
-        
-                .corpo-vaga {
-                    @include tamanhos(346px, auto);
-                    @include displayFlex(column, space-between);
-                    
-        
-                    h2 {
-                        @include textoEstilo(grau9, semiBold, $text);
-                        display:flex;
-                        align-self: center;
-                    }
-        
-                    p { 
-                        @include textoEstilo(grau9, medium, $text);
-                        @include displayFlex($justify: center);
-                        text-align: center;
-                    }
-        
-                    .vaga-botoes {
-                        @include tamanhos(60px, 316px);
-                        @include displayFlex(row, space-between);
-                        align-self: center;
-                        padding-top: 20px;
-                     
-        
-                        button {
-                            @include tamanhos(inherit, 150px);
-                            @include displayFlex(row, center, center);
-                            @include textoEstilo(grau8, semiBold, $text);
-                            font-size: 1.450rem;
-                            font-weight: map-get($densidade, medium);
-                            text-transform: capitalize;
-                            background-color: $deepSaffron;
-                            border-radius: 6px;
-                            border: none;
-                            transition: .1s;
-                            cursor: pointer;
-        
-                            &:hover {
-                                transition: .1s;
-                                opacity: 0.8;
-                            }
-                        }
-                    }
-                }
-            }
+            } 
+            
         }
 
         #container-senha{  
-            @include displayFlex(column,);
+            @include displayFlex(column);
             @include tamanhos(440px, 850px);
             gap: 10px;
             display: none;   
@@ -2201,140 +2341,6 @@ body {
 
 }
 
-//Modal editar
-.modalEditar{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    z-index: -1;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s;
-
-    #EditarBannerFoto{
-        @include tamanhos(469px, 850px);
-        @include displayFlex(row, );
-        border: 1px   solid $placeholder;
-        border-radius:20px;
-        background-color: #E4E6EB;
-        padding: 30px;
-        
-
-        #esquerdas{
-            @include displayFlex(column,);
-            @include tamanhos(430px, 316px);
-        
-
-            #editarPerfil{
-                @include tamanhos(auto, inherit);
-                @include displayFlex(center, center);
-                cursor: pointer;
-
-                label {
-                    @include tamanhos(120px, 120px); 
-                    border-radius: 50%;
-                    display: block;
-
-                    img {
-                        cursor: pointer;
-                        @include tamanhos(inherit, inherit);
-                        object-fit: cover;
-                        border-radius: 50%;
-                    }
-                }
-
-                input[type='file'] {
-                    display: none
-                }
-            }
-
-            #tituloFotoPerfil{
-                @include tamanhos(296px, 316px);
-                
-            
-                
-                h2{
-                    @include tamanhos(37px, inherit);
-                    @include displayFlex(center, center);
-                    @include textoEstilo(grau7, semiBold, $text);
-                    padding-top: 10px;
-                }
-            }
-        }
-        #Direitas{
-            @include tamanhos(430px, 463px);
-            @include displayFlex(column);
-        
-
-            #editarBanner{
-                @include tamanhos(auto, 463px);
-                @include displayFlex(center, center);
-                cursor: pointer;
-                
-                label {
-                    @include tamanhos(227px, 414px); 
-                    border-radius: 6px;
-                    display: block;
-
-                    img {
-                        cursor: pointer;
-                        @include tamanhos(inherit, inherit);
-                        object-fit: cover;
-                        border-radius: 6px;
-                    }
-                }
-
-                input[type='file'] {
-                    display: none
-                }
-
-            }
-
-            #tituloBannerPerfil{
-                @include tamanhos(auto, 463px);
-                @include displayFlex(center, center);
-                
-
-                    h2{
-                        @include textoEstilo(grau7, semiBold, $text);
-                        padding-top: 10px
-                    }
-            }
-
-            #botaoAlterar{
-                @include tamanhos(140px, 465px);
-                display: flex;
-                justify-content: flex-end;
-                align-items: flex-end;
-                gap: 10px;
-
-                #botaoSairEditar{
-                    background-color: $deepSaffron;
-                }
-
-                button{
-                    @include tamanhos(65px, 180px);
-                    @include textoEstilo(grau8, semiBold, $text);
-                    background-color: $deepSaffron;
-                    border: 1px ;
-                    border-radius:6px;
-                    cursor: pointer;
-                
-                    
-
-                }
-            }
-        }
-
-    }
-}
-
 #direita {
     min-height: 500px;
     @include tamanhos(auto, 322px);
@@ -2404,6 +2410,129 @@ body {
     }
 }    
 
+// CARREGAMENTO DE POSTS
+.loader {
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    bottom: 7px;
+    transition: opacity 0.3s ease-in;
+}
+  
+.loader.show {
+    opacity: 1;
+}
+  
+.circle {
+    background-color: $tartOrange;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px;
+    animation: bounce 0.5s ease-in infinite;
+}
+  
+.circle:nth-of-type(2) {
+    animation-delay: 0.1s;
+}
+
+.circle:nth-of-type(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// CARREGAMENTO DE EVENTOS
+.loaderEvento {
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    bottom: 7px;
+    transition: opacity 0.3s ease-in;
+}
+  
+.loaderEvento.show {
+    opacity: 1;
+}
+  
+.circle {
+    background-color: $tartOrange;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px;
+    animation: bounce 0.5s ease-in infinite;
+}
+  
+.circle:nth-of-type(2) {
+    animation-delay: 0.1s;
+}
+
+.circle:nth-of-type(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// CARREGAMENTO DE VAGAS
+.loaderVaga {
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    bottom: 7px;
+    transition: opacity 0.3s ease-in;
+}
+  
+.loaderVaga.show {
+    opacity: 1;
+}
+  
+.circle {
+    background-color: $tartOrange;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 5px;
+    animation: bounce 0.5s ease-in infinite;
+}
+  
+.circle:nth-of-type(2) {
+    animation-delay: 0.1s;
+}
+
+.circle:nth-of-type(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 .style-input {
     position: relative;
 
@@ -2438,10 +2567,4 @@ body {
 
 .style-input.error small {
     visibility: visible;
-}
-
-.modalEditar.bg-active{
-    visibility: visible;
-    opacity: 1;
-    z-index: 1;
 }
