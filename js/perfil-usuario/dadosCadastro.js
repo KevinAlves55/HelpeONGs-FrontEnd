@@ -21,6 +21,8 @@ let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userL
 const contato = reqContatos.data;
 
 // Objeto de captura das INPUTS
+const previewPerfil = document.querySelector(".previewPerfil");
+const previewBanner = document.querySelector(".previewBanner");
 const nome = document.getElementById('name');
 const email = document.getElementById("mail");
 const data = document.getElementById("date");
@@ -82,6 +84,12 @@ function CarregarPerfil(objectLocal) {
         bannerPerfil.setAttribute("src", `../../assets/img/banner-vazio.png`)
     } else {
         bannerPerfil.setAttribute("src", `${objectLocal.banner}`);
+    }
+     //SEGUIDORES
+     if (objectLocal.numeroDeSeguidores === null || objectLocal.numeroDeSeguidores === undefined) {
+        qtdaSeguidores.innerHTML = `0`;
+    } else {
+        qtdaSeguidores.innerHTML = `${objectLocal.numeroDeSeguidores} seguidores`;
     }
 
 }
@@ -203,7 +211,7 @@ async function AtualizarcontatosUsuario(){
 }
 document.getElementById("editarContatos").addEventListener("click", AtualizarcontatosUsuario);
 
-//  
+  
 async function dadosDetalhesEndereco() {
 
     const dadosDetalhesEndereco = {
@@ -309,61 +317,51 @@ async function carregarDadosUsuario(dados, enderecos, contato){
 carregarDadosUsuario(dados, enderecos, contato);
 
 // ALTERAR SENHA
-// async function editarSenha(){
+async function editarSenha(){
 
-//     if (SenhaAtual == dadosSenhaEmail) {
-//         senha.value = ``;
+    if (SenhaAtual === dadosSenhaEmail) {
+        
      
-//     } else {
+    } else {
        
-//     }
-// }
-// document.getElementById("butao-editar").addEventListener("click",editarSenha);
+    }
+}
+document.getElementById("butao-editar").addEventListener("click",editarSenha);
 
+import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./imagenPreview.js";
 
-// Carregar dados no sobre
+async function atualizarImagensPerfil() {
 
-// async function CarregarDadosSobre (dadosUsuario) {
+    const foto = mediaProfile;
+    const banner = mediaBanner;
 
-//     let descricaosobre = document.getElementById("descricaoSobre");
-//     let qtdaMembro = document.getElementById("qtdaMembros");
-//     let anoDeFundacao = document.getElementById("anoFundacao");
-//     let sedeLocal = document.getElementById("sede");
-//     let historia = document.getElementById("historiaSobre");
+    const imagensOng = {
+        "foto": [
+            foto[0]
+        ],
+        "banner": [
+            banner[0]
+        ]
+    };
 
-//     if (reqEndereco.status === 400) {
-//         sedeLocal.innerHTML = `Nenhum endereço cadastrado`;
-//     } else {
-//         sedeLocal.innerHTML = `${adress.municipio}, ${adress.estado}`;
-//     }
+    console.log(imagensOng.foto);
 
-//     if (dadosOng.descricao !== null) {
-//         descricaosobre.innerText = `${dadosOng.descricao}`;
-//     } else {
-//         descricaosobre.innerText = `Nenhuma descrição cadastrada`;
-//     }
+    let reqUpdateMedia = await ApiRequest("PUT", `http://localhost:3131/user/media/${dados.idUsuario}`, imagensUsuario);
+    console.log(reqUpdateMedia);
 
-//     if (dadosOng.qtdDeMembros !== null) {
-//         qtdaMembro.innerHTML = `${formatarValor(dadosOng.qtdDeMembros)}`;        
-//     } else {
-//         qtdaMembro.innerHTML = `Nada encontrado`;
-//     }
+    if (reqUpdateMedia.status === 200) {
+        alert("Imagens atualizadas com sucesso!");
+        window.location.reload();
+    } else {
+        alert("Erro ao atualizar imagens");
+    }
 
-//     if (dadosOng.dataDeFundacao !== null) {
-//         anoDeFundacao.innerHTML = `${getFormattedDate(dadosOng.dataDeFundacao)}`;        
-//     } else {
-//         anoDeFundacao.innerHTML = `Nada encontrado`;
-//     }
+}
 
-//     if (dadosOng.historia !== null) {
-//         historia.innerText = `${dadosOng.historia}`;
-//     } else {
-//         historia.innerText = `Nada encontrado`;
-//     }
-
-    
-// }
-
+// document.getElementById("fileSponsor").addEventListener('change', imagemPreview);
+document.getElementById("filePerfil").addEventListener("change", imagemPreviewPerfil);
+document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
+document.getElementById("botaoModalEditar").addEventListener("click", atualizarImagensPerfil);
 
 
 // carregar dados na inputs
@@ -371,7 +369,20 @@ carregarDadosUsuario(dados, enderecos, contato);
 function AtribuirValor() {
     nome.value = dados.nome;
     email.value = dadosSenhaEmail.email;
- 
+    // previewPerfil.src = dadosUsuario.foto;
+
+    // if (dadosUsuario.banner !== null) {
+    //     previewBanner.src = dadosUsuario.banner;
+    // } else {
+    //     previewBanner.src = "./assets/img/image 16.png";
+    // }
+
+    // if (dadosUsuario.foto !== null) {
+    //     previewPerfil.src = dadosUsuario.foto;
+    // } else {
+    //     previewPerfil.src = "./assets/img/sem-foto.png";
+    // }
+
     if (reqContatos.status == 404) {
         celular.value = ``;
         celular.placeholder = ``;

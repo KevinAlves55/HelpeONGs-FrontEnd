@@ -13,6 +13,7 @@
     <script src="./js/perfil-usuario/endereco.js" type='module' defer></script>
     <script src="./js/perfil-usuario/dadosCadastro.js" type='module' defer></script>
     <script src="./js/perfil-usuario/modalEditar.js" type='module' defer></script>
+    <script type="module" src="js/perfil-usuario/index.js" defer></script>
 </head>
 <body>
  
@@ -291,7 +292,7 @@
        <div id="status-seguidores">
            <h2>Seguindo</h2>
         
-         <span>48</span>
+         <span id="qtdaSeguidores"></span>
        </div>
         <div id="container-direita">
             <div id="mini-perfil-direita">
@@ -335,7 +336,10 @@
 
             <div id="esquerda">
                 <div id="editarPerfil">
-                    <img src="./assets/img/Rectangle 97.png" alt="">
+                    <label for="filePerfil" id="img-file">
+                         <img src="./assets/img/Rectangle 97.png" alt="" class="previewPerfil">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="filePerfil">
                 </div>
                 <div id="tituloFotoPerfil">
                     <h2>Foto de perfil</h2>
@@ -343,7 +347,10 @@
             </div>
             <div id="Direita">
                 <div id="editarBanner">
-                    <img src="./assets/img/image 16.png" alt="">
+                    <label for="fileBanner">
+                        <img src="./assets/img/image 16.png" alt="" class="previewBanner">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="fileBanner">
                 </div>
                 <div id="tituloBannerPerfil">
                     <h2>Banner do perfil</h2>
@@ -353,11 +360,7 @@
                     <button type="button" id="botaoModalEditar">Alterar</button>
                     <button type="button" id="botaoSairEditar">Sair</button>
                 </div>
-                
-
-
-            </div>
-        
+            </div> 
 
         </div>
     </div>
