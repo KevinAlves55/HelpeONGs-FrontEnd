@@ -53,7 +53,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
@@ -114,7 +114,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".gif")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
@@ -557,10 +557,6 @@ const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
                         <h3>${objetoContatos.telefone}</h3>
                     </div>
                     <div class="caixa">
-                        <span>Email: </span>
-                        <h3>${objetoContatos.email}</h3>
-                    </div>
-                    <div class="caixa">
                         <span>Site: </span>
                         <h3><a target="_blank" href="${objetoDadosDonate.site}">${objetoDadosDonate.site}</a></h3>
                     </div>
@@ -573,6 +569,10 @@ const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
                         <div class="caixa">
                             <span>Conta: </span>
                             <h3>${objetoBank.conta}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Tipo: </span>
+                            <h3>${objetoBank.tipo}</h3>
                         </div>
                         <div class="caixa">
                             <span>Agência: </span>
@@ -637,7 +637,6 @@ document.getElementById("recomendados-ongs").addEventListener("click", CarregarM
 document.getElementById("favoritos").addEventListener("click", CarregarModal);
 document.getElementById("estados-select").addEventListener("change", pesquisarEstado);
 document.getElementById("modalClose").addEventListener("click", closeModal);
-document.getElementById("modal").addEventListener("click", closeModal);
 document.getElementById("ongs").addEventListener("click", CarregarModal);
 document.getElementById("botao-filtro").addEventListener("click", openFiltro);
 document.getElementById("filtrar-opcoes").addEventListener("click", filtrar);

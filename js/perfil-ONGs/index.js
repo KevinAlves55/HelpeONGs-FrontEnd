@@ -78,6 +78,8 @@ function formatarValor(valor) {
 
 function CarregarPerfil(objectLocal) {
 
+    console.log(objectLocal);
+
     let nomeLogado = document.getElementById("mini-perfil-nome");
     let fotoLogado = document.getElementById("mini-perfil-foto");
     let fotoPerfil = document.getElementById("perfil-foto");
@@ -95,7 +97,7 @@ function CarregarPerfil(objectLocal) {
     //Foto Mini Perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git")) {
+    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
         fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         fotoLogado.setAttribute("src", `${objectLocal.foto}`);
@@ -105,9 +107,11 @@ function CarregarPerfil(objectLocal) {
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoPerfil.setAttribute("src", "../../assets/img/sem-foto.png");
     }
-    else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
-    fotoPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
+    else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
+        fotoPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
+        console.log("foto não é imagem");
     } else {
+        console.log("Estamos aqui");
         fotoPerfil.setAttribute("src", `${objectLocal.foto}`)
     }
 
@@ -329,6 +333,133 @@ async function AtribuirValor(dadosOng) {
         conta.value = ``;
 
     }
+}
+
+const CarregarModalPerfil = async () => {
+
+    const container = document.getElementById("direita-informacoes");
+    const req = await RequestModal(dados.idOng);
+    const modal = CriarModal(req.objetoContatos, req.objetoBank, req.objetoDadosDonate);
+
+    if (modal === false) {
+        alert("Dados incompletos, escolha outra ONG para doar");
+    } else {
+        container.replaceChildren(modal);
+        openModal();
+    }
+
+}
+
+const RequestModal = async (idOng) => {
+
+    let dadosContatos = [];
+    let dadosBank = [];
+    let dadosMeiosDoativos = [];
+
+    dadosContatos = await ApiRequest(
+        "GET",
+        `http://localhost:3131/contact/${idOng}`
+    );
+
+    dadosBank = await ApiRequest(
+        "GET",
+        `http://localhost:3131/bank-data/${idOng}`
+    );
+
+    dadosMeiosDoativos = await ApiRequest(
+        "GET",
+        `http://localhost:3131/donation-data/${idOng}`
+    );
+
+    if (dadosContatos.status === 404 && dadosBank.status === 404 && dadosMeiosDoativos.status === 404) {
+        
+        alert("Essa ONG está com os dados incompletos, por favor escolher outra");
+
+    } else {
+
+        var objetoContatos = dadosContatos.data;
+        var objetoBank = dadosBank.data;
+        var objetoDadosDonate = dadosMeiosDoativos.data;
+
+        // Une todos os dados em um único objeto
+        var dadosModal = Object.assign([], {objetoContatos}, {objetoBank}, {objetoDadosDonate});
+
+        return dadosModal;
+    
+    }
+
+}
+
+const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
+
+    let status;
+
+    if (objetoContatos === undefined || objetoBank === undefined || objetoDadosDonate === undefined) {
+
+        status = false;
+    
+    } else {
+
+        console.log(`param1: `, objetoContatos, objetoBank, objetoDadosDonate);
+
+        const modal = document.createElement("div");
+        modal.classList.add("info");
+
+        modal.innerHTML =
+        `
+            <div id="direita-informacoes">
+                <div id="direita-contatos">
+                    <h2>Informações de contato</h2>
+
+                    <div class="caixa">
+                        <span>Celular: </span>
+                        <h3>${objetoContatos.numero}</h3>
+                    </div>
+                    <div class="caixa">
+                        <span>Telefone: </span>
+                        <h3>${objetoContatos.telefone}</h3>
+                    </div>
+                    <div class="caixa">
+                        <span>Site: </span>
+                        <h3><a target="_blank" href="${objetoDadosDonate.site}">${objetoDadosDonate.site}</a></h3>
+                    </div>
+                </div>
+
+                <div id="direita-meios-doacoes">
+                    <div id="direita-meios">
+                        <h2>Meios de doação</h2>
+
+                        <div class="caixa">
+                            <span>Conta: </span>
+                            <h3>${objetoBank.conta}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Tipo: </span>
+                            <h3>${objetoBank.tipo}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Agência: </span>
+                            <h3>${objetoBank.agencia}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Banco: </span>
+                            <h3>${objetoBank.banco}</h3>
+                        </div>
+                        <div class="caixa">
+                            <span>Pix: </span>
+                            <h3>${objetoDadosDonate.pix}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        status = modal;
+
+    }
+
+    return status;
+
 }
 
 // Carrega todos os POSTS
@@ -979,7 +1110,7 @@ CarregarDadosSobre(dados);
 AtribuirValor(dados);
 document.querySelector("#btnModal").addEventListener("click", openModalEditar);
 document.querySelector('#botaoSairEditar').addEventListener("click", closeModalEditar);
-document.getElementById("doar-ong").addEventListener("click", openModal);
+document.getElementById("doar-ong").addEventListener("click", CarregarModalPerfil);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("add-causas-ong").addEventListener("click", openModalCategorias);
 document.getElementById("cancelar").addEventListener("click", closeModalCategorias);

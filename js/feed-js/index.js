@@ -88,7 +88,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
@@ -137,7 +137,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
             fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
-        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".gif")) {
+        } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else {
@@ -198,7 +198,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 }
 
-const limparElementos = elemento =>{
+const limparElementos = elemento => {
 
     while(elemento.firstChild){
         elemento.removeChild(elemento.lastChild);
@@ -491,8 +491,8 @@ const CriarVagasDestaques = ({idVagas, tbl_ong, titulo, idOng}) => {
     corpo.innerHTML =
     `
         <div class="info-fundo-vaga">
-            <img src="${dadosOng.banner}" alt="Eventos de doação" class="vaga-fundo">
-            <img src="${dadosOng.foto}" alt="ONGs" class="perfil-postagem">
+            <img src="${tbl_ong.banner}" alt="Eventos de doação" class="vaga-fundo">
+            <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
 
             <h3>${titulo}</h3>
         </div>
@@ -579,7 +579,8 @@ const CriarFeed = (
         tbl_post_media,
         titulo,
         candidatos,
-        tbl_evento_media
+        tbl_evento_media,
+        tbl_comentario,
     }
 ) => {
 
@@ -627,11 +628,14 @@ const CriarFeed = (
                     </div>
                 </div>
 
+                <div class="comentarios">
+                    ${
+                        tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                    }
+                </div>
+
                 <div id="comentar">
-                    <input name="" id="" placeholder="Digite seu comentário">
-                    <button type="button" id="enviarComentario">
-                        <img src="assets/img/navigation.png" alt="">
-                    </button>
+                    <input type="text" name="comentario" id="comentario" placeholder="Digite seu comentário" data-idpost="${idPost}">
                 </div>
             `;
 
@@ -674,11 +678,14 @@ const CriarFeed = (
                     </div>
                 </div>
 
+                <div class="comentarios">
+                    ${
+                        tbl_comentario.map(comentario => generateComments(comentario))
+                    }
+                </div>
+
                 <div id="comentar">
-                    <input name="" id="" placeholder="Digite seu comentário">
-                    <button type="button" id="enviarComentario">
-                        <img src="assets/img/navigation.png" alt="">
-                    </button>
+                    <input type="text" name="comentario" id="comentario" placeholder="Digite seu comentário" data-idpost="${idPost}">
                 </div>
             `;
         } else if (tbl_post_media.length === 2) {
@@ -722,6 +729,12 @@ const CriarFeed = (
                         <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
                         <span>Compartilhar</span>
                     </div>
+                </div>
+
+                <div class="comentarios">
+                    ${
+                        tbl_comentario.map(comentario => generateComments(comentario))
+                    }
                 </div>
 
                 <div id="comentar">
@@ -1012,6 +1025,39 @@ const CriarFeed = (
 
     }
 
+}
+
+function generateComments(comentario) {
+    console.log(`gerador de comentarios `, comentario);
+
+    const innerHTML = `
+        <div class="corpo-comentario"><!-- ESTRUTURA DE COMENTÁRIO -->
+        <div class="lateral-imagem">
+            <img src="assets/img/foto-comentario.png" alt="{NomeDaPessoa}" title="Foto de perfil">
+        </div>
+
+        <div class="vertical-info">
+            <div class="comentario">
+                <h3>Nome Da Pessoa</h3>
+
+                <p>
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. 
+                    <span>Ver mais</span>
+                </p>
+            </div>
+
+            <div class="acoes-comentario">
+                <span>1 h Atrás</span>
+
+                <div class="curtir-comentario">
+                    <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
+                    <span>28.5k Curtiram</span>
+                </div>
+            </div>
+        </div>
+    </div><!-- EST
+    `;
+    return innerHTML;
 }
 
 const showLoaderFeed = () => {
@@ -1482,6 +1528,46 @@ const CriarVagaSelecionada = (dadosVaga) => {
 
 }
 
+const Comentar = (evento) => {
+
+    if (evento.key == "Enter") {
+        
+        const idPostagem = evento.target.dataset.idpost;
+        const idUser = userLogado.idUsuario;
+        const comentario = evento.target.value;
+        EnviarComentario(idPostagem, idUser, comentario);
+
+    }
+
+
+}
+
+const EnviarComentario = async (idPostagem, idUser, textoComentario) => {
+
+    const bodyComentario = {
+
+        idPost: Number(idPostagem),
+        idUsuario: Number(idUser),
+        comentario: {
+            texto: textoComentario
+        }
+
+    }
+    
+    let req = await ApiRequest("POST", "http://localhost:3131/comment", bodyComentario);
+    
+    if (req.status === 200) {
+            
+        window.location.reload();
+    
+    } else {
+
+        alert("Erro ao enviar comentário");
+
+    }
+
+}
+
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
@@ -1517,3 +1603,4 @@ document.getElementById("info-evento").addEventListener("click", closeModalInfoE
 document.getElementById("info-vaga").addEventListener("click", closeModalInfoVaga);
 document.getElementById("previa-eventos").addEventListener("click", CarregarEventoSelecionado);
 document.getElementById("vagas-indicadas").addEventListener("click", CarregarVagasSelecionado);
+document.querySelector(".feed").addEventListener("keypress", Comentar);

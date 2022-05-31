@@ -59,7 +59,34 @@ button {
   z-index: -1;
 }
 
-.modal .modal-close {
+.modal .modal-conteudo {
+  height: 720px;
+  width: 1203px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+  margin: 5vh auto;
+  padding: 20px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 10px black;
+          box-shadow: 1px 1px 10px black;
+  border-radius: 20px;
+}
+
+.modal .modal-conteudo .modal-close {
   height: 30px;
   width: 30px;
   display: -webkit-box;
@@ -88,40 +115,13 @@ button {
       align-self: flex-start;
 }
 
-.modal .modal-close:hover {
+.modal .modal-conteudo .modal-close:hover {
   background-color: #ff4949;
   color: white;
 }
 
-.modal .modal-conteudo {
-  height: 750px;
-  width: 1203px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  margin: 5vh auto;
-  padding: 20px;
-  background-color: white;
-  -webkit-box-shadow: 1px 1px 10px black;
-          box-shadow: 1px 1px 10px black;
-  border-radius: 20px;
-}
-
 .modal .modal-conteudo #informacoes {
-  height: 650px;
+  height: 600px;
   width: 995px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,8 +172,8 @@ button {
 }
 
 .modal .modal-conteudo #informacoes #esquerda-informacoes img {
-  height: 534px;
-  width: 473px;
+  height: 450px;
+  width: 440px;
   position: absolute;
   bottom: 0;
 }
@@ -196,7 +196,7 @@ button {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 50px;
+  gap: 38px;
 }
 
 .modal .modal-conteudo #informacoes #direita-informacoes #direita-contatos {
@@ -1388,7 +1388,7 @@ body {
 
 #centro #meu-perfil #conteudo-perfil-centro #info-direito {
   height: 107px;
-  width: 270px;
+  width: 240px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -452,7 +452,7 @@ body {
             }
 
             #info-direito {
-                @include tamanhos(107px, 270px);
+                @include tamanhos(107px, 240px);
                 @include displayFlex(column, space-between, center);
 
                 #opcoes-info {

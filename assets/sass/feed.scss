@@ -1480,16 +1480,18 @@ main {
                         @include tamanhos(auto, 736px);
                         @include displayFlex(column, $gap: 20px);
                         margin-top: 12px;
+                        background-color: red;
     
                         .corpo-comentario {
+                            background-color: yellow;
                             min-height: 148px;
-                            min-width: 575px;
-                            @include tamanhos(auto, auto);
-                            @include displayFlex(row, space-between);
+                            @include tamanhos(auto, inherit);
+                            @include displayFlex(row, $gap: 14px);
     
                             .lateral-imagem {
-                                @include tamanhos(inherit, 74px);
+                                @include tamanhos(75px, 75px);
                                 @include displayFlex();
+                                background-color: rosybrown;
     
                                 img {
                                     @include tamanhos(75px, 75px);
@@ -1499,11 +1501,13 @@ main {
     
                             .vertical-info {
                                 min-height: 150px;
-                                @include tamanhos(auto, 482px);
+                                @include tamanhos(auto, 646px);
                                 @include displayFlex(column, $gap: 5px);
+                                background-color: #ff4949;
     
                                 .comentario {
-                                    @include tamanhos(inherit, inherit);
+                                    min-height: 10px;
+                                    @include tamanhos(auto, inherit);
                                     @include displayFlex(column, $gap: 8px);
                                     background-color: $deepSaffron;
                                     padding: 12px;
@@ -1514,6 +1518,7 @@ main {
                                     }
     
                                     p {
+                                        width: calc(646px - 20px);
                                         @include textoEstilo(grau10, medium, $text);
                                     }
     
@@ -1579,17 +1584,17 @@ main {
                             }
                         }
     
-                        #enviarComentario {
-                            @include tamanhos(70px, 70px);
-                            @include displayFlex(row, center, center);
-                            border-radius: 50%;
-                            background-color: $deepSaffron;
-                            cursor: pointer;
+                        // #enviarComentario {
+                        //     @include tamanhos(70px, 70px);
+                        //     @include displayFlex(row, center, center);
+                        //     border-radius: 50%;
+                        //     background-color: $deepSaffron;
+                        //     cursor: pointer;
     
-                            img {
-                                @include tamanhos(35px, 35px);
-                            }
-                        }
+                        //     img {
+                        //         @include tamanhos(55px, 55px);
+                        //     }
+                        // }
                     } 
                 }
 

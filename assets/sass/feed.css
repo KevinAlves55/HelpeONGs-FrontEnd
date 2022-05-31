@@ -3654,13 +3654,14 @@ main #itens-main #conteudo-feed .feed .post .comentarios {
       flex-wrap: nowrap;
   gap: 20px;
   margin-top: 12px;
+  background-color: red;
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario {
+  background-color: yellow;
   min-height: 148px;
-  min-width: 575px;
   height: auto;
-  width: auto;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3668,20 +3669,20 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 14px;
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .lateral-imagem {
-  height: inherit;
-  width: 74px;
+  height: 75px;
+  width: 75px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3698,6 +3699,7 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .late
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
+  background-color: rosybrown;
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .lateral-imagem img {
@@ -3709,7 +3711,7 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .late
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info {
   min-height: 150px;
   height: auto;
-  width: 482px;
+  width: 646px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3726,10 +3728,12 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vert
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 5px;
+  background-color: #ff4949;
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .comentario {
-  height: inherit;
+  min-height: 10px;
+  height: auto;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3761,6 +3765,7 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vert
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .comentario p {
+  width: calc(646px - 20px);
   font-size: 1.125rem;
   font-weight: 500;
   color: #292929;
@@ -3911,35 +3916,6 @@ main #itens-main #conteudo-feed .feed .post #comentar input::placeholder {
   color: #292929;
   text-transform: none;
   letter-spacing: none;
-}
-
-main #itens-main #conteudo-feed .feed .post #comentar #enviarComentario {
-  height: 70px;
-  width: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  border-radius: 50%;
-  background-color: #FF9F45;
-  cursor: pointer;
-}
-
-main #itens-main #conteudo-feed .feed .post #comentar #enviarComentario img {
-  height: 35px;
-  width: 35px;
 }
 
 main #itens-main #conteudo-feed .feed .evento-feed {

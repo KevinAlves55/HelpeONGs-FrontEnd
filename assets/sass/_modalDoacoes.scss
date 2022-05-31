@@ -8,31 +8,31 @@
     opacity: 0;
     z-index: -1;
 
-    .modal-close {
-        @include tamanhos(30px, 30px);
-        @include displayFlex(row, center, center);
-        user-select: none;
-        cursor: pointer;
-        border-radius: 50%;
-        align-self: flex-start;
-
-        &:hover {
-            background-color: #ff4949;
-            color: white;
-        }
-    }
-
     .modal-conteudo {
-        @include tamanhos(750px, 1203px);
-        @include displayFlex(column, $align: center);
+        @include tamanhos(720px, 1203px);
+        @include displayFlex(column, $align: center, $gap: 25px);
         margin: 5vh auto;
         padding: 20px;
         background-color: white;
         box-shadow: 1px 1px 10px black;
         border-radius: 20px;
+
+        .modal-close {
+            @include tamanhos(30px, 30px);
+            @include displayFlex(row, center, center);
+            user-select: none;
+            cursor: pointer;
+            border-radius: 50%;
+            align-self: flex-start;
+    
+            &:hover {
+                background-color: #ff4949;
+                color: white;
+            }
+        }
     
         #informacoes {
-            @include tamanhos(650px, 995px);
+            @include tamanhos(600px, 995px);
             @include displayFlex(row, space-between);
     
             #esquerda-informacoes {
@@ -45,7 +45,7 @@
                 }
     
                 img {
-                    @include tamanhos(534px, 473px);
+                    @include tamanhos(450px, 440px);
                     position: absolute;
                     bottom: 0;
                 }
@@ -53,7 +53,7 @@
     
             #direita-informacoes {
                 @include tamanhos(inherit, 427px);
-                @include displayFlex(column, $gap: 50px);
+                @include displayFlex(column, $gap: 38px);
     
                 #direita-contatos {
                     width: inherit;
