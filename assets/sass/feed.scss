@@ -1011,9 +1011,10 @@ small {
     z-index: -1;
 
     .modal-conteudo-vaga {
-        @include tamanhos(604px, 1025px);
+        min-height: 50px;
+        @include tamanhos(auto, 1025px);
 
-        .infos-conteudo {
+        #infos-conteudo {
             @include tamanhos(inherit, inherit);
             @include displayFlex(column, $gap: 28px);
             background-color: #fff;
@@ -1021,7 +1022,7 @@ small {
             border-radius: 20px;
 
             #requisitos {
-                min-height: 245px;
+                min-height: 10px;
                 @include tamanhos(auto, 946px);
                 @include displayFlex(column, $gap: 21px);
 
@@ -1035,6 +1036,23 @@ small {
                     font-size: 1.480rem;
                     font-weight: map-get($densidade, semiBold);
                     color: $tartOrange;
+                }
+            }
+
+            .info-vaga {
+                min-width: 20px;
+                min-height: 5px;
+                @include tamanhos(auto, auto);
+                @include displayFlex(row, $gap: 12px, $align: center);
+    
+                label {
+                    @include textoEstilo(grau9, medium, $text, $letter: -0.02em);
+                }
+    
+                h2 {
+                    font-size: 1.480rem;
+                    color: $tartOrange;
+                    font-weight: map-get($densidade, semiBold);
                 }
             }
         }

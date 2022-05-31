@@ -198,269 +198,38 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 }
 
+const limparElementos = elemento =>{
+
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.lastChild);
+    }
+
+}
+
 const PesquisarONGs = (evento) => {
 
     if (evento.key == "Enter") {
 
         const pesquisaNome = evento.target.value;
-        FiltraNomeONG(pesquisaNome);
+        CarregarFeedPesquisa(pesquisaNome);
 
     }
 
 }
 
-const FiltraNomeONG = (valorDigitado) => {
+const CarregarFeedPesquisa = async (nomeOng) => {
 
-    const value = valorDigitado;
+    if (nomeOng === undefined) {
 
-    let allOngs = [];
-    allOngs = objeto;
-    const filteredOngs = [];
-    allOngs.data.filter(ong => {
-        value.includes(ong.nome)? filteredOngs.push(ong.idOng) : "";
-    });
+        alert("Digite um nome de ONG para pesquisar");
+        CarregarFeed();
     
-    const id = filteredOngs[0];
-
-    CarregarPostPesquisa(id);
-
-}
-
-const CarregarPostPesquisa = async (idOng) => {
-
-    if (idOng === undefined) {
-        alert("Esta ONG não existe");
-        CarregarTodosPost();
     } else {
-        const container = document.querySelector(".feed");
-        let req = await ApiRequest("GET", `http://localhost:3131/post/${idOng}`);
-        console.log(req);
 
-        if (req.status === 500) {
-            alert("Esta ONG não existe");
-        } else {
-            const dadosPost = req.data;
-            const post = dadosPost.map(CriarPosts);
-            container.replaceChildren(...post);
-        } 
-    }
-
-}
-
-const CriarPosts = ({createdAt, descricao, idOng, idPost, tbl_ong, tbl_post_media}) => {
-    
-    const dataFormat = getFormattedDate(createdAt);
-
-    let corpo;
-   
-    corpo = document.createElement("div");
-    corpo.classList.add("feed");
-
-    if (tbl_post_media.length === 0) {
+        limparElementos(document.querySelector(".feed"));
+        CarregarFeed(nomeOng);
         
-        corpo.innerHTML =
-        `
-        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
-            <div class="parte-superior">
-                <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
-
-                    <div class="info-nome-data">
-                        <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
-                    </div>
-                </div>
-
-                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
-            </div>
-
-            <p>
-                ${descricao}
-            </p>
-
-            <div class="interacoes">
-                <div class="icone-funcao">
-                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
-                    <span>Compartilhar</span>
-                </div>
-                <div id="modalCompartilhamento">
-                    <div id="shared"></div>
-                </div>
-            </div>
-
-            <div id="comentar">
-                <input name="" id="" placeholder="Digite seu comentário">
-                <button type="button" id="enviarComentario">
-                    <img src="assets/img/navigation.png" alt="">
-                </button>
-            </div>
-        </div>
-        `;
-
-    } else if (tbl_post_media.length === 1) {
-        corpo.innerHTML =
-        `
-        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
-            <div class="parte-superior">
-                <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
-
-                    <div class="info-nome-data">
-                        <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
-                    </div>
-                </div>
-
-                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
-            </div>
-
-            <div class="imagens-postadas">
-                <img src="${tbl_post_media[0].url}" class="principal tamanho-total"  alt="{NomeDoPost}" title="Imagem do postagens">
-            </div>
-
-            <p>
-                ${descricao}
-            </p>
-
-            <div class="interacoes">
-                <div class="icone-funcao">
-                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
-                    <span>Compartilhar</span>
-                </div>
-            </div>
-
-            <div id="comentar">
-                <input name="" id="" placeholder="Digite seu comentário">
-                <button type="button" id="enviarComentario">
-                    <img src="assets/img/navigation.png" alt="">
-                </button>
-            </div>
-        </div>
-        `;
-    } else if (tbl_post_media.length === 2) {
-        corpo.innerHTML =
-        `
-        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
-            <div class="parte-superior">
-                <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
-
-                    <div class="info-nome-data">
-                        <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
-                    </div>
-                </div>
-
-                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
-            </div>
-
-            <div class="imagens-postadas">
-                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
-
-                <div class="imagens-complementos">
-                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima ocupar-tudo">
-                </div>
-            </div>
-
-            <p>
-                ${descricao}
-            </p>
-
-            <div class="interacoes">
-                <div class="icone-funcao">
-                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
-                    <span>Compartilhar</span>
-                </div>
-            </div>
-
-            <div id="comentar">
-                <input name="" id="" placeholder="Digite seu comentário">
-                <button type="button" id="enviarComentario">
-                    <img src="assets/img/navigation.png" alt="">
-                </button>
-            </div>
-        </div>
-        `;
-    } else {
-        corpo.innerHTML =
-        `
-        <div class="post" data-idPost="${idPost}" data-idOng="${idOng}">
-            <div class="parte-superior">
-                <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
-
-                    <div class="info-nome-data">
-                        <h2>${tbl_ong.nome}</h2>
-                        <span>${dataFormat}</span>
-                    </div>
-                </div>
-
-                <img src="assets/img/mais-sobre-postagem.png" alt="Mais sobre {nomeDaOng}" title="Icone more horizontal">
-            </div>
-
-            <div class="imagens-postadas">
-                <img src="${tbl_post_media[0].url}" class="principal"  alt="{NomeDoPost}" title="Imagem do postagens">
-
-                <div class="imagens-complementos">
-                    <img src="${tbl_post_media[1].url}" alt="{NomeDoPost}" title="Imagem do postagens" class="cima">
-                    <img src="${tbl_post_media[2].url}" class="baixo">
-                </div>
-            </div>
-
-            <p>
-                ${descricao}
-            </p>
-
-            <div class="interacoes">
-                <div class="icone-funcao">
-                    <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span></span>
-                </div>
-                <div class="icone-funcao">
-                    <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
-                    <span>Compartilhar</span>
-                </div>
-            </div>
-
-            <div id="comentar">
-                <input name="" id="" placeholder="Digite seu comentário">
-                <button type="button" id="enviarComentario">
-                    <img src="assets/img/navigation.png" alt="">
-                </button>
-            </div>
-        </div>
-        `;
     }
-
-    return corpo;
 
 }
 
@@ -669,7 +438,7 @@ const CarregarEventosDestaque = async () => {
     const container = document.getElementById("previa-eventos");
     const objetoEvent = await ApiRequest("GET", "http://localhost:3131/event");
     const eventos = objetoEvent.data;
-    const eventosDestaque = eventos.filter(({dataDeCriacao}) => dataDeCriacao === Date()  ? false : true).slice(0, 4);
+    const eventosDestaque = eventos.filter(({dataHora}) => dataHora >= new Date()  ? false : true).slice(0, 4);
     const cards = eventosDestaque.map(CriarEventosDestaque);
     container.replaceChildren(...cards);
 
@@ -677,16 +446,26 @@ const CarregarEventosDestaque = async () => {
 
 const CriarEventosDestaque  = ({idEventos, tbl_ong, titulo, tbl_evento_media, idOng}) => {
 
-    const corpo = document.createElement("div");
+    let corpo;
+    corpo = document.createElement("div");
     corpo.classList.add("evento");
     corpo.id = "evento";
 
-    corpo.innerHTML = 
-    `
-        <img src="${tbl_evento_media[0].url}" data-idEvento="${idEventos}" data-idong="${idOng}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
-        <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
-        <h3>${titulo}</h3>
-    `;
+    if (tbl_evento_media.length === 0) {
+        corpo.innerHTML = 
+        `
+            <img src="${tbl_ong.foto}" data-idEvento="${idEventos}" data-idong="${idOng}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
+            <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
+            <h3>${titulo}</h3>
+        `;
+    } else {
+        corpo.innerHTML = 
+        `
+            <img src="${tbl_evento_media[0].url}" data-idEvento="${idEventos}" data-idong="${idOng}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
+            <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
+            <h3>${titulo}</h3>
+        `;
+    }
 
     return corpo;
 
@@ -694,14 +473,13 @@ const CriarEventosDestaque  = ({idEventos, tbl_ong, titulo, tbl_evento_media, id
 
 const CarregarVagasConvite = async () => {
 
-    const dataDeHoje = new Date();
     const container = document.getElementById("vagas-indicadas");
-    const objetoVagas = await ApiRequest("GET", "http://localhost:3131/vacancy");
+    const objetoVagas = await ApiRequest("GET", "http://localhost:3131/feed/vaga/0");
     const vagas = objetoVagas.data;
-    const vagasDestaque = vagas.filter(({dataDeCriacao}) => dataDeCriacao === dataDeHoje  ? false : true);
-    const cards = vagasDestaque.map(CriarVagasDestaques);
+    console.log(vagas);
+    const cards = vagas.map(CriarVagasDestaques);
     container.replaceChildren(...cards);
-    CarregarQtdaVagas(vagasDestaque);
+    CarregarQtdaVagas(vagas);
 
 }
 
@@ -713,8 +491,8 @@ const CriarVagasDestaques = ({idVagas, tbl_ong, titulo, idOng}) => {
     corpo.innerHTML =
     `
         <div class="info-fundo-vaga">
-            <img src="${tbl_ong.banner}" alt="Eventos de doação" class="vaga-fundo">
-            <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
+            <img src="${dadosOng.banner}" alt="Eventos de doação" class="vaga-fundo">
+            <img src="${dadosOng.foto}" alt="ONGs" class="perfil-postagem">
 
             <h3>${titulo}</h3>
         </div>
@@ -736,17 +514,55 @@ function CarregarQtdaVagas(objetoVagas) {
 
 }
 
-const CarregarFeed = async () => {
+const CarregarFeed = async (nomeOng) => {
 
-    const container = document.querySelector(".feed");
-    const objetoFeed = await ApiRequest("GET", `http://localhost:3131/feed/${page}`);
-    console.log(objetoFeed);
-    const dadosFeed = objetoFeed.data;
-    const elementosFeed = dadosFeed.map(CriarFeed);
-    const elementosFeedHtml = elementosFeed.map(({outerHTML}) => {
-        return outerHTML
-    }).join('');
-    container.innerHTML += elementosFeedHtml;
+    // Scroll Infinito
+    window.addEventListener("scroll", () => {
+    
+        const { clientHeight, scrollHeight, scrollTop } = document.documentElement
+        const isPageBottomAlmostReached = scrollTop + clientHeight >= scrollHeight -1;
+
+        if (isPageBottomAlmostReached) {
+            
+            showLoaderFeed();
+
+        }
+
+    });
+
+    if (nomeOng === undefined || nomeOng === null) {
+        
+        const container = document.querySelector(".feed");
+        const objetoFeed = await ApiRequest("GET", `http://localhost:3131/feed/${page}`);
+        console.log(objetoFeed);
+        const dadosFeed = objetoFeed.data;
+        const elementosFeed = dadosFeed.map(CriarFeed);
+        const elementosFeedHtml = elementosFeed.map(({outerHTML}) => {
+            return outerHTML
+        }).join('');
+        container.innerHTML += elementosFeedHtml;
+
+    } else {
+        const container = document.querySelector(".feed");
+        const objetoFeed = await ApiRequest("GET", `http://localhost:3131/feed/all/${nomeOng}/${page}`);
+
+        if (objetoFeed.status === 404) {
+
+            alert(`A pesquisa ${nomeOng} não encontrou resultados`);
+            window.location.reload();
+        
+        } else {
+
+            console.log(objetoFeed);
+            const dadosFeed = objetoFeed.data;
+            const elementosFeed = dadosFeed.map(CriarFeed);
+            const elementosFeedHtml = elementosFeed.map(({outerHTML}) => {
+                return outerHTML
+            }).join('');
+            container.innerHTML += elementosFeedHtml;
+
+        }
+    }
 
 }
 
@@ -1347,10 +1163,12 @@ const CarregarModalInfoVagas = ({target}) => {
 
 const DescarregaDadosModalVagas = async (idVaga, idOng) => {
 
-    const container = document.querySelector(".modal-conteudo");
+    const container = document.getElementById("info-vaga");
     let req = await ApiRequest("GET", `http://localhost:3131/vacancy/${idOng}/${idVaga}`);
     const dadosVaga = req.data;
+    console.log(dadosVaga);
     const card = CriarModalVagas(dadosVaga);
+    console.log(card);
     container.replaceChildren(card);
 
 }
@@ -1359,10 +1177,38 @@ const CriarModalVagas = (dadosVaga) => {
 
     let corpo;
 
-    const modal = document.createElement("div");
-    modal.classList.add("modal-conteudo-vaga");
+    corpo = document.createElement("div");
+    corpo.classList.add("modal-conteudo-vaga");
 
-    const dataHora = getFormattedDateFeed(dadosVaga.dataHora);
+    corpo.innerHTML =
+    `
+        <div id="infos-conteudo">
+            <div id="requisitos">
+                <label>Requisitos</label>
+
+                <h2>${dadosVaga.requisitos}</h2>
+            </div>
+
+            <div class="info-vaga">
+                <label>Carga horária:</label>
+                <h2>${dadosVaga.cargaHoraria} Horas</h2>
+            </div>
+            <div class="info-vaga">
+                <label>Local:</label>
+                <h2>${dadosVaga.tbl_endereco.cep}, ${dadosVaga.tbl_endereco.municipio} SP, ${dadosVaga.tbl_endereco.rua}, número ${dadosVaga.tbl_endereco.numero}</h2>
+            </div>
+            <div class="info-vaga">
+                <label>Telefone: </label>
+                <h2>${dadosVaga.tbl_contato.telefone}</h2>
+            </div>
+            <div class="info-vaga">
+                <label>Celular: </label>
+                <h2>${dadosVaga.tbl_contato.numero}</h2>
+            </div>
+        </div>
+    `;
+
+    return corpo;
 
 }
 
@@ -1626,8 +1472,8 @@ const CriarVagaSelecionada = (dadosVaga) => {
         </p>
 
         <div class="vaga-botoes">
-            <button>Saiba Mais</button>
-            <button>Interesse</button>
+            <button type="button" id="saiba-mais-vaga" data-idvaga="${dadosVaga.idVagas}" data-idong="${dadosVaga.idOng}">Saiba Mais</button>
+            <button type="button" id="interesse-vaga">Interesse</button>
         </div>
     </div>
     `;
@@ -1640,20 +1486,6 @@ document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
 document.getElementById("pesquisar").addEventListener("keypress", PesquisarONGs);
-
-// Scroll Infinito
-window.addEventListener("scroll", () => {
-    
-    const { clientHeight, scrollHeight, scrollTop } = document.documentElement
-    const isPageBottomAlmostReached = scrollTop + clientHeight >= scrollHeight -1;
-
-    if (isPageBottomAlmostReached) {
-        
-        showLoaderFeed();
-
-    }
-
-});
 
 CheckWindow();
 document.querySelector("#trocar-select-post")

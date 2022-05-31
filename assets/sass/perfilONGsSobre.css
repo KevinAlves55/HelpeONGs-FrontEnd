@@ -1333,9 +1333,9 @@ body {
 }
 
 #centro #meu-perfil #conteudo-perfil-centro #info-esquerda #todas-categorias-perfil {
-  min-width: 30px;
+  min-height: 30px;
   height: auto;
-  width: 270px;
+  width: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1343,15 +1343,15 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 5px;
+  gap: 8px;
 }
 
 #centro #meu-perfil #conteudo-perfil-centro #info-esquerda #todas-categorias-perfil .categoria {

@@ -429,9 +429,9 @@ body {
                 }
 
                 #todas-categorias-perfil {
-                    min-width: 30px;
-                    @include tamanhos(auto, 270px);
-                    @include displayFlex(row, space-between, flex-end, $gap: 5px, $wrap: wrap);
+                    min-height: 30px;
+                    @include tamanhos(auto, 350px);
+                    @include displayFlex(row, $gap: 8px, $wrap: wrap);
 
                     .categoria {
                         min-width: 81px;

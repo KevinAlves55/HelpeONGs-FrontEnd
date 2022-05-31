@@ -35,7 +35,7 @@ function getFormattedDate(dataConvert) {
         formatterMonth = "Outubro";
     } else if (month === 11) {
         formatterMonth = "Novembro";
-    } else if (month === 3) {
+    } else if (month === 12) {
         formatterMonth = "Dezembro";
     }
 
@@ -81,7 +81,7 @@ function getFormattedDateFeed(dataConvert) {
         formatterMonth = "Outubro";
     } else if (month === 11) {
         formatterMonth = "Novembro";
-    } else if (month === 3) {
+    } else if (month === 12) {
         formatterMonth = "Dezembro";
     }
 

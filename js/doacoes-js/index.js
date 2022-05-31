@@ -136,10 +136,10 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     const favoriteNone = () => document.getElementById("favoritos").style.display = "none";
     favoriteNone();
 
-    const feedNone = () => document.getElementById("feed").style.display = "none";
+    const feedNone = () => document.getElementById("feedActivity").style.display = "none";
     feedNone();
 
-    const perfilNone = () => document.getElementById("perfil").style.display = "none";
+    const perfilNone = () => document.getElementById("profileActivity").style.display = "none";
     perfilNone();
 
     const sinoNone = () => document.getElementById("sinoNotification").style.display = "none";

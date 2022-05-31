@@ -2609,11 +2609,12 @@ html {
 }
 
 .modal-info-vaga .modal-conteudo-vaga {
-  height: 604px;
+  min-height: 50px;
+  height: auto;
   width: 1025px;
 }
 
-.modal-info-vaga .modal-conteudo-vaga .infos-conteudo {
+.modal-info-vaga .modal-conteudo-vaga #infos-conteudo {
   height: inherit;
   width: inherit;
   display: -webkit-box;
@@ -2637,8 +2638,8 @@ html {
   border-radius: 20px;
 }
 
-.modal-info-vaga .modal-conteudo-vaga .infos-conteudo #requisitos {
-  min-height: 245px;
+.modal-info-vaga .modal-conteudo-vaga #infos-conteudo #requisitos {
+  min-height: 10px;
   height: auto;
   width: 946px;
   display: -webkit-box;
@@ -2659,16 +2660,53 @@ html {
   gap: 21px;
 }
 
-.modal-info-vaga .modal-conteudo-vaga .infos-conteudo #requisitos label {
+.modal-info-vaga .modal-conteudo-vaga #infos-conteudo #requisitos label {
   font-size: 1.480rem;
   font-weight: 500;
   color: #292929;
 }
 
-.modal-info-vaga .modal-conteudo-vaga .infos-conteudo #requisitos h2 {
+.modal-info-vaga .modal-conteudo-vaga #infos-conteudo #requisitos h2 {
   font-size: 1.480rem;
   font-weight: 600;
   color: #FC595E;
+}
+
+.modal-info-vaga .modal-conteudo-vaga #infos-conteudo .info-vaga {
+  min-width: 20px;
+  min-height: 5px;
+  height: auto;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.modal-info-vaga .modal-conteudo-vaga #infos-conteudo .info-vaga label {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+.modal-info-vaga .modal-conteudo-vaga #infos-conteudo .info-vaga h2 {
+  font-size: 1.480rem;
+  color: #FC595E;
+  font-weight: 600;
 }
 
 .modal-info-vaga.active {
