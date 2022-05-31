@@ -138,6 +138,26 @@ const getEstados = async (cep) => {
 
 }
 
+async function dadosContatos() {
+
+    const contatos = {
+        
+        idLogin: dados.idLogin,
+        celular: celular.value,
+        telefone: telefone.value,
+
+    }
+    console.log(`DadosContatos`, dadosContatos);
+
+    // let reqContatos = await ApiRequest(
+    //     "POST", 
+    //     `http://localhost:3131/contact/${dados.idOng}`,
+    //     contatos
+    // );
+    // console.log(`reqContact`, reqContatos);
+}
+
+
 async function dadosMeiosDoacoes() {
 
     let tipoSelecionado = tipoConta.options[tipoConta.selectedIndex].value;
@@ -368,6 +388,9 @@ async function atualizarImagensPerfil() {
 
 }
 
+
+document.getElementById("atualizarContatos").addEventListener("click", dadosContatos);
+// document.getElementById("cadastrarContatos").addEventListener("click", dadosContatos);
 document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);
 document.getElementById("button-detalhes-conta-Atualizado").addEventListener("click", dadosDetalhesConta);
 document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDetalhesONG);
