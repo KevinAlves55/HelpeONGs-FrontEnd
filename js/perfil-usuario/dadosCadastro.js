@@ -7,7 +7,7 @@ let userLogado;
 userLogado = validarSession("dadosUsuario");
 
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
-console.log(dadosSenhaEmail);
+
 
 let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
 
@@ -35,7 +35,9 @@ const bairro = document.getElementById('bairroEndereco');
 const endereco = document.getElementById('endereco');
 const numero = document.getElementById('numeroEndereco');
 const complemento = document.getElementById('complementoEndereco');
-const SenhaAtual = document.getElementById('senhaAtual');
+const senhaDigitada = document.getElementById('senhaAtual');
+const senhaNova = document.getElementById('novaSenha');
+const senhaConfirmada = document.getElementById('confirmarSenha');
 
 function CarregarPerfil(objectLocal) {
 
@@ -55,7 +57,7 @@ function CarregarPerfil(objectLocal) {
     // mini foto perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
         fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         fotoLogado.setAttribute("src", `${objectLocal.foto}`);
@@ -71,7 +73,7 @@ function CarregarPerfil(objectLocal) {
     // foto perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoPerfil.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!objectLocal.foto.includes(".jpg") || !objectLocal.foto.includes(".jpeg") || !objectLocal.foto.includes(".png") || !objectLocal.foto.includes(".svg")) {
+    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
         fotoPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         fotoPerfil.setAttribute("src", `${objectLocal.foto}`);
@@ -152,7 +154,6 @@ async function dadosDetalhesConta() {
 }
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
 
-
 async function contatosUsuario(){
         const userDataContato = validarSession("dadosUsuario");
         console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
@@ -211,7 +212,6 @@ async function AtualizarcontatosUsuario(){
 }
 document.getElementById("editarContatos").addEventListener("click", AtualizarcontatosUsuario);
 
-  
 async function dadosDetalhesEndereco() {
 
     const dadosDetalhesEndereco = {
@@ -259,7 +259,7 @@ async function dadosDetalhesEndereco() {
 document.getElementById("buttonEnderecos").addEventListener("click", dadosDetalhesEndereco);
 
 async function atualizarEndereco(){
-
+       
         const dadosEnderecoAtualizado = {
             cepData: cep.value,
             estadoData: estado.value,
@@ -295,11 +295,9 @@ async function atualizarEndereco(){
         
         console.log(reqEnderecoAtualizado);
         alert("ENDEREÇO ATUALIZADO COM SUCESSO")
+        
     }
-
 document.getElementById("atualizarEnderecos").addEventListener("click",atualizarEndereco);
-
-
 
 async function carregarDadosUsuario(dados, enderecos, contato){
 
@@ -316,15 +314,31 @@ async function carregarDadosUsuario(dados, enderecos, contato){
 }
 carregarDadosUsuario(dados, enderecos, contato);
 
+// CARREGAR SEGUIDORES
+async function carregarComentarios (){
+    
+   
+
+}
+
 // ALTERAR SENHA
 async function editarSenha(){
-
-    if (SenhaAtual === dadosSenhaEmail) {
-        
-     
-    } else {
-       
+    const emailSenha = {
+      senha : senha.value
     }
+    localStorage.setItem("emailSenha", JSON.stringify(emailSenha));
+    console.log(editarSenha);
+    
+    if (senhaDigitada == senha) {
+        
+    } else {
+        
+    }
+    
+    const reqSenhaAtualizada = await ApiRequest("PUT", `http://localhost:3131/user/${userLogado.idUsuario}`, emailSenha);
+
+    console.log(reqSenhaAtualizada);
+    alert("SENHA ATUALIZADA COM SUCESSO")
 }
 document.getElementById("butao-editar").addEventListener("click",editarSenha);
 
@@ -335,7 +349,7 @@ async function atualizarImagensPerfil() {
     const foto = mediaProfile;
     const banner = mediaBanner;
 
-    const imagensOng = {
+    const imagensUsuario = {
         "foto": [
             foto[0]
         ],
@@ -344,7 +358,7 @@ async function atualizarImagensPerfil() {
         ]
     };
 
-    console.log(imagensOng.foto);
+    console.log(imagensUsuario.foto);
 
     let reqUpdateMedia = await ApiRequest("PUT", `http://localhost:3131/user/media/${dados.idUsuario}`, imagensUsuario);
     console.log(reqUpdateMedia);
@@ -358,6 +372,91 @@ async function atualizarImagensPerfil() {
 
 }
 
+let mediaProfile = [];
+async function handleFileSelectProfile(evento) {
+
+    // Objeto FileList guarda todos os arquivos.
+    var files = evento.target.files;
+
+    if (files.length <= 3) {
+        // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
+        for (var i = 0, f; f = files[i]; i++) {
+            
+            const reader = new FileReader();
+            let infoArquivo = f;
+            
+            reader.addEventListener(
+                "load",
+                () => {
+                    const dadosReader = reader.result;
+                    let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
+
+                    mediaProfile.push(
+                        {
+                            "fileName": infoArquivo.name,
+                            "base64": base64,
+                            "type": infoArquivo.type
+                        }
+                    );
+                },
+                false
+            );
+
+            if (f) {
+                reader.readAsDataURL(f);
+            }
+        }
+
+    } else {
+        alert("Máximo de arquivos permitidos é 3");
+    }
+}
+document.getElementById("filePerfil").addEventListener("change", handleFileSelectProfile, false);
+
+let mediaBanner = [];
+async function handleFileSelectBanner(evento) {
+
+    // Objeto FileList guarda todos os arquivos.
+    var files = evento.target.files;
+
+    if (files.length <= 3) {
+        // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
+        for (var i = 0, f; f = files[i]; i++) {
+            
+            const reader = new FileReader();
+            let infoArquivo = f;
+            
+            reader.addEventListener(
+                "load",
+                () => {
+                    const dadosReader = reader.result;
+                    let base64 = dadosReader.replace(/^data:image\/[a-z]+;base64,/, "");
+
+                    mediaBanner.push(
+                        {
+                            "fileName": infoArquivo.name,
+                            "base64": base64,
+                            "type": infoArquivo.type
+                        }
+                    );
+                },
+                false
+            );
+
+            if (f) {
+                reader.readAsDataURL(f);
+            }
+        }
+
+    } else {
+        alert("Máximo de arquivos permitidos é 3");
+    }
+}
+document.getElementById("fileBanner").addEventListener("change", handleFileSelectBanner, false);
+
+
+
+
 // document.getElementById("fileSponsor").addEventListener('change', imagemPreview);
 document.getElementById("filePerfil").addEventListener("change", imagemPreviewPerfil);
 document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
@@ -365,7 +464,6 @@ document.getElementById("botaoModalEditar").addEventListener("click", atualizarI
 
 
 // carregar dados na inputs
-
 function AtribuirValor() {
     nome.value = dados.nome;
     email.value = dadosSenhaEmail.email;
@@ -427,5 +525,14 @@ function AtribuirValor() {
 AtribuirValor();
 
 
+async function excluirConta (){
+    let reqUserDelete = await ApiRequest("DELETE", `http://localhost:3131/user/${userLogado.idUsuario}`);
+    
+    console.log(`REQ`, reqUserDelete);
+    alert("CONTA EXCLUIDA COM SUCESSO")
 
-//deletar usuario => /user/$id
+    window.location.href = "../loginUsuario.html"
+    
+}
+document.getElementById("excluirUsuario").addEventListener("click", excluirConta);
+
