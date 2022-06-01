@@ -138,24 +138,7 @@ const getEstados = async (cep) => {
 
 }
 
-async function dadosContatos() {
 
-    const contatos = {
-        
-        idLogin: dados.idLogin,
-        celular: celular.value,
-        telefone: telefone.value,
-
-    }
-    console.log(`DadosContatos`, dadosContatos);
-
-    // let reqContatos = await ApiRequest(
-    //     "POST", 
-    //     `http://localhost:3131/contact/${dados.idOng}`,
-    //     contatos
-    // );
-    // console.log(`reqContact`, reqContatos);
-}
 
 
 async function dadosMeiosDoacoes() {
@@ -354,11 +337,39 @@ async function dadosPatocinios() {
     const bodySponsor = {
         nome: nomePatrocinador.value,
         media: imagemSponsor,
-        link: sitePatrocinador.value
+        site: sitePatrocinador.value
     }
     console.log(`Sponsor`, bodySponsor);
 
+    let reqPatrocinios = await ApiRequest(
+        "POST", 
+        `http://localhost:3131/sponsor`,
+        bodySponsor
+    );
+    console.log(reqPatrocinios);
+
 }
+
+async function carregarPatrocinios(){
+
+
+    const bodyPatrocinios = {
+        nome: nomePatrocinador.value,
+        media: imagemSponsor,
+
+    }
+
+
+    let reqPatrocinador= await ApiRequest(
+        "GET", 
+        `http://localhost:3131/sponsor/ong/${dados.idOng}`
+        
+    );
+    console.log(reqPatrocinador);
+}
+
+
+
 
 async function atualizarImagensPerfil() {
 
@@ -388,9 +399,7 @@ async function atualizarImagensPerfil() {
 
 }
 
-
-document.getElementById("atualizarContatos").addEventListener("click", dadosContatos);
-// document.getElementById("cadastrarContatos").addEventListener("click", dadosContatos);
+document.getElementById("button-patrocinios").addEventListener("click", carregarPatrocinios);
 document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);
 document.getElementById("button-detalhes-conta-Atualizado").addEventListener("click", dadosDetalhesConta);
 document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDetalhesONG);
@@ -406,3 +415,8 @@ document.getElementById("fileBanner").addEventListener("change", handleFileSelec
 document.getElementById("filePerfil").addEventListener("change", imagemPreviewPerfil);
 document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
 document.getElementById("botaoModalEditar").addEventListener("click", atualizarImagensPerfil);
+document.getElementById("container-conteudo-patrocinios").addEventListener("click", async () => {
+    console.log( "oi");
+    const allSponsorByIdOng = await ApiRequest("GET", `http://localhost:3131/sponsor/ong/${dados.idOng}`);
+    console.log(allSponsorByIdOng);
+});

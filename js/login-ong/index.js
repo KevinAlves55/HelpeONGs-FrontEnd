@@ -45,7 +45,7 @@ const validarLogin = async (e) => {
         
         } else if (response.status == 200) {
 
-            const dadosOng = response.data[0];
+            const dadosOng = response.data;
             localStorage.clear();
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
             localStorage.setItem("emailSenha", JSON.stringify(dom));

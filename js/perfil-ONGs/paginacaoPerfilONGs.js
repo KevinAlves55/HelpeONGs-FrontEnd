@@ -148,7 +148,6 @@ nav.btnPatrocinios.addEventListener("click", event => {
     dom.vagas.style.display = "none";
     dom.senha.style.display = "none";
     dom.conta.style.display = "none";
-   
 });
 
 nav.btnPost.addEventListener("click", event => {

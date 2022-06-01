@@ -4359,6 +4359,94 @@ body {
   letter-spacing: none;
 }
 
+#centro #container-conteudo #container-conteudo-patrocinios #patrocinios-conteudo {
+  min-height: 238px;
+  height: auto;
+  width: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 38px;
+  background-color: #FFFFFF;
+  padding: 30px;
+  -webkit-filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+          filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.06));
+  border-radius: 20px;
+}
+
+#centro #container-conteudo #container-conteudo-patrocinios #patrocinios-conteudo h2 {
+  font-size: 1.563rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+}
+
+#centro #container-conteudo #container-conteudo-patrocinios #patrocinios-conteudo #lista-patrocinios {
+  height: inherit;
+  width: 780px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 30px;
+}
+
+#centro #container-conteudo #container-conteudo-patrocinios #patrocinios-conteudo #lista-patrocinios .patrocinadores {
+  height: 92px;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 8px;
+}
+
+#centro #container-conteudo #container-conteudo-patrocinios #patrocinios-conteudo #lista-patrocinios .patrocinadores img {
+  height: 80px;
+  width: 80px;
+}
+
+#centro #container-conteudo #container-conteudo-patrocinios #patrocinios-conteudo #lista-patrocinios .patrocinadores span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
 #centro #container-conteudo #container-conteudo-patrocinios #botoes {
   display: -webkit-box;
   display: -ms-flexbox;

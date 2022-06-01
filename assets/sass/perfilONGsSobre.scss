@@ -1698,10 +1698,44 @@ body {
                
             }
 
+            #patrocinios-conteudo {
+                min-height: 238px;
+                @include tamanhos(auto, inherit);
+                @include displayFlex(column, $gap: 38px);
+                background-color: #FFFFFF;
+                padding: 30px;
+                filter: $shadowMain;
+                border-radius: 20px;
+        
+                h2 {     
+                    @include textoEstilo(grau8, semiBold, $text);
+                }
+        
+                #lista-patrocinios {
+                    @include tamanhos(inherit, 780px);
+                    @include displayFlex(row, space-between, $wrap: wrap, $gap: 30px);
+        
+                    .patrocinadores {
+                        @include tamanhos(92px, auto);
+                        @include displayFlex(column, center, center, $gap: 8px);
+        
+                        img {
+                            @include tamanhos(80px, 80px);
+                        }
+        
+                        span {
+                            font-size: 1.2rem;
+                            font-weight: map-get($densidade, medium);
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
             #botoes{
                 @include displayFlex(row);
                 @include tamanhos(75px, 250px);
                 align-self: flex-end;
+                
                 
                 button{
                     @include textoEstilo (grau7, semiBold, $text);
