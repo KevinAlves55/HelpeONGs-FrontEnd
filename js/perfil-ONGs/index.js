@@ -6,6 +6,7 @@ import { closeModal, openModal } from "../doacoes-js/modal.js";
 import { getFormattedDate } from "../utils/DataFormat.js";
 import { closeModalCategorias, closeModalEditar, openModalCategorias, openModalEditar } from "./modaisPerfil.js";
 import { CheckWindow } from "../utils/Menu.js";
+import Redirect from "../utils/Redirect.js";
 
 let pagePostPerfil = 0;
 let pageEventoPerfil = 0;

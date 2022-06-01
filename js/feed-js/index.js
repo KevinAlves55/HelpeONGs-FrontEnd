@@ -86,7 +86,7 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
         }
     
         if (objectLocal.foto === null || objectLocal.foto === undefined) {
-            fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
+            fotoLogado.setAttribute("src", "../..img/sem-foto.png");
             fotoHeader.setAttribute("src", "../../assets/img/sem-foto.png");
         } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
             fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`);
@@ -551,7 +551,6 @@ const CarregarFeed = async (nomeOng) => {
         
         } else {
 
-            console.log(objetoFeed);
             const dadosFeed = objetoFeed.data;
             const elementosFeed = dadosFeed.map(CriarFeed);
             const elementosFeedHtml = elementosFeed.map(({outerHTML}) => {
@@ -579,6 +578,7 @@ const CriarFeed = (
         candidatos,
         tbl_evento_media,
         tbl_comentario,
+        tbl_curtidas_dos_posts
     }
 ) => {
 
@@ -613,12 +613,12 @@ const CriarFeed = (
 
                 <div class="interacoes">
                     <div class="icone-funcao">
-                        <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                        <span>0 Curtidas</span>
+                        <img src="${statusImagem(tbl_curtidas_dos_posts)}" alt="Curtiram" title="Icone curtir" class="curtir" id="curtir-post" data-idpost="${idPost}">
+                        <span>${tbl_curtidas_dos_posts.length} Curtidas</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                        <span>Comentários</span>
+                        <span>${tbl_comentario.length} Comentários</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
@@ -628,8 +628,7 @@ const CriarFeed = (
 
                 <div class="comentarios">
                     ${
-                        // tbl_comentario.map(comentario => generateComments(comentario)).join("")
-                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
+                        tbl_comentario.map(comentario => generateComments(comentario)).join("")
                     }
                 </div>
 
@@ -639,8 +638,6 @@ const CriarFeed = (
             `;
 
         } else if (tbl_post_media.length === 1) {
-
-            console.log(tbl_comentario);
 
             corpo.innerHTML =
             `
@@ -667,12 +664,12 @@ const CriarFeed = (
 
                 <div class="interacoes">
                     <div class="icone-funcao">
-                        <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                        <span>0 Curtidas</span>
+                        <img src="${statusImagem(tbl_curtidas_dos_posts)}" alt="Curtiram" title="Icone curtir" class="curtir" id="curtir-post" data-idpost="${idPost}">
+                        <span>${tbl_curtidas_dos_posts.length} Curtidas</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                        <span>Comentários</span>
+                        <span>${tbl_comentario.length} Comentários</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
@@ -682,7 +679,7 @@ const CriarFeed = (
 
                 <div class="comentarios">
                     ${
-                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
+                        tbl_comentario.map(comentario => generateComments(comentario)).join("")
                     }
                 </div>
 
@@ -722,12 +719,12 @@ const CriarFeed = (
 
                 <div class="interacoes">
                     <div class="icone-funcao">
-                        <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                        <span>0 Curtidas</span>
+                        <img src="${statusImagem(tbl_curtidas_dos_posts)}" alt="Curtiram" title="Icone curtir" class="curtir" id="curtir-post" data-idpost="${idPost}">
+                        <span>${tbl_curtidas_dos_posts.length} Curtidas</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                        <span>Comentários</span>
+                        <span>${tbl_comentario.length} Comentários</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
@@ -737,8 +734,7 @@ const CriarFeed = (
 
                 <div class="comentarios">
                     ${
-                        // tbl_comentario.map(comentario => generateComments(comentario))
-                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
+                        tbl_comentario.map(comentario => generateComments(comentario)).join("")
                     }
                 </div>
 
@@ -779,12 +775,12 @@ const CriarFeed = (
 
                 <div class="interacoes">
                     <div class="icone-funcao">
-                        <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                        <span>0 Curtidas</span>
+                        <img src="${statusImagem(tbl_curtidas_dos_posts)}" alt="Curtiram" title="Icone curtir" class="curtir" id="curtir-post" data-idpost="${idPost}">
+                        <span>${tbl_curtidas_dos_posts.length} Curtidas</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                        <span>Comentários</span>
+                        <span>${tbl_comentario.length} Comentários</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
@@ -794,8 +790,7 @@ const CriarFeed = (
 
                 <div class="comentarios">
                     ${
-                        // tbl_comentario.map(comentario => generateComments(comentario)).join("")
-                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
+                        tbl_comentario.map(comentario => generateComments(comentario)).join("")
                     }
                 </div>
 
@@ -1036,42 +1031,141 @@ const CriarFeed = (
 
 }
 
-async function generateComments(idPostagem) {
+const Comentar = (evento) => {
 
-    let reqCommit = await ApiRequest("GET", `http://localhost:3131/comment/ong/${idPostagem}`);
-    const commit = reqCommit.data;
+    console.log(evento);
+    if (evento.key == "Enter") {
+        
+        const idPostagem = evento.target.dataset.idpost;
+        const idUser = userLogado.idUsuario;
+        const comentario = evento.target.value;
+        EnviarComentario(evento, idPostagem, idUser, comentario);
+
+    }
+
+
+}
+
+const EnviarComentario = async (evento, idPostagem, idUser, textoComentario) => {
+
+    const bodyComentario = {
+
+        idPost: Number(idPostagem),
+        idUsuario: Number(idUser),
+        comentario: {
+            texto: textoComentario
+        }
+
+    }
     
-    const dataFormat = getFormattedDateFeed(commit.dataDeCriacao);
+    let req = await ApiRequest("POST", "http://localhost:3131/comment", bodyComentario);
+    const dadoCommit = req.data;
+    
+    if (req.status === 200) {
+            
+        const elemento = evento.target.parentElement.parentElement.children[4];
+        elemento.innerHTML += generateComments(dadoCommit);
+        evento.target.value = "";
+        
+    
+    } else {
 
-    const innerHTML = 
+        alert("Erro ao enviar comentário");
+
+    }
+
+}
+
+function generateComments(comentario) {
+
+    const dataFormat = getFormattedDateFeed(comentario.dataDeCriacao);
+
+    let innerHTML;
+    innerHTML = 
     `
         <div class="corpo-comentario">
             <div class="lateral-imagem">
-                <img src="${userLogado.foto}" alt="" title="Foto de perfil">
+                <img src="${comentario.tbl_usuario.foto}" alt="${comentario.tbl_usuario.nome}" title="Foto de perfil">
             </div>
-
             <div class="vertical-info">
                 <div class="comentario">
-                    <h3>${userLogado.nome}</h3>
-
+                    <h3>${comentario.tbl_usuario.nome}</h3>
                     <p>
-                        ${commit.comentario}
+                        ${comentario.comentario}
                     </p>
                 </div>
-
                 <div class="acoes-comentario">
                     <span>${dataFormat}</span>
-
                     <div class="curtir-comentario">
-                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="">
+                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
                         <span>0 Curtiram</span>
                     </div>
                 </div>
             </div>
         </div>
     `;
-
     return innerHTML;
+}
+
+const Curtir = async (evento) => {
+
+    if (evento.target.id === "curtir-post") {
+        const idPostagem = evento.target.dataset.idpost;
+        const idUser = userLogado.idUsuario;
+        CurtirPost(idPostagem, idUser);
+    }
+
+}
+
+const CurtirPost = async (idPostagem, idUser) => {
+
+    const bodyCurtir = {
+        idPost: Number(idPostagem),
+        idUsuario: Number(idUser)
+    }
+
+    let req = await ApiRequest("POST", "http://localhost:3131/post/like", bodyCurtir);
+    console.log(req);
+    const dadoCurtir = req.data;
+    console.log(dadoCurtir);
+
+    if (req.status === 200) {
+
+        alert("Curtiu");
+
+    } else if (req.status === 400) {
+        
+        alert("Postagem já curtida");
+
+    } else {
+
+        alert("Erro ao curtir postagem");
+
+    }
+
+
+}
+
+const statusImagem = (infoCurtidas) => {
+
+    if (infoCurtidas.length > 0) {
+        console.log(infoCurtidas);
+        const likeTeste = infoCurtidas.filter(({ tbl_usuario }) => tbl_usuario.idUsuario === userLogado.idUsuario);
+        console.log(`filter de curtida: `, likeTeste);
+        let src;
+        if (likeTeste.length > 0) {
+            src = "assets/img/curtida-com-preenchimento.png";
+        } else {
+            src = "assets/img/curtir-sem-preencimento.png";
+        }
+        
+        return src
+    
+    } else {
+        
+        return "assets/img/curtir-sem-preencimento.png";
+    
+    }
 }
 
 const showLoaderFeed = () => {
@@ -1542,49 +1636,6 @@ const CriarVagaSelecionada = (dadosVaga) => {
 
 }
 
-const Comentar = (evento) => {
-
-    if (evento.key == "Enter") {
-        
-        const idPostagem = evento.target.dataset.idpost;
-        const idUser = userLogado.idUsuario;
-        const comentario = evento.target.value;
-        EnviarComentario(evento, idPostagem, idUser, comentario);
-
-    }
-
-
-}
-
-const EnviarComentario = async (evento, idPostagem, idUser, textoComentario) => {
-
-    const bodyComentario = {
-
-        idPost: Number(idPostagem),
-        idUsuario: Number(idUser),
-        comentario: {
-            texto: textoComentario
-        }
-
-    }
-    
-    let req = await ApiRequest("POST", "http://localhost:3131/comment", bodyComentario);
-    console.log(req);
-    
-    if (req.status === 200) {
-            
-        const elemento = evento.target.parentElement.parentElement.children[4];
-        elemento.innerHTML = "";
-        generateComments(commit);
-    
-    } else {
-
-        alert("Erro ao enviar comentário");
-
-    }
-
-}
-
 document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
@@ -1621,3 +1672,4 @@ document.getElementById("info-vaga").addEventListener("click", closeModalInfoVag
 document.getElementById("previa-eventos").addEventListener("click", CarregarEventoSelecionado);
 document.getElementById("vagas-indicadas").addEventListener("click", CarregarVagasSelecionado);
 document.querySelector(".feed").addEventListener("keypress", Comentar);
+document.querySelector(".feed").addEventListener("click", Curtir);
