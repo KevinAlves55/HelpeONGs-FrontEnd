@@ -19,7 +19,6 @@ const CheckWindow = () => {
         const donate = document.getElementById("donateLink");
         const barraActivity = document.getElementById("barraDonate");
         const donateActivity = document.getElementById("donateActivity");
-        console.log(donate);
         donate.style.color = "#FF9F45";
         donate.style.fontWeight = "600";
         donateActivity.style.backgroundColor = "#F8F9FA";

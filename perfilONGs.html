@@ -13,10 +13,8 @@
     <script type="module" src="js/perfil-ONGs/index.js" defer></script>
     <script type="module" src="js/perfil-ONGs/dadosONGs.js" defer></script>
     <script src="js/perfil-ONGs/paginacaoPerfilONGs.js" defer></script>
-    <script type="module" src="js/perfil-ONGs/apiCep.js"></script>
-    <script type="module" src="js/perfil-ONGs/categorias.js"></script>
-    
-    
+    <script src="js/perfil-ONGs/Mascaras.js" defer></script>
+    <script type="module" src="js/perfil-ONGs/apiCep.js"></script> 
 </head>
 
 <body>  
@@ -494,7 +492,7 @@
                     <div id="celular-telefone">
                         <div id="celular" class="style-input">
                             <label>Celular</label>
-                            <input type="text" id="celularOng" placeholder="(11) 4342-5898" />
+                            <input onkeyup="mascaraCelular(this)" type="text" id="celularOng" placeholder="(11) 4342-5898" />
                             <!-- <small>Error</small>
                             <i class="icone-validation"><img src="assets/img/success-icon.svg" class="img-sucess" alt="SUCESSO"></i>
                             <i class="icone-validation"><img src="assets/img/error-icon.svg" class="img-error" alt="ERRO"></i> -->

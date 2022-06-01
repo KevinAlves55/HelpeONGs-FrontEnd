@@ -3634,7 +3634,7 @@ main #itens-main #conteudo-feed .feed .post .interacoes .icone-funcao span {
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios {
-  min-height: 180px;
+  min-height: 1px;
   height: auto;
   width: 736px;
   display: -webkit-box;
@@ -3652,14 +3652,12 @@ main #itens-main #conteudo-feed .feed .post .comentarios {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 20px;
+  gap: 5px;
   margin-top: 12px;
-  background-color: red;
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario {
-  background-color: yellow;
-  min-height: 148px;
+  min-height: 10px;
   height: auto;
   width: inherit;
   display: -webkit-box;
@@ -3699,7 +3697,6 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .late
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  background-color: rosybrown;
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .lateral-imagem img {
@@ -3728,7 +3725,6 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vert
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 5px;
-  background-color: #ff4949;
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info .comentario {
@@ -3870,7 +3866,7 @@ main #itens-main #conteudo-feed .feed .post #comentar {
 
 main #itens-main #conteudo-feed .feed .post #comentar input {
   height: 80px;
-  width: 630px;
+  width: inherit;
   font-size: 1.563rem;
   font-weight: 500;
   color: #292929;

@@ -85,16 +85,7 @@ function getFormattedDateFeed(dataConvert) {
         formatterMonth = "Dezembro";
     }
 
-    var formatterMinute
-    if (minuto.valueOf(0).valueOf(0)) {
-        formatterMinute = `0${minuto}`;
-    } else if (minuto == 0) {
-        formatterMinute = `00`;
-    } else {
-        formatterMinute = minuto
-    }
-
-    return formatterDay + ' de ' + formatterMonth + ' de ' + year + ' às ' + hora + ':' + formatterMinute;
+    return formatterDay + ' de ' + formatterMonth + ' de ' + year + ' às ' + hora + ':' + minuto;
 }
 
 export {

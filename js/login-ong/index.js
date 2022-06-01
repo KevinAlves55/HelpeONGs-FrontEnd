@@ -32,6 +32,7 @@ const validarLogin = async (e) => {
             email: dom.email.toString().toLowerCase(),
             senha: dom.senha.toString()
         });
+        console.log(response);
 
         if (response.status == 404) {
 
@@ -45,8 +46,7 @@ const validarLogin = async (e) => {
         
         } else if (response.status == 200) {
 
-            const dadosOng = response.data[0];
-            localStorage.clear();
+            const dadosOng = response.data;
             localStorage.setItem('dadosOng', JSON.stringify(dadosOng));
             localStorage.setItem("emailSenha", JSON.stringify(dom));
             Redirect("feed");

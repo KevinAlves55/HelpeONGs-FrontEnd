@@ -105,12 +105,12 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
     dadosOng = req.data;
 
-    let linkPerfil = document.getElementById("profileLink");
-    linkPerfil.href = `perfilONGs.html`;
-
     if (!dadosOng.foto || !dadosOng.banner || !dadosOng.historia || !dadosOng.descricao) {
         Redirect("perfilONGs");
     }
+
+    let linkPerfil = document.getElementById("profileLink");
+    linkPerfil.href = `perfilONGs.html`;
 
     document.getElementById("sair").addEventListener("click", () => {
         localStorage.clear();
@@ -476,7 +476,6 @@ const CarregarVagasConvite = async () => {
     const container = document.getElementById("vagas-indicadas");
     const objetoVagas = await ApiRequest("GET", "http://localhost:3131/feed/vaga/0");
     const vagas = objetoVagas.data;
-    console.log(vagas);
     const cards = vagas.map(CriarVagasDestaques);
     container.replaceChildren(...cards);
     CarregarQtdaVagas(vagas);
@@ -534,7 +533,6 @@ const CarregarFeed = async (nomeOng) => {
         
         const container = document.querySelector(".feed");
         const objetoFeed = await ApiRequest("GET", `http://localhost:3131/feed/${page}`);
-        console.log(objetoFeed);
         const dadosFeed = objetoFeed.data;
         const elementosFeed = dadosFeed.map(CriarFeed);
         const elementosFeedHtml = elementosFeed.map(({outerHTML}) => {
@@ -630,7 +628,8 @@ const CriarFeed = (
 
                 <div class="comentarios">
                     ${
-                        tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                        // tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
                     }
                 </div>
 
@@ -640,6 +639,9 @@ const CriarFeed = (
             `;
 
         } else if (tbl_post_media.length === 1) {
+
+            console.log(tbl_comentario);
+
             corpo.innerHTML =
             `
             <div class="parte-superior">
@@ -680,7 +682,7 @@ const CriarFeed = (
 
                 <div class="comentarios">
                     ${
-                        tbl_comentario.map(comentario => generateComments(comentario))
+                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
                     }
                 </div>
 
@@ -688,7 +690,9 @@ const CriarFeed = (
                     <input type="text" name="comentario" id="comentario" placeholder="Digite seu comentário" data-idpost="${idPost}">
                 </div>
             `;
+        
         } else if (tbl_post_media.length === 2) {
+            
             corpo.innerHTML =
             `
             <div class="parte-superior">
@@ -733,18 +737,18 @@ const CriarFeed = (
 
                 <div class="comentarios">
                     ${
-                        tbl_comentario.map(comentario => generateComments(comentario))
+                        // tbl_comentario.map(comentario => generateComments(comentario))
+                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
                     }
                 </div>
 
                 <div id="comentar">
-                    <input name="" id="" placeholder="Digite seu comentário">
-                    <button type="button" id="enviarComentario">
-                        <img src="assets/img/navigation.png" alt="">
-                    </button>
+                    <input type="text" name="comentario" id="comentario" placeholder="Digite seu comentário" data-idpost="${idPost}">
                 </div>
             `;
+        
         } else {
+            
             corpo.innerHTML =
             `
             <div class="parte-superior">
@@ -788,13 +792,18 @@ const CriarFeed = (
                     </div>
                 </div>
 
+                <div class="comentarios">
+                    ${
+                        // tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                        tbl_comentario.map(comentario => generateComments(idPost)).join("")
+                    }
+                </div>
+
                 <div id="comentar">
-                    <input name="" id="" placeholder="Digite seu comentário">
-                    <button type="button" id="enviarComentario">
-                        <img src="assets/img/navigation.png" alt="">
-                    </button>
+                    <input type="text" name="comentario" id="comentario" placeholder="Digite seu comentário" data-idpost="${idPost}">
                 </div>
             `;
+        
         }
 
         return corpo;
@@ -1027,36 +1036,41 @@ const CriarFeed = (
 
 }
 
-function generateComments(comentario) {
-    console.log(`gerador de comentarios `, comentario);
+async function generateComments(idPostagem) {
 
-    const innerHTML = `
-        <div class="corpo-comentario"><!-- ESTRUTURA DE COMENTÁRIO -->
-        <div class="lateral-imagem">
-            <img src="assets/img/foto-comentario.png" alt="{NomeDaPessoa}" title="Foto de perfil">
-        </div>
+    let reqCommit = await ApiRequest("GET", `http://localhost:3131/comment/ong/${idPostagem}`);
+    const commit = reqCommit.data;
+    
+    const dataFormat = getFormattedDateFeed(commit.dataDeCriacao);
 
-        <div class="vertical-info">
-            <div class="comentario">
-                <h3>Nome Da Pessoa</h3>
-
-                <p>
-                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. 
-                    <span>Ver mais</span>
-                </p>
+    const innerHTML = 
+    `
+        <div class="corpo-comentario">
+            <div class="lateral-imagem">
+                <img src="${userLogado.foto}" alt="" title="Foto de perfil">
             </div>
 
-            <div class="acoes-comentario">
-                <span>1 h Atrás</span>
+            <div class="vertical-info">
+                <div class="comentario">
+                    <h3>${userLogado.nome}</h3>
 
-                <div class="curtir-comentario">
-                    <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
-                    <span>28.5k Curtiram</span>
+                    <p>
+                        ${commit.comentario}
+                    </p>
+                </div>
+
+                <div class="acoes-comentario">
+                    <span>${dataFormat}</span>
+
+                    <div class="curtir-comentario">
+                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="">
+                        <span>0 Curtiram</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div><!-- EST
     `;
+
     return innerHTML;
 }
 
@@ -1535,14 +1549,14 @@ const Comentar = (evento) => {
         const idPostagem = evento.target.dataset.idpost;
         const idUser = userLogado.idUsuario;
         const comentario = evento.target.value;
-        EnviarComentario(idPostagem, idUser, comentario);
+        EnviarComentario(evento, idPostagem, idUser, comentario);
 
     }
 
 
 }
 
-const EnviarComentario = async (idPostagem, idUser, textoComentario) => {
+const EnviarComentario = async (evento, idPostagem, idUser, textoComentario) => {
 
     const bodyComentario = {
 
@@ -1555,10 +1569,13 @@ const EnviarComentario = async (idPostagem, idUser, textoComentario) => {
     }
     
     let req = await ApiRequest("POST", "http://localhost:3131/comment", bodyComentario);
+    console.log(req);
     
     if (req.status === 200) {
             
-        window.location.reload();
+        const elemento = evento.target.parentElement.parentElement.children[4];
+        elemento.innerHTML = "";
+        generateComments(commit);
     
     } else {
 

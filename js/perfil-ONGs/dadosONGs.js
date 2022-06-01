@@ -1,6 +1,7 @@
 'use strict';
 
 import ApiRequest from "../utils/ApiRequest.js";
+import { hideLoading, showLoading } from "../utils/Loading.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./imagemPreview.js";
 
@@ -55,6 +56,13 @@ async function dadosDetalhesConta() {
         `http://localhost:3131/ong/${dados.idOng}`, 
         bodyOng
     );
+
+    if (reqOng.status === 200) {
+        alert("Dados atualizados com sucesso");
+        window.location.reload();
+    } else {
+        alert("Erro ao atualizar dados");
+    }
 }
 
 async function dadosDetalhesONG() {
@@ -73,7 +81,13 @@ async function dadosDetalhesONG() {
         `http://localhost:3131/ong/${dados.idOng}`, 
         bodyOng
     );
-    console.log(reqOng);
+
+    if (reqOng.status === 200) {
+        alert("Dados atualizados com sucesso");
+        window.location.reload();
+    } else {
+        alert("Erro ao atualizar dados");
+    }
 
 }
 
@@ -91,7 +105,6 @@ async function dadosDetalhesEndereco() {
         estado: estado.value,
         complemento: complemento.value,
     }
-    console.log(bodyEndereco);
 
     const reqEndereco = await ApiRequest(
         "POST", 
@@ -101,8 +114,10 @@ async function dadosDetalhesEndereco() {
 
     if (reqEndereco.status === 400) {
         alert("Endereço já cadastrado");
+        window.location.reload();
     } else {
         alert("Endereço cadastrado com sucesso");
+        window.location.reload();
     }
 }
 
@@ -127,6 +142,61 @@ async function dadosEnderecoAtualizado() {
         bodyEnderecoAtualizado
     );
 
+    if (reqEnderecoAtualizado.status === 200) {
+        alert("Endereço atualizado com sucesso");
+        window.location.reload();
+    } else {
+        alert("Erro ao atualizar endereço");
+    }
+
+}
+
+async function dadosContatos() {
+
+    const contatos = {
+        
+        idLogin: dados.idLogin,
+        numero: celular.value,
+        telefone: telefone.value
+
+    }
+
+    let reqContatos = await ApiRequest(
+        "POST", 
+        `http://localhost:3131/contact`,
+        contatos
+    );
+
+    if (reqContatos.status === 200) {
+        alert("Contatos cadastrados com sucesso");
+        window.location.reload();
+    } else {
+        alert("Erro ao cadastrar contatos");
+    }
+}
+
+async function dadosContatosAtualizados() {
+
+    const contatos = {
+        
+        numero: celular.value,
+        telefone: telefone.value
+
+    }
+
+    let reqContatosAtualizados = await ApiRequest(
+        "PUT", 
+        `http://localhost:3131/contact/${dados.idLogin}`,
+        contatos
+    );
+
+    if (reqContatosAtualizados.status === 200) {
+        alert("Contatos atualizados com sucesso");
+        window.location.reload();
+    } else {
+        alert("Erro ao atualizar contatos");
+    }
+
 }
 
 const getEstados = async (cep) => {
@@ -147,7 +217,6 @@ async function dadosMeiosDoacoes() {
         pix: pix.value,
         site: linkSite.value
     }
-    console.log(`DadosDonation`, dadosDonation);
 
     const dadosBank = {
         banco: banco.value,
@@ -156,21 +225,25 @@ async function dadosMeiosDoacoes() {
         tipo: tipoSelecionado,
         idOng: dados.idOng
     }
-    console.log(`DadosBanck`, dadosBank);
 
     let reqMeiosDoacoes = await ApiRequest(
         "POST", 
         `http://localhost:3131/donation-data`, 
         dadosDonation
     );
-    console.log(`ReqDonation`, reqMeiosDoacoes);
 
     let reqBancario = await ApiRequest(
         "POST", 
         `http://localhost:3131/bank-data`, 
         dadosBank
     );
-    console.log(`reqBanck`, reqBancario);
+
+    if (reqMeiosDoacoes.status === 400 || reqBancario.status === 400) {
+        alert("Dados já cadastrados");
+        window.location.reload();
+    } else {
+        alert("Dados cadastrados com sucesso");
+    }
 
 }
 
@@ -181,28 +254,32 @@ async function dadosMeiosDoacoesAtualizado() {
         pix: pix.value,
         site: linkSite.value
     }
-    console.log(`DadosDonation`, dadosDonation);
+
     const dadosBank = {
         banco: banco.value,
         agencia: agencia.value,
         conta: conta.value,
         tipo: tipoSelecionado,
     }
-    console.log(`DadosBanck`, dadosBank);
 
     let reqMeiosDoacoes = await ApiRequest(
         "PUT", 
         `http://localhost:3131/donation-data/${dados.idOng}`, 
         dadosDonation
     );
-    console.log(`ReqDonation`, reqMeiosDoacoes);
     
     let reqBancario = await ApiRequest(
         "PUT", 
         `http://localhost:3131/bank-data/${dados.idOng}`, 
         dadosBank
     );
-    console.log(`reqBanck`, reqBancario);
+
+    if (reqMeiosDoacoes.status === 200 || reqBancario.status === 200) {
+        alert("Dados atualizados com sucesso");
+        window.location.reload();
+    } else {
+        alert("Erro ao atualizar dados");
+    }
 
 }
 
@@ -359,9 +436,11 @@ async function atualizarImagensPerfil() {
     let reqUpdateMedia = await ApiRequest("PUT", `http://localhost:3131/ong/media/${dados.idOng}`, imagensOng);
     console.log(reqUpdateMedia);
 
+    showLoading();
     if (reqUpdateMedia.status === 200) {
         alert("Imagens atualizadas com sucesso!");
         window.location.reload();
+        hideLoading();
     } else {
         alert("Erro ao atualizar imagens");
     }
@@ -373,6 +452,8 @@ document.getElementById("button-detalhes-conta-Atualizado").addEventListener("cl
 document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDetalhesONG);
 document.getElementById("button-detalhes-endereco").addEventListener("click", dadosDetalhesEndereco);
 document.getElementById("button-detalhes-endereco-Atualizado").addEventListener("click",dadosEnderecoAtualizado);
+document.getElementById("cadastrarContatos").addEventListener("click", dadosContatos);
+document.getElementById("atualizarContatos").addEventListener("click", dadosContatosAtualizados);
 document.getElementById("button-meiosDoacoes").addEventListener("click", dadosMeiosDoacoes);
 document.getElementById("button-meiosDoacoes-atualizar").addEventListener("click", dadosMeiosDoacoesAtualizado);
 document.getElementById("fileSponsor").addEventListener("change", handleFileSelectSponsor, false);

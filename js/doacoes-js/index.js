@@ -14,12 +14,9 @@ let ongLogado;
 
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
-    console.log("Logado como doador");
-    
     userLogado = validarSession("dadosUsuario");
 
     let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
-    console.log(req);
     const dadosUsuario = req.data;
 
     let linkPerfil = document.getElementById("profileLink");
@@ -78,12 +75,9 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 } else if (localStorage.hasOwnProperty('dadosOng') !== false) {
 
-    console.log("Logado como ONG");
     ongLogado = validarSession("dadosOng");
-    console.log(ongLogado);
 
     let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
-    console.log(req);
     const dadosOng = req.data;
 
     let linkPerfil = document.getElementById("profileLink");
@@ -197,7 +191,7 @@ const CarregarTodasONGs = async () => {
 
 }
 
-const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
+const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto, idLogin}) => {
 
     const corpo = document.createElement("div");
     corpo.classList.add("ongs-card");
@@ -208,7 +202,7 @@ const CriarONGs = ({idOng, nome, numeroDeSeguidores, foto}) => {
         <img src="${foto}" alt="${nome}" title="Imagem da ONG" class="img-ong">
         <h2>${nome}</h2>
         <span>${numeroDeSeguidores} seguidores</span>
-        <button type="button" data-idong="${idOng}">DOAR</button>
+        <button type="button" data-idong="${idOng}" data-idlogin="${idLogin}">DOAR</button>
     `;
 
     return corpo;
@@ -489,13 +483,14 @@ const CarregarModal = async ({target}) => {
 const RequestModal = async (target) => {
 
     const idOng = target.dataset.idong;
+    const idLogin = target.dataset.idlogin;
     let dadosContatos = [];
     let dadosBank = [];
     let dadosMeiosDoativos = [];
 
     dadosContatos = await ApiRequest(
         "GET",
-        `http://localhost:3131/contact/${idOng}`
+        `http://localhost:3131/contact/${idLogin}`
     );
 
     dadosBank = await ApiRequest(

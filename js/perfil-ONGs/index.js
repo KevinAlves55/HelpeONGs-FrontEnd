@@ -7,6 +7,9 @@ import { getFormattedDate } from "../utils/DataFormat.js";
 import { closeModalCategorias, closeModalEditar, openModalCategorias, openModalEditar } from "./modaisPerfil.js";
 import { CheckWindow } from "../utils/Menu.js";
 
+let pagePostPerfil = 0;
+let pageEventoPerfil = 0;
+let pageVagaPerfil = 0;
 const previewPerfil = document.querySelector(".previewPerfil");
 const previewBanner = document.querySelector(".previewBanner");
 const nome = document.getElementById('nomeOng');
@@ -36,49 +39,51 @@ const sitePatrocinador = document.getElementById("linkSitePatrocinador");
 const loaderContainer = document.querySelector(".loader");
 const loaderContainerEvento = document.querySelector(".loaderEvento");
 const loaderContainerVaga = document.querySelector(".loaderVaga");
-let pagePostPerfil = 0;
-let pageEventoPerfil = 0;
-let pageVagaPerfil = 0;
 
 let ongLogado;
 ongLogado = validarSession("dadosOng");
-
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
 
 let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
 let dados = reqDados.data;
 
-let reqEndereco = await ApiRequest(
-    "GET", 
-    `http://localhost:3131/adress/${dados.idLogin}`
-);
+let reqEndereco = await ApiRequest("GET",`http://localhost:3131/adress/${dados.idLogin}`);
 let adress = reqEndereco.data;
 
-let reqContatos = await ApiRequest(
-    "GET", 
-    `http://localhost:3131/contact/${dados.idOng}`
-);
+let reqContatos = await ApiRequest("GET",`http://localhost:3131/contact/${dados.idLogin}`);
 let contato = reqContatos.data;
 
-let reqDataDonation = await ApiRequest(
-    "GET",
-    `http://localhost:3131/donation-data/${dados.idOng}`
-);
+let reqDataDonation = await ApiRequest("GET", `http://localhost:3131/donation-data/${dados.idOng}`);
 let donation = reqDataDonation.data;
 
-let reqDataBank = await ApiRequest(
-    "GET",
-    `http://localhost:3131/bank-data/${dados.idOng}`
-);
+let reqDataBank = await ApiRequest("GET",`http://localhost:3131/bank-data/${dados.idOng}`);
 let bank = reqDataBank.data;
+
+async function OcultarButton() {
+
+    let btnEndereco = document.getElementById("button-detalhes-endereco");
+    let btnContatos = document.getElementById("cadastrarContatos");
+    let btnBankDonation = document.getElementById("button-meiosDoacoes");
+
+    if (adress.cep) {
+        btnEndereco.style.display = "none";
+    }
+
+    if (contato.numero || contato.telefone) {
+        btnContatos.style.display = "none";
+    }
+
+    if (bank.agencia && bank.banco && bank.conta && bank.tipo) {
+        btnBankDonation.style.display = "none";
+    }
+
+}
 
 function formatarValor(valor) {
     return valor.toLocaleString('pt-BR');
 }
 
 function CarregarPerfil(objectLocal) {
-
-    console.log(objectLocal);
 
     let nomeLogado = document.getElementById("mini-perfil-nome");
     let fotoLogado = document.getElementById("mini-perfil-foto");
@@ -111,7 +116,6 @@ function CarregarPerfil(objectLocal) {
         fotoPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
         console.log("foto não é imagem");
     } else {
-        console.log("Estamos aqui");
         fotoPerfil.setAttribute("src", `${objectLocal.foto}`)
     }
 
@@ -338,7 +342,7 @@ async function AtribuirValor(dadosOng) {
 const CarregarModalPerfil = async () => {
 
     const container = document.getElementById("direita-informacoes");
-    const req = await RequestModal(dados.idOng);
+    const req = await RequestModal(dados.idOng, dados.idLogin);
     const modal = CriarModal(req.objetoContatos, req.objetoBank, req.objetoDadosDonate);
 
     if (modal === false) {
@@ -350,7 +354,7 @@ const CarregarModalPerfil = async () => {
 
 }
 
-const RequestModal = async (idOng) => {
+const RequestModal = async (idOng, idLogin) => {
 
     let dadosContatos = [];
     let dadosBank = [];
@@ -358,7 +362,7 @@ const RequestModal = async (idOng) => {
 
     dadosContatos = await ApiRequest(
         "GET",
-        `http://localhost:3131/contact/${idOng}`
+        `http://localhost:3131/contact/${idLogin}`
     );
 
     dadosBank = await ApiRequest(
@@ -399,8 +403,6 @@ const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
         status = false;
     
     } else {
-
-        console.log(`param1: `, objetoContatos, objetoBank, objetoDadosDonate);
 
         const modal = document.createElement("div");
         modal.classList.add("info");
@@ -523,6 +525,7 @@ const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media}) => {
         `;
 
     } else if (tbl_post_media.length === 1) {
+
         corpo.innerHTML =
         `
         <div class="parte-superior">
@@ -561,6 +564,7 @@ const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media}) => {
                 </div>
             </div>
         `;
+    
     } else if (tbl_post_media.length === 2) {
         corpo.innerHTML =
         `
@@ -1089,6 +1093,7 @@ const AdicionarCategorias = ({target}) => {
 
             if (req.status === 200) {
                 window.location.reload();
+                window.scroll(0, 0);
             } else {
                 alert("Erro ao selecionar categoria");
             }
@@ -1105,6 +1110,7 @@ const AdicionarCategorias = ({target}) => {
 }
 
 CheckWindow();
+OcultarButton();
 CarregarPerfil(dados);
 CarregarDadosSobre(dados);
 AtribuirValor(dados);
