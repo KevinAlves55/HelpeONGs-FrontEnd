@@ -12,6 +12,7 @@ import { hideLoading, showLoading } from "../utils/Loading.js";
 import { PesquisarCep } from "../utils/ViaCep.js";
 import { CheckWindow } from "../utils/Menu.js";
 import { closeModalInfoEvento, closeModalInfoVaga, openModalInfoEvento, openModalInfoVaga } from "./modalFeed.js";
+import { MessageValidator, MessageValidatorClose } from "./MessageValidator.js";
 
 // POST
 const descricao = document.getElementById("text-post");
@@ -515,20 +516,6 @@ function CarregarQtdaVagas(objetoVagas) {
 
 const CarregarFeed = async (nomeOng) => {
 
-    // Scroll Infinito
-    window.addEventListener("scroll", () => {
-    
-        const { clientHeight, scrollHeight, scrollTop } = document.documentElement
-        const isPageBottomAlmostReached = scrollTop + clientHeight >= scrollHeight -1;
-
-        if (isPageBottomAlmostReached) {
-            
-            showLoaderFeed();
-
-        }
-
-    });
-
     if (nomeOng === undefined || nomeOng === null) {
         
         const container = document.querySelector(".feed");
@@ -776,7 +763,9 @@ const CriarFeed = (
                 <div class="interacoes">
                     <div class="icone-funcao">
                         <img src="${statusImagem(tbl_curtidas_dos_posts)}" alt="Curtiram" title="Icone curtir" class="curtir" id="curtir-post" data-idpost="${idPost}">
-                        <span>${tbl_curtidas_dos_posts.length} Curtidas</span>
+                        <span id="qtdaCurtida">${
+                            qtdaCurtidas(tbl_curtidas_dos_posts)
+                        } Curtidas</span>
                     </div>
                     <div class="icone-funcao">
                         <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
@@ -815,7 +804,7 @@ const CriarFeed = (
         let buttonCandidato;
         if (candidatos === true) {
 
-            buttonCandidato = `<button type="button" id="candidatarEvento">Candidata-se</button>`;
+            buttonCandidato = `<button type="button" id="candidatarEvento" data-idEvento="${idEventos}">Candidata-se</button>`;
             
         } else if (candidatos === false) {
 
@@ -1020,7 +1009,7 @@ const CriarFeed = (
 
             <div class="vaga-botoes">
                 <button type="button" id="saiba-mais-vaga" data-idvaga="${idVagas}" data-idong="${idOng}">Saiba Mais</button>
-                <button type="button" id="interesse-vaga">Interesse</button>
+                <button type="button" id="interesse-vaga" data-idvaga="${idVagas}">Interesse</button>
             </div>
         </div>
         `;
@@ -1062,7 +1051,7 @@ const EnviarComentario = async (evento, idPostagem, idUser, textoComentario) => 
     const dadoCommit = req.data;
     
     if (req.status === 200) {
-            
+        
         const elemento = evento.target.parentElement.parentElement.children[4];
         elemento.innerHTML += generateComments(dadoCommit);
         evento.target.value = "";
@@ -1112,12 +1101,12 @@ const Curtir = async (evento) => {
     if (evento.target.id === "curtir-post") {
         const idPostagem = evento.target.dataset.idpost;
         const idUser = userLogado.idUsuario;
-        CurtirPost(idPostagem, idUser);
+        CurtirPost(evento, idPostagem, idUser);
     }
 
 }
 
-const CurtirPost = async (idPostagem, idUser) => {
+const CurtirPost = async (evento, idPostagem, idUser) => {
 
     const bodyCurtir = {
         idPost: Number(idPostagem),
@@ -1125,17 +1114,20 @@ const CurtirPost = async (idPostagem, idUser) => {
     }
 
     let req = await ApiRequest("POST", "http://localhost:3131/post/like", bodyCurtir);
-    console.log(req);
-    const dadoCurtir = req.data;
-    console.log(dadoCurtir);
 
     if (req.status === 200) {
 
-        alert("Curtiu");
+        limparElementos(document.querySelector(".feed"));
+        CarregarFeed();
 
     } else if (req.status === 400) {
         
-        alert("Postagem já curtida");
+        let req = await ApiRequest("DELETE", `http://localhost:3131/post/like/${idPostagem}/${idUser}`);
+
+        if (req.status === 200) {
+            limparElementos(document.querySelector(".feed"));
+            CarregarFeed();
+        }
 
     } else {
 
@@ -1149,23 +1141,39 @@ const CurtirPost = async (idPostagem, idUser) => {
 const statusImagem = (infoCurtidas) => {
 
     if (infoCurtidas.length > 0) {
-        console.log(infoCurtidas);
-        const likeTeste = infoCurtidas.filter(({ tbl_usuario }) => tbl_usuario.idUsuario === userLogado.idUsuario);
-        console.log(`filter de curtida: `, likeTeste);
-        let src;
-        if (likeTeste.length > 0) {
-            src = "assets/img/curtida-com-preenchimento.png";
+
+        if (!userLogado) {
+
+            console.log("Não logado como usuário");
+
         } else {
-            src = "assets/img/curtir-sem-preencimento.png";
+
+            const likeTeste = infoCurtidas.filter(({ tbl_usuario }) => tbl_usuario.idUsuario === userLogado.idUsuario);
+            let src;
+            if (likeTeste.length > 0) {
+                src = "assets/img/curtida-com-preenchimento.png";
+            } else {
+                src = "assets/img/curtir-sem-preencimento.png";
+            }
+            
+            return src
         }
-        
-        return src
     
     } else {
         
         return "assets/img/curtir-sem-preencimento.png";
     
     }
+}
+
+const qtdaCurtidas = (qtdaCurtidas) => {
+
+    if (qtdaCurtidas.length > 0) {
+        return qtdaCurtidas.length;
+    } else {
+        return 0;
+    }
+
 }
 
 const showLoaderFeed = () => {
@@ -1301,6 +1309,46 @@ const CriarModalEventos = (dadosEvento) => {
 
 }
 
+const CandidatarEvento = async ({target}) => {
+
+    if (target.id === "candidatarEvento") {
+
+        const idEvento = target.dataset.idevento;
+        const idUsuario = userLogado.idUsuario;
+        CandidatarEventoUsuario(idEvento, idUsuario);
+        
+    }
+
+}
+
+const CandidatarEventoUsuario = async (idEvento, idUsuario) => {
+
+    const bodyEvent = {
+
+        idEvento: idEvento,
+        idUsuario: idUsuario
+
+    }
+
+    let req = await ApiRequest(
+        "POST", 
+        `http://localhost:3131/event-controller`, 
+        bodyEvent
+    );
+
+    if (req.status === 200) { 
+        
+        MessageValidator("assets/img/success-icon.svg", "Você se candidatou ao evento com sucesso!");
+
+    } else { 
+
+        MessageValidator("assets/img/error-icon.svg", "Você já se candidatou ao evento!");
+
+    }
+
+
+}
+
 const CarregarModalInfoVagas = ({target}) => {
 
     if (target.id === "saiba-mais-vaga") {
@@ -1366,6 +1414,46 @@ const CriarModalVagas = (dadosVaga) => {
 
 }
 
+const CandidatarVaga = async ({target}) => {
+
+    if (target.id === "interesse-vaga") {
+
+        const idEvento = target.dataset.idvaga;
+        const idUsuario = userLogado.idUsuario;
+        CandidatarVagaUsuario(idEvento, idUsuario);
+        
+    }
+
+}
+
+const CandidatarVagaUsuario = async (idVaga, idUsuario) => {
+
+    const bodyVacancy = {
+
+        idVagas: idVaga,
+        idUsuario: idUsuario
+
+    }
+
+    let req = await ApiRequest(
+        "POST", 
+        `http://localhost:3131/vacancy-controller`, 
+        bodyVacancy
+    );
+
+    if (req.status === 200) { 
+        
+        MessageValidator("assets/img/success-icon.svg", "Você se candidatou a vaga com sucesso!");
+
+    } else { 
+
+        MessageValidator("assets/img/error-icon.svg", "Você já se candidatou a está vaga!");
+
+    }
+
+
+}
+
 const CarregarEventoSelecionado = ({target}) => {
 
     if (target.id === "eventoSelecionado") {
@@ -1399,13 +1487,14 @@ const CriarEventoSelecionado = (dadosEvento) => {
     let buttonCandidato;
     if (dadosEvento.candidatos === true) {
 
-        buttonCandidato = `<button type="button" id="candidatarEvento">Candidata-se</button>`;
+        buttonCandidato = `<button type="button" id="candidatarEvento" data-idEvento="${dadosEvento.idEventos}">Candidata-se</button>`;
         
     } else if (dadosEvento.candidatos === false) {
 
         buttonCandidato = ``;
 
     }
+
     if (dadosEvento.tbl_evento_media.length === 0) {
         
         corpo.innerHTML = 
@@ -1627,7 +1716,7 @@ const CriarVagaSelecionada = (dadosVaga) => {
 
         <div class="vaga-botoes">
             <button type="button" id="saiba-mais-vaga" data-idvaga="${dadosVaga.idVagas}" data-idong="${dadosVaga.idOng}">Saiba Mais</button>
-            <button type="button" id="interesse-vaga">Interesse</button>
+            <button type="button" id="interesse-vaga" data-idvaga="${dadosVaga.idVagas}">Interesse</button>
         </div>
     </div>
     `;
@@ -1642,10 +1731,24 @@ document.querySelector("main").addEventListener("click", closeSetaHeader);
 document.getElementById("pesquisar").addEventListener("keypress", PesquisarONGs);
 
 CheckWindow();
-document.querySelector("#trocar-select-post")
-.addEventListener("change", TrocarTipoPostagem);
+document.querySelector("#trocar-select-post").addEventListener("change", TrocarTipoPostagem);
 document.querySelector("#trocar-select-evento").addEventListener("change",TrocarTipoPostagem);
 document.querySelector("#trocar-select-vaga").addEventListener("change",TrocarTipoPostagem);
+
+// Scroll Infinito
+window.addEventListener("scroll", () => {
+    
+    const { clientHeight, scrollHeight, scrollTop } = document.documentElement
+    const isPageBottomAlmostReached = scrollTop + clientHeight >= scrollHeight;
+
+    if (isPageBottomAlmostReached) {
+        
+        showLoaderFeed();
+
+    }
+
+});
+
 document.getElementById("postagens").addEventListener("click", openModalPostagens);
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);
@@ -1669,6 +1772,9 @@ document.querySelector(".feed").addEventListener("click", CarregarModalInfoEvent
 document.querySelector(".feed").addEventListener("click", CarregarModalInfoVagas);
 document.getElementById("info-evento").addEventListener("click", closeModalInfoEvento);
 document.getElementById("info-vaga").addEventListener("click", closeModalInfoVaga);
+document.querySelector(".feed").addEventListener("click", CandidatarEvento);
+document.querySelector(".feed").addEventListener("click", CandidatarVaga);
+document.getElementById("fechar").addEventListener("click", MessageValidatorClose);
 document.getElementById("previa-eventos").addEventListener("click", CarregarEventoSelecionado);
 document.getElementById("vagas-indicadas").addEventListener("click", CarregarVagasSelecionado);
 document.querySelector(".feed").addEventListener("keypress", Comentar);

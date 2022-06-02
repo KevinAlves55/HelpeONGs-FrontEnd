@@ -433,10 +433,10 @@ async function atualizarImagensPerfil() {
 
     console.log(imagensOng.foto);
 
+    showLoading();
     let reqUpdateMedia = await ApiRequest("PUT", `http://localhost:3131/ong/media/${dados.idOng}`, imagensOng);
     console.log(reqUpdateMedia);
 
-    showLoading();
     if (reqUpdateMedia.status === 200) {
         alert("Imagens atualizadas com sucesso!");
         window.location.reload();
