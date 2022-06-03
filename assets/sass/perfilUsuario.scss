@@ -3,10 +3,10 @@
 @import '_resert';
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
     @include displayFlex(row, space-between);
-    padding: 30px;
+    padding: 39px 90px 39px 90px;
     background-color: $background;
 }
 
@@ -74,12 +74,11 @@ body {
 }
 
 // CENTRO
-#centro{    
+#centro{
     min-height: 500px;
     @include tamanhos(auto, 850px);
     @include displayFlex(column, space-between);
    
-
     #banner{
         @include tamanhos(323px, inherit);
 
@@ -89,6 +88,7 @@ body {
             background-size: cover;
         }
     }
+
     #perfil{
         @include displayFlex(row);
         position: relative;
@@ -117,72 +117,73 @@ body {
         #conteudo-perfil-centro{
             @include tamanhos(auto, inherit);
             padding-left: 200px;
-           
-            
-            
+  
 
             #containerNameandButton{
                 @include displayFlex(row, space-between);
-                @include tamanhos(auto, 501px);
+                @include tamanhos(100px, 590px);
         
                 h1{
                     // @include tamanhos(33px, 200px);
                     @include textoEstilo(grau7, bold, $text, capitalize);
                     padding-top: 20px;
                     padding-left: 20px;
-                    
-                    
+                    width: 340px;
+        
                 } 
-        #botao{
-            padding-top: 20px;
-            @include tamanhos(auto, 90px);
-           
-            
-                button{
-                        @include tamanhos(50px, 200px);
-                        @include textoEstilo(grau9, semiBold, $text, capitalize);
-                        border: 1px;
-                        border-radius: 10px;
-                        background: $deepSaffron;
+                #botao{
+                    @include tamanhos(inherit, 210px);       
+                    @include displayFlex(row, $align: center);
+
+                    button {
+                        @include tamanhos(50px, 210px);
+                        @include displayFlex(row, $align: center, $gap: 12px);
+                        font-size: 1.250rem;
+                        font-weight: map-get($densidade, semiBold);
+                        color: $text;
+                        text-transform: capitalize;
+                        padding: 0 15px 0 17px;
+                        background-color: $deepSaffron;
+                        border-radius: 6px;
                         cursor: pointer;
+                        transition: .5s;
 
-                        
+                        &:hover {
+                            transition: .5s;
+                            opacity: 0.8;
+                        }
                     }
+                }
+            
+
+            }
+
         }
-
-          
-
-        }
-
-    }
     
     }
-    
     
     #menu-opcoes-perfil {
         @include tamanhos(33px, inherit);
         @include displayFlex(row, space-between, flex-start);
-        margin-top: 49px;
-        margin-bottom: 30px;
-      
+        margin-top: 40px;
+        margin-bottom: 40px;
 
         #menu-opcoes-principal{
-            @include tamanhos(inherit, auto);
-            @include displayFlex(row, space-between);
+            @include tamanhos(inherit, inherit);
+            @include displayFlex(row, space-between, center);
+
             li + li {
                 margin-left: 4.0em;
             }
 
             li {
-                @include tamanhos(auto, auto);
+                @include tamanhos(inherit, auto);
                 @include displayFlex(column, space-between, flex-start);
              
-
                 span {
                     font-size: 1.250rem;
                     color: $placeholder;
                     cursor: pointer;
-                    // font-weight: 450;
 
                     &:hover {
                         border-bottom: 4px solid $tartOrange;
@@ -196,20 +197,8 @@ body {
     #container-conteudo{
         @include tamanhos(auto, 850px);
 
-        // .item {
-        //     display: flex;
-        // }
-
-        // .aparecer {
-        //     display: flex;
-        // }
-
-        // .desaparecer {
-        //     display: none;
-        // }
-
         #container-conteudo-sobre{
-            @include displayFlex(column);
+            @include displayFlex(column, $gap: 70px);
             @include tamanhos(344px, inherit);
             padding: 20px;
             background: #FFFFFF;
@@ -218,10 +207,10 @@ body {
             border-radius: 10px;
 
             #sobre-usuario{
-                h3 + h3{
-                    margin-top: 1.0em;
-                }
-                padding-top: 15px;
+                @include tamanhos(auto, 790px);
+                @include displayFlex(column, space-between, $gap: 25px);
+                padding-top: 10px;
+
                 h3{
                     @include textoEstilo(grau9, Montserrat, $text);
                     font-weight: 450;
@@ -232,12 +221,11 @@ body {
                         padding-left: 6px;
                     }
                 }
-             
             }
+
             #anexo{
+                @include tamanhos(auto, 790px);
                 @include displayFlex(row, space-between);
-                padding-top: 60px;
-                padding-left:5px;
 
                 h2{
                     @include textoEstilo(grau9, semiBold, $deepSaffron);
@@ -259,36 +247,39 @@ body {
         }
 
         #container-conteudo-detalhes-de-conta{
-            @include tamanhos(550px, inherit);
+            @include tamanhos(440px, inherit);
             @include displayFlex(column);
             display: none;
 
             #nome{
-                @include tamanhos(98px, 766px);
-                // margin-top:30px;
-               
-
+                @include tamanhos(98px, inherit);
+            
                 p{
                     @include textoEstilo(grau9, regular, $text);
                 }
+
                 input{
-                    @include tamanhos(65px, 850px);
+                    @include tamanhos(65px, 845px);
                     border: 2px solid $border;
                     border-radius: 6px;
-                    font-size:23px;
+                    font-size: 23px;
                     padding: 15px;
+                    margin-left: 5px;
+                    color: $text;
                 }
             }
+
             #email-data{
                 @include tamanhos(102px, 850px);
                 @include displayFlex(row, space-between);
 
-                margin-top: 20px;
+                margin-top: 30px;
 
                 p{
                     @include textoEstilo(grau9, regular, $text);
                     
                 }
+
                 #email{
                     @include tamanhos(102px, 355px);
 
@@ -298,8 +289,10 @@ body {
                         border-radius: 6px;
                         font-size:23px;
                         padding: 15px;
+                        margin-left: 5px;
                     }
                 }
+                
                 #data{
                     @include tamanhos(102px, 241px);
 
@@ -309,6 +302,7 @@ body {
                         padding: 10px;
                         border: 2px solid $border;
                         border-radius: 6px;
+                        margin-left: 19px;
                     }
                     
                 }
@@ -319,23 +313,22 @@ body {
             #anexar-caminho{
                 @include tamanhos(65px, 850px);
                 @include displayFlex(row, space-between);
-                margin-top: 20px;
+                margin-top: 30px;
             
-        
+                input[type="file"] {
+                    display: none;
+                }
 
-                    input[type="file"] {
-                        display: none;
-                    }
-                    label {
-                        @include textoEstilo(grau9, semiBold, $text);
-                        padding: 22px 10px;
-                        width: 230px;
-                        background-color: $deepSaffron;
-                        text-align: center;
-                        display: block;
-                        cursor: pointer;
-                        border-radius: 6px;
-                    }
+                label {
+                    @include textoEstilo(grau9, semiBold, $text);
+                    padding: 22px 10px;
+                    width: 230px;
+                    background-color: $deepSaffron;
+                    text-align: center;
+                    display: block;
+                    cursor: pointer;
+                    border-radius: 6px;
+                }
 
                
                 #caminho{
@@ -351,31 +344,38 @@ body {
                     }
                 }
          
-                }
-                #proximo{
-                    display:flex;
-                    justify-content:flex-end;
-                    padding-top:40px;
-                    gap: 10px;
-                    
-                    #buttonCadastrar{
-                        background-color: $tartOrange;
-                    }
-                    button{
-                        @include tamanhos(75px, 250px);
-                        border: 2px ;
-                        border-radius: 6px;
-                        background-color: $deepSaffron;
-                        font-size: 30px;
-                        align-self: flex-end;
-                        cursor: pointer;
-                    }
             }
-            
+
+            #proximo {
+                display:flex;
+                justify-content:flex-end;
+                padding-top:40px;
+                gap: 10px;
+                
+                #buttonCadastrar{
+                    background-color: $tartOrange;
+                }
+
+                #formButton {
+                    @include tamanhos(75px, 250px);
+                    border: 1px ;
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    font-size:30px;
+                    font-weight: map-get($densidade, medium);
+                    cursor: pointer;
+
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
+                    }
+                }
+        
+            }
         }
-      
+
         #container-conteudo-detalhes-do-endereco{
-            @include tamanhos(485px, inherit);
+            @include tamanhos(418px, inherit);
             display: none;
             
             #primeira-fileira{
@@ -391,7 +391,8 @@ body {
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        padding: 5px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                     }
                 }
 
@@ -404,7 +405,8 @@ body {
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        padding: 5px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                     }
                 }
 
@@ -417,7 +419,8 @@ body {
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        padding: 5px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                     }
                 }
             }
@@ -431,12 +434,14 @@ body {
                     h3{
                         @include textoEstilo(grau9, regular, $text);
                     }
+
                     input{
                         @include tamanhos(65px, 288px);
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        padding: 5px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                     }
                 }
                 #rua{
@@ -448,7 +453,8 @@ body {
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        padding: 5px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                     }
                 }
                 #numero{
@@ -460,10 +466,12 @@ body {
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        padding: 5px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                     }
                 }
             }
+
             #terceira-fileira{
                 @include tamanhos(104px, 850px);
                 @include displayFlex(row, space-between);
@@ -477,22 +485,32 @@ body {
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        padding: 5px;
+                        padding-left: 12px;
+                        padding-right: 12px;
                     }
                 }
             }
+
             #quarta-fileira{
                 @include displayFlex(row, );
                 display: flex;
-                gap: 10px;
+                gap: 20px;
                 justify-content: flex-end;
                 padding-top: 30px;
+                
                 button{
                     @include tamanhos(75px, 250px);
                     border: 1px ;
                     border-radius: 6px;
                     background-color: $deepSaffron;
                     font-size:30px;
+                    font-weight: map-get($densidade, medium);
+                    cursor: pointer;
+
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
+                    }
                 }
 
                 #atualizarEnderecos{
@@ -505,18 +523,18 @@ body {
 
             }
         }
-        #senha{
-            @include displayFlex(column,);
-            display: none;
-            @include tamanhos(485px, inherit);
 
+        #senha{
+            @include displayFlex(column);
+            display: none;
+            @include tamanhos(315px, inherit);
 
             h1{
                 @include textoEstilo(grau7, semiBold, $text);
             }
+
             #editar-senha{
                 @include displayFlex(column);
-                padding-top: 20px;
                 // padding: 15px;
 
                 #senha-atual{
@@ -526,16 +544,15 @@ body {
                         padding-bottom: 10px;
                     }
                     input{
-                        @include textoEstilo(grau9, medium, $placeholder);
+                        @include textoEstilo(grau9, medium, $text);
                         @include tamanhos(65px, 850px);
                         padding: 10px;
                         border: 2px solid $border;
                         border-radius:6px;
                         font-size:23px;
-                        
-                        
                     }
                 }
+
                 #nova-confirmar{
                     @include displayFlex(row, space-between);
                     @include tamanhos(auto, 850px);
@@ -549,7 +566,7 @@ body {
 
                         }
                         input{
-                            @include textoEstilo(grau9, medium, $placeholder);
+                            @include textoEstilo(grau9, medium, $text);
                             @include tamanhos(65px, 350px);
                             padding: 10px;
                             border: 2px solid $border;
@@ -565,7 +582,7 @@ body {
                             padding-bottom: 10px;
                         }
                         input{
-                            @include textoEstilo(grau9, medium, $placeholder);
+                            @include textoEstilo(grau9, medium, $text);
                             @include tamanhos(65px, 350px);
                             padding: 10px;
                             border: 2px solid $border;
@@ -576,6 +593,7 @@ body {
                 }
                
             }
+
             #botao{
                 width: 850px;
                 @include displayFlex(row, space-between);
@@ -588,39 +606,33 @@ body {
                 #butao-editar{
 
                     button{
-                    @include tamanhos(60px, 232px);
-                    cursor: pointer;
-                    font-size: 30px; 
-                    color: $text;
-                    background-color: $deepSaffron;
-                    border-radius:6px; 
-                    }
-                }
-                #botao-cancelar{
-                    padding-left: 20px;
-                    
-                    button{
-                        @include tamanhos(60px, 232px);
-                        cursor: pointer;
-                        font-size: 30px; 
-                        color: $text;
+                        @include tamanhos(75px, 250px);
+                        border: 1px ;
+                        border-radius: 6px;
                         background-color: $deepSaffron;
-                        border-radius:6px; 
+                        font-size:30px;
+                        font-weight: map-get($densidade, medium);
+                        cursor: pointer;
+    
+                        &:hover {
+                            transition: .5s;
+                            opacity: 0.8;
                         }
+                    }
                 }
             }
         }
+
         #conta{
             @include displayFlex(column);
-            // padding:15px;
             display: none;
             
-
             h2{
-                @include textoEstilo(grau7, semiBold, $text);
+                @include textoEstilo(grau8, medium, $text);
                 width: 850px;
-              
+                line-height: 1.5;
             }
+
             #Botao{
                 width: 850px;
                 display: flex;
@@ -628,13 +640,19 @@ body {
                 padding:25px;
 
                 button{
-                    @include tamanhos(60px, 232px);
-                    cursor: pointer;
-                    font-size: 30px; 
-                    color: $text;
+                    @include tamanhos(75px, 250px);
+                    border: 1px ;
+                    border-radius: 6px;
                     background-color: $deepSaffron;
-                    border-radius:6px; 
+                    font-size:30px;
+                    font-weight: map-get($densidade, medium);
+                    cursor: pointer;
+
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
                     }
+                }
             }
         }
 
@@ -642,98 +660,103 @@ body {
             @include displayFlex(column,);
             display: none;
             @include tamanhos(285px, 850px);
-           
-
 
             h1{
                 @include textoEstilo(grau7, semiBold, $text);
             }
+
             #contatos-tel-cel{
                 @include displayFlex(row,space-between);
                 padding-top: 20px;
-                // padding: 15px;
-
                
                 #telefone{
-                 @include displayFlex(column,);
+                    @include displayFlex(column,);
                     @include tamanhos(auto, 355px);
-                    
-                    // padding-left: 50px;
-                
-                    
-
                         
-                        h3{
-                            @include textoEstilo(grau9, regular, $text);
-                            padding-bottom: 10px;
+                    h3{
+                        @include textoEstilo(grau9, regular, $text);
+                        padding-bottom: 10px;
 
-                        }
-                        input{
-                            @include textoEstilo(grau9, medium, $placeholder);
-                            @include tamanhos(65px, 350px);
-                            padding: 10px;
-                            border: 2px solid $border;
-                            border-radius:6px;
-                            font-size:23px;
-                            
-                        }
                     }
+                    input{
+                        @include textoEstilo(grau9, medium, $text);
+                        @include tamanhos(65px, 350px);
+                        padding: 10px;
+                        border: 2px solid $border;
+                        border-radius:6px;
+                        font-size:23px;
+                        
+                    }
+                
+                }
                     
-                    #celular{
-                        // padding-left: 20px;
-                        @include tamanhos(auto, 355px);
-                        padding-left: 143px;
-                      
-                       
-                        h3{
-                            @include textoEstilo(grau9, regular, $text);
-                            padding-bottom: 10px;
-                        }
-                        input{
-                            @include textoEstilo(grau9, medium, $placeholder);
-                            @include tamanhos(65px, 350px);
-                            padding: 10px;
-                            border: 2px solid $border;
-                            border-radius:6px;
-                            
-                        }
+                #celular{
+                    // padding-left: 20px;
+                    @include tamanhos(auto, 355px);
+                    padding-left: 143px;
                     
+                    
+                    h3 {
+                        @include textoEstilo(grau9, regular, $text);
+                        padding-bottom: 10px;
+                    }
+
+                    input {
+                        @include textoEstilo(grau9, medium, $text);
+                        @include tamanhos(65px, 350px);
+                        padding: 10px;
+                        border: 2px solid $border;
+                        border-radius:6px;
+                        
+                    }
+                
                 }
                
             }
+
             #botao{
                 width: 850px;
-                @include displayFlex(row, space-between);
+                @include displayFlex(row, space-between, $gap: 25px);
                 align-items: flex-end;
                 justify-content: flex-end;
-                padding-top: 40px;
-
-          
-                
+                margin-top: 45px;
 
                 #butao-editar-contatos{
 
                     button{
-                    @include tamanhos(60px, 232px);
-                    cursor: pointer;
-                    font-size: 30px; 
-                    color: $text;
-                    background-color: $deepSaffron;
-                    border-radius:6px; 
+                        @include tamanhos(75px, 250px);
+                        border: 1px ;
+                        border-radius: 6px;
+                        background-color: $deepSaffron;
+                        font-size:30px;
+                        font-weight: map-get($densidade, medium);
+                        cursor: pointer;
+    
+                        &:hover {
+                            transition: .5s;
+                            opacity: 0.8;
+                        }
                     }
                 }
+
                 #botao-Finalizar{
                     padding-left: 20px;
                     
                     
                     button{
-                        @include tamanhos(60px, 232px);
+                        @include tamanhos(75px, 250px);
+                        border: 1px ;
+                        border-radius: 6px;
+                        background-color: $deepSaffron;
+                        font-size:30px;
+                        font-weight: map-get($densidade, medium);
                         cursor: pointer;
-                        font-size: 30px; 
-                        color: $text;
-                        background-color: $tartOrange;
-                        border-radius:6px; 
+    
+                        &:hover {
+                            transition: .5s;
+                            opacity: 0.8;
                         }
+                    }
                 }
             }
 
@@ -741,8 +764,7 @@ body {
     }
   
 
-}
-    
+}  
 
 #direita{
     min-height: 500px;
@@ -768,10 +790,7 @@ body {
             border-radius: 25px;
         }
     }
-
-    
-    
-    
+  
     #container-direita {
         min-height: 430px;
         @include tamanhos(auto, inherit);
@@ -827,7 +846,7 @@ body {
             }
         }
 
-}
+    }
 }  
 // MODAL EDITAR BANNER E PERFIL
 .modalEditar{

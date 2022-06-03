@@ -10,15 +10,13 @@ let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
 
 
 let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
+let dados = req.data;
 
-const dados = req.data;
-
-let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${userLogado.idUsuario}`);
+let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${userLogado.idLogin}`);
 let enderecos = reqEndereco.data;
 
-
 let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userLogado.idLogin}`);
-const contato = reqContatos.data;
+let contato = reqContatos.data;
 
 // Objeto de captura das INPUTS
 const previewPerfil = document.querySelector(".previewPerfil");
@@ -57,7 +55,7 @@ function CarregarPerfil(objectLocal) {
     // mini foto perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoLogado.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
+    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
         fotoLogado.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         fotoLogado.setAttribute("src", `${objectLocal.foto}`);
@@ -73,7 +71,7 @@ function CarregarPerfil(objectLocal) {
     // foto perfil
     if (objectLocal.foto === null || objectLocal.foto === undefined) {
         fotoPerfil.setAttribute("src", "../../assets/img/sem-foto.png");
-    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg")) {
+    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
         fotoPerfil.setAttribute("src", `../../assets/img/sem-foto.png`)
     } else {
         fotoPerfil.setAttribute("src", `${objectLocal.foto}`);
@@ -82,7 +80,7 @@ function CarregarPerfil(objectLocal) {
     // banner perfil
     if (objectLocal.banner === null || objectLocal.banner === undefined) {
         bannerPerfil.setAttribute("src", "../../assets/img/banner-vazio.png");
-    } else if (!objectLocal.banner.includes(".jpg") && !objectLocal.banner.includes(".jpeg") && !objectLocal.banner.includes(".png") && !objectLocal.banner.includes(".svg") && !objectLocal.banner.includes(".git")) {
+    } else if (!objectLocal.foto.includes(".jpg") && !objectLocal.foto.includes(".jpeg") && !objectLocal.foto.includes(".png") && !objectLocal.foto.includes(".svg") && !objectLocal.foto.includes(".git") && !objectLocal.foto.includes(".webp")) {
         bannerPerfil.setAttribute("src", `../../assets/img/banner-vazio.png`)
     } else {
         bannerPerfil.setAttribute("src", `${objectLocal.banner}`);
@@ -101,80 +99,143 @@ function customFormatter(date) {
     return date.replace("/", "-");
 }
 
+function documentFilter(document){
+    const firstDot = document.indexOf(",");
+    return document.substring(firstDot + 1, document.length);
+}
+
+let curriculum = [];
+async function handleFileSelectCurriculo(evento) {
+
+    // Objeto FileList guarda todos os arquivos.
+    var files = evento.target.files;
+
+    if (files.length === 1) {
+        // PERCORRE O OBJETO E CRIA UM ARRAY DE OBJETOS DENTRO DELE
+        for (var i = 0, f; f = files[i]; i++) {
+            
+            const reader = new FileReader();
+            let infoArquivo = f;
+            
+            reader.addEventListener(
+                "load",
+                () => {
+                    const dadosReader = reader.result;
+                    let base64 = documentFilter(dadosReader);
+
+                    curriculum.push(
+                        {
+                            "fileName": infoArquivo.name,
+                            "base64": base64,
+                            "type": infoArquivo.type
+                        }
+                    );
+                },
+                false
+            );
+
+            let nomeArquivo = document.getElementById("caminhoImagem");
+            nomeArquivo.innerHTML = `${infoArquivo.name}`;
+
+            if (f) {
+                reader.readAsDataURL(f);
+            }
+        }
+
+    } else {
+        alert("Máximo de arquivos permitidos é 1");
+    }
+
+}
+
 async function dadosDetalhesConta() {
 
     let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));  
 
-    const dataFormatada = customFormatter(data.value);
+    const curriculo = curriculum[0];
 
-    const userData = validarSession("dadosUsuario");
-    console.log(`ESSES DADOS SÃO DA SESSÃO`, userData);
+    const dadoCurriculo = {
 
-    const dadosUpdatePerfil = {
-        nome: nome.value,
-        banner: "",
-        curriculo: "",
-        foto: "",
-        dataDeNascimento: dataFormatada,
-        email: email.value,
-        senha: dadosSenhaEmail.emailSenha
-    }
+        "curriculum": {
+            type: curriculo.type,
+            base64: curriculo.base64,
+            fileName: curriculo.fileName
+        }
     
-    localStorage.setItem("atualizarPerfilConta", JSON.stringify(dadosUpdatePerfil));
-    let dadosUserUpdate = JSON.parse(localStorage.getItem('atualizarPerfilConta'));
+    }
+    console.log(dadoCurriculo);
 
-    const body = {
+    const bodyUser = {
         "usuario": {
-           nome: dadosUserUpdate.nome,
-           banner: dadosUserUpdate.banner,
-           curriculo: dadosUserUpdate.curriculo,
-           foto: dadosUserUpdate.foto,
-           dataDeNascimento: new Date(dadosUserUpdate.dataDeNascimento)
+           nome: nome.value,
+           dataDeNascimento: new Date(data.value) ?? new Date(dados.dataDeNascimento),
         },
         "login": {
-            email: dadosUserUpdate.email,
-            senha: dadosUserUpdate.senha
+            email: email.value ?? dadosSenhaEmail.email
         }
     }
+
+    let reqCurriculum = await ApiRequest(
+        "PUT", 
+        `https://localhost:3131/user/upload/curriculum/${dados.idUsuario}`, 
+        dadoCurriculo
+    );
+    console.log(reqCurriculum);
   
     let reqUser = await ApiRequest(
         "PUT", 
-        `http://localhost:3131/user/${userData.idUsuario}`, 
-        body
+        `http://localhost:3131/user/${dados.idUsuario}`, 
+        bodyUser
     );
 
-    console.log(`REQ`, reqUser);
-    alert("DADOS ATUALIZADO COM SUCESSO")
+    if (reqUser.status === 200) {
+
+        alert("Dados atualizados com sucesso!");
+        window.location.reload();
+        window.scroll(0, 0);
+
+    } else { 
+
+        alert("Erro ao atualizar dados!");
+
+    }
      
 }
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
 
 async function contatosUsuario(){
-        const userDataContato = validarSession("dadosUsuario");
-        console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
 
-        const contatoUsuario = {
-            celular : celular.value,
-            telefone : telefone.value,
-        }
+    const userDataContato = validarSession("dadosUsuario");
+    console.log(`ESSES DADOS SÃO DA SESSÃO`, userDataContato);
 
-        localStorage.setItem("enviarContato", JSON.stringify(contatoUsuario));
-        let contatosUserUpdate = JSON.parse(localStorage.getItem('enviarContato'));
-
-        const contatos = {
-            idLogin: userDataContato.idLogin,
-            numero: contatosUserUpdate.celular,
-            telefone: contatosUserUpdate.telefone
-        }
-        
-        console.log(contatos);
-        let reqUser = await ApiRequest(
-            "POST",`http://localhost:3131/contact`,contatos
-        );
-    
-        console.log(`REQ`, reqUser);
-        alert("CONTATO CADASTRADO COM SUCESSO")
+    const contatoUsuario = {
+        celular : celular.value,
+        telefone : telefone.value,
     }
+
+    localStorage.setItem("enviarContato", JSON.stringify(contatoUsuario));
+    let contatosUserUpdate = JSON.parse(localStorage.getItem('enviarContato'));
+
+    const contatos = {
+        idLogin: userDataContato.idLogin,
+        numero: contatosUserUpdate.celular,
+        telefone: contatosUserUpdate.telefone
+    }
+    
+    console.log(contatos);
+    let reqUser = await ApiRequest(
+        "POST",`http://localhost:3131/contact`,contatos
+    );
+
+    if (reqUser.status === 200) {
+        alert("Dados atualizados com sucesso");
+        window.location.reload();
+        window.scroll(0, 0);        
+    } else {
+        alert("Dados não atualizados");
+    }
+
+}
 document.getElementById("cadastrarContatos").addEventListener("click", contatosUsuario);
 
 async function AtualizarcontatosUsuario(){
@@ -209,90 +270,71 @@ document.getElementById("editarContatos").addEventListener("click", Atualizarcon
 
 async function dadosDetalhesEndereco() {
 
-    const dadosDetalhesEndereco = {
-        cepData: cep.value,
-        estadoData: estado.value,
-        cidadeData: cidade.value,
-        bairroData: bairro.value,
-        ruaData: endereco.value,
-        numeroData: numero.value,
-        complementoData: complemento.value
-    }
-    localStorage.setItem("detalhesEndereco", JSON.stringify(dadosDetalhesEndereco)); 
-
-    const userEndereco = validarSession("dadosUsuario");
-
-    const localStorageEndereco = {
-        ...JSON.parse(localStorage.getItem("detalhesEndereco")),
-        user: userEndereco
-    }
-    console.log(localStorageEndereco);
-
     const bodyEndereco = {
-        idLogin: localStorageEndereco.user.idLogin,
-        cep: localStorageEndereco.cepData,
-        bairro: localStorageEndereco.bairroData,
-        numero: localStorageEndereco.numeroData,
-        rua: localStorageEndereco.ruaData,
-        municipio: localStorageEndereco.cidadeData, 
-        estado: localStorageEndereco.estadoData,
-        complemento: localStorageEndereco.complementoData
+        idLogin: dados.idLogin,
+        cep: cep.value,
+        bairro: bairro.value,
+        numero: Number(numero.value),
+        rua: endereco.value,
+        municipio: cidade.value, 
+        estado: estado.value,
+        complemento: complemento.value
     }
 
-    
+    const reqEndereco = await ApiRequest("POST", `http://localhost:3131/adress`, bodyEndereco);
 
-    console.log("corp", bodyEndereco);
+    if (reqEndereco.status === 200) {
+        alert("Dados atualizados com sucesso");
+        window.location.reload();
+        window.scroll(0, 0);
+    } else { 
+        alert("Erro ao atualizar dados!");
+    }
 
-    const reqEndereco = await ApiRequest("POST", `http://localhost:3131/adress/`, bodyEndereco);
-
-    
-
-    console.log(reqEndereco, );
-
-    
 }
 document.getElementById("buttonEnderecos").addEventListener("click", dadosDetalhesEndereco);
 
-async function atualizarEndereco(){
-       
-        const dadosEnderecoAtualizado = {
-            cepData: cep.value,
-            estadoData: estado.value,
-            cidadeData: cidade.value,
-            bairroData: bairro.value,
-            ruaData: endereco.value,
-            numeroData: numero.value,
-            complementoData: complemento.value
-        }
-        localStorage.setItem("detalhesEnderecoAtualizado", JSON.stringify(dadosEnderecoAtualizado));
+let btnEndereco = document.getElementById("buttonEnderecos");
+if (enderecos) {
+    btnEndereco.style.display = "none";
+}
 
-        const usuarioEnderecoAtualizado = validarSession("dadosUsuario");
+async function atualizarEndereco() {
 
-        const localStorageEnderecoAtualizado = {
-            ...JSON.parse(localStorage.getItem("detalhesEnderecoAtualizado")),
-            user: usuarioEnderecoAtualizado
-        }
-        console.log(localStorageEnderecoAtualizado);
+    const url = cep.value
+    // const enderecos = await getEstados(url);
 
-        const bodyEnderecoAtualizado = {
-            idLogin: localStorageEnderecoAtualizado.user.idLogin,
-            cep: localStorageEnderecoAtualizado.cepData,
-            bairro: localStorageEnderecoAtualizado.bairroData,
-            numero: Number(localStorageEnderecoAtualizado.numeroData),
-            rua: localStorageEnderecoAtualizado.ruaData,
-            municipio: localStorageEnderecoAtualizado.cidadeData, 
-            estado: localStorageEnderecoAtualizado.estadoData,
-            complemento: localStorageEnderecoAtualizado.complementoData,
-           
-          
-        } 
-        const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${userLogado.idUsuario}`, bodyEnderecoAtualizado);
-        
-        console.log(reqEnderecoAtualizado);
-        alert("ENDEREÇO ATUALIZADO COM SUCESSO")
-        
+    const bodyEnderecoAtualizado = {
+        cep: cep.value,
+        bairro: bairro.value,
+        numero: Number(numero.value),
+        rua: endereco.value,
+        municipio: cidade.value, 
+        estado: estado.value,
+        complemento: complemento.value,
+    } 
+
+    const reqEnderecoAtualizado = await ApiRequest("PUT", `http://localhost:3131/adress/${dados.idLogin}`, bodyEnderecoAtualizado);
+    
+    if (reqEnderecoAtualizado.status === 200) {
+        alert("Dados atualizados com sucesso");
+        window.location.reload();
+        window.scroll(0, 0);
+    } else {  
+        alert("Erro ao atualizar dados!");
     }
+        
+}
 document.getElementById("atualizarEnderecos").addEventListener("click",atualizarEndereco);
+
+// const getEstados = async (cep) => {
+
+//     const url = `https://viacep.com.br/ws/${cep}/json/`;
+//     const dados = await fetch(url);
+//     const endereco = await dados.json();
+//     return endereco;
+
+// }
 
 async function carregarDadosUsuario(dados, enderecos, contato){
 
@@ -309,15 +351,9 @@ async function carregarDadosUsuario(dados, enderecos, contato){
 }
 carregarDadosUsuario(dados, enderecos, contato);
 
-// CARREGAR SEGUIDORES
-async function carregarComentarios (){
-    
-   
-
-}
-
 // ALTERAR SENHA
 async function editarSenha(){
+    
     const emailSenha = {
       senha : senha.value
     }
@@ -453,6 +489,7 @@ document.getElementById("fileBanner").addEventListener("change", handleFileSelec
 document.getElementById("filePerfil").addEventListener("change", imagemPreviewPerfil);
 document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
 document.getElementById("botaoModalEditar").addEventListener("click", atualizarImagensPerfil);
+document.getElementById("arquivoCurriculo").addEventListener("change", handleFileSelectCurriculo);
 document.getElementById("sair").addEventListener("click", () => {
     localStorage.clear();
     Redirect("loginUsuario");
@@ -461,21 +498,12 @@ document.getElementById("sair").addEventListener("click", () => {
 
 // carregar dados na inputs
 function AtribuirValor() {
+
     nome.value = dados.nome;
     email.value = dadosSenhaEmail.email;
-    // previewPerfil.src = dadosUsuario.foto;
+    previewPerfil.src = dados.foto;
+    previewBanner.src = dados.banner
 
-    // if (dadosUsuario.banner !== null) {
-    //     previewBanner.src = dadosUsuario.banner;
-    // } else {
-    //     previewBanner.src = "./assets/img/image 16.png";
-    // }
-
-    // if (dadosUsuario.foto !== null) {
-    //     previewPerfil.src = dadosUsuario.foto;
-    // } else {
-    //     previewPerfil.src = "./assets/img/sem-foto.png";
-    // }
 
     if (reqContatos.status == 404) {
         celular.value = ``;
@@ -497,25 +525,25 @@ function AtribuirValor() {
         data.value = ``;
     }
 
-    // if (reqEndereco.status !== 400) {
+    if (reqEndereco.status !== 400) {
 
-    //     cep.value = endereco.cep;
-    //     estado.value = endereco.estado;
-    //     cidade.value = endereco.municipio;
-    //     bairro.value = endereco.bairro;
-    //     endereco.value = endereco.rua;
-    //     numero.value = endereco.numero;
+        cep.value = enderecos.cep;
+        estado.value = enderecos.estado;
+        cidade.value = enderecos.municipio;
+        bairro.value = enderecos.bairro;
+        endereco.value = enderecos.rua;
+        numero.value = enderecos.numero;
         
-    //     if (endereco.complemento === "") {
-    //         complemento.value = ``;
+        if (enderecos.complemento === "") {
+            complemento.value = ``;
        
-    //     } else {
-    //         complemento.value = endereco.complemento;
-    //     }
+        } else {
+            complemento.value = enderecos.complemento;
+        }
 
-    // } else {
-    //     console.log("Não tem endereço");
-    // }
+    } else {
+        console.log("Não tem endereço");
+    }
 
 }
 AtribuirValor();

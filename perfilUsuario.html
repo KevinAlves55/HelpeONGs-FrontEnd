@@ -13,7 +13,7 @@
     <script src="./js/perfil-usuario/endereco.js" type='module' defer></script>
     <script src="./js/perfil-usuario/dadosCadastro.js" type='module' defer></script>
     <script src="./js/perfil-usuario/modalEditar.js" type='module' defer></script>
-    <script type="module" src="js/perfil-usuario/index.js" defer></script>
+    <script src="./js/perfil-ONGs/Mascaras.js" defer></script>
 </head>
 <body>
  
@@ -62,31 +62,29 @@
         </div>
             
         <div id="perfil">
-          <div id="foto-perfil">
-              <div id="mini-foto-perfil">
-                  <img src="" alt="" id="perfil-foto">
-              </div>
-          </div>
-          <div id="conteudo-perfil-centro">
+            <div id="foto-perfil">
+                <div id="mini-foto-perfil">
+                    <img src="" alt="" id="perfil-foto">
+                </div>
+            </div>
+            <div id="conteudo-perfil-centro">
                 <div id="containerNameandButton">
                     <div id="titulos-perfil">
-                        <h1 id="perfil-nome">Gustavo Alves</h1>
-                        
-                   </div>
-                    <div id="botao">
-                    <button id="btnModal">
-                        <img src="assets/img/edit-2.png">
-                        <span>Editar Perfil</span>
-                    </button>
+                        <h1 id="perfil-nome"></h1>                
                     </div>
+
+                    <div id="botao">
+                        <button id="btnModal">
+                            <img src="assets/img/edit-2.png" alt="Ediatr perfil" title="Icone lápis">
+                            editar perfil
+                        </button>
+                    </div>
+                </div>       
             </div>
-                      
-                    
-          </div>
                 
-         </div>
+        </div>
         
-         <nav id="menu-opcoes-perfil">
+        <nav id="menu-opcoes-perfil">
             <ul id="menu-opcoes-principal">
                 
                 <li>
@@ -153,23 +151,19 @@
                 
                     <div id="anexar-caminho">
                        
-                            <div>
-                                <label for="arquivo">Anexar currículo</label>
-                                <input type="file" name="arquivo" id="arquivo" >
-                            </div>
+                        <div>
+                            <label for="arquivoCurriculo">Anexar currículo</label>
+                            <input type="file" name="arquivoCurriculo" id="arquivoCurriculo">
+                        </div>
                         
                        <div id="caminho">
-                           <p>CaminhoDaImagem.png</p>
+                           <p id="caminhoImagem">CaminhoDaImagem.png</p>
                        </div>
                     </div>
                     
                     <div id="proximo">
-                        <button type="button" id="formButton" onclick="capturar()">Atualizar</button>
-
-                      
-                    </div>
-    
-                   
+                        <button type="button" id="formButton">Atualizar</button>
+                    </div>                
                 </form>
             </div>
 
@@ -211,16 +205,14 @@
                         </div>
                     </div>
                     <div id="quarta-fileira">
+                        <button type="button" id="buttonEnderecos">Cadastrar</button>
                         <button type="button" id="atualizarEnderecos">Atualizar</button>
-
-                        <button type="button" id="buttonEnderecos">Finalizar</button>
                     </div>
                 </form>
             </div>
 
             <div id="senha" class="item">
                 <form method="POST" enctype="multipart/form-data">
-                    <h1>Editar informações da senha</h1>
                     <div id="editar-senha">
                         <div id="senha-atual">
                             <h3>Senha atual</h3>
@@ -253,34 +245,37 @@
                         excluir sua conta, mas lembresse, todos os seus dados salvos não 
                         estaram mais aqui  
                     </h2>
+
                     <div id="Botao">
                         <button type="button" id="excluirUsuario">Excluir conta</button>
                     </div>
                 </form>
             </div>
-            <form method="POST" enctype="multipart/form-data">
-                <div id="contatos" class="item">
-                    <div id="contatos-tel-cel">
-                        <div id="telefone">
-                            <h3>Telefone</h3>
-                            <input type="text" id="tel" placeholder="0000-0000">
-                        </div>
 
-                        <div id="celular">
-                            <h3>Celular</h3>
-                            <input type="text" id="cel" placeholder="(11) 90000-0000">
-                        </div>
+
+            <div id="contatos" class="item">
+                <div id="contatos-tel-cel">
+                    <div id="telefone">
+                        <h3>Telefone</h3>
+                        <input type="text" id="tel" placeholder="0000-0000">
                     </div>
-                    <div id="botao">
-                        <div id="butao-editar-contatos">
-                            <button type="button" id="editarContatos">Editar</button>
-                        </div>
-                        <div id="botao-Finalizar">
-                            <button type="button" id="cadastrarContatos">finalizar</button>
-                        </div>
+
+                    <div id="celular">
+                        <h3>Celular</h3>
+                        <input type="text" id="cel" placeholder="(11) 90000-0000" onkeyup="mascaraCelular(this)">
                     </div>
                 </div>
-            </form>
+
+                <div id="botao">
+                    <div id="botao-Finalizar">
+                        <button type="button" id="cadastrarContatos">Cadastrar</button>
+                    </div>
+
+                    <div id="butao-editar-contatos">
+                        <button type="button" id="editarContatos">Atualizar</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -334,7 +329,7 @@
             <div id="esquerda">
                 <div id="editarPerfil">
                     <label for="filePerfil" id="img-file">
-                         <img src="./assets/img/Rectangle 97.png" alt="" class="previewPerfil">
+                         <img src="./assets/img/sem-foto.png" alt="" class="previewPerfil">
                     </label>
                     <input type="file" name="files[]" accept="image/*" id="filePerfil">
                 </div>

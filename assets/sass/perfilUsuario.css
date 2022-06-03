@@ -33,7 +33,7 @@ button {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,7 +51,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding: 30px;
+  padding: 39px 90px 39px 90px;
   background-color: #F8F9FA;
 }
 
@@ -290,8 +290,8 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  height: auto;
-  width: 501px;
+  height: 100px;
+  width: 590px;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton h1 {
@@ -302,26 +302,65 @@ body {
   letter-spacing: none;
   padding-top: 20px;
   padding-left: 20px;
+  width: 340px;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #botao {
-  padding-top: 20px;
-  height: auto;
-  width: 90px;
+  height: inherit;
+  width: 210px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
 }
 
 #centro #perfil #conteudo-perfil-centro #containerNameandButton #botao button {
   height: 50px;
-  width: 200px;
-  font-size: 1.313rem;
+  width: 210px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 12px;
+  font-size: 1.250rem;
   font-weight: 600;
   color: #292929;
   text-transform: capitalize;
-  letter-spacing: none;
-  border: 1px;
-  border-radius: 10px;
-  background: #FF9F45;
+  padding: 0 15px 0 17px;
+  background-color: #FF9F45;
+  border-radius: 6px;
   cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#centro #perfil #conteudo-perfil-centro #containerNameandButton #botao button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
 }
 
 #centro #menu-opcoes-perfil {
@@ -343,13 +382,13 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin-top: 49px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 #centro #menu-opcoes-perfil #menu-opcoes-principal {
   height: inherit;
-  width: auto;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,9 +399,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
@@ -373,7 +412,7 @@ body {
 }
 
 #centro #menu-opcoes-perfil #menu-opcoes-principal li {
-  height: auto;
+  height: inherit;
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -424,7 +463,7 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 70px;
   height: 344px;
   width: inherit;
   padding: 20px;
@@ -436,11 +475,25 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-sobre #sobre-usuario {
-  padding-top: 15px;
-}
-
-#centro #container-conteudo #container-conteudo-sobre #sobre-usuario h3 + h3 {
-  margin-top: 1.0em;
+  height: auto;
+  width: 790px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+  padding-top: 10px;
 }
 
 #centro #container-conteudo #container-conteudo-sobre #sobre-usuario h3 {
@@ -461,6 +514,8 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-sobre #anexo {
+  height: auto;
+  width: 790px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -477,8 +532,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-top: 60px;
-  padding-left: 5px;
 }
 
 #centro #container-conteudo #container-conteudo-sobre #anexo h2 {
@@ -506,7 +559,7 @@ body {
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta {
-  height: 550px;
+  height: 440px;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -529,7 +582,7 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome {
   height: 98px;
-  width: 766px;
+  width: inherit;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome p {
@@ -542,11 +595,13 @@ body {
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #nome input {
   height: 65px;
-  width: 850px;
+  width: 845px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
   padding: 15px;
+  margin-left: 5px;
+  color: #292929;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data {
@@ -568,7 +623,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data p {
@@ -591,6 +646,7 @@ body {
   border-radius: 6px;
   font-size: 23px;
   padding: 15px;
+  margin-left: 5px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #email-data #data {
@@ -605,6 +661,7 @@ body {
   padding: 10px;
   border: 2px solid #CCCCCC;
   border-radius: 6px;
+  margin-left: 19px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho {
@@ -626,7 +683,7 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-de-conta #anexar-caminho input[type="file"] {
@@ -681,20 +738,25 @@ body {
   background-color: #FC595E;
 }
 
-#centro #container-conteudo #container-conteudo-detalhes-de-conta #proximo button {
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #proximo #formButton {
   height: 75px;
   width: 250px;
-  border: 2px;
+  border: 1px;
   border-radius: 6px;
   background-color: #FF9F45;
   font-size: 30px;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  font-weight: 500;
   cursor: pointer;
 }
 
+#centro #container-conteudo #container-conteudo-detalhes-de-conta #proximo #formButton:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
+}
+
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco {
-  height: 485px;
+  height: 418px;
   width: inherit;
   display: none;
 }
@@ -734,7 +796,8 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
-  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #estado h3 {
@@ -751,7 +814,8 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
-  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #primeira-fileira #cidade h3 {
@@ -768,7 +832,8 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
-  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira {
@@ -806,7 +871,8 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
-  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #rua h3 {
@@ -823,7 +889,8 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
-  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #segunda-fileira #numero h3 {
@@ -840,7 +907,8 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
-  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #terceira-fileira {
@@ -878,7 +946,8 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 6px;
   font-size: 23px;
-  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #quarta-fileira {
@@ -899,7 +968,7 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -913,6 +982,14 @@ body {
   border-radius: 6px;
   background-color: #FF9F45;
   font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #container-conteudo-detalhes-do-endereco #quarta-fileira button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
 }
 
 #centro #container-conteudo #container-conteudo-detalhes-do-endereco #quarta-fileira #atualizarEnderecos {
@@ -942,7 +1019,7 @@ body {
       flex-wrap: nowrap;
   gap: 0;
   display: none;
-  height: 485px;
+  height: 315px;
   width: inherit;
 }
 
@@ -971,7 +1048,6 @@ body {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 0;
-  padding-top: 20px;
 }
 
 #centro #container-conteudo #senha #editar-senha #senha-atual h3 {
@@ -986,7 +1062,7 @@ body {
 #centro #container-conteudo #senha #editar-senha #senha-atual input {
   font-size: 1.313rem;
   font-weight: 500;
-  color: #8C8C8C;
+  color: #292929;
   text-transform: none;
   letter-spacing: none;
   height: 65px;
@@ -1031,7 +1107,7 @@ body {
 #centro #container-conteudo #senha #editar-senha #nova-confirmar #nova-senha input {
   font-size: 1.313rem;
   font-weight: 500;
-  color: #8C8C8C;
+  color: #292929;
   text-transform: none;
   letter-spacing: none;
   height: 65px;
@@ -1054,7 +1130,7 @@ body {
 #centro #container-conteudo #senha #editar-senha #nova-confirmar #confirmar-senha input {
   font-size: 1.313rem;
   font-weight: 500;
-  color: #8C8C8C;
+  color: #292929;
   text-transform: none;
   letter-spacing: none;
   height: 65px;
@@ -1092,27 +1168,20 @@ body {
 }
 
 #centro #container-conteudo #senha #botao #butao-editar button {
-  height: 60px;
-  width: 232px;
-  cursor: pointer;
-  font-size: 30px;
-  color: #292929;
-  background-color: #FF9F45;
+  height: 75px;
+  width: 250px;
+  border: 1px;
   border-radius: 6px;
+  background-color: #FF9F45;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-#centro #container-conteudo #senha #botao #botao-cancelar {
-  padding-left: 20px;
-}
-
-#centro #container-conteudo #senha #botao #botao-cancelar button {
-  height: 60px;
-  width: 232px;
-  cursor: pointer;
-  font-size: 30px;
-  color: #292929;
-  background-color: #FF9F45;
-  border-radius: 6px;
+#centro #container-conteudo #senha #botao #butao-editar button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
 }
 
 #centro #container-conteudo #conta {
@@ -1136,12 +1205,13 @@ body {
 }
 
 #centro #container-conteudo #conta h2 {
-  font-size: 1.813rem;
-  font-weight: 600;
+  font-size: 1.563rem;
+  font-weight: 500;
   color: #292929;
   text-transform: none;
   letter-spacing: none;
   width: 850px;
+  line-height: 1.5;
 }
 
 #centro #container-conteudo #conta #Botao {
@@ -1156,13 +1226,20 @@ body {
 }
 
 #centro #container-conteudo #conta #Botao button {
-  height: 60px;
-  width: 232px;
-  cursor: pointer;
-  font-size: 30px;
-  color: #292929;
-  background-color: #FF9F45;
+  height: 75px;
+  width: 250px;
+  border: 1px;
   border-radius: 6px;
+  background-color: #FF9F45;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #conta #Botao button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
 }
 
 #centro #container-conteudo #contatos {
@@ -1248,7 +1325,7 @@ body {
 #centro #container-conteudo #contatos #contatos-tel-cel #telefone input {
   font-size: 1.313rem;
   font-weight: 500;
-  color: #8C8C8C;
+  color: #292929;
   text-transform: none;
   letter-spacing: none;
   height: 65px;
@@ -1277,7 +1354,7 @@ body {
 #centro #container-conteudo #contatos #contatos-tel-cel #celular input {
   font-size: 1.313rem;
   font-weight: 500;
-  color: #8C8C8C;
+  color: #292929;
   text-transform: none;
   letter-spacing: none;
   height: 65px;
@@ -1304,24 +1381,31 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 25px;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding-top: 40px;
+  margin-top: 45px;
 }
 
 #centro #container-conteudo #contatos #botao #butao-editar-contatos button {
-  height: 60px;
-  width: 232px;
-  cursor: pointer;
-  font-size: 30px;
-  color: #292929;
-  background-color: #FF9F45;
+  height: 75px;
+  width: 250px;
+  border: 1px;
   border-radius: 6px;
+  background-color: #FF9F45;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #contatos #botao #butao-editar-contatos button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
 }
 
 #centro #container-conteudo #contatos #botao #botao-Finalizar {
@@ -1329,13 +1413,20 @@ body {
 }
 
 #centro #container-conteudo #contatos #botao #botao-Finalizar button {
-  height: 60px;
-  width: 232px;
-  cursor: pointer;
-  font-size: 30px;
-  color: #292929;
-  background-color: #FC595E;
+  height: 75px;
+  width: 250px;
+  border: 1px;
   border-radius: 6px;
+  background-color: #FF9F45;
+  font-size: 30px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#centro #container-conteudo #contatos #botao #botao-Finalizar button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
 }
 
 #direita {
