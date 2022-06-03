@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Usuario</title>
+    <link rel="stylesheet" href="assets/sass/perfilUsuario.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="./js/perfil-usuario/paginacaoPerfilUsuario.js" defer></script>
+    <script src="./js/perfil-usuario/endereco.js" type='module' defer></script>
+    <script src="./js/perfil-usuario/dadosCadastro.js" type='module' defer></script>
+    <script src="./js/perfil-usuario/modalEditar.js" type='module' defer></script>
+    <script type="module" src="js/perfil-usuario/index.js" defer></script>
+</head>
+<body>
+ 
+
+    <!-- Esquerda -->
+    <div id="esquerda">
+        <div id="logo">
+            <img src="./assets/img/image 11.png">
+        </div>
+
+        <div id="container">
+            <div id="mini-perfil">
+                <img src="" alt="Perfil" title="" id="mini-perfil-foto">
+
+                <h3 id="mini-perfil-nome"></h3>
+            </div>
+            
+            <nav id="menu">
+                <ul>
+                    <li>
+                        <img src="assets/img/heart-menu.png" alt="Doar" title="Icon-Heart">
+                        <a href="doacoesONGs.html">Doar</a>
+                    </li>
+                    <li>
+                        <img src="assets/img/feed-menu.png" alt="Feed" title="Icon-Feed">
+                        <a href="feed.html">Feed</a>
+                    </li>
+                    <li>
+                        <img src="assets/img/user-menu.png" alt="Seu perfil" title="Icon-User">
+                        <a href="perfilUsuario.html">Perfil</a>
+                    </li>
+                    <li>
+                        <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
+                        <a href="loginUsuario.html" id="sair">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Centro -->
+    <div id="centro">
+       
+        <div id="banner">
+            <img src="" id="perfil-banner">
+        </div>
+            
+        <div id="perfil">
+          <div id="foto-perfil">
+              <div id="mini-foto-perfil">
+                  <img src="" alt="" id="perfil-foto">
+              </div>
+          </div>
+          <div id="conteudo-perfil-centro">
+                <div id="containerNameandButton">
+                    <div id="titulos-perfil">
+                        <h1 id="perfil-nome">Gustavo Alves</h1>
+                        
+                   </div>
+                    <div id="botao">
+                    <button id="btnModal">
+                        <img src="assets/img/edit-2.png">
+                        <span>Editar Perfil</span>
+                    </button>
+                    </div>
+            </div>
+                      
+                    
+          </div>
+                
+         </div>
+        
+         <nav id="menu-opcoes-perfil">
+            <ul id="menu-opcoes-principal">
+                
+                <li>
+                    <span id="item1" >Sobre</span>
+                    <div class="barra"></div>
+                </li>
+                <li>
+                    <span id="item2" >Detalhes</span>
+                    <div class="barra"></div>
+                </li>
+                <li >
+                    <span id="item3" >Endereço</span>
+                    <div class="barra"></div>
+                </li>
+                <li >
+                    <span id="item4">Senha</span>
+                    <div class="barra"></div>
+                </li>
+                <li >
+                    <span id="item5">Conta</span>
+                    <div class="barra"></div>
+                </li>
+                <li >
+                    <span id="item6">Contatos</span>
+                    <div class="barra"></div>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="container-conteudo">
+            <div id="container-conteudo-sobre" class="item">
+                <div id="sobre-usuario">
+
+                    <h3 >Nasceu em:<span id="data"> </span></h3>
+                    <h3>Mora em:<span id="cidadeUsuario"> </span></h3>
+                    <h3>Número do celular:<span id="celular"> </span></h3>
+                    <h3>Número do telefone:<span id="telefone"></span></h3>
+                 
+                </div>
+                 <div id="anexo">
+                        <h2>CURRÍCULO</h2>
+                        <h3>Desde:<span> 2 Anos na plataforma</span></h3>
+                 </div>
+
+
+            </div>
+
+            <div id="container-conteudo-detalhes-de-conta" class="item">
+                <form method="POST" enctype="multipart/form-data">
+                    <div id="nome">
+                        <p>Nome</p>
+                        <input type="text" id="name" />
+                    </div>
+                    <div id="email-data">
+                        <div id="email">
+                            <p>E-mail</p>
+                            <input type="email" id="mail" placeholder="Digite seu E-mail"/>
+                        </div>
+                        <div id="data">
+                            <p>Data de nascimento</p>
+                            <input placeholder="00-00-0000" id="date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" />
+                        </div>
+                    </div>
+                
+                    <div id="anexar-caminho">
+                       
+                            <div>
+                                <label for="arquivo">Anexar currículo</label>
+                                <input type="file" name="arquivo" id="arquivo" >
+                            </div>
+                        
+                       <div id="caminho">
+                           <p>CaminhoDaImagem.png</p>
+                       </div>
+                    </div>
+                    
+                    <div id="proximo">
+                        <button type="button" id="formButton" onclick="capturar()">Atualizar</button>
+
+                      
+                    </div>
+    
+                   
+                </form>
+            </div>
+
+            <div id="container-conteudo-detalhes-do-endereco" class="item">
+                <form method="POST">
+                    <div id="primeira-fileira">
+                        <div id="cep">
+                            <h3>Cep</h3>
+                            <input type="text" id="cepEndereco" />
+                        </div>
+                        <div id="estado">
+                            <h3>Estado</h3>
+                            <input type="text" id="estadoEndereco" />
+                        </div>
+                        <div id="cidade">
+                            <h3>Cidade</h3>
+                            <input type="text" id="cidadeEndereco" />
+                        </div>
+                    </div>
+
+                    <div id="segunda-fileira">
+                        <div id="bairro">
+                            <h3>Bairro</h3>
+                            <input type="text" id="bairroEndereco" />
+                        </div>
+                        <div id="rua">
+                            <h3>Rua</h3>
+                            <input type="text" id="endereco" />
+                        </div>
+                        <div id="numero">
+                            <h3>Número</h3>
+                            <input type="text" id="numeroEndereco" />
+                        </div>
+                    </div>
+                    <div id="terceira-fileira">
+                        <div id="complemento">
+                            <h3>Complemento</h3>
+                            <input type="text" id="complementoEndereco" />
+                        </div>
+                    </div>
+                    <div id="quarta-fileira">
+                        <button type="button" id="atualizarEnderecos">Atualizar</button>
+
+                        <button type="button" id="buttonEnderecos">Finalizar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="senha" class="item">
+                <form method="POST" enctype="multipart/form-data">
+                    <h1>Editar informações da senha</h1>
+                    <div id="editar-senha">
+                        <div id="senha-atual">
+                            <h3>Senha atual</h3>
+                            <input type="text" id="senhaAtual" placeholder="Digite senha atual">
+                        </div>
+                        <div id="nova-confirmar">
+                            <div id="nova-senha">
+                                <h3>Nova senha</h3>
+                                <input type="text" id="novaSenha" placeholder="Digite nova senha">
+                            </div>
+
+                            <div id="confirmar-senha">
+                                <h3>Confirmar nova senha</h3>
+                                <input type="text" id="confirmarSenha" placeholder="Confirme senha">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="botao">
+                        <div id="butao-editar">
+                            <button type="button">Editar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="conta" class="item">
+                <form method="POST" enctype="multipart/form-data">
+                    <h2>
+                        Caso esteja insatisfeito em nossa plataforma, você tem a opção de 
+                        excluir sua conta, mas lembresse, todos os seus dados salvos não 
+                        estaram mais aqui  
+                    </h2>
+                    <div id="Botao">
+                        <button type="button" id="excluirUsuario">Excluir conta</button>
+                    </div>
+                </form>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                <div id="contatos" class="item">
+                    <div id="contatos-tel-cel">
+                        <div id="telefone">
+                            <h3>Telefone</h3>
+                            <input type="text" id="tel" placeholder="0000-0000">
+                        </div>
+
+                        <div id="celular">
+                            <h3>Celular</h3>
+                            <input type="text" id="cel" placeholder="(11) 90000-0000">
+                        </div>
+                    </div>
+                    <div id="botao">
+                        <div id="butao-editar-contatos">
+                            <button type="button" id="editarContatos">Editar</button>
+                        </div>
+                        <div id="botao-Finalizar">
+                            <button type="button" id="cadastrarContatos">finalizar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- Direita -->
+    <div id="direita">
+       <div id="status-seguidores">
+           <h2>Seguindo</h2>
+        
+         <span id="qtdaSeguidores"></span>
+       </div>
+        <div id="container-direita">
+            <div id="mini-perfil-direita">
+                <div class="perfil-direita">
+                     <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                     <div>
+                         <h3>MilGraus</h3>
+                        <p>ONG</p>
+                    </div>
+                </div>
+                <div class="perfil-direita">
+                     <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title=""> 
+                     <div class="nome-perfil">
+                        <h3>DollyGuarana</h3>
+                        <p>ONG</p>
+                    </div>
+                </div>
+                <div class="perfil-direita">
+                    <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                    <div>
+                        <h3>Ana Clara</h3>
+                        <p>ONG</p>
+                    </div>
+                </div>
+                <div class="perfil-direita">
+                    <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
+                    <div>
+                        <h3>Milly Mils</h3>
+                        <p>ONG</p>
+                    </div>
+                </div>
+                <div id="img-amplifica">
+                    <img src="assets/img/Vector (1).png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEditar" class="modalEditar">
+        <div id="EditarBannerFoto" >
+
+            <div id="esquerda">
+                <div id="editarPerfil">
+                    <label for="filePerfil" id="img-file">
+                         <img src="./assets/img/Rectangle 97.png" alt="" class="previewPerfil">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="filePerfil">
+                </div>
+                <div id="tituloFotoPerfil">
+                    <h2>Foto de perfil</h2>
+                </div>
+            </div>
+            <div id="Direita">
+                <div id="editarBanner">
+                    <label for="fileBanner">
+                        <img src="./assets/img/image 16.png" alt="" class="previewBanner">
+                    </label>
+                    <input type="file" name="files[]" accept="image/*" id="fileBanner">
+                </div>
+                <div id="tituloBannerPerfil">
+                    <h2>Banner do perfil</h2>
+                </div>
+
+                <div id="botaoAlterar">
+                    <button type="button" id="botaoModalEditar">Alterar</button>
+                    <button type="button" id="botaoSairEditar">Sair</button>
+                </div>
+            </div> 
+
+        </div>
+    </div>
+
+</body>
+</html>
