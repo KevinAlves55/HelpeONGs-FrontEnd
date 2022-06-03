@@ -1729,12 +1729,10 @@ document.getElementById("seta-baixo").addEventListener("click", openSetaHeader);
 document.getElementById("cancelar-header").addEventListener("click", closeSetaHeader);
 document.querySelector("main").addEventListener("click", closeSetaHeader);
 document.getElementById("pesquisar").addEventListener("keypress", PesquisarONGs);
-
 CheckWindow();
 document.querySelector("#trocar-select-post").addEventListener("change", TrocarTipoPostagem);
 document.querySelector("#trocar-select-evento").addEventListener("change",TrocarTipoPostagem);
 document.querySelector("#trocar-select-vaga").addEventListener("change",TrocarTipoPostagem);
-
 // Scroll Infinito
 window.addEventListener("scroll", () => {
     
@@ -1748,7 +1746,6 @@ window.addEventListener("scroll", () => {
     }
 
 });
-
 document.getElementById("postagens").addEventListener("click", openModalPostagens);
 document.getElementById("modalClose").addEventListener("click", closeModalPostagens);
 document.getElementById("modalCloseEvento").addEventListener("click", closeModalEvento);

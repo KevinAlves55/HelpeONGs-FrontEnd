@@ -1534,7 +1534,7 @@ main {
                     .comentarios {
                         min-height: 1px;
                         @include tamanhos(auto, 736px);
-                        @include displayFlex(column, $gap: 5px);
+                        @include displayFlex(column, $gap: 25px);
                         margin-top: 12px;
     
                         .corpo-comentario {
@@ -1553,7 +1553,7 @@ main {
                             }
     
                             .vertical-info {
-                                min-height: 150px;
+                                min-height: 10px;
                                 @include tamanhos(auto, 646px);
                                 @include displayFlex(column, $gap: 5px);
     

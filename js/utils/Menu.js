@@ -50,7 +50,6 @@ const CheckWindow = () => {
         const control = document.getElementById("controlLink");
         const barraActivity = document.getElementById("barraControl");
         const controlActivity = document.getElementById("control");
-        console.log(controlActivity);
         control.style.color = "#FF9F45";
         control.style.fontWeight = "600";
         controlActivity.style.backgroundColor = "#F8F9FA";

@@ -3769,7 +3769,7 @@ main #itens-main #conteudo-feed .feed .post .comentarios {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 5px;
+  gap: 25px;
   margin-top: 12px;
 }
 
@@ -3823,7 +3823,7 @@ main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .late
 }
 
 main #itens-main #conteudo-feed .feed .post .comentarios .corpo-comentario .vertical-info {
-  min-height: 150px;
+  min-height: 10px;
   height: auto;
   width: 646px;
   display: -webkit-box;
