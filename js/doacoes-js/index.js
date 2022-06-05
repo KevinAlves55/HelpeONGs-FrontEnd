@@ -164,7 +164,7 @@ const CarregarRecomendados = async () => {
 
 }
 
-const CriarRecomendados = ({id, nome, foto}) => {
+const CriarRecomendados = ({idLogin, idOng, nome, foto}) => {
 
     const corpo = document.createElement("div");
     corpo.classList.add("ongs-opcoes");
@@ -175,7 +175,7 @@ const CriarRecomendados = ({id, nome, foto}) => {
         <img src="${foto}" alt="Ongs perfil" title="Foto Ong">
         <h2>${nome}</h2>
     </div>
-    <button type="button" data-idong="${id}">DOAR</button>
+    <button type="button" data-idong="${idOng}" data-idlogin="${idLogin}">DOAR</button>
     `;
 
     return corpo;
@@ -252,7 +252,7 @@ const CarregarEstados = async () => {
 
 }
 
-const CriarOptionEstado = ({idEstado, nome, sigla}) => {
+const CriarOptionEstado = ({nome, sigla}) => {
 
     const container = document.querySelector("#estados-select");
     const corpo = document.createElement("option");

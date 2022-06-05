@@ -3209,6 +3209,7 @@ main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga .perfil-postag
   left: 38px;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
 }
 
 main #itens-main #direita #vagas-indicadas .vaga .info-fundo-vaga h3 {
@@ -3334,6 +3335,7 @@ main #itens-main #conteudo-feed #previa-eventos .evento .perfil-postagem {
   left: 19px;
   -o-object-fit: cover;
      object-fit: cover;
+  cursor: pointer;
 }
 
 main #itens-main #conteudo-feed #previa-eventos .evento h3 {
@@ -4615,7 +4617,7 @@ main #itens-main #conteudo-feed .feed .vaga .corpo-vaga .vaga-botoes button:hove
 }
 
 main #itens-main #esquerda-seguidores {
-  min-height: 500px;
+  min-height: 100px;
   height: auto;
   width: 261px;
   display: -webkit-box;
@@ -4638,7 +4640,7 @@ main #itens-main #esquerda-seguidores {
 
 main #itens-main #esquerda-seguidores #info-seguidores {
   height: 30px;
-  width: 223px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4694,7 +4696,7 @@ main #itens-main #esquerda-seguidores #info-seguidores span {
 
 main #itens-main #esquerda-seguidores #seguindo {
   height: auto;
-  width: 261px;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4717,9 +4719,9 @@ main #itens-main #esquerda-seguidores #seguindo {
 }
 
 main #itens-main #esquerda-seguidores #seguindo .info-seguindo {
-  min-height: 50px;
-  height: 60px;
-  width: auto;
+  min-height: 60px;
+  height: auto;
+  width: 231px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4739,13 +4741,15 @@ main #itens-main #esquerda-seguidores #seguindo .info-seguindo {
 }
 
 main #itens-main #esquerda-seguidores #seguindo .info-seguindo img {
-  height: inherit;
+  height: 60px;
   width: 60px;
+  border-radius: 50%;
 }
 
 main #itens-main #esquerda-seguidores #seguindo .info-seguindo .identificador {
-  height: 50px;
-  width: auto;
+  min-height: 50px;
+  height: auto;
+  width: 231px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4753,15 +4757,15 @@ main #itens-main #esquerda-seguidores #seguindo .info-seguindo .identificador {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 5px;
 }
 
 main #itens-main #esquerda-seguidores #seguindo .info-seguindo .identificador h3 {

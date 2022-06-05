@@ -8,6 +8,17 @@ import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./image
 let ongLogado;
 ongLogado = validarSession("dadosOng");
 
+if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
+    
+    ongLogado = JSON.parse(localStorage.getItem('idOng'));
+
+
+} else {
+
+    ongLogado = validarSession("dadosOng");
+
+}
+
 let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
 let dados = reqDados.data;
 

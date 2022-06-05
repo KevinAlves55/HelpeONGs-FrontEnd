@@ -1275,6 +1275,7 @@ main {
                             top: 43px;
                             left: 38px;
                             object-fit: cover;
+                            cursor: pointer;
                         }
 
                         h3 {
@@ -1338,6 +1339,7 @@ main {
                         top: 19px;
                         left: 19px;
                         object-fit: cover;
+                        cursor: pointer;
                     }
 
                     h3 {
@@ -1875,12 +1877,12 @@ main {
         }
 
         #esquerda-seguidores {
-            min-height: 500px;
+            min-height: 100px;
             @include tamanhos(auto, 261px);
             @include displayFlex(column, $gap: 25px);
 
             #info-seguidores {
-                @include tamanhos(30px, 223px);
+                @include tamanhos(30px, inherit);
                 @include displayFlex($justify: space-around, $align: center);
 
                 h3 {
@@ -1901,24 +1903,26 @@ main {
             }
 
             #seguindo {
-                @include tamanhos(auto, 261px);
+                @include tamanhos(auto, inherit);
                 @include displayFlex(column, $gap: 20px);
                 padding: 23px 0 10px 10px;
                 border-radius: 20px;
                 background-color: #fff;
 
                 .info-seguindo {
-                    min-height: 50px;
-                    @include tamanhos(60px, auto);
+                    min-height: 60px;
+                    @include tamanhos(auto, 231px);
                     @include displayFlex(row, $align: center, $gap: 15px);
 
                     img {
-                        @include tamanhos(inherit, 60px);
+                        @include tamanhos(60px, 60px);
+                        border-radius: 50%;
                     }
 
                     .identificador {
-                        @include tamanhos(50px, auto);
-                        @include displayFlex(column, space-between);
+                        min-height: 50px;
+                        @include tamanhos(auto, 231px);
+                        @include displayFlex(column, $gap: 5px);
 
                         h3 {
                             @include textoEstilo(grau9, semiBold, $text);

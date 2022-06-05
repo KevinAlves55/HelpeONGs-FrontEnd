@@ -521,6 +521,7 @@ header #itens-header #lupa-atalhos #atalhos #atalhos-perfil .mais-opcoes.active 
   color: #292929;
   text-transform: none;
   letter-spacing: none;
+  width: 400px;
 }
 
 .modal .modal-conteudo #informacoes #direita-informacoes #direita-meios-doacoes {

@@ -42,8 +42,29 @@ const loaderContainerEvento = document.querySelector(".loaderEvento");
 const loaderContainerVaga = document.querySelector(".loaderVaga");
 
 let ongLogado;
-ongLogado = validarSession("dadosOng");
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
+
+if (localStorage.hasOwnProperty('idOng') !== false) {
+    
+    ongLogado = JSON.parse(localStorage.getItem('idOng'));
+
+    const menuNonePerfil = () => document.getElementById("menu").style.display = "none";
+    menuNonePerfil();
+    const btnModalNone = () => document.getElementById("btnModal").style.display = "none";
+    btnModalNone();
+
+    const menusNone = () => document.getElementById("menu-opcoes-perfil").style.display = "none";
+    menusNone();
+
+    const containerAjust = () => document.getElementById("container-conteudo").style.marginTop = "35px";
+    containerAjust();
+
+
+} else {
+
+    ongLogado = validarSession("dadosOng");
+
+}
 
 let reqDados = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
 let dados = reqDados.data;
@@ -84,7 +105,15 @@ function formatarValor(valor) {
     return valor.toLocaleString('pt-BR');
 }
 
-function CarregarPerfil(objectLocal) {
+const ExibirSeguidores = async () => {
+
+    let req = await ApiRequest("GET", `http://localhost:3131/follower/ong/${dados.idOng}`);
+    const dadosSeguidores = req.data.length;
+    return dadosSeguidores;
+
+}
+
+async function CarregarPerfil(objectLocal) {
 
     let nomeLogado = document.getElementById("mini-perfil-nome");
     let fotoLogado = document.getElementById("mini-perfil-foto");
@@ -138,10 +167,10 @@ function CarregarPerfil(objectLocal) {
     }
 
     //SEGUIDORES
-    if (objectLocal.numeroDeSeguidores === null || objectLocal.numeroDeSeguidores === undefined) {
-        qtdaSeguidores.innerHTML = `0`;
+    if (ExibirSeguidores() === null || ExibirSeguidores() === undefined) {
+        qtdaSeguidores.innerHTML = `0 seguidores`;
     } else {
-        qtdaSeguidores.innerHTML = `${objectLocal.numeroDeSeguidores} seguidores`;
+        qtdaSeguidores.innerHTML = `${await ExibirSeguidores()} seguidores`;
     }
 
 }
@@ -462,6 +491,38 @@ const CriarModal = (objetoContatos, objetoBank, objetoDadosDonate) => {
     }
 
     return status;
+
+}
+
+const CarregarTodosSeguidores = async () => {
+
+    const container = document.querySelector("#seguindo");
+    const qtdaSeguidores = document.getElementById("qtdaSeguidoresPerfil");
+    let req = await ApiRequest("GET", `http://localhost:3131/follower/ong/${dados.idOng}`);
+    const dadosSeguidores = req.data;
+    qtdaSeguidores.innerHTML = `${dadosSeguidores.length}`;
+    const seguidores = dadosSeguidores.map(CriarSeguidores);
+    container.replaceChildren(...seguidores);
+
+}
+
+const CriarSeguidores = ({tbl_usuario}) => {
+
+    let corpo;
+    corpo = document.createElement("div");
+    corpo.classList.add("info-seguindo");
+
+    corpo.innerHTML =
+    `
+        <img src="${tbl_usuario.foto}" alt="{nomeDoSeguidor}">
+
+        <div class="identificador">
+            <h3>${tbl_usuario.nome}</h3>
+            <span>Doador</span>
+        </div>
+    `;
+
+    return corpo;
 
 }
 
@@ -1174,3 +1235,4 @@ CarregarTodasCategorias();
 document.querySelector("#todas-categorias").addEventListener("click", DeletarCategoria);
 document.querySelector(".todas-categorias").addEventListener("click", SelecionarCategorias)
 document.getElementById("adicionarCategorias").addEventListener("click", AdicionarCategorias);
+CarregarTodosSeguidores();

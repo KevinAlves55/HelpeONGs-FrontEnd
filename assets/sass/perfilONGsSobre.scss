@@ -2358,19 +2358,20 @@ body {
 
 }
 
-#direita {
-    min-height: 500px;
-    @include tamanhos(auto, 322px);
-    @include displayFlex(column, $gap: 20px);
+#esquerda-seguidores {
+    min-height: 100px;
+    @include tamanhos(auto, 261px);
+    @include displayFlex(column, $gap: 25px);
 
     #info-seguidores {
-        @include tamanhos(30px, inherit); 
-        @include displayFlex($justify: space-between, $align: center);
-        padding-left: 20px;
-        padding-right: 20px;
+        @include tamanhos(30px, inherit);
+        @include displayFlex($justify: space-around, $align: center);
 
         h3 {
-            @include textoEstilo(grau9, medium, $placeholder);             
+            font-size: 1.450rem;
+            font-weight: map-get($densidade, medium);
+            color: $placeholder;
+            text-transform: uppercase;
         }
 
         span {
@@ -2383,38 +2384,34 @@ body {
         }
     }
 
-    #container-direita {
-        min-height: 430px;
-        @include tamanhos(auto, 322px);
+    #seguindo {
+        @include tamanhos(auto, inherit);
         @include displayFlex(column, $gap: 20px);
-        background: #FFFFFF;
-        filter: $shadowMain;
+        padding: 23px 0 10px 10px;
         border-radius: 20px;
-        padding: 15px;
+        background-color: #fff;
 
-        .perfil-direita {
-            min-width: 164px;
-            @include tamanhos(60px, auto);
-            @include displayFlex(row, $align: center, $gap: 14px);
+        .info-seguindo {
+            min-height: 60px;
+            @include tamanhos(auto, 231px);
+            @include displayFlex(row, $align: center, $gap: 15px);
 
             img {
                 @include tamanhos(60px, 60px);
                 border-radius: 50%;
             }
 
-            div {
-                min-width: 92px;
-                @include tamanhos(50px, auto);
-                @include displayFlex(column);
+            .identificador {
+                min-height: 50px;
+                @include tamanhos(auto, 231px);
+                @include displayFlex(column, $gap: 5px);
 
                 h3 {
-                    @include textoEstilo(grau9, semiBold, $text, capitalize);
-                    white-space: nowrap;
+                    @include textoEstilo(grau9, semiBold, $text);
                 }
-    
-                p {
-                    @include textoEstilo(grau10, semiBold, $placeholder, capitalize);
-    
+
+                span {
+                    @include textoEstilo(grau10, medium, $placeholder);
                 }
             }
         }
@@ -2425,7 +2422,7 @@ body {
             cursor: pointer;
         }
     }
-}    
+}   
 
 // CARREGAMENTO DE POSTS
 .loader {

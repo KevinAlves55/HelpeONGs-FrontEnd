@@ -4,18 +4,39 @@ import ApiRequest from "../utils/ApiRequest.js";
 import { getFormattedDate } from "../utils/DataFormat.js";
 
 let userLogado;
-userLogado = validarSession("dadosUsuario");
-
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
 
+if (localStorage.hasOwnProperty('idUser') !== false) {
+    
+    userLogado = JSON.parse(localStorage.getItem('idUser'));
+    console.log(userLogado.idUsuario);
+
+    const menuNonePerfil = () => document.getElementById("menu").style.display = "none";
+    menuNonePerfil();
+
+    const btnModalNone = () => document.getElementById("btnModal").style.display = "none";
+    btnModalNone();
+
+    const menusNone = () => document.getElementById("menu-opcoes-perfil").style.display = "none";
+    menusNone();
+
+    const containerAjust = () => document.getElementById("container-conteudo").style.marginTop = "35px";
+    containerAjust();
+
+
+} else {
+
+    userLogado = validarSession("dadosUsuario");
+
+}
 
 let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
 let dados = req.data;
 
-let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${userLogado.idLogin}`);
+let reqEndereco = await ApiRequest("GET", `http://localhost:3131/adress/${dados.idLogin}`);
 let enderecos = reqEndereco.data;
 
-let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${userLogado.idLogin}`);
+let reqContatos = await ApiRequest("GET", `http://localhost:3131/contact/${dados.idLogin}`);
 let contato = reqContatos.data;
 
 // Objeto de captura das INPUTS
@@ -36,6 +57,14 @@ const complemento = document.getElementById('complementoEndereco');
 const senhaDigitada = document.getElementById('senhaAtual');
 const senhaNova = document.getElementById('novaSenha');
 const senhaConfirmada = document.getElementById('confirmarSenha');
+
+const limparElementos = elemento => {
+
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.lastChild);
+    }
+
+}
 
 function CarregarPerfil(objectLocal) {
 
@@ -95,10 +124,6 @@ function CarregarPerfil(objectLocal) {
 }
 CarregarPerfil(dados);
 
-function customFormatter(date) {
-    return date.replace("/", "-");
-}
-
 function documentFilter(document){
     const firstDot = document.indexOf(",");
     return document.substring(firstDot + 1, document.length);
@@ -152,35 +177,18 @@ async function dadosDetalhesConta() {
 
     let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));  
 
-    const curriculo = curriculum[0];
-
-    const dadoCurriculo = {
-
-        "curriculum": {
-            type: curriculo.type,
-            base64: curriculo.base64,
-            fileName: curriculo.fileName
-        }
-    
-    }
-    console.log(dadoCurriculo);
-
     const bodyUser = {
+        
         "usuario": {
            nome: nome.value,
            dataDeNascimento: new Date(data.value) ?? new Date(dados.dataDeNascimento),
         },
+
         "login": {
             email: email.value ?? dadosSenhaEmail.email
         }
+    
     }
-
-    let reqCurriculum = await ApiRequest(
-        "PUT", 
-        `https://localhost:3131/user/upload/curriculum/${dados.idUsuario}`, 
-        dadoCurriculo
-    );
-    console.log(reqCurriculum);
   
     let reqUser = await ApiRequest(
         "PUT", 
@@ -202,6 +210,42 @@ async function dadosDetalhesConta() {
      
 }
 document.getElementById("formButton").addEventListener("click", dadosDetalhesConta);
+
+async function cadastrarCurriculo() {
+
+    const curriculo = curriculum[0];
+
+    const dadoCurriculo = {
+
+        "curriculum": {
+            type: curriculo.type,
+            base64: curriculo.base64,
+            fileName: curriculo.fileName
+        }
+    
+    }
+    console.log(dadoCurriculo);
+
+    let reqCurriculum = await ApiRequest(
+        "PUT", 
+        `http://localhost:3131/user/upload/curriculum/${dados.idUsuario}`, 
+        dadoCurriculo
+    );
+    
+    if (reqCurriculum.status === 200) {
+
+        alert("Curriculo cadastrado com sucesso!");
+        window.location.reload();
+        window.scroll(0, 0);
+
+    } else { 
+
+        alert("Erro ao cadastrar curriculo!");
+
+    }
+
+}
+document.getElementById("buttonCadastrar").addEventListener("click", cadastrarCurriculo);
 
 async function contatosUsuario(){
 
@@ -301,8 +345,7 @@ if (enderecos) {
 
 async function atualizarEndereco() {
 
-    const url = cep.value
-    // const enderecos = await getEstados(url);
+    const enderecos = await getEstados(cep.value);
 
     const bodyEnderecoAtualizado = {
         cep: cep.value,
@@ -310,7 +353,7 @@ async function atualizarEndereco() {
         numero: Number(numero.value),
         rua: endereco.value,
         municipio: cidade.value, 
-        estado: estado.value,
+        estado: enderecos.uf,
         complemento: complemento.value,
     } 
 
@@ -327,14 +370,14 @@ async function atualizarEndereco() {
 }
 document.getElementById("atualizarEnderecos").addEventListener("click",atualizarEndereco);
 
-// const getEstados = async (cep) => {
+const getEstados = async (cep) => {
 
-//     const url = `https://viacep.com.br/ws/${cep}/json/`;
-//     const dados = await fetch(url);
-//     const endereco = await dados.json();
-//     return endereco;
+    const url = `https://viacep.com.br/ws/${cep}/json/`;
+    const dados = await fetch(url);
+    const endereco = await dados.json();
+    return endereco;
 
-// }
+}
 
 async function carregarDadosUsuario(dados, enderecos, contato){
 
@@ -343,10 +386,26 @@ async function carregarDadosUsuario(dados, enderecos, contato){
     let numeroCelular = document.getElementById("celular");
     let numeroTelefone = document.getElementById("telefone");
 
-    dataNascimento.innerHTML = `${getFormattedDate(dados.dataDeNascimento)}`;
-    cidade.innerHTML = `${enderecos.municipio}, ${enderecos.estado}`;
-    numeroCelular.innerHTML = `${contato.numero}`;
-    numeroTelefone.innerHTML = `${contato.telefone}`;
+    if (dados.dataDeNascimento === null) {
+        dataNascimento.innerHTML = "Não informado";
+    } else {
+        dataNascimento.innerHTML = `${getFormattedDate(dados.dataDeNascimento)}`;
+    }
+
+    if (!enderecos) {
+        cidade.innerHTML = "Não informado";
+    } else {
+        cidade.innerHTML = `${enderecos.municipio}, ${enderecos.estado}`;
+    }
+
+    if (!contato) {
+        numeroCelular.innerHTML = "Não informado";
+        numeroTelefone.innerHTML = "Não informado";
+    } else { 
+        numeroCelular.innerHTML = `${contato.numero}`;
+        numeroTelefone.innerHTML = `${contato.telefone}`;
+    }
+
 
 }
 carregarDadosUsuario(dados, enderecos, contato);
@@ -374,6 +433,7 @@ async function editarSenha(){
 document.getElementById("butao-editar").addEventListener("click",editarSenha);
 
 import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./imagenPreview.js";
+import { hideLoading, showLoading } from "../utils/Loading.js";
 
 async function atualizarImagensPerfil() {
 
@@ -391,11 +451,12 @@ async function atualizarImagensPerfil() {
 
     console.log(imagensUsuario.foto);
 
+    showLoading();
     let reqUpdateMedia = await ApiRequest("PUT", `http://localhost:3131/user/media/${dados.idUsuario}`, imagensUsuario);
     console.log(reqUpdateMedia);
 
     if (reqUpdateMedia.status === 200) {
-        alert("Imagens atualizadas com sucesso!");
+        hideLoading();
         window.location.reload();
     } else {
         alert("Erro ao atualizar imagens");
@@ -502,9 +563,19 @@ function AtribuirValor() {
     nome.value = dados.nome;
     email.value = dadosSenhaEmail.email;
     previewPerfil.src = dados.foto;
-    previewBanner.src = dados.banner
+    previewBanner.src = dados.banner;
 
+    if (dados.banner !== null) {
+        previewBanner.src = dados.banner;
+    } else {
+        previewBanner.src = "./assets/img/image 16.png";
+    }
 
+    if (dados.foto !== null) {
+        previewPerfil.src = dados.foto;
+    } else {
+        previewPerfil.src = "./assets/img/sem-foto.png";
+    }
     if (reqContatos.status == 404) {
         celular.value = ``;
         celular.placeholder = ``;

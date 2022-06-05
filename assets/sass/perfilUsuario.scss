@@ -10,6 +10,43 @@ body {
     background-color: $background;
 }
 
+// Loading
+.loading {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: #00000090;
+
+    label {
+        @include textoEstilo(grau6, semiBold, $background);
+        animation: typewriter 2s steps(13) infinite alternate,
+        blink 800ms steps(13) infinite normal;
+        border-right: 5px solid black;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 260px;
+      }
+    }
+    @keyframes blink {
+      from {
+        border-color: $background;
+      }
+      to {
+        border-color: transparent;
+      }
+    }
+}
+
 #container {
     min-height: 500px;
     @include tamanhos(auto, 279px);
@@ -194,10 +231,10 @@ body {
     }
     
     // Conteudo
-    #container-conteudo{
+    #container-conteudo {
         @include tamanhos(auto, 850px);
 
-        #container-conteudo-sobre{
+        #container-conteudo-sobre {
             @include displayFlex(column, $gap: 70px);
             @include tamanhos(344px, inherit);
             padding: 20px;
@@ -246,12 +283,12 @@ body {
             }
         }
 
-        #container-conteudo-detalhes-de-conta{
+        #container-conteudo-detalhes-de-conta {
             @include tamanhos(440px, inherit);
             @include displayFlex(column);
             display: none;
 
-            #nome{
+            #nome {
                 @include tamanhos(98px, inherit);
             
                 p{
@@ -269,7 +306,7 @@ body {
                 }
             }
 
-            #email-data{
+            #email-data {
                 @include tamanhos(102px, 850px);
                 @include displayFlex(row, space-between);
 
@@ -308,9 +345,14 @@ body {
                 }
 
             }
-        
 
-            #anexar-caminho{
+            h2 {
+                @include textoEstilo(grau9, semiBold, $deepSaffron);
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+        
+            #anexar-caminho {
                 @include tamanhos(65px, 850px);
                 @include displayFlex(row, space-between);
                 margin-top: 30px;
@@ -323,7 +365,7 @@ body {
                     @include textoEstilo(grau9, semiBold, $text);
                     padding: 22px 10px;
                     width: 230px;
-                    background-color: $deepSaffron;
+                    background-color: $tartOrange;
                     text-align: center;
                     display: block;
                     cursor: pointer;
@@ -331,16 +373,18 @@ body {
                 }
 
                
-                #caminho{
-                    @include tamanhos(65px, 449px);
+                #caminho {
+                    min-height: 65px;
+                    @include tamanhos(auto, 500px);
+                    @include displayFlex(row, $align: center);
                     border: 2px solid $border;
                     border-radius: 6px;
                     background-color: #FFFFFF;
 
-                    p{
+                    p {
                         @include textoEstilo(grau9, regular, $text);
-                        padding-top: 15px;
-                        padding-left: 30px;
+                        padding-left: 15px;
+                        width: 495px;
                     }
                 }
          
@@ -348,12 +392,22 @@ body {
 
             #proximo {
                 display:flex;
-                justify-content:flex-end;
-                padding-top:40px;
-                gap: 10px;
+                justify-content: space-between;
+                margin-top: 45px;
                 
                 #buttonCadastrar{
-                    background-color: $tartOrange;
+                    @include tamanhos(75px, 320px);
+                    border: 1px ;
+                    border-radius: 6px;
+                    background-color: $deepSaffron;
+                    font-size:30px;
+                    font-weight: map-get($densidade, medium);
+                    cursor: pointer;
+
+                    &:hover {
+                        transition: .5s;
+                        opacity: 0.8;
+                    }
                 }
 
                 #formButton {
@@ -828,7 +882,7 @@ body {
 
             .perfil-direita{
                 @include tamanhos(60px, 164px);
-                @include displayFlex(row, $align: center, $gap: 18px);
+                @include displayFlex(row, $align: center);
 
                 .nome-perfil{
                     @include displayFlex(column);

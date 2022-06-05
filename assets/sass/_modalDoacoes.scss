@@ -74,7 +74,8 @@
                         }
     
                         h3 {
-                            @include textoEstilo(grau8, semiBold, $text)
+                            @include textoEstilo(grau8, semiBold, $text);
+                            width: 400px;
                         }
                     }
                 }

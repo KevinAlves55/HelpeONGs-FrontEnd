@@ -48,6 +48,8 @@ let page = 0;
 
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
+    localStorage.removeItem('idOng');
+
     userLogado = validarSession("dadosUsuario");
     let req = await ApiRequest("GET", `http://localhost:3131/user/${userLogado.idUsuario}`);
     const dadosUsuario = req.data;
@@ -101,6 +103,9 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     CarregarMiniPerfil(dadosUsuario);
 
 } else if (localStorage.hasOwnProperty('dadosOng') !== false) {
+
+    localStorage.removeItem('idOng');
+    localStorage.removeItem('idUser');
 
     ongLogado = validarSession("dadosOng");
     let req = await ApiRequest("GET", `http://localhost:3131/ong/${ongLogado.idOng}`);
@@ -192,6 +197,58 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
     }
     CarregarMiniPerfilVaga(dadosOng);
+
+    const VisitarPerfilUsuario = ({target}) => {
+
+        if (target.id === "perfil-commit") {
+            
+            const idUser = target.dataset.iduser;
+
+            const idUserSelecionado = {
+                idUsuario: idUser
+            }
+    
+            localStorage.setItem("idUser", JSON.stringify(idUserSelecionado));
+            Redirect("perfilUsuario");
+
+        }
+
+    }
+    document.querySelector(".feed").addEventListener("click", VisitarPerfilUsuario);
+
+    const CarregarTodosSeguidores = async () => {
+
+        const container = document.querySelector("#seguindo");
+        const quantidade = document.getElementById("qtdaSeguidores");
+        let req = await ApiRequest("GET", `http://localhost:3131/follower/ong/${dadosOng.idOng}`);
+        const dadosSeguidores = req.data;
+        quantidade.innerHTML = `${dadosSeguidores.length}`;
+        const seguidores = dadosSeguidores.map(CriarSeguidores);
+        container.replaceChildren(...seguidores);
+    
+    }
+
+    const CriarSeguidores = ({tbl_usuario}) => {
+
+        let corpo;
+        corpo = document.createElement("div");
+        corpo.classList.add("info-seguindo");
+
+        corpo.innerHTML =
+        `
+            <img src="${tbl_usuario.foto}" alt="{nomeDoSeguidor}">
+
+            <div class="identificador">
+                <h3>${tbl_usuario.nome}</h3>
+                <span>Doador</span>
+            </div>
+        `;
+
+        return corpo;
+
+    }
+
+    CarregarTodosSeguidores();
 
 } else {
 
@@ -455,15 +512,15 @@ const CriarEventosDestaque  = ({idEventos, tbl_ong, titulo, tbl_evento_media, id
     if (tbl_evento_media.length === 0) {
         corpo.innerHTML = 
         `
-            <img src="${tbl_ong.foto}" data-idEvento="${idEventos}" data-idong="${idOng}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
-            <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
+            <img src="${tbl_ong.banner}" data-idEvento="${idEventos}" data-idong="${idOng}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
+            <img src="${tbl_ong.foto}" id="meu-perfil-feed" alt="ONGs" class="perfil-postagem">
             <h3>${titulo}</h3>
         `;
     } else {
         corpo.innerHTML = 
         `
             <img src="${tbl_evento_media[0].url}" data-idEvento="${idEventos}" data-idong="${idOng}" alt="Eventos de doação" id="eventoSelecionado" class="fundo-evento">
-            <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
+            <img src="${tbl_ong.foto}" id="meu-perfil-feed" data-idong="${idOng}" alt="ONGs" class="perfil-postagem">
             <h3>${titulo}</h3>
         `;
     }
@@ -492,7 +549,7 @@ const CriarVagasDestaques = ({idVagas, tbl_ong, titulo, idOng}) => {
     `
         <div class="info-fundo-vaga">
             <img src="${tbl_ong.banner}" alt="Eventos de doação" class="vaga-fundo">
-            <img src="${tbl_ong.foto}" alt="ONGs" class="perfil-postagem">
+            <img src="${tbl_ong.foto}" id="meu-perfil-feed" data-idong="${idOng}" alt="ONGs" class="perfil-postagem">
 
             <h3>${titulo}</h3>
         </div>
@@ -583,7 +640,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
@@ -630,7 +687,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
@@ -681,7 +738,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
@@ -736,7 +793,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                     <div class="info-ong">
-                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+                        <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                         <div class="info-nome-data">
                             <h2>${tbl_ong.nome}</h2>
@@ -795,12 +852,12 @@ const CriarFeed = (
     }
     
     if (type === "evento") {
-       
+
         const dataFormat = getFormattedDate(dataDeCriacao);
-   
+        
         corpo = document.createElement("div");
         corpo.classList.add("evento-feed");
-
+        
         let buttonCandidato;
         if (candidatos === true) {
 
@@ -818,7 +875,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
@@ -853,7 +910,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
@@ -892,7 +949,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
@@ -935,7 +992,7 @@ const CriarFeed = (
             `
             <div class="parte-superior">
                 <div class="info-ong">
-                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}">
+                    <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                     <div class="info-nome-data">
                         <h2>${tbl_ong.nome}</h2>
@@ -989,7 +1046,7 @@ const CriarFeed = (
         `
         <div class="parte-superior">
             <div class="info-ong">
-                <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}">
+                <img src="${tbl_ong.foto}" alt="${tbl_ong.nome}" title="${tbl_ong.nome}" id="meu-perfil-feed" data-idong="${idOng}">
 
                 <div class="info-nome-data">
                     <h2>${tbl_ong.nome}</h2>
@@ -1074,7 +1131,7 @@ function generateComments(comentario) {
     `
         <div class="corpo-comentario">
             <div class="lateral-imagem">
-                <img src="${comentario.tbl_usuario.foto}" alt="${comentario.tbl_usuario.nome}" title="Foto de perfil">
+                <img src="${comentario.tbl_usuario.foto}" alt="${comentario.tbl_usuario.nome}" data-iduser="${comentario.tbl_usuario.idUsuario}" id="perfil-commit" title="Foto de perfil">
             </div>
             <div class="vertical-info">
                 <div class="comentario">
@@ -1501,7 +1558,8 @@ const CriarEventoSelecionado = (dadosEvento) => {
         `
         <div class="parte-superior">
             <div class="info-ong">
-                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.vvtbl_ong.nome}">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}" id="meu-perfil-feed" 
+                data-idong="${dadosEvento.idOng}">
 
                 <div class="info-nome-data">
                     <h2>${dadosEvento.tbl_ong.nome}</h2>
@@ -1536,7 +1594,8 @@ const CriarEventoSelecionado = (dadosEvento) => {
         `
         <div class="parte-superior">
             <div class="info-ong">
-                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}" id="meu-perfil-feed" 
+                data-idong="${dadosEvento.idOng}">
 
                 <div class="info-nome-data">
                     <h2>${dadosEvento.tbl_ong.nome}</h2>
@@ -1575,7 +1634,8 @@ const CriarEventoSelecionado = (dadosEvento) => {
         `
         <div class="parte-superior">
             <div class="info-ong">
-                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}" id="meu-perfil-feed" 
+                data-idong="${dadosEvento.idOng}">
 
                 <div class="info-nome-data">
                     <h2>${dadosEvento.tbl_ong.nome}</h2>
@@ -1618,7 +1678,8 @@ const CriarEventoSelecionado = (dadosEvento) => {
         `
         <div class="parte-superior">
             <div class="info-ong">
-                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}">
+                <img src="${dadosEvento.tbl_ong.foto}" alt="${dadosEvento.tbl_ong.nome}" id="meu-perfil-feed" 
+                data-idong="${dadosEvento.idOng}">
 
                 <div class="info-nome-data">
                     <h2>${dadosEvento.tbl_ong.nome}</h2>
@@ -1696,7 +1757,8 @@ const CriarVagaSelecionada = (dadosVaga) => {
     `
     <div class="parte-superior">
         <div class="info-ong">
-            <img src="${dadosVaga.tbl_ong.foto}" alt="${dadosVaga.tbl_ong.nome}" title="${dadosVaga.tbl_ong.nome}">
+            <img src="${dadosVaga.tbl_ong.foto}" alt="${dadosVaga.tbl_ong.nome}" title="${dadosVaga.tbl_ong.nome}" id="meu-perfil-feed"
+            data-idong="${dadosVaga.idOng}">
 
             <div class="info-nome-data">
                 <h2>${dadosVaga.tbl_ong.nome}</h2>
@@ -1722,6 +1784,23 @@ const CriarVagaSelecionada = (dadosVaga) => {
     `;
 
     return corpo;
+
+}
+
+const VisitarPerfilOng = ({target}) => {
+
+    if (target.id === "meu-perfil-feed") {
+
+        const idOng = target.dataset.idong;
+
+        const idOngSelecionado = {
+            idOng: idOng
+        }
+
+        localStorage.setItem("idOng", JSON.stringify(idOngSelecionado));
+        Redirect("perfilONGs");
+        
+    }
 
 }
 
@@ -1776,3 +1855,6 @@ document.getElementById("previa-eventos").addEventListener("click", CarregarEven
 document.getElementById("vagas-indicadas").addEventListener("click", CarregarVagasSelecionado);
 document.querySelector(".feed").addEventListener("keypress", Comentar);
 document.querySelector(".feed").addEventListener("click", Curtir);
+document.querySelector(".feed").addEventListener("click", VisitarPerfilOng);
+document.getElementById("previa-eventos").addEventListener("click", VisitarPerfilOng);
+document.getElementById("vagas-indicadas").addEventListener("click", VisitarPerfilOng);

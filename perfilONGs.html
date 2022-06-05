@@ -14,7 +14,7 @@
     <script type="module" src="js/perfil-ONGs/dadosONGs.js" defer></script>
     <script src="js/perfil-ONGs/paginacaoPerfilONGs.js" defer></script>
     <script src="js/perfil-ONGs/Mascaras.js" defer></script>
-    <script type="module" src="js/perfil-ONGs/apiCep.js"></script> 
+    <script type="module" src="js/perfil-ONGs/apiCep.js" defer></script> 
 </head>
 
 <body>  
@@ -138,7 +138,7 @@
                         <img src="assets/img/users-controles.png" alt="Eventos" title="Icon-controles">
                         <a href="controles.html" id="controlLink">Controles</a>
                     </li>
-                    <li>
+                    <li id="sairActivity">
                         <img src="assets/img/log-in-menu.png" alt="Sair" title="Icon-Log-In">
                         <a id="sair" style="cursor: pointer;">Logout</a>
                     </li>
@@ -702,72 +702,13 @@
     </main>
     
     <!-- Direita -->   
-    <div id="direita">
-
+    <div id="esquerda-seguidores">
         <div id="info-seguidores">
-            <h3>SEGUIDORES</h3>
-            <span>48</span>
+            <h3>SEGUINDORES</h3>
+            <span id="qtdaSeguidoresPerfil">48</span>
         </div>
 
-        <div id="container-direita">
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div>
-                    <h3>MilGraus</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div class="nome-perfil">
-                    <h3>DollyGuarana</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div>
-                    <h3>Ana Clara</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div>
-                    <h3>Milly Mils</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div>
-                    <h3>Milly Mils</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div>
-                    <h3>Milly Mils</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div>
-                    <h3>Milly Mils</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            <div class="perfil-direita">
-                <img src="assets/img/mini-perfil-foto.png" alt="Perfil" title="">
-                <div>
-                    <h3>Milly Mils</h3>
-                    <p>ONG</p>
-                </div>
-            </div>
-            
-            <img src="assets/img/seta-seguidores-perfilONG.png" alt="HelpONGS" title="Icone seta para baixo">
+        <div id="seguindo">
         </div>
     </div>
 
