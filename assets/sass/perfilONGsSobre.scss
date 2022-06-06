@@ -1800,12 +1800,12 @@ body {
                                 @include tamanhos(176px, inherit);
                                 border-radius: 6px;
                             }
-    
+
                             .ocupar-tudo {
                                 height: inherit;
                             }
                         }
-    
+
                         .tamanho-total {
                             width: inherit;
                         }
@@ -1849,19 +1849,18 @@ body {
                     }
     
                     .comentarios {
-                        min-height: 180px;
+                        min-height: 1px;
                         @include tamanhos(auto, 736px);
-                        @include displayFlex(column, $gap: 20px);
+                        @include displayFlex(column, $gap: 25px);
                         margin-top: 12px;
     
                         .corpo-comentario {
-                            min-height: 148px;
-                            min-width: 575px;
-                            @include tamanhos(auto, auto);
-                            @include displayFlex(row, space-between);
+                            min-height: 10px;
+                            @include tamanhos(auto, inherit);
+                            @include displayFlex(row, $gap: 14px);
     
                             .lateral-imagem {
-                                @include tamanhos(inherit, 74px);
+                                @include tamanhos(75px, 75px);
                                 @include displayFlex();
     
                                 img {
@@ -1871,12 +1870,13 @@ body {
                             }
     
                             .vertical-info {
-                                min-height: 150px;
-                                @include tamanhos(auto, 482px);
+                                min-height: 10px;
+                                @include tamanhos(auto, 646px);
                                 @include displayFlex(column, $gap: 5px);
     
                                 .comentario {
-                                    @include tamanhos(inherit, inherit);
+                                    min-height: 10px;
+                                    @include tamanhos(auto, inherit);
                                     @include displayFlex(column, $gap: 8px);
                                     background-color: $deepSaffron;
                                     padding: 12px;
@@ -1887,6 +1887,7 @@ body {
                                     }
     
                                     p {
+                                        width: calc(646px - 20px);
                                         @include textoEstilo(grau10, medium, $text);
                                     }
     
@@ -1926,41 +1927,6 @@ body {
                                         }
                                     }
                                 }
-                            }
-                        }
-                    }
-    
-                    #comentar {
-                        min-height: 50px;
-                        @include tamanhos(auto, 736px);
-                        @include displayFlex(row, space-between, center);
-    
-                        input {
-                            @include tamanhos(80px, 630px);
-                            @include textoEstilo(grau8, medium, $text);
-                            background-color: $cinza;
-                            border-radius: 44px;
-                            resize: none;
-                            font-family: 'Montserrat', sans-serif;
-                            padding-left: 35px;
-                            padding-top: 22px;
-                            padding-right: 20px;
-                            padding-bottom: 20px;
-    
-                            &::placeholder {
-                                @include textoEstilo(grau8, medium, $text);
-                            }
-                        }
-    
-                        #enviarComentario {
-                            @include tamanhos(70px, 70px);
-                            @include displayFlex(row, center, center);
-                            border-radius: 50%;
-                            background-color: $deepSaffron;
-                            cursor: pointer;
-    
-                            img {
-                                @include tamanhos(35px, 35px);
                             }
                         }
                     } 
@@ -2386,7 +2352,7 @@ body {
 
     #seguindo {
         @include tamanhos(auto, inherit);
-        @include displayFlex(column, $gap: 20px);
+        @include displayFlex(column, $gap: 40px);
         padding: 23px 0 10px 10px;
         border-radius: 20px;
         background-color: #fff;
@@ -2420,9 +2386,10 @@ body {
             @include tamanhos(35px, 35px);
             align-self: center;
             cursor: pointer;
+            object-fit: cover;
         }
     }
-}   
+}
 
 // CARREGAMENTO DE POSTS
 .loader {

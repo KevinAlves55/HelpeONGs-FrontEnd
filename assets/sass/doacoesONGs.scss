@@ -37,7 +37,8 @@ main {
                 background: #FFFFFF;
                 filter: $shadowMain;
                 border-radius: 20px;
-                
+                cursor: pointer;
+
                 img {
                     @include tamanhos(75px, 75px);
                     border-radius: 50%;
@@ -47,11 +48,7 @@ main {
                 }
 
                 h3 {
-                    @include textoEstilo(grau10, semiBold, $text, capitalize);
-                }
-
-                a {
-                    text-decoration: underline;
+                    @include textoEstilo(grau9, semiBold, $text, capitalize);
                 }
             }
 

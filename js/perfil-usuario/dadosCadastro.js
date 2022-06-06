@@ -1,7 +1,7 @@
 'use strict'
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
-import { getFormattedDate } from "../utils/DataFormat.js";
+import { calcularTempPlataforma, getFormattedDate } from "../utils/DataFormat.js";
 
 let userLogado;
 let dadosSenhaEmail = JSON.parse(localStorage.getItem('emailSenha'));
@@ -113,12 +113,6 @@ function CarregarPerfil(objectLocal) {
         bannerPerfil.setAttribute("src", `../../assets/img/banner-vazio.png`)
     } else {
         bannerPerfil.setAttribute("src", `${objectLocal.banner}`);
-    }
-     //SEGUIDORES
-     if (objectLocal.numeroDeSeguidores === null || objectLocal.numeroDeSeguidores === undefined) {
-        qtdaSeguidores.innerHTML = `0`;
-    } else {
-        qtdaSeguidores.innerHTML = `${objectLocal.numeroDeSeguidores} seguidores`;
     }
 
 }
@@ -385,6 +379,8 @@ async function carregarDadosUsuario(dados, enderecos, contato){
     let cidade = document.getElementById("cidadeUsuario");
     let numeroCelular = document.getElementById("celular");
     let numeroTelefone = document.getElementById("telefone");
+    let curriculo = document.getElementById("sobre-curriculo");
+    let tempPlataforma = document.getElementById("plataforma");
 
     if (dados.dataDeNascimento === null) {
         dataNascimento.innerHTML = "Não informado";
@@ -406,6 +402,14 @@ async function carregarDadosUsuario(dados, enderecos, contato){
         numeroTelefone.innerHTML = `${contato.telefone}`;
     }
 
+    if (dados.curriculo === null) {
+        curriculo.innerHTML = "Não informado";
+    } else {
+        curriculo.href = `${dados.curriculo}`;
+    }
+
+    const plataforma = calcularTempPlataforma(dados.dataDeCriacao);
+    tempPlataforma.innerHTML = `${plataforma}`;
 
 }
 carregarDadosUsuario(dados, enderecos, contato);
@@ -434,6 +438,7 @@ document.getElementById("butao-editar").addEventListener("click",editarSenha);
 
 import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./imagenPreview.js";
 import { hideLoading, showLoading } from "../utils/Loading.js";
+import Redirect from "../utils/Redirect.js";
 
 async function atualizarImagensPerfil() {
 
@@ -546,7 +551,55 @@ async function handleFileSelectBanner(evento) {
 }
 document.getElementById("fileBanner").addEventListener("change", handleFileSelectBanner, false);
 
-// document.getElementById("fileSponsor").addEventListener('change', imagemPreview);
+const CarregarTodosSeguidores = async () => {
+
+    const container = document.querySelector("#seguindo");
+    const qtdaSeguidores = document.getElementById("qtdaSeguidoresPerfil");
+    let req = await ApiRequest("GET", `http://localhost:3131/follower/user/${dados.idUsuario}`);
+    const dadosSeguidores = req.data;
+    qtdaSeguidores.innerHTML = `${dadosSeguidores.length}`;
+    const seguidores = dadosSeguidores.map(CriarSeguidores);
+    container.replaceChildren(...seguidores);
+
+}
+
+const CriarSeguidores = ({tbl_ong}) => {
+
+    let corpo;
+    corpo = document.createElement("div");
+    corpo.classList.add("info-seguindo");
+
+    corpo.innerHTML =
+    `
+        <img src="${tbl_ong.foto}" id="meu-perfil-feed" data-idong="${tbl_ong.idOng}"  alt="{nomeDoSeguidor}">
+
+        <div class="identificador">
+            <h3>${tbl_ong.nome}</h3>
+            <span>ONG</span>
+        </div>
+    `;
+
+    return corpo;
+
+}
+
+const VisitarPerfilOng = ({target}) => {
+
+    if (target.id === "meu-perfil-feed") {
+
+        const idOng = target.dataset.idong;
+
+        const idOngSelecionado = {
+            idOng: idOng
+        }
+
+        localStorage.setItem("idOng", JSON.stringify(idOngSelecionado));
+        Redirect("perfilONGs");
+        
+    }
+
+}
+
 document.getElementById("filePerfil").addEventListener("change", imagemPreviewPerfil);
 document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
 document.getElementById("botaoModalEditar").addEventListener("click", atualizarImagensPerfil);
@@ -630,3 +683,5 @@ async function excluirConta (){
     
 }
 document.getElementById("excluirUsuario").addEventListener("click", excluirConta);
+CarregarTodosSeguidores();
+document.querySelector("#seguindo").addEventListener("click", VisitarPerfilOng);

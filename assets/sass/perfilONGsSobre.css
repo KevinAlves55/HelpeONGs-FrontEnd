@@ -4718,7 +4718,7 @@ body {
 }
 
 #centro #container-conteudo #container-post #todos-post .post .comentarios {
-  min-height: 180px;
+  min-height: 1px;
   height: auto;
   width: 736px;
   display: -webkit-box;
@@ -4736,15 +4736,14 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 20px;
+  gap: 25px;
   margin-top: 12px;
 }
 
 #centro #container-conteudo #container-post #todos-post .post .comentarios .corpo-comentario {
-  min-height: 148px;
-  min-width: 575px;
+  min-height: 10px;
   height: auto;
-  width: auto;
+  width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4752,20 +4751,20 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 0;
+  gap: 14px;
 }
 
 #centro #container-conteudo #container-post #todos-post .post .comentarios .corpo-comentario .lateral-imagem {
-  height: inherit;
-  width: 74px;
+  height: 75px;
+  width: 75px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4791,9 +4790,9 @@ body {
 }
 
 #centro #container-conteudo #container-post #todos-post .post .comentarios .corpo-comentario .vertical-info {
-  min-height: 150px;
+  min-height: 10px;
   height: auto;
-  width: 482px;
+  width: 646px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4813,7 +4812,8 @@ body {
 }
 
 #centro #container-conteudo #container-post #todos-post .post .comentarios .corpo-comentario .vertical-info .comentario {
-  height: inherit;
+  min-height: 10px;
+  height: auto;
   width: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4845,6 +4845,7 @@ body {
 }
 
 #centro #container-conteudo #container-post #todos-post .post .comentarios .corpo-comentario .vertical-info .comentario p {
+  width: calc(646px - 20px);
   font-size: 1.125rem;
   font-weight: 500;
   color: #292929;
@@ -4923,107 +4924,6 @@ body {
   text-transform: capitalize;
   letter-spacing: none;
   margin-top: 2px;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar {
-  min-height: 50px;
-  height: auto;
-  width: 736px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar input {
-  height: 80px;
-  width: 630px;
-  font-size: 1.563rem;
-  font-weight: 500;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-  background-color: #E4E6EB;
-  border-radius: 44px;
-  resize: none;
-  font-family: 'Montserrat', sans-serif;
-  padding-left: 35px;
-  padding-top: 22px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar input::-webkit-input-placeholder {
-  font-size: 1.563rem;
-  font-weight: 500;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar input:-ms-input-placeholder {
-  font-size: 1.563rem;
-  font-weight: 500;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar input::-ms-input-placeholder {
-  font-size: 1.563rem;
-  font-weight: 500;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar input::placeholder {
-  font-size: 1.563rem;
-  font-weight: 500;
-  color: #292929;
-  text-transform: none;
-  letter-spacing: none;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar #enviarComentario {
-  height: 70px;
-  width: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  gap: 0;
-  border-radius: 50%;
-  background-color: #FF9F45;
-  cursor: pointer;
-}
-
-#centro #container-conteudo #container-post #todos-post .post #comentar #enviarComentario img {
-  height: 35px;
-  width: 35px;
 }
 
 #centro #container-conteudo #container-evento {
@@ -6047,7 +5947,7 @@ body {
           align-items: flex-start;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  gap: 20px;
+  gap: 40px;
   padding: 23px 0 10px 10px;
   border-radius: 20px;
   background-color: #fff;
@@ -6126,6 +6026,8 @@ body {
       -ms-grid-row-align: center;
       align-self: center;
   cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .loader {

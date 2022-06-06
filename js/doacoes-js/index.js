@@ -152,6 +152,14 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
 
 }
 
+const limparElementos = elemento => {
+
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.lastChild);
+    }
+
+}
+
 CheckWindow();
 
 const CarregarRecomendados = async () => {
@@ -335,17 +343,31 @@ const Favoritar = async ({target}) => {
                 idOng: idOngFormat
             });
 
-            console.log(response);
-
             if (response.status === 400) {
+
                 alert('Essa ONG já foi favoritada');
+            
             } else if (response.status === 200) {
-                location.reload();
+
+                limparElementos(document.getElementById("favoritos-ong"));
+                CarregarTodosFavoritos();
+            
             }
 
         }
 
     }
+
+}
+
+const CarregarTodosFavoritos = async () => {
+
+    const idUser = userLogado.idUsuario;
+    const container = document.getElementById("favoritos-ong");
+    const objeto = await ApiRequest("GET", `http://localhost:3131/favorite/${idUser}`);
+    const todosFavoritos = objeto.data;
+    const favoritos = todosFavoritos.map(CriarFavoritos);
+    container.replaceChildren(...favoritos);
 
 }
 
@@ -383,9 +405,12 @@ const excluirFavorito = async ({target}) => {
             `http://localhost:3131/favorite/${idUserFormat}/${idOngFormat}`
         );
 
-        console.log(response);
+        if (response.status === 200) {
 
-        location.reload();
+            limparElementos(document.getElementById("favoritos-ong"));
+            CarregarTodosFavoritos();
+        
+        }
 
     }
 

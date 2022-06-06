@@ -4,13 +4,16 @@ import ApiRequest from "../utils/ApiRequest.js";
 import { hideLoading, showLoading } from "../utils/Loading.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./imagemPreview.js";
+import { CarregarTodosSeguidores } from "./index.js";
 
 let ongLogado;
+let userLogado;
 ongLogado = validarSession("dadosOng");
 
 if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     
     ongLogado = JSON.parse(localStorage.getItem('idOng'));
+    userLogado = validarSession("dadosUsuario");
 
 
 } else {
@@ -49,6 +52,14 @@ const conta = document.getElementById("contaOng");
 const tipoConta = document.getElementById("contaTipoOng");
 const nomePatrocinador = document.getElementById("nomePatrocinadorOng");
 const sitePatrocinador = document.getElementById("linkSitePatrocinador");
+
+const limparElementos = elemento => {
+
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.lastChild);
+    }
+
+}
 
 async function dadosDetalhesConta() {
 
@@ -422,9 +433,18 @@ async function dadosPatocinios() {
     const bodySponsor = {
         nome: nomePatrocinador.value,
         media: imagemSponsor,
-        link: sitePatrocinador.value
+        site: sitePatrocinador.value
     }
-    console.log(`Sponsor`, bodySponsor);
+
+    let req = await ApiRequest("POST", `http://localhost:3131/sponsor`, bodySponsor);
+
+    if (req.status === 200) { 
+        alert("Dados cadastrados com sucesso");
+        window.location.reload();
+        window.scroll(0, 0);
+    } else { 
+        alert("Erro ao cadastrar dados");
+    }
 
 }
 
@@ -458,6 +478,31 @@ async function atualizarImagensPerfil() {
 
 }
 
+const SeguirOng = async () => {
+
+    const infoFollows = {
+        idOng: Number(ongLogado.idOng),
+        idUsuario: userLogado.idUsuario
+    }
+
+    let req = await ApiRequest(
+        "POST",
+        "http://localhost:3131/follower",
+        infoFollows
+    );
+
+    if (req.status === 200) {
+        
+        limparElementos(document.querySelector("#seguindo"));
+        CarregarTodosSeguidores();
+
+    } else {
+        alert("Erro ao seguir essa ONG!");
+    }
+
+
+}
+
 document.getElementById("button-patrocinios").addEventListener("click", dadosPatocinios);
 document.getElementById("button-detalhes-conta-Atualizado").addEventListener("click", dadosDetalhesConta);
 document.getElementById("button-detalhes-ONG").addEventListener("click", dadosDetalhesONG);
@@ -475,3 +520,4 @@ document.getElementById("fileBanner").addEventListener("change", handleFileSelec
 document.getElementById("filePerfil").addEventListener("change", imagemPreviewPerfil);
 document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
 document.getElementById("botaoModalEditar").addEventListener("click", atualizarImagensPerfil);
+document.getElementById("seguir-ong").addEventListener("click", SeguirOng);

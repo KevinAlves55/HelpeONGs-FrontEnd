@@ -3,7 +3,7 @@
 import { validarSession } from "../utils/ValidatorSession.js";
 import ApiRequest from "../utils/ApiRequest.js";
 import { closeModal, openModal } from "../doacoes-js/modal.js";
-import { getFormattedDate } from "../utils/DataFormat.js";
+import { getFormattedDate, getFormattedDateFeed } from "../utils/DataFormat.js";
 import { closeModalCategorias, closeModalEditar, openModalCategorias, openModalEditar } from "./modaisPerfil.js";
 import { CheckWindow } from "../utils/Menu.js";
 import Redirect from "../utils/Redirect.js";
@@ -172,6 +172,15 @@ async function CarregarPerfil(objectLocal) {
     } else {
         qtdaSeguidores.innerHTML = `${await ExibirSeguidores()} seguidores`;
     }
+
+}
+
+const CarregarDadosSponsor = async () => {
+
+    let req = await ApiRequest("GET", `http://localhost:3131/sponsor/${dados.idOng}`);
+    const dadosSponsor = req.data;
+    console.log(dadosSponsor);
+
 
 }
 
@@ -532,6 +541,7 @@ const CarregarPostPeril = async () => {
     const container = document.getElementById("todos-post");
     const objetoPost = await ApiRequest("GET", `http://localhost:3131/feed/post/ong/${dados.idOng}/${pagePostPerfil}`);
     const dadosPostOng = objetoPost.data;
+    console.log(dadosPostOng);
     const elementos = dadosPostOng.map(CriarPostsPerfil);
     const elementosHtml = elementos.map(({outerHTML}) => {
         return outerHTML
@@ -540,7 +550,7 @@ const CarregarPostPeril = async () => {
 
 }
 
-const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media}) => {
+const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media, tbl_comentario, tbl_curtidas_dos_posts}) => {
 
     let corpo;
         
@@ -573,16 +583,22 @@ const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media}) => {
             <div class="interacoes">
                 <div class="icone-funcao">
                     <img src="assets/img/curtir-sem-preencimento.png" alt="Curtiram" title="Icone curtir" class="curtir">
-                    <span>0 Curtidas</span>
+                    <span>${tbl_curtidas_dos_posts.length} Curtidas</span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/comentario-post-feed.png" alt="Comentar" title="Icone comentar" class="comentar">
-                    <span>Comentários</span>
+                    <span>${tbl_comentario.length} Comentários</span>
                 </div>
                 <div class="icone-funcao">
                     <img src="assets/img/compartilhar.png" alt="Compartilhar" title="Icone compartilhar" class="compartilhar">
                     <span>Compartilhar</span>
                 </div>
+            </div>
+
+            <div class="comentarios">
+                ${
+                    tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                }
             </div>
         `;
 
@@ -625,9 +641,16 @@ const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media}) => {
                     <span>Compartilhar</span>
                 </div>
             </div>
+
+            <div class="comentarios">
+                ${
+                    tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                }
+            </div>
         `;
     
     } else if (tbl_post_media.length === 2) {
+
         corpo.innerHTML =
         `
         <div class="parte-superior">
@@ -669,7 +692,14 @@ const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media}) => {
                     <span>Compartilhar</span>
                 </div>
             </div>
+
+            <div class="comentarios">
+                ${
+                    tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                }
+            </div>
         `;
+    
     } else {
         corpo.innerHTML =
         `
@@ -713,11 +743,49 @@ const CriarPostsPerfil = ({dataDeCriacao, descricao, tbl_post_media}) => {
                     <span>Compartilhar</span>
                 </div>
             </div>
+
+            <div class="comentarios">
+                ${
+                    tbl_comentario.map(comentario => generateComments(comentario)).join("")
+                }
+            </div>
         `;
     }
 
     return corpo;
 
+}
+
+function generateComments(comentario) {
+
+    const dataFormat = getFormattedDateFeed(comentario.dataDeCriacao);
+
+    let innerHTML;
+    innerHTML = 
+    `
+        <div class="corpo-comentario">
+            <div class="lateral-imagem">
+                <img src="${comentario.tbl_usuario.foto}" alt="${comentario.tbl_usuario.nome}" data-iduser="${comentario.tbl_usuario.idUsuario}" id="perfil-commit" title="Foto de perfil">
+            </div>
+            <div class="vertical-info">
+                <div class="comentario">
+                    <h3>${comentario.tbl_usuario.nome}</h3>
+                    <p>
+                        ${comentario.comentario}
+                    </p>
+                </div>
+                <div class="acoes-comentario">
+                    <span>${dataFormat}</span>
+                    <div class="curtir-comentario">
+                        <img src="assets/img/comentario-curtida-sem-preenchimento.png" alt="{nomeDaPessoa}">
+                        <span>0 Curtiram</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    return innerHTML;
 }
 
 const showLoaderPost = () => {
@@ -1174,6 +1242,7 @@ const AdicionarCategorias = ({target}) => {
 CheckWindow();
 OcultarButton();
 CarregarPerfil(dados);
+CarregarDadosSponsor();
 CarregarDadosSobre(dados);
 AtribuirValor(dados);
 document.querySelector("#btnModal").addEventListener("click", openModalEditar);
@@ -1236,3 +1305,7 @@ document.querySelector("#todas-categorias").addEventListener("click", DeletarCat
 document.querySelector(".todas-categorias").addEventListener("click", SelecionarCategorias)
 document.getElementById("adicionarCategorias").addEventListener("click", AdicionarCategorias);
 CarregarTodosSeguidores();
+
+export {
+    CarregarTodosSeguidores
+}

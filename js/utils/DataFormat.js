@@ -88,7 +88,30 @@ function getFormattedDateFeed(dataConvert) {
     return formatterDay + ' de ' + formatterMonth + ' de ' + year + ' às ' + hora + ':' + minuto;
 }
 
+function calcularTempPlataforma(dataDeCriacao) {
+
+    var dataAtual = new Date();
+    var dataCriacao = new Date(dataDeCriacao);
+    var diferenca = dataAtual.getTime() - dataCriacao.getTime();
+    var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    var horas = Math.floor(diferenca / (1000 * 60 * 60));
+    var minutos = Math.floor(diferenca / (1000 * 60));
+    var segundos = Math.floor(diferenca / 1000);
+
+    if (dias > 0) {
+        return dias + ' dias';
+    } else if (horas > 0) {
+        return horas + ' hora';
+    } else if (minutos > 0) {
+        return minutos + ' minutos';
+    } else {
+        return segundos + ' segundos';
+    }
+
+}
+
 export {
     getFormattedDate,
-    getFormattedDateFeed
+    getFormattedDateFeed,
+    calcularTempPlataforma
 }

@@ -102,6 +102,42 @@ if (localStorage.hasOwnProperty('dadosUsuario') !== false) {
     }
     CarregarMiniPerfil(dadosUsuario);
 
+    const CarregarTodosSeguidores = async () => {
+
+        const container = document.querySelector("#seguindo");
+        const quantidade = document.getElementById("qtdaSeguidores");
+        const textSeguir = document.getElementById("textSeguidor");
+        let req = await ApiRequest("GET", `http://localhost:3131/follower/user/${dadosUsuario.idUsuario}`);
+        const dadosSeguidores = req.data;
+        quantidade.innerHTML = `${dadosSeguidores.length}`;
+        const seguidores = dadosSeguidores.map(CriarSeguidores);
+        container.replaceChildren(...seguidores);
+        textSeguir.innerHTML = `SEGUINDO`;
+    
+    }
+    
+    const CriarSeguidores = ({tbl_ong}) => {
+    
+        let corpo;
+        corpo = document.createElement("div");
+        corpo.classList.add("info-seguindo");
+    
+        corpo.innerHTML =
+        `
+            <img src="${tbl_ong.foto}" id="meu-perfil-feed" data-idong="${tbl_ong.idOng}"  alt="{nomeDoSeguidor}">
+    
+            <div class="identificador">
+                <h3>${tbl_ong.nome}</h3>
+                <span>ONG</span>
+            </div>
+        `;
+    
+        return corpo;
+    
+    }
+
+    CarregarTodosSeguidores();
+
 } else if (localStorage.hasOwnProperty('dadosOng') !== false) {
 
     localStorage.removeItem('idOng');
