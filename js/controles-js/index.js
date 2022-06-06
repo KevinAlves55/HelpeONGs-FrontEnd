@@ -186,7 +186,6 @@ const CriarInteressados = ({nome, curriculo, dataDeNascimento, tbl_login}) => {
     const tr = document.createElement("tr");
 
     const idade = CalcularIdade(dataDeNascimento);
-    console.log(idade);
 
     tr.innerHTML = 
     `
@@ -194,7 +193,7 @@ const CriarInteressados = ({nome, curriculo, dataDeNascimento, tbl_login}) => {
             <td class="resultados">${nome}</td>
             <td class="resultados">${idade}</td>
             <td class="resultados">${tbl_login.email}</td>
-            <td class="resultados"><a href="" download>${curriculo}</a></td>
+            <td class="resultados"><a href="${curriculo}" download>Baixar</a></td>
             <td>
                 <img src="assets/img/mais-opcoes.png" alt="Mais opções">
             </td>

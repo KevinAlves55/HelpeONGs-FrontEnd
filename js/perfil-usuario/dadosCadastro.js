@@ -403,7 +403,7 @@ async function carregarDadosUsuario(dados, enderecos, contato){
     }
 
     if (dados.curriculo === null) {
-        curriculo.innerHTML = "Não informado";
+        curriculo.style.display = "none";
     } else {
         curriculo.href = `${dados.curriculo}`;
     }
