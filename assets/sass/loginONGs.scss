@@ -118,13 +118,22 @@ body {
                     margin-left: 10px;
                 }
 
-                a {
+                #esqueceuSenha {
                     @include textoEstilo(grau9, medium, $deepSaffron, capitalize);
                     text-decoration: underline;
                     align-self: flex-end;
                     position: absolute;
                     bottom: -8px;
                     right: 0;
+                }
+
+                #btnLogarUsuario {
+                    @include textoEstilo(grau9, medium, $deepSaffron, capitalize);
+                    text-decoration: underline;
+                    align-self: flex-end;
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
                 }
             }
         }

@@ -292,7 +292,7 @@ body {
   margin-left: 10px;
 }
 
-#direita form #conteudo .style-input a {
+#direita form #conteudo .style-input #esqueceuSenha {
   font-size: 1.313rem;
   font-weight: 500;
   color: #FF9F45;
@@ -304,6 +304,20 @@ body {
   position: absolute;
   bottom: -8px;
   right: 0;
+}
+
+#direita form #conteudo .style-input #btnLogarUsuario {
+  font-size: 1.313rem;
+  font-weight: 500;
+  color: #FF9F45;
+  text-transform: capitalize;
+  letter-spacing: none;
+  text-decoration: underline;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
 }
 
 #direita form #button-outras-opcoes {
