@@ -5,6 +5,7 @@ import { hideLoading, showLoading } from "../utils/Loading.js";
 import { validarSession } from "../utils/ValidatorSession.js";
 import { imagemPreview, imagemPreviewBanner, imagemPreviewPerfil } from "./imagemPreview.js";
 import { CarregarTodosSeguidores } from "./index.js";
+import { MessageValidator, MessageValidatorClose } from "./MessageValidator.js";
 
 let ongLogado;
 let userLogado;
@@ -80,10 +81,14 @@ async function dadosDetalhesConta() {
     );
 
     if (reqOng.status === 200) {
-        alert("Dados atualizados com sucesso");
+        
+        MessageValidator("assets/img/success-icon.svg", "Dados atualizados com sucesso");
         window.location.reload();
+
     } else {
-        alert("Erro ao atualizar dados");
+        
+        MessageValidator("assets/img/error-icon.svg", "Erro ao atualizar dados");
+
     }
 }
 
@@ -105,10 +110,13 @@ async function dadosDetalhesONG() {
     );
 
     if (reqOng.status === 200) {
-        alert("Dados atualizados com sucesso");
-        window.location.reload();
+        
+        MessageValidator("assets/img/success-icon.svg", "Dados atualizados com sucesso");
+    
     } else {
-        alert("Erro ao atualizar dados");
+
+        MessageValidator("assets/img/error-icon.svg", "Erro ao atualizar dados");
+    
     }
 
 }
@@ -134,12 +142,14 @@ async function dadosDetalhesEndereco() {
         bodyEndereco
     );
 
-    if (reqEndereco.status === 400) {
-        alert("Endereço já cadastrado");
-        window.location.reload();
+    if (reqEndereco.status === 200) {
+        
+        MessageValidator("assets/img/success-icon.svg", "Dados cadastradas com sucesso");
+
     } else {
-        alert("Endereço cadastrado com sucesso");
-        window.location.reload();
+
+        MessageValidator("assets/img/error-icon.svg", "Erro ao atualizar dados");
+    
     }
 }
 
@@ -165,10 +175,14 @@ async function dadosEnderecoAtualizado() {
     );
 
     if (reqEnderecoAtualizado.status === 200) {
-        alert("Endereço atualizado com sucesso");
-        window.location.reload();
+       
+        MessageValidator("assets/img/success-icon.svg", "Dados atualizados com sucesso");
+    
+
     } else {
-        alert("Erro ao atualizar endereço");
+
+        MessageValidator("assets/img/error-icon.svg", "Erro ao atualizar dados");
+    
     }
 
 }
@@ -190,10 +204,13 @@ async function dadosContatos() {
     );
 
     if (reqContatos.status === 200) {
-        alert("Contatos cadastrados com sucesso");
-        window.location.reload();
+
+        MessageValidator("assets/img/success-icon.svg", "Dados cadastradas com sucesso");
+
     } else {
-        alert("Erro ao cadastrar contatos");
+        
+        MessageValidator("assets/img/error-icon.svg", "Erro ao cadastrar dados");
+
     }
 }
 
@@ -213,10 +230,13 @@ async function dadosContatosAtualizados() {
     );
 
     if (reqContatosAtualizados.status === 200) {
-        alert("Contatos atualizados com sucesso");
-        window.location.reload();
+        
+        MessageValidator("assets/img/success-icon.svg", "Dados atualizados com sucesso");
+
     } else {
-        alert("Erro ao atualizar contatos");
+            
+        MessageValidator("assets/img/error-icon.svg", "Erro ao atualizar dados");
+    
     }
 
 }
@@ -261,10 +281,13 @@ async function dadosMeiosDoacoes() {
     );
 
     if (reqMeiosDoacoes.status === 400 || reqBancario.status === 400) {
-        alert("Dados já cadastrados");
-        window.location.reload();
+        
+        MessageValidator("assets/img/error-icon.svg", "Erro ao cadastrar dados");
+
     } else {
-        alert("Dados cadastrados com sucesso");
+        
+        MessageValidator("assets/img/success-icon.svg", "Dados cadastrados com sucesso");
+
     }
 
 }
@@ -296,11 +319,14 @@ async function dadosMeiosDoacoesAtualizado() {
         dadosBank
     );
 
-    if (reqMeiosDoacoes.status === 200 || reqBancario.status === 200) {
-        alert("Dados atualizados com sucesso");
-        window.location.reload();
+    if (reqMeiosDoacoes.status === 400 || reqBancario.status === 400) {
+        
+        MessageValidator("assets/img/success-icon.svg", "Dados cadastrados com sucesso");
+
     } else {
-        alert("Erro ao atualizar dados");
+        
+        MessageValidator("assets/img/error-icon.svg", "Erro ao cadastrar dados");
+
     }
 
 }
@@ -439,9 +465,18 @@ async function dadosPatocinios() {
     let req = await ApiRequest("POST", `http://localhost:3131/sponsor`, bodySponsor);
 
     if (req.status === 200) { 
-        alert("Dados cadastrados com sucesso");
-        window.location.reload();
-        window.scroll(0, 0);
+        const idSponsor = req.data.idPatrocinadores;
+
+        let reqSponsor = await ApiRequest("POST", `http://localhost:3131/sponsor/sponsoring`, {
+            idPatrocinador: idSponsor,
+            idOng: dados.idOng
+        });
+
+        if (reqSponsor.status === 200) {
+            window.scroll(0, 0);
+            window.location.reload();
+        }
+
     } else { 
         alert("Erro ao cadastrar dados");
     }
@@ -462,14 +497,10 @@ async function atualizarImagensPerfil() {
         ]
     };
 
-    console.log(imagensOng.foto);
-
     showLoading();
     let reqUpdateMedia = await ApiRequest("PUT", `http://localhost:3131/ong/media/${dados.idOng}`, imagensOng);
-    console.log(reqUpdateMedia);
 
     if (reqUpdateMedia.status === 200) {
-        alert("Imagens atualizadas com sucesso!");
         window.location.reload();
         hideLoading();
     } else {
@@ -521,3 +552,4 @@ document.getElementById("filePerfil").addEventListener("change", imagemPreviewPe
 document.getElementById("fileBanner").addEventListener("change", imagemPreviewBanner);
 document.getElementById("botaoModalEditar").addEventListener("click", atualizarImagensPerfil);
 document.getElementById("seguir-ong").addEventListener("click", SeguirOng);
+document.getElementById("fechar").addEventListener("click", MessageValidatorClose);

@@ -18,7 +18,20 @@
     <script type="module" src="js/perfil-ONGs/apiCep.js" defer></script> 
 </head>
 
-<body>  
+<body>
+
+    <!-- MODAL DE MENSAGEM PARA EVENTO OU VAGA -->
+    <div class="messageEvent" id="modalMessageEvent">
+        <div class="message-conteudo">
+            <i>
+                <img src="" alt="CADASTRADO" title="Icone check" id="statusImage">
+            </i>
+
+            <span id="statusMessage"></span> 
+
+            <button id="fechar">OK</button>
+        </div>
+    </div>
 
     <!-- MODAL DE DOAÇÃO -->
     <div class="modal" id="modal">
@@ -296,24 +309,7 @@
                 <section id="conteudo-patrocinios">
                     <h2>Patrocínios</h2>
                     
-                    <div id="todos-patrocinios">
-                        <div class="patrocinador">
-                            <img src="assets/img/Ellipse 1.png">
-                            <span>Coca-Cola</span>
-                        </div>
-                        <div class="patrocinador">
-                            <img src="assets/img/Ellipse 4.png">
-                            <span>GoPro</span>
-                        </div>
-                        <div class="patrocinador">
-                            <img src="assets/img/Ellipse 3.png">
-                            <span>SeptWolves</span>
-                        </div>
-                        <div class="patrocinador">
-                            <img src="assets/img/Ellipse 2.png">
-                            <span>The North Face</span>
-                        </div>
-                    </div>
+                    <div id="todos-patrocinios"></div>
                 </section>
             </div>
 
@@ -576,8 +572,8 @@
                     </div>
 
                     <div class="proximo">
-                        <button id="button-meiosDoacoes-atualizar" type="button">Atulizar</button>
                         <button id="button-meiosDoacoes" type="button">Cadastrar</button>
+                        <button id="button-meiosDoacoes-atualizar" type="button">Atualizar</button>
                     </div>
                 </form>
             </div>

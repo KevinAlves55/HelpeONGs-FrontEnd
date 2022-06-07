@@ -372,6 +372,198 @@ button {
   z-index: 1;
 }
 
+.loading {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #00000090;
+}
+
+.loading label {
+  font-size: 2.125rem;
+  font-weight: 600;
+  color: #F8F9FA;
+  text-transform: none;
+  letter-spacing: none;
+  -webkit-animation: typewriter 2s steps(13) infinite alternate, blink 800ms steps(13) infinite normal;
+          animation: typewriter 2s steps(13) infinite alternate, blink 800ms steps(13) infinite normal;
+  border-right: 5px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@-webkit-keyframes typewriter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 260px;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 260px;
+  }
+}
+
+@-webkit-keyframes blink {
+  from {
+    border-color: #F8F9FA;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-color: #F8F9FA;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
+.messageEvent {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #00000090;
+  opacity: 0;
+  z-index: -1;
+}
+
+.messageEvent .message-conteudo {
+  height: 380px;
+  width: 45vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 25px;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
+}
+
+.messageEvent .message-conteudo i {
+  height: 140px;
+  width: 140px;
+}
+
+.messageEvent .message-conteudo i img {
+  height: inherit;
+  width: inherit;
+}
+
+.messageEvent .message-conteudo span {
+  font-size: 1.813rem;
+  font-weight: 600;
+  color: #292929;
+  text-transform: none;
+  letter-spacing: none;
+  text-align: center;
+  width: 40vw;
+}
+
+.messageEvent .message-conteudo button {
+  height: 60px;
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  gap: 0;
+  font-size: 1.313rem;
+  font-weight: 600;
+  color: #F8F9FA;
+  text-transform: capitalize;
+  letter-spacing: none;
+  border-radius: 10px;
+  background-color: #39CE04;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-right: 25px;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.messageEvent .message-conteudo button:hover {
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: 0.8;
+}
+
+.messageEvent.active {
+  opacity: 1;
+  z-index: 1;
+}
+
 .modal-categorias {
   height: 100%;
   width: 100%;
@@ -1935,6 +2127,7 @@ body {
 #centro #container-conteudo #conteudo-inicio #conteudo-patrocinios #todos-patrocinios .patrocinador img {
   height: 80px;
   width: 80px;
+  border-radius: 50%;
 }
 
 #centro #container-conteudo #conteudo-inicio #conteudo-patrocinios #todos-patrocinios .patrocinador span {

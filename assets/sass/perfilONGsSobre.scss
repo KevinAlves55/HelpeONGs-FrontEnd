@@ -3,6 +3,98 @@
 @import '_resert';
 @import '_modalDoacoes';
 
+.loading {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: #00000090;
+
+    label {
+        @include textoEstilo(grau6, semiBold, $background);
+        animation: typewriter 2s steps(13) infinite alternate,
+        blink 800ms steps(13) infinite normal;
+        border-right: 5px solid black;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0%;
+      }
+      to {
+        width: 260px;
+      }
+    }
+    @keyframes blink {
+      from {
+        border-color: $background;
+      }
+      to {
+        border-color: transparent;
+      }
+    }
+}
+
+// MENSSAGEM DE ERRO OU SUCEESSO
+.messageEvent {
+    @include tamanhos(100%, 100%);
+    @include displayFlex(row, center, center);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00000090;
+    opacity: 0;
+    z-index: -1;
+
+    .message-conteudo {
+        @include tamanhos(380px, 45vw);
+        @include displayFlex(column, center, $align: center, $gap: 25px);
+        background-color: white;
+        box-shadow: 1px 1px 5px black;
+        border-radius: 10px;
+
+        i {
+            @include tamanhos(140px, 140px);
+
+            img {
+                @include tamanhos(inherit, inherit);
+            }
+        }
+
+        span {
+            @include textoEstilo(grau7, semiBold, $text);
+            text-align: center;
+            width: 40vw;
+        }
+
+        button {
+            @include tamanhos(60px, 160px);
+            @include displayFlex(row, center, center);
+            @include textoEstilo(grau9, semiBold, $background, capitalize);
+            border-radius: 10px;
+            background-color: $verde;
+            align-self: flex-end;
+            margin-right: 25px;
+            cursor: pointer;
+            transition: .5s;
+
+            &:hover {
+                transition: .5s;
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+.messageEvent.active {
+    opacity: 1;
+    z-index: 1;
+}
+
 // MODAL DE ADD CATEGORIAS
 .modal-categorias {
     @include tamanhos(100%, 100%);
@@ -658,6 +750,7 @@ body {
         
                         img {
                             @include tamanhos(80px, 80px);
+                            border-radius: 50%;
                         }
         
                         span {

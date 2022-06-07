@@ -81,6 +81,14 @@ let donation = reqDataDonation.data;
 let reqDataBank = await ApiRequest("GET",`http://localhost:3131/bank-data/${dados.idOng}`);
 let bank = reqDataBank.data;
 
+const limparElementos = elemento => {
+
+    while(elemento.firstChild){
+        elemento.removeChild(elemento.lastChild);
+    }
+
+}
+
 async function OcultarButton() {
 
     let btnEndereco = document.getElementById("button-detalhes-endereco");
@@ -177,10 +185,32 @@ async function CarregarPerfil(objectLocal) {
 
 const CarregarDadosSponsor = async () => {
 
-    let req = await ApiRequest("GET", `http://localhost:3131/sponsor/${dados.idOng}`);
+    const container = document.getElementById("todos-patrocinios");
+    let req = await ApiRequest("GET", `http://localhost:3131/sponsor/ong/${dados.idOng}`);
     const dadosSponsor = req.data;
+    const cards = dadosSponsor.map(CriarSponsor);
+    container.replaceChildren(...cards);
     console.log(dadosSponsor);
 
+}
+
+const CriarSponsor = ({tbl_patrocinadores}) => {
+
+    console.log(tbl_patrocinadores);
+
+    let corpo;
+    corpo = document.createElement("div");
+    corpo.classList.add("patrocinador");
+
+    corpo.innerHTML = 
+    `
+        <a href="${tbl_patrocinadores.url}" target="_blank">
+            <img src="${tbl_patrocinadores.referencia}">
+        </a>
+        <span>${tbl_patrocinadores.nome}</span>
+    `;
+
+    return corpo;
 
 }
 
@@ -193,7 +223,7 @@ async function CarregarDadosSobre(dadosOng) {
     let historia = document.getElementById("historiaSobre");
 
     if (reqEndereco.status === 400) {
-        sedeLocal.innerHTML = `Nenhum endereço cadastrado`;
+        sedeLocal.innerHTML = `Nada encontrado`;
     } else {
         sedeLocal.innerHTML = `${adress.municipio}, ${adress.estado}`;
     }
@@ -201,7 +231,7 @@ async function CarregarDadosSobre(dadosOng) {
     if (dadosOng.descricao !== null) {
         descricaosobre.innerText = `${dadosOng.descricao}`;
     } else {
-        descricaosobre.innerText = `Nenhuma descrição cadastrada`;
+        descricaosobre.innerText = `Sem descrição`;
     }
 
     if (dadosOng.qtdDeMembros !== null) {
@@ -210,16 +240,15 @@ async function CarregarDadosSobre(dadosOng) {
         qtdaMembro.innerHTML = `Nada encontrado`;
     }
 
+    
     if (dadosOng.dataDeFundacao !== null) {
-
-        if (dadosOng.dataDeFundacao === new Date()) {
-            anoDeFundacao.innerHTML = `Nada encontrado`;
-        } else {
-            anoDeFundacao.innerHTML = `${getFormattedDate(dadosOng.dataDeFundacao)}`;
-        }
+        
+        anoDeFundacao.innerHTML = `${getFormattedDate(dadosOng.dataDeFundacao)}`;
         
     } else {
+
         anoDeFundacao.innerHTML = `Nada encontrado`;
+    
     }
 
     if (dadosOng.historia !== null) {
@@ -541,7 +570,6 @@ const CarregarPostPeril = async () => {
     const container = document.getElementById("todos-post");
     const objetoPost = await ApiRequest("GET", `http://localhost:3131/feed/post/ong/${dados.idOng}/${pagePostPerfil}`);
     const dadosPostOng = objetoPost.data;
-    console.log(dadosPostOng);
     const elementos = dadosPostOng.map(CriarPostsPerfil);
     const elementosHtml = elementos.map(({outerHTML}) => {
         return outerHTML
@@ -1171,8 +1199,12 @@ const DeletarCategoria = async ({target}) => {
         const reqDelete = await ApiRequest("DELETE", `http://localhost:3131/category/ong/${idOng}/${nomeCategoria}`);
 
         if (reqDelete.status === 200) {
-            alert("Categoria deletada com sucesso!");
-            window.location.reload();
+            
+            limparElementos(document.querySelector("#todas-categorias"));
+            limparElementos(document.getElementById("todas-categorias-perfil"));
+            CarregarCategoriasOng();
+            CarregarCategoriasPerfil();
+
         } else {
             alert("Erro ao deletar categoria!");
         }
@@ -1242,8 +1274,8 @@ const AdicionarCategorias = ({target}) => {
 CheckWindow();
 OcultarButton();
 CarregarPerfil(dados);
-CarregarDadosSponsor();
 CarregarDadosSobre(dados);
+CarregarDadosSponsor();
 AtribuirValor(dados);
 document.querySelector("#btnModal").addEventListener("click", openModalEditar);
 document.querySelector('#botaoSairEditar').addEventListener("click", closeModalEditar);
